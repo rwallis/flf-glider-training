@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1A6FA3" />
+  <title>FLF Glider Study</title>
+  <style>
+    :root {
+      --sky: #2B8FCC;
+      --sky-deep: #1A6FA3;
+      --grass: #2F7D32;
+      --sun: #F0B429;
+      --copper: #D65A1F;
+      --ink: #1C2A33;
+      --paper: #F7FAFC;
+      --card: #FFFFFF;
+      --muted: #5A6B76;
+      --line: #D5E2EA;
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.4;
+      min-height: 100%;
+    }
+    body { padding-bottom: calc(72px + var(--safe-bottom)); }
+    header.app-bar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: linear-gradient(120deg, var(--sky-deep), var(--sky));
+      color: #fff;
+      padding: 14px 16px 12px;
+    }
+    header.app-bar h1 {
+      margin: 0;
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    header.app-bar p {
+      margin: 4px 0 0;
+      opacity: 0.9;
+      font-size: 0.82rem;
+    }
+    main { padding: 14px 14px 24px; max-width: 640px; margin: 0 auto; }
+    .hidden { display: none !important; }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 10px;
+      text-align: center;
+    }
+    .stat b { display: block; font-size: 1.35rem; color: var(--sky-deep); }
+    .stat span { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+    .track {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 10px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .track .badge {
+      flex: 0 0 auto;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      color: #fff;
+      background: var(--sky);
+      font-size: 0.75rem;
+    }
+    .track.upload .badge { background: var(--copper); }
+    .track h2 { margin: 0 0 4px; font-size: 1.05rem; }
+    .track p { margin: 0; color: var(--muted); font-size: 0.88rem; }
+    .track .meta { margin-top: 8px; font-size: 0.8rem; color: var(--sky-deep); font-weight: 700; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    button, .btn {
+      appearance: none;
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      background: var(--sky-deep);
+      color: #fff;
+    }
+    button.secondary, .btn.secondary { background: #E8F2F8; color: var(--sky-deep); }
+    button.good { background: var(--grass); }
+    button.hard { background: #C48A12; }
+    button.again { background: var(--copper); }
+    button.easy { background: #1F8A70; }
+    button:disabled { opacity: 0.5; cursor: default; }
+    .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .chip {
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: #E8F2F8;
+      color: var(--sky-deep);
+      font-size: 0.85rem;
+      font-weight: 700;
+      border: 0;
+    }
+    .chip.active { background: var(--sky-deep); color: #fff; }
+    .flash {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 16px;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+    }
+    .flash .q {
+      font-size: 1.15rem;
+      font-weight: 700;
+      flex: 1;
+    }
+    .flash .a {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--line);
+      color: var(--ink);
+      font-size: 1rem;
+    }
+    .flash .source {
+      margin-top: 10px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .grade-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .grade-row button { padding: 14px 6px; font-size: 0.85rem; }
+    .nav {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 30;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      background: #fff;
+      border-top: 1px solid var(--line);
+      padding: 8px 4px calc(8px + var(--safe-bottom));
+    }
+    .nav button {
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 8px 4px;
+      border-radius: 10px;
+    }
+    .nav button.active { color: var(--sky-deep); background: #E8F2F8; }
+    .nav button span { display: block; font-size: 1.1rem; margin-bottom: 2px; }
+    textarea, input, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      font: inherit;
+      background: #fff;
+      margin: 6px 0 12px;
+    }
+    label { font-size: 0.85rem; font-weight: 700; color: var(--muted); }
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: calc(84px + var(--safe-bottom));
+      transform: translateX(-50%);
+      background: var(--ink);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s;
+      z-index: 40;
+      max-width: 90%;
+    }
+    .toast.show { opacity: 1; }
+    .empty {
+      text-align: center;
+      padding: 28px 12px;
+      color: var(--muted);
+    }
+    .choices { display: grid; gap: 8px; margin-top: 14px; }
+    .choices button {
+      text-align: left;
+      background: #E8F2F8;
+      color: var(--ink);
+    }
+    .choices button.correct { background: #d7f0d9; }
+    .choices button.wrong { background: #f8d9d0; }
+  </style>
+</head>
+<body>
+  <header class="app-bar">
+    <h1>FLF Glider Study</h1>
+    <p id="subtitle">Commercial focus · Schweizer 2-33 · Common knowledge</p>
+  </header>
+  <main id="app"></main>
+  <nav class="nav" id="nav">
+    <button type="button" data-view="home"><span>⌂</span>Home</button>
+    <button type="button" data-view="study"><span>✎</span>Study</button>
+    <button type="button" data-view="aircraft"><span>✈</span>2-33</button>
+    <button type="button" data-view="progress"><span>▣</span>Progress</button>
+    <button type="button" data-view="import"><span>↑</span>Import</button>
+  </nav>
+  <div class="toast" id="toast"></div>
+  <script>
+    const state = {
+      view: 'home',
+      tracks: [],
+      topics: [],
+      stats: null,
+      study: {
+        track: 'commercial',
+        topic: '',
+        mode: 'due',
+        cards: [],
+        index: 0,
+        revealed: false,
+        quizChoice: null
+      },
+      imports: []
+    };
+
+    const app = document.getElementById('app');
+    const toastEl = document.getElementById('toast');
+
+    function toast(msg) {
+      toastEl.textContent = msg;
+      toastEl.classList.add('show');
+      setTimeout(() => toastEl.classList.remove('show'), 2200);
+    }
+
+    async function api(path, opts) {
+      const res = await fetch(path, {
+        headers: { 'Content-Type': 'application/json', ...(opts?.headers || {}) },
+        ...opts
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || res.statusText);
+      return data;
+    }
+
+    function trackShort(id) {
+      return ({
+        common: 'COM',
+        private: 'PRI',
+        commercial: 'CML',
+        cfi_g: 'CFI',
+        aircraft_233: '233'
+      })[id] || id.slice(0, 3).toUpperCase();
+    }
+
+    function setNav() {
+      document.querySelectorAll('#nav button').forEach((btn) => {
+        btn.classList.toggle('active', btn.dataset.view === state.view);
+      });
+    }
+
+    async function loadHome() {
+      const [tracks, stats] = await Promise.all([
+        api('/api/tracks'),
+        api('/api/stats')
+      ]);
+      state.tracks = tracks.tracks;
+      state.stats = stats;
+      render();
+    }
+
+    async function loadStudyDeck() {
+      const q = new URLSearchParams({
+        track: state.study.track,
+        mode: state.study.mode
+      });
+      if (state.study.topic) q.set('topic', state.study.topic);
+      const data = await api('/api/study?' + q.toString());
+      state.study.cards = data.cards;
+      state.study.index = 0;
+      state.study.revealed = false;
+      state.study.quizChoice = null;
+      render();
+    }
+
+    async function grade(g) {
+      const card = state.study.cards[state.study.index];
+      if (!card) return;
+      await api('/api/study/' + encodeURIComponent(card.id), {
+        method: 'POST',
+        body: JSON.stringify({ grade: g })
+      });
+      state.study.cards.splice(state.study.index, 1);
+      state.study.revealed = false;
+      state.study.quizChoice = null;
+      if (state.study.index >= state.study.cards.length) state.study.index = 0;
+      toast(g.toUpperCase());
+      render();
+    }
+
+    function currentCard() {
+      return state.study.cards[state.study.index] || null;
+    }
+
+    function renderHome() {
+      const s = state.stats || { cards: 0, studied: 0, due: 0 };
+      return `
+        <div class="stats">
+          <div class="stat"><b>${s.cards}</b><span>Cards</span></div>
+          <div class="stat"><b>${s.studied}</b><span>Studied</span></div>
+          <div class="stat"><b>${s.due}</b><span>Due</span></div>
+        </div>
+        <p style="color:var(--muted);font-size:0.9rem;margin:0 0 12px">
+          Self-study now: <strong>Commercial</strong> + Common + 2-33.
+          Upload CFI-G Q&amp;A next, Private last.
+        </p>
+        ${state.tracks.map((t) => `
+          <article class="track ${t.status === 'upload_later' ? 'upload' : ''}">
+            <div class="badge">${trackShort(t.id)}</div>
+            <div style="flex:1">
+              <h2>${escapeHtml(t.title)}</h2>
+              <p>${escapeHtml(t.description || '')}</p>
+              <div class="meta">${t.card_count || 0} cards · ${t.status === 'upload_later' ? 'upload later' : 'ready'}</div>
+              <div class="btn-row">
+                <button type="button" data-open-study="${t.id}" ${!(t.card_count > 0) ? 'disabled' : ''}>Study</button>
+                ${t.status === 'upload_later' ? '<button type="button" class="secondary" data-view-jump="import">Import Q&amp;A</button>' : ''}
+              </div>
+            </div>
+          </article>
+        `).join('')}
+      `;
+    }
+
+    function renderStudy() {
+      const card = currentCard();
+      const topics = state.topics.filter((t) => t.track_id === state.study.track);
+      return `
+        <div class="chip-row">
+          ${['commercial','common','aircraft_233','cfi_g','private'].map((id) => `
+            <button type="button" class="chip ${state.study.track === id ? 'active' : ''}" data-set-track="${id}">${trackShort(id)}</button>
+          `).join('')}
+        </div>
+        <div class="chip-row">
+          <button type="button" class="chip ${state.study.mode === 'due' ? 'active' : ''}" data-set-mode="due">Due / new</button>
+          <button type="button" class="chip ${state.study.mode === 'all' ? 'active' : ''}" data-set-mode="all">All</button>
+          <button type="button" class="chip ${state.study.mode === 'weak' ? 'active' : ''}" data-set-mode="weak">Weak</button>
+        </div>
+        <label>Topic</label>
+        <select id="topicSelect">
+          <option value="">All topics</option>
+          ${topics.map((t) => `<option value="${t.id}" ${state.study.topic === t.id ? 'selected' : ''}>${escapeHtml(t.title)}</option>`).join('')}
+        </select>
+        ${!card ? `<div class="empty">No cards in this deck filter. Try All, another track, or Import.</div>` : `
+          <div class="flash">
+            <div style="font-size:0.78rem;color:var(--muted);margin-bottom:8px">
+              ${state.study.index + 1} remaining in session · ${escapeHtml(card.topic_id || '')}
+            </div>
+            <div class="q">${escapeHtml(card.question)}</div>
+            ${!state.study.revealed ? `
+              ${Array.isArray(card.choices) && card.choices.length ? `
+                <div class="choices">
+                  ${card.choices.map((c, i) => `
+                    <button type="button" data-choice="${i}">${escapeHtml(c)}</button>
+                  `).join('')}
+                </div>
+              ` : `<div class="btn-row"><button type="button" id="revealBtn">Show answer</button></div>`}
+            ` : `
+              <div class="a">${escapeHtml(card.answer)}</div>
+              <div class="source">${escapeHtml(card.source || '')}</div>
+              <div class="grade-row">
+                <button type="button" class="again" data-grade="again">Again</button>
+                <button type="button" class="hard" data-grade="hard">Hard</button>
+                <button type="button" class="good" data-grade="good">Good</button>
+                <button type="button" class="easy" data-grade="easy">Easy</button>
+              </div>
+            `}
+          </div>
+        `}
+      `;
+    }
+
+    function renderProgress() {
+      const s = state.stats || { cards: 0, studied: 0, due: 0 };
+      return `
+        <div class="stats">
+          <div class="stat"><b>${s.cards}</b><span>Cards</span></div>
+          <div class="stat"><b>${s.studied}</b><span>Studied</span></div>
+          <div class="stat"><b>${s.due}</b><span>Due</span></div>
+        </div>
+        <article class="track">
+          <div class="badge">SRS</div>
+          <div>
+            <h2>Spaced repetition</h2>
+            <p>Again / Hard / Good / Easy updates due dates. Progress is stored in shared Postgres when DATABASE_URL is set.</p>
+            <div class="btn-row">
+              <button type="button" data-open-study="commercial">Study commercial due</button>
+            </div>
+          </div>
+        </article>
+        <article class="track">
+          <div class="badge" style="background:var(--copper)">↑</div>
+          <div>
+            <h2>Upload plan</h2>
+            <p>1) Keep drilling Commercial + 2-33 + Common.<br>
+               2) Import CFI-G FOI / Q&amp;A when you start that study.<br>
+               3) Import Private Q&amp;A last.</p>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderImport() {
+      return `
+        <p style="color:var(--muted);font-size:0.9rem">
+          Upload CSV (<code>question,answer</code> or <code>topic,question,answer</code>) or paste JSON cards.
+          Set track to <strong>cfi_g</strong> next, then <strong>private</strong>.
+        </p>
+        <label>Track</label>
+        <select id="importTrack">
+          <option value="cfi_g">CFI-G</option>
+          <option value="private">Private</option>
+          <option value="commercial">Commercial</option>
+          <option value="common">Common</option>
+          <option value="aircraft_233">Schweizer 2-33</option>
+        </select>
+        <label>Topic title</label>
+        <input id="importTopic" placeholder="e.g. FOI — Levels of learning" />
+        <label>Import password (if configured on Railway)</label>
+        <input id="importPassword" type="password" placeholder="GLIDER_IMPORT_PASSWORD" autocomplete="off" />
+        <label>CSV</label>
+        <textarea id="importCsv" rows="8" placeholder="topic,question,answer&#10;FOI,What are the four levels of learning?,Rote Understanding Application Correlation"></textarea>
+        <div class="btn-row">
+          <button type="button" id="importBtn">Import deck</button>
+        </div>
+        <h2 style="font-size:1rem;margin:18px 0 8px">Recent imports</h2>
+        ${(state.imports || []).length ? state.imports.map((imp) => `
+          <div class="track"><div class="badge">${trackShort(imp.track_id)}</div>
+            <div><h2 style="font-size:0.95rem">${escapeHtml(imp.filename || 'upload')}</h2>
+            <p>${imp.card_count} cards · ${escapeHtml(imp.created_at || '')}</p></div></div>
+        `).join('') : '<div class="empty">No imports yet</div>'}
+      `;
+    }
+
+    function escapeHtml(s) {
+      return String(s ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function render() {
+      setNav();
+      const sub = document.getElementById('subtitle');
+      if (state.view === 'home') sub.textContent = 'Pick a track · Commercial is ready';
+      if (state.view === 'study') sub.textContent = `Studying ${state.study.track} · ${state.study.cards.length} in session`;
+      if (state.view === 'aircraft') sub.textContent = 'Schweizer 2-33 systems & limits';
+      if (state.view === 'progress') sub.textContent = 'Your spaced-repetition progress';
+      if (state.view === 'import') sub.textContent = 'Upload CFI-G then Private Q&A';
+
+      if (state.view === 'home') app.innerHTML = renderHome();
+      else if (state.view === 'study' || state.view === 'aircraft') app.innerHTML = renderStudy();
+      else if (state.view === 'progress') app.innerHTML = renderProgress();
+      else if (state.view === 'import') app.innerHTML = renderImport();
+
+      bind();
+    }
+
+    function bind() {
+      app.querySelectorAll('[data-open-study]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          state.view = btn.dataset.openStudy === 'aircraft_233' ? 'aircraft' : 'study';
+          state.study.track = btn.dataset.openStudy;
+          state.study.topic = '';
+          state.topics = (await api('/api/topics?track=' + encodeURIComponent(state.study.track))).topics;
+          await loadStudyDeck();
+        });
+      });
+      app.querySelectorAll('[data-view-jump]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          state.view = btn.dataset.viewJump;
+          render();
+        });
+      });
+      app.querySelectorAll('[data-set-track]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          state.study.track = btn.dataset.setTrack;
+          state.study.topic = '';
+          state.topics = (await api('/api/topics?track=' + encodeURIComponent(state.study.track))).topics;
+          await loadStudyDeck();
+        });
+      });
+      app.querySelectorAll('[data-set-mode]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          state.study.mode = btn.dataset.setMode;
+          await loadStudyDeck();
+        });
+      });
+      const topicSelect = app.querySelector('#topicSelect');
+      if (topicSelect) {
+        topicSelect.addEventListener('change', async () => {
+          state.study.topic = topicSelect.value;
+          await loadStudyDeck();
+        });
+      }
+      const reveal = app.querySelector('#revealBtn');
+      if (reveal) reveal.addEventListener('click', () => {
+        state.study.revealed = true;
+        render();
+      });
+      app.querySelectorAll('[data-choice]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const card = currentCard();
+          const idx = Number(btn.dataset.choice);
+          const picked = card.choices[idx];
+          state.study.revealed = true;
+          state.study.quizChoice = picked;
+          render();
+          // mark buttons after re-render in next tick via grade row only
+        });
+      });
+      app.querySelectorAll('[data-grade]').forEach((btn) => {
+        btn.addEventListener('click', () => grade(btn.dataset.grade));
+      });
+      const importBtn = app.querySelector('#importBtn');
+      if (importBtn) {
+        importBtn.addEventListener('click', async () => {
+          try {
+            const body = {
+              track_id: app.querySelector('#importTrack').value,
+              topic_title: app.querySelector('#importTopic').value || 'Imported deck',
+              csv: app.querySelector('#importCsv').value,
+              filename: 'paste.csv',
+              password: app.querySelector('#importPassword').value
+            };
+            const result = await api('/api/import', {
+              method: 'POST',
+              body: JSON.stringify(body),
+              headers: body.password ? { 'x-glider-import-password': body.password } : {}
+            });
+            toast(`Imported ${result.count} cards`);
+            state.imports = (await api('/api/imports')).imports;
+            await loadHome();
+            state.view = 'import';
+            render();
+          } catch (err) {
+            toast(err.message);
+          }
+        });
+      }
+    }
+
+    document.getElementById('nav').addEventListener('click', async (e) => {
+      const btn = e.target.closest('button[data-view]');
+      if (!btn) return;
+      state.view = btn.dataset.view;
+      if (state.view === 'home' || state.view === 'progress') {
+        await loadHome();
+        return;
+      }
+      if (state.view === 'aircraft') {
+        state.study.track = 'aircraft_233';
+        state.study.topic = '';
+        state.topics = (await api('/api/topics?track=aircraft_233')).topics;
+        await loadStudyDeck();
+        return;
+      }
+      if (state.view === 'study') {
+        state.topics = (await api('/api/topics?track=' + encodeURIComponent(state.study.track))).topics;
+        await loadStudyDeck();
+        return;
+      }
+      if (state.view === 'import') {
+        state.imports = (await api('/api/imports')).imports;
+        render();
+      }
+    });
+
+    loadHome().catch((err) => {
+      app.innerHTML = `<div class="empty">Failed to load: ${escapeHtml(err.message)}</div>`;
+    });
+  </script>
+</body>
+</html>

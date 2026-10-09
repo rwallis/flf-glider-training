@@ -1,0 +1,559 @@
+{
+  "tracks": [
+    {
+      "id": "common",
+      "title": "Common Knowledge",
+      "description": "Aerodynamics, weather, regs, and ADM that apply to every glider rating.",
+      "sort_order": 10,
+      "status": "ready"
+    },
+    {
+      "id": "private",
+      "title": "Private Pilot — Glider",
+      "description": "Private PTS bank — upload Q&A when you are ready (last).",
+      "sort_order": 20,
+      "status": "upload_later"
+    },
+    {
+      "id": "commercial",
+      "title": "Commercial — Glider",
+      "description": "Commercial PTS / knowledge for your add-on self-study (v1 focus).",
+      "sort_order": 30,
+      "status": "ready"
+    },
+    {
+      "id": "cfi_g",
+      "title": "CFI-G",
+      "description": "Instructor track — upload FOI and CFI-G Q&A when you start that study.",
+      "sort_order": 40,
+      "status": "upload_later"
+    },
+    {
+      "id": "aircraft_233",
+      "title": "Schweizer 2-33",
+      "description": "SFM numbers, systems, ADs, and FLF ops for the club trainer.",
+      "sort_order": 5,
+      "status": "ready"
+    }
+  ],
+  "topics": [
+    { "id": "common_aero", "track_id": "common", "title": "Aerodynamics", "description": "Lift, drag, stalls, load factor.", "pts_ref": "GFH / PHAK", "sort_order": 10 },
+    { "id": "common_wx", "track_id": "common", "title": "Weather & lift", "description": "Thermals, fronts, thunderstorms, soaring forecasts.", "pts_ref": "FAA-H-8083-28", "sort_order": 20 },
+    { "id": "common_regs", "track_id": "common", "title": "Regulations basics", "description": "61 / 91 essentials for glider PIC.", "pts_ref": "14 CFR 61, 91", "sort_order": 30 },
+    { "id": "common_adm", "track_id": "common", "title": "ADM & human factors", "description": "IMSAFE, hazardous attitudes, hypoxia.", "pts_ref": "AIM / PHAK", "sort_order": 40 },
+    { "id": "common_airspace", "track_id": "common", "title": "Airspace & equipment", "description": "Classes, VFR minima, transponder rules for gliders.", "pts_ref": "91.155, 91.215", "sort_order": 50 },
+
+    { "id": "priv_placeholder", "track_id": "private", "title": "Upload private Q&A", "description": "Import CSV/JSON when ready.", "pts_ref": "Private Glider PTS", "sort_order": 10 },
+
+    { "id": "comm_certs", "track_id": "commercial", "title": "Certificates & privileges", "description": "61.133 commercial glider privileges and experience.", "pts_ref": "PTS I.A / 61.133", "sort_order": 10 },
+    { "id": "comm_airworthy", "track_id": "commercial", "title": "Airworthiness", "description": "Inspections, ADs, INOP gear.", "pts_ref": "PTS I.B", "sort_order": 20 },
+    { "id": "comm_tow", "track_id": "commercial", "title": "Aerotow & abnormals", "description": "Positions, boxing, rope break, release failures.", "pts_ref": "PTS IV.A–G", "sort_order": 30 },
+    { "id": "comm_landings", "track_id": "commercial", "title": "Landings & pattern", "description": "Approach, slips, 100-ft stop, downwind.", "pts_ref": "PTS III.B / IV.Q–S", "sort_order": 40 },
+    { "id": "comm_maneuvers", "track_id": "commercial", "title": "Maneuvers & stalls", "description": "Steep turns, slow flight, stall completion altitude.", "pts_ref": "PTS VII / IX", "sort_order": 50 },
+    { "id": "comm_perf", "track_id": "commercial", "title": "Performance speeds & soaring", "description": "Min-sink, speed-to-fly, XC planning.", "pts_ref": "PTS V / VI / VIII", "sort_order": 60 },
+
+    { "id": "cfi_placeholder", "track_id": "cfi_g", "title": "Upload CFI-G Q&A", "description": "FOI and instructor tasks — import when you start CFI-G study.", "pts_ref": "FAA-S-8081-8C", "sort_order": 10 },
+    { "id": "cfi_foi_stub", "track_id": "cfi_g", "title": "FOI outline (stub)", "description": "High-level FOI roadmap until you upload cards.", "pts_ref": "FOI / AC 60-14", "sort_order": 20 },
+
+    { "id": "a233_speeds", "track_id": "aircraft_233", "title": "Speeds & limits", "description": "SFM airspeeds and load factors.", "pts_ref": "2-33 SFM", "sort_order": 10 },
+    { "id": "a233_wb", "track_id": "aircraft_233", "title": "Weight & balance", "description": "MGW, placards, ballast.", "pts_ref": "2-33 SFM / TCDS G2EA", "sort_order": 20 },
+    { "id": "a233_systems", "track_id": "aircraft_233", "title": "Systems & preflight", "description": "Dive brakes, release, trim, papers.", "pts_ref": "2-33 SFM", "sort_order": 30 },
+    { "id": "a233_ads", "track_id": "aircraft_233", "title": "Airworthiness Directives", "description": "Current airframe ADs to brief from the logbook.", "pts_ref": "DRS ADFRAWD", "sort_order": 40 }
+  ],
+  "cards": [
+    {
+      "id": "c_aero_load_45",
+      "track_id": "common",
+      "topic_id": "common_aero",
+      "question": "About how much does stall speed increase in a 45° coordinated bank?",
+      "answer": "Load factor ≈ 1.4 g, so stall speed rises by about √1.4 ≈ 18%.",
+      "choices": ["About 5%", "About 18%", "About 41%", "It does not change"],
+      "source": "PHAK / GFH load factor",
+      "tags": ["stall", "load_factor"]
+    },
+    {
+      "id": "c_aero_60",
+      "track_id": "common",
+      "topic_id": "common_aero",
+      "question": "What is the load factor in a 60° bank level turn, and roughly the stall speed increase?",
+      "answer": "2 g; stall speed about 41% higher (√2).",
+      "choices": ["1.15 g / ~7%", "1.4 g / ~18%", "2 g / ~41%", "3 g / ~73%"],
+      "source": "PHAK",
+      "tags": ["steep_turn"]
+    },
+    {
+      "id": "c_aero_dalr",
+      "track_id": "common",
+      "topic_id": "common_wx",
+      "question": "What is the dry adiabatic lapse rate used in soaring discussions?",
+      "answer": "About 3°C per 1,000 ft (≈5.4°F / 1,000 ft).",
+      "choices": ["2°C/1000 ft", "3°C/1000 ft", "5°C/1000 ft", "10°C/1000 ft"],
+      "source": "Aviation Weather Handbook",
+      "tags": ["thermal"]
+    },
+    {
+      "id": "c_wx_ts",
+      "track_id": "common",
+      "topic_id": "common_wx",
+      "question": "What three ingredients are required for a thunderstorm?",
+      "answer": "Unstable air + lifting action + moisture (humidity).",
+      "choices": null,
+      "source": "GFH / weather texts",
+      "tags": ["thunderstorm"]
+    },
+    {
+      "id": "c_wx_cloud_base_f",
+      "track_id": "common",
+      "topic_id": "common_wx",
+      "question": "Rough rule for cumulus base (AGL) using °F?",
+      "answer": "(Temperature − dew point) / 4.4 × 1,000 = approximate base AGL.",
+      "choices": null,
+      "source": "Soaring weather rules of thumb",
+      "tags": ["cloudbase"]
+    },
+    {
+      "id": "c_regs_medical",
+      "track_id": "common",
+      "topic_id": "common_regs",
+      "question": "Do glider pilots need an FAA medical certificate?",
+      "answer": "No. But under 61.53 you must not fly with a known medical deficiency that makes you unsafe.",
+      "choices": ["Yes, third-class always", "Yes, BasicMed", "No medical, but 61.53 fitness still applies", "Only if carrying passengers"],
+      "source": "61.23 / 61.53 / GFH",
+      "tags": ["medical"]
+    },
+    {
+      "id": "c_regs_solo_age",
+      "track_id": "common",
+      "topic_id": "common_regs",
+      "question": "Minimum ages: solo glider and Private Pilot — Glider?",
+      "answer": "Solo 14; Private Pilot glider 16.",
+      "choices": ["16 and 17", "14 and 16", "15 and 17", "14 and 18"],
+      "source": "61.83 / 61.103",
+      "tags": ["age"]
+    },
+    {
+      "id": "c_regs_passenger",
+      "track_id": "common",
+      "topic_id": "common_regs",
+      "question": "To carry passengers in a glider, what recent experience is required?",
+      "answer": "Three takeoffs and landings in a glider within the preceding 90 days (61.57), plus a current flight review as applicable.",
+      "choices": null,
+      "source": "61.57",
+      "tags": ["currency"]
+    },
+    {
+      "id": "c_adm_imsafe",
+      "track_id": "common",
+      "topic_id": "common_adm",
+      "question": "What does IMSAFE stand for?",
+      "answer": "Illness, Medication, Stress, Alcohol, Fatigue, Emotion.",
+      "choices": null,
+      "source": "AIM 8-1",
+      "tags": ["imsafe"]
+    },
+    {
+      "id": "c_adm_attitudes",
+      "track_id": "common",
+      "topic_id": "common_adm",
+      "question": "Name the five hazardous attitudes and one antidote example.",
+      "answer": "Anti-authority → follow the rules; Impulsivity → not so fast; Invulnerability → it could happen to me; Macho → taking chances is foolish; Resignation → I can make a difference.",
+      "choices": null,
+      "source": "PHAK ADM",
+      "tags": ["adm"]
+    },
+    {
+      "id": "c_as_g_day",
+      "track_id": "common",
+      "topic_id": "common_airspace",
+      "question": "Class G day below 1,200 AGL — basic VFR for a glider?",
+      "answer": "1 SM visibility, clear of clouds.",
+      "choices": ["3 SM / 500-1000-2000", "1 SM clear of clouds", "5 SM clear of clouds", "3 SM clear of clouds"],
+      "source": "91.155",
+      "tags": ["vfr"]
+    },
+    {
+      "id": "c_xpdr_veil",
+      "track_id": "common",
+      "topic_id": "common_airspace",
+      "question": "How does 91.215 treat gliders in the Mode C veil (30 NM App. D)?",
+      "answer": "A glider may operate unequipped if outside A/B/C and below the B/C ceiling or 10,000 MSL, whichever is lower.",
+      "choices": null,
+      "source": "91.215(b)(3)",
+      "tags": ["transponder"]
+    },
+    {
+      "id": "c_xpdr_10k",
+      "track_id": "common",
+      "topic_id": "common_airspace",
+      "question": "Does the 'above 10,000 MSL' Mode C rule apply to gliders?",
+      "answer": "No — 91.215(b)(5) excepts aircraft without an engine-driven electrical system, balloons, and gliders (excluding ≤2,500 AGL carve-out language for powered ships).",
+      "choices": ["Yes, always", "No, gliders are excepted", "Only above 18,000", "Only in Class E"],
+      "source": "91.215(b)(5)",
+      "tags": ["transponder"]
+    },
+
+    {
+      "id": "priv_stub_1",
+      "track_id": "private",
+      "topic_id": "priv_placeholder",
+      "question": "Private deck not loaded yet — what do you do?",
+      "answer": "Use Import to upload CSV/JSON with track=private when your private study Q&A are ready (planned last after CFI-G).",
+      "choices": null,
+      "source": "App stub",
+      "tags": ["stub"]
+    },
+
+    {
+      "id": "comm_priv_133",
+      "track_id": "commercial",
+      "topic_id": "comm_certs",
+      "question": "What does 61.133 allow a commercial glider pilot to do?",
+      "answer": "Act as PIC of a glider carrying persons or property for compensation or hire; exercise commercial privileges in the glider category (not airplane privileges in a glider).",
+      "choices": null,
+      "source": "61.133",
+      "tags": ["privileges"]
+    },
+    {
+      "id": "comm_129_f2",
+      "track_id": "commercial",
+      "topic_id": "comm_certs",
+      "question": "61.129(f)(2) path if you already have 200 hours heavier-than-air — key numbers?",
+      "answer": "20 glider PIC flights; 3 hours dual or 10 training flights including 3 prep flights in the 2 calendar months before the test month; 5 solo flights on 61.127(b)(6) areas.",
+      "choices": null,
+      "source": "61.129(f)(2)",
+      "tags": ["experience"]
+    },
+    {
+      "id": "comm_addon_kt",
+      "track_id": "commercial",
+      "topic_id": "comm_certs",
+      "question": "Adding glider to an existing commercial airplane certificate — knowledge test?",
+      "answer": "Generally no new knowledge test under 61.63 for the additional category rating; you still take the commercial glider practical test (PTS 23B additional-rating table).",
+      "choices": ["Always required", "Not required for add-on under 61.63", "Oral only forever", "Only FOI"],
+      "source": "61.63",
+      "tags": ["addon"]
+    },
+    {
+      "id": "comm_119",
+      "track_id": "commercial",
+      "topic_id": "comm_certs",
+      "question": "Why can a club commercial pilot charge for glider demo rides without Part 119?",
+      "answer": "14 CFR 119.1(e)(5) excepts nonstop commercial air tours in an airplane or glider within 25 SM of takeoff (sightseeing). 91.147 / Part 136 do not apply to gliders; 91.409(b) 100-hour still applies when carrying persons for hire.",
+      "choices": null,
+      "source": "119.1(e)(5); Fields 2013",
+      "tags": ["sightseeing"]
+    },
+    {
+      "id": "comm_100hr",
+      "track_id": "commercial",
+      "topic_id": "comm_airworthy",
+      "question": "When is a 100-hour inspection required for a glider?",
+      "answer": "When carrying persons for hire (instruction for hire or paid sightseeing) — 91.409(b). Annual still required.",
+      "choices": ["Never for gliders", "Only for Part 135", "When carrying persons for hire", "Only if IFR"],
+      "source": "91.409(b)",
+      "tags": ["inspection"]
+    },
+    {
+      "id": "comm_inop",
+      "track_id": "commercial",
+      "topic_id": "comm_airworthy",
+      "question": "INOP equipment on a 2-33 without an MEL — which rule?",
+      "answer": "91.213(d): remove or deactivate, placard, and determine it is not a hazard. Required instruments (e.g., ASI per SFM) must work.",
+      "choices": ["91.205 only", "91.213(d)", "Part 43 only", "Ignore if day VFR"],
+      "source": "91.213",
+      "tags": ["inop"]
+    },
+    {
+      "id": "comm_rope_pts",
+      "track_id": "commercial",
+      "topic_id": "comm_tow",
+      "question": "Is towline / rope break on the commercial glider practical test?",
+      "answer": "Yes. FAA-S-8081-23B Area IV Task G (Aerotow — Abnormal Occurrences) includes towline break and related abnormals; evaluator may simulate.",
+      "choices": ["No, DPE preference only", "Yes, PTS IV.G", "Only private PTS", "Oral only always"],
+      "source": "FAA-S-8081-23B IV.G",
+      "tags": ["rope_break"]
+    },
+    {
+      "id": "comm_box_wake",
+      "track_id": "commercial",
+      "topic_id": "comm_tow",
+      "question": "What is boxing the wake?",
+      "answer": "On tow, maneuver slightly outside the towplane’s wake in a rectangular pattern while maintaining control and coordination (PTS IV.E). GFH: not below 1,000 AGL.",
+      "choices": null,
+      "source": "PTS IV.E / GFH",
+      "tags": ["boxing"]
+    },
+    {
+      "id": "comm_91_309",
+      "track_id": "commercial",
+      "topic_id": "comm_tow",
+      "question": "91.309 towline strength window and weak-link rule?",
+      "answer": "Towline ≥200 ft; strength 80–200% of glider max certificated operating weight. If rope is stronger than twice MGW, use glider-end safety link (80–200% MGW) and stronger towplane-end link (≤25% greater than glider-end link, ≤2× MGW).",
+      "choices": null,
+      "source": "91.309",
+      "tags": ["weak_link"]
+    },
+    {
+      "id": "comm_dual_release",
+      "track_id": "commercial",
+      "topic_id": "comm_tow",
+      "question": "Glider and towplane both fail to release — how is it tested?",
+      "answer": "Oral only on the commercial PTS (IV.G). Discuss signals, low-tow on final, glider lands first.",
+      "choices": ["Flown every checkride", "Oral only", "Not on PTS", "Winch only"],
+      "source": "PTS IV.G",
+      "tags": ["release"]
+    },
+    {
+      "id": "comm_landing_100",
+      "track_id": "commercial",
+      "topic_id": "comm_landings",
+      "question": "Commercial landing touchdown/stop standard?",
+      "answer": "Touch in the designated area; stop short of and within 100 ft of the designated point without rolling past it (light–medium brake).",
+      "choices": ["Within 200 ft", "Within 100 ft, not past the point", "Any runway length", "Stop on the numbers only"],
+      "source": "PTS IV.Q",
+      "tags": ["landing"]
+    },
+    {
+      "id": "comm_slip",
+      "track_id": "commercial",
+      "topic_id": "comm_landings",
+      "question": "Commercial slips task — key points?",
+      "answer": "Evaluator picks one type (forward/side/turning). Demonstrate slip without drag devices; maintain track; 2-33 SFM: initiate recovery so you are out of the slip by 50 ft remaining.",
+      "choices": null,
+      "source": "PTS IV.R / 2-33 SFM",
+      "tags": ["slip"]
+    },
+    {
+      "id": "comm_stall_1500",
+      "track_id": "commercial",
+      "topic_id": "comm_maneuvers",
+      "question": "Stall recognition/recovery completion altitude on commercial glider PTS?",
+      "answer": "Select an entry altitude that allows completion no lower than 1,500 ft AGL. Recover at first buffet or rapid decay of control effectiveness.",
+      "choices": ["500 AGL", "1,000 AGL", "1,500 AGL", "3,000 AGL"],
+      "source": "PTS IX.B",
+      "tags": ["stall"]
+    },
+    {
+      "id": "comm_steep",
+      "track_id": "commercial",
+      "topic_id": "comm_maneuvers",
+      "question": "Steep turn standard (commercial glider)?",
+      "answer": "720° turn, 45° ±5° bank, airspeed ±5 kt, rollout on entry heading ±10°.",
+      "choices": null,
+      "source": "PTS VII.C",
+      "tags": ["steep_turn"]
+    },
+    {
+      "id": "comm_controls",
+      "track_id": "commercial",
+      "topic_id": "comm_maneuvers",
+      "question": "PTS three-way exchange of flight controls wording?",
+      "answer": "“You have the flight controls” / “I have the flight controls” / “You have the flight controls,” then a visual check.",
+      "choices": null,
+      "source": "PTS Introduction",
+      "tags": ["crm"]
+    },
+    {
+      "id": "comm_minsink",
+      "track_id": "commercial",
+      "topic_id": "comm_perf",
+      "question": "What must you demonstrate for minimum sink and speed-to-fly?",
+      "answer": "Know the concepts; determine and maintain each selected speed ±5 knots (PTS V).",
+      "choices": null,
+      "source": "PTS V",
+      "tags": ["performance"]
+    },
+    {
+      "id": "comm_xc_glide",
+      "track_id": "commercial",
+      "topic_id": "comm_perf",
+      "question": "XC planning glide ratio for a 2-33 — published L/D vs planning figure?",
+      "answer": "Published L/D ~23:1; plan about half (≈11:1 / ~2 NM per 1,000 ft) so you still make a field.",
+      "choices": ["Always 23:1", "~11:1 planning / ~23:1 published", "3:1 always", "40:1"],
+      "source": "FLF notes / GFH practice",
+      "tags": ["xc"]
+    },
+    {
+      "id": "comm_off_airport",
+      "track_id": "commercial",
+      "topic_id": "comm_landings",
+      "question": "How is simulated off-airport landing flown on the commercial test?",
+      "answer": "At an established airport, without using the altimeter. Field selection knowledge is oral.",
+      "choices": ["Land in a farm field", "Airport, no altimeter", "Only oral", "Winch only"],
+      "source": "PTS X.A",
+      "tags": ["emergency"]
+    },
+    {
+      "id": "comm_addon_table",
+      "track_id": "commercial",
+      "topic_id": "comm_certs",
+      "question": "Airplane commercial → glider add-on: which areas are NONE / skipped on the required table?",
+      "answer": "Navigation (VIII) is NONE. Also typically skip I.A Certificates and II.D Flight Deck Management and III.A/C — but the evaluator may still sample skipped tasks. Prepare them.",
+      "choices": null,
+      "source": "PTS Additional Rating Task Table",
+      "tags": ["addon"]
+    },
+
+    {
+      "id": "cfi_stub_1",
+      "track_id": "cfi_g",
+      "topic_id": "cfi_placeholder",
+      "question": "CFI-G Q&A bank empty — next step?",
+      "answer": "When you start CFI-G study, upload FOI and instructor Q&A via Import (CSV/JSON, track=cfi_g). Do this before building the private deck.",
+      "choices": null,
+      "source": "App stub",
+      "tags": ["stub"]
+    },
+    {
+      "id": "cfi_foi_levels",
+      "track_id": "cfi_g",
+      "topic_id": "cfi_foi_stub",
+      "question": "FOI stub: what are the four levels of learning?",
+      "answer": "Rote → Understanding → Application → Correlation. (Expand with your uploaded FOI deck later.)",
+      "choices": ["Rote, Memory, Skill, Test", "Rote, Understanding, Application, Correlation", "Watch, Do, Teach", "Knowledge, Skill, Attitude"],
+      "source": "FOI outline stub",
+      "tags": ["foi", "stub"]
+    },
+
+    {
+      "id": "a233_vne",
+      "track_id": "aircraft_233",
+      "topic_id": "a233_speeds",
+      "question": "2-33 never-exceed / max aero-tow / max dive-or-glide speed?",
+      "answer": "98 mph (placarded).",
+      "choices": ["69 mph", "85 mph", "98 mph", "110 mph"],
+      "source": "2-33 SFM / TCDS G2EA",
+      "tags": ["vne"]
+    },
+    {
+      "id": "a233_winch",
+      "track_id": "aircraft_233",
+      "topic_id": "a233_speeds",
+      "question": "2-33 max auto/winch tow speed?",
+      "answer": "69 mph.",
+      "choices": ["55", "69", "98", "120"],
+      "source": "2-33 SFM",
+      "tags": ["winch"]
+    },
+    {
+      "id": "a233_approach",
+      "track_id": "aircraft_233",
+      "topic_id": "a233_speeds",
+      "question": "2-33 normal approach speed rule (SFM)?",
+      "answer": "55 mph + 1 mph for each 1 mph of wind. (Discard “half the wind” mnemonics that conflict with the SFM.)",
+      "choices": ["50 + ½ wind", "55 + 1 per 1 mph wind", "60 fixed", "Best L/D only"],
+      "source": "2-33 SFM rev 2/15/22",
+      "tags": ["approach"]
+    },
+    {
+      "id": "a233_stall",
+      "track_id": "aircraft_233",
+      "topic_id": "a233_speeds",
+      "question": "Approximate 2-33 stall speeds solo vs dual (SFM)?",
+      "answer": "About 34 mph solo / 38 mph dual; dive brakes add ~2 mph.",
+      "choices": null,
+      "source": "2-33 SFM p.10",
+      "tags": ["stall"]
+    },
+    {
+      "id": "a233_ld",
+      "track_id": "aircraft_233",
+      "topic_id": "a233_speeds",
+      "question": "2-33 best L/D speed and published glide ratio?",
+      "answer": "Best L/D about 50 mph; published L/D about 23:1. Min-sink ~42 mph.",
+      "choices": null,
+      "source": "2-33 SFM / type data",
+      "tags": ["ld"]
+    },
+    {
+      "id": "a233_g",
+      "track_id": "aircraft_233",
+      "topic_id": "a233_speeds",
+      "question": "2-33 limit and ultimate load factors?",
+      "answer": "Limit +4.67 / −2.56 g; ultimate +7.0 / −3.8 g.",
+      "choices": null,
+      "source": "2-33 SFM",
+      "tags": ["g_limit"]
+    },
+    {
+      "id": "a233_xwind",
+      "track_id": "aircraft_233",
+      "topic_id": "a233_speeds",
+      "question": "2-33 demonstrated / placarded crosswind?",
+      "answer": "17 mph (per SFM notes used at FLF).",
+      "choices": ["10 mph", "17 mph", "25 mph", "No limit"],
+      "source": "2-33 SFM",
+      "tags": ["crosswind"]
+    },
+    {
+      "id": "a233_mgw",
+      "track_id": "aircraft_233",
+      "topic_id": "a233_wb",
+      "question": "2-33 maximum gross weight?",
+      "answer": "1,040 lb.",
+      "choices": ["850", "960", "1040", "1200"],
+      "source": "2-33 SFM",
+      "tags": ["wb"]
+    },
+    {
+      "id": "a233_weak_math",
+      "track_id": "aircraft_233",
+      "topic_id": "a233_wb",
+      "question": "Weak-link strength window for a 2-33 at 1,040 lb MGW?",
+      "answer": "80–200% → 832–2,080 lb. Verify the actual rope/link tags on the ship.",
+      "choices": null,
+      "source": "91.309 + MGW",
+      "tags": ["weak_link"]
+    },
+    {
+      "id": "a233_slip_50",
+      "track_id": "aircraft_233",
+      "topic_id": "a233_systems",
+      "question": "SFM slip recovery height remaining?",
+      "answer": "Initiate recovery so at least 50 ft AGL remains when recovering from the slip.",
+      "choices": ["20 ft", "50 ft", "100 ft", "200 ft"],
+      "source": "2-33 SFM p.21",
+      "tags": ["slip"]
+    },
+    {
+      "id": "a233_hook",
+      "track_id": "aircraft_233",
+      "topic_id": "a233_systems",
+      "question": "Tow-hook release check force (SFM)?",
+      "answer": "About 5–20 lb on the nose/CG hook check — verify with SFM in hand.",
+      "choices": null,
+      "source": "2-33 SFM p.41",
+      "tags": ["release"]
+    },
+    {
+      "id": "a233_trim",
+      "track_id": "aircraft_233",
+      "topic_id": "a233_systems",
+      "question": "FLF yellow 2-33A vs white 2-33 trim difference?",
+      "answer": "Yellow 2-33A: bungee trim and larger aerodynamically balanced rudder. White 2-33: ratchet trim.",
+      "choices": null,
+      "source": "FLF fleet notes",
+      "tags": ["trim"]
+    },
+    {
+      "id": "a233_ad_list",
+      "track_id": "aircraft_233",
+      "topic_id": "a233_ads",
+      "question": "List the current Schweizer 2-33 airframe ADs to verify in the logbook.",
+      "answer": "76-13-11 R1 (drain holes, S/N 1–424, one-time); 77-23-10 (fin spar attach, recurring unless terminated); 87-02-01 (tow-release inspect, 100 hr); 87-17-01 (replace welded-lug arms, one-time). 97-08-06 R1 L’Hotellier dropped 2-33.",
+      "choices": null,
+      "source": "FAA DRS ADFRAWD (verify current)",
+      "tags": ["ad"]
+    },
+    {
+      "id": "a233_papers",
+      "track_id": "aircraft_233",
+      "topic_id": "a233_systems",
+      "question": "What aircraft documents must you locate for the practical test?",
+      "answer": "Airworthiness certificate, registration, operating limitations/placards/SFM, W&B and equipment list, maintenance/AD compliance status.",
+      "choices": null,
+      "source": "PTS applicant checklist",
+      "tags": ["documents"]
+    }
+  ]
+}
