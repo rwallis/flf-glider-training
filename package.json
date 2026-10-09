@@ -1,6 +1,6 @@
 {
   "name": "flf-glider-training",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "description": "Phone-first Fault Line Flyers glider study app (Common, Commercial, 2-33; CFI-G/Private via import).",
@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node src/index.js",
-    "test": "node --test gliderTrainingStore.test.js buildMeta.test.js auth.test.js"
+    "test": "node --test gliderTrainingStore.test.js buildMeta.test.js auth.test.js polar233.test.js"
   },
   "dependencies": {
     "cookie-session": "^2.1.1",

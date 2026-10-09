@@ -256,6 +256,46 @@
       border-top: 1px solid var(--line);
       padding: 8px 4px calc(8px + var(--safe-bottom));
     }
+    .polar-chart {
+      width: 100%;
+      height: auto;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      display: block;
+      margin: 10px 0 12px;
+    }
+    .polar-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin: 10px 0 14px;
+    }
+    .polar-metrics .stat b { font-size: 1.15rem; }
+    .polar-metrics .stat.wide { grid-column: 1 / -1; }
+    .polar-ref {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      margin-top: 8px;
+      display: block;
+    }
+    .wind-zero {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin: -4px 0 12px;
+    }
+    .wind-zero button { padding: 8px 12px; font-size: 0.8rem; }
+    .warn {
+      background: #fff4e5;
+      border: 1px solid #f0c36d;
+      color: #7a4b00;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 0.88rem;
+      margin: 8px 0 12px;
+    }
     .nav button {
       background: transparent;
       color: var(--muted);
@@ -327,10 +367,12 @@
   <nav class="nav" id="nav">
     <button type="button" data-view="home"><span>⌂</span>Home</button>
     <button type="button" data-view="study"><span>✎</span>Study</button>
+    <button type="button" data-view="aircraft"><span>✈</span>Aircraft</button>
     <button type="button" data-view="progress"><span>▣</span>Progress</button>
     <button type="button" data-view="import"><span>↑</span>Import</button>
   </nav>
   <div class="toast" id="toast"></div>
+  <script src="/aircraft/polar-233.js"></script>
   <script>
     const state = {
       view: 'home',
@@ -346,7 +388,13 @@
         revealed: false,
         quizChoice: null
       },
-      imports: []
+      imports: [],
+      aircraft: {
+        page: 'hub', // hub | sgs233
+        config: 'dual',
+        airspeed: 54,
+        wind: 0
+      }
     };
 
     const app = document.getElementById('app');
@@ -617,6 +665,152 @@
       `;
     }
 
+    function fmt(n, digits = 1) {
+      if (n == null || Number.isNaN(n)) return '—';
+      return Number(n).toFixed(digits);
+    }
+
+    function renderAircraftHub() {
+      return `
+        <p style="color:var(--muted);font-size:0.9rem;margin:0 0 12px">
+          Aircraft performance tools for club ships. Start with the Schweizer <strong>SGS 2-33</strong> polar.
+        </p>
+        <article class="track">
+          <div class="badge">2-33</div>
+          <div style="flex:1">
+            <h2>SGS 2-33</h2>
+            <p>Calculated performance polar (solo / dual) with live headwind &amp; tailwind glide ratio.</p>
+            <div class="btn-row">
+              <button type="button" data-aircraft-page="sgs233">Open polar</button>
+              <button type="button" class="secondary" data-open-study="aircraft_233">Study cards</button>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function polarSvg(result) {
+      const W = 320;
+      const H = 220;
+      const pad = { l: 36, r: 16, t: 16, b: 28 };
+      const plotW = W - pad.l - pad.r;
+      const plotH = H - pad.t - pad.b;
+      const pts = result.polar_points || [];
+      const windCurve = (typeof Sgs233Polar !== 'undefined')
+        ? Sgs233Polar.sampleGroundLdCurve(state.aircraft.config, state.aircraft.wind, 2)
+        : [];
+      const mphMin = 30;
+      const mphMax = 90;
+      const ldMin = 0;
+      const ldMax = 26;
+      const x = (mph) => pad.l + ((mph - mphMin) / (mphMax - mphMin)) * plotW;
+      const y = (ld) => pad.t + (1 - (ld - ldMin) / (ldMax - ldMin)) * plotH;
+      const airPath = pts.map((p, i) => `${i ? 'L' : 'M'} ${x(p.mph).toFixed(1)} ${y(p.ld).toFixed(1)}`).join(' ');
+      const gndPath = windCurve.map((p, i) => `${i ? 'L' : 'M'} ${x(p.mph).toFixed(1)} ${y(p.ground_ld).toFixed(1)}`).join(' ');
+      const markX = x(result.airspeed_mph);
+      const markY = result.ground_ld != null ? y(result.ground_ld) : y(result.air_ld);
+      return `
+        <svg class="polar-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="SGS 2-33 L/D polar">
+          <rect x="${pad.l}" y="${pad.t}" width="${plotW}" height="${plotH}" fill="#f7fafc" stroke="#d5e2ea"/>
+          ${[40,50,60,70,80,90].map((m) => `<line x1="${x(m)}" y1="${pad.t}" x2="${x(m)}" y2="${pad.t+plotH}" stroke="#e8eef3"/><text x="${x(m)}" y="${H-8}" text-anchor="middle" font-size="9" fill="#5a6b76">${m}</text>`).join('')}
+          ${[5,10,15,20,25].map((ld) => `<line x1="${pad.l}" y1="${y(ld)}" x2="${pad.l+plotW}" y2="${y(ld)}" stroke="#e8eef3"/><text x="${pad.l-4}" y="${y(ld)+3}" text-anchor="end" font-size="9" fill="#5a6b76">${ld}</text>`).join('')}
+          <path d="${airPath}" fill="none" stroke="#1A6FA3" stroke-width="2.5"/>
+          ${gndPath ? `<path d="${gndPath}" fill="none" stroke="#D65A1F" stroke-width="2" stroke-dasharray="5 3"/>` : ''}
+          <circle cx="${markX}" cy="${markY}" r="5" fill="#2F7D32" stroke="#fff" stroke-width="2"/>
+          <text x="${pad.l}" y="12" font-size="10" fill="#1A6FA3" font-weight="700">Air L/D</text>
+          <text x="${pad.l + 58}" y="12" font-size="10" fill="#D65A1F" font-weight="700">Ground L/D (wind)</text>
+          <text x="${W/2}" y="${H-1}" text-anchor="middle" font-size="9" fill="#5a6b76">Airspeed (mph)</text>
+        </svg>
+      `;
+    }
+
+    function renderAircraft233() {
+      const polar = typeof Sgs233Polar !== 'undefined' ? Sgs233Polar : null;
+      if (!polar) {
+        return `<div class="empty">Polar module failed to load.</div>`;
+      }
+      const result = polar.evaluate({
+        config: state.aircraft.config,
+        airspeedMph: state.aircraft.airspeed,
+        windMph: state.aircraft.wind
+      });
+      const cfg = result.config;
+      return `
+        <div class="btn-row" style="margin-top:0">
+          <button type="button" class="secondary" data-aircraft-page="hub">← Aircraft</button>
+        </div>
+        <h2 style="margin:10px 0 4px;font-size:1.15rem">SGS 2-33 polar</h2>
+        <p style="margin:0 0 10px;color:var(--muted);font-size:0.88rem">
+          ${escapeHtml(cfg.label)} ${cfg.weight_lb} lb · S=${cfg.wing_loading_psf} psf · digitized from SFM performance curves.
+        </p>
+        <div class="chip-row">
+          <button type="button" class="chip ${state.aircraft.config === 'solo' ? 'active' : ''}" data-polar-config="solo">Solo 790 lb</button>
+          <button type="button" class="chip ${state.aircraft.config === 'dual' ? 'active' : ''}" data-polar-config="dual">Dual 1040 lb</button>
+        </div>
+        <label>Airspeed <span id="polarAsLabel">${state.aircraft.airspeed}</span> mph</label>
+        <input id="polarAirspeed" type="range" min="${cfg.points[0].mph}" max="${cfg.points[cfg.points.length-1].mph}" step="1" value="${state.aircraft.airspeed}" />
+        <label>Wind <span id="polarWindLabel">${state.aircraft.wind === 0 ? 'calm' : (state.aircraft.wind > 0 ? state.aircraft.wind + ' mph tail' : Math.abs(state.aircraft.wind) + ' mph head')}</span></label>
+        <input id="polarWind" type="range" min="-40" max="40" step="1" value="${state.aircraft.wind}" />
+        <div class="wind-zero">
+          <button type="button" class="secondary" id="polarWindCalm">Calm</button>
+          <button type="button" class="secondary" id="polarBestLd">Best air L/D</button>
+        </div>
+        <div id="polarWarn">${!result.can_penetrate ? '<div class="warn">Groundspeed ≤ 0 — cannot penetrate this headwind at the selected airspeed. Fly faster or reduce headwind.</div>' : ''}</div>
+        <div class="polar-metrics" id="polarMetrics">
+          <div class="stat"><b id="mAirLd">${fmt(result.air_ld, 1)}</b><span>Air L/D</span></div>
+          <div class="stat"><b id="mGndLd">${result.ground_ld == null ? '—' : fmt(result.ground_ld, 1)}</b><span>Ground L/D</span></div>
+          <div class="stat"><b id="mSink">${fmt(result.sink_fps, 1)}</b><span>Sink ft/sec</span></div>
+          <div class="stat"><b id="mGs">${fmt(result.groundspeed_mph, 0)}</b><span>GS mph</span></div>
+          <div class="stat wide"><b id="mGlide">${result.glide_nm_per_1000 == null ? '—' : fmt(result.glide_nm_per_1000, 2) + ' NM'}</b><span>Glide per 1,000 ft (with wind)</span></div>
+        </div>
+        <div id="polarSvgWrap">${polarSvg(result)}</div>
+        <p style="font-size:0.78rem;color:var(--muted);margin:0 0 8px">
+          Best published air L/D on this curve ≈ <strong>${fmt(result.best_ld.ld, 1)}:1</strong> at <strong>${result.best_ld.mph} mph</strong>.
+          Ground L/D = groundspeed ÷ sink. Headwind reduces range; tailwind increases it.
+        </p>
+        <details>
+          <summary style="cursor:pointer;font-weight:700;color:var(--sky-deep)">Source polar chart</summary>
+          <img class="polar-ref" src="/aircraft/sgs-233-polar.png" alt="SGS 2-33A calculated performance curves" />
+        </details>
+      `;
+    }
+
+    function updatePolarLive() {
+      if (typeof Sgs233Polar === 'undefined') return;
+      const result = Sgs233Polar.evaluate({
+        config: state.aircraft.config,
+        airspeedMph: state.aircraft.airspeed,
+        windMph: state.aircraft.wind
+      });
+      const asLabel = document.getElementById('polarAsLabel');
+      const windLabel = document.getElementById('polarWindLabel');
+      if (asLabel) asLabel.textContent = String(state.aircraft.airspeed);
+      if (windLabel) {
+        windLabel.textContent = state.aircraft.wind === 0
+          ? 'calm'
+          : (state.aircraft.wind > 0
+            ? state.aircraft.wind + ' mph tail'
+            : Math.abs(state.aircraft.wind) + ' mph head');
+      }
+      const set = (id, text) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = text;
+      };
+      set('mAirLd', fmt(result.air_ld, 1));
+      set('mGndLd', result.ground_ld == null ? '—' : fmt(result.ground_ld, 1));
+      set('mSink', fmt(result.sink_fps, 1));
+      set('mGs', fmt(result.groundspeed_mph, 0));
+      set('mGlide', result.glide_nm_per_1000 == null ? '—' : fmt(result.glide_nm_per_1000, 2) + ' NM');
+      const warn = document.getElementById('polarWarn');
+      if (warn) {
+        warn.innerHTML = !result.can_penetrate
+          ? '<div class="warn">Groundspeed ≤ 0 — cannot penetrate this headwind at the selected airspeed. Fly faster or reduce headwind.</div>'
+          : '';
+      }
+      const wrap = document.getElementById('polarSvgWrap');
+      if (wrap) wrap.innerHTML = polarSvg(result);
+    }
+
     function renderProgress() {
       const s = state.stats || { cards: 0, studied: 0, due: 0 };
       return `
@@ -684,11 +878,19 @@
       const sub = document.getElementById('subtitle');
       if (state.view === 'home') sub.textContent = 'Pick a track · Commercial is ready';
       if (state.view === 'study') sub.textContent = `Studying ${state.study.track} · ${state.study.cards.length} in session`;
+      if (state.view === 'aircraft') {
+        sub.textContent = state.aircraft.page === 'sgs233'
+          ? 'SGS 2-33 · polar + wind'
+          : 'Aircraft performance';
+      }
       if (state.view === 'progress') sub.textContent = 'Your spaced-repetition progress';
       if (state.view === 'import') sub.textContent = 'Upload CFI-G then Private Q&A';
 
       if (state.view === 'home') app.innerHTML = renderHome();
       else if (state.view === 'study') app.innerHTML = renderStudy();
+      else if (state.view === 'aircraft') {
+        app.innerHTML = state.aircraft.page === 'sgs233' ? renderAircraft233() : renderAircraftHub();
+      }
       else if (state.view === 'progress') app.innerHTML = renderProgress();
       else if (state.view === 'import') app.innerHTML = renderImport();
 
@@ -711,6 +913,60 @@
           render();
         });
       });
+      app.querySelectorAll('[data-aircraft-page]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          state.view = 'aircraft';
+          state.aircraft.page = btn.dataset.aircraftPage;
+          render();
+        });
+      });
+      app.querySelectorAll('[data-polar-config]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          state.aircraft.config = btn.dataset.polarConfig;
+          const cfg = Sgs233Polar.getConfig(state.aircraft.config);
+          const min = cfg.points[0].mph;
+          const max = cfg.points[cfg.points.length - 1].mph;
+          state.aircraft.airspeed = Math.min(max, Math.max(min, state.aircraft.airspeed));
+          render();
+        });
+      });
+      const polarAirspeed = app.querySelector('#polarAirspeed');
+      if (polarAirspeed) {
+        polarAirspeed.addEventListener('input', () => {
+          state.aircraft.airspeed = Number(polarAirspeed.value);
+          updatePolarLive();
+        });
+      }
+      const polarWind = app.querySelector('#polarWind');
+      if (polarWind) {
+        polarWind.addEventListener('input', () => {
+          state.aircraft.wind = Number(polarWind.value);
+          updatePolarLive();
+        });
+      }
+      const calm = app.querySelector('#polarWindCalm');
+      if (calm) {
+        calm.addEventListener('click', () => {
+          state.aircraft.wind = 0;
+          const el = app.querySelector('#polarWind');
+          if (el) el.value = '0';
+          updatePolarLive();
+        });
+      }
+      const best = app.querySelector('#polarBestLd');
+      if (best) {
+        best.addEventListener('click', () => {
+          const r = Sgs233Polar.evaluate({
+            config: state.aircraft.config,
+            airspeedMph: state.aircraft.airspeed,
+            windMph: state.aircraft.wind
+          });
+          state.aircraft.airspeed = r.best_ld.mph;
+          const el = app.querySelector('#polarAirspeed');
+          if (el) el.value = String(state.aircraft.airspeed);
+          updatePolarLive();
+        });
+      }
       app.querySelectorAll('[data-set-track]').forEach((btn) => {
         btn.addEventListener('click', async () => {
           state.study.track = btn.dataset.setTrack;
@@ -787,6 +1043,11 @@
       if (state.view === 'study') {
         state.topics = (await api('/api/topics?track=' + encodeURIComponent(state.study.track))).topics;
         await loadStudyDeck();
+        return;
+      }
+      if (state.view === 'aircraft') {
+        if (!state.aircraft.page) state.aircraft.page = 'hub';
+        render();
         return;
       }
       if (state.view === 'import') {

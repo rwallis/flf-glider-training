@@ -1,0 +1,41 @@
+{
+  "aircraft": "SGS 2-33A",
+  "source": "Calculated Performance Curves S.G.S. 2-33A (SFM p.1-15)",
+  "notes": "Digitized from published polar. L/D stored; sink derived as V(fps)/L/D for consistency.",
+  "mph_to_fps": 1.4666667,
+  "configs": {
+    "solo": {
+      "label": "Solo",
+      "weight_lb": 790,
+      "wing_loading_psf": 3.6,
+      "points": [
+        { "mph": 36, "ld": 16.8 },
+        { "mph": 42, "ld": 21.6 },
+        { "mph": 48, "ld": 22.6 },
+        { "mph": 54, "ld": 21.8 },
+        { "mph": 60, "ld": 19.5 },
+        { "mph": 66, "ld": 17.5 },
+        { "mph": 72, "ld": 15.8 },
+        { "mph": 78, "ld": 14.2 },
+        { "mph": 84, "ld": 12.8 },
+        { "mph": 90, "ld": 11.4 }
+      ]
+    },
+    "dual": {
+      "label": "Dual",
+      "weight_lb": 1040,
+      "wing_loading_psf": 4.74,
+      "points": [
+        { "mph": 42, "ld": 17.0 },
+        { "mph": 48, "ld": 22.0 },
+        { "mph": 54, "ld": 23.0 },
+        { "mph": 60, "ld": 21.4 },
+        { "mph": 66, "ld": 19.2 },
+        { "mph": 72, "ld": 17.0 },
+        { "mph": 78, "ld": 15.2 },
+        { "mph": 84, "ld": 13.5 },
+        { "mph": 90, "ld": 12.2 }
+      ]
+    }
+  }
+}
