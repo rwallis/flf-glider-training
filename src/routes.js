@@ -1,7 +1,13 @@
+import { resolveUserKey } from './auth/middleware.js';
 import { nextProgress, parseImportPayload } from './store.js';
 
-function userKey(req, config) {
-  return String(req.header('x-glider-user') || config.defaultUserKey || 'ron').slice(0, 64);
+function requireUserKey(req, res, config) {
+  const uk = resolveUserKey(req, config);
+  if (!uk) {
+    res.status(401).json({ error: 'Authentication required' });
+    return null;
+  }
+  return uk;
 }
 
 export function registerGliderApi(app, { store, config }) {
@@ -30,20 +36,25 @@ export function registerGliderApi(app, { store, config }) {
   });
 
   app.get('/api/stats', async (req, res) => {
-    const stats = await store.stats(userKey(req, config));
+    const uk = requireUserKey(req, res, config);
+    if (!uk) return;
+    const stats = await store.stats(uk);
     res.json(stats);
   });
 
   app.get('/api/progress', async (req, res) => {
-    const rows = await store.getProgress(userKey(req, config));
+    const uk = requireUserKey(req, res, config);
+    if (!uk) return;
+    const rows = await store.getProgress(uk);
     res.json({ progress: rows });
   });
 
   app.get('/api/study', async (req, res) => {
+    const uk = requireUserKey(req, res, config);
+    if (!uk) return;
     const trackId = req.query.track || undefined;
     const topicId = req.query.topic || undefined;
     const mode = req.query.mode || 'due'; // due | all | weak
-    const uk = userKey(req, config);
     const cards = await store.listCards({ trackId, topicId });
     const progress = await store.getProgress(uk);
     const byCard = new Map(progress.map((p) => [p.card_id, p]));
@@ -83,13 +94,14 @@ export function registerGliderApi(app, { store, config }) {
   });
 
   app.post('/api/study/:cardId', async (req, res) => {
+    const uk = requireUserKey(req, res, config);
+    if (!uk) return;
     const grade = String(req.body?.grade || '').toLowerCase();
     if (!['again', 'hard', 'good', 'easy'].includes(grade)) {
       return res.status(400).json({ error: 'grade must be again|hard|good|easy' });
     }
     const card = await store.getCard(req.params.cardId);
     if (!card) return res.status(404).json({ error: 'card not found' });
-    const uk = userKey(req, config);
     const prev = await store.getProgressOne(uk, card.id);
     const patch = nextProgress(prev, grade);
     const row = await store.upsertProgress(uk, card.id, patch);

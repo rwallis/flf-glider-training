@@ -1,6 +1,12 @@
 import express from 'express';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { requireAuth } from './auth/middleware.js';
+import { registerAuthRoutes } from './auth/routes.js';
+import {
+  createSessionMiddleware,
+  createTestSessionMiddleware
+} from './auth/session.js';
 import { getAppBuildMeta, getDeployStatusPayload, readInstanceBuildMeta } from './buildMeta.js';
 import { loadGliderTrainingConfig } from './config.js';
 import { closeGliderPool, createGliderPool, ensureGliderSchema } from './db.js';
@@ -25,17 +31,15 @@ async function main() {
 
   const store = await createStore(pool);
   const app = express();
+  app.set('trust proxy', 1);
+
+  if (config.auth.enabled) {
+    app.use(createSessionMiddleware(config.auth));
+    app.use(createTestSessionMiddleware(config.auth));
+  }
+
   app.use(express.json({ limit: '2mb' }));
-  // Avoid caching the SPA shell so version bumps show after Refresh
-  app.use(express.static(PUBLIC_DIR, {
-    index: false,
-    maxAge: 0,
-    setHeaders(res, filePath) {
-      if (filePath.endsWith('.html')) {
-        res.setHeader('Cache-Control', 'no-store');
-      }
-    }
-  }));
+  app.use(express.urlencoded({ extended: false }));
 
   app.get('/healthz', (_req, res) => {
     const instance = readInstanceBuildMeta();
@@ -48,7 +52,8 @@ async function main() {
       environment: instance.environment,
       started_at: SERVICE_STARTED_AT,
       database_configured: Boolean(config.database.url),
-      import_password_required: Boolean(config.importPassword)
+      import_password_required: Boolean(config.importPassword),
+      auth_enabled: Boolean(config.auth.enabled)
     });
   });
 
@@ -64,6 +69,24 @@ async function main() {
     );
   });
 
+  registerAuthRoutes(app, { authConfig: config.auth, db: pool });
+
+  // Gate SPA + APIs when Google auth is on (public auth/health routes already registered)
+  app.use(requireAuth(config.auth));
+
+  // Avoid caching the SPA shell so version bumps show after Refresh
+  app.use(
+    express.static(PUBLIC_DIR, {
+      index: false,
+      maxAge: 0,
+      setHeaders(res, filePath) {
+        if (filePath.endsWith('.html')) {
+          res.setHeader('Cache-Control', 'no-store');
+        }
+      }
+    })
+  );
+
   registerGliderApi(app, { store, config });
 
   app.get('*', (_req, res) => {
@@ -71,7 +94,9 @@ async function main() {
   });
 
   const server = app.listen(config.port, () => {
-    console.log(`[glider-training] listening on port ${config.port}`);
+    console.log(
+      `[glider-training] listening on port ${config.port} auth=${config.auth.enabled ? 'on' : 'off'}`
+    );
   });
 
   const shutdown = async (signal) => {

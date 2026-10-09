@@ -59,6 +59,17 @@ CREATE TABLE IF NOT EXISTS glider_imports (
   note TEXT NOT NULL DEFAULT '',
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+
+CREATE TABLE IF NOT EXISTS glider_users (
+  google_sub TEXT PRIMARY KEY,
+  email TEXT NOT NULL,
+  name TEXT NOT NULL DEFAULT '',
+  picture TEXT,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  last_login_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS glider_users_email_idx ON glider_users (email);
 `;
 
 export async function createGliderPool(config) {

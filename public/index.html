@@ -64,9 +64,37 @@
       gap: 6px;
       font-size: 0.72rem;
       opacity: 0.95;
-      max-width: 58%;
+      max-width: 62%;
       text-align: right;
       line-height: 1.25;
+    }
+    .header-user {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      max-width: 100%;
+    }
+    .header-user img {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.45);
+    }
+    .header-user .user-name {
+      font-weight: 700;
+      max-width: 140px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .header-user a.logout {
+      color: #fff;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 0.66rem;
+      font-weight: 800;
     }
     .header-version {
       font-family: ui-monospace, Consolas, monospace;
@@ -286,6 +314,7 @@
         <p id="subtitle">Commercial focus · SGS 2-33 · Common knowledge</p>
       </div>
       <div class="header-meta" id="app-header-meta">
+        <span class="header-user hidden" id="header-user"></span>
         <span class="header-version" id="header-version">v…</span>
         <span id="header-deploy" class="deploy-pill muted">Deploy …</span>
       </div>
@@ -330,12 +359,46 @@
 
     async function api(path, opts) {
       const res = await fetch(path, {
+        credentials: 'same-origin',
         headers: { 'Content-Type': 'application/json', ...(opts?.headers || {}) },
         ...opts
       });
+      if (res.status === 401 && !String(path).startsWith('/auth/me')) {
+        window.location.href = '/login?return=' + encodeURIComponent(window.location.pathname || '/');
+        throw new Error('Authentication required');
+      }
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error || res.statusText);
       return data;
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    async function loadAuthUser() {
+      const el = document.getElementById('header-user');
+      if (!el) return;
+      try {
+        const me = await api('/auth/me');
+        if (!me.authenticated || !me.user) {
+          el.classList.add('hidden');
+          return;
+        }
+        const u = me.user;
+        const avatar = u.picture
+          ? `<img src="${escapeHtml(u.picture)}" alt="" referrerpolicy="no-referrer" />`
+          : '';
+        el.innerHTML = `${avatar}<span class="user-name" title="${escapeHtml(u.email)}">${escapeHtml(u.name || u.email)}</span><a class="logout" href="/logout">Logout</a>`;
+        el.classList.remove('hidden');
+        state.user = u;
+      } catch {
+        el.classList.add('hidden');
+      }
     }
 
     function formatHeaderVersion(meta) {
@@ -395,6 +458,7 @@
       }
     }
 
+    loadAuthUser();
     loadHeaderMeta();
     window.setInterval(pollDeployStatus, 15000);
 
@@ -559,7 +623,7 @@
           <div class="badge">SRS</div>
           <div>
             <h2>Spaced repetition</h2>
-            <p>Again / Hard / Good / Easy updates due dates. Progress is stored in shared Postgres when DATABASE_URL is set.</p>
+            <p>Again / Hard / Good / Easy updates due dates. Progress is saved to <strong>your signed-in Google account</strong> in shared Postgres.</p>
             <div class="btn-row">
               <button type="button" data-open-study="commercial">Study commercial due</button>
             </div>
@@ -607,14 +671,6 @@
             <p>${imp.card_count} cards · ${escapeHtml(imp.created_at || '')}</p></div></div>
         `).join('') : '<div class="empty">No imports yet</div>'}
       `;
-    }
-
-    function escapeHtml(s) {
-      return String(s ?? '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;');
     }
 
     function render() {
