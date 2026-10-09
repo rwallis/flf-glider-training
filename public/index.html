@@ -39,6 +39,12 @@
       color: #fff;
       padding: 14px 16px 12px;
     }
+    header.app-bar .bar-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
     header.app-bar h1 {
       margin: 0;
       font-size: 1.15rem;
@@ -49,6 +55,50 @@
       margin: 4px 0 0;
       opacity: 0.9;
       font-size: 0.82rem;
+    }
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+      font-size: 0.72rem;
+      opacity: 0.95;
+      max-width: 58%;
+      text-align: right;
+      line-height: 1.25;
+    }
+    .header-version {
+      font-family: ui-monospace, Consolas, monospace;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .deploy-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.35);
+      background: rgba(0,0,0,0.18);
+      font-size: 0.68rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .deploy-pill.ok { border-color: #86efac; color: #dcfce7; }
+    .deploy-pill.active { border-color: #fde68a; color: #fef3c7; }
+    .deploy-pill.ready { border-color: #67e8f9; color: #ecfeff; }
+    .deploy-pill.error { border-color: #fca5a5; color: #fee2e2; }
+    .deploy-pill.muted { opacity: 0.85; }
+    .deploy-pill button {
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.18);
+      color: #fff;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 0.66rem;
+      font-weight: 800;
     }
     main { padding: 14px 14px 24px; max-width: 640px; margin: 0 auto; }
     .hidden { display: none !important; }
@@ -230,8 +280,16 @@
 </head>
 <body>
   <header class="app-bar">
-    <h1>FLF Glider Study</h1>
-    <p id="subtitle">Commercial focus · Schweizer 2-33 · Common knowledge</p>
+    <div class="bar-top">
+      <div>
+        <h1>FLF Glider Study</h1>
+        <p id="subtitle">Commercial focus · SGS 2-33 · Common knowledge</p>
+      </div>
+      <div class="header-meta" id="app-header-meta">
+        <span class="header-version" id="header-version">v…</span>
+        <span id="header-deploy" class="deploy-pill muted">Deploy …</span>
+      </div>
+    </div>
   </header>
   <main id="app"></main>
   <nav class="nav" id="nav">
@@ -262,6 +320,7 @@
 
     const app = document.getElementById('app');
     const toastEl = document.getElementById('toast');
+    let pageLoadDeploymentId = null;
 
     function toast(msg) {
       toastEl.textContent = msg;
@@ -278,6 +337,66 @@
       if (!res.ok) throw new Error(data.error || res.statusText);
       return data;
     }
+
+    function formatHeaderVersion(meta) {
+      if (!meta) return 'app';
+      const commit = meta.git_commit ? (' · ' + meta.git_commit) : '';
+      const env = meta.environment ? (' · ' + meta.environment) : '';
+      return 'v' + (meta.version || '?') + commit + env;
+    }
+
+    function setDeployPill(ui, gitCommit) {
+      const el = document.getElementById('header-deploy');
+      if (!el || !ui) return;
+      el.className = 'deploy-pill ' + (ui.tone || 'muted');
+      if (ui.refresh_recommended) {
+        el.innerHTML = '<span>' + (ui.label || 'New version ready') + '</span> <button type="button" data-deploy-refresh>Refresh</button>';
+        const btn = el.querySelector('[data-deploy-refresh]');
+        if (btn) btn.addEventListener('click', function () { window.location.reload(); });
+        return;
+      }
+      const commit = gitCommit ? (' · ' + gitCommit) : '';
+      el.textContent = (ui.label || 'Deploy') + commit;
+    }
+
+    async function pollDeployStatus() {
+      const el = document.getElementById('header-deploy');
+      if (!el) return;
+      try {
+        const query = pageLoadDeploymentId
+          ? ('?page_load_deployment_id=' + encodeURIComponent(pageLoadDeploymentId))
+          : '';
+        const deploy = await api('/api/deploy-status' + query);
+        if (!pageLoadDeploymentId && deploy.instance?.deployment_id) {
+          pageLoadDeploymentId = deploy.instance.deployment_id;
+        }
+        setDeployPill(deploy.ui || {}, deploy.instance?.git_commit || null);
+      } catch {
+        el.className = 'deploy-pill active';
+        el.textContent = 'Reconnecting…';
+      }
+    }
+
+    async function loadHeaderMeta() {
+      try {
+        const [meta, deploy] = await Promise.all([
+          api('/api/v1/app/meta'),
+          api('/api/deploy-status')
+        ]);
+        const versionEl = document.getElementById('header-version');
+        if (versionEl) versionEl.textContent = formatHeaderVersion(meta);
+        if (!pageLoadDeploymentId && deploy.instance?.deployment_id) {
+          pageLoadDeploymentId = deploy.instance.deployment_id;
+        }
+        setDeployPill(deploy.ui || {}, deploy.instance?.git_commit || meta.git_commit || null);
+      } catch {
+        const versionEl = document.getElementById('header-version');
+        if (versionEl) versionEl.textContent = 'app';
+      }
+    }
+
+    loadHeaderMeta();
+    window.setInterval(pollDeployStatus, 15000);
 
     function trackLabel(id) {
       return ({

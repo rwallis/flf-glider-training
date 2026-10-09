@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { getAppBuildMeta, getDeployStatusPayload, readInstanceBuildMeta } from './buildMeta.js';
 import { loadGliderTrainingConfig } from './config.js';
 import { closeGliderPool, createGliderPool, ensureGliderSchema } from './db.js';
 import { registerGliderApi } from './routes.js';
@@ -25,16 +26,42 @@ async function main() {
   const store = await createStore(pool);
   const app = express();
   app.use(express.json({ limit: '2mb' }));
-  app.use(express.static(PUBLIC_DIR, { index: false, maxAge: '1h' }));
+  // Avoid caching the SPA shell so version bumps show after Refresh
+  app.use(express.static(PUBLIC_DIR, {
+    index: false,
+    maxAge: 0,
+    setHeaders(res, filePath) {
+      if (filePath.endsWith('.html')) {
+        res.setHeader('Cache-Control', 'no-store');
+      }
+    }
+  }));
 
   app.get('/healthz', (_req, res) => {
+    const instance = readInstanceBuildMeta();
     res.json({
-      service: 'glider-training',
       ok: true,
+      service: 'glider-training',
+      version: getAppBuildMeta().version,
+      git_sha: instance.git_commit,
+      deployment_id: instance.deployment_id,
+      environment: instance.environment,
       started_at: SERVICE_STARTED_AT,
       database_configured: Boolean(config.database.url),
       import_password_required: Boolean(config.importPassword)
     });
+  });
+
+  app.get('/api/v1/app/meta', (_req, res) => {
+    res.json(getAppBuildMeta('glider-training'));
+  });
+
+  app.get('/api/deploy-status', (req, res) => {
+    res.json(
+      getDeployStatusPayload({
+        pageLoadDeploymentId: req.query.page_load_deployment_id ?? null
+      })
+    );
   });
 
   registerGliderApi(app, { store, config });
