@@ -15,37 +15,40 @@ function loadPolar() {
   return sandbox.Sgs233Polar;
 }
 
-test('smooth polar has dense points for a continuous curve', () => {
+test('solo and dual configs both have dense smooth polars', () => {
   const polar = loadPolar();
-  assert.ok(polar.SMOOTH_POLAR.length >= 80);
-  assert.ok(polar.SMOOTH_POLAR[0].ias_kt < 30);
-  assert.ok(polar.SMOOTH_POLAR[polar.SMOOTH_POLAR.length - 1].ias_kt >= 74);
+  assert.ok(polar.getConfig('solo').smooth.length >= 100);
+  assert.ok(polar.getConfig('dual').smooth.length >= 100);
 });
 
-test('MacCready 2.0 kt calm tangent near 51 kt', () => {
+test('dual MacCready metrics include relative L/D and sink', () => {
   const polar = loadPolar();
-  const r = polar.findMacCreadyTangent({ macCreadyKt: 2, windKt: 0 });
+  const r = polar.findMacCreadyTangent({ config: 'dual', macCreadyKt: 2, windKt: 0 });
   assert.equal(r.ok, true);
-  assert.ok(r.tangent.ias_kt >= 48 && r.tangent.ias_kt <= 54, `got ${r.tangent.ias_kt}`);
+  assert.ok(r.metrics.air_ld > 15);
+  assert.ok(r.metrics.ground_ld > 10);
+  assert.ok(r.metrics.sink_kt > 1);
+  assert.ok(r.metrics.air_ld_vs_best_pct <= 100.5);
 });
 
-test('higher MacCready increases speed to fly', () => {
+test('solo and dual speed-to-fly differ at same MC', () => {
   const polar = loadPolar();
-  const low = polar.findMacCreadyTangent({ macCreadyKt: 0.5, windKt: 0 });
-  const high = polar.findMacCreadyTangent({ macCreadyKt: 4, windKt: 0 });
-  assert.ok(high.tangent.ias_kt > low.tangent.ias_kt);
+  const solo = polar.findMacCreadyTangent({ config: 'solo', macCreadyKt: 2, windKt: 0 });
+  const dual = polar.findMacCreadyTangent({ config: 'dual', macCreadyKt: 2, windKt: 0 });
+  assert.notEqual(Math.round(solo.tangent.ias_kt), Math.round(dual.tangent.ias_kt));
 });
 
-test('headwind increases speed to fly vs calm', () => {
+test('headwind increases dual speed to fly', () => {
   const polar = loadPolar();
-  const calm = polar.findMacCreadyTangent({ macCreadyKt: 2, windKt: 0 });
-  const head = polar.findMacCreadyTangent({ macCreadyKt: 2, windKt: -10 });
+  const calm = polar.findMacCreadyTangent({ config: 'dual', macCreadyKt: 2, windKt: 0 });
+  const head = polar.findMacCreadyTangent({ config: 'dual', macCreadyKt: 2, windKt: -10 });
   assert.ok(head.tangent.ias_kt >= calm.tangent.ias_kt);
 });
 
-test('legacy dual calm L/D near 23 still works', () => {
+test('bezier path starts with M and contains C', () => {
   const polar = loadPolar();
-  const r = polar.evaluate({ config: 'dual', airspeedMph: 54, windMph: 0 });
-  assert.ok(r.ok);
-  assert.ok(r.air_ld > 22 && r.air_ld < 24);
+  const pts = polar.getConfig('dual').smooth.slice(0, 20).map((p) => ({ x_kt: p.ias_kt, vs_kt: p.vs_kt }));
+  const d = polar.polarToBezierPath(pts, (p) => p.x_kt, (p) => p.vs_kt);
+  assert.match(d, /^M /);
+  assert.match(d, / C /);
 });

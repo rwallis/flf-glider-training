@@ -5,41 +5,66 @@
  */
 (function (global) {
   const KT_TO_MPH = 1.1507794;
+  const MPH_TO_KT = 1 / KT_TO_MPH;
+  const MPH_TO_FPS = 5280 / 3600;
+  const KT_TO_FPS = 6076.12 / 3600;
 
   /**
-   * Digitized from MacCready construction chart (smooth-looking control points).
-   * Dense enough that Catmull–Rom resampling looks continuous on screen.
+   * SFM L/D anchors (mph) — densified, then converted to IAS/VS knots.
+   * Extra midpoints keep Catmull–Rom / Bezier output smooth on screen.
    */
-  const ANCHOR_POINTS = [
-    { ias_kt: 28, vs_kt: -1.62 },
-    { ias_kt: 30, vs_kt: -1.68 },
-    { ias_kt: 32, vs_kt: -1.72 },
-    { ias_kt: 34, vs_kt: -1.76 },
-    { ias_kt: 36, vs_kt: -1.80 },
-    { ias_kt: 38, vs_kt: -1.85 },
-    { ias_kt: 40, vs_kt: -1.90 },
-    { ias_kt: 42, vs_kt: -1.94 },
-    { ias_kt: 44, vs_kt: -1.98 },
-    { ias_kt: 46, vs_kt: -2.04 },
-    { ias_kt: 48, vs_kt: -2.10 },
-    { ias_kt: 50, vs_kt: -2.16 },
-    { ias_kt: 51, vs_kt: -2.20 },
-    { ias_kt: 52, vs_kt: -2.26 },
-    { ias_kt: 54, vs_kt: -2.40 },
-    { ias_kt: 55, vs_kt: -2.50 },
-    { ias_kt: 56, vs_kt: -2.62 },
-    { ias_kt: 58, vs_kt: -2.88 },
-    { ias_kt: 60, vs_kt: -3.20 },
-    { ias_kt: 62, vs_kt: -3.55 },
-    { ias_kt: 64, vs_kt: -3.90 },
-    { ias_kt: 65, vs_kt: -4.05 },
-    { ias_kt: 66, vs_kt: -4.25 },
-    { ias_kt: 68, vs_kt: -4.60 },
-    { ias_kt: 70, vs_kt: -5.00 },
-    { ias_kt: 72, vs_kt: -5.40 },
-    { ias_kt: 74, vs_kt: -5.80 },
-    { ias_kt: 75, vs_kt: -6.00 }
-  ];
+  const LD_TABLES = {
+    solo: {
+      label: 'Solo',
+      weight_lb: 790,
+      wing_loading_psf: 3.6,
+      ld_mph: [
+        [36, 16.8],
+        [39, 19.8],
+        [42, 21.6],
+        [45, 22.3],
+        [48, 22.6],
+        [51, 22.3],
+        [54, 21.8],
+        [57, 20.7],
+        [60, 19.5],
+        [63, 18.5],
+        [66, 17.5],
+        [69, 16.6],
+        [72, 15.8],
+        [75, 15.0],
+        [78, 14.2],
+        [81, 13.5],
+        [84, 12.8],
+        [87, 12.1],
+        [90, 11.4]
+      ]
+    },
+    dual: {
+      label: 'Dual',
+      weight_lb: 1040,
+      wing_loading_psf: 4.74,
+      ld_mph: [
+        [42, 17.0],
+        [45, 20.0],
+        [48, 22.0],
+        [51, 22.7],
+        [54, 23.0],
+        [57, 22.3],
+        [60, 21.4],
+        [63, 20.3],
+        [66, 19.2],
+        [69, 18.1],
+        [72, 17.0],
+        [75, 16.1],
+        [78, 15.2],
+        [81, 14.3],
+        [84, 13.5],
+        [87, 12.8],
+        [90, 12.2]
+      ]
+    }
+  };
 
   function lerp(a, b, t) {
     return a + (b - a) * t;
@@ -57,54 +82,97 @@
     );
   }
 
-  /** Resample anchors to ~0.5 kt spacing for a visually smooth curve. */
-  function buildSmoothPolar(stepKt = 0.5) {
-    const pts = ANCHOR_POINTS;
+  function ldTableToAnchors(ldMph) {
+    return ldMph.map(([mph, ld]) => {
+      const ias_kt = mph * MPH_TO_KT;
+      const vs_kt = -(ias_kt / ld);
+      return { ias_kt, vs_kt, mph, ld };
+    });
+  }
+
+  /** Dense resample (~0.2 kt) for smooth curves + accurate MacCready search. */
+  function buildSmoothPolar(anchors, stepKt = 0.2) {
+    const pts = anchors;
     const out = [];
     for (let i = 0; i < pts.length - 1; i += 1) {
       const p0 = pts[Math.max(0, i - 1)];
       const p1 = pts[i];
       const p2 = pts[i + 1];
       const p3 = pts[Math.min(pts.length - 1, i + 2)];
-      const segLen = Math.max(1, Math.round((p2.ias_kt - p1.ias_kt) / stepKt));
+      const segLen = Math.max(2, Math.round((p2.ias_kt - p1.ias_kt) / stepKt));
       for (let s = 0; s < segLen; s += 1) {
         const t = s / segLen;
-        out.push({
-          ias_kt: catmullRom(p0.ias_kt, p1.ias_kt, p2.ias_kt, p3.ias_kt, t),
-          vs_kt: catmullRom(p0.vs_kt, p1.vs_kt, p2.vs_kt, p3.vs_kt, t)
-        });
+        const ias = catmullRom(p0.ias_kt, p1.ias_kt, p2.ias_kt, p3.ias_kt, t);
+        const vs = catmullRom(p0.vs_kt, p1.vs_kt, p2.vs_kt, p3.vs_kt, t);
+        const mph = ias * KT_TO_MPH;
+        const ld = ias / Math.max(0.05, Math.abs(vs));
+        out.push({ ias_kt: ias, vs_kt: vs, mph, ld });
       }
     }
-    out.push({ ...pts[pts.length - 1] });
+    const last = pts[pts.length - 1];
+    out.push({
+      ias_kt: last.ias_kt,
+      vs_kt: last.vs_kt,
+      mph: last.mph,
+      ld: last.ld
+    });
     return out;
   }
 
-  const SMOOTH_POLAR = buildSmoothPolar(0.5);
-
-  function interpolateVs(iasKt) {
-    const pts = SMOOTH_POLAR;
-    if (iasKt <= pts[0].ias_kt) return pts[0].vs_kt;
-    if (iasKt >= pts[pts.length - 1].ias_kt) return pts[pts.length - 1].vs_kt;
-    for (let i = 0; i < pts.length - 1; i += 1) {
-      const a = pts[i];
-      const b = pts[i + 1];
-      if (iasKt >= a.ias_kt && iasKt <= b.ias_kt) {
-        const t = (iasKt - a.ias_kt) / (b.ias_kt - a.ias_kt || 1);
-        return lerp(a.vs_kt, b.vs_kt, t);
-      }
+  /** Catmull–Rom → cubic Bezier segments for SVG path (visually smooth). */
+  function polarToBezierPath(points, mapX, mapY) {
+    if (!points.length) return '';
+    if (points.length === 1) {
+      return `M ${mapX(points[0]).toFixed(2)} ${mapY(points[0]).toFixed(2)}`;
     }
-    return pts[pts.length - 1].vs_kt;
+    let d = `M ${mapX(points[0]).toFixed(2)} ${mapY(points[0]).toFixed(2)}`;
+    for (let i = 0; i < points.length - 1; i += 1) {
+      const p0 = points[Math.max(0, i - 1)];
+      const p1 = points[i];
+      const p2 = points[i + 1];
+      const p3 = points[Math.min(points.length - 1, i + 2)];
+      const c1x = mapX(p1) + (mapX(p2) - mapX(p0)) / 6;
+      const c1y = mapY(p1) + (mapY(p2) - mapY(p0)) / 6;
+      const c2x = mapX(p2) - (mapX(p3) - mapX(p1)) / 6;
+      const c2y = mapY(p2) - (mapY(p3) - mapY(p1)) / 6;
+      d += ` C ${c1x.toFixed(2)} ${c1y.toFixed(2)}, ${c2x.toFixed(2)} ${c2y.toFixed(2)}, ${mapX(p2).toFixed(2)} ${mapY(p2).toFixed(2)}`;
+    }
+    return d;
   }
 
-  /**
-   * MacCready: maximize slope from (0, mc) to each polar point in GS frame.
-   * slope = (vs - mc) / gs, gs = ias + wind.
-   */
-  function findMacCreadyTangent({ macCreadyKt = 2, windKt = 0 } = {}) {
+  const CONFIGS = {};
+  for (const key of Object.keys(LD_TABLES)) {
+    const meta = LD_TABLES[key];
+    const anchors = ldTableToAnchors(meta.ld_mph);
+    const smooth = buildSmoothPolar(anchors, 0.2);
+    let best = smooth[0];
+    let minSink = smooth[0];
+    for (const p of smooth) {
+      if (p.ld > best.ld) best = p;
+      if (Math.abs(p.vs_kt) < Math.abs(minSink.vs_kt)) minSink = p;
+    }
+    CONFIGS[key] = {
+      key,
+      label: meta.label,
+      weight_lb: meta.weight_lb,
+      wing_loading_psf: meta.wing_loading_psf,
+      anchors,
+      smooth,
+      best_ld: best,
+      min_sink: minSink
+    };
+  }
+
+  function getConfig(key) {
+    return CONFIGS[key] || CONFIGS.dual;
+  }
+
+  function findMacCreadyTangent({ config = 'dual', macCreadyKt = 2, windKt = 0 } = {}) {
+    const cfg = getConfig(config);
     const mc = Number(macCreadyKt);
     const wind = Number(windKt);
     let best = null;
-    for (const p of SMOOTH_POLAR) {
+    for (const p of cfg.smooth) {
       const gs = p.ias_kt + wind;
       if (gs <= 1) continue;
       const slope = (p.vs_kt - mc) / gs;
@@ -114,30 +182,56 @@
           vs_kt: p.vs_kt,
           gs_kt: gs,
           slope,
-          mph: p.ias_kt * KT_TO_MPH
+          mph: p.mph,
+          ld: p.ld
         };
       }
     }
     if (!best) {
-      return { ok: false, error: 'No tangent (wind too strong vs polar)' };
+      return { ok: false, error: 'No tangent (wind too strong vs polar)', config: cfg };
     }
+
+    const sinkKt = Math.abs(best.vs_kt);
+    const sinkFps = sinkKt * KT_TO_FPS;
+    const airLd = best.ld;
+    const groundLd = best.gs_kt / sinkKt;
+    const bestLd = cfg.best_ld.ld;
+    const calmTangent = (() => {
+      let b = null;
+      for (const p of cfg.smooth) {
+        if (p.ias_kt <= 1) continue;
+        const slope = (p.vs_kt - mc) / p.ias_kt;
+        if (!b || slope > b.slope) b = { ...p, slope, gs_kt: p.ias_kt };
+      }
+      return b;
+    })();
+
     return {
       ok: true,
+      config: cfg,
       mac_cready_kt: mc,
       wind_kt: wind,
       tangent: best,
-      // Line from (0, mc) through tangent point, extended for drawing
-      line: {
-        x0: 0,
-        y0: mc,
-        x1: best.gs_kt,
-        y1: best.vs_kt
-      },
-      polar_gs: SMOOTH_POLAR.map((p) => ({
-        x_kt: p.ias_kt + wind, // groundspeed axis for wind-shifted polar
+      line: { x0: 0, y0: mc, x1: best.gs_kt, y1: best.vs_kt },
+      polar_gs: cfg.smooth.map((p) => ({
+        x_kt: p.ias_kt + wind,
         ias_kt: p.ias_kt,
-        vs_kt: p.vs_kt
-      })).filter((p) => p.x_kt > 0)
+        vs_kt: p.vs_kt,
+        ld: p.ld
+      })).filter((p) => p.x_kt > 0),
+      metrics: {
+        sink_kt: sinkKt,
+        sink_fps: sinkFps,
+        sink_fpm: sinkFps * 60,
+        air_ld: airLd,
+        ground_ld: groundLd,
+        best_ld: bestLd,
+        air_ld_vs_best_pct: (airLd / bestLd) * 100,
+        ground_ld_vs_best_pct: (groundLd / bestLd) * 100,
+        sink_vs_min_pct: (sinkKt / Math.abs(cfg.min_sink.vs_kt)) * 100,
+        calm_stf_kt: calmTangent ? calmTangent.ias_kt : null,
+        delta_stf_kt: calmTangent ? best.ias_kt - calmTangent.ias_kt : 0
+      }
     };
   }
 
@@ -148,57 +242,31 @@
     return `${Math.abs(w)} kt headwind`;
   }
 
-  // --- legacy L/D helpers (kept for older evaluate callers / tests) ---
-  const MPH_TO_FPS = 5280 / 3600;
+  // Legacy evaluate API (mph / L/D table)
   const POLAR = {
     aircraft: 'SGS 2-33A',
-    source: 'MacCready chart digitization + SFM performance curves',
-    configs: {
-      solo: {
-        label: 'Solo',
-        weight_lb: 790,
-        wing_loading_psf: 3.6,
-        points: [
-          { mph: 36, ld: 16.8 },
-          { mph: 42, ld: 21.6 },
-          { mph: 48, ld: 22.6 },
-          { mph: 54, ld: 21.8 },
-          { mph: 60, ld: 19.5 },
-          { mph: 66, ld: 17.5 },
-          { mph: 72, ld: 15.8 },
-          { mph: 78, ld: 14.2 },
-          { mph: 84, ld: 12.8 },
-          { mph: 90, ld: 11.4 }
-        ]
-      },
-      dual: {
-        label: 'Dual',
-        weight_lb: 1040,
-        wing_loading_psf: 4.74,
-        points: [
-          { mph: 42, ld: 17.0 },
-          { mph: 48, ld: 22.0 },
-          { mph: 54, ld: 23.0 },
-          { mph: 60, ld: 21.4 },
-          { mph: 66, ld: 19.2 },
-          { mph: 72, ld: 17.0 },
-          { mph: 78, ld: 15.2 },
-          { mph: 84, ld: 13.5 },
-          { mph: 90, ld: 12.2 }
-        ]
-      }
-    }
+    source: 'SFM calculated performance curves (digitized)',
+    configs: Object.fromEntries(
+      Object.entries(LD_TABLES).map(([key, meta]) => [
+        key,
+        {
+          label: meta.label,
+          weight_lb: meta.weight_lb,
+          wing_loading_psf: meta.wing_loading_psf,
+          points: meta.ld_mph.map(([mph, ld]) => ({ mph, ld }))
+        }
+      ])
+    )
   };
 
   function enrich(points) {
     return points.map((p) => {
       const vFps = p.mph * MPH_TO_FPS;
-      const sinkFps = vFps / p.ld;
-      return { mph: p.mph, ld: p.ld, sink_fps: sinkFps };
+      return { mph: p.mph, ld: p.ld, sink_fps: vFps / p.ld };
     });
   }
 
-  function getConfig(key) {
+  function getConfigLegacy(key) {
     const cfg = POLAR.configs[key] || POLAR.configs.dual;
     return { ...cfg, key, points: enrich(cfg.points) };
   }
@@ -227,7 +295,7 @@
   }
 
   function evaluate({ config = 'dual', airspeedMph = 54, windMph = 0 } = {}) {
-    const cfg = getConfig(config);
+    const cfg = getConfigLegacy(config);
     const air = interpolatePoint(cfg.points, Number(airspeedMph));
     if (!air) return { ok: false, error: 'No polar data' };
     const groundMph = Number(airspeedMph) + Number(windMph);
@@ -253,7 +321,7 @@
   }
 
   function sampleGroundLdCurve(config, windMph, step = 2) {
-    const cfg = getConfig(config);
+    const cfg = getConfigLegacy(config);
     const out = [];
     for (let mph = cfg.points[0].mph; mph <= cfg.points[cfg.points.length - 1].mph + 0.001; mph += step) {
       const r = evaluate({ config, airspeedMph: mph, windMph });
@@ -266,16 +334,15 @@
 
   global.Sgs233Polar = {
     POLAR,
-    ANCHOR_POINTS,
-    SMOOTH_POLAR,
+    CONFIGS,
     KT_TO_MPH,
     MPH_TO_FPS,
     getConfig,
     evaluate,
     sampleGroundLdCurve,
-    interpolateVs,
     findMacCreadyTangent,
     windLabel,
+    polarToBezierPath,
     buildSmoothPolar
   };
 })(typeof window !== 'undefined' ? window : globalThis);
