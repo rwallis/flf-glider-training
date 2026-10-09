@@ -9,8 +9,8 @@
     },
     {
       "id": "private",
-      "title": "Private Pilot — Glider",
-      "description": "Private PTS bank — upload Q&A when you are ready (last).",
+      "title": "Private Glider",
+      "description": "Private Pilot — Glider PTS bank — upload Q&A when you are ready (last).",
       "sort_order": 20,
       "status": "upload_later"
     },
@@ -30,8 +30,8 @@
     },
     {
       "id": "aircraft_233",
-      "title": "Schweizer 2-33",
-      "description": "SFM numbers, systems, ADs, and FLF ops for the club trainer.",
+      "title": "SGS 2-33",
+      "description": "SFM numbers, systems, ADs, and FLF ops for the club Schweizer 2-33 trainer.",
       "sort_order": 5,
       "status": "ready"
     }
