@@ -79,15 +79,18 @@
     }
     .track .badge {
       flex: 0 0 auto;
-      width: 44px;
+      min-width: 52px;
       height: 44px;
+      padding: 0 8px;
       border-radius: 12px;
       display: grid;
       place-items: center;
       font-weight: 800;
       color: #fff;
       background: var(--sky);
-      font-size: 0.75rem;
+      font-size: 0.68rem;
+      text-align: center;
+      line-height: 1.1;
     }
     .track.upload .badge { background: var(--copper); }
     .track h2 { margin: 0 0 4px; font-size: 1.05rem; }
@@ -117,11 +120,18 @@
       padding: 8px 12px;
       background: #E8F2F8;
       color: var(--sky-deep);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 700;
       border: 0;
+      white-space: nowrap;
     }
     .chip.active { background: var(--sky-deep); color: #fff; }
+    .hint {
+      margin: -4px 0 12px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.35;
+    }
     .flash {
       background: var(--card);
       border: 1px solid var(--line);
@@ -227,7 +237,7 @@
   <nav class="nav" id="nav">
     <button type="button" data-view="home"><span>⌂</span>Home</button>
     <button type="button" data-view="study"><span>✎</span>Study</button>
-    <button type="button" data-view="aircraft"><span>✈</span>2-33</button>
+    <button type="button" data-view="aircraft"><span>✈</span>SGS 2-33</button>
     <button type="button" data-view="progress"><span>▣</span>Progress</button>
     <button type="button" data-view="import"><span>↑</span>Import</button>
   </nav>
@@ -269,14 +279,14 @@
       return data;
     }
 
-    function trackShort(id) {
+    function trackLabel(id) {
       return ({
-        common: 'COM',
-        private: 'PRI',
-        commercial: 'CML',
-        cfi_g: 'CFI',
-        aircraft_233: '233'
-      })[id] || id.slice(0, 3).toUpperCase();
+        common: 'Common Knowledge',
+        private: 'Private Glider',
+        commercial: 'Commercial',
+        cfi_g: 'CFI-G',
+        aircraft_233: 'SGS 2-33'
+      })[id] || id;
     }
 
     function setNav() {
@@ -337,12 +347,12 @@
           <div class="stat"><b>${s.due}</b><span>Due</span></div>
         </div>
         <p style="color:var(--muted);font-size:0.9rem;margin:0 0 12px">
-          Self-study now: <strong>Commercial</strong> + Common + 2-33.
-          Upload CFI-G Q&amp;A next, Private last.
+          Self-study now: <strong>Commercial</strong> + Common Knowledge + SGS 2-33.
+          Upload CFI-G Q&amp;A next, Private Glider last.
         </p>
         ${state.tracks.map((t) => `
           <article class="track ${t.status === 'upload_later' ? 'upload' : ''}">
-            <div class="badge">${trackShort(t.id)}</div>
+            <div class="badge">${trackLabel(t.id)}</div>
             <div style="flex:1">
               <h2>${escapeHtml(t.title)}</h2>
               <p>${escapeHtml(t.description || '')}</p>
@@ -363,14 +373,21 @@
       return `
         <div class="chip-row">
           ${['commercial','common','aircraft_233','cfi_g','private'].map((id) => `
-            <button type="button" class="chip ${state.study.track === id ? 'active' : ''}" data-set-track="${id}">${trackShort(id)}</button>
+            <button type="button" class="chip ${state.study.track === id ? 'active' : ''}" data-set-track="${id}">${trackLabel(id)}</button>
           `).join('')}
         </div>
         <div class="chip-row">
-          <button type="button" class="chip ${state.study.mode === 'due' ? 'active' : ''}" data-set-mode="due">Due / new</button>
-          <button type="button" class="chip ${state.study.mode === 'all' ? 'active' : ''}" data-set-mode="all">All</button>
-          <button type="button" class="chip ${state.study.mode === 'weak' ? 'active' : ''}" data-set-mode="weak">Weak</button>
+          <button type="button" class="chip ${state.study.mode === 'due' ? 'active' : ''}" data-set-mode="due">Due &amp; new</button>
+          <button type="button" class="chip ${state.study.mode === 'all' ? 'active' : ''}" data-set-mode="all">All cards</button>
+          <button type="button" class="chip ${state.study.mode === 'weak' ? 'active' : ''}" data-set-mode="weak">Weak cards</button>
         </div>
+        <p class="hint">${
+          state.study.mode === 'due'
+            ? 'Due &amp; new: cards you have never studied, plus cards whose review date is today or overdue.'
+            : state.study.mode === 'weak'
+              ? 'Weak cards: ones you marked Again often or that have a low ease score.'
+              : 'All cards: every card in this category, ignoring review schedule.'
+        }</p>
         <label>Topic</label>
         <select id="topicSelect">
           <option value="">All topics</option>
@@ -460,7 +477,7 @@
         </div>
         <h2 style="font-size:1rem;margin:18px 0 8px">Recent imports</h2>
         ${(state.imports || []).length ? state.imports.map((imp) => `
-          <div class="track"><div class="badge">${trackShort(imp.track_id)}</div>
+          <div class="track"><div class="badge">${trackLabel(imp.track_id)}</div>
             <div><h2 style="font-size:0.95rem">${escapeHtml(imp.filename || 'upload')}</h2>
             <p>${imp.card_count} cards · ${escapeHtml(imp.created_at || '')}</p></div></div>
         `).join('') : '<div class="empty">No imports yet</div>'}
