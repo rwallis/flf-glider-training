@@ -1,7 +1,8 @@
 /**
  * SGS 2-33 polar + MacCready tangent construction (browser).
- * Chart units: IAS knots, vertical speed knots (+ climb / − sink).
- * Wind: positive = tailwind kt, negative = headwind kt (shifts polar on GS axis).
+ * Chart: IAS / groundspeed in mph (X), vertical speed in knots (Y, + climb / − sink).
+ * MacCready ring setting is in knots (same as vertical speed).
+ * Wind: positive = tailwind mph, negative = headwind mph.
  */
 (function (global) {
   const KT_TO_MPH = 1.1507794;
@@ -167,20 +168,24 @@
     return CONFIGS[key] || CONFIGS.dual;
   }
 
-  function findMacCreadyTangent({ config = 'dual', macCreadyKt = 2, windKt = 0 } = {}) {
+  function findMacCreadyTangent({ config = 'dual', macCreadyKt = 2, windMph = 0 } = {}) {
     const cfg = getConfig(config);
     const mc = Number(macCreadyKt);
-    const wind = Number(windKt);
+    const windMphN = Number(windMph);
+    const windKt = windMphN * MPH_TO_KT;
     let best = null;
     for (const p of cfg.smooth) {
-      const gs = p.ias_kt + wind;
-      if (gs <= 1) continue;
-      const slope = (p.vs_kt - mc) / gs;
+      const gsMph = p.mph + windMphN;
+      if (gsMph <= 1) continue;
+      const gsKt = gsMph * MPH_TO_KT;
+      // Optimize in knot-consistent GS so L/D geometry stays physical; plot X in mph.
+      const slope = (p.vs_kt - mc) / gsKt;
       if (!best || slope > best.slope) {
         best = {
           ias_kt: p.ias_kt,
           vs_kt: p.vs_kt,
-          gs_kt: gs,
+          gs_kt: gsKt,
+          gs_mph: gsMph,
           slope,
           mph: p.mph,
           ld: p.ld
@@ -201,7 +206,9 @@
       for (const p of cfg.smooth) {
         if (p.ias_kt <= 1) continue;
         const slope = (p.vs_kt - mc) / p.ias_kt;
-        if (!b || slope > b.slope) b = { ...p, slope, gs_kt: p.ias_kt };
+        if (!b || slope > b.slope) {
+          b = { ...p, slope, gs_kt: p.ias_kt, gs_mph: p.mph };
+        }
       }
       return b;
     })();
@@ -210,15 +217,17 @@
       ok: true,
       config: cfg,
       mac_cready_kt: mc,
-      wind_kt: wind,
+      wind_mph: windMphN,
+      wind_kt: windKt,
       tangent: best,
-      line: { x0: 0, y0: mc, x1: best.gs_kt, y1: best.vs_kt },
+      line: { x0: 0, y0: mc, x1: best.gs_mph, y1: best.vs_kt },
       polar_gs: cfg.smooth.map((p) => ({
-        x_kt: p.ias_kt + wind,
+        x_mph: p.mph + windMphN,
+        mph: p.mph,
         ias_kt: p.ias_kt,
         vs_kt: p.vs_kt,
         ld: p.ld
-      })).filter((p) => p.x_kt > 0),
+      })).filter((p) => p.x_mph > 0),
       metrics: {
         sink_kt: sinkKt,
         sink_fps: sinkFps,
@@ -229,17 +238,17 @@
         air_ld_vs_best_pct: (airLd / bestLd) * 100,
         ground_ld_vs_best_pct: (groundLd / bestLd) * 100,
         sink_vs_min_pct: (sinkKt / Math.abs(cfg.min_sink.vs_kt)) * 100,
-        calm_stf_kt: calmTangent ? calmTangent.ias_kt : null,
-        delta_stf_kt: calmTangent ? best.ias_kt - calmTangent.ias_kt : 0
+        calm_stf_mph: calmTangent ? calmTangent.mph : null,
+        delta_stf_mph: calmTangent ? best.mph - calmTangent.mph : 0
       }
     };
   }
 
-  function windLabel(windKt) {
-    const w = Number(windKt);
-    if (w === 0) return '0 kt calm';
-    if (w > 0) return `${w} kt tailwind`;
-    return `${Math.abs(w)} kt headwind`;
+  function windLabel(windMph) {
+    const w = Number(windMph);
+    if (w === 0) return '0 mph calm';
+    if (w > 0) return `${w} mph tailwind`;
+    return `${Math.abs(w)} mph headwind`;
   }
 
   // Legacy evaluate API (mph / L/D table)

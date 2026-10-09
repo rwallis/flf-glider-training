@@ -445,7 +445,7 @@
         page: 'hub', // hub | sgs233
         config: 'dual',
         macCready: 2.0,
-        wind: 0 // kt; +tail / −head
+        wind: 0 // mph; +tail / −head
       }
     };
 
@@ -748,17 +748,17 @@
       const plotW = W - pad.l - pad.r;
       const plotH = H - pad.t - pad.b;
       const xMin = 0;
-      const xMax = 80;
+      const xMax = 90;
       const yMin = -6;
       const yMax = 4;
-      const xOf = (kt) => pad.l + ((kt - xMin) / (xMax - xMin)) * plotW;
-      const yOf = (vs) => pad.t + (1 - (vs - yMin) / (yMax - yMin)) * plotH;
+      const xOf = (mph) => pad.l + ((mph - xMin) / (xMax - xMin)) * plotW;
+      const yOf = (vsKt) => pad.t + (1 - (vsKt - yMin) / (yMax - yMin)) * plotH;
       const zeroY = yOf(0);
 
-      const polarPts = (result.polar_gs || []).filter((p) => p.x_kt >= 0 && p.x_kt <= xMax + 2);
+      const polarPts = (result.polar_gs || []).filter((p) => p.x_mph >= 0 && p.x_mph <= xMax + 2);
       const polarPath = Sgs233Polar.polarToBezierPath(
         polarPts,
-        (p) => xOf(p.x_kt),
+        (p) => xOf(p.x_mph),
         (p) => yOf(p.vs_kt)
       );
 
@@ -766,20 +766,22 @@
       if (result.ok && result.tangent) {
         const t = result.tangent;
         const mc = result.mac_cready_kt;
-        const slope = t.slope;
+        // Extend tangent in chart space: Y knots vs X mph (display geometry)
+        const xTouch = t.gs_mph;
+        const yTouch = t.vs_kt;
+        const slopeChart = (yTouch - mc) / Math.max(0.1, xTouch);
         const xEnd = xMax;
-        const yEnd = mc + slope * xEnd;
-        const xTouch = t.gs_kt;
+        const yEnd = mc + slopeChart * xEnd;
         tangentLayer = `
           <line x1="${xOf(0)}" y1="${yOf(mc)}" x2="${xOf(xEnd)}" y2="${yOf(yEnd)}" stroke="#E6B800" stroke-width="2.5"/>
           <line x1="${xOf(xTouch)}" y1="${yOf(t.vs_kt)}" x2="${xOf(xTouch)}" y2="${zeroY}" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 3"/>
           <circle cx="${xOf(xTouch)}" cy="${yOf(t.vs_kt)}" r="5" fill="#E6B800" stroke="#1C2A33" stroke-width="1.2"/>
           <text x="${xOf(xTouch) + 6}" y="${yOf(t.vs_kt) - 8}" font-size="11" fill="#1C2A33" font-weight="700">Tangent point</text>
-          <text x="${xOf(xTouch)}" y="${zeroY + 14}" text-anchor="middle" font-size="11" fill="#1C2A33" font-weight="700">${Math.round(t.ias_kt)}</text>
+          <text x="${xOf(xTouch)}" y="${zeroY + 14}" text-anchor="middle" font-size="11" fill="#1C2A33" font-weight="700">${Math.round(t.mph)}</text>
         `;
       }
 
-      const xTicks = [0, 15, 30, 45, 60, 75];
+      const xTicks = [0, 30, 42, 54, 66, 78, 90];
       const yTicks = [4, 2, 0, -2, -4, -6];
 
       return `
@@ -790,7 +792,7 @@
           ${yTicks.map((v) => `<line x1="${pad.l}" y1="${yOf(v)}" x2="${pad.l + plotW}" y2="${yOf(v)}" stroke="${v === 0 ? '#94a3b8' : '#eef2f6'}" stroke-width="${v === 0 ? 1.4 : 1}"/><text x="${pad.l - 6}" y="${yOf(v) + 3}" text-anchor="end" font-size="10" fill="#64748b">${v}</text>`).join('')}
           <path d="${polarPath}" fill="none" stroke="#2563eb" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
           ${tangentLayer}
-          <text x="${W / 2}" y="${H - 2}" text-anchor="middle" font-size="11" fill="#334155">Indicated airspeed (knots)</text>
+          <text x="${W / 2}" y="${H - 2}" text-anchor="middle" font-size="11" fill="#334155">Indicated airspeed (mph)</text>
           <text x="14" y="${pad.t + plotH / 2}" text-anchor="middle" font-size="11" fill="#334155" transform="rotate(-90 14 ${pad.t + plotH / 2})">Vertical speed (knots)</text>
         </svg>
       `;
@@ -819,10 +821,10 @@
       const airRel = relativeText(m.air_ld_vs_best_pct, 'best L/D');
       const gndRel = relativeText(m.ground_ld_vs_best_pct, 'best L/D');
       const sinkRel = relativeText(m.sink_vs_min_pct, 'min sink');
-      const stfDelta = m.delta_stf_kt;
-      const stfRel = Math.abs(stfDelta) < 0.3
+      const stfDelta = m.delta_stf_mph;
+      const stfRel = Math.abs(stfDelta) < 0.4
         ? 'same as calm STF'
-        : `${stfDelta > 0 ? '+' : ''}${fmt(stfDelta, 1)} kt vs calm STF`;
+        : `${stfDelta > 0 ? '+' : ''}${fmt(stfDelta, 0)} mph vs calm STF`;
       return `
         <div class="polar-pills" id="polarPills">
           <div class="polar-pill">
@@ -842,7 +844,7 @@
           </div>
           <div class="polar-pill">
             <span class="k">Speed to fly</span>
-            <span class="v" id="pillStf">${Math.round(result.tangent.ias_kt)} kt</span>
+            <span class="v" id="pillStf">${Math.round(result.tangent.mph)} mph</span>
             <span class="r" id="pillStfRel">${stfRel}</span>
           </div>
         </div>
@@ -863,12 +865,12 @@
       const result = polar.findMacCreadyTangent({
         config: state.aircraft.config,
         macCreadyKt: state.aircraft.macCready,
-        windKt: state.aircraft.wind
+        windMph: state.aircraft.wind
       });
       const cfg = result.config || polar.getConfig(state.aircraft.config);
       const t = result.ok ? result.tangent : null;
       const status = result.ok
-        ? `Tangent touches at <strong>${Math.round(t.ias_kt)} kt</strong> (${Math.round(t.mph)} mph): approximate still-air speed to fly.`
+        ? `Tangent touches at <strong>${Math.round(t.mph)} mph</strong>: approximate still-air speed to fly.`
         : escapeHtml(result.error || 'No tangent');
       return `
         <div class="btn-row" style="margin-top:0">
@@ -886,7 +888,7 @@
           </div>
           <div>
             <label>Wind: <span id="polarWindLabel">${Sgs233Polar.windLabel(state.aircraft.wind)}</span></label>
-            <input id="polarWind" type="range" min="-25" max="25" step="1" value="${state.aircraft.wind}" />
+            <input id="polarWind" type="range" min="-30" max="30" step="1" value="${state.aircraft.wind}" />
           </div>
         </div>
         <div id="polarSvgWrap">${macCreadySvg(result)}</div>
@@ -908,7 +910,7 @@
       const result = Sgs233Polar.findMacCreadyTangent({
         config: state.aircraft.config,
         macCreadyKt: state.aircraft.macCready,
-        windKt: state.aircraft.wind
+        windMph: state.aircraft.wind
       });
       const mcLabel = document.getElementById('mcLabel');
       const windLabel = document.getElementById('polarWindLabel');
@@ -918,7 +920,7 @@
       if (status) {
         if (result.ok) {
           const t = result.tangent;
-          status.innerHTML = `Tangent touches at <strong>${Math.round(t.ias_kt)} kt</strong> (${Math.round(t.mph)} mph): approximate still-air speed to fly.`;
+          status.innerHTML = `Tangent touches at <strong>${Math.round(t.mph)} mph</strong>: approximate still-air speed to fly.`;
         } else {
           status.textContent = result.error || 'No tangent';
         }
