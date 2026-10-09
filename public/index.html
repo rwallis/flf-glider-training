@@ -327,7 +327,6 @@
   <nav class="nav" id="nav">
     <button type="button" data-view="home"><span>⌂</span>Home</button>
     <button type="button" data-view="study"><span>✎</span>Study</button>
-    <button type="button" data-view="aircraft"><span>✈</span>SGS 2-33</button>
     <button type="button" data-view="progress"><span>▣</span>Progress</button>
     <button type="button" data-view="import"><span>↑</span>Import</button>
   </nav>
@@ -685,12 +684,11 @@
       const sub = document.getElementById('subtitle');
       if (state.view === 'home') sub.textContent = 'Pick a track · Commercial is ready';
       if (state.view === 'study') sub.textContent = `Studying ${state.study.track} · ${state.study.cards.length} in session`;
-      if (state.view === 'aircraft') sub.textContent = 'Schweizer 2-33 systems & limits';
       if (state.view === 'progress') sub.textContent = 'Your spaced-repetition progress';
       if (state.view === 'import') sub.textContent = 'Upload CFI-G then Private Q&A';
 
       if (state.view === 'home') app.innerHTML = renderHome();
-      else if (state.view === 'study' || state.view === 'aircraft') app.innerHTML = renderStudy();
+      else if (state.view === 'study') app.innerHTML = renderStudy();
       else if (state.view === 'progress') app.innerHTML = renderProgress();
       else if (state.view === 'import') app.innerHTML = renderImport();
 
@@ -700,7 +698,7 @@
     function bind() {
       app.querySelectorAll('[data-open-study]').forEach((btn) => {
         btn.addEventListener('click', async () => {
-          state.view = btn.dataset.openStudy === 'aircraft_233' ? 'aircraft' : 'study';
+          state.view = 'study';
           state.study.track = btn.dataset.openStudy;
           state.study.topic = '';
           state.topics = (await api('/api/topics?track=' + encodeURIComponent(state.study.track))).topics;
@@ -784,13 +782,6 @@
       state.view = btn.dataset.view;
       if (state.view === 'home' || state.view === 'progress') {
         await loadHome();
-        return;
-      }
-      if (state.view === 'aircraft') {
-        state.study.track = 'aircraft_233';
-        state.study.topic = '';
-        state.topics = (await api('/api/topics?track=aircraft_233')).topics;
-        await loadStudyDeck();
         return;
       }
       if (state.view === 'study') {
