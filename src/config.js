@@ -6,6 +6,23 @@ function readBoolean(name, defaultValue = false) {
   return ['1', 'true', 'yes', 'on'].includes(value.trim().toLowerCase());
 }
 
+/** Trim and strip accidental surrounding quotes from Railway / pasted secrets. */
+function readEnv(...names) {
+  for (const name of names) {
+    const raw = process.env[name];
+    if (raw == null) continue;
+    let value = String(raw).trim();
+    if (
+      (value.startsWith('"') && value.endsWith('"')) ||
+      (value.startsWith("'") && value.endsWith("'"))
+    ) {
+      value = value.slice(1, -1).trim();
+    }
+    if (value) return value;
+  }
+  return '';
+}
+
 function shouldUseDatabaseSsl(databaseUrl) {
   if (readBoolean('DATABASE_SSL', false) || process.env.PGSSLMODE?.toLowerCase() === 'require') {
     return true;
@@ -15,21 +32,24 @@ function shouldUseDatabaseSsl(databaseUrl) {
 
 function loadAuthConfig() {
   const enabled = readBoolean('AUTH_ENABLED', false);
-  const clientId = process.env.GOOGLE_CLIENT_ID?.trim() || '';
-  const clientSecret = process.env.GOOGLE_CLIENT_SECRET?.trim() || '';
-  const sessionSecret = process.env.SESSION_SECRET?.trim() || '';
-  const appBaseUrl = (process.env.APP_BASE_URL?.trim() || '').replace(/\/$/, '');
+  const clientId = readEnv('GOOGLE_CLIENT_ID', 'GOOGLE_OAUTH_CLIENT_ID');
+  const clientSecret = readEnv('GOOGLE_CLIENT_SECRET', 'GOOGLE_OAUTH_CLIENT_SECRET');
+  const sessionSecret = readEnv('SESSION_SECRET');
+  const appBaseUrl = readEnv('APP_BASE_URL').replace(/\/$/, '');
   const isProduction = process.env.NODE_ENV === 'production' || Boolean(process.env.RAILWAY_ENVIRONMENT);
 
   if (enabled) {
-    if (!sessionSecret) {
-      throw new Error('SESSION_SECRET is required when AUTH_ENABLED=true');
-    }
-    if (!clientId || !clientSecret) {
-      throw new Error('GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET are required when AUTH_ENABLED=true');
-    }
-    if (!appBaseUrl) {
-      throw new Error('APP_BASE_URL is required when AUTH_ENABLED=true');
+    const missing = [];
+    if (!clientId) missing.push('GOOGLE_CLIENT_ID');
+    if (!clientSecret) missing.push('GOOGLE_CLIENT_SECRET');
+    if (!sessionSecret) missing.push('SESSION_SECRET');
+    if (!appBaseUrl) missing.push('APP_BASE_URL');
+    if (missing.length) {
+      throw new Error(
+        `AUTH_ENABLED=true but missing/empty on this service: ${missing.join(', ')}. ` +
+          'In Railway open flf-glider-training → Variables (not hotspots/Postgres), ' +
+          'set those exact names, then Redeploy.'
+      );
     }
   }
 
