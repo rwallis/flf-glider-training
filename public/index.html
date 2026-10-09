@@ -259,20 +259,38 @@
     .polar-chart {
       width: 100%;
       height: auto;
-      background: #fff;
+      background: #fafbfc;
       border: 1px solid var(--line);
       border-radius: 14px;
       display: block;
-      margin: 10px 0 12px;
+      margin: 8px 0 10px;
     }
-    .polar-metrics {
+    .polar-sliders {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-      margin: 10px 0 14px;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 8px 0 4px;
     }
-    .polar-metrics .stat b { font-size: 1.15rem; }
-    .polar-metrics .stat.wide { grid-column: 1 / -1; }
+    .polar-sliders label {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 0.8rem;
+    }
+    .polar-sliders input[type="range"] {
+      margin: 4px 0 0;
+      padding: 0;
+      border: none;
+      background: transparent;
+    }
+    .polar-status {
+      background: #E8F2F8;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 0.88rem;
+      color: var(--ink);
+      margin: 0 0 10px;
+    }
     .polar-ref {
       width: 100%;
       border-radius: 12px;
@@ -280,13 +298,6 @@
       margin-top: 8px;
       display: block;
     }
-    .wind-zero {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      margin: -4px 0 12px;
-    }
-    .wind-zero button { padding: 8px 12px; font-size: 0.8rem; }
     .warn {
       background: #fff4e5;
       border: 1px solid #f0c36d;
@@ -295,6 +306,9 @@
       padding: 10px 12px;
       font-size: 0.88rem;
       margin: 8px 0 12px;
+    }
+    @media (max-width: 420px) {
+      .polar-sliders { grid-template-columns: 1fr; }
     }
     .nav button {
       background: transparent;
@@ -391,9 +405,8 @@
       imports: [],
       aircraft: {
         page: 'hub', // hub | sgs233
-        config: 'dual',
-        airspeed: 54,
-        wind: 0
+        macCready: 2.0,
+        wind: 0 // kt; +tail / −head
       }
     };
 
@@ -679,7 +692,7 @@
           <div class="badge">2-33</div>
           <div style="flex:1">
             <h2>SGS 2-33</h2>
-            <p>Calculated performance polar (solo / dual) with live headwind &amp; tailwind glide ratio.</p>
+            <p>MacCready tangent construction — speed to fly with headwind / tailwind.</p>
             <div class="btn-row">
               <button type="button" data-aircraft-page="sgs233">Open polar</button>
               <button type="button" class="secondary" data-open-study="aircraft_233">Study cards</button>
@@ -689,37 +702,56 @@
       `;
     }
 
-    function polarSvg(result) {
-      const W = 320;
-      const H = 220;
-      const pad = { l: 36, r: 16, t: 16, b: 28 };
+    function macCreadySvg(result) {
+      const W = 360;
+      const H = 280;
+      const pad = { l: 42, r: 14, t: 18, b: 36 };
       const plotW = W - pad.l - pad.r;
       const plotH = H - pad.t - pad.b;
-      const pts = result.polar_points || [];
-      const windCurve = (typeof Sgs233Polar !== 'undefined')
-        ? Sgs233Polar.sampleGroundLdCurve(state.aircraft.config, state.aircraft.wind, 2)
-        : [];
-      const mphMin = 30;
-      const mphMax = 90;
-      const ldMin = 0;
-      const ldMax = 26;
-      const x = (mph) => pad.l + ((mph - mphMin) / (mphMax - mphMin)) * plotW;
-      const y = (ld) => pad.t + (1 - (ld - ldMin) / (ldMax - ldMin)) * plotH;
-      const airPath = pts.map((p, i) => `${i ? 'L' : 'M'} ${x(p.mph).toFixed(1)} ${y(p.ld).toFixed(1)}`).join(' ');
-      const gndPath = windCurve.map((p, i) => `${i ? 'L' : 'M'} ${x(p.mph).toFixed(1)} ${y(p.ground_ld).toFixed(1)}`).join(' ');
-      const markX = x(result.airspeed_mph);
-      const markY = result.ground_ld != null ? y(result.ground_ld) : y(result.air_ld);
+      const xMin = 0;
+      const xMax = 75;
+      const yMin = -6;
+      const yMax = 4;
+      const x = (kt) => pad.l + ((kt - xMin) / (xMax - xMin)) * plotW;
+      const y = (vs) => pad.t + (1 - (vs - yMin) / (yMax - yMin)) * plotH;
+      const zeroY = y(0);
+
+      const polarPts = (result.polar_gs || []).filter((p) => p.x_kt >= 0 && p.x_kt <= xMax + 5);
+      const polarPath = polarPts
+        .map((p, i) => `${i ? 'L' : 'M'} ${x(p.x_kt).toFixed(1)} ${y(p.vs_kt).toFixed(1)}`)
+        .join(' ');
+
+      let tangentLayer = '';
+      if (result.ok && result.tangent) {
+        const t = result.tangent;
+        const mc = result.mac_cready_kt;
+        // Extend tangent line across plot for construction look
+        const slope = t.slope;
+        const xEnd = xMax;
+        const yEnd = mc + slope * xEnd;
+        const xTouch = t.gs_kt;
+        tangentLayer = `
+          <line x1="${x(0)}" y1="${y(mc)}" x2="${x(xEnd)}" y2="${y(yEnd)}" stroke="#E6B800" stroke-width="2.5"/>
+          <line x1="${x(xTouch)}" y1="${y(t.vs_kt)}" x2="${x(xTouch)}" y2="${zeroY}" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 3"/>
+          <circle cx="${x(xTouch)}" cy="${y(t.vs_kt)}" r="5" fill="#E6B800" stroke="#1C2A33" stroke-width="1.2"/>
+          <text x="${x(xTouch) + 6}" y="${y(t.vs_kt) - 8}" font-size="11" fill="#1C2A33" font-weight="700">Tangent point</text>
+          <text x="${x(xTouch)}" y="${zeroY + 14}" text-anchor="middle" font-size="11" fill="#1C2A33" font-weight="700">${Math.round(t.ias_kt)}</text>
+        `;
+      }
+
+      const xTicks = [0, 15, 30, 45, 60, 75];
+      const yTicks = [4, 2, 0, -2, -4, -6];
+
       return `
-        <svg class="polar-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="SGS 2-33 L/D polar">
-          <rect x="${pad.l}" y="${pad.t}" width="${plotW}" height="${plotH}" fill="#f7fafc" stroke="#d5e2ea"/>
-          ${[40,50,60,70,80,90].map((m) => `<line x1="${x(m)}" y1="${pad.t}" x2="${x(m)}" y2="${pad.t+plotH}" stroke="#e8eef3"/><text x="${x(m)}" y="${H-8}" text-anchor="middle" font-size="9" fill="#5a6b76">${m}</text>`).join('')}
-          ${[5,10,15,20,25].map((ld) => `<line x1="${pad.l}" y1="${y(ld)}" x2="${pad.l+plotW}" y2="${y(ld)}" stroke="#e8eef3"/><text x="${pad.l-4}" y="${y(ld)+3}" text-anchor="end" font-size="9" fill="#5a6b76">${ld}</text>`).join('')}
-          <path d="${airPath}" fill="none" stroke="#1A6FA3" stroke-width="2.5"/>
-          ${gndPath ? `<path d="${gndPath}" fill="none" stroke="#D65A1F" stroke-width="2" stroke-dasharray="5 3"/>` : ''}
-          <circle cx="${markX}" cy="${markY}" r="5" fill="#2F7D32" stroke="#fff" stroke-width="2"/>
-          <text x="${pad.l}" y="12" font-size="10" fill="#1A6FA3" font-weight="700">Air L/D</text>
-          <text x="${pad.l + 58}" y="12" font-size="10" fill="#D65A1F" font-weight="700">Ground L/D (wind)</text>
-          <text x="${W/2}" y="${H-1}" text-anchor="middle" font-size="9" fill="#5a6b76">Airspeed (mph)</text>
+        <svg class="polar-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="2-33 MacCready tangent construction">
+          <rect x="0" y="0" width="${W}" height="${H}" fill="#fafbfc"/>
+          <rect x="${pad.l}" y="${pad.t}" width="${plotW}" height="${plotH}" fill="#fff" stroke="#cbd5e1"/>
+          ${xTicks.map((v) => `<line x1="${x(v)}" y1="${pad.t}" x2="${x(v)}" y2="${pad.t + plotH}" stroke="#eef2f6"/><text x="${x(v)}" y="${H - 12}" text-anchor="middle" font-size="10" fill="#64748b">${v}</text>`).join('')}
+          ${yTicks.map((v) => `<line x1="${pad.l}" y1="${y(v)}" x2="${pad.l + plotW}" y2="${y(v)}" stroke="${v === 0 ? '#94a3b8' : '#eef2f6'}" stroke-width="${v === 0 ? 1.4 : 1}"/><text x="${pad.l - 6}" y="${y(v) + 3}" text-anchor="end" font-size="10" fill="#64748b">${v}</text>`).join('')}
+          <path d="${polarPath}" fill="none" stroke="#2563eb" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+          ${tangentLayer}
+          <text x="${W / 2}" y="${H - 2}" text-anchor="middle" font-size="11" fill="#334155">Indicated airspeed (knots)</text>
+          <text x="14" y="${pad.t + plotH / 2}" text-anchor="middle" font-size="11" fill="#334155" transform="rotate(-90 14 ${pad.t + plotH / 2})">Vertical speed (knots)</text>
         </svg>
       `;
     }
@@ -729,47 +761,37 @@
       if (!polar) {
         return `<div class="empty">Polar module failed to load.</div>`;
       }
-      const result = polar.evaluate({
-        config: state.aircraft.config,
-        airspeedMph: state.aircraft.airspeed,
-        windMph: state.aircraft.wind
+      const result = polar.findMacCreadyTangent({
+        macCreadyKt: state.aircraft.macCready,
+        windKt: state.aircraft.wind
       });
-      const cfg = result.config;
+      const t = result.ok ? result.tangent : null;
+      const status = result.ok
+        ? `Tangent touches at <strong>${Math.round(t.ias_kt)} kt</strong> (${Math.round(t.mph)} mph): approximate still-air speed to fly.`
+        : escapeHtml(result.error || 'No tangent');
       return `
         <div class="btn-row" style="margin-top:0">
           <button type="button" class="secondary" data-aircraft-page="hub">← Aircraft</button>
         </div>
-        <h2 style="margin:10px 0 4px;font-size:1.15rem">SGS 2-33 polar</h2>
-        <p style="margin:0 0 10px;color:var(--muted);font-size:0.88rem">
-          ${escapeHtml(cfg.label)} ${cfg.weight_lb} lb · S=${cfg.wing_loading_psf} psf · digitized from SFM performance curves.
-        </p>
-        <div class="chip-row">
-          <button type="button" class="chip ${state.aircraft.config === 'solo' ? 'active' : ''}" data-polar-config="solo">Solo 790 lb</button>
-          <button type="button" class="chip ${state.aircraft.config === 'dual' ? 'active' : ''}" data-polar-config="dual">Dual 1040 lb</button>
+        <h2 style="margin:10px 0 6px;font-size:1.15rem">2-33 MacCready tangent-line construction</h2>
+        <div class="polar-sliders">
+          <div>
+            <label>MacCready setting: <span id="mcLabel">${fmt(state.aircraft.macCready, 1)} kt</span></label>
+            <input id="polarMc" type="range" min="0" max="6" step="0.1" value="${state.aircraft.macCready}" />
+          </div>
+          <div>
+            <label>Wind: <span id="polarWindLabel">${Sgs233Polar.windLabel(state.aircraft.wind)}</span></label>
+            <input id="polarWind" type="range" min="-25" max="25" step="1" value="${state.aircraft.wind}" />
+          </div>
         </div>
-        <label>Airspeed <span id="polarAsLabel">${state.aircraft.airspeed}</span> mph</label>
-        <input id="polarAirspeed" type="range" min="${cfg.points[0].mph}" max="${cfg.points[cfg.points.length-1].mph}" step="1" value="${state.aircraft.airspeed}" />
-        <label>Wind <span id="polarWindLabel">${state.aircraft.wind === 0 ? 'calm' : (state.aircraft.wind > 0 ? state.aircraft.wind + ' mph tail' : Math.abs(state.aircraft.wind) + ' mph head')}</span></label>
-        <input id="polarWind" type="range" min="-40" max="40" step="1" value="${state.aircraft.wind}" />
-        <div class="wind-zero">
-          <button type="button" class="secondary" id="polarWindCalm">Calm</button>
-          <button type="button" class="secondary" id="polarBestLd">Best air L/D</button>
-        </div>
-        <div id="polarWarn">${!result.can_penetrate ? '<div class="warn">Groundspeed ≤ 0 — cannot penetrate this headwind at the selected airspeed. Fly faster or reduce headwind.</div>' : ''}</div>
-        <div class="polar-metrics" id="polarMetrics">
-          <div class="stat"><b id="mAirLd">${fmt(result.air_ld, 1)}</b><span>Air L/D</span></div>
-          <div class="stat"><b id="mGndLd">${result.ground_ld == null ? '—' : fmt(result.ground_ld, 1)}</b><span>Ground L/D</span></div>
-          <div class="stat"><b id="mSink">${fmt(result.sink_fps, 1)}</b><span>Sink ft/sec</span></div>
-          <div class="stat"><b id="mGs">${fmt(result.groundspeed_mph, 0)}</b><span>GS mph</span></div>
-          <div class="stat wide"><b id="mGlide">${result.glide_nm_per_1000 == null ? '—' : fmt(result.glide_nm_per_1000, 2) + ' NM'}</b><span>Glide per 1,000 ft (with wind)</span></div>
-        </div>
-        <div id="polarSvgWrap">${polarSvg(result)}</div>
+        <div id="polarSvgWrap">${macCreadySvg(result)}</div>
+        <div class="polar-status" id="polarStatus">${status}</div>
         <p style="font-size:0.78rem;color:var(--muted);margin:0 0 8px">
-          Best published air L/D on this curve ≈ <strong>${fmt(result.best_ld.ld, 1)}:1</strong> at <strong>${result.best_ld.mph} mph</strong>.
-          Ground L/D = groundspeed ÷ sink. Headwind reduces range; tailwind increases it.
+          Blue = 2-33 polar (smooth digitization). Yellow = MacCready tangent from ring setting on the climb axis.
+          Wind shifts the polar on the groundspeed axis (headwind ← / tailwind →).
         </p>
         <details>
-          <summary style="cursor:pointer;font-weight:700;color:var(--sky-deep)">Source polar chart</summary>
+          <summary style="cursor:pointer;font-weight:700;color:var(--sky-deep)">SFM source polar chart</summary>
           <img class="polar-ref" src="/aircraft/sgs-233-polar.png" alt="SGS 2-33A calculated performance curves" />
         </details>
       `;
@@ -777,38 +799,25 @@
 
     function updatePolarLive() {
       if (typeof Sgs233Polar === 'undefined') return;
-      const result = Sgs233Polar.evaluate({
-        config: state.aircraft.config,
-        airspeedMph: state.aircraft.airspeed,
-        windMph: state.aircraft.wind
+      const result = Sgs233Polar.findMacCreadyTangent({
+        macCreadyKt: state.aircraft.macCready,
+        windKt: state.aircraft.wind
       });
-      const asLabel = document.getElementById('polarAsLabel');
+      const mcLabel = document.getElementById('mcLabel');
       const windLabel = document.getElementById('polarWindLabel');
-      if (asLabel) asLabel.textContent = String(state.aircraft.airspeed);
-      if (windLabel) {
-        windLabel.textContent = state.aircraft.wind === 0
-          ? 'calm'
-          : (state.aircraft.wind > 0
-            ? state.aircraft.wind + ' mph tail'
-            : Math.abs(state.aircraft.wind) + ' mph head');
-      }
-      const set = (id, text) => {
-        const el = document.getElementById(id);
-        if (el) el.textContent = text;
-      };
-      set('mAirLd', fmt(result.air_ld, 1));
-      set('mGndLd', result.ground_ld == null ? '—' : fmt(result.ground_ld, 1));
-      set('mSink', fmt(result.sink_fps, 1));
-      set('mGs', fmt(result.groundspeed_mph, 0));
-      set('mGlide', result.glide_nm_per_1000 == null ? '—' : fmt(result.glide_nm_per_1000, 2) + ' NM');
-      const warn = document.getElementById('polarWarn');
-      if (warn) {
-        warn.innerHTML = !result.can_penetrate
-          ? '<div class="warn">Groundspeed ≤ 0 — cannot penetrate this headwind at the selected airspeed. Fly faster or reduce headwind.</div>'
-          : '';
+      if (mcLabel) mcLabel.textContent = fmt(state.aircraft.macCready, 1) + ' kt';
+      if (windLabel) windLabel.textContent = Sgs233Polar.windLabel(state.aircraft.wind);
+      const status = document.getElementById('polarStatus');
+      if (status) {
+        if (result.ok) {
+          const t = result.tangent;
+          status.innerHTML = `Tangent touches at <strong>${Math.round(t.ias_kt)} kt</strong> (${Math.round(t.mph)} mph): approximate still-air speed to fly.`;
+        } else {
+          status.textContent = result.error || 'No tangent';
+        }
       }
       const wrap = document.getElementById('polarSvgWrap');
-      if (wrap) wrap.innerHTML = polarSvg(result);
+      if (wrap) wrap.innerHTML = macCreadySvg(result);
     }
 
     function renderProgress() {
@@ -880,7 +889,7 @@
       if (state.view === 'study') sub.textContent = `Studying ${state.study.track} · ${state.study.cards.length} in session`;
       if (state.view === 'aircraft') {
         sub.textContent = state.aircraft.page === 'sgs233'
-          ? 'SGS 2-33 · polar + wind'
+          ? 'SGS 2-33 · MacCready + wind'
           : 'Aircraft performance';
       }
       if (state.view === 'progress') sub.textContent = 'Your spaced-repetition progress';
@@ -920,20 +929,10 @@
           render();
         });
       });
-      app.querySelectorAll('[data-polar-config]').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          state.aircraft.config = btn.dataset.polarConfig;
-          const cfg = Sgs233Polar.getConfig(state.aircraft.config);
-          const min = cfg.points[0].mph;
-          const max = cfg.points[cfg.points.length - 1].mph;
-          state.aircraft.airspeed = Math.min(max, Math.max(min, state.aircraft.airspeed));
-          render();
-        });
-      });
-      const polarAirspeed = app.querySelector('#polarAirspeed');
-      if (polarAirspeed) {
-        polarAirspeed.addEventListener('input', () => {
-          state.aircraft.airspeed = Number(polarAirspeed.value);
+      const polarMc = app.querySelector('#polarMc');
+      if (polarMc) {
+        polarMc.addEventListener('input', () => {
+          state.aircraft.macCready = Number(polarMc.value);
           updatePolarLive();
         });
       }
@@ -941,29 +940,6 @@
       if (polarWind) {
         polarWind.addEventListener('input', () => {
           state.aircraft.wind = Number(polarWind.value);
-          updatePolarLive();
-        });
-      }
-      const calm = app.querySelector('#polarWindCalm');
-      if (calm) {
-        calm.addEventListener('click', () => {
-          state.aircraft.wind = 0;
-          const el = app.querySelector('#polarWind');
-          if (el) el.value = '0';
-          updatePolarLive();
-        });
-      }
-      const best = app.querySelector('#polarBestLd');
-      if (best) {
-        best.addEventListener('click', () => {
-          const r = Sgs233Polar.evaluate({
-            config: state.aircraft.config,
-            airspeedMph: state.aircraft.airspeed,
-            windMph: state.aircraft.wind
-          });
-          state.aircraft.airspeed = r.best_ld.mph;
-          const el = app.querySelector('#polarAirspeed');
-          if (el) el.value = String(state.aircraft.airspeed);
           updatePolarLive();
         });
       }
