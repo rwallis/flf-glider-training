@@ -362,17 +362,42 @@ function parseCsv(text) {
   if (lines.length < 2) return [];
   const headers = splitCsvLine(lines[0]).map((h) => h.trim().toLowerCase());
   const qIdx = headers.indexOf('question') >= 0 ? headers.indexOf('question') : headers.indexOf('q');
-  const aIdx = headers.indexOf('answer') >= 0 ? headers.indexOf('answer') : headers.indexOf('a');
+  const aIdx =
+    headers.indexOf('answer') >= 0
+      ? headers.indexOf('answer')
+      : headers.indexOf('correct answer') >= 0
+        ? headers.indexOf('correct answer')
+        : headers.indexOf('a');
   const topicIdx = headers.indexOf('topic');
   const idIdx = headers.indexOf('id');
+  const choiceA = headers.indexOf('choice a');
+  const choiceB = headers.indexOf('choice b');
+  const choiceC = headers.indexOf('choice c');
+  const choiceD = headers.indexOf('choice d');
+  const answerKeyIdx = headers.indexOf('answer key');
+  const sourceIdx = headers.indexOf('source pdf') >= 0 ? headers.indexOf('source pdf') : headers.indexOf('source');
   if (qIdx < 0 || aIdx < 0) throw new Error('CSV needs question,answer headers');
   return lines.slice(1).map((line) => {
     const cols = splitCsvLine(line);
+    const choices = [choiceA, choiceB, choiceC, choiceD]
+      .filter((idx) => idx >= 0)
+      .map((idx) => String(cols[idx] || '').trim())
+      .filter(Boolean);
+    let answer = cols[aIdx];
+    if ((!answer || !String(answer).trim()) && answerKeyIdx >= 0 && choices.length) {
+      const key = String(cols[answerKeyIdx] || '')
+        .trim()
+        .toUpperCase();
+      const map = { A: 0, B: 1, C: 2, D: 3 };
+      if (map[key] != null && choices[map[key]]) answer = choices[map[key]];
+    }
     return {
       id: idIdx >= 0 ? cols[idIdx] : undefined,
       topic_title: topicIdx >= 0 ? cols[topicIdx] : undefined,
       question: cols[qIdx],
-      answer: cols[aIdx]
+      answer,
+      choices: choices.length ? choices : null,
+      source: sourceIdx >= 0 ? cols[sourceIdx] : undefined
     };
   });
 }

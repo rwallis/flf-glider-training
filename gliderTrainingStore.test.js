@@ -33,6 +33,19 @@ test('parseImportPayload accepts csv', () => {
   assert.equal(parsed.rows[0].question, 'What is rote?');
 });
 
+test('parseImportPayload accepts commercial written MC csv', () => {
+  const parsed = parseImportPayload({
+    track_id: 'commercial',
+    topic_title: 'Written',
+    csv:
+      'Question,Choice A,Choice B,Choice C,Answer Key,Correct Answer\n' +
+      'When is NTSB notice required?,landing gear,engine fail,structure strength,C,structure strength\n'
+  });
+  assert.equal(parsed.rows.length, 1);
+  assert.deepEqual(parsed.rows[0].choices, ['landing gear', 'engine fail', 'structure strength']);
+  assert.equal(parsed.rows[0].answer, 'structure strength');
+});
+
 test('parseImportPayload rejects bad track', () => {
   assert.throws(() => parseImportPayload({ track_id: 'nope', cards: [{ question: 'q', answer: 'a' }] }));
 });

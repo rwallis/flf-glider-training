@@ -518,16 +518,22 @@
               ${state.study.index + 1} remaining in session · ${escapeHtml(card.topic_id || '')}
             </div>
             <div class="q">${escapeHtml(card.question)}</div>
-            ${!state.study.revealed ? `
-              ${Array.isArray(card.choices) && card.choices.length ? `
-                <div class="choices">
-                  ${card.choices.map((c, i) => `
-                    <button type="button" data-choice="${i}">${escapeHtml(c)}</button>
-                  `).join('')}
-                </div>
-              ` : `<div class="btn-row"><button type="button" id="revealBtn">Show answer</button></div>`}
-            ` : `
-              <div class="a">${escapeHtml(card.answer)}</div>
+            ${Array.isArray(card.choices) && card.choices.length ? `
+              <div class="choices">
+                ${card.choices.map((c) => {
+                  let cls = '';
+                  if (state.study.revealed) {
+                    if (c === card.answer) cls = 'correct';
+                    else if (state.study.quizChoice === c) cls = 'wrong';
+                  }
+                  return `<button type="button" data-choice-label="${escapeHtml(c)}" class="${cls}" ${state.study.revealed ? 'disabled' : ''}>${escapeHtml(c)}</button>`;
+                }).join('')}
+              </div>
+            ` : (!state.study.revealed
+              ? `<div class="btn-row"><button type="button" id="revealBtn">Show answer</button></div>`
+              : '')}
+            ${state.study.revealed ? `
+              ${!(Array.isArray(card.choices) && card.choices.length) ? `<div class="a">${escapeHtml(card.answer)}</div>` : ''}
               <div class="source">${escapeHtml(card.source || '')}</div>
               <div class="grade-row">
                 <button type="button" class="again" data-grade="again">Again</button>
@@ -535,7 +541,7 @@
                 <button type="button" class="good" data-grade="good">Good</button>
                 <button type="button" class="easy" data-grade="easy">Easy</button>
               </div>
-            `}
+            ` : ''}
           </div>
         `}
       `;
@@ -670,15 +676,12 @@
         state.study.revealed = true;
         render();
       });
-      app.querySelectorAll('[data-choice]').forEach((btn) => {
+      app.querySelectorAll('[data-choice-label]').forEach((btn) => {
         btn.addEventListener('click', () => {
-          const card = currentCard();
-          const idx = Number(btn.dataset.choice);
-          const picked = card.choices[idx];
+          if (state.study.revealed) return;
           state.study.revealed = true;
-          state.study.quizChoice = picked;
+          state.study.quizChoice = btn.getAttribute('data-choice-label');
           render();
-          // mark buttons after re-render in next tick via grade row only
         });
       });
       app.querySelectorAll('[data-grade]').forEach((btn) => {

@@ -5,3 +5,6 @@ node_modules/
 .DS_Store
 *.log
 .railway/
+
+content/commercial-written-raw.csv
+content/commercial-written-import.json

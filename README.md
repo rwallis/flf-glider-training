@@ -39,11 +39,25 @@ npm test
 
 Order: **CFI-G first**, **Private last**.
 
-CSV:
+CSV (open answer or multiple choice):
 
 ```csv
 topic,question,answer
 FOI,What are the four levels of learning?,"Rote, Understanding, Application, Correlation"
 ```
 
+```csv
+Question,Choice A,Choice B,Choice C,Answer Key,Correct Answer
+NTSB notification is required when…,landing gear only,engine failure,adversely affects structure,C,adversely affects structure
+```
+
 Use the Import tab, or `POST /api/import`.
+
+### Commercial written bank (Google Sheet)
+
+```bash
+node scripts/import-commercial-written.mjs
+# optional: GLIDER_BASE_URL=... GLIDER_IMPORT_PASSWORD=...
+```
+
+Live app: https://flf-glider-training-production.up.railway.app/
