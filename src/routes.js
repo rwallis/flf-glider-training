@@ -62,6 +62,14 @@ export function registerGliderApi(app, { store, config }) {
     const trackId = req.query.track || undefined;
     const topicId = req.query.topic || undefined;
     const mode = req.query.mode || 'due'; // due | all | weak
+    const limitRaw = Number(req.query.limit);
+    const limit = Number.isFinite(limitRaw)
+      ? Math.min(200, Math.max(1, Math.floor(limitRaw)))
+      : 20;
+    const grades = String(req.query.grades || '')
+      .split(',')
+      .map((g) => g.trim().toLowerCase())
+      .filter((g) => ['again', 'hard', 'good', 'easy'].includes(g));
     const cards = await store.listCards({ trackId, topicId });
     const progress = await store.getProgress(uk);
     const byCard = new Map(progress.map((p) => [p.card_id, p]));
@@ -82,6 +90,11 @@ export function registerGliderApi(app, { store, config }) {
       deck = deck.filter((c) => c.progress && (c.progress.lapses > 0 || c.progress.ease < 2.2));
     }
 
+    if (grades.length) {
+      const want = new Set(grades);
+      deck = deck.filter((c) => want.has(String(c.progress?.last_result || '').toLowerCase()));
+    }
+
     // Prefer never-seen, then earliest due
     deck.sort((a, b) => {
       const ap = a.progress ? new Date(a.progress.due_at).getTime() : 0;
@@ -95,8 +108,11 @@ export function registerGliderApi(app, { store, config }) {
       mode,
       track: trackId || null,
       topic: topicId || null,
-      count: deck.length,
-      cards: deck.slice(0, 80)
+      grades,
+      limit,
+      matched: deck.length,
+      count: Math.min(deck.length, limit),
+      cards: deck.slice(0, limit)
     });
   });
 
