@@ -438,6 +438,62 @@
     }
     .choices button.correct { background: #d7f0d9; }
     .choices button.wrong { background: #f8d9d0; }
+    .card-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .card-toolbar .meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .card-toolbar .linkish {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--sky);
+      font: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 4px 0;
+      cursor: pointer;
+    }
+    .edit-card label {
+      display: block;
+      margin-top: 8px;
+    }
+    .edit-card textarea {
+      min-height: 72px;
+      resize: vertical;
+    }
+    .edit-choice-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 8px;
+      align-items: start;
+      margin-bottom: 8px;
+    }
+    .edit-choice-row input[type="radio"] {
+      width: auto;
+      margin: 14px 0 0;
+    }
+    .edit-choice-row textarea {
+      min-height: 48px;
+      margin: 0;
+    }
+    .edit-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .edit-actions button { flex: 1; }
+    .edit-hint {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin: 4px 0 0;
+    }
     .grade-pills {
       display: flex;
       flex-wrap: wrap;
@@ -543,7 +599,9 @@
         cards: [],
         index: 0,
         revealed: false,
-        quizChoice: null
+        quizChoice: null,
+        editing: false,
+        editDraft: null
       },
       imports: [],
       progressTracks: [],
@@ -714,6 +772,8 @@
       state.study.index = 0;
       state.study.revealed = false;
       state.study.quizChoice = null;
+      state.study.editing = false;
+      state.study.editDraft = null;
       render();
     }
 
@@ -738,6 +798,8 @@
       state.study.cards.splice(state.study.index, 1);
       state.study.revealed = false;
       state.study.quizChoice = null;
+      state.study.editing = false;
+      state.study.editDraft = null;
       if (state.study.index >= state.study.cards.length) state.study.index = 0;
       toast(g.toUpperCase());
       render();
@@ -745,6 +807,121 @@
 
     function currentCard() {
       return state.study.cards[state.study.index] || null;
+    }
+
+    function beginEditCard() {
+      const card = currentCard();
+      if (!card) return;
+      const choices = Array.isArray(card.choices) ? card.choices.slice() : [];
+      state.study.editing = true;
+      state.study.editDraft = {
+        question: card.question || '',
+        answer: card.answer || '',
+        choices,
+        correctIndex: choices.findIndex((c) => c === card.answer)
+      };
+      render();
+    }
+
+    function cancelEditCard() {
+      state.study.editing = false;
+      state.study.editDraft = null;
+      render();
+    }
+
+    function readEditDraftFromDom() {
+      const draft = state.study.editDraft;
+      if (!draft) return null;
+      const question = app.querySelector('#editQuestion')?.value ?? draft.question;
+      const answerField = app.querySelector('#editAnswer')?.value;
+      const choiceEls = [...app.querySelectorAll('[data-edit-choice]')];
+      const choices = choiceEls.map((el) => el.value);
+      const checked = app.querySelector('input[name="editCorrect"]:checked');
+      let correctIndex = checked ? Number(checked.value) : draft.correctIndex;
+      if (!Number.isFinite(correctIndex)) correctIndex = -1;
+      let answer = String(answerField ?? draft.answer ?? '').trim();
+      if (choices.length && correctIndex >= 0 && choices[correctIndex]?.trim()) {
+        answer = choices[correctIndex].trim();
+      }
+      return {
+        question: String(question || '').trim(),
+        answer,
+        choices: choices.map((c) => String(c || '').trim()).filter(Boolean),
+        correctIndex
+      };
+    }
+
+    async function saveEditCard() {
+      const card = currentCard();
+      if (!card) return;
+      const draft = readEditDraftFromDom();
+      if (!draft) return;
+      if (!draft.question) {
+        toast('Question is required');
+        return;
+      }
+      if (draft.choices.length && draft.correctIndex < 0) {
+        toast('Select the correct choice');
+        return;
+      }
+      if (!draft.answer) {
+        toast('Answer is required');
+        return;
+      }
+      try {
+        const body = {
+          question: draft.question,
+          answer: draft.answer,
+          choices: draft.choices.length ? draft.choices : null
+        };
+        const result = await api('/api/cards/' + encodeURIComponent(card.id), {
+          method: 'PATCH',
+          body: JSON.stringify(body)
+        });
+        Object.assign(card, result.card);
+        state.study.editing = false;
+        state.study.editDraft = null;
+        state.study.revealed = false;
+        state.study.quizChoice = null;
+        toast('Card saved');
+        render();
+      } catch (err) {
+        toast(err.message || 'Save failed');
+      }
+    }
+
+    function renderEditCard(card) {
+      const draft = state.study.editDraft || {
+        question: card.question || '',
+        answer: card.answer || '',
+        choices: Array.isArray(card.choices) ? card.choices.slice() : [],
+        correctIndex: -1
+      };
+      const hasChoices = draft.choices.length > 0;
+      return `
+        <div class="edit-card">
+          <label for="editQuestion">Question</label>
+          <textarea id="editQuestion">${escapeHtml(draft.question)}</textarea>
+          ${hasChoices ? `
+            <label>Choices <span class="edit-hint">(select the correct one)</span></label>
+            ${draft.choices.map((c, i) => `
+              <div class="edit-choice-row">
+                <input type="radio" name="editCorrect" value="${i}" ${draft.correctIndex === i || (draft.correctIndex < 0 && c === draft.answer) ? 'checked' : ''} aria-label="Mark choice ${i + 1} correct" />
+                <textarea data-edit-choice="${i}">${escapeHtml(c)}</textarea>
+              </div>
+            `).join('')}
+            <p class="edit-hint">Saving sets the answer to the selected choice so quiz grading matches.</p>
+          ` : `
+            <label for="editAnswer">Answer</label>
+            <textarea id="editAnswer">${escapeHtml(draft.answer)}</textarea>
+          `}
+          ${hasChoices ? `<input type="hidden" id="editAnswer" value="${escapeHtml(draft.answer)}" />` : ''}
+          <div class="edit-actions">
+            <button type="button" class="secondary" id="cancelEditBtn">Cancel</button>
+            <button type="button" id="saveEditBtn">Save</button>
+          </div>
+        </div>
+      `;
     }
 
     function renderHome() {
@@ -821,34 +998,37 @@
         </select>
         ${!card ? `<div class="empty">No cards in this deck filter. Try All, clear grade filters, another track, or Import.</div>` : `
           <div class="flash">
-            <div style="font-size:0.78rem;color:var(--muted);margin-bottom:8px">
-              ${remaining} remaining in session · ${escapeHtml(card.topic_id || '')}
+            <div class="card-toolbar">
+              <div class="meta">${remaining} remaining in session · ${escapeHtml(card.topic_id || '')}</div>
+              <button type="button" class="linkish" id="toggleEditBtn">${state.study.editing ? 'Editing…' : 'Edit'}</button>
             </div>
-            <div class="q">${escapeHtml(card.question)}</div>
-            ${Array.isArray(card.choices) && card.choices.length ? `
-              <div class="choices">
-                ${card.choices.map((c) => {
-                  let cls = '';
-                  if (state.study.revealed) {
-                    if (c === card.answer) cls = 'correct';
-                    else if (state.study.quizChoice === c) cls = 'wrong';
-                  }
-                  return `<button type="button" data-choice-label="${escapeHtml(c)}" class="${cls}" ${state.study.revealed ? 'disabled' : ''}>${escapeHtml(c)}</button>`;
-                }).join('')}
-              </div>
-            ` : (!state.study.revealed
-              ? `<div class="btn-row"><button type="button" id="revealBtn">Show answer</button></div>`
-              : '')}
-            ${state.study.revealed ? `
-              ${!(Array.isArray(card.choices) && card.choices.length) ? `<div class="a">${escapeHtml(card.answer)}</div>` : ''}
-              <div class="source">${escapeHtml(card.source || '')}</div>
-              <div class="grade-row">
-                <button type="button" class="again" data-grade="again">Again</button>
-                <button type="button" class="hard" data-grade="hard">Hard</button>
-                <button type="button" class="good" data-grade="good">Good</button>
-                <button type="button" class="easy" data-grade="easy">Easy</button>
-              </div>
-            ` : ''}
+            ${state.study.editing ? renderEditCard(card) : `
+              <div class="q">${escapeHtml(card.question)}</div>
+              ${Array.isArray(card.choices) && card.choices.length ? `
+                <div class="choices">
+                  ${card.choices.map((c, i) => {
+                    let cls = '';
+                    if (state.study.revealed) {
+                      if (c === card.answer) cls = 'correct';
+                      else if (state.study.quizChoice === c) cls = 'wrong';
+                    }
+                    return `<button type="button" data-choice-index="${i}" class="${cls}" ${state.study.revealed ? 'disabled' : ''}>${escapeHtml(c)}</button>`;
+                  }).join('')}
+                </div>
+              ` : (!state.study.revealed
+                ? `<div class="btn-row"><button type="button" id="revealBtn">Show answer</button></div>`
+                : '')}
+              ${state.study.revealed ? `
+                ${!(Array.isArray(card.choices) && card.choices.length) ? `<div class="a">${escapeHtml(card.answer)}</div>` : ''}
+                <div class="source">${escapeHtml(card.source || '')}</div>
+                <div class="grade-row">
+                  <button type="button" class="again" data-grade="again">Again</button>
+                  <button type="button" class="hard" data-grade="hard">Hard</button>
+                  <button type="button" class="good" data-grade="good">Good</button>
+                  <button type="button" class="easy" data-grade="easy">Easy</button>
+                </div>
+              ` : ''}
+            `}
           </div>
         `}
       `;
@@ -1299,16 +1479,30 @@
           await loadStudyDeck();
         });
       }
+      const toggleEdit = app.querySelector('#toggleEditBtn');
+      if (toggleEdit) {
+        toggleEdit.addEventListener('click', () => {
+          if (state.study.editing) cancelEditCard();
+          else beginEditCard();
+        });
+      }
+      const cancelEdit = app.querySelector('#cancelEditBtn');
+      if (cancelEdit) cancelEdit.addEventListener('click', () => cancelEditCard());
+      const saveEdit = app.querySelector('#saveEditBtn');
+      if (saveEdit) saveEdit.addEventListener('click', () => saveEditCard());
       const reveal = app.querySelector('#revealBtn');
       if (reveal) reveal.addEventListener('click', () => {
         state.study.revealed = true;
         render();
       });
-      app.querySelectorAll('[data-choice-label]').forEach((btn) => {
+      app.querySelectorAll('[data-choice-index]').forEach((btn) => {
         btn.addEventListener('click', () => {
-          if (state.study.revealed) return;
+          if (state.study.revealed || state.study.editing) return;
+          const card = currentCard();
+          const idx = Number(btn.dataset.choiceIndex);
+          const label = Array.isArray(card?.choices) ? card.choices[idx] : null;
           state.study.revealed = true;
-          state.study.quizChoice = btn.getAttribute('data-choice-label');
+          state.study.quizChoice = label;
           render();
         });
       });

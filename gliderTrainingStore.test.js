@@ -2,7 +2,9 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import {
   nextProgress,
-  parseImportPayload
+  normalizeCardPatch,
+  parseImportPayload,
+  createMemoryStore
 } from './src/store.js';
 
 test('nextProgress again schedules soon and lowers ease', () => {
@@ -48,4 +50,42 @@ test('parseImportPayload accepts commercial written MC csv', () => {
 
 test('parseImportPayload rejects bad track', () => {
   assert.throws(() => parseImportPayload({ track_id: 'nope', cards: [{ question: 'q', answer: 'a' }] }));
+});
+
+test('normalizeCardPatch requires non-empty question/answer when provided', () => {
+  assert.throws(() => normalizeCardPatch({ question: '  ' }));
+  const patch = normalizeCardPatch({
+    question: ' Updated Q ',
+    answer: ' Updated A ',
+    choices: ['A', 'B', '']
+  });
+  assert.equal(patch.question, 'Updated Q');
+  assert.equal(patch.answer, 'Updated A');
+  assert.deepEqual(patch.choices, ['A', 'B']);
+});
+
+test('memory store updateCard edits question answer and choices', async () => {
+  const store = createMemoryStore({
+    tracks: [{ id: 'cfi_g', title: 'CFI-G', sort_order: 1, status: 'ready' }],
+    topics: [],
+    cards: [{
+      id: 'c1',
+      track_id: 'cfi_g',
+      topic_id: 't1',
+      question: 'Old Q',
+      answer: 'Old A',
+      choices: ['Old A', 'Wrong'],
+      source: 'stub'
+    }]
+  });
+  const updated = await store.updateCard('c1', {
+    question: 'New Q',
+    answer: 'New A',
+    choices: ['New A', 'Wrong']
+  });
+  assert.equal(updated.question, 'New Q');
+  assert.equal(updated.answer, 'New A');
+  assert.deepEqual(updated.choices, ['New A', 'Wrong']);
+  const got = await store.getCard('c1');
+  assert.equal(got.question, 'New Q');
 });

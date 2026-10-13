@@ -131,6 +131,18 @@ export function registerGliderApi(app, { store, config }) {
     res.json({ progress: row });
   });
 
+  app.patch('/api/cards/:cardId', async (req, res) => {
+    const uk = requireUserKey(req, res, config);
+    if (!uk) return;
+    try {
+      const card = await store.updateCard(req.params.cardId, req.body || {});
+      if (!card) return res.status(404).json({ error: 'card not found' });
+      res.json({ ok: true, card });
+    } catch (error) {
+      res.status(400).json({ error: error.message || String(error) });
+    }
+  });
+
   app.get('/api/imports', async (_req, res) => {
     const imports = await store.listImports();
     res.json({ imports });

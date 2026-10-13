@@ -9,6 +9,36 @@ function slugify(text) {
     .slice(0, 48);
 }
 
+/** Normalize a card edit payload (question / answer / choices / source). */
+export function normalizeCardPatch(body = {}) {
+  const patch = {};
+  if (body.question !== undefined) {
+    const question = String(body.question ?? '').trim();
+    if (!question) throw new Error('question is required');
+    patch.question = question;
+  }
+  if (body.answer !== undefined) {
+    const answer = String(body.answer ?? '').trim();
+    if (!answer) throw new Error('answer is required');
+    patch.answer = answer;
+  }
+  if (body.source !== undefined) {
+    patch.source = String(body.source ?? '').trim();
+  }
+  if (body.choices !== undefined) {
+    if (body.choices == null || body.choices === '') {
+      patch.choices = null;
+    } else if (!Array.isArray(body.choices)) {
+      throw new Error('choices must be an array of strings');
+    } else {
+      const choices = body.choices.map((c) => String(c ?? '').trim()).filter(Boolean);
+      patch.choices = choices.length ? choices : null;
+    }
+  }
+  if (!Object.keys(patch).length) throw new Error('no fields to update');
+  return patch;
+}
+
 /** Simple SM-2-ish update for study reps. */
 export function nextProgress(prev, grade) {
   // grade: again | hard | good | easy
@@ -73,6 +103,13 @@ export function createMemoryStore(seed) {
     },
     async getCard(id) {
       return state.cards.find((c) => c.id === id) || null;
+    },
+    async updateCard(id, body) {
+      const card = state.cards.find((c) => c.id === id);
+      if (!card) return null;
+      const patch = normalizeCardPatch(body);
+      Object.assign(card, patch, { updated_at: new Date().toISOString() });
+      return { ...card };
     },
     async getProgress(userKey) {
       const out = [];
@@ -219,6 +256,33 @@ export function createPgStore(db) {
     async getCard(id) {
       const { rows } = await db.query('SELECT * FROM glider_cards WHERE id = $1', [id]);
       return rows[0] || null;
+    },
+    async updateCard(id, body) {
+      const patch = normalizeCardPatch(body);
+      const fields = [];
+      const params = [];
+      for (const key of ['question', 'answer', 'source']) {
+        if (patch[key] !== undefined) {
+          params.push(patch[key]);
+          fields.push(`${key} = $${params.length}`);
+        }
+      }
+      if (patch.choices !== undefined) {
+        params.push(patch.choices ? JSON.stringify(patch.choices) : null);
+        fields.push(`choices = $${params.length}::jsonb`);
+      }
+      params.push(id);
+      const { rows } = await db.query(
+        `UPDATE glider_cards SET ${fields.join(', ')}, updated_at = NOW()
+         WHERE id = $${params.length}
+         RETURNING *`,
+        params
+      );
+      if (!rows[0]) return null;
+      return {
+        ...rows[0],
+        choices: rows[0].choices || null
+      };
     },
     async getProgress(userKey) {
       const { rows } = await db.query(
