@@ -19,50 +19,52 @@
       label: 'Solo',
       weight_lb: 790,
       wing_loading_psf: 3.6,
+      // Digitized from SFM p.1-15; sink derived as V(fps)/L/D.
       ld_mph: [
         [36, 16.8],
         [39, 19.8],
-        [42, 21.6],
-        [45, 22.3],
-        [48, 22.6],
-        [51, 22.3],
-        [54, 21.8],
-        [57, 20.7],
-        [60, 19.5],
-        [63, 18.5],
-        [66, 17.5],
-        [69, 16.6],
-        [72, 15.8],
-        [75, 15.0],
-        [78, 14.2],
-        [81, 13.5],
-        [84, 12.8],
-        [87, 12.1],
-        [90, 11.4]
+        [42, 21.5],
+        [45, 22.2],
+        [48, 22.3],
+        [51, 22.0],
+        [54, 21.5],
+        [57, 20.5],
+        [60, 19.4],
+        [63, 18.4],
+        [66, 17.4],
+        [69, 16.5],
+        [72, 15.7],
+        [75, 14.9],
+        [78, 14.1],
+        [81, 13.4],
+        [84, 12.7],
+        [87, 12.0],
+        [90, 11.3]
       ]
     },
     dual: {
       label: 'Dual',
       weight_lb: 1040,
       wing_loading_psf: 4.74,
+      // Peak ~22.2 at 54 mph (SFM); was overstated at 23.0. Sink = V(fps)/L/D ≈ 3.57 fps.
       ld_mph: [
         [42, 17.0],
-        [45, 20.0],
-        [48, 22.0],
-        [51, 22.7],
-        [54, 23.0],
-        [57, 22.3],
-        [60, 21.4],
-        [63, 20.3],
-        [66, 19.2],
-        [69, 18.1],
-        [72, 17.0],
-        [75, 16.1],
-        [78, 15.2],
-        [81, 14.3],
-        [84, 13.5],
-        [87, 12.8],
-        [90, 12.2]
+        [45, 19.8],
+        [48, 21.4],
+        [51, 21.9],
+        [54, 22.2],
+        [57, 21.6],
+        [60, 20.8],
+        [63, 19.8],
+        [66, 18.8],
+        [69, 17.7],
+        [72, 16.6],
+        [75, 15.7],
+        [78, 14.8],
+        [81, 14.0],
+        [84, 13.2],
+        [87, 12.5],
+        [90, 11.9]
       ]
     }
   };
@@ -91,22 +93,21 @@
     });
   }
 
-  /** Dense resample (~0.2 kt) for smooth curves + accurate MacCready search. */
+  /** Dense resample (~0.2 kt). Interpolate L/D (no overshoot), derive sink from V/L/D. */
   function buildSmoothPolar(anchors, stepKt = 0.2) {
     const pts = anchors;
     const out = [];
     for (let i = 0; i < pts.length - 1; i += 1) {
-      const p0 = pts[Math.max(0, i - 1)];
       const p1 = pts[i];
       const p2 = pts[i + 1];
-      const p3 = pts[Math.min(pts.length - 1, i + 2)];
       const segLen = Math.max(2, Math.round((p2.ias_kt - p1.ias_kt) / stepKt));
       for (let s = 0; s < segLen; s += 1) {
         const t = s / segLen;
-        const ias = catmullRom(p0.ias_kt, p1.ias_kt, p2.ias_kt, p3.ias_kt, t);
-        const vs = catmullRom(p0.vs_kt, p1.vs_kt, p2.vs_kt, p3.vs_kt, t);
+        // Linear L/D between SFM anchors — Catmull–Rom on VS was overshooting the dual peak (23 vs 22.2).
+        const ias = lerp(p1.ias_kt, p2.ias_kt, t);
+        const ld = lerp(p1.ld, p2.ld, t);
+        const vs = -(ias / Math.max(0.05, ld));
         const mph = ias * KT_TO_MPH;
-        const ld = ias / Math.max(0.05, Math.abs(vs));
         out.push({ ias_kt: ias, vs_kt: vs, mph, ld });
       }
     }
