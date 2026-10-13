@@ -142,6 +142,38 @@ export function createMemoryStore(seed) {
         due,
         tracks: state.tracks.length
       };
+    },
+    async progressByTrack(userKey) {
+      const prog = await this.getProgress(userKey);
+      const byCard = new Map(prog.map((p) => [p.card_id, p]));
+      const now = Date.now();
+      return state.tracks
+        .slice()
+        .sort((a, b) => a.sort_order - b.sort_order)
+        .map((t) => {
+          const cards = state.cards.filter((c) => c.track_id === t.id);
+          const grades = { again: 0, hard: 0, good: 0, easy: 0 };
+          let studied = 0;
+          let due = 0;
+          for (const c of cards) {
+            const p = byCard.get(c.id);
+            if (!p) continue;
+            studied += 1;
+            if (new Date(p.due_at).getTime() <= now) due += 1;
+            const g = String(p.last_result || '').toLowerCase();
+            if (grades[g] != null) grades[g] += 1;
+          }
+          return {
+            id: t.id,
+            title: t.title,
+            status: t.status,
+            card_count: cards.length,
+            studied,
+            due,
+            new: Math.max(0, cards.length - studied),
+            ...grades
+          };
+        });
     }
   };
 }
@@ -308,6 +340,41 @@ export function createPgStore(db) {
         due: due.rows[0].n,
         tracks: tracks.rows[0].n
       };
+    },
+    async progressByTrack(userKey) {
+      const { rows } = await db.query(
+        `SELECT
+           t.id,
+           t.title,
+           t.status,
+           t.sort_order,
+           COUNT(c.id)::int AS card_count,
+           COUNT(p.card_id)::int AS studied,
+           COUNT(*) FILTER (WHERE p.card_id IS NOT NULL AND p.due_at <= NOW())::int AS due,
+           COUNT(*) FILTER (WHERE p.last_result = 'again')::int AS again,
+           COUNT(*) FILTER (WHERE p.last_result = 'hard')::int AS hard,
+           COUNT(*) FILTER (WHERE p.last_result = 'good')::int AS good,
+           COUNT(*) FILTER (WHERE p.last_result = 'easy')::int AS easy
+         FROM glider_tracks t
+         LEFT JOIN glider_cards c ON c.track_id = t.id
+         LEFT JOIN glider_progress p ON p.card_id = c.id AND p.user_key = $1
+         GROUP BY t.id, t.title, t.status, t.sort_order
+         ORDER BY t.sort_order, t.title`,
+        [userKey]
+      );
+      return rows.map((r) => ({
+        id: r.id,
+        title: r.title,
+        status: r.status,
+        card_count: r.card_count,
+        studied: r.studied,
+        due: r.due,
+        new: Math.max(0, r.card_count - r.studied),
+        again: r.again,
+        hard: r.hard,
+        good: r.good,
+        easy: r.easy
+      }));
     }
   };
 }

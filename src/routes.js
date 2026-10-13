@@ -49,6 +49,13 @@ export function registerGliderApi(app, { store, config }) {
     res.json({ progress: rows });
   });
 
+  app.get('/api/progress-by-track', async (req, res) => {
+    const uk = requireUserKey(req, res, config);
+    if (!uk) return;
+    const tracks = await store.progressByTrack(uk);
+    res.json({ tracks });
+  });
+
   app.get('/api/study', async (req, res) => {
     const uk = requireUserKey(req, res, config);
     if (!uk) return;

@@ -335,6 +335,43 @@
       border: 1px solid var(--line);
       margin-top: 8px;
       display: block;
+      background: #fff;
+    }
+    .polar-docs details {
+      margin: 8px 0;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 8px 10px;
+      background: #fff;
+    }
+    .polar-docs summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--sky-deep);
+      list-style: none;
+    }
+    .polar-docs summary::-webkit-details-marker { display: none; }
+    .polar-docs summary::before {
+      content: "▸ ";
+      color: var(--muted);
+    }
+    .polar-docs details[open] summary::before { content: "▾ "; }
+    .polar-doc-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .polar-doc-actions a {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--sky-deep);
+      text-decoration: none;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: #f4f8fb;
     }
     .warn {
       background: #fff4e5;
@@ -398,6 +435,44 @@
     }
     .choices button.correct { background: #d7f0d9; }
     .choices button.wrong { background: #f8d9d0; }
+    .grade-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .grade-pill {
+      flex: 1 1 calc(25% - 8px);
+      min-width: 68px;
+      border-radius: 12px;
+      padding: 8px 6px;
+      text-align: center;
+      color: #fff;
+      line-height: 1.15;
+    }
+    .grade-pill b {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+    .grade-pill span {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      opacity: 0.95;
+    }
+    .grade-pill.again { background: var(--copper); }
+    .grade-pill.hard { background: #C48A12; }
+    .grade-pill.good { background: var(--grass); }
+    .grade-pill.easy { background: #1F8A70; }
+    .progress-meta {
+      margin-top: 6px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
@@ -441,6 +516,7 @@
         quizChoice: null
       },
       imports: [],
+      progressTracks: [],
       aircraft: {
         page: 'hub', // hub | sgs233
         config: 'dual',
@@ -898,10 +974,23 @@
           ${escapeHtml(cfg.label)} ${cfg.weight_lb} lb · S=${cfg.wing_loading_psf} psf.
           Blue = smooth SFM polar; yellow = MacCready tangent. Wind shifts polar on groundspeed axis.
         </p>
-        <details>
-          <summary style="cursor:pointer;font-weight:700;color:var(--sky-deep)">SFM source polar chart</summary>
-          <img class="polar-ref" src="/aircraft/sgs-233-polar.png" alt="SGS 2-33A calculated performance curves" />
-        </details>
+        <div class="polar-docs">
+          <details>
+            <summary>SFM source polar chart</summary>
+            <img class="polar-ref" src="/aircraft/sgs-233-polar.png" alt="SGS 2-33A calculated performance curves" />
+            <div class="polar-doc-actions">
+              <a href="/aircraft/sgs-233-polar.png" download="sgs-233-polar-chart.png">Download chart</a>
+            </div>
+          </details>
+          <details>
+            <summary>Complete SFM document page</summary>
+            <img class="polar-ref" src="/aircraft/sgs-233-polar-full.png" alt="Complete SFM SGS 2-33A performance page" />
+            <div class="polar-doc-actions">
+              <a href="/aircraft/sgs-233-polar-full.png" download="sgs-233-polar-full.png">Download full page</a>
+              <a href="/aircraft/sgs-233-polar.png" download="sgs-233-polar-chart.png">Download chart</a>
+            </div>
+          </details>
+        </div>
       `;
     }
 
@@ -930,33 +1019,48 @@
       updatePolarPills(result);
     }
 
+    async function loadProgress() {
+      const [tracks, stats, byTrack] = await Promise.all([
+        api('/api/tracks'),
+        api('/api/stats'),
+        api('/api/progress-by-track')
+      ]);
+      state.tracks = tracks.tracks;
+      state.stats = stats;
+      state.progressTracks = byTrack.tracks || [];
+      render();
+    }
+
     function renderProgress() {
       const s = state.stats || { cards: 0, studied: 0, due: 0 };
+      const rows = state.progressTracks || [];
       return `
         <div class="stats">
           <div class="stat"><b>${s.cards}</b><span>Cards</span></div>
           <div class="stat"><b>${s.studied}</b><span>Studied</span></div>
           <div class="stat"><b>${s.due}</b><span>Due</span></div>
         </div>
-        <article class="track">
-          <div class="badge">SRS</div>
-          <div>
-            <h2>Spaced repetition</h2>
-            <p>Again / Hard / Good / Easy updates due dates. Progress is saved to <strong>your signed-in Google account</strong> in shared Postgres.</p>
-            <div class="btn-row">
-              <button type="button" data-open-study="commercial">Study commercial due</button>
+        <p class="hint">Last grade per card in each study category (Again / Hard / Good / Easy). Progress is saved to your signed-in account.</p>
+        ${rows.length ? rows.map((t) => `
+          <article class="track ${t.status === 'upload_later' ? 'upload' : ''}">
+            <div class="badge">${trackLabel(t.id)}</div>
+            <div style="flex:1">
+              <h2>${escapeHtml(t.title)}</h2>
+              <div class="progress-meta">
+                ${t.card_count} cards · ${t.studied} studied · ${t.new} new · ${t.due} due
+              </div>
+              <div class="grade-pills">
+                <div class="grade-pill again"><b>${t.again || 0}</b><span>Again</span></div>
+                <div class="grade-pill hard"><b>${t.hard || 0}</b><span>Hard</span></div>
+                <div class="grade-pill good"><b>${t.good || 0}</b><span>Good</span></div>
+                <div class="grade-pill easy"><b>${t.easy || 0}</b><span>Easy</span></div>
+              </div>
+              <div class="btn-row">
+                <button type="button" data-open-study="${t.id}" ${!(t.card_count > 0) ? 'disabled' : ''}>Study</button>
+              </div>
             </div>
-          </div>
-        </article>
-        <article class="track">
-          <div class="badge" style="background:var(--copper)">↑</div>
-          <div>
-            <h2>Upload plan</h2>
-            <p>1) Keep drilling Commercial + 2-33 + Common.<br>
-               2) Import CFI-G FOI / Q&amp;A when you start that study.<br>
-               3) Import Private Q&amp;A last.</p>
-          </div>
-        </article>
+          </article>
+        `).join('') : '<div class="empty">No study categories yet.</div>'}
       `;
     }
 
@@ -1128,8 +1232,12 @@
       const btn = e.target.closest('button[data-view]');
       if (!btn) return;
       state.view = btn.dataset.view;
-      if (state.view === 'home' || state.view === 'progress') {
+      if (state.view === 'home') {
         await loadHome();
+        return;
+      }
+      if (state.view === 'progress') {
+        await loadProgress();
         return;
       }
       if (state.view === 'study') {
