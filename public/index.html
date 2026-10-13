@@ -202,6 +202,9 @@
       color: var(--sky-deep);
       font-size: 0.8rem;
       font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
       border: 0;
       white-space: nowrap;
     }
@@ -808,9 +811,10 @@
           <div style="flex:1">
             <h2>SGS 2-33</h2>
             <p>MacCready tangent construction — speed to fly with headwind / tailwind.</p>
-            <div class="btn-row">
-              <button type="button" data-aircraft-page="sgs233">Open polar</button>
-              <button type="button" class="secondary" data-open-study="aircraft_233">Study cards</button>
+            <div class="chip-row" style="margin-top:10px;margin-bottom:0">
+              <button type="button" class="chip active" data-aircraft-page="sgs233">Open polar</button>
+              <button type="button" class="chip" data-open-study="aircraft_233">Study cards</button>
+              <a class="chip" href="/aircraft/sgs-233-flight-erection-maintenance-manual.pdf" target="_blank" rel="noopener">SFM manual</a>
             </div>
           </div>
         </article>
@@ -979,14 +983,6 @@
             <summary>SFM source polar chart</summary>
             <img class="polar-ref" src="/aircraft/sgs-233-polar.png" alt="SGS 2-33A calculated performance curves" />
             <div class="polar-doc-actions">
-              <a href="/aircraft/sgs-233-polar.png" download="sgs-233-polar-chart.png">Download chart</a>
-            </div>
-          </details>
-          <details>
-            <summary>Complete SFM document page</summary>
-            <img class="polar-ref" src="/aircraft/sgs-233-polar-full.png" alt="Complete SFM SGS 2-33A performance page" />
-            <div class="polar-doc-actions">
-              <a href="/aircraft/sgs-233-polar-full.png" download="sgs-233-polar-full.png">Download full page</a>
               <a href="/aircraft/sgs-233-polar.png" download="sgs-233-polar-chart.png">Download chart</a>
             </div>
           </details>
