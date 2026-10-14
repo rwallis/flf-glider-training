@@ -11,15 +11,22 @@ const CFI_G_IMPORT_PATH = path.join(
   'cfi-g-import',
   'cfi-g-import.json'
 );
+const COMMERCIAL_IMPORT_PATH = path.join(
+  __dirname,
+  '..',
+  'content',
+  'commercial-import',
+  'commercial-import.json'
+);
 
 export async function loadSeedFile() {
   const raw = await readFile(SEED_PATH, 'utf8');
   return JSON.parse(raw);
 }
 
-async function loadCfiGTopicAssignments() {
+async function loadTopicAssignments(filePath) {
   try {
-    const raw = await readFile(CFI_G_IMPORT_PATH, 'utf8');
+    const raw = await readFile(filePath, 'utf8');
     const data = JSON.parse(raw);
     return Array.isArray(data.cards) ? data.cards : [];
   } catch {
@@ -102,18 +109,23 @@ export async function seedGliderContent(db, { force = false } = {}) {
     cards += 1;
   }
 
-  // Re-apply CFI-G syllabus topic_ids from the classified import bank.
-  const cfiCards = await loadCfiGTopicAssignments();
+  // Re-apply syllabus topic_ids from classified import banks.
   let topicRemaps = 0;
-  for (const card of cfiCards) {
-    if (!card?.id || !card?.topic_id) continue;
-    const result = await db.query(
-      `UPDATE glider_cards
-       SET topic_id = $2, updated_at = NOW()
-       WHERE id = $1 AND track_id = 'cfi_g' AND topic_id IS DISTINCT FROM $2`,
-      [String(card.id), String(card.topic_id)]
-    );
-    topicRemaps += result.rowCount || 0;
+  const bankRemaps = [
+    { trackId: 'cfi_g', cards: await loadTopicAssignments(CFI_G_IMPORT_PATH) },
+    { trackId: 'commercial', cards: await loadTopicAssignments(COMMERCIAL_IMPORT_PATH) }
+  ];
+  for (const { trackId, cards: bankCards } of bankRemaps) {
+    for (const card of bankCards) {
+      if (!card?.id || !card?.topic_id) continue;
+      const result = await db.query(
+        `UPDATE glider_cards
+         SET topic_id = $2, updated_at = NOW()
+         WHERE id = $1 AND track_id = $3 AND topic_id IS DISTINCT FROM $2`,
+        [String(card.id), String(card.topic_id), trackId]
+      );
+      topicRemaps += result.rowCount || 0;
+    }
   }
 
   // Retire obsolete CFI-G placeholder topics (stubs now point at syllabus topics).
@@ -137,6 +149,12 @@ export async function seedGliderContent(db, { force = false } = {}) {
          t.id IN ('cfi_placeholder', 'cfi_foi_stub')
          OR t.id LIKE 'cfi_g_cfi_g_written_question_bank_%'
        )
+       AND NOT EXISTS (SELECT 1 FROM glider_cards c WHERE c.topic_id = t.id)`
+  );
+  await db.query(
+    `DELETE FROM glider_topics t
+     WHERE t.track_id = 'commercial'
+       AND t.id LIKE 'commercial_commercial_written_%'
        AND NOT EXISTS (SELECT 1 FROM glider_cards c WHERE c.topic_id = t.id)`
   );
 
