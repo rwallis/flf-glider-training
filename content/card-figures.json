@@ -1,101 +1,134 @@
 {
-  "note": "GPGS CFI-G computer-testing supplement figures linked from bank stems. Apply on seed.",
+  "note": "Official FAA Computer Testing Supplement figures for Flight/Ground Instructor. Linked from CFI-G bank stems that say (Refer to Figure N.). Apply on seed.",
+  "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf",
   "figures": [
     {
       "number": 3,
       "title": "Aviation Routine Weather Reports (METAR)",
       "url": "/figures/cfi-g/figure-03.jpg",
-      "source_page": 27
+      "source_page": 12,
+      "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
     {
       "number": 8,
       "title": "Surface Analysis Chart Symbols",
       "url": "/figures/cfi-g/figure-08.jpg",
-      "source_page": 28
+      "source_page": 17,
+      "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
     {
       "number": 18,
-      "title": "Stall speed vs. Load factor chart",
+      "title": "Stall Speed vs. Load Factor",
       "url": "/figures/cfi-g/figure-18.jpg",
-      "source_page": 27
+      "source_page": 28,
+      "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
     {
       "number": 19,
-      "title": "Angle of Attack vs. Lift chart",
+      "title": "Angle-of-Attack vs. Lift",
       "url": "/figures/cfi-g/figure-19.jpg",
-      "source_page": 28
+      "source_page": 29,
+      "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
     {
       "number": 20,
       "title": "Drag Chart",
       "url": "/figures/cfi-g/figure-20.jpg",
-      "source_page": 28
+      "source_page": 30,
+      "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
     {
       "number": 21,
       "title": "Aspect Ratio",
       "url": "/figures/cfi-g/figure-21.jpg",
-      "source_page": 29
+      "source_page": 31,
+      "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
     {
       "number": 24,
       "title": "Density Altitude Chart",
       "url": "/figures/cfi-g/figure-24.jpg",
-      "source_page": 29
+      "source_page": 34,
+      "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
     {
       "number": 30,
       "title": "Wind Component Chart",
       "url": "/figures/cfi-g/figure-30.jpg",
-      "source_page": 30
+      "source_page": 40,
+      "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
     {
       "number": 38,
-      "title": "Glider Cross-Country",
+      "title": "Cross-Country",
       "url": "/figures/cfi-g/figure-38.jpg",
-      "source_page": 30
+      "source_page": 49,
+      "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
     {
       "number": 40,
       "title": "Wind Triangle",
       "url": "/figures/cfi-g/figure-40.jpg",
-      "source_page": 30
+      "source_page": 51,
+      "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
     {
       "number": 42,
-      "title": "VOR Indicators \u2014 OBS set to 180\u00b0",
+      "title": "VOR Indicators",
       "url": "/figures/cfi-g/figure-42.jpg",
-      "source_page": 31
+      "source_page": 52,
+      "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
     {
       "number": 44,
       "title": "Sectional Chart Excerpt",
       "url": "/figures/cfi-g/figure-44.jpg",
-      "source_page": 33
+      "source_page": 53,
+      "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
     {
       "number": 45,
       "title": "Sectional Chart Excerpt",
       "url": "/figures/cfi-g/figure-45.jpg",
-      "source_page": 34
+      "source_page": 54,
+      "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
     {
       "number": 46,
       "title": "Sectional Chart Excerpt",
       "url": "/figures/cfi-g/figure-46.jpg",
-      "source_page": 35
+      "source_page": 55,
+      "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
     {
       "number": 47,
       "title": "Class C Airspace Diagram",
       "url": "/figures/cfi-g/figure-47.jpg",
-      "source_page": 32
+      "source_page": 56,
+      "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
     {
       "number": 54,
       "title": "Traffic Pattern Indicator",
       "url": "/figures/cfi-g/figure-54.jpg",
-      "source_page": 32
+      "source_page": 63,
+      "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     }
   ],
   "cards": [
@@ -132,7 +165,7 @@
     {
       "card_id": "cfi_g_bank_069",
       "figure": 38,
-      "title": "Glider Cross-Country",
+      "title": "Cross-Country",
       "url": "/figures/cfi-g/figure-38.jpg"
     },
     {
@@ -240,19 +273,19 @@
     {
       "card_id": "cfi_g_bank_627",
       "figure": 42,
-      "title": "VOR Indicators \u2014 OBS set to 180\u00b0",
+      "title": "VOR Indicators",
       "url": "/figures/cfi-g/figure-42.jpg"
     },
     {
       "card_id": "cfi_g_bank_629",
       "figure": 42,
-      "title": "VOR Indicators \u2014 OBS set to 180\u00b0",
+      "title": "VOR Indicators",
       "url": "/figures/cfi-g/figure-42.jpg"
     },
     {
       "card_id": "cfi_g_bank_630",
       "figure": 42,
-      "title": "VOR Indicators \u2014 OBS set to 180\u00b0",
+      "title": "VOR Indicators",
       "url": "/figures/cfi-g/figure-42.jpg"
     },
     {

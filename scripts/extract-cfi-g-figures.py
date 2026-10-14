@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Extract GPGS CFI-G computer-testing figures from the scanned bank PDF.
+"""Extract CFI-G testing figures from the official FAA AKTS PDF.
+
+Default source:
+  https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf
 
 Writes:
   public/figures/cfi-g/figure-NN.jpg
@@ -19,144 +22,84 @@ except ImportError as exc:  # pragma: no cover
     raise SystemExit("pymupdf required: pip install pymupdf") from exc
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_PDF = Path(r"C:\Users\ronwa\OneDrive\Documents\2026_10_13\IMG_0001.pdf")
+DEFAULT_PDF = ROOT / "content" / "faa-supplements" / "flight_ground_instructor_akts.pdf"
 OUT_DIR = ROOT / "public" / "figures" / "cfi-g"
 IMPORT_JSON = ROOT / "content" / "cfi-g-import" / "cfi-g-import.json"
 CARD_FIGURES_JSON = ROOT / "content" / "card-figures.json"
 
-# Pages in the GPGS scan that hold the computer-testing supplement figures.
-FIGURE_PAGE_INDEXES = range(26, 35)  # 1-based pages 27–35
+FAA_SOURCE_URL = (
+    "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/"
+    "supplements/flight_ground_instructor_akts.pdf"
+)
 
-# OCR often fails on sectional pages; force whole-page crops.
-PAGE_FORCE_FIGURE = {
-    33: 44,  # 1-based page -> figure number
-    34: 45,
-    35: 46,
-}
-
-FIGURE_TITLES = {
-    3: "Aviation Routine Weather Reports (METAR)",
-    8: "Surface Analysis Chart Symbols",
-    18: "Stall speed vs. Load factor chart",
-    19: "Angle of Attack vs. Lift chart",
-    20: "Drag Chart",
-    21: "Aspect Ratio",
-    24: "Density Altitude Chart",
-    30: "Wind Component Chart",
-    38: "Glider Cross-Country",
-    40: "Wind Triangle",
-    42: "VOR Indicators — OBS set to 180°",
-    44: "Sectional Chart Excerpt",
-    45: "Sectional Chart Excerpt",
-    46: "Sectional Chart Excerpt",
-    47: "Class C Airspace Diagram",
-    54: "Traffic Pattern Indicator",
-}
+# Figures referenced by the imported CFI-G bank (plus common neighbors on those pages).
+NEEDED_FIGURES = {3, 8, 18, 19, 20, 21, 24, 30, 38, 40, 42, 44, 45, 46, 47, 54}
 
 REFER_RE = re.compile(
     r"\(\s*Refer to\s+(?:Fig(?:ure|ue)?|Pigure)\s+(\d+)\s*\.?\)",
     re.I,
 )
-
-
-def find_figure_captions(page: pymupdf.Page) -> list[tuple[int, pymupdf.Rect, str]]:
-    """Return (figure_number, caption_rect, raw_label) sorted top-to-bottom."""
-    text_dict = page.get_text("dict")
-    found: list[tuple[int, pymupdf.Rect, str]] = []
-    for block in text_dict.get("blocks", []):
-        for line in block.get("lines", []):
-            line_text = "".join(span.get("text", "") for span in line.get("spans", [])).strip()
-            if not line_text:
-                continue
-            m = re.match(
-                r"(?i)^\s*(?:Figure|FIGURE|Figue|Flgure|Fig\.?)\s*[,\.]?\s*(\d+)\b(.*)$",
-                line_text,
-            )
-            if not m:
-                continue
-            num = int(m.group(1))
-            xs = []
-            ys = []
-            for span in line.get("spans", []):
-                bbox = span.get("bbox") or [0, 0, 0, 0]
-                xs.extend([bbox[0], bbox[2]])
-                ys.extend([bbox[1], bbox[3]])
-            if not xs:
-                continue
-            rect = pymupdf.Rect(min(xs), min(ys), max(xs), max(ys))
-            found.append((num, rect, line_text))
-
-    # Deduplicate by figure number (keep uppermost caption).
-    by_num: dict[int, tuple[int, pymupdf.Rect, str]] = {}
-    for item in sorted(found, key=lambda x: x[1].y0):
-        if item[0] not in by_num:
-            by_num[item[0]] = item
-    return sorted(by_num.values(), key=lambda x: x[1].y0)
+FIGURE_LABEL_RE = re.compile(
+    r"(?im)^\s*Figure\s+(\d+)\.\s*(.+?)\s*$"
+)
 
 
 def page_content_clip(page: pymupdf.Page) -> pymupdf.Rect:
-    """Full supplement page minus header/footer chrome (GPGS pages mix side-by-side figures)."""
     return pymupdf.Rect(
-        page.rect.x0 + 12,
-        58,
-        page.rect.x1 - 12,
-        page.rect.y1 - 40,
+        page.rect.x0 + 10,
+        36,
+        page.rect.x1 - 10,
+        page.rect.y1 - 28,
     )
 
 
-def render_clip(page: pymupdf.Page, clip: pymupdf.Rect, out_path: Path, zoom: float = 1.7) -> None:
+def render_clip(page: pymupdf.Page, clip: pymupdf.Rect, out_path: Path, zoom: float = 2.0) -> None:
     mat = pymupdf.Matrix(zoom, zoom)
     pix = page.get_pixmap(matrix=mat, clip=clip, alpha=False)
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    # JPEG keeps the repo/deploy size reasonable for scanned chart pages.
-    pix.save(str(out_path), jpg_quality=78)
+    pix.save(str(out_path), jpg_quality=85)
+
+
+def find_figure_pages(doc: pymupdf.Document) -> dict[int, tuple[int, str]]:
+    """Map figure number -> (1-based page, title). Prefer later pages (skip TOC)."""
+    found: dict[int, tuple[int, str]] = {}
+    for i in range(doc.page_count):
+        text = doc.load_page(i).get_text("text")
+        for m in FIGURE_LABEL_RE.finditer(text):
+            num = int(m.group(1))
+            title = re.sub(r"\s+", " ", m.group(2)).strip(" .")
+            # TOC pages list many figures; real figure pages overwrite with later hits.
+            found[num] = (i + 1, title)
+    return found
 
 
 def extract_figures(pdf_path: Path) -> dict[int, dict]:
     doc = pymupdf.open(pdf_path)
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    # Clear prior PNG/JPG extracts so we do not leave stale formats behind.
-    for old in OUT_DIR.glob('figure-*'):
+    for old in OUT_DIR.glob("figure-*"):
         old.unlink(missing_ok=True)
+
+    page_map = find_figure_pages(doc)
     catalog: dict[int, dict] = {}
 
-    for page_index in FIGURE_PAGE_INDEXES:
-        page = doc.load_page(page_index)
-        page_no = page_index + 1
-        captions = find_figure_captions(page)
-        nums = [c[0] for c in captions]
-        force_num = PAGE_FORCE_FIGURE.get(page_no)
-        if force_num and force_num not in nums:
-            nums.append(force_num)
+    missing = sorted(n for n in NEEDED_FIGURES if n not in page_map)
+    if missing:
+        raise SystemExit(f"FAA PDF missing figures: {missing}")
 
-        if not nums:
-            print(f"page {page_no}: no figures detected")
-            continue
-
-        clip = page_content_clip(page)
-        # One page image per figure number on that page (side-by-side layouts stay intact).
-        for num in sorted(set(nums)):
-            url_path = f"/figures/cfi-g/figure-{num:02d}.jpg"
-            out = OUT_DIR / f"figure-{num:02d}.jpg"
-            render_clip(page, clip, out)
-            label = next((c[2] for c in captions if c[0] == num), "")
-            title = FIGURE_TITLES.get(num)
-            if not title and label:
-                rest = re.sub(
-                    r"(?i)^\s*(?:Figure|FIGURE|Figue|Flgure|Fig\.?)\s*[,\.]?\s*\d+\s*[-–.]?\s*",
-                    "",
-                    label,
-                ).strip(" .-")
-                title = rest or f"Figure {num}"
-            if not title:
-                title = f"Figure {num}"
-            catalog[num] = {
-                "number": num,
-                "title": title,
-                "url": url_path,
-                "source_page": page_no,
-            }
-            print(f"page {page_no}: Figure {num} -> {out.name}")
+    for num in sorted(NEEDED_FIGURES):
+        page_no, title = page_map[num]
+        page = doc.load_page(page_no - 1)
+        out = OUT_DIR / f"figure-{num:02d}.jpg"
+        render_clip(page, page_content_clip(page), out)
+        catalog[num] = {
+            "number": num,
+            "title": title or f"Figure {num}",
+            "url": f"/figures/cfi-g/figure-{num:02d}.jpg",
+            "source_page": page_no,
+            "source": "FAA Computer Testing Supplement — Flight and Ground Instructor",
+            "source_url": FAA_SOURCE_URL,
+        }
+        print(f"Figure {num}: page {page_no} -> {out.name} — {title}")
 
     return catalog
 
@@ -191,12 +134,20 @@ def build_card_figure_map(catalog: dict[int, dict]) -> list[dict]:
 def main() -> None:
     pdf = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_PDF
     if not pdf.exists():
-        raise SystemExit(f"PDF not found: {pdf}")
-    print(f"Extracting figures from {pdf}")
+        raise SystemExit(
+            f"PDF not found: {pdf}\n"
+            f"Download: {FAA_SOURCE_URL}\n"
+            f"Save as: {DEFAULT_PDF}"
+        )
+    print(f"Extracting FAA figures from {pdf}")
     catalog = extract_figures(pdf)
     rows = build_card_figure_map(catalog)
     payload = {
-        "note": "GPGS CFI-G computer-testing supplement figures linked from bank stems. Apply on seed.",
+        "note": (
+            "Official FAA Computer Testing Supplement figures for Flight/Ground Instructor. "
+            "Linked from CFI-G bank stems that say (Refer to Figure N.). Apply on seed."
+        ),
+        "source_url": FAA_SOURCE_URL,
         "figures": sorted(catalog.values(), key=lambda f: f["number"]),
         "cards": rows,
     }
