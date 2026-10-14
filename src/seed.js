@@ -19,6 +19,7 @@ const COMMERCIAL_IMPORT_PATH = path.join(
   'commercial-import.json'
 );
 const CARD_DETAILS_PATH = path.join(__dirname, '..', 'content', 'card-details.json');
+const CARD_FIGURES_PATH = path.join(__dirname, '..', 'content', 'card-figures.json');
 
 export async function loadSeedFile() {
   const raw = await readFile(SEED_PATH, 'utf8');
@@ -58,6 +59,26 @@ export function normalizeCardDetails(raw) {
     : [];
   if (!summary && !links.length) return null;
   return { summary, links };
+}
+
+export async function loadCardFigures() {
+  try {
+    const raw = await readFile(CARD_FIGURES_PATH, 'utf8');
+    const data = JSON.parse(raw);
+    return Array.isArray(data.cards) ? data.cards : [];
+  } catch {
+    return [];
+  }
+}
+
+export function normalizeCardFigure(raw) {
+  if (!raw || typeof raw !== 'object') return null;
+  const number = Number(raw.figure ?? raw.number);
+  const title = String(raw.title || '').trim() || (Number.isFinite(number) ? `Figure ${number}` : '');
+  const url = String(raw.url || '').trim();
+  if (!Number.isFinite(number) || number <= 0) return null;
+  if (!url || !/^\/figures\//i.test(url)) return null;
+  return { number, title, url };
 }
 
 /** Upsert tracks/topics/cards from seed. Does not delete user-imported cards. */
@@ -200,6 +221,22 @@ export async function seedGliderContent(db, { force = false } = {}) {
     detailsUpserted += result.rowCount || 0;
   }
 
+  // Upsert GPGS / FAA testing-supplement figure links.
+  const figureRows = await loadCardFigures();
+  let figuresUpserted = 0;
+  for (const row of figureRows) {
+    const cardId = String(row?.card_id || '').trim();
+    const figure = normalizeCardFigure(row);
+    if (!cardId || !figure) continue;
+    const result = await db.query(
+      `UPDATE glider_cards
+       SET figure = $2::jsonb, updated_at = NOW()
+       WHERE id = $1`,
+      [cardId, JSON.stringify(figure)]
+    );
+    figuresUpserted += result.rowCount || 0;
+  }
+
   // Keep live DB wording aligned: SFM → POH (Pilot's Operating Handbook).
   const renamed = await db.query(
     `UPDATE glider_cards SET
@@ -238,6 +275,7 @@ export async function seedGliderContent(db, { force = false } = {}) {
     force,
     cfi_g_topic_remaps: topicRemaps,
     card_details_upserted: detailsUpserted,
+    card_figures_upserted: figuresUpserted,
     renamed_sfm_to_poh: renamed.rowCount || 0
   };
 }

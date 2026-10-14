@@ -102,6 +102,11 @@ ALTER TABLE glider_cards
   ADD COLUMN IF NOT EXISTS details JSONB;
 `;
 
+const CARD_FIGURE_SQL = `
+ALTER TABLE glider_cards
+  ADD COLUMN IF NOT EXISTS figure JSONB;
+`;
+
 export async function createGliderPool(config) {
   if (!config.database.url) {
     console.warn('[glider-training] DATABASE_URL not set; running without Postgres');
@@ -119,6 +124,7 @@ export async function ensureGliderSchema(db) {
   await db.query(SCHEMA_SQL);
   await db.query(PROGRESS_ACCURACY_SQL);
   await db.query(CARD_DETAILS_SQL);
+  await db.query(CARD_FIGURE_SQL);
   return true;
 }
 

@@ -1,0 +1,373 @@
+{
+  "note": "GPGS CFI-G computer-testing supplement figures linked from bank stems. Apply on seed.",
+  "figures": [
+    {
+      "number": 3,
+      "title": "Aviation Routine Weather Reports (METAR)",
+      "url": "/figures/cfi-g/figure-03.jpg",
+      "source_page": 27
+    },
+    {
+      "number": 8,
+      "title": "Surface Analysis Chart Symbols",
+      "url": "/figures/cfi-g/figure-08.jpg",
+      "source_page": 28
+    },
+    {
+      "number": 18,
+      "title": "Stall speed vs. Load factor chart",
+      "url": "/figures/cfi-g/figure-18.jpg",
+      "source_page": 27
+    },
+    {
+      "number": 19,
+      "title": "Angle of Attack vs. Lift chart",
+      "url": "/figures/cfi-g/figure-19.jpg",
+      "source_page": 28
+    },
+    {
+      "number": 20,
+      "title": "Drag Chart",
+      "url": "/figures/cfi-g/figure-20.jpg",
+      "source_page": 28
+    },
+    {
+      "number": 21,
+      "title": "Aspect Ratio",
+      "url": "/figures/cfi-g/figure-21.jpg",
+      "source_page": 29
+    },
+    {
+      "number": 24,
+      "title": "Density Altitude Chart",
+      "url": "/figures/cfi-g/figure-24.jpg",
+      "source_page": 29
+    },
+    {
+      "number": 30,
+      "title": "Wind Component Chart",
+      "url": "/figures/cfi-g/figure-30.jpg",
+      "source_page": 30
+    },
+    {
+      "number": 38,
+      "title": "Glider Cross-Country",
+      "url": "/figures/cfi-g/figure-38.jpg",
+      "source_page": 30
+    },
+    {
+      "number": 40,
+      "title": "Wind Triangle",
+      "url": "/figures/cfi-g/figure-40.jpg",
+      "source_page": 30
+    },
+    {
+      "number": 42,
+      "title": "VOR Indicators \u2014 OBS set to 180\u00b0",
+      "url": "/figures/cfi-g/figure-42.jpg",
+      "source_page": 31
+    },
+    {
+      "number": 44,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/cfi-g/figure-44.jpg",
+      "source_page": 33
+    },
+    {
+      "number": 45,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/cfi-g/figure-45.jpg",
+      "source_page": 34
+    },
+    {
+      "number": 46,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/cfi-g/figure-46.jpg",
+      "source_page": 35
+    },
+    {
+      "number": 47,
+      "title": "Class C Airspace Diagram",
+      "url": "/figures/cfi-g/figure-47.jpg",
+      "source_page": 32
+    },
+    {
+      "number": 54,
+      "title": "Traffic Pattern Indicator",
+      "url": "/figures/cfi-g/figure-54.jpg",
+      "source_page": 32
+    }
+  ],
+  "cards": [
+    {
+      "card_id": "cfi_g_bank_033",
+      "figure": 20,
+      "title": "Drag Chart",
+      "url": "/figures/cfi-g/figure-20.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_034",
+      "figure": 20,
+      "title": "Drag Chart",
+      "url": "/figures/cfi-g/figure-20.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_049",
+      "figure": 21,
+      "title": "Aspect Ratio",
+      "url": "/figures/cfi-g/figure-21.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_050",
+      "figure": 21,
+      "title": "Aspect Ratio",
+      "url": "/figures/cfi-g/figure-21.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_051",
+      "figure": 21,
+      "title": "Aspect Ratio",
+      "url": "/figures/cfi-g/figure-21.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_069",
+      "figure": 38,
+      "title": "Glider Cross-Country",
+      "url": "/figures/cfi-g/figure-38.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_095",
+      "figure": 24,
+      "title": "Density Altitude Chart",
+      "url": "/figures/cfi-g/figure-24.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_096",
+      "figure": 24,
+      "title": "Density Altitude Chart",
+      "url": "/figures/cfi-g/figure-24.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_097",
+      "figure": 24,
+      "title": "Density Altitude Chart",
+      "url": "/figures/cfi-g/figure-24.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_227",
+      "figure": 3,
+      "title": "Aviation Routine Weather Reports (METAR)",
+      "url": "/figures/cfi-g/figure-03.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_228",
+      "figure": 3,
+      "title": "Aviation Routine Weather Reports (METAR)",
+      "url": "/figures/cfi-g/figure-03.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_230",
+      "figure": 3,
+      "title": "Aviation Routine Weather Reports (METAR)",
+      "url": "/figures/cfi-g/figure-03.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_231",
+      "figure": 3,
+      "title": "Aviation Routine Weather Reports (METAR)",
+      "url": "/figures/cfi-g/figure-03.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_232",
+      "figure": 3,
+      "title": "Aviation Routine Weather Reports (METAR)",
+      "url": "/figures/cfi-g/figure-03.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_318",
+      "figure": 47,
+      "title": "Class C Airspace Diagram",
+      "url": "/figures/cfi-g/figure-47.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_319",
+      "figure": 47,
+      "title": "Class C Airspace Diagram",
+      "url": "/figures/cfi-g/figure-47.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_320",
+      "figure": 47,
+      "title": "Class C Airspace Diagram",
+      "url": "/figures/cfi-g/figure-47.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_321",
+      "figure": 47,
+      "title": "Class C Airspace Diagram",
+      "url": "/figures/cfi-g/figure-47.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_346",
+      "figure": 54,
+      "title": "Traffic Pattern Indicator",
+      "url": "/figures/cfi-g/figure-54.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_347",
+      "figure": 54,
+      "title": "Traffic Pattern Indicator",
+      "url": "/figures/cfi-g/figure-54.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_611",
+      "figure": 40,
+      "title": "Wind Triangle",
+      "url": "/figures/cfi-g/figure-40.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_612",
+      "figure": 40,
+      "title": "Wind Triangle",
+      "url": "/figures/cfi-g/figure-40.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_613",
+      "figure": 40,
+      "title": "Wind Triangle",
+      "url": "/figures/cfi-g/figure-40.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_627",
+      "figure": 42,
+      "title": "VOR Indicators \u2014 OBS set to 180\u00b0",
+      "url": "/figures/cfi-g/figure-42.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_629",
+      "figure": 42,
+      "title": "VOR Indicators \u2014 OBS set to 180\u00b0",
+      "url": "/figures/cfi-g/figure-42.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_630",
+      "figure": 42,
+      "title": "VOR Indicators \u2014 OBS set to 180\u00b0",
+      "url": "/figures/cfi-g/figure-42.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_634",
+      "figure": 44,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/cfi-g/figure-44.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_636",
+      "figure": 44,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/cfi-g/figure-44.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_638",
+      "figure": 45,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/cfi-g/figure-45.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_640",
+      "figure": 45,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/cfi-g/figure-45.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_641",
+      "figure": 45,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/cfi-g/figure-45.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_642",
+      "figure": 45,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/cfi-g/figure-45.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_643",
+      "figure": 45,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/cfi-g/figure-45.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_645",
+      "figure": 46,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/cfi-g/figure-46.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_646",
+      "figure": 46,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/cfi-g/figure-46.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_647",
+      "figure": 46,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/cfi-g/figure-46.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_648",
+      "figure": 46,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/cfi-g/figure-46.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_649",
+      "figure": 46,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/cfi-g/figure-46.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_650",
+      "figure": 47,
+      "title": "Class C Airspace Diagram",
+      "url": "/figures/cfi-g/figure-47.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_662",
+      "figure": 24,
+      "title": "Density Altitude Chart",
+      "url": "/figures/cfi-g/figure-24.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_663",
+      "figure": 24,
+      "title": "Density Altitude Chart",
+      "url": "/figures/cfi-g/figure-24.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_678",
+      "figure": 3,
+      "title": "Aviation Routine Weather Reports (METAR)",
+      "url": "/figures/cfi-g/figure-03.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_680",
+      "figure": 44,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/cfi-g/figure-44.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_681",
+      "figure": 21,
+      "title": "Aspect Ratio",
+      "url": "/figures/cfi-g/figure-21.jpg"
+    },
+    {
+      "card_id": "cfi_g_bank_686",
+      "figure": 8,
+      "title": "Surface Analysis Chart Symbols",
+      "url": "/figures/cfi-g/figure-08.jpg"
+    }
+  ]
+}

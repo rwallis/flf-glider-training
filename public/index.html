@@ -412,7 +412,13 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    .details-pill {
+    .card-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .details-pill, .figure-pill {
       appearance: none;
       border: 1px solid #D7E4EE;
       background: #F4F9FC;
@@ -423,13 +429,40 @@
       font-size: 0.78rem;
       font-weight: 800;
       cursor: pointer;
-      margin-top: 12px;
+      margin-top: 0;
     }
-    .details-pill:active { transform: scale(0.98); }
+    .details-pill:active, .figure-pill:active { transform: scale(0.98); }
     .details-pill.has-details {
       background: #E8F8D8;
       border-color: #B7DFA3;
       color: #2F7D32;
+    }
+    .figure-pill.has-figure {
+      background: #E8F2F8;
+      border-color: #A9C7DD;
+      color: var(--sky-deep);
+    }
+    .figure-pill:disabled {
+      opacity: 0.45;
+      cursor: default;
+    }
+    .figure-image-wrap {
+      margin: 0;
+      border-radius: 12px;
+      overflow: auto;
+      background: #F7F9FB;
+      border: 1px solid #E4ECF2;
+      max-height: min(62vh, 520px);
+    }
+    .figure-image-wrap img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .figure-caption {
+      margin: 10px 0 0;
+      font-size: 0.85rem;
+      color: var(--muted);
     }
     .details-sheet {
       position: fixed;
@@ -991,7 +1024,8 @@
         quizChoice: null,
         editing: false,
         editDraft: null,
-        detailsOpen: false
+        detailsOpen: false,
+        figureOpen: false
       },
       imports: [],
       progressTracks: [],
@@ -1307,6 +1341,7 @@
       state.study.editing = false;
       state.study.editDraft = null;
       state.study.detailsOpen = false;
+      state.study.figureOpen = false;
       if (state.study.index >= state.study.cards.length) state.study.index = 0;
       if (state.stats && result?.activity?.answers != null) {
         state.stats.today_xp = result.activity.answers;
@@ -1554,7 +1589,12 @@
               ` : (!state.study.revealed
                 ? `<div class="btn-row"><button type="button" id="revealBtn">Show answer</button></div>`
                 : '')}
-              <button type="button" class="details-pill ${card.details ? 'has-details' : ''}" id="cardDetailsBtn" data-card-id="${escapeHtml(card.id)}">Details</button>
+              <div class="card-pill-row">
+                <button type="button" class="details-pill ${card.details ? 'has-details' : ''}" id="cardDetailsBtn" data-card-id="${escapeHtml(card.id)}">Details</button>
+                ${card.figure ? `
+                  <button type="button" class="figure-pill has-figure" id="cardFigureBtn" data-card-id="${escapeHtml(card.id)}">Figure ${escapeHtml(String(card.figure.number))}</button>
+                ` : ''}
+              </div>
               ${state.study.revealed ? `
                 ${!(Array.isArray(card.choices) && card.choices.length) ? `<div class="a">${escapeHtml(card.answer)}</div>` : ''}
                 <div class="grade-row">
@@ -1567,6 +1607,7 @@
             `}
           </div>
           ${state.study.detailsOpen ? renderDetailsSheet(card) : ''}
+          ${state.study.figureOpen ? renderFigureSheet(card) : ''}
         `}
       `;
     }
@@ -1590,6 +1631,40 @@
                 `).join('')}
               </div>
             ` : (!summary ? '' : '<p class="details-empty">No reference links yet.</p>')}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderFigureSheet(card) {
+      const figure = card?.figure || null;
+      if (!figure?.url) {
+        return `
+          <div class="details-sheet" id="figureSheet" role="dialog" aria-modal="true" aria-label="Question figure">
+            <div class="details-panel">
+              <header>
+                <h3>Figure</h3>
+                <button type="button" class="close-details" id="closeFigureBtn" aria-label="Close">×</button>
+              </header>
+              <p class="details-empty">No figure is linked to this question.</p>
+            </div>
+          </div>
+        `;
+      }
+      const title = figure.title
+        ? `Figure ${figure.number} — ${figure.title}`
+        : `Figure ${figure.number}`;
+      return `
+        <div class="details-sheet" id="figureSheet" role="dialog" aria-modal="true" aria-label="${escapeHtml(title)}">
+          <div class="details-panel">
+            <header>
+              <h3>${escapeHtml(title)}</h3>
+              <button type="button" class="close-details" id="closeFigureBtn" aria-label="Close">×</button>
+            </header>
+            <div class="figure-image-wrap">
+              <img src="${escapeHtml(figure.url)}" alt="${escapeHtml(title)}" loading="lazy" />
+            </div>
+            <p class="figure-caption">From the GPGS CFI-G computer-testing supplement. Pinch/scroll to zoom on phone.</p>
           </div>
         </div>
       `;
@@ -2171,6 +2246,15 @@
       if (detailsBtn) {
         detailsBtn.addEventListener('click', () => {
           state.study.detailsOpen = true;
+          state.study.figureOpen = false;
+          render();
+        });
+      }
+      const figureBtn = app.querySelector('#cardFigureBtn');
+      if (figureBtn) {
+        figureBtn.addEventListener('click', () => {
+          state.study.figureOpen = true;
+          state.study.detailsOpen = false;
           render();
         });
       }
@@ -2181,11 +2265,27 @@
           render();
         });
       }
+      const closeFigure = app.querySelector('#closeFigureBtn');
+      if (closeFigure) {
+        closeFigure.addEventListener('click', () => {
+          state.study.figureOpen = false;
+          render();
+        });
+      }
       const detailsSheet = app.querySelector('#detailsSheet');
       if (detailsSheet) {
         detailsSheet.addEventListener('click', (e) => {
           if (e.target === detailsSheet) {
             state.study.detailsOpen = false;
+            render();
+          }
+        });
+      }
+      const figureSheet = app.querySelector('#figureSheet');
+      if (figureSheet) {
+        figureSheet.addEventListener('click', (e) => {
+          if (e.target === figureSheet) {
+            state.study.figureOpen = false;
             render();
           }
         });
