@@ -1399,10 +1399,10 @@
     },
     {
       "card_id": "cfi_g_bank_627",
-      "summary": "VOR/OMNI figure item: indication V2 corresponds to aircraft position 2 only. Mentally place the OBS/TO-FROM and CDI: match the depicted needle/flag to the position on the radial/arc. Practice with the actual knowledge-test figure.",
+      "summary": "Answer: 2 only. Bank wording “indication V2” means the sample instrument labeled V (letters T–Z under the gauges)—not a second instrument, and not the TO/FROM flag. Figure note: OBS is set to 180° (18 under the top index on every gauge; 030 at the bottom is only the reciprocal). Read instrument V as a whole: OBS 180 + that needle deflection + FROM. Then find which airplane around the compass rose would see that same picture—only aircraft 2. Airplane heading in the drawing does not change the CDI/TO-FROM; position relative to the station and the OBS setting do. Distractors (6 only; 5 and 8) are other positions that match different lettered indications.",
       "links": [
         {
-          "label": "PHAK — VOR Navigation",
+          "label": "PHAK — VOR / CDI / TO-FROM",
           "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
         },
         {
