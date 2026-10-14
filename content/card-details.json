@@ -3384,6 +3384,54 @@
           "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-H/section-61.189"
         }
       ]
+    },
+    {
+      "card_id": "cfi_g_bank_471",
+      "summary": "Before flight, the aircraft must have aboard (among other required papers) an Airworthiness Certificate, Registration Certificate, and approved Airplane/Rotorcraft/Glider Flight Manual when required — classic ARROW teaching. Logbooks need not be in the aircraft; MEL applies only if one is issued for that aircraft.",
+      "links": [
+        {
+          "label": "14 CFR § 91.203 — Civil aircraft: certifications required",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-C/section-91.203"
+        },
+        {
+          "label": "14 CFR § 91.9 — Civil aircraft flight manual, marking, and placard requirements",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-A/section-91.9"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_495",
+      "summary": "An annual inspection is due by the end of the 12th calendar month after the month of the last annual. If last annual was July 12 this year, the next is due no later than July 31 next year — not July 12/13 next year.",
+      "links": [
+        {
+          "label": "14 CFR § 91.409 — Inspections",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-E/section-91.409"
+        },
+        {
+          "label": "PHAK — Aircraft Maintenance / Inspections",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_496",
+      "summary": "If an aircraft has not had a 100-hour or annual within the preceding 100 hours of time in service, giving flight instruction for hire in that aircraft is prohibited. The 100-hour rule applies to aircraft used for hire / flight instruction for hire under § 91.409.",
+      "links": [
+        {
+          "label": "14 CFR § 91.409 — Inspections (100-hour)",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-E/section-91.409"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_497",
+      "summary": "Doing a 100-hour inspection early (for example at 90 hours) does not create a 110-hour next interval. The next 100-hour is still due after 100 hours time in service from that inspection. Unused hours are not banked.",
+      "links": [
+        {
+          "label": "14 CFR § 91.409 — Inspections (100-hour)",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-E/section-91.409"
+        }
+      ]
     }
   ]
 }
