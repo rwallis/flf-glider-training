@@ -26,7 +26,10 @@ async function main() {
     const seeded = await seedGliderContent(pool);
     console.log(
       `[glider-training] seed tracks=${seeded.tracks} topics=${seeded.topics} new_cards=${seeded.cards}` +
-        (seeded.cfi_g_topic_remaps != null ? ` cfi_g_topic_remaps=${seeded.cfi_g_topic_remaps}` : '')
+        (seeded.cfi_g_topic_remaps != null ? ` cfi_g_topic_remaps=${seeded.cfi_g_topic_remaps}` : '') +
+        (seeded.card_details_upserted != null
+          ? ` card_details=${seeded.card_details_upserted}`
+          : '')
     );
   }
 

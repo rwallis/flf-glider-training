@@ -18,6 +18,7 @@ const COMMERCIAL_IMPORT_PATH = path.join(
   'commercial-import',
   'commercial-import.json'
 );
+const CARD_DETAILS_PATH = path.join(__dirname, '..', 'content', 'card-details.json');
 
 export async function loadSeedFile() {
   const raw = await readFile(SEED_PATH, 'utf8');
@@ -32,6 +33,31 @@ async function loadTopicAssignments(filePath) {
   } catch {
     return [];
   }
+}
+
+export async function loadCardDetails() {
+  try {
+    const raw = await readFile(CARD_DETAILS_PATH, 'utf8');
+    const data = JSON.parse(raw);
+    return Array.isArray(data.details) ? data.details : [];
+  } catch {
+    return [];
+  }
+}
+
+export function normalizeCardDetails(raw) {
+  if (!raw || typeof raw !== 'object') return null;
+  const summary = String(raw.summary || '').trim();
+  const links = Array.isArray(raw.links)
+    ? raw.links
+        .map((link) => ({
+          label: String(link?.label || link?.title || '').trim(),
+          url: String(link?.url || '').trim()
+        }))
+        .filter((link) => link.label && /^https?:\/\//i.test(link.url))
+    : [];
+  if (!summary && !links.length) return null;
+  return { summary, links };
 }
 
 /** Upsert tracks/topics/cards from seed. Does not delete user-imported cards. */
@@ -158,6 +184,22 @@ export async function seedGliderContent(db, { force = false } = {}) {
        AND NOT EXISTS (SELECT 1 FROM glider_cards c WHERE c.topic_id = t.id)`
   );
 
+  // Upsert per-question study details / reference links.
+  const detailRows = await loadCardDetails();
+  let detailsUpserted = 0;
+  for (const row of detailRows) {
+    const cardId = String(row?.card_id || '').trim();
+    const details = normalizeCardDetails(row);
+    if (!cardId || !details) continue;
+    const result = await db.query(
+      `UPDATE glider_cards
+       SET details = $2::jsonb, updated_at = NOW()
+       WHERE id = $1`,
+      [cardId, JSON.stringify(details)]
+    );
+    detailsUpserted += result.rowCount || 0;
+  }
+
   // Keep live DB wording aligned: SFM → POH (Pilot's Operating Handbook).
   const renamed = await db.query(
     `UPDATE glider_cards SET
@@ -195,6 +237,7 @@ export async function seedGliderContent(db, { force = false } = {}) {
     cards,
     force,
     cfi_g_topic_remaps: topicRemaps,
+    card_details_upserted: detailsUpserted,
     renamed_sfm_to_poh: renamed.rowCount || 0
   };
 }

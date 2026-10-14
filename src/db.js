@@ -97,6 +97,11 @@ WHERE last_result IS NOT NULL
   AND answers_total = 0;
 `;
 
+const CARD_DETAILS_SQL = `
+ALTER TABLE glider_cards
+  ADD COLUMN IF NOT EXISTS details JSONB;
+`;
+
 export async function createGliderPool(config) {
   if (!config.database.url) {
     console.warn('[glider-training] DATABASE_URL not set; running without Postgres');
@@ -113,6 +118,7 @@ export async function ensureGliderSchema(db) {
   if (!db) return false;
   await db.query(SCHEMA_SQL);
   await db.query(PROGRESS_ACCURACY_SQL);
+  await db.query(CARD_DETAILS_SQL);
   return true;
 }
 

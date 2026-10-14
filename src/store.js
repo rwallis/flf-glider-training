@@ -1,5 +1,5 @@
 import { randomUUID } from 'node:crypto';
-import { loadSeedFile } from './seed.js';
+import { loadCardDetails, loadSeedFile, normalizeCardDetails } from './seed.js';
 
 const ACTIVITY_TZ = 'America/Chicago';
 
@@ -557,12 +557,18 @@ export function createPgStore(db) {
       );
       return rows.map((r) => ({
         ...r,
-        choices: r.choices || null
+        choices: r.choices || null,
+        details: r.details || null
       }));
     },
     async getCard(id) {
       const { rows } = await db.query('SELECT * FROM glider_cards WHERE id = $1', [id]);
-      return rows[0] || null;
+      if (!rows[0]) return null;
+      return {
+        ...rows[0],
+        choices: rows[0].choices || null,
+        details: rows[0].details || null
+      };
     },
     async updateCard(id, body) {
       const patch = normalizeCardPatch(body);
@@ -588,7 +594,8 @@ export function createPgStore(db) {
       if (!rows[0]) return null;
       return {
         ...rows[0],
-        choices: rows[0].choices || null
+        choices: rows[0].choices || null,
+        details: rows[0].details || null
       };
     },
     async getProgress(userKey) {
@@ -913,6 +920,15 @@ export function createPgStore(db) {
 export async function createStore(db) {
   if (db) return createPgStore(db);
   const seed = await loadSeedFile();
+  const detailRows = await loadCardDetails();
+  const byId = new Map(
+    detailRows
+      .map((row) => [String(row.card_id || ''), normalizeCardDetails(row)])
+      .filter(([id, details]) => id && details)
+  );
+  for (const card of seed.cards || []) {
+    if (byId.has(card.id)) card.details = byId.get(card.id);
+  }
   console.warn('[glider-training] using in-memory seed store (no DATABASE_URL)');
   return createMemoryStore(seed);
 }

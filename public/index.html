@@ -426,6 +426,80 @@
       margin-top: 12px;
     }
     .details-pill:active { transform: scale(0.98); }
+    .details-pill.has-details {
+      background: #E8F8D8;
+      border-color: #B7DFA3;
+      color: #2F7D32;
+    }
+    .details-sheet {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      display: grid;
+      align-items: end;
+      background: rgba(20, 28, 36, 0.45);
+      padding: 16px 12px calc(16px + var(--safe-bottom));
+    }
+    .details-panel {
+      background: #fff;
+      border-radius: 20px 20px 16px 16px;
+      max-height: min(78vh, 640px);
+      overflow: auto;
+      padding: 16px 16px 18px;
+      box-shadow: 0 -8px 30px rgba(0,0,0,0.18);
+    }
+    .details-panel header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .details-panel h3 {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 800;
+    }
+    .details-panel .close-details {
+      appearance: none;
+      border: 0;
+      background: #F0F0F0;
+      color: var(--ink);
+      border-radius: 999px;
+      width: 34px;
+      height: 34px;
+      font-weight: 800;
+      cursor: pointer;
+      flex: 0 0 auto;
+    }
+    .details-summary {
+      margin: 0 0 14px;
+      font-size: 0.95rem;
+      line-height: 1.45;
+      color: var(--ink);
+    }
+    .details-links {
+      display: grid;
+      gap: 8px;
+    }
+    .details-links a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: #F4F9FC;
+      border: 1px solid #D7E4EE;
+      color: var(--sky-deep);
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+      line-height: 1.3;
+    }
+    .details-empty {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
     .grade-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -916,7 +990,8 @@
         revealed: false,
         quizChoice: null,
         editing: false,
-        editDraft: null
+        editDraft: null,
+        detailsOpen: false
       },
       imports: [],
       progressTracks: [],
@@ -1231,6 +1306,7 @@
       state.study.quizChoice = null;
       state.study.editing = false;
       state.study.editDraft = null;
+      state.study.detailsOpen = false;
       if (state.study.index >= state.study.cards.length) state.study.index = 0;
       if (state.stats && result?.activity?.answers != null) {
         state.stats.today_xp = result.activity.answers;
@@ -1478,7 +1554,7 @@
               ` : (!state.study.revealed
                 ? `<div class="btn-row"><button type="button" id="revealBtn">Show answer</button></div>`
                 : '')}
-              <button type="button" class="details-pill" id="cardDetailsBtn" data-card-id="${escapeHtml(card.id)}">Details</button>
+              <button type="button" class="details-pill ${card.details ? 'has-details' : ''}" id="cardDetailsBtn" data-card-id="${escapeHtml(card.id)}">Details</button>
               ${state.study.revealed ? `
                 ${!(Array.isArray(card.choices) && card.choices.length) ? `<div class="a">${escapeHtml(card.answer)}</div>` : ''}
                 <div class="grade-row">
@@ -1490,7 +1566,32 @@
               ` : ''}
             `}
           </div>
+          ${state.study.detailsOpen ? renderDetailsSheet(card) : ''}
         `}
+      `;
+    }
+
+    function renderDetailsSheet(card) {
+      const details = card?.details || null;
+      const links = Array.isArray(details?.links) ? details.links : [];
+      const summary = String(details?.summary || '').trim();
+      return `
+        <div class="details-sheet" id="detailsSheet" role="dialog" aria-modal="true" aria-label="Question details">
+          <div class="details-panel">
+            <header>
+              <h3>Question details</h3>
+              <button type="button" class="close-details" id="closeDetailsBtn" aria-label="Close">×</button>
+            </header>
+            ${summary ? `<p class="details-summary">${escapeHtml(summary)}</p>` : '<p class="details-empty">No written notes for this question yet.</p>'}
+            ${links.length ? `
+              <div class="details-links">
+                ${links.map((link) => `
+                  <a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.label)}</a>
+                `).join('')}
+              </div>
+            ` : (!summary ? '' : '<p class="details-empty">No reference links yet.</p>')}
+          </div>
+        </div>
       `;
     }
 
@@ -2069,8 +2170,24 @@
       const detailsBtn = app.querySelector('#cardDetailsBtn');
       if (detailsBtn) {
         detailsBtn.addEventListener('click', () => {
-          const card = currentCard();
-          toast(card?.id ? `Details for ${card.id} coming soon` : 'Details coming soon');
+          state.study.detailsOpen = true;
+          render();
+        });
+      }
+      const closeDetails = app.querySelector('#closeDetailsBtn');
+      if (closeDetails) {
+        closeDetails.addEventListener('click', () => {
+          state.study.detailsOpen = false;
+          render();
+        });
+      }
+      const detailsSheet = app.querySelector('#detailsSheet');
+      if (detailsSheet) {
+        detailsSheet.addEventListener('click', (e) => {
+          if (e.target === detailsSheet) {
+            state.study.detailsOpen = false;
+            render();
+          }
         });
       }
       app.querySelectorAll('[data-choice-index]').forEach((btn) => {

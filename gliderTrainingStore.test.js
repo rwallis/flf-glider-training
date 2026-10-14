@@ -12,6 +12,7 @@ import {
   correctPercent,
   computeCourseReadiness
 } from './src/store.js';
+import { normalizeCardDetails } from './src/seed.js';
 
 test('nextProgress again schedules soon and lowers ease', () => {
   const prev = { ease: 2.5, interval_days: 5, reps: 3, lapses: 0 };
@@ -140,6 +141,21 @@ test('correctPercent rounds answer accuracy', () => {
   assert.equal(correctPercent(0, 0), null);
   assert.equal(correctPercent(1, 2), 50);
   assert.equal(correctPercent(2, 3), 67);
+});
+
+test('normalizeCardDetails keeps summary and https links only', () => {
+  const details = normalizeCardDetails({
+    summary: '  NTSB notification rules.  ',
+    links: [
+      { label: 'Part 830', url: 'https://www.ecfr.gov/current/title-49/subtitle-B/chapter-VIII/part-830' },
+      { label: 'bad', url: 'javascript:alert(1)' },
+      { title: 'NTSB report', url: 'https://www.ntsb.gov/Pages/Report.aspx' }
+    ]
+  });
+  assert.equal(details.summary, 'NTSB notification rules.');
+  assert.equal(details.links.length, 2);
+  assert.equal(details.links[0].label, 'Part 830');
+  assert.equal(details.links[1].label, 'NTSB report');
 });
 
 test('computeCourseReadiness requires full coverage and 80% score', () => {

@@ -1,0 +1,149 @@
+{
+  "note": "Starter set of question details with official web references. Apply on seed.",
+  "details": [
+    {
+      "card_id": "commercial_written_001",
+      "summary": "NTSB Part 830 requires immediate notification for accidents involving substantial damage — damage that adversely affects structural strength, performance, or flight characteristics of the aircraft, and that normally requires major repair or replacement of the affected component. Cosmetic damage alone is not enough.",
+      "links": [
+        {
+          "label": "49 CFR Part 830 — Notification and Reporting",
+          "url": "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-VIII/part-830"
+        },
+        {
+          "label": "NTSB — Report an Accident or Incident",
+          "url": "https://www.ntsb.gov/Pages/Report.aspx"
+        }
+      ]
+    },
+    {
+      "card_id": "commercial_written_003",
+      "summary": "Certain incidents require immediate NTSB notification even when they are not accidents. An in-flight fire is one of those listed events. Know the Part 830 incident list separately from the accident definition (death, serious injury, or substantial damage).",
+      "links": [
+        {
+          "label": "49 CFR § 830.5 — Immediate notification",
+          "url": "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-VIII/part-830/subpart-B/section-830.5"
+        },
+        {
+          "label": "49 CFR § 830.2 — Definitions",
+          "url": "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-VIII/part-830/subpart-A/section-830.2"
+        }
+      ]
+    },
+    {
+      "card_id": "commercial_written_007",
+      "summary": "Class D airspace around a towered airport is charted for when the tower is operating. When the tower closes, that Class D becomes Class E (or Class G below the shelf, depending on the airspace design). Always check the Chart Supplement for tower hours and the airspace that remains when the tower is closed.",
+      "links": [
+        {
+          "label": "AIM 3-2-5 — Class D Airspace",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_2.html"
+        },
+        {
+          "label": "FAA Chart Supplement",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/dafd/"
+        }
+      ]
+    },
+    {
+      "card_id": "commercial_written_008",
+      "summary": "A “commercial operator” is a person who, for compensation or hire, carries persons or property by aircraft in air commerce other than as an air carrier. This definition drives when Part 119 / commercial operating rules apply versus private carriage or personal use.",
+      "links": [
+        {
+          "label": "14 CFR § 1.1 — Commercial operator",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-A/part-1/section-1.1"
+        },
+        {
+          "label": "14 CFR Part 119 — Certification: Air Carriers and Commercial Operators",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-G/part-119"
+        }
+      ]
+    },
+    {
+      "card_id": "commercial_written_009",
+      "summary": "V-speeds use standard symbols. VS is the stalling speed or the minimum steady flight speed at which the airplane is controllable. Related marks include VS0 (landing configuration) and VS1 (specified configuration).",
+      "links": [
+        {
+          "label": "14 CFR § 1.2 — Abbreviations and symbols",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-A/part-1/section-1.2"
+        },
+        {
+          "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "commercial_written_026",
+      "summary": "For U.S.-registered civil aircraft, an approved Airplane Flight Manual (or Rotorcraft Flight Manual) must be available in the aircraft when required by the type certification. Glider pilots should treat the POH / AFM and placards as the operating limitations source for the specific ship.",
+      "links": [
+        {
+          "label": "14 CFR § 91.9 — Civil aircraft flight manual, marking, and placard requirements",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-A/section-91.9"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "commercial_written_032",
+      "summary": "For aerotow, 14 CFR 91.309 requires a safety (weak) link at the glider end with breaking strength not less than 80% and not greater than twice the glider’s maximum certificated operating weight — unless a stronger link is used at the towplane end under the same rule. For a 1,140 lb glider, 80% is 912 lb.",
+      "links": [
+        {
+          "label": "14 CFR § 91.309 — Towing: Gliders and unpowered ultralight vehicles",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-D/section-91.309"
+        },
+        {
+          "label": "Glider Flying Handbook — Launches and Landing",
+          "url": "https://www.faa.gov/sites/faa.gov/files/regulations_policies/handbooks_manuals/aviation/glider_handbook/gfh_ch07.pdf"
+        }
+      ]
+    },
+    {
+      "card_id": "commercial_written_034",
+      "summary": "Under 14 CFR 91.211, the required minimum flight crew must use supplemental oxygen for any time exceeding 30 minutes between cabin pressure altitudes of 12,500 and 14,000 feet MSL (inclusive). Above 14,000 feet MSL, the required crew must use oxygen continuously. Passengers have separate requirements above 15,000 feet.",
+      "links": [
+        {
+          "label": "14 CFR § 91.211 — Supplemental oxygen",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-C/section-91.211"
+        },
+        {
+          "label": "AIM 8-1-2 — Effects of Altitude / Hypoxia",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap8_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "commercial_written_047",
+      "summary": "In Class C, D, and E airspace below 10,000 feet MSL, basic VFR minimums are 3 statute miles visibility and cloud clearance of 500 feet below, 1,000 feet above, and 2,000 feet horizontal. At 6,500 feet MSL those values apply unless a different rule (like Class B or special VFR) is in use.",
+      "links": [
+        {
+          "label": "14 CFR § 91.155 — Basic VFR weather minimums",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B/section-91.155"
+        },
+        {
+          "label": "AIM 3-1-4 — VFR Weather Minimums summary tables",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "commercial_written_050",
+      "summary": "Compliance with applicable Airworthiness Directives is the responsibility of the owner or operator of the aircraft. ADs are legally enforceable rules issued under Part 39; they must be accomplished as specified before further flight unless an alternative method of compliance is approved.",
+      "links": [
+        {
+          "label": "14 CFR § 39.3 — Definition of airworthiness directives",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-C/part-39/section-39.3"
+        },
+        {
+          "label": "FAA Dynamic Regulatory System (search ADs)",
+          "url": "https://drs.faa.gov/"
+        },
+        {
+          "label": "14 CFR § 91.403 — General (owner/operator maintenance responsibility)",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-E/section-91.403"
+        }
+      ]
+    }
+  ]
+}
