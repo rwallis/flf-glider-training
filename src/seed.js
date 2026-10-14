@@ -116,6 +116,30 @@ export async function seedGliderContent(db, { force = false } = {}) {
     topicRemaps += result.rowCount || 0;
   }
 
+  // Retire obsolete CFI-G placeholder topics (stubs now point at syllabus topics).
+  const stubFixes = [
+    ['cfi_stub_1', 'cfi_endorsements'],
+    ['cfi_foi_levels', 'cfi_foi']
+  ];
+  for (const [cardId, topicId] of stubFixes) {
+    const result = await db.query(
+      `UPDATE glider_cards
+       SET topic_id = $2, updated_at = NOW()
+       WHERE id = $1 AND topic_id IS DISTINCT FROM $2`,
+      [cardId, topicId]
+    );
+    topicRemaps += result.rowCount || 0;
+  }
+  await db.query(
+    `DELETE FROM glider_topics t
+     WHERE t.track_id = 'cfi_g'
+       AND (
+         t.id IN ('cfi_placeholder', 'cfi_foi_stub')
+         OR t.id LIKE 'cfi_g_cfi_g_written_question_bank_%'
+       )
+       AND NOT EXISTS (SELECT 1 FROM glider_cards c WHERE c.topic_id = t.id)`
+  );
+
   // Keep live DB wording aligned: SFM → POH (Pilot's Operating Handbook).
   const renamed = await db.query(
     `UPDATE glider_cards SET
