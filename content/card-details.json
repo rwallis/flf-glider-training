@@ -628,6 +628,928 @@
           "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
         }
       ]
+    },
+    {
+      "card_id": "cfi_g_bank_001",
+      "summary": "Stability is the tendency of an aircraft to develop forces (and moments) that restore it toward its original steady-flight condition after a disturbance. Distinguish static stability (initial tendency) from dynamic stability (behavior over time).",
+      "links": [
+        {
+          "label": "PHAK — Stability",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_002",
+      "summary": "Lift rises with speed largely because relative wind hits the lower surface harder and more air mass is accelerated/deflected downward (Newtonian view). Dynamic pressure also rises with V², so the pressure difference across the wing grows. Same AOA, more speed → more lift — until you hit structural or stall limits.",
+      "links": [
+        {
+          "label": "PHAK — Principles of Flight / Lift",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_009",
+      "summary": "By definition, lift is the net aerodynamic force perpendicular to the relative wind; drag is parallel to the relative wind. Weight and thrust (or tow force) are separate. Teach students to resolve forces in the relative-wind axes, not the horizon axes, when analyzing climbs and glides.",
+      "links": [
+        {
+          "label": "PHAK — Four Forces / Lift",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_010",
+      "summary": "Angle of incidence is the fixed angle between the wing chord line and the aircraft longitudinal axis — built into the airframe, not changed by the pilot. Do not confuse with angle of attack (chord vs relative wind), which the pilot does change.",
+      "links": [
+        {
+          "label": "PHAK — Angle of Incidence",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_011",
+      "summary": "Angle of attack (AOA) is the angle between the chord line and the relative wind. AOA — not pitch attitude or airspeed alone — is what the wing “sees.” Stalls occur at a critical AOA regardless of indicated airspeed.",
+      "links": [
+        {
+          "label": "PHAK — Angle of Attack",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_012",
+      "summary": "The mean camber line runs from leading edge to trailing edge, equidistant from the upper and lower surfaces. The chord line is the straight line LE→TE. Camber is the curvature between those two lines; more upper camber is typical on glider airfoils.",
+      "links": [
+        {
+          "label": "PHAK — Airfoil Terminology",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_014",
+      "summary": "Bernoulli’s principle (as taught in FAA materials): faster airflow over the curved upper surface lowers static pressure on top of the wing, contributing to lift. Pair this with the downward deflection / Newton explanation — both are part of the complete lift picture.",
+      "links": [
+        {
+          "label": "PHAK — Bernoulli’s Principle",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_015",
+      "summary": "Wings produce lift from a pressure difference: relatively higher (positive) pressure below and lower (negative) pressure above the wing. That net force is perpendicular to the relative wind. Teach both pressure distribution and downwash as one story.",
+      "links": [
+        {
+          "label": "PHAK — Pressure Distribution / Lift",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_017",
+      "summary": "Induced drag is the drag created as a byproduct of producing lift (wingtip vortices / downwash). It changes strongly with airspeed — roughly inversely with V² in level flight — so it dominates at slow speeds near the stall.",
+      "links": [
+        {
+          "label": "PHAK — Induced Drag",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_018",
+      "summary": "Above L/Dmax speed in level flight, total drag rises mainly because parasite drag increases with speed (≈ V²). Induced drag is falling, but parasite drag grows faster past the L/Dmax “bucket.”",
+      "links": [
+        {
+          "label": "PHAK — Drag Curves / L/Dmax",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_019",
+      "summary": "Below L/Dmax speed in level flight, total drag rises because induced drag increases sharply as airspeed drops (higher AOA to hold level flight). That is the backside of the drag curve — important for slow flight and approach energy management.",
+      "links": [
+        {
+          "label": "PHAK — Induced Drag / Drag Curve",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_020",
+      "summary": "Profile drag (a form of parasite drag) includes skin friction from air viscosity along the wing surface plus form drag from the airfoil shape. It rises with airspeed and is not the lift-induced component.",
+      "links": [
+        {
+          "label": "PHAK — Parasite / Profile Drag",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_021",
+      "summary": "Induced drag varies inversely as the square of the airspeed (in steady level flight, roughly). Double the speed → about one-fourth the induced drag. Parasite drag does the opposite — varies with the square of speed.",
+      "links": [
+        {
+          "label": "PHAK — Drag vs Airspeed",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_022",
+      "summary": "In a coordinated turn, total lift tilts; the vertical component must still equal weight for level flight. As bank increases, vertical lift decreases unless you increase total lift (back pressure / higher load factor). In a glider, if you do not add enough, you sink faster — bank ↑ → vertical component ↓ → sink rate ↑.",
+      "links": [
+        {
+          "label": "PHAK — Turns / Load Factor",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_023",
+      "summary": "Center of pressure (CP) is where the net aerodynamic force acts on the wing. As CP moves with AOA/configuration changes, pitching moments change — affecting aerodynamic balance and how much control input you need (controllability).",
+      "links": [
+        {
+          "label": "PHAK — Center of Pressure",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_024",
+      "summary": "To turn, you must change the direction of lift (bank) so a horizontal component pulls the flightpath around. Rudder alone yaws; elevator alone pitches. A coordinated turn is bank + appropriate pitch + rudder to stay coordinated.",
+      "links": [
+        {
+          "label": "PHAK — Forces in a Turn",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_025",
+      "summary": "AOA directly controls how pressure is distributed on the wing (upper-surface suction and lower-surface pressure). Change AOA and you change that distribution — and therefore lift, drag, and pitching moment — before airspeed has time to catch up.",
+      "links": [
+        {
+          "label": "PHAK — Angle of Attack / Pressure Distribution",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_026",
+      "summary": "A wing stalls at a critical angle of attack, independent of airspeed. You can stall at high speed (accelerated stall) or low speed — what matters is exceeding critical AOA. Weight, G-load, and CG change the stall speed, not the stalling AOA.",
+      "links": [
+        {
+          "label": "PHAK — Stalls",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_028",
+      "summary": "In ground effect, at the same AOA as out of ground effect, lift increases and induced drag decreases because the surface interferes with wingtip vortices / downwash. That is why float on landing happens — the ship “keeps flying” in the cushion.",
+      "links": [
+        {
+          "label": "PHAK — Ground Effect",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_033",
+      "summary": "On the standard total-drag vs airspeed curve (Figure 20), point A at the bottom of the bucket is L/Dmax — maximum lift/drag ratio in steady flight. That speed is the key reference for best glide performance in still air.",
+      "links": [
+        {
+          "label": "PHAK — Drag Curve / L/Dmax",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_034",
+      "summary": "On the same drag curve, the airspeed at L/Dmax (often labeled point B depending on the figure edition) gives maximum glide range in still air. Best endurance / minimum sink is a slower speed; do not mix those two up on the oral.",
+      "links": [
+        {
+          "label": "PHAK — Glide Performance",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_035",
+      "summary": "Spiral instability comes from strong static directional stability combined with weak dihedral effect. A small bank → nose yaws into the turn (strong weathercock) → outer wing speeds up → bank steepens into a spiral dive. Dihedral/roll stability is what should fight that.",
+      "links": [
+        {
+          "label": "PHAK — Lateral / Directional Stability",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_036",
+      "summary": "Positive dynamic stability is the most desirable: after a disturbance, oscillations damp out and the airplane returns to equilibrium. Positive static but negative dynamic means it starts back then oscillates worse — not what you want.",
+      "links": [
+        {
+          "label": "PHAK — Dynamic Stability",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_037",
+      "summary": "Static instability means that when disturbed from steady flight, the aircraft develops forces that take it farther from the original condition (initial tendency is divergent). Contrast with positive static stability (restoring tendency).",
+      "links": [
+        {
+          "label": "PHAK — Static Stability",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_040",
+      "summary": "Maneuverability is the quality that lets an aircraft be operated easily and withstand the stresses of flight maneuvers. It is about how readily and safely you can change attitude / flightpath — related to, but not the same as, controllability.",
+      "links": [
+        {
+          "label": "PHAK — Controllability & Maneuverability",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_041",
+      "summary": "Controllability is the capability of an aircraft to respond to pilot control inputs, especially regarding flightpath and attitude. Soft or heavy controls, CG position, and speed all change how controllable the ship feels.",
+      "links": [
+        {
+          "label": "PHAK — Controllability",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_043",
+      "summary": "In a longitudinal phugoid oscillation, airspeed and pitch trade back and forth while angle of attack stays nearly constant. It is a long-period energy exchange (kinetic ↔ potential), not a short-period AOA hunting mode.",
+      "links": [
+        {
+          "label": "PHAK — Phugoid Oscillations",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_045",
+      "summary": "Wing dihedral increases lateral (roll) stability: when a wing drops, the lower wing meets the relative wind at a higher AOA and produces more lift, rolling the aircraft back toward wings-level.",
+      "links": [
+        {
+          "label": "PHAK — Dihedral / Lateral Stability",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_053",
+      "summary": "Glider airfoils generally have greater camber on the upper surface than the lower surface (positive camber). That shape favors upper-surface acceleration and pressure difference for efficient lift at soaring AOAs.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Aerodynamics",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "PHAK — Camber",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_065",
+      "summary": "Maximum gliding distance (still air) occurs at L/Dmax, which is where induced drag equals parasite drag — the bottom of the total-drag curve. Fly that speed (adjusted for wind/sink as needed) for best range.",
+      "links": [
+        {
+          "label": "PHAK — Maximum Glide",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_066",
+      "summary": "Best L/D occurs when parasite drag equals induced drag. That identity is the same idea as “bottom of the drag bucket” — useful as a memory hook on the written.",
+      "links": [
+        {
+          "label": "PHAK — L/Dmax",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_067",
+      "summary": "The best L/D ratio itself is essentially constant with weight — a heavy glider flies the same L/Dmax number, but at a higher airspeed. Weight changes the speed for best L/D, not the ratio value (ignoring Reynolds-number nuances).",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Performance",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "PHAK — Glide / Weight Effect",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_081",
+      "summary": "Cold air is denser: in colder-than-standard temperatures you are lower than the indicated altitude (true altitude < indicated). “From high to low, look out below” applies to both pressure and temperature. Critical for mountain / winter ops.",
+      "links": [
+        {
+          "label": "AIM 7-2 — Altimeter Errors / Temperature",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap7_section_2.html"
+        },
+        {
+          "label": "PHAK — Altimetry",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_083",
+      "summary": "The oxygen system most commonly found in light GA aircraft is continuous flow (cannula or mask with continuous delivery). Diluter-demand and pressure-demand systems are more typical of higher-performance / high-altitude aircraft.",
+      "links": [
+        {
+          "label": "AIM 8-1-2 — Oxygen Use",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap8_section_1.html"
+        },
+        {
+          "label": "14 CFR § 91.211 — Supplemental oxygen",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-C/section-91.211"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_098",
+      "summary": "Density altitude rises when temperature rises, moisture increases, and pressure decreases (hot, humid, low-pressure day = high DA). High DA means less performance: longer ground roll, poorer climb, higher true airspeed for a given IAS.",
+      "links": [
+        {
+          "label": "PHAK — Density Altitude",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_142",
+      "summary": "The Sun is the primary driving force of Earth’s weather — uneven solar heating drives circulation cells, pressure systems, and fronts. Everything else (Coriolis, terrain, moisture) modifies that energy engine.",
+      "links": [
+        {
+          "label": "PHAK — Atmosphere / Weather Theory",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_156",
+      "summary": "Bank answer text looks swapped (vortex wording). Concept for the stem: winds at 5,000 feet more southwesterly while surface winds are more southerly mainly because surface friction slows and backs the wind near the ground; above the friction layer the wind is closer to geostrophic / gradient balance.",
+      "links": [
+        {
+          "label": "PHAK — Wind / Friction Layer",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_248",
+      "summary": "For a brief summary of fronts, pressure systems, and circulation patterns, use Graphical Forecasts for Aviation (GFA) on aviationweather.gov. It replaced many old prog-chart workflows for that quick synoptic picture.",
+      "links": [
+        {
+          "label": "Aviation Weather Center — GFA",
+          "url": "https://aviationweather.gov/gfa"
+        },
+        {
+          "label": "AIM 7-1 — Meteorology",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap7_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_331",
+      "summary": "Military training routes with operations at or below 1,500 feet AGL use a four-digit number (IR#### or VR####). Routes mostly above 1,500 feet AGL use three-digit numbers. Charted on IFR/VFR charts — brief them on cross-countries.",
+      "links": [
+        {
+          "label": "AIM 3-5-2 — Military Training Routes",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_5.html"
+        },
+        {
+          "label": "FAA Chart Users’ Guide",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/aero_guide/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_356",
+      "summary": "Bank answer text looks swapped (takeoff-behind-jet wording). Concept for the stem: a light crosswind (about 5 kt or less) can drift the upwind vortex over the runway and hold it in the touchdown zone longer — so a light crosswind is not “safe,” it can make wake more persistent for the following aircraft.",
+      "links": [
+        {
+          "label": "AIM 7-3 — Wake Turbulence / Wind Effect",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap7_section_3.html"
+        },
+        {
+          "label": "AC 90-48 — Collision Avoidance",
+          "url": "https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_90-48D.pdf"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_393",
+      "summary": "An aircraft furnished for a practical test must have no prescribed operating limitations that prohibit its use in any required area of operation (and meet the other Part 61 aircraft requirements). If the POH/placards forbid a required task, that ship cannot be used for that checkride task.",
+      "links": [
+        {
+          "label": "14 CFR § 61.45 — Practical tests: required aircraft",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.45"
+        },
+        {
+          "label": "14 CFR § 91.9 — Flight manual / markings / placards",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-A/section-91.9"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_400",
+      "summary": "A commercial pilot must log the flight time necessary to meet recent flight experience requirements (and other required records). You do not have to log every flight for fun — but you must be able to show currency and qualification when exercising commercial privileges.",
+      "links": [
+        {
+          "label": "14 CFR § 61.51 — Pilot logbooks",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.51"
+        },
+        {
+          "label": "14 CFR § 61.57 — Recent flight experience",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.57"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_443",
+      "summary": "Bank answer “24 hours” does not match the stem. Rule: under 14 CFR 91.17, you may not allow a person who appears to be intoxicated / under the influence to be carried in a civil aircraft — except a medical patient under proper care. Teach the passenger alcohol rule separately from the crew 8-hour / 0.04% rules.",
+      "links": [
+        {
+          "label": "14 CFR § 91.17 — Alcohol or drugs",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-A/section-91.17"
+        },
+        {
+          "label": "AIM 8-1-1 — Fitness for Flight",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap8_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_446",
+      "summary": "Operating limitations are found in the aircraft flight manual / approved manual material, markings, and placards — or any combination thereof (14 CFR 91.9). For gliders, that means POH/AFM pages plus cockpit placards (Vne, weight, weak-link, etc.).",
+      "links": [
+        {
+          "label": "14 CFR § 91.9 — Flight manual, marking, and placard requirements",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-A/section-91.9"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_459",
+      "summary": "Over a congested area, 14 CFR 91.119 requires at least 1,000 feet above the highest obstacle within a 2,000-foot horizontal radius. Over other than congested areas the minimum is 500 feet AGL (with other caveats). Glider instructors still brief this for aerotow routes and XC.",
+      "links": [
+        {
+          "label": "14 CFR § 91.119 — Minimum safe altitudes",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B/section-91.119"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_468",
+      "summary": "For a glider above 10,000 feet MSL and more than 1,200 feet AGL, basic VFR visibility minimum is 5 SM (with 1,000 ft above / 1,000 ft below / 1 SM horizontal cloud clearance). Below those altitudes different Class E/G tables apply — know § 91.155.",
+      "links": [
+        {
+          "label": "14 CFR § 91.155 — Basic VFR weather minimums",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B/section-91.155"
+        },
+        {
+          "label": "AIM 3-1-4 — VFR Weather Minimums",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_489",
+      "summary": "Acrobatic flight minimums under 14 CFR 91.303 include at least 1,500 feet AGL and 3 statute miles visibility (plus the other listed restrictions: not over congested areas, not in Class B/C/D/E surface areas without authorization, etc.).",
+      "links": [
+        {
+          "label": "14 CFR § 91.303 — Aerobatic flight",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-D/section-91.303"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_490",
+      "summary": "Each occupant must wear an approved parachute when an intentional maneuver exceeds 30° nose-up or nose-down relative to the horizon (with the usual training/spin exceptions in 91.307). Brief this before intentional unusual-attitude demos.",
+      "links": [
+        {
+          "label": "14 CFR § 91.307 — Parachutes and parachuting",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-D/section-91.307"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_494",
+      "summary": "If an alteration or repair substantially affected flight operation, the aircraft records must show a test flight and approval for return to service by an appropriately rated pilot before passengers are carried (14 CFR 91.407). Maintenance signoff alone is not enough when ops were substantially affected.",
+      "links": [
+        {
+          "label": "14 CFR § 91.407 — Operation after maintenance",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-E/section-91.407"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_571",
+      "summary": "Haze makes traffic and terrain appear farther away than they really are — so you can be closer than your eyes suggest. Teach students to slow the scan assumptions and use ADS-B/radio as backups, not substitutes for seeing.",
+      "links": [
+        {
+          "label": "AIM 8-1-6 — Vision / Haze",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap8_section_1.html"
+        },
+        {
+          "label": "AC 90-48 — Collision Avoidance",
+          "url": "https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_90-48D.pdf"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_572",
+      "summary": "Teach a systematic empty-field scan: focus on different segments of the sky for short intervals rather than staring or continuously sweeping without focusing. Eyes need a moment to focus at each point to detect traffic.",
+      "links": [
+        {
+          "label": "AC 90-48 — Pilots’ Role in Collision Avoidance",
+          "url": "https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_90-48D.pdf"
+        },
+        {
+          "label": "AIM 4-4-14 — Traffic Advisories / See-and-Avoid",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap4_section_4.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_582",
+      "summary": "At night, rods (off-center vision) detect dim objects better than cones (center). Force off-center viewing — look slightly to the side of where you expect the target — to increase night vision effectiveness.",
+      "links": [
+        {
+          "label": "AIM 8-1-6 — Night Vision",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap8_section_1.html"
+        },
+        {
+          "label": "PHAK — Vision in Flight",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_593",
+      "summary": "Most effective night traffic technique: avoid staring directly at the suspected aircraft — use peripheral / off-center vision and a scanning pattern. Staring bleaches night vision on that spot and can make the target disappear.",
+      "links": [
+        {
+          "label": "AIM 8-1-6 — Night Vision",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap8_section_1.html"
+        },
+        {
+          "label": "AC 90-48 — Collision Avoidance",
+          "url": "https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_90-48D.pdf"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_597",
+      "summary": "Classic behavioral traps for experienced pilots: complete the flight as planned, please passengers, meet schedules, and “get the job done.” Call these out in ADM scenario training — mission completion pressure is a leading human-factor hazard.",
+      "links": [
+        {
+          "label": "PHAK — Aeronautical Decision-Making",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Risk Management Handbook (FAA-H-8083-2A)",
+          "url": "https://www.faa.gov/regulationspolicies/handbooksmanuals/risk-management-handbook-faa-h-8083-2a"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_599",
+      "summary": "To get a realistic view of your attitude toward flying, take a Self-Assessment Hazardous Attitude Inventory Test (FAA ADM materials). It surfaces which of the five hazardous attitudes you lean toward so you can practice antidotes.",
+      "links": [
+        {
+          "label": "PHAK — Hazardous Attitudes",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Risk Management Handbook (FAA-H-8083-2A)",
+          "url": "https://www.faa.gov/regulationspolicies/handbooksmanuals/risk-management-handbook-faa-h-8083-2a"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_604",
+      "summary": "When you recognize a hazardous thought: label it as hazardous, then correct it by stating the corresponding antidotal phrase — and act on the antidote. Recognition without the antidote leaves the bad attitude in charge.",
+      "links": [
+        {
+          "label": "PHAK — Hazardous Attitudes & Antidotes",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Risk Management Handbook (FAA-H-8083-2A)",
+          "url": "https://www.faa.gov/regulationspolicies/handbooksmanuals/risk-management-handbook-faa-h-8083-2a"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_627",
+      "summary": "VOR/OMNI figure item: indication V2 corresponds to aircraft position 2 only. Mentally place the OBS/TO-FROM and CDI: match the depicted needle/flag to the position on the radial/arc. Practice with the actual knowledge-test figure.",
+      "links": [
+        {
+          "label": "PHAK — VOR Navigation",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "AIM 1-1-3 — VOR",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap1_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_629",
+      "summary": "VOR/OMNI figure item: indication U corresponds to aircraft position 6 only. Same method — resolve OBS setting, TO/FROM, and CDI deflection against each numbered position until only one fits.",
+      "links": [
+        {
+          "label": "PHAK — VOR Navigation",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "AIM 1-1-3 — VOR",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap1_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_630",
+      "summary": "VOR/OMNI figure item: aircraft 8 would show indication W. Work TO/FROM and left/right sensing from the aircraft’s position relative to the selected course; W is the unique match for that station geometry.",
+      "links": [
+        {
+          "label": "PHAK — VOR Navigation",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "AIM 1-1-3 — VOR",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap1_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_670",
+      "summary": "Bank answer text looks swapped (airfoil axis wording). Concept for the stem: on older radar summary charts, an echo top like .250 with an underline coded the maximum top height band (tens of thousands of feet). Prefer modern GFA / radar mosaics on aviationweather.gov for current products, and learn the legend of whatever chart the test figure shows.",
+      "links": [
+        {
+          "label": "Aviation Weather Center",
+          "url": "https://aviationweather.gov/"
+        },
+        {
+          "label": "PHAK — Weather Charts",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_676",
+      "summary": "Human behavior is cited as a factor in about three out of four accidents — the teaching point behind ADM, CRM, and risk management. Technical skill matters, but judgment and behavior dominate the accident record.",
+      "links": [
+        {
+          "label": "PHAK — Aeronautical Decision-Making",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Risk Management Handbook (FAA-H-8083-2A)",
+          "url": "https://www.faa.gov/regulationspolicies/handbooksmanuals/risk-management-handbook-faa-h-8083-2a"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_682",
+      "summary": "A forecast K-index of 35 implies a high likelihood of thunderstorms (commonly taught as about a 60% chance in FAA weather materials). Higher K → more unstable / moist mid-levels → better thunderstorm potential. Cross-check with outlooks, radar, and AIRMETs/SIGMETs.",
+      "links": [
+        {
+          "label": "PHAK — Stability Indexes / Thunderstorms",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Center",
+          "url": "https://aviationweather.gov/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_690",
+      "summary": "Extending flaps increases wing camber, which increases both lift and drag (for a given AOA/speed regime). That is why flaps allow slower approach speeds but also steeper approaches / more drag for path control.",
+      "links": [
+        {
+          "label": "PHAK — Flaps",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_694",
+      "summary": "Same key idea as the other stability card: the most desirable stability is positive dynamic stability — disturbances damp out over time and the aircraft returns to equilibrium.",
+      "links": [
+        {
+          "label": "PHAK — Dynamic Stability",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_695",
+      "summary": "Gliders usually feel ground effect at less than about half the wingspan above the surface. Long-span ships therefore enter ground effect higher than short-span trainers — plan the roundout accordingly to avoid prolonged float.",
+      "links": [
+        {
+          "label": "PHAK — Ground Effect",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_697",
+      "summary": "Induced drag is the portion of total drag created by producing lift, and it changes a lot with airspeed (high at low speed). Duplicate of the core induced-drag teaching point — hammer it for the oral.",
+      "links": [
+        {
+          "label": "PHAK — Induced Drag",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_699",
+      "summary": "Lift is the net force perpendicular to the relative wind — same definition card as bank_009. Keep drag parallel to relative wind; do not measure lift off the horizon.",
+      "links": [
+        {
+          "label": "PHAK — Four Forces / Lift",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
     }
   ]
 }
