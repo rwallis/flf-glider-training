@@ -809,6 +809,41 @@
       color: var(--muted);
       font-weight: 700;
     }
+    .admin-result {
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: inherit;
+      font: inherit;
+      padding: 14px;
+      margin-bottom: 10px;
+      border-radius: 16px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .admin-result:hover,
+    .admin-result:focus-visible {
+      border-color: var(--sky);
+      background: #F3F9FC;
+      outline: none;
+    }
+    .admin-result .badge {
+      flex: 0 0 auto;
+      min-width: 52px;
+      height: 44px;
+      padding: 0 8px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      color: #fff;
+      font-size: 0.68rem;
+      text-align: center;
+      line-height: 1.1;
+    }
     .toast {
       position: fixed;
       left: 50%;
@@ -1430,6 +1465,39 @@
       if (opts.grades) state.study.grades = opts.grades.slice();
       state.topics = (await api('/api/topics?track=' + encodeURIComponent(state.study.track))).topics;
       await loadStudyDeck();
+    }
+
+    async function openStudyCard(card) {
+      if (!card?.id || !card.track_id) return;
+      state.view = 'study';
+      state.study.track = card.track_id;
+      state.study.topic = card.topic_id || '';
+      state.study.mode = 'all';
+      state.study.grades = [];
+      state.study.revealed = false;
+      state.study.quizChoice = null;
+      state.study.editing = false;
+      state.study.editDraft = null;
+      state.study.detailsOpen = false;
+      state.study.figureOpen = false;
+      state.topics = (await api('/api/topics?track=' + encodeURIComponent(card.track_id))).topics;
+      const q = new URLSearchParams({
+        track: card.track_id,
+        mode: 'all',
+        limit: '200'
+      });
+      if (card.topic_id) q.set('topic', card.topic_id);
+      const data = await api('/api/study?' + q.toString());
+      let cards = data.cards || [];
+      let idx = cards.findIndex((c) => c.id === card.id);
+      if (idx < 0) {
+        cards = [{ ...card, progress: null }, ...cards];
+        idx = 0;
+      }
+      state.study.cards = cards;
+      state.study.matched = data.matched ?? cards.length;
+      state.study.index = idx;
+      render();
     }
 
     function choiceIsCorrect(card, choice) {
@@ -2210,7 +2278,7 @@
         return `<div class="empty">${state.admin.status || 'No matching questions.'}</div>`;
       }
       return rows.map((card) => `
-        <article class="track">
+        <button type="button" class="admin-result" data-open-card="${escapeHtml(card.id)}" title="Open in Study">
           <div class="badge" style="background:${courseColor(card.track_id)}">${trackLabel(card.track_id)}</div>
           <div style="flex:1;min-width:0">
             <div class="admin-result-meta">
@@ -2220,7 +2288,7 @@
             <p class="admin-q">${escapeHtml(card.question || '')}</p>
             <p class="admin-a">${escapeHtml(card.answer || '')}</p>
           </div>
-        </article>
+        </button>
       `).join('');
     }
 
@@ -2237,7 +2305,7 @@
       return `
         <section class="admin-section">
           <h2>Question search</h2>
-          <p class="hint">Search the bank by question text. Filter by course, topic, or figures.</p>
+          <p class="hint">Search by question text, then tap a result to open it in Study. Filter by course, topic, or figures.</p>
           <div class="admin-filters">
             <label for="adminSearchQ">Question contains</label>
             <input id="adminSearchQ" type="search" value="${escapeHtml(a.q)}" placeholder="e.g. stall, METAR, aspect ratio" autocomplete="off" />
@@ -2596,6 +2664,18 @@
           runAdminSearch().catch((err) => toast(err.message));
         });
       }
+      app.querySelectorAll('[data-open-card]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const id = btn.dataset.openCard;
+          const card = (state.admin.results || []).find((c) => c.id === id);
+          if (!card) return;
+          try {
+            await openStudyCard(card);
+          } catch (err) {
+            toast(err.message);
+          }
+        });
+      });
       const importBtn = app.querySelector('#importBtn');
       if (importBtn) {
         importBtn.addEventListener('click', async () => {
