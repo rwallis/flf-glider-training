@@ -1550,6 +1550,510 @@
           "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
         }
       ]
+    },
+    {
+      "card_id": "cfi_g_bank_004",
+      "summary": "Adverse yaw on turn entry comes from aileron drag: the raised wing’s down-aileron makes more lift and more induced drag, while the lowered wing’s up-aileron makes less lift and less induced drag — so the nose yaws opposite the roll. Teach coordinated rudder with aileron from the start of the roll.",
+      "links": [
+        {
+          "label": "PHAK — Adverse Yaw",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_005",
+      "summary": "Rolling out of a steep turn, the lowered aileron (on the rising wing) creates more drag than on roll-in because the wing’s angle of attack is higher at rollout start (you are still loaded up). That extra AOA amplifies aileron drag — another reason for firm coordinating rudder on rollout.",
+      "links": [
+        {
+          "label": "PHAK — Turns / Adverse Yaw",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_038",
+      "summary": "Positive static stability (longitudinal): after you push the elevator forward and release, the nose initially tends to return toward the original pitch attitude. Initial restoring tendency = positive static stability.",
+      "links": [
+        {
+          "label": "PHAK — Static Stability",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_039",
+      "summary": "Negative static stability: after a pitch disturbance (elevator forward and release), the nose initially moves farther from the original position. Divergent initial tendency — undesirable for a training glider.",
+      "links": [
+        {
+          "label": "PHAK — Static Stability",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_042",
+      "summary": "Neutral static stability: after elevator forward and release, the nose stays at the new attitude — no restoring and no divergent tendency. Contrast with positive (returns) and negative (keeps going).",
+      "links": [
+        {
+          "label": "PHAK — Static Stability",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_054",
+      "summary": "A slight upward (negative) flap deflection reduces camber and typically decreases drag — used on some sailplanes for high-speed cruise / interthermal runs. Down flaps increase camber, lift, and drag for thermaling or landing.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Flaps / Devices",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "PHAK — Flaps",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_055",
+      "summary": "In a turn, the inward (horizontal) component of lift is opposed by centrifugal force. In a steady coordinated turn those horizontal forces balance; lift’s vertical component balances weight (level turn) or not (climbing/descending turn).",
+      "links": [
+        {
+          "label": "PHAK — Forces in a Turn",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_519",
+      "summary": "Nose swings left before going right on a right-turn entry = slipping entry: not enough right rudder for the aileron used. Fix: more rudder with the aileron so the nose tracks with the horizon into the turn (coordinated).",
+      "links": [
+        {
+          "label": "PHAK — Turns / Coordination",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Instructor’s Handbook — Flight instruction",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/aviation_instructors_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_520",
+      "summary": "If the nose moves into the turn before the bank starts, rudder was applied too soon (or too much) relative to aileron. Teach simultaneous coordinated inputs: aileron + rudder together, not rudder leading the roll.",
+      "links": [
+        {
+          "label": "PHAK — Turn Entry",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Instructor’s Handbook — Flight instruction",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/aviation_instructors_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_521",
+      "summary": "Nose-low in a steep turn: reduce bank first, then apply back elevator to restore pitch. Pulling first while steep only increases load factor and can accelerate the spiral / stall. Bank → then pitch.",
+      "links": [
+        {
+          "label": "PHAK — Steep Turns",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Instructor’s Handbook — Common errors",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/aviation_instructors_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_534",
+      "summary": "Straight-and-level in a crosswind: establish a proper heading into the wind (crab) with coordinated controls — wings level, ball centered, heading that cancels drift. Do not hold aileron into the wind for cruise crab (that’s a slip).",
+      "links": [
+        {
+          "label": "PHAK — Wind Drift / Crab",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_541",
+      "summary": "A slipping turn is likely when you increase the rate of turn without using rudder (or with insufficient rudder) — bank/turn rate ahead of yaw coordination. Ball goes to the inside; fix with rudder toward the ball / less bank.",
+      "links": [
+        {
+          "label": "PHAK — Slips & Skids",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_003",
+      "summary": "The three aircraft axes (longitudinal, lateral, vertical) intersect at the center of gravity. Moments and stability are referenced to that CG point — which is why loading changes handling.",
+      "links": [
+        {
+          "label": "PHAK — Axes of Flight / CG",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_008",
+      "summary": "Center of pressure is the point on the airfoil through which the net aerodynamic lift (pressure force) acts. It moves with AOA and is not the same as CG — the relationship between CP and CG drives pitching moments.",
+      "links": [
+        {
+          "label": "PHAK — Center of Pressure",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_027",
+      "summary": "Critical (stalling) angle of attack depends on wing design (airfoil, planform, devices) — not on weight or airspeed. Weight and CG change stall speed; they do not change the stalling AOA of that wing configuration.",
+      "links": [
+        {
+          "label": "PHAK — Stalls / Critical AOA",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_128",
+      "summary": "CG is computed along the longitudinal axis (fore-aft station). Lateral imbalance matters operationally, but standard W&B worksheets solve for the longitudinal CG location in inches from datum.",
+      "links": [
+        {
+          "label": "PHAK — Weight and Balance",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "FAA Aircraft Weight and Balance Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/weight_balance_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_129",
+      "summary": "CG = total moment ÷ total weight. Moment is weight × arm. Add all weights and all moments, then divide. Same formula for gliders with pilot, ballast, and optional water.",
+      "links": [
+        {
+          "label": "PHAK — Computing CG",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "FAA Aircraft Weight and Balance Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/weight_balance_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_131",
+      "summary": "Highest stalling speed occurs with high gross weight and a forward CG. Heavy + forward CG means you need more lift (higher AOA sooner / higher speed) and the wing/tail combo stalls at a higher IAS.",
+      "links": [
+        {
+          "label": "PHAK — CG Effects / Stall Speed",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_133",
+      "summary": "Moving CG from aft limit to beyond the forward limit decreases cruising speed and increases stalling speed. Forward CG means more download on the tail (more trim drag) and a higher stall speed — sluggish and nose-heavy.",
+      "links": [
+        {
+          "label": "PHAK — CG Position Effects",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "FAA Aircraft Weight and Balance Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/weight_balance_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_134",
+      "summary": "Exceeding the forward CG limit produces higher stalling speeds and more longitudinal stability (very stable but heavy elevator, hard flare). Aft of limits does the opposite: lower stall speed feel, less stability, easier to stall/spin.",
+      "links": [
+        {
+          "label": "PHAK — Forward CG Effects",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_547",
+      "summary": "Water ballast: keep it while thermals are strong so higher wing loading gives higher interthermal cruise speed; dump when thermals weaken so you can thermal efficiently at a lower wing loading / lower sink. Net goal: increase average cross-country speed.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Water Ballast / Performance",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "PHAK — Weight and Performance",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_664",
+      "summary": "If equipment has been added beyond original empty weight, allowable useful load decreases (max gross − new empty weight). Always use current empty weight/CG from the latest W&B sheet, not the old POH sample empty weight.",
+      "links": [
+        {
+          "label": "FAA Aircraft Weight and Balance Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/weight_balance_handbook"
+        },
+        {
+          "label": "PHAK — Weight and Balance",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_071",
+      "summary": "Northern Hemisphere magnetic compass: acceleration on east or west headings makes the compass indicate a turn toward the north (ANDS: Accelerate North, Decelerate South). Use this when teaching compass errors on climb/descent entries.",
+      "links": [
+        {
+          "label": "PHAK — Compass Errors (ANDS)",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "AIM 1 — Navigation Aids / Magnetic Compass",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap1_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_072",
+      "summary": "Acceleration/deceleration errors are negligible on north or south headings — the compass indicates correctly while speeding up or slowing down on N/S. Errors show on E/W headings (ANDS).",
+      "links": [
+        {
+          "label": "PHAK — Compass Acceleration Errors",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_073",
+      "summary": "Magnetic deviation is compass error from local magnetic fields in the aircraft — metals, electronics, speakers, etc. It is unique to each airplane/installation and is corrected with a compass correction card.",
+      "links": [
+        {
+          "label": "PHAK — Deviation",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "AIM — Magnetic Compass",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap1_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_074",
+      "summary": "Rolling out to south with a magnetic compass (Northern Hemisphere): start rollout after the compass passes south by about (latitude − normal rollout lead) degrees. Southerly turns are lead/lag reversed from northerly turns — overshoot south, undershoot north.",
+      "links": [
+        {
+          "label": "PHAK — Compass Turning Errors",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_075",
+      "summary": "From a south heading, rolling into a standard-rate right turn (Northern Hemisphere): the compass indicates a turn to the right but faster than the actual turn (leads). UNOS memory aid: Undershoot North, Overshoot South when rolling out.",
+      "links": [
+        {
+          "label": "PHAK — Compass Turning Errors",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_076",
+      "summary": "Deviation varies with heading on the same aircraft — that is why the compass card lists corrections by heading blocks. Variation is geographic; deviation is airframe/heading-dependent.",
+      "links": [
+        {
+          "label": "PHAK — Deviation vs Variation",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "FAA Chart Users’ Guide",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/aero_guide/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_610",
+      "summary": "Measure true course on a sectional at a meridian near mid-route because meridians converge: the angle between your course and true north changes along the route. Midpoint measurement averages that convergence error.",
+      "links": [
+        {
+          "label": "PHAK — Charting a Course",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "FAA Chart Users’ Guide",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/aero_guide/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_611",
+      "summary": "Wind triangle (typical FAA figure): the line from A to B represents true heading and airspeed (the aircraft vector through the air). Know which leg is TH/AS vs TC/GS vs wind.",
+      "links": [
+        {
+          "label": "PHAK — Wind Triangle",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook — Cross-Country",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_612",
+      "summary": "Wind triangle: line from C to B represents groundspeed and true course (the path over the ground). That is the course/GS vector you plot on the chart.",
+      "links": [
+        {
+          "label": "PHAK — Wind Triangle",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook — Cross-Country",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_613",
+      "summary": "Wind triangle: line from C to A represents wind direction and velocity (from wind-dot to air-vector tip, depending on construction). Wind is from → to along that vector.",
+      "links": [
+        {
+          "label": "PHAK — Wind Triangle",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook — Cross-Country",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_614",
+      "summary": "True course → magnetic heading: apply variation (add west / subtract east — “East is least, West is best”), then apply wind correction (subtract left WCA / add right WCA) to get magnetic heading. Sequence: TC ± var = MC, then ± WCA = MH.",
+      "links": [
+        {
+          "label": "PHAK — TVMDC / Flight Planning",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "FAA Chart Users’ Guide",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/aero_guide/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_615",
+      "summary": "Magnetic course → true course: add easterly variation (and subtract westerly). Going MC→TC is the reverse of TC→MC. Variation depends on location, not on which way the nose is pointed.",
+      "links": [
+        {
+          "label": "PHAK — Magnetic Variation",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "FAA Chart Users’ Guide",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/aero_guide/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_616",
+      "summary": "True heading → true course: remove the wind correction angle — subtract a right WCA (or add a left WCA). Heading is where the nose points; course is the path over the ground.",
+      "links": [
+        {
+          "label": "PHAK — Heading vs Course",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_617",
+      "summary": "Magnetic variation is the angular difference between true north and magnetic north. It is printed on charts as isogonic lines and changes slowly over years — always use current chart variation.",
+      "links": [
+        {
+          "label": "PHAK — Variation",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "FAA Chart Users’ Guide",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/aero_guide/"
+        }
+      ]
     }
   ]
 }
