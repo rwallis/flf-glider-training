@@ -11,7 +11,7 @@
   const KT_TO_FPS = 6076.12 / 3600;
 
   /**
-   * SFM L/D anchors (mph) — densified, then converted to IAS/VS knots.
+   * POH L/D anchors (mph) — densified, then converted to IAS/VS knots.
    * Extra midpoints keep Catmull–Rom / Bezier output smooth on screen.
    */
   const LD_TABLES = {
@@ -19,7 +19,7 @@
       label: 'Solo',
       weight_lb: 790,
       wing_loading_psf: 3.6,
-      // Digitized from SFM p.1-15; sink derived as V(fps)/L/D.
+      // Digitized from POH p.1-15; sink derived as V(fps)/L/D.
       ld_mph: [
         [36, 16.8],
         [39, 19.8],
@@ -46,7 +46,7 @@
       label: 'Dual',
       weight_lb: 1040,
       wing_loading_psf: 4.74,
-      // Peak ~22.2 at 54 mph (SFM); was overstated at 23.0. Sink = V(fps)/L/D ≈ 3.57 fps.
+      // Peak ~22.2 at 54 mph (POH); was overstated at 23.0. Sink = V(fps)/L/D ≈ 3.57 fps.
       ld_mph: [
         [42, 17.0],
         [45, 19.8],
@@ -103,7 +103,7 @@
       const segLen = Math.max(2, Math.round((p2.ias_kt - p1.ias_kt) / stepKt));
       for (let s = 0; s < segLen; s += 1) {
         const t = s / segLen;
-        // Linear L/D between SFM anchors — Catmull–Rom on VS was overshooting the dual peak (23 vs 22.2).
+        // Linear L/D between POH anchors — Catmull–Rom on VS was overshooting the dual peak (23 vs 22.2).
         const ias = lerp(p1.ias_kt, p2.ias_kt, t);
         const ld = lerp(p1.ld, p2.ld, t);
         const vs = -(ias / Math.max(0.05, ld));
@@ -255,7 +255,7 @@
   // Legacy evaluate API (mph / L/D table)
   const POLAR = {
     aircraft: 'SGS 2-33A',
-    source: 'SFM calculated performance curves (digitized)',
+    source: 'POH calculated performance curves (digitized)',
     configs: Object.fromEntries(
       Object.entries(LD_TABLES).map(([key, meta]) => [
         key,

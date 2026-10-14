@@ -1,6 +1,6 @@
 {
   "aircraft": "SGS 2-33A",
-  "source": "Calculated Performance Curves S.G.S. 2-33A (SFM p.1-15)",
+  "source": "Calculated Performance Curves S.G.S. 2-33A (POH p.1-15)",
   "notes": "Digitized from published polar. Peak dual L/D ≈22.2 at 54 mph (not 23). Sink derived as V(fps)/L/D for consistency.",
   "mph_to_fps": 1.4666667,
   "configs": {

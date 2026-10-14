@@ -85,5 +85,36 @@ export async function seedGliderContent(db, { force = false } = {}) {
     cards += 1;
   }
 
-  return { tracks, topics, cards, force };
+  // Keep live DB wording aligned: SFM → POH (Pilot's Operating Handbook).
+  const renamed = await db.query(
+    `UPDATE glider_cards SET
+       question = REPLACE(question, 'SFM', 'POH'),
+       answer = REPLACE(answer, 'SFM', 'POH'),
+       source = REPLACE(source, 'SFM', 'POH'),
+       choices = CASE
+         WHEN choices IS NULL THEN NULL
+         ELSE (
+           SELECT COALESCE(jsonb_agg(to_jsonb(REPLACE(value, 'SFM', 'POH'))), '[]'::jsonb)
+           FROM jsonb_array_elements_text(choices) AS value
+         )
+       END,
+       updated_at = NOW()
+     WHERE question LIKE '%SFM%'
+        OR answer LIKE '%SFM%'
+        OR source LIKE '%SFM%'
+        OR choices::text LIKE '%SFM%'`
+  );
+  await db.query(
+    `UPDATE glider_topics SET
+       description = REPLACE(description, 'SFM', 'POH'),
+       pts_ref = REPLACE(pts_ref, 'SFM', 'POH')
+     WHERE description LIKE '%SFM%' OR pts_ref LIKE '%SFM%'`
+  );
+  await db.query(
+    `UPDATE glider_tracks SET
+       description = REPLACE(description, 'SFM', 'POH')
+     WHERE description LIKE '%SFM%'`
+  );
+
+  return { tracks, topics, cards, force, renamed_sfm_to_poh: renamed.rowCount || 0 };
 }

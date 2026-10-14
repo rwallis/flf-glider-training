@@ -1,4 +1,4 @@
-"""Crop sgs-233-polar.png tightly to the SFM graph (drop chrome + top whitespace)."""
+"""Crop sgs-233-polar.png tightly to the POH graph (drop chrome + top whitespace)."""
 from pathlib import Path
 
 import numpy as np

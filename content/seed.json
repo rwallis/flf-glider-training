@@ -31,7 +31,7 @@
     {
       "id": "aircraft_233",
       "title": "SGS 2-33",
-      "description": "SFM numbers, systems, ADs, and FLF ops for the club Schweizer 2-33 trainer.",
+      "description": "POH numbers, systems, ADs, and FLF ops for the club Schweizer 2-33 trainer.",
       "sort_order": 5,
       "status": "ready"
     }
@@ -55,9 +55,9 @@
     { "id": "cfi_placeholder", "track_id": "cfi_g", "title": "Upload CFI-G Q&A", "description": "FOI and instructor tasks — import when you start CFI-G study.", "pts_ref": "FAA-S-8081-8C", "sort_order": 10 },
     { "id": "cfi_foi_stub", "track_id": "cfi_g", "title": "FOI outline (stub)", "description": "High-level FOI roadmap until you upload cards.", "pts_ref": "FOI / AC 60-14", "sort_order": 20 },
 
-    { "id": "a233_speeds", "track_id": "aircraft_233", "title": "Speeds & limits", "description": "SFM airspeeds and load factors.", "pts_ref": "2-33 SFM", "sort_order": 10 },
-    { "id": "a233_wb", "track_id": "aircraft_233", "title": "Weight & balance", "description": "MGW, placards, ballast.", "pts_ref": "2-33 SFM / TCDS G2EA", "sort_order": 20 },
-    { "id": "a233_systems", "track_id": "aircraft_233", "title": "Systems & preflight", "description": "Dive brakes, release, trim, papers.", "pts_ref": "2-33 SFM", "sort_order": 30 },
+    { "id": "a233_speeds", "track_id": "aircraft_233", "title": "Speeds & limits", "description": "POH airspeeds and load factors.", "pts_ref": "2-33 POH", "sort_order": 10 },
+    { "id": "a233_wb", "track_id": "aircraft_233", "title": "Weight & balance", "description": "MGW, placards, ballast.", "pts_ref": "2-33 POH / TCDS G2EA", "sort_order": 20 },
+    { "id": "a233_systems", "track_id": "aircraft_233", "title": "Systems & preflight", "description": "Dive brakes, release, trim, papers.", "pts_ref": "2-33 POH", "sort_order": 30 },
     { "id": "a233_ads", "track_id": "aircraft_233", "title": "Airworthiness Directives", "description": "Current airframe ADs to brief from the logbook.", "pts_ref": "DRS ADFRAWD", "sort_order": 40 }
   ],
   "cards": [
@@ -258,7 +258,7 @@
       "track_id": "commercial",
       "topic_id": "comm_airworthy",
       "question": "INOP equipment on a 2-33 without an MEL — which rule?",
-      "answer": "91.213(d): remove or deactivate, placard, and determine it is not a hazard. Required instruments (e.g., ASI per SFM) must work.",
+      "answer": "91.213(d): remove or deactivate, placard, and determine it is not a hazard. Required instruments (e.g., ASI per POH) must work.",
       "choices": ["91.205 only", "91.213(d)", "Part 43 only", "Ignore if day VFR"],
       "source": "91.213",
       "tags": ["inop"]
@@ -318,9 +318,9 @@
       "track_id": "commercial",
       "topic_id": "comm_landings",
       "question": "Commercial slips task — key points?",
-      "answer": "Evaluator picks one type (forward/side/turning). Demonstrate slip without drag devices; maintain track; 2-33 SFM: initiate recovery so you are out of the slip by 50 ft remaining.",
+      "answer": "Evaluator picks one type (forward/side/turning). Demonstrate slip without drag devices; maintain track; 2-33 POH: initiate recovery so you are out of the slip by 50 ft remaining.",
       "choices": null,
-      "source": "PTS IV.R / 2-33 SFM",
+      "source": "PTS IV.R / 2-33 POH",
       "tags": ["slip"]
     },
     {
@@ -422,7 +422,7 @@
       "question": "2-33 never-exceed / max aero-tow / max dive-or-glide speed?",
       "answer": "98 mph (placarded).",
       "choices": ["69 mph", "85 mph", "98 mph", "110 mph"],
-      "source": "2-33 SFM / TCDS G2EA",
+      "source": "2-33 POH / TCDS G2EA",
       "tags": ["vne"]
     },
     {
@@ -432,27 +432,27 @@
       "question": "2-33 max auto/winch tow speed?",
       "answer": "69 mph.",
       "choices": ["55", "69", "98", "120"],
-      "source": "2-33 SFM",
+      "source": "2-33 POH",
       "tags": ["winch"]
     },
     {
       "id": "a233_approach",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
-      "question": "2-33 normal approach speed rule (SFM)?",
-      "answer": "55 mph + 1 mph for each 1 mph of wind. (Discard “half the wind” mnemonics that conflict with the SFM.)",
+      "question": "2-33 normal approach speed rule (POH)?",
+      "answer": "55 mph + 1 mph for each 1 mph of wind. (Discard “half the wind” mnemonics that conflict with the POH.)",
       "choices": ["50 + ½ wind", "55 + 1 per 1 mph wind", "60 fixed", "Best L/D only"],
-      "source": "2-33 SFM rev 2/15/22",
+      "source": "2-33 POH rev 2/15/22",
       "tags": ["approach"]
     },
     {
       "id": "a233_stall",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
-      "question": "Approximate 2-33 stall speeds solo vs dual (SFM)?",
+      "question": "Approximate 2-33 stall speeds solo vs dual (POH)?",
       "answer": "About 34 mph solo / 38 mph dual; dive brakes add ~2 mph.",
       "choices": null,
-      "source": "2-33 SFM p.10",
+      "source": "2-33 POH p.10",
       "tags": ["stall"]
     },
     {
@@ -462,7 +462,7 @@
       "question": "2-33 best L/D speed and published glide ratio?",
       "answer": "Best L/D about 50 mph; published L/D about 23:1. Min-sink ~42 mph.",
       "choices": null,
-      "source": "2-33 SFM / type data",
+      "source": "2-33 POH / type data",
       "tags": ["ld"]
     },
     {
@@ -472,7 +472,7 @@
       "question": "2-33 limit and ultimate load factors?",
       "answer": "Limit +4.67 / −2.56 g; ultimate +7.0 / −3.8 g.",
       "choices": null,
-      "source": "2-33 SFM",
+      "source": "2-33 POH",
       "tags": ["g_limit"]
     },
     {
@@ -480,9 +480,9 @@
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 demonstrated / placarded crosswind?",
-      "answer": "17 mph (per SFM notes used at FLF).",
+      "answer": "17 mph (per POH notes used at FLF).",
       "choices": ["10 mph", "17 mph", "25 mph", "No limit"],
-      "source": "2-33 SFM",
+      "source": "2-33 POH",
       "tags": ["crosswind"]
     },
     {
@@ -492,7 +492,7 @@
       "question": "2-33 maximum gross weight?",
       "answer": "1,040 lb.",
       "choices": ["850", "960", "1040", "1200"],
-      "source": "2-33 SFM",
+      "source": "2-33 POH",
       "tags": ["wb"]
     },
     {
@@ -509,20 +509,20 @@
       "id": "a233_slip_50",
       "track_id": "aircraft_233",
       "topic_id": "a233_systems",
-      "question": "SFM slip recovery height remaining?",
+      "question": "POH slip recovery height remaining?",
       "answer": "Initiate recovery so at least 50 ft AGL remains when recovering from the slip.",
       "choices": ["20 ft", "50 ft", "100 ft", "200 ft"],
-      "source": "2-33 SFM p.21",
+      "source": "2-33 POH p.21",
       "tags": ["slip"]
     },
     {
       "id": "a233_hook",
       "track_id": "aircraft_233",
       "topic_id": "a233_systems",
-      "question": "Tow-hook release check force (SFM)?",
-      "answer": "About 5–20 lb on the nose/CG hook check — verify with SFM in hand.",
+      "question": "Tow-hook release check force (POH)?",
+      "answer": "About 5–20 lb on the nose/CG hook check — verify with POH in hand.",
       "choices": null,
-      "source": "2-33 SFM p.41",
+      "source": "2-33 POH p.41",
       "tags": ["release"]
     },
     {
@@ -550,7 +550,7 @@
       "track_id": "aircraft_233",
       "topic_id": "a233_systems",
       "question": "What aircraft documents must you locate for the practical test?",
-      "answer": "Airworthiness certificate, registration, operating limitations/placards/SFM, W&B and equipment list, maintenance/AD compliance status.",
+      "answer": "Airworthiness certificate, registration, operating limitations/placards/POH, W&B and equipment list, maintenance/AD compliance status.",
       "choices": null,
       "source": "PTS applicant checklist",
       "tags": ["documents"]
