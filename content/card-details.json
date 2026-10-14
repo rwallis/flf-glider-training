@@ -2940,6 +2940,436 @@
           "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_2.html"
         }
       ]
+    },
+    {
+      "card_id": "cfi_g_bank_380",
+      "summary": "While a Flight Instructor Certificate is suspended, the holder may not apply for any rating to be added to that certificate during the suspension period. Suspension freezes upgrade/add-on applications on that certificate.",
+      "links": [
+        {
+          "label": "14 CFR § 61.19 — Duration of pilot and instructor certificates",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.19"
+        },
+        {
+          "label": "14 CFR Part 61 — Certification: Pilots, Flight Instructors",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_382",
+      "summary": "Student Pilot Certificates issued after April 1, 2016 have no expiration date. Solo and other privileges still require current instructor endorsements (e.g., 90-day solo) even though the plastic certificate itself does not expire.",
+      "links": [
+        {
+          "label": "14 CFR § 61.19 — Duration of pilot and instructor certificates",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.19"
+        },
+        {
+          "label": "14 CFR § 61.87 — Solo requirements for student pilots",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-C/section-61.87"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_383",
+      "summary": "A Flight Instructor Certificate expires 24 calendar months after the month of issue or renewal. Renew via FIRC, practical test, or other § 61.197 methods before expiration.",
+      "links": [
+        {
+          "label": "14 CFR § 61.19 — Duration of certificates",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.19"
+        },
+        {
+          "label": "14 CFR § 61.197 — Renewal requirements for flight instructor certification",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-H/section-61.197"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_386",
+      "summary": "Minimum documentation to take an FAA knowledge test for any flight instructor rating is proper identification. (FOI/knowledge prerequisites differ from practical-test endorsements — this item is about the testing-center ID rule.)",
+      "links": [
+        {
+          "label": "14 CFR § 61.35 — Knowledge test: prerequisites and passing grades",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.35"
+        },
+        {
+          "label": "FAA Airman Knowledge Testing Authorization Matrix",
+          "url": "https://www.faa.gov/training_testing/testing"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_387",
+      "summary": "If the Administrator finds cheating or an unauthorized act on a knowledge test, that person may not take another knowledge test for 1 year (and certificate action may also apply).",
+      "links": [
+        {
+          "label": "14 CFR § 61.37 — Knowledge tests: cheating or other unauthorized conduct",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.37"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_388",
+      "summary": "Cheating on a knowledge test can result in suspension or revocation of any certificate or rating held by that person — not just a retest delay.",
+      "links": [
+        {
+          "label": "14 CFR § 61.37 — Knowledge tests: cheating or other unauthorized conduct",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.37"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_390",
+      "summary": "The instructor’s written endorsement that the applicant is prepared for a practical test must be dated within 60 calendar days preceding the date of application (14 CFR 61.39).",
+      "links": [
+        {
+          "label": "14 CFR § 61.39 — Prerequisites for practical tests",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.39"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_394",
+      "summary": "After a second knowledge-test failure, with training and an authorized instructor endorsement, the applicant may retest immediately — there is no mandatory calendar wait beyond getting the endorsement.",
+      "links": [
+        {
+          "label": "14 CFR § 61.49 — Retesting after failure",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.49"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_396",
+      "summary": "After a first knowledge-test failure, retest requires an endorsement from an authorized instructor certifying additional training was given and the applicant is competent to pass the test.",
+      "links": [
+        {
+          "label": "14 CFR § 61.49 — Retesting after failure",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.49"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_398",
+      "summary": "After a second practical-test failure, the applicant may retest after receiving the necessary instruction and an endorsement from the authorized instructor who gave that training.",
+      "links": [
+        {
+          "label": "14 CFR § 61.49 — Retesting after failure",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.49"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_399",
+      "summary": "All flight training, flight-simulator training, and ground training time used toward a certificate/rating must be certified (endorsed/logged) by the instructor from whom it was received.",
+      "links": [
+        {
+          "label": "14 CFR § 61.51 — Pilot logbooks",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.51"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_402",
+      "summary": "A flight review is not required if, within the required period, the pilot completed a pilot proficiency check conducted by the FAA (among other § 61.56 exceptions such as certain practical tests).",
+      "links": [
+        {
+          "label": "14 CFR § 61.56 — Flight review",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.56"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_403",
+      "summary": "A standard flight review consists of a minimum of 1 hour of ground training and 1 hour of flight training (glider has an alternate three-flight option in § 61.56).",
+      "links": [
+        {
+          "label": "14 CFR § 61.56 — Flight review",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.56"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_404",
+      "summary": "Without a current flight review (or qualifying substitute), a pilot may not act as PIC — including solo. Instructors who are also pilots need a current flight review to exercise PIC privileges.",
+      "links": [
+        {
+          "label": "14 CFR § 61.56 — Flight review",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.56"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_405",
+      "summary": "Glider flight review: at least 1 hour ground instruction and either 1 hour of flight training or three instructional flights each including a flight to traffic-pattern altitude (§ 61.56).",
+      "links": [
+        {
+          "label": "14 CFR § 61.56 — Flight review (glider option)",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.56"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_408",
+      "summary": "After a permanent address change, you may exercise certificate privileges for 30 days before written notice to the FAA Airmen Certification Branch is required — then privileges stop until notified (§ 61.60).",
+      "links": [
+        {
+          "label": "14 CFR § 61.60 — Change of address",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.60"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_409",
+      "summary": "Notify the FAA in writing of a permanent address change within 30 days. After 30 days without notice, you may not exercise pilot/instructor privileges until the change is filed.",
+      "links": [
+        {
+          "label": "14 CFR § 61.60 — Change of address",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.60"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_410",
+      "summary": "A person seeking a private pilot glider rating is exempt from the knowledge test if they already hold a powered-aircraft rating (airplane, rotorcraft, etc.) — § 61.105 / glider private knowledge exceptions.",
+      "links": [
+        {
+          "label": "14 CFR § 61.105 — Aeronautical knowledge (private)",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-E/section-61.105"
+        },
+        {
+          "label": "14 CFR § 61.109 — Aeronautical experience (glider notes)",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-E/section-61.109"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_411",
+      "summary": "Minimum age for a Student Pilot Certificate limited to glider operations is 14 years (§ 61.83). Solo glider privileges also require the appropriate endorsements and training.",
+      "links": [
+        {
+          "label": "14 CFR § 61.83 — Eligibility requirements for student pilots",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-C/section-61.83"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_412",
+      "summary": "Required solo endorsement: within the preceding 90 days, an authorized instructor endorses that training was given in the make/model to be flown and the student is competent for safe solo (§ 61.87).",
+      "links": [
+        {
+          "label": "14 CFR § 61.87 — Solo requirements for student pilots",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-C/section-61.87"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_415",
+      "summary": "The student’s authorized instructor administers the required pre-solo knowledge test (not a DPE or FSDO by default). Document the test and training before the solo endorsement.",
+      "links": [
+        {
+          "label": "14 CFR § 61.87 — Solo requirements for student pilots",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-C/section-61.87"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_417",
+      "summary": "Bank stem/answer look swapped. Pre-solo requires specific flight/ground training in § 61.87. Separately: each solo cross-country generally needs a logbook endorsement for that flight (with the limited repeated-route exception in § 61.93).",
+      "links": [
+        {
+          "label": "14 CFR § 61.87 — Solo requirements",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-C/section-61.87"
+        },
+        {
+          "label": "14 CFR § 61.93 — Solo cross-country flight requirements",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-C/section-61.93"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_419",
+      "summary": "Yes — repeated solo cross-country flights without a new endorsement for each flight are authorized only under stipulated conditions in § 61.93 (same route, distance limits, prior dual both directions, etc.).",
+      "links": [
+        {
+          "label": "14 CFR § 61.93 — Solo cross-country flight requirements",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-C/section-61.93"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_420",
+      "summary": "Solo XC authorization requires a logbook endorsement that the instructor reviewed preflight planning/preparation and the student is prepared to make that flight safely (plus the other § 61.93 endorsements).",
+      "links": [
+        {
+          "label": "14 CFR § 61.93 — Solo cross-country flight requirements",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-C/section-61.93"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_421",
+      "summary": "Repeated solo XC over the same route without a per-flight endorsement: yes, if the route is no more than 50 NM from the departure point and instruction was given in both directions over the route (and other § 61.93 conditions).",
+      "links": [
+        {
+          "label": "14 CFR § 61.93 — Solo cross-country flight requirements",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-C/section-61.93"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_422",
+      "summary": "Solo in Class B requires a logbook endorsement showing ground and flight instruction in that specific Class B airspace for which solo is authorized (§ 61.95 / § 61.87 as applicable).",
+      "links": [
+        {
+          "label": "14 CFR § 61.95 — Operations in Class B airspace and at airports located in Class B",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.95"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_423",
+      "summary": "Only the flight instructor who conducted the Class B training may endorse the student for solo in that Class B airspace — not just any CFI on the field.",
+      "links": [
+        {
+          "label": "14 CFR § 61.95 — Operations in Class B airspace",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.95"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_430",
+      "summary": "To prepare a glider applicant for an initial CFI certificate, the training instructor must have held a Flight Instructor Certificate for at least 24 months and given at least 80 hours of glider training (§ 61.195).",
+      "links": [
+        {
+          "label": "14 CFR § 61.195 — Flight instructor limitations and qualifications",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-H/section-61.195"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_431",
+      "summary": "Each flight instructor must retain a record of the type and date of each student-pilot endorsement given for 3 years (§ 61.189).",
+      "links": [
+        {
+          "label": "14 CFR § 61.189 — Flight instructor records",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-H/section-61.189"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_432",
+      "summary": "Bank key: a flight instructor applying for an additional rating on that certificate must have a minimum of 5 hours as PIC in the category and class appropriate to the rating sought (as tested). Confirm the current § 61.183 / § 61.187 hour table for the specific rating when advising applicants — some airplane ratings require more.",
+      "links": [
+        {
+          "label": "14 CFR § 61.183 — Eligibility requirements (flight instructor)",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-H/section-61.183"
+        },
+        {
+          "label": "14 CFR § 61.187 — Flight proficiency (additional ratings)",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-H/section-61.187"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_433",
+      "summary": "In any 24 consecutive hours, an instructor is limited to 8 hours of flight training (§ 61.195). Plan dual schedules with this hard cap.",
+      "links": [
+        {
+          "label": "14 CFR § 61.195 — Flight instructor limitations and qualifications",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-H/section-61.195"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_434",
+      "summary": "To endorse solo XC privileges, the instructor must determine that the student’s preparation, planning, and procedures are adequate for the proposed flight under existing conditions (§ 61.93).",
+      "links": [
+        {
+          "label": "14 CFR § 61.93 — Solo cross-country flight requirements",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-C/section-61.93"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_435",
+      "summary": "To endorse a student for solo, the instructor must have given that student flight training in the type (make/model as required) of aircraft involved — you cannot endorse a ship you have not trained them in (§ 61.87).",
+      "links": [
+        {
+          "label": "14 CFR § 61.87 — Solo requirements for student pilots",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-C/section-61.87"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_436",
+      "summary": "A Flight Instructor Certificate may be renewed by successfully completing a flight instructor refresher course (FIRC) within 3 calendar months prior to renewal (among other § 61.197 methods).",
+      "links": [
+        {
+          "label": "14 CFR § 61.197 — Renewal requirements for flight instructor certification",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-H/section-61.197"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_437",
+      "summary": "An expired Flight Instructor Certificate may be exchanged for a new one by passing the appropriate practical test (§ 61.199). You cannot renew an expired CFI with only a FIRC.",
+      "links": [
+        {
+          "label": "14 CFR § 61.199 — Expired flight instructor certificates and reinstatement",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-H/section-61.199"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_466",
+      "summary": "Minimum certificate to enter Class B: a Student Pilot Certificate with the appropriate Class B endorsement (plus clearance/equipment rules). Higher certificates also work — the question asks for the minimum.",
+      "links": [
+        {
+          "label": "14 CFR § 61.95 — Operations in Class B airspace",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.95"
+        },
+        {
+          "label": "14 CFR § 91.131 — Operations in Class B airspace",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B/section-91.131"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_493",
+      "summary": "Completion of an annual inspection and return to service is indicated by the appropriate entries in the aircraft maintenance records (signed by the authorized person). Stickers alone are not the legal record.",
+      "links": [
+        {
+          "label": "14 CFR § 43.9 — Content, form, and disposition of maintenance records",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-C/part-43/section-43.9"
+        },
+        {
+          "label": "14 CFR § 91.417 — Maintenance records",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-E/section-91.417"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_679",
+      "summary": "Student pilot certificate applications are submitted to an FSDO, an authorized flight instructor, or a designated pilot examiner (IACRA / in-person process as currently published). Plastic student certificates are issued by the FAA after processing.",
+      "links": [
+        {
+          "label": "14 CFR § 61.85 — Application (student pilots)",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-C/section-61.85"
+        },
+        {
+          "label": "FAA Student Pilot Certificate process",
+          "url": "https://www.faa.gov/pilots/become"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_687",
+      "summary": "Same solo-XC endorsement idea as bank_420: logbook endorsement that preflight planning/preparation was reviewed and the student is prepared to make the flight safely.",
+      "links": [
+        {
+          "label": "14 CFR § 61.93 — Solo cross-country flight requirements",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-C/section-61.93"
+        }
+      ]
     }
   ]
 }
