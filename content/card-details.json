@@ -1567,14 +1567,14 @@
     },
     {
       "card_id": "cfi_g_bank_005",
-      "summary": "Rolling out of a steep turn, the lowered aileron (on the rising wing) creates more drag than on roll-in because the wing’s angle of attack is higher at rollout start (you are still loaded up). That extra AOA amplifies aileron drag — another reason for firm coordinating rudder on rollout.",
+      "summary": "Correct: the wing’s angle of attack is greater as the rollout starts. In a coordinated steep turn you’re already loaded up (load factor rises with bank — ~1.4 G at 45°, 2 G at 60°), so both wings fly at a higher AOA than wings-level to make the extra lift. Rolling out, you lower the aileron on the inside (low) wing so it rises; that deflection adds lift and aileron drag. Because AOA is already high from turn loading, the same aileron deflection makes more drag than when you rolled in from near 1 G / lower AOA. Teach: roll-in = lower AOA → less aileron drag; roll-out = still high G/AOA → more aileron drag — so rollout often needs more coordinating rudder. Distractors about one wing traveling faster are overbanking ideas, not this effect.",
       "links": [
         {
-          "label": "PHAK — Turns / Adverse Yaw",
+          "label": "PHAK — Turns / Adverse Yaw / Load Factor",
           "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
         },
         {
-          "label": "Glider Flying Handbook",
+          "label": "Glider Flying Handbook — Maneuvering",
           "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
         }
       ]
