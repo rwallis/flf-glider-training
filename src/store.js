@@ -138,6 +138,11 @@ export function normalizeCardPatch(body = {}) {
   if (body.source !== undefined) {
     patch.source = String(body.source ?? '').trim();
   }
+  if (body.topic_id !== undefined) {
+    const topicId = String(body.topic_id ?? '').trim();
+    if (!topicId) throw new Error('topic_id is required when provided');
+    patch.topic_id = topicId;
+  }
   if (body.choices !== undefined) {
     if (body.choices == null || body.choices === '') {
       patch.choices = null;
@@ -272,8 +277,30 @@ export function createMemoryStore(seed) {
         countsByUserDate: state.dailyActivity
       });
     },
-    async importCards({ trackId, topicTitle, rows, filename, note }) {
+    async importCards({ trackId, topicTitle, rows, filename, note, topics }) {
       const topicId = `${trackId}_${slugify(topicTitle || 'imported')}_${Date.now().toString(36)}`;
+      for (const t of topics || []) {
+        if (!t?.id) continue;
+        const existing = state.topics.find((x) => x.id === t.id);
+        if (existing) {
+          Object.assign(existing, {
+            track_id: t.track_id || trackId,
+            title: t.title || existing.title,
+            description: t.description || existing.description || '',
+            pts_ref: t.pts_ref || existing.pts_ref || '',
+            sort_order: t.sort_order ?? existing.sort_order ?? 100
+          });
+        } else {
+          state.topics.push({
+            id: t.id,
+            track_id: t.track_id || trackId,
+            title: t.title || 'Imported',
+            description: t.description || 'Uploaded study deck',
+            pts_ref: t.pts_ref || '',
+            sort_order: t.sort_order ?? 100
+          });
+        }
+      }
       if (!state.topics.some((t) => t.id === topicId)) {
         state.topics.push({
           id: topicId,
@@ -287,7 +314,7 @@ export function createMemoryStore(seed) {
       let count = 0;
       for (const row of rows) {
         const id = row.id || `imp_${randomUUID().slice(0, 8)}`;
-        state.cards.push({
+        const next = {
           id,
           track_id: trackId,
           topic_id: row.topic_id || topicId,
@@ -296,7 +323,20 @@ export function createMemoryStore(seed) {
           choices: row.choices || null,
           source: row.source || filename || 'import',
           tags: row.tags || ['imported']
-        });
+        };
+        if (row.topic_title && row.topic_id && !state.topics.some((t) => t.id === row.topic_id)) {
+          state.topics.push({
+            id: row.topic_id,
+            track_id: trackId,
+            title: row.topic_title,
+            description: 'Uploaded',
+            pts_ref: '',
+            sort_order: 100
+          });
+        }
+        const idx = state.cards.findIndex((c) => c.id === id);
+        if (idx >= 0) state.cards[idx] = { ...state.cards[idx], ...next };
+        else state.cards.push(next);
         count += 1;
       }
       const track = state.tracks.find((t) => t.id === trackId);
@@ -410,7 +450,7 @@ export function createPgStore(db) {
       const patch = normalizeCardPatch(body);
       const fields = [];
       const params = [];
-      for (const key of ['question', 'answer', 'source']) {
+      for (const key of ['question', 'answer', 'source', 'topic_id']) {
         if (patch[key] !== undefined) {
           params.push(patch[key]);
           fields.push(`${key} = $${params.length}`);
@@ -533,8 +573,29 @@ export function createPgStore(db) {
         countsByUserDate
       });
     },
-    async importCards({ trackId, topicTitle, rows, filename, note }) {
+    async importCards({ trackId, topicTitle, rows, filename, note, topics }) {
       const topicId = `${trackId}_${slugify(topicTitle || 'imported')}_${Date.now().toString(36)}`;
+      for (const t of topics || []) {
+        if (!t?.id) continue;
+        await db.query(
+          `INSERT INTO glider_topics (id, track_id, title, description, pts_ref, sort_order)
+           VALUES ($1, $2, $3, $4, $5, $6)
+           ON CONFLICT (id) DO UPDATE SET
+             track_id = EXCLUDED.track_id,
+             title = EXCLUDED.title,
+             description = EXCLUDED.description,
+             pts_ref = EXCLUDED.pts_ref,
+             sort_order = EXCLUDED.sort_order`,
+          [
+            t.id,
+            t.track_id || trackId,
+            t.title || 'Imported',
+            t.description || 'Uploaded study deck',
+            t.pts_ref || '',
+            t.sort_order ?? 100
+          ]
+        );
+      }
       await db.query(
         `INSERT INTO glider_topics (id, track_id, title, description, pts_ref, sort_order)
          VALUES ($1, $2, $3, $4, $5, $6)
@@ -549,7 +610,8 @@ export function createPgStore(db) {
           await db.query(
             `INSERT INTO glider_topics (id, track_id, title, description, pts_ref, sort_order)
              VALUES ($1,$2,$3,'Uploaded','',100)
-             ON CONFLICT (id) DO NOTHING`,
+             ON CONFLICT (id) DO UPDATE SET
+               title = COALESCE(NULLIF(EXCLUDED.title, ''), glider_topics.title)`,
             [row.topic_id, trackId, row.topic_title]
           );
         }
@@ -557,6 +619,7 @@ export function createPgStore(db) {
           `INSERT INTO glider_cards (id, track_id, topic_id, question, answer, choices, source, tags, updated_at)
            VALUES ($1,$2,$3,$4,$5,$6::jsonb,$7,$8,NOW())
            ON CONFLICT (id) DO UPDATE SET
+             topic_id = EXCLUDED.topic_id,
              question = EXCLUDED.question,
              answer = EXCLUDED.answer,
              choices = EXCLUDED.choices,
@@ -695,12 +758,25 @@ export function parseImportPayload(body) {
       tags: Array.isArray(r.tags) ? r.tags : ['imported']
     };
   });
+  const topics = Array.isArray(body.topics)
+    ? body.topics
+        .filter((t) => t && t.id)
+        .map((t) => ({
+          id: String(t.id),
+          track_id: t.track_id ? String(t.track_id) : trackId,
+          title: String(t.title || t.id),
+          description: String(t.description || ''),
+          pts_ref: String(t.pts_ref || ''),
+          sort_order: Number.isFinite(Number(t.sort_order)) ? Number(t.sort_order) : 100
+        }))
+    : [];
   return {
     trackId,
     topicTitle: body.topic_title || body.topic || 'Imported deck',
     rows: normalized,
     filename: body.filename || '',
-    note: body.note || ''
+    note: body.note || '',
+    topics
   };
 }
 

@@ -4,10 +4,27 @@ import path from 'node:path';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SEED_PATH = path.join(__dirname, '..', 'content', 'seed.json');
+const CFI_G_IMPORT_PATH = path.join(
+  __dirname,
+  '..',
+  'content',
+  'cfi-g-import',
+  'cfi-g-import.json'
+);
 
 export async function loadSeedFile() {
   const raw = await readFile(SEED_PATH, 'utf8');
   return JSON.parse(raw);
+}
+
+async function loadCfiGTopicAssignments() {
+  try {
+    const raw = await readFile(CFI_G_IMPORT_PATH, 'utf8');
+    const data = JSON.parse(raw);
+    return Array.isArray(data.cards) ? data.cards : [];
+  } catch {
+    return [];
+  }
 }
 
 /** Upsert tracks/topics/cards from seed. Does not delete user-imported cards. */
@@ -85,6 +102,20 @@ export async function seedGliderContent(db, { force = false } = {}) {
     cards += 1;
   }
 
+  // Re-apply CFI-G syllabus topic_ids from the classified import bank.
+  const cfiCards = await loadCfiGTopicAssignments();
+  let topicRemaps = 0;
+  for (const card of cfiCards) {
+    if (!card?.id || !card?.topic_id) continue;
+    const result = await db.query(
+      `UPDATE glider_cards
+       SET topic_id = $2, updated_at = NOW()
+       WHERE id = $1 AND track_id = 'cfi_g' AND topic_id IS DISTINCT FROM $2`,
+      [String(card.id), String(card.topic_id)]
+    );
+    topicRemaps += result.rowCount || 0;
+  }
+
   // Keep live DB wording aligned: SFM → POH (Pilot's Operating Handbook).
   const renamed = await db.query(
     `UPDATE glider_cards SET
@@ -116,5 +147,12 @@ export async function seedGliderContent(db, { force = false } = {}) {
      WHERE description LIKE '%SFM%'`
   );
 
-  return { tracks, topics, cards, force, renamed_sfm_to_poh: renamed.rowCount || 0 };
+  return {
+    tracks,
+    topics,
+    cards,
+    force,
+    cfi_g_topic_remaps: topicRemaps,
+    renamed_sfm_to_poh: renamed.rowCount || 0
+  };
 }
