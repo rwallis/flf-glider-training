@@ -1,12 +1,16 @@
 {
-  "note": "Official FAA Computer Testing Supplement figures for Flight/Ground Instructor. Linked from CFI-G bank stems that say (Refer to Figure N.). Apply on seed.",
-  "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf",
+  "note": "Official FAA Computer Testing Supplement figures for CFI-G and Commercial. Linked from bank stems that say (Refer to Figure N.). Apply on seed.",
+  "source_urls": [
+    "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/commercial_akts.pdf",
+    "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
+  ],
   "figures": [
     {
       "number": 3,
       "title": "Aviation Routine Weather Reports (METAR)",
       "url": "/figures/cfi-g/figure-03.jpg",
       "source_page": 12,
+      "track": "cfi_g",
       "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
       "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
@@ -15,6 +19,7 @@
       "title": "Surface Analysis Chart Symbols",
       "url": "/figures/cfi-g/figure-08.jpg",
       "source_page": 17,
+      "track": "cfi_g",
       "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
       "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
@@ -23,6 +28,7 @@
       "title": "Stall Speed vs. Load Factor",
       "url": "/figures/cfi-g/figure-18.jpg",
       "source_page": 28,
+      "track": "cfi_g",
       "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
       "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
@@ -31,6 +37,7 @@
       "title": "Angle-of-Attack vs. Lift",
       "url": "/figures/cfi-g/figure-19.jpg",
       "source_page": 29,
+      "track": "cfi_g",
       "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
       "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
@@ -39,6 +46,7 @@
       "title": "Drag Chart",
       "url": "/figures/cfi-g/figure-20.jpg",
       "source_page": 30,
+      "track": "cfi_g",
       "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
       "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
@@ -47,6 +55,7 @@
       "title": "Aspect Ratio",
       "url": "/figures/cfi-g/figure-21.jpg",
       "source_page": 31,
+      "track": "cfi_g",
       "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
       "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
@@ -55,6 +64,7 @@
       "title": "Density Altitude Chart",
       "url": "/figures/cfi-g/figure-24.jpg",
       "source_page": 34,
+      "track": "cfi_g",
       "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
       "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
@@ -63,6 +73,7 @@
       "title": "Wind Component Chart",
       "url": "/figures/cfi-g/figure-30.jpg",
       "source_page": 40,
+      "track": "cfi_g",
       "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
       "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
@@ -71,6 +82,7 @@
       "title": "Cross-Country",
       "url": "/figures/cfi-g/figure-38.jpg",
       "source_page": 49,
+      "track": "cfi_g",
       "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
       "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
@@ -79,6 +91,7 @@
       "title": "Wind Triangle",
       "url": "/figures/cfi-g/figure-40.jpg",
       "source_page": 51,
+      "track": "cfi_g",
       "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
       "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
@@ -87,6 +100,7 @@
       "title": "VOR Indicators",
       "url": "/figures/cfi-g/figure-42.jpg",
       "source_page": 52,
+      "track": "cfi_g",
       "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
       "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
@@ -95,6 +109,7 @@
       "title": "Sectional Chart Excerpt",
       "url": "/figures/cfi-g/figure-44.jpg",
       "source_page": 53,
+      "track": "cfi_g",
       "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
       "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
@@ -103,6 +118,7 @@
       "title": "Sectional Chart Excerpt",
       "url": "/figures/cfi-g/figure-45.jpg",
       "source_page": 54,
+      "track": "cfi_g",
       "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
       "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
@@ -111,6 +127,7 @@
       "title": "Sectional Chart Excerpt",
       "url": "/figures/cfi-g/figure-46.jpg",
       "source_page": 55,
+      "track": "cfi_g",
       "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
       "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
@@ -119,6 +136,7 @@
       "title": "Class C Airspace Diagram",
       "url": "/figures/cfi-g/figure-47.jpg",
       "source_page": 56,
+      "track": "cfi_g",
       "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
       "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
@@ -127,8 +145,135 @@
       "title": "Traffic Pattern Indicator",
       "url": "/figures/cfi-g/figure-54.jpg",
       "source_page": 63,
+      "track": "cfi_g",
       "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
       "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
+    },
+    {
+      "number": 3,
+      "title": "Angle of Attack vs. Lift",
+      "url": "/figures/commercial/figure-03.jpg",
+      "source_page": 30,
+      "track": "commercial",
+      "source": "FAA Computer Testing Supplement \u2014 Commercial Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/commercial_akts.pdf"
+    },
+    {
+      "number": 4,
+      "title": "Stall Speed vs. Load Factor",
+      "url": "/figures/commercial/figure-04.jpg",
+      "source_page": 31,
+      "track": "commercial",
+      "source": "FAA Computer Testing Supplement \u2014 Commercial Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/commercial_akts.pdf"
+    },
+    {
+      "number": 5,
+      "title": "Velocity vs. Load Factor",
+      "url": "/figures/commercial/figure-05.jpg",
+      "source_page": 32,
+      "track": "commercial",
+      "source": "FAA Computer Testing Supplement \u2014 Commercial Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/commercial_akts.pdf"
+    },
+    {
+      "number": 6,
+      "title": "Adiabatic Chart",
+      "url": "/figures/commercial/figure-06.jpg",
+      "source_page": 33,
+      "track": "commercial",
+      "source": "FAA Computer Testing Supplement \u2014 Commercial Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/commercial_akts.pdf"
+    },
+    {
+      "number": 31,
+      "title": "Wind Component Chart",
+      "url": "/figures/commercial/figure-31.jpg",
+      "source_page": 48,
+      "track": "commercial",
+      "source": "FAA Computer Testing Supplement \u2014 Commercial Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/commercial_akts.pdf"
+    },
+    {
+      "number": 36,
+      "title": "Stations Diagram",
+      "url": "/figures/commercial/figure-36.jpg",
+      "source_page": 53,
+      "track": "commercial",
+      "source": "FAA Computer Testing Supplement \u2014 Commercial Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/commercial_akts.pdf"
+    },
+    {
+      "number": 48,
+      "title": "Performance Curves Chart",
+      "url": "/figures/commercial/figure-48.jpg",
+      "source_page": 64,
+      "track": "commercial",
+      "source": "FAA Computer Testing Supplement \u2014 Commercial Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/commercial_akts.pdf"
+    },
+    {
+      "number": 49,
+      "title": "Performance Curves Chart",
+      "url": "/figures/commercial/figure-49.jpg",
+      "source_page": 65,
+      "track": "commercial",
+      "source": "FAA Computer Testing Supplement \u2014 Commercial Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/commercial_akts.pdf"
+    },
+    {
+      "number": 50,
+      "title": "Flight Envelope",
+      "url": "/figures/commercial/figure-50.jpg",
+      "source_page": 66,
+      "track": "commercial",
+      "source": "FAA Computer Testing Supplement \u2014 Commercial Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/commercial_akts.pdf"
+    },
+    {
+      "number": 51,
+      "title": "Airport Signs",
+      "url": "/figures/commercial/figure-51.jpg",
+      "source_page": 67,
+      "track": "commercial",
+      "source": "FAA Computer Testing Supplement \u2014 Commercial Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/commercial_akts.pdf"
+    },
+    {
+      "number": 52,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/commercial/figure-52.jpg",
+      "source_page": 68,
+      "track": "commercial",
+      "source": "FAA Computer Testing Supplement \u2014 Commercial Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/commercial_akts.pdf"
+    },
+    {
+      "number": 53,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/commercial/figure-53.jpg",
+      "source_page": 69,
+      "track": "commercial",
+      "source": "FAA Computer Testing Supplement \u2014 Commercial Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/commercial_akts.pdf"
+    },
+    {
+      "number": 54,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/commercial/figure-54.jpg",
+      "source_page": 70,
+      "track": "commercial",
+      "source": "FAA Computer Testing Supplement \u2014 Commercial Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/commercial_akts.pdf"
+    },
+    {
+      "number": 57,
+      "title": "Sign",
+      "url": "/figures/commercial/figure-57.jpg",
+      "source_page": 73,
+      "track": "commercial",
+      "source": "FAA Computer Testing Supplement \u2014 Commercial Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/commercial_akts.pdf"
     }
   ],
   "cards": [
@@ -136,271 +281,582 @@
       "card_id": "cfi_g_bank_033",
       "figure": 20,
       "title": "Drag Chart",
-      "url": "/figures/cfi-g/figure-20.jpg"
+      "url": "/figures/cfi-g/figure-20.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_034",
       "figure": 20,
       "title": "Drag Chart",
-      "url": "/figures/cfi-g/figure-20.jpg"
+      "url": "/figures/cfi-g/figure-20.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_049",
       "figure": 21,
       "title": "Aspect Ratio",
-      "url": "/figures/cfi-g/figure-21.jpg"
+      "url": "/figures/cfi-g/figure-21.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_050",
       "figure": 21,
       "title": "Aspect Ratio",
-      "url": "/figures/cfi-g/figure-21.jpg"
+      "url": "/figures/cfi-g/figure-21.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_051",
       "figure": 21,
       "title": "Aspect Ratio",
-      "url": "/figures/cfi-g/figure-21.jpg"
+      "url": "/figures/cfi-g/figure-21.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_069",
       "figure": 38,
       "title": "Cross-Country",
-      "url": "/figures/cfi-g/figure-38.jpg"
+      "url": "/figures/cfi-g/figure-38.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_095",
       "figure": 24,
       "title": "Density Altitude Chart",
-      "url": "/figures/cfi-g/figure-24.jpg"
+      "url": "/figures/cfi-g/figure-24.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_096",
       "figure": 24,
       "title": "Density Altitude Chart",
-      "url": "/figures/cfi-g/figure-24.jpg"
+      "url": "/figures/cfi-g/figure-24.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_097",
       "figure": 24,
       "title": "Density Altitude Chart",
-      "url": "/figures/cfi-g/figure-24.jpg"
+      "url": "/figures/cfi-g/figure-24.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_227",
       "figure": 3,
       "title": "Aviation Routine Weather Reports (METAR)",
-      "url": "/figures/cfi-g/figure-03.jpg"
+      "url": "/figures/cfi-g/figure-03.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_228",
       "figure": 3,
       "title": "Aviation Routine Weather Reports (METAR)",
-      "url": "/figures/cfi-g/figure-03.jpg"
+      "url": "/figures/cfi-g/figure-03.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_230",
       "figure": 3,
       "title": "Aviation Routine Weather Reports (METAR)",
-      "url": "/figures/cfi-g/figure-03.jpg"
+      "url": "/figures/cfi-g/figure-03.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_231",
       "figure": 3,
       "title": "Aviation Routine Weather Reports (METAR)",
-      "url": "/figures/cfi-g/figure-03.jpg"
+      "url": "/figures/cfi-g/figure-03.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_232",
       "figure": 3,
       "title": "Aviation Routine Weather Reports (METAR)",
-      "url": "/figures/cfi-g/figure-03.jpg"
+      "url": "/figures/cfi-g/figure-03.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_318",
       "figure": 47,
       "title": "Class C Airspace Diagram",
-      "url": "/figures/cfi-g/figure-47.jpg"
+      "url": "/figures/cfi-g/figure-47.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_319",
       "figure": 47,
       "title": "Class C Airspace Diagram",
-      "url": "/figures/cfi-g/figure-47.jpg"
+      "url": "/figures/cfi-g/figure-47.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_320",
       "figure": 47,
       "title": "Class C Airspace Diagram",
-      "url": "/figures/cfi-g/figure-47.jpg"
+      "url": "/figures/cfi-g/figure-47.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_321",
       "figure": 47,
       "title": "Class C Airspace Diagram",
-      "url": "/figures/cfi-g/figure-47.jpg"
+      "url": "/figures/cfi-g/figure-47.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_346",
       "figure": 54,
       "title": "Traffic Pattern Indicator",
-      "url": "/figures/cfi-g/figure-54.jpg"
+      "url": "/figures/cfi-g/figure-54.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_347",
       "figure": 54,
       "title": "Traffic Pattern Indicator",
-      "url": "/figures/cfi-g/figure-54.jpg"
+      "url": "/figures/cfi-g/figure-54.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_611",
       "figure": 40,
       "title": "Wind Triangle",
-      "url": "/figures/cfi-g/figure-40.jpg"
+      "url": "/figures/cfi-g/figure-40.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_612",
       "figure": 40,
       "title": "Wind Triangle",
-      "url": "/figures/cfi-g/figure-40.jpg"
+      "url": "/figures/cfi-g/figure-40.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_613",
       "figure": 40,
       "title": "Wind Triangle",
-      "url": "/figures/cfi-g/figure-40.jpg"
+      "url": "/figures/cfi-g/figure-40.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_627",
       "figure": 42,
       "title": "VOR Indicators",
-      "url": "/figures/cfi-g/figure-42.jpg"
+      "url": "/figures/cfi-g/figure-42.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_629",
       "figure": 42,
       "title": "VOR Indicators",
-      "url": "/figures/cfi-g/figure-42.jpg"
+      "url": "/figures/cfi-g/figure-42.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_630",
       "figure": 42,
       "title": "VOR Indicators",
-      "url": "/figures/cfi-g/figure-42.jpg"
+      "url": "/figures/cfi-g/figure-42.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_634",
       "figure": 44,
       "title": "Sectional Chart Excerpt",
-      "url": "/figures/cfi-g/figure-44.jpg"
+      "url": "/figures/cfi-g/figure-44.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_636",
       "figure": 44,
       "title": "Sectional Chart Excerpt",
-      "url": "/figures/cfi-g/figure-44.jpg"
+      "url": "/figures/cfi-g/figure-44.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_638",
       "figure": 45,
       "title": "Sectional Chart Excerpt",
-      "url": "/figures/cfi-g/figure-45.jpg"
+      "url": "/figures/cfi-g/figure-45.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_640",
       "figure": 45,
       "title": "Sectional Chart Excerpt",
-      "url": "/figures/cfi-g/figure-45.jpg"
+      "url": "/figures/cfi-g/figure-45.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_641",
       "figure": 45,
       "title": "Sectional Chart Excerpt",
-      "url": "/figures/cfi-g/figure-45.jpg"
+      "url": "/figures/cfi-g/figure-45.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_642",
       "figure": 45,
       "title": "Sectional Chart Excerpt",
-      "url": "/figures/cfi-g/figure-45.jpg"
+      "url": "/figures/cfi-g/figure-45.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_643",
       "figure": 45,
       "title": "Sectional Chart Excerpt",
-      "url": "/figures/cfi-g/figure-45.jpg"
+      "url": "/figures/cfi-g/figure-45.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_645",
       "figure": 46,
       "title": "Sectional Chart Excerpt",
-      "url": "/figures/cfi-g/figure-46.jpg"
+      "url": "/figures/cfi-g/figure-46.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_646",
       "figure": 46,
       "title": "Sectional Chart Excerpt",
-      "url": "/figures/cfi-g/figure-46.jpg"
+      "url": "/figures/cfi-g/figure-46.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_647",
       "figure": 46,
       "title": "Sectional Chart Excerpt",
-      "url": "/figures/cfi-g/figure-46.jpg"
+      "url": "/figures/cfi-g/figure-46.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_648",
       "figure": 46,
       "title": "Sectional Chart Excerpt",
-      "url": "/figures/cfi-g/figure-46.jpg"
+      "url": "/figures/cfi-g/figure-46.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_649",
       "figure": 46,
       "title": "Sectional Chart Excerpt",
-      "url": "/figures/cfi-g/figure-46.jpg"
+      "url": "/figures/cfi-g/figure-46.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_650",
       "figure": 47,
       "title": "Class C Airspace Diagram",
-      "url": "/figures/cfi-g/figure-47.jpg"
+      "url": "/figures/cfi-g/figure-47.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_662",
       "figure": 24,
       "title": "Density Altitude Chart",
-      "url": "/figures/cfi-g/figure-24.jpg"
+      "url": "/figures/cfi-g/figure-24.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_663",
       "figure": 24,
       "title": "Density Altitude Chart",
-      "url": "/figures/cfi-g/figure-24.jpg"
+      "url": "/figures/cfi-g/figure-24.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_678",
       "figure": 3,
       "title": "Aviation Routine Weather Reports (METAR)",
-      "url": "/figures/cfi-g/figure-03.jpg"
+      "url": "/figures/cfi-g/figure-03.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_680",
       "figure": 44,
       "title": "Sectional Chart Excerpt",
-      "url": "/figures/cfi-g/figure-44.jpg"
+      "url": "/figures/cfi-g/figure-44.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_681",
       "figure": 21,
       "title": "Aspect Ratio",
-      "url": "/figures/cfi-g/figure-21.jpg"
+      "url": "/figures/cfi-g/figure-21.jpg",
+      "track": "cfi_g"
     },
     {
       "card_id": "cfi_g_bank_686",
       "figure": 8,
       "title": "Surface Analysis Chart Symbols",
-      "url": "/figures/cfi-g/figure-08.jpg"
+      "url": "/figures/cfi-g/figure-08.jpg",
+      "track": "cfi_g"
+    },
+    {
+      "card_id": "commercial_written_103",
+      "figure": 4,
+      "title": "Stall Speed vs. Load Factor",
+      "url": "/figures/commercial/figure-04.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_106",
+      "figure": 5,
+      "title": "Velocity vs. Load Factor",
+      "url": "/figures/commercial/figure-05.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_107",
+      "figure": 5,
+      "title": "Velocity vs. Load Factor",
+      "url": "/figures/commercial/figure-05.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_108",
+      "figure": 5,
+      "title": "Velocity vs. Load Factor",
+      "url": "/figures/commercial/figure-05.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_206",
+      "figure": 6,
+      "title": "Adiabatic Chart",
+      "url": "/figures/commercial/figure-06.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_207",
+      "figure": 6,
+      "title": "Adiabatic Chart",
+      "url": "/figures/commercial/figure-06.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_214",
+      "figure": 52,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/commercial/figure-52.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_215",
+      "figure": 52,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/commercial/figure-52.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_216",
+      "figure": 52,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/commercial/figure-52.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_217",
+      "figure": 52,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/commercial/figure-52.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_218",
+      "figure": 53,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/commercial/figure-53.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_219",
+      "figure": 53,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/commercial/figure-53.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_220",
+      "figure": 54,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/commercial/figure-54.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_221",
+      "figure": 52,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/commercial/figure-52.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_236",
+      "figure": 36,
+      "title": "Stations Diagram",
+      "url": "/figures/commercial/figure-36.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_237",
+      "figure": 36,
+      "title": "Stations Diagram",
+      "url": "/figures/commercial/figure-36.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_238",
+      "figure": 36,
+      "title": "Stations Diagram",
+      "url": "/figures/commercial/figure-36.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_241",
+      "figure": 6,
+      "title": "Adiabatic Chart",
+      "url": "/figures/commercial/figure-06.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_242",
+      "figure": 6,
+      "title": "Adiabatic Chart",
+      "url": "/figures/commercial/figure-06.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_263",
+      "figure": 48,
+      "title": "Performance Curves Chart",
+      "url": "/figures/commercial/figure-48.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_264",
+      "figure": 48,
+      "title": "Performance Curves Chart",
+      "url": "/figures/commercial/figure-48.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_265",
+      "figure": 48,
+      "title": "Performance Curves Chart",
+      "url": "/figures/commercial/figure-48.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_267",
+      "figure": 49,
+      "title": "Performance Curves Chart",
+      "url": "/figures/commercial/figure-49.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_268",
+      "figure": 49,
+      "title": "Performance Curves Chart",
+      "url": "/figures/commercial/figure-49.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_273",
+      "figure": 50,
+      "title": "Flight Envelope",
+      "url": "/figures/commercial/figure-50.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_274",
+      "figure": 50,
+      "title": "Flight Envelope",
+      "url": "/figures/commercial/figure-50.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_345",
+      "figure": 54,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/commercial/figure-54.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_347",
+      "figure": 3,
+      "title": "Angle of Attack vs. Lift",
+      "url": "/figures/commercial/figure-03.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_348",
+      "figure": 31,
+      "title": "Wind Component Chart",
+      "url": "/figures/commercial/figure-31.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_349",
+      "figure": 31,
+      "title": "Wind Component Chart",
+      "url": "/figures/commercial/figure-31.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_350",
+      "figure": 51,
+      "title": "Airport Signs",
+      "url": "/figures/commercial/figure-51.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_356",
+      "figure": 57,
+      "title": "Sign",
+      "url": "/figures/commercial/figure-57.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_371",
+      "figure": 53,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/commercial/figure-53.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_372",
+      "figure": 54,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/commercial/figure-54.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_377",
+      "figure": 51,
+      "title": "Airport Signs",
+      "url": "/figures/commercial/figure-51.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_378",
+      "figure": 51,
+      "title": "Airport Signs",
+      "url": "/figures/commercial/figure-51.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_383",
+      "figure": 54,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/commercial/figure-54.jpg",
+      "track": "commercial"
+    },
+    {
+      "card_id": "commercial_written_384",
+      "figure": 54,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/commercial/figure-54.jpg",
+      "track": "commercial"
     }
   ]
 }
