@@ -453,6 +453,7 @@
       background: #F7F9FB;
       border: 1px solid #E4ECF2;
       max-height: min(62vh, 520px);
+      -webkit-overflow-scrolling: touch;
     }
     .figure-image-wrap img {
       display: block;
@@ -463,6 +464,44 @@
       margin: 10px 0 0;
       font-size: 0.85rem;
       color: var(--muted);
+    }
+    /* Desktop/tablet: fit the whole figure in view (phone keeps width:100% + pinch zoom). */
+    @media (min-width: 768px) {
+      .details-sheet.figure-sheet {
+        align-items: center;
+        justify-items: center;
+        padding: 24px;
+      }
+      .details-panel.figure-panel {
+        width: min(960px, 96vw);
+        max-height: min(92vh, 920px);
+        border-radius: 16px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      .details-panel.figure-panel header {
+        flex: 0 0 auto;
+      }
+      .details-panel.figure-panel .figure-caption {
+        flex: 0 0 auto;
+      }
+      .figure-image-wrap {
+        flex: 1 1 auto;
+        max-height: none;
+        min-height: 0;
+        overflow: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .figure-image-wrap img {
+        width: auto;
+        max-width: 100%;
+        max-height: min(78vh, 780px);
+        height: auto;
+        object-fit: contain;
+      }
     }
     .details-sheet {
       position: fixed;
@@ -1640,8 +1679,8 @@
       const figure = card?.figure || null;
       if (!figure?.url) {
         return `
-          <div class="details-sheet" id="figureSheet" role="dialog" aria-modal="true" aria-label="Question figure">
-            <div class="details-panel">
+          <div class="details-sheet figure-sheet" id="figureSheet" role="dialog" aria-modal="true" aria-label="Question figure">
+            <div class="details-panel figure-panel">
               <header>
                 <h3>Figure</h3>
                 <button type="button" class="close-details" id="closeFigureBtn" aria-label="Close">×</button>
@@ -1655,8 +1694,8 @@
         ? `Figure ${figure.number} — ${figure.title}`
         : `Figure ${figure.number}`;
       return `
-        <div class="details-sheet" id="figureSheet" role="dialog" aria-modal="true" aria-label="${escapeHtml(title)}">
-          <div class="details-panel">
+        <div class="details-sheet figure-sheet" id="figureSheet" role="dialog" aria-modal="true" aria-label="${escapeHtml(title)}">
+          <div class="details-panel figure-panel">
             <header>
               <h3>${escapeHtml(title)}</h3>
               <button type="button" class="close-details" id="closeFigureBtn" aria-label="Close">×</button>
