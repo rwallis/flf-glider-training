@@ -1033,12 +1033,27 @@
       await loadStudyDeck();
     }
 
+    function choiceIsCorrect(card, choice) {
+      if (!card || choice == null) return null;
+      const norm = (s) => String(s ?? '').trim().replace(/[.?!,;:]+$/g, '').replace(/\s+/g, ' ').toLowerCase();
+      return norm(choice) === norm(card.answer);
+    }
+
     async function grade(g) {
       const card = state.study.cards[state.study.index];
       if (!card) return;
+      const hasChoices = Array.isArray(card.choices) && card.choices.length;
+      const choice = hasChoices ? state.study.quizChoice : null;
+      const correct = hasChoices
+        ? choiceIsCorrect(card, choice) === true
+        : g !== 'again';
       const result = await api('/api/study/' + encodeURIComponent(card.id), {
         method: 'POST',
-        body: JSON.stringify({ grade: g })
+        body: JSON.stringify({
+          grade: g,
+          choice: choice || undefined,
+          correct
+        })
       });
       state.study.cards.splice(state.study.index, 1);
       state.study.revealed = false;
@@ -1059,7 +1074,8 @@
           state.league.you.series[state.league.you.series.length - 1] = nextToday;
         }
       }
-      toast(`${g.toUpperCase()} · +1 XP`);
+      const xp = result?.xp ?? (correct ? 2 : 1);
+      toast(`${g.toUpperCase()} · +${xp} XP`);
       render();
     }
 
@@ -1571,7 +1587,7 @@
           <div class="stat"><b>${s.due}</b><span>Due</span></div>
         </div>
         <h2 class="section-title">League this week</h2>
-        <p class="hint">Every graded answer counts as 1 XP for the day (Central Time). Chart shows you next to other signed-in learners.</p>
+        <p class="hint">Correct answers earn 2 XP; wrong answers earn 1 XP (Central Time). Chart shows you next to other signed-in learners.</p>
         ${renderLeagueSummary(state.league, { compact: false })}
         <h2 class="section-title">Courses</h2>
         <p class="hint">Last grade per card in each course. Tap a grade pill to study those cards.</p>

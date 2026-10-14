@@ -1,5 +1,10 @@
 import { resolveUserKey } from './auth/middleware.js';
-import { nextProgress, parseImportPayload } from './store.js';
+import {
+  nextProgress,
+  parseImportPayload,
+  resolveStudyCorrect,
+  xpForCorrectness
+} from './store.js';
 
 function requireUserKey(req, res, config) {
   const uk = resolveUserKey(req, config);
@@ -137,8 +142,15 @@ export function registerGliderApi(app, { store, config }) {
     const prev = await store.getProgressOne(uk, card.id);
     const patch = nextProgress(prev, grade);
     const row = await store.upsertProgress(uk, card.id, patch);
-    const activity = await store.recordAnswer(uk);
-    res.json({ progress: row, activity });
+    const correct = resolveStudyCorrect({
+      card,
+      choice: req.body?.choice,
+      correct: req.body?.correct,
+      grade
+    });
+    const xp = xpForCorrectness(correct);
+    const activity = await store.recordAnswer(uk, xp);
+    res.json({ progress: row, activity, correct, xp });
   });
 
   app.get('/api/league', async (req, res) => {

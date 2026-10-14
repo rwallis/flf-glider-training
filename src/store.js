@@ -21,6 +21,34 @@ export function activityDateKey(when = new Date(), timeZone = ACTIVITY_TZ) {
   }).format(when instanceof Date ? when : new Date(when));
 }
 
+export function normalizeAnswerText(value) {
+  return String(value ?? '')
+    .trim()
+    .replace(/[.?!,;:]+$/g, '')
+    .replace(/\s+/g, ' ')
+    .toLowerCase();
+}
+
+/** 2 XP correct, 1 XP answered wrong. */
+export function xpForCorrectness(correct) {
+  return correct ? 2 : 1;
+}
+
+/**
+ * Resolve whether the learner got the card right.
+ * Prefer explicit correct / choice match; flashcards without a choice treat "again" as wrong.
+ */
+export function resolveStudyCorrect({ card, choice, correct, grade } = {}) {
+  if (typeof correct === 'boolean') return correct;
+  if (choice != null && String(choice).trim() !== '') {
+    return normalizeAnswerText(choice) === normalizeAnswerText(card?.answer);
+  }
+  const g = String(grade || '').toLowerCase();
+  if (g === 'again') return false;
+  if (['hard', 'good', 'easy'].includes(g)) return true;
+  return false;
+}
+
 export function displayNameFromProfile({ name, email, userKey } = {}) {
   const raw = String(name || '').trim();
   if (raw) {
@@ -214,12 +242,18 @@ export function createMemoryStore(seed) {
     async getProgressOne(userKey, cardId) {
       return state.progress.get(`${userKey}::${cardId}`) || null;
     },
-    async recordAnswer(userKey, when = new Date()) {
+    async recordAnswer(userKey, pointsOrWhen = 1, maybeWhen) {
+      const points = typeof pointsOrWhen === 'number'
+        ? Math.max(0, Math.floor(pointsOrWhen))
+        : 1;
+      const when = typeof pointsOrWhen === 'number'
+        ? (maybeWhen instanceof Date ? maybeWhen : new Date())
+        : (pointsOrWhen instanceof Date ? pointsOrWhen : new Date());
       const date = activityDateKey(when);
       const key = `${userKey}::${date}`;
-      const next = Number(state.dailyActivity.get(key) || 0) + 1;
+      const next = Number(state.dailyActivity.get(key) || 0) + points;
       state.dailyActivity.set(key, next);
-      return { user_key: userKey, activity_date: date, answers: next };
+      return { user_key: userKey, activity_date: date, answers: next, xp_awarded: points };
     },
     async setUserProfile(profile) {
       if (!profile?.userKey) return;
@@ -441,17 +475,23 @@ export function createPgStore(db) {
       );
       return rows[0];
     },
-    async recordAnswer(userKey, when = new Date()) {
+    async recordAnswer(userKey, pointsOrWhen = 1, maybeWhen) {
+      const points = typeof pointsOrWhen === 'number'
+        ? Math.max(0, Math.floor(pointsOrWhen))
+        : 1;
+      const when = typeof pointsOrWhen === 'number'
+        ? (maybeWhen instanceof Date ? maybeWhen : new Date())
+        : (pointsOrWhen instanceof Date ? pointsOrWhen : new Date());
       const date = activityDateKey(when);
       const { rows } = await db.query(
         `INSERT INTO glider_daily_activity (user_key, activity_date, answers)
-         VALUES ($1, $2::date, 1)
+         VALUES ($1, $2::date, $3)
          ON CONFLICT (user_key, activity_date) DO UPDATE SET
-           answers = glider_daily_activity.answers + 1
+           answers = glider_daily_activity.answers + EXCLUDED.answers
          RETURNING user_key, activity_date::text AS activity_date, answers`,
-        [userKey, date]
+        [userKey, date, points]
       );
-      return rows[0];
+      return { ...rows[0], xp_awarded: points };
     },
     async leagueSummary(userKey, { days = 7 } = {}) {
       const n = Math.max(1, Math.min(30, Number(days) || 7));

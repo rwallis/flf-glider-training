@@ -6,7 +6,9 @@ import {
   parseImportPayload,
   createMemoryStore,
   activityDateKey,
-  displayNameFromProfile
+  displayNameFromProfile,
+  resolveStudyCorrect,
+  xpForCorrectness
 } from './src/store.js';
 
 test('nextProgress again schedules soon and lowers ease', () => {
@@ -108,13 +110,26 @@ test('leagueSummary tracks daily answers across users', async () => {
   });
   await store.setUserProfile({ userKey: 'g:you', name: 'You Person', email: 'you@x.com' });
   await store.setUserProfile({ userKey: 'g:peer', name: 'Pat Pilot', email: 'pat@x.com' });
-  await store.recordAnswer('g:you');
-  await store.recordAnswer('g:you');
-  await store.recordAnswer('g:peer');
+  await store.recordAnswer('g:you', 2);
+  await store.recordAnswer('g:you', 1);
+  await store.recordAnswer('g:peer', 2);
   const summary = await store.leagueSummary('g:you', { days: 7 });
-  assert.equal(summary.you.today, 2);
-  assert.equal(summary.you.week_total, 2);
+  assert.equal(summary.you.today, 3);
+  assert.equal(summary.you.week_total, 3);
   assert.equal(summary.you.display_name, 'You');
   assert.ok(summary.chart.some((p) => p.display_name === 'Pat'));
   assert.ok(summary.leaderboard[0].today >= 1);
+});
+
+test('xpForCorrectness awards 2 for correct and 1 for wrong', () => {
+  assert.equal(xpForCorrectness(true), 2);
+  assert.equal(xpForCorrectness(false), 1);
+});
+
+test('resolveStudyCorrect uses choice match then grade fallback', () => {
+  const card = { answer: 'stability.' };
+  assert.equal(resolveStudyCorrect({ card, choice: 'stability' }), true);
+  assert.equal(resolveStudyCorrect({ card, choice: 'controllability' }), false);
+  assert.equal(resolveStudyCorrect({ card, grade: 'again' }), false);
+  assert.equal(resolveStudyCorrect({ card, grade: 'good' }), true);
 });
