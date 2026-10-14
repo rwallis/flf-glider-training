@@ -42,6 +42,57 @@ export function correctPercent(answersCorrect, answersTotal) {
   return Math.round((100 * correct) / total);
 }
 
+/**
+ * Course readiness: 100% only when every card has been answered at least once
+ * and last-answer accuracy is at least `accuracyTarget` (default 80).
+ * Formula: coverage × clamp(accuracy / target) so high accuracy with half
+ * the deck seen still reads ~50% ready — not "almost there."
+ */
+export function computeCourseReadiness({
+  cardCount = 0,
+  studied = 0,
+  cardsCorrect = 0,
+  accuracyTarget = 80
+} = {}) {
+  const cards = Math.max(0, Number(cardCount) || 0);
+  const seen = Math.max(0, Math.min(cards, Number(studied) || 0));
+  const correct = Math.max(0, Math.min(seen, Number(cardsCorrect) || 0));
+  const target = Math.max(1, Number(accuracyTarget) || 80);
+  const coveragePct = cards > 0 ? Math.round((100 * seen) / cards) : 0;
+  const accuracyPct = seen > 0 ? Math.round((100 * correct) / seen) : null;
+  const coverageFactor = cards > 0 ? seen / cards : 0;
+  const accuracyFactor =
+    accuracyPct == null ? 0 : Math.min(1, accuracyPct / target);
+  const raw = Math.round(100 * coverageFactor * accuracyFactor);
+  const ready = cards > 0 && seen >= cards && accuracyPct != null && accuracyPct >= target;
+  const readinessPct = ready ? 100 : Math.min(99, raw);
+  let blocker = null;
+  if (!ready) {
+    const needCoverage = !(cards > 0 && seen >= cards);
+    const needAccuracy = accuracyPct == null || accuracyPct < target;
+    if (needCoverage && needAccuracy) blocker = 'both';
+    else if (needCoverage) blocker = 'coverage';
+    else blocker = 'accuracy';
+  }
+  return {
+    coverage_pct: coveragePct,
+    accuracy_pct: accuracyPct,
+    accuracy_target: target,
+    cards_correct: correct,
+    readiness_pct: readinessPct,
+    ready,
+    blocker,
+    remaining: Math.max(0, cards - seen)
+  };
+}
+
+function progressLooksCorrect(p) {
+  if (!p) return false;
+  if (typeof p.last_correct === 'boolean') return p.last_correct;
+  const g = String(p.last_result || '').toLowerCase();
+  return g === 'hard' || g === 'good' || g === 'easy';
+}
+
 function topicAccuracyRows(topics, cards, progressByCard) {
   return topics.map((topic) => {
     const topicCards = cards.filter((c) => c.topic_id === topic.id);
@@ -438,14 +489,21 @@ export function createMemoryStore(seed) {
           const grades = { again: 0, hard: 0, good: 0, easy: 0 };
           let studied = 0;
           let due = 0;
+          let cardsCorrect = 0;
           for (const c of cards) {
             const p = byCard.get(c.id);
             if (!p) continue;
             studied += 1;
             if (new Date(p.due_at).getTime() <= now) due += 1;
+            if (progressLooksCorrect(p)) cardsCorrect += 1;
             const g = String(p.last_result || '').toLowerCase();
             if (grades[g] != null) grades[g] += 1;
           }
+          const readiness = computeCourseReadiness({
+            cardCount: cards.length,
+            studied,
+            cardsCorrect
+          });
           return {
             id: t.id,
             title: t.title,
@@ -455,6 +513,8 @@ export function createMemoryStore(seed) {
             due,
             new: Math.max(0, cards.length - studied),
             ...grades,
+            cards_correct: cardsCorrect,
+            readiness,
             topics: topicAccuracyRows(topics, cards, byCard)
           };
         });
@@ -765,7 +825,13 @@ export function createPgStore(db) {
            COUNT(*) FILTER (WHERE p.last_result = 'again')::int AS again,
            COUNT(*) FILTER (WHERE p.last_result = 'hard')::int AS hard,
            COUNT(*) FILTER (WHERE p.last_result = 'good')::int AS good,
-           COUNT(*) FILTER (WHERE p.last_result = 'easy')::int AS easy
+           COUNT(*) FILTER (WHERE p.last_result = 'easy')::int AS easy,
+           COUNT(*) FILTER (
+             WHERE p.card_id IS NOT NULL AND (
+               p.last_correct IS TRUE
+               OR (p.last_correct IS NULL AND p.last_result IN ('hard', 'good', 'easy'))
+             )
+           )::int AS cards_correct
          FROM glider_tracks t
          LEFT JOIN glider_cards c ON c.track_id = t.id
          LEFT JOIN glider_progress p ON p.card_id = c.id AND p.user_key = $1
@@ -817,20 +883,29 @@ export function createPgStore(db) {
         });
         topicsByTrack.set(row.track_id, list);
       }
-      return rows.map((r) => ({
-        id: r.id,
-        title: r.title,
-        status: r.status,
-        card_count: r.card_count,
-        studied: r.studied,
-        due: r.due,
-        new: Math.max(0, r.card_count - r.studied),
-        again: r.again,
-        hard: r.hard,
-        good: r.good,
-        easy: r.easy,
-        topics: topicsByTrack.get(r.id) || []
-      }));
+      return rows.map((r) => {
+        const readiness = computeCourseReadiness({
+          cardCount: r.card_count,
+          studied: r.studied,
+          cardsCorrect: r.cards_correct
+        });
+        return {
+          id: r.id,
+          title: r.title,
+          status: r.status,
+          card_count: r.card_count,
+          studied: r.studied,
+          due: r.due,
+          new: Math.max(0, r.card_count - r.studied),
+          again: r.again,
+          hard: r.hard,
+          good: r.good,
+          easy: r.easy,
+          cards_correct: r.cards_correct,
+          readiness,
+          topics: topicsByTrack.get(r.id) || []
+        };
+      });
     }
   };
 }

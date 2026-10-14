@@ -676,6 +676,79 @@
       cursor: pointer;
       font: inherit;
     }
+    .readiness {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 12px;
+      align-items: center;
+      margin: 12px 0 4px;
+      padding: 10px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #F7FAF4 0%, #EEF6FF 100%);
+      border: 1px solid #E0E8DE;
+    }
+    .readiness.ready {
+      background: linear-gradient(135deg, #E7F6D8 0%, #D9F0E8 100%);
+      border-color: #B7DFA3;
+    }
+    .readiness-dial {
+      width: 88px;
+      height: 88px;
+      display: block;
+    }
+    .readiness-body { min-width: 0; }
+    .readiness-label {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 2px;
+    }
+    .readiness-status {
+      margin: 0 0 8px;
+      font-size: 0.92rem;
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--ink);
+    }
+    .readiness.ready .readiness-status { color: #2F7D32; }
+    .readiness-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .readiness-chip {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 1px;
+      padding: 6px 8px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.85);
+      border: 1px solid #E5E5E5;
+      min-width: 72px;
+    }
+    .readiness-chip b {
+      font-size: 0.95rem;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+    .readiness-chip span {
+      font-size: 0.64rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .readiness-chip.warn b { color: var(--copper); }
+    .readiness-chip.ok b { color: var(--grass); }
+    .readiness-tip {
+      margin: 8px 0 0;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--muted);
+      line-height: 1.35;
+    }
     .topic-accuracy {
       margin-top: 12px;
       border-top: 1px solid var(--line);
@@ -1638,6 +1711,92 @@
       render();
     }
 
+    function readinessRing(pct, radius, stroke, color) {
+      const c = 2 * Math.PI * radius;
+      const clamped = Math.max(0, Math.min(100, Number(pct) || 0));
+      const dash = (clamped / 100) * c;
+      return `
+        <circle cx="44" cy="44" r="${radius}" fill="none" stroke="#E6E6E6" stroke-width="${stroke}" />
+        <circle cx="44" cy="44" r="${radius}" fill="none" stroke="${color}" stroke-width="${stroke}"
+          stroke-linecap="round"
+          stroke-dasharray="${dash.toFixed(2)} ${(c - dash).toFixed(2)}"
+          transform="rotate(-90 44 44)" />
+      `;
+    }
+
+    function readinessStatusCopy(r) {
+      if (!r || !(r.coverage_pct > 0 || r.accuracy_pct != null)) {
+        return {
+          headline: 'Not started',
+          tip: 'Answer every card once, then hold an 80%+ score to reach Ready.'
+        };
+      }
+      if (r.ready) {
+        return {
+          headline: 'Ready for checkride study',
+          tip: 'Full deck seen and score is at least 80%.'
+        };
+      }
+      if (r.blocker === 'coverage') {
+        return {
+          headline: `${r.readiness_pct}% ready`,
+          tip: `Score looks solid (${r.accuracy_pct}%), but ${r.remaining} card${r.remaining === 1 ? '' : 's'} still unseen — readiness stays capped until the whole deck is done.`
+        };
+      }
+      if (r.blocker === 'accuracy') {
+        return {
+          headline: `${r.readiness_pct}% ready`,
+          tip: `Deck covered, but score is ${r.accuracy_pct}% — need ${r.accuracy_target}%+ to unlock Ready.`
+        };
+      }
+      return {
+        headline: `${r.readiness_pct}% ready`,
+        tip: `Seen ${r.coverage_pct}% of cards · score ${r.accuracy_pct == null ? '—' : r.accuracy_pct + '%'}. Need full coverage and ${r.accuracy_target}%+ score.`
+      };
+    }
+
+    function renderReadinessMeter(track) {
+      const r = track.readiness || {
+        coverage_pct: track.card_count > 0 ? Math.round((100 * track.studied) / track.card_count) : 0,
+        accuracy_pct: null,
+        accuracy_target: 80,
+        readiness_pct: 0,
+        ready: false,
+        blocker: 'both',
+        remaining: Math.max(0, (track.card_count || 0) - (track.studied || 0))
+      };
+      const color = courseColor(track.id);
+      const accToward = r.accuracy_pct == null
+        ? 0
+        : Math.min(100, Math.round((100 * r.accuracy_pct) / (r.accuracy_target || 80)));
+      const copy = readinessStatusCopy(r);
+      const coverTone = r.coverage_pct >= 100 ? 'ok' : 'warn';
+      const scoreTone = r.accuracy_pct != null && r.accuracy_pct >= (r.accuracy_target || 80) ? 'ok' : 'warn';
+      return `
+        <div class="readiness ${r.ready ? 'ready' : ''}" aria-label="Course readiness ${r.readiness_pct}%">
+          <svg class="readiness-dial" viewBox="0 0 88 88" role="img" aria-hidden="true">
+            ${readinessRing(r.coverage_pct, 36, 7, color)}
+            ${readinessRing(accToward, 26, 7, r.accuracy_pct != null && r.accuracy_pct >= (r.accuracy_target || 80) ? '#58CC02' : '#C48A12')}
+            <text x="44" y="42" text-anchor="middle" font-size="18" font-weight="800" fill="#1A1A1A">${r.readiness_pct}%</text>
+            <text x="44" y="56" text-anchor="middle" font-size="8" font-weight="800" letter-spacing="0.06em" fill="${r.ready ? '#2F7D32' : '#777'}">${r.ready ? 'READY' : 'TO GO'}</text>
+          </svg>
+          <div class="readiness-body">
+            <div class="readiness-label">Checkride readiness</div>
+            <p class="readiness-status">${escapeHtml(copy.headline)}</p>
+            <div class="readiness-chips">
+              <div class="readiness-chip ${coverTone}" title="Unique cards answered at least once">
+                <b>${r.coverage_pct}%</b><span>Seen</span>
+              </div>
+              <div class="readiness-chip ${scoreTone}" title="Last-answer correct rate on cards you have seen">
+                <b>${r.accuracy_pct == null ? '—' : r.accuracy_pct + '%'}</b><span>Score</span>
+              </div>
+            </div>
+            <p class="readiness-tip">${escapeHtml(copy.tip)}</p>
+          </div>
+        </div>
+      `;
+    }
+
     function renderProgress() {
       const s = state.stats || { cards: 0, studied: 0, due: 0, today_xp: 0 };
       const rows = state.progressTracks || [];
@@ -1651,10 +1810,9 @@
         <p class="hint">Correct answers earn 2 XP; wrong answers earn 1 XP (Central Time). Chart shows you next to other signed-in learners.</p>
         ${renderLeagueSummary(state.league, { compact: false })}
         <h2 class="section-title">Courses</h2>
-        <p class="hint">Last grade per card in each course. Topic % is answers marked correct. Tap a grade pill to study those cards.</p>
+        <p class="hint">Readiness hits 100% only after every card is answered and course score is 80%+. Outer ring = seen; inner ring = score toward 80%. Tap a grade pill to study those cards.</p>
         ${rows.length ? rows.map((t) => {
           const color = courseColor(t.id);
-          const pct = t.card_count > 0 ? Math.round((t.studied / t.card_count) * 100) : 0;
           const topicRows = (t.topics || []).filter((topic) => (topic.answers_total || 0) > 0);
           return `
           <article class="course ${t.status === 'upload_later' ? 'upload' : ''}" style="--course-color:${color}">
@@ -1664,7 +1822,7 @@
               <div class="progress-meta">
                 ${t.card_count} cards · ${t.studied} studied · ${t.new} new · ${t.due} due
               </div>
-              <div class="course-progress" aria-label="${pct}% studied"><span style="width:${pct}%"></span></div>
+              ${renderReadinessMeter(t)}
               <div class="grade-pills">
                 <button type="button" class="grade-pill again" data-open-grade-study="${t.id}" data-filter-grade="again" ${!(t.again > 0) ? 'disabled' : ''}><b>${t.again || 0}</b><span>Again</span></button>
                 <button type="button" class="grade-pill hard" data-open-grade-study="${t.id}" data-filter-grade="hard" ${!(t.hard > 0) ? 'disabled' : ''}><b>${t.hard || 0}</b><span>Hard</span></button>

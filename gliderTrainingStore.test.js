@@ -9,7 +9,8 @@ import {
   displayNameFromProfile,
   resolveStudyCorrect,
   xpForCorrectness,
-  correctPercent
+  correctPercent,
+  computeCourseReadiness
 } from './src/store.js';
 
 test('nextProgress again schedules soon and lowers ease', () => {
@@ -141,6 +142,38 @@ test('correctPercent rounds answer accuracy', () => {
   assert.equal(correctPercent(2, 3), 67);
 });
 
+test('computeCourseReadiness requires full coverage and 80% score', () => {
+  const halfDeck = computeCourseReadiness({
+    cardCount: 100,
+    studied: 50,
+    cardsCorrect: 50
+  });
+  assert.equal(halfDeck.coverage_pct, 50);
+  assert.equal(halfDeck.accuracy_pct, 100);
+  assert.equal(halfDeck.readiness_pct, 50);
+  assert.equal(halfDeck.ready, false);
+  assert.equal(halfDeck.blocker, 'coverage');
+
+  const weakFull = computeCourseReadiness({
+    cardCount: 10,
+    studied: 10,
+    cardsCorrect: 7
+  });
+  assert.equal(weakFull.accuracy_pct, 70);
+  assert.equal(weakFull.ready, false);
+  assert.equal(weakFull.blocker, 'accuracy');
+  assert.ok(weakFull.readiness_pct < 100);
+
+  const ready = computeCourseReadiness({
+    cardCount: 10,
+    studied: 10,
+    cardsCorrect: 8
+  });
+  assert.equal(ready.ready, true);
+  assert.equal(ready.readiness_pct, 100);
+  assert.equal(ready.blocker, null);
+});
+
 test('progressByTrack includes topic correct percentages', async () => {
   const store = createMemoryStore({
     tracks: [{ id: 'commercial', title: 'Commercial', sort_order: 1, status: 'ready' }],
@@ -164,4 +197,7 @@ test('progressByTrack includes topic correct percentages', async () => {
   assert.equal(weather.answers_total, 2);
   assert.equal(weather.correct_pct, 50);
   assert.equal(aero.correct_pct, 100);
+  assert.equal(rows[0].readiness.coverage_pct, 100);
+  assert.equal(rows[0].readiness.accuracy_pct, 67);
+  assert.equal(rows[0].readiness.ready, false);
 });
