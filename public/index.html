@@ -373,6 +373,12 @@
       font-weight: 700;
       flex: 1;
     }
+    .flash .q u,
+    .admin-q u,
+    .edit-hint u {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
     .flash .a {
       margin-top: 14px;
       padding-top: 14px;
@@ -1303,6 +1309,33 @@
         .replace(/"/g, '&quot;');
     }
 
+    /** Escape text, but allow simple <u>...</u> underline markers. */
+    function formatRichText(value) {
+      const raw = String(value ?? '');
+      const parts = raw.split(/(<\/?u>)/i);
+      let open = false;
+      let html = '';
+      for (const part of parts) {
+        if (/^<u>$/i.test(part)) {
+          if (!open) {
+            html += '<u>';
+            open = true;
+          }
+          continue;
+        }
+        if (/^<\/u>$/i.test(part)) {
+          if (open) {
+            html += '</u>';
+            open = false;
+          }
+          continue;
+        }
+        html += escapeHtml(part);
+      }
+      if (open) html += '</u>';
+      return html;
+    }
+
     async function loadAuthUser() {
       const el = document.getElementById('header-user');
       const logoutEl = document.getElementById('header-logout');
@@ -1727,6 +1760,7 @@
         <div class="edit-card">
           <label for="editQuestion">Question</label>
           <textarea id="editQuestion">${escapeHtml(draft.question)}</textarea>
+          <p class="edit-hint">Underline a word with <code>&lt;u&gt;250&lt;/u&gt;</code> (shows as <u>250</u>).</p>
           ${hasChoices ? `
             <label>Choices <span class="edit-hint">(select the correct one)</span></label>
             ${draft.choices.map((c, i) => `
@@ -1845,7 +1879,7 @@
               <button type="button" class="linkish" id="toggleEditBtn">${state.study.editing ? 'Editing…' : 'Edit'}</button>
             </div>
             ${state.study.editing ? renderEditCard(card) : `
-              <div class="q">${escapeHtml(card.question)}</div>
+              <div class="q">${formatRichText(card.question)}</div>
               ${Array.isArray(card.choices) && card.choices.length ? `
                 <div class="choices">
                   ${card.choices.map((c, i) => {
@@ -2482,7 +2516,7 @@
               <span class="admin-pill">${escapeHtml(adminTopicTitle(card))}</span>
               ${card.figure ? '<span class="admin-pill fig">Figure</span>' : ''}
             </div>
-            <p class="admin-q">${escapeHtml(card.question || '')}</p>
+            <p class="admin-q">${formatRichText(card.question || '')}</p>
             <p class="admin-a">${escapeHtml(card.answer || '')}</p>
           </div>
         </button>
