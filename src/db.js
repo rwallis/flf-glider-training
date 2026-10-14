@@ -70,6 +70,16 @@ CREATE TABLE IF NOT EXISTS glider_users (
 );
 
 CREATE INDEX IF NOT EXISTS glider_users_email_idx ON glider_users (email);
+
+CREATE TABLE IF NOT EXISTS glider_daily_activity (
+  user_key TEXT NOT NULL,
+  activity_date DATE NOT NULL,
+  answers INT NOT NULL DEFAULT 0,
+  PRIMARY KEY (user_key, activity_date)
+);
+
+CREATE INDEX IF NOT EXISTS glider_daily_activity_date_idx
+  ON glider_daily_activity (activity_date DESC);
 `;
 
 export async function createGliderPool(config) {

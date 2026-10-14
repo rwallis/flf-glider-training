@@ -1,12 +1,97 @@
 import { randomUUID } from 'node:crypto';
 import { loadSeedFile } from './seed.js';
 
+const ACTIVITY_TZ = 'America/Chicago';
+
 function slugify(text) {
   return String(text || '')
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '_')
     .replace(/^_|_$/g, '')
     .slice(0, 48);
+}
+
+/** Calendar date YYYY-MM-DD in America/Chicago. */
+export function activityDateKey(when = new Date(), timeZone = ACTIVITY_TZ) {
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).format(when instanceof Date ? when : new Date(when));
+}
+
+export function displayNameFromProfile({ name, email, userKey } = {}) {
+  const raw = String(name || '').trim();
+  if (raw) {
+    const first = raw.split(/\s+/)[0];
+    return first.slice(0, 24);
+  }
+  const local = String(email || '').split('@')[0];
+  if (local) return local.slice(0, 24);
+  const key = String(userKey || '');
+  if (!key || key.startsWith('g:') || key.startsWith('e:')) return 'Learner';
+  return key.slice(0, 24);
+}
+
+function listRecentDateKeys(days, when = new Date()) {
+  const n = Math.max(1, Math.min(30, Number(days) || 7));
+  const today = activityDateKey(when);
+  const [y, m, d] = today.split('-').map(Number);
+  const out = [];
+  for (let i = n - 1; i >= 0; i -= 1) {
+    // Noon UTC on the CT calendar date avoids most DST edge cases when formatting back to CT.
+    const anchor = new Date(Date.UTC(y, m - 1, d - i, 17, 0, 0));
+    out.push(activityDateKey(anchor));
+  }
+  return out;
+}
+
+function buildLeagueSummary({ userKey, days, profilesByKey, countsByUserDate }) {
+  const dates = listRecentDateKeys(days);
+  const today = dates[dates.length - 1];
+  const seriesFor = (uk) => dates.map((date) => Number(countsByUserDate.get(`${uk}::${date}`) || 0));
+  const allKeys = new Set([userKey, ...[...countsByUserDate.keys()].map((k) => k.split('::')[0])]);
+  const people = [...allKeys].map((uk) => {
+    const series = seriesFor(uk);
+    const weekTotal = series.reduce((a, b) => a + b, 0);
+    const profile = profilesByKey.get(uk) || { userKey: uk };
+    return {
+      user_key: uk,
+      display_name: uk === userKey ? 'You' : displayNameFromProfile(profile),
+      picture: profile.picture || null,
+      is_you: uk === userKey,
+      today: series[series.length - 1] || 0,
+      week_total: weekTotal,
+      series
+    };
+  });
+  people.sort((a, b) => b.week_total - a.week_total || b.today - a.today || a.display_name.localeCompare(b.display_name));
+  const you = people.find((p) => p.is_you) || {
+    user_key: userKey,
+    display_name: 'You',
+    picture: null,
+    is_you: true,
+    today: 0,
+    week_total: 0,
+    series: dates.map(() => 0)
+  };
+  const peers = people.filter((p) => !p.is_you && p.week_total > 0).slice(0, 5);
+  const chart = [you, ...peers];
+  const leaderboard = [...people]
+    .filter((p) => p.is_you || p.today > 0 || p.week_total > 0)
+    .sort((a, b) => b.today - a.today || b.week_total - a.week_total)
+    .slice(0, 12)
+    .map((p, i) => ({ rank: i + 1, ...p }));
+  return {
+    timezone: ACTIVITY_TZ,
+    days: dates.length,
+    dates,
+    today,
+    you,
+    chart,
+    leaderboard
+  };
 }
 
 /** Normalize a card edit payload (question / answer / choices / source). */
@@ -82,7 +167,9 @@ export function createMemoryStore(seed) {
     topics: [...(seed.topics || [])],
     cards: [...(seed.cards || [])],
     progress: new Map(),
-    imports: []
+    imports: [],
+    dailyActivity: new Map(), // `${userKey}::YYYY-MM-DD` -> answers
+    profiles: new Map() // userKey -> { name, email, picture, userKey }
   };
 
   return {
@@ -126,6 +213,30 @@ export function createMemoryStore(seed) {
     },
     async getProgressOne(userKey, cardId) {
       return state.progress.get(`${userKey}::${cardId}`) || null;
+    },
+    async recordAnswer(userKey, when = new Date()) {
+      const date = activityDateKey(when);
+      const key = `${userKey}::${date}`;
+      const next = Number(state.dailyActivity.get(key) || 0) + 1;
+      state.dailyActivity.set(key, next);
+      return { user_key: userKey, activity_date: date, answers: next };
+    },
+    async setUserProfile(profile) {
+      if (!profile?.userKey) return;
+      state.profiles.set(profile.userKey, {
+        userKey: profile.userKey,
+        name: profile.name || '',
+        email: profile.email || '',
+        picture: profile.picture || null
+      });
+    },
+    async leagueSummary(userKey, { days = 7 } = {}) {
+      return buildLeagueSummary({
+        userKey,
+        days,
+        profilesByKey: state.profiles,
+        countsByUserDate: state.dailyActivity
+      });
     },
     async importCards({ trackId, topicTitle, rows, filename, note }) {
       const topicId = `${trackId}_${slugify(topicTitle || 'imported')}_${Date.now().toString(36)}`;
@@ -173,11 +284,15 @@ export function createMemoryStore(seed) {
       const cards = state.cards.length;
       const prog = await this.getProgress(userKey);
       const due = prog.filter((p) => new Date(p.due_at) <= new Date()).length;
+      const todayKey = activityDateKey();
+      const todayXp = Number(state.dailyActivity.get(`${userKey}::${todayKey}`) || 0);
       return {
         cards,
         studied: prog.length,
         due,
-        tracks: state.tracks.length
+        tracks: state.tracks.length,
+        courses: state.tracks.length,
+        today_xp: todayXp
       };
     },
     async progressByTrack(userKey) {
@@ -326,6 +441,58 @@ export function createPgStore(db) {
       );
       return rows[0];
     },
+    async recordAnswer(userKey, when = new Date()) {
+      const date = activityDateKey(when);
+      const { rows } = await db.query(
+        `INSERT INTO glider_daily_activity (user_key, activity_date, answers)
+         VALUES ($1, $2::date, 1)
+         ON CONFLICT (user_key, activity_date) DO UPDATE SET
+           answers = glider_daily_activity.answers + 1
+         RETURNING user_key, activity_date::text AS activity_date, answers`,
+        [userKey, date]
+      );
+      return rows[0];
+    },
+    async leagueSummary(userKey, { days = 7 } = {}) {
+      const n = Math.max(1, Math.min(30, Number(days) || 7));
+      const dates = listRecentDateKeys(n);
+      const start = dates[0];
+      const { rows } = await db.query(
+        `SELECT user_key, activity_date::text AS activity_date, answers
+         FROM glider_daily_activity
+         WHERE activity_date >= $1::date`,
+        [start]
+      );
+      const countsByUserDate = new Map();
+      for (const row of rows) {
+        countsByUserDate.set(`${row.user_key}::${row.activity_date}`, Number(row.answers) || 0);
+      }
+      const userKeys = [...new Set(rows.map((r) => r.user_key).concat(userKey))];
+      const profilesByKey = new Map();
+      if (userKeys.length) {
+        const { rows: users } = await db.query(
+          `SELECT google_sub, email, name, picture
+           FROM glider_users
+           WHERE ('g:' || google_sub) = ANY($1::text[])`,
+          [userKeys]
+        );
+        for (const u of users) {
+          const key = `g:${u.google_sub}`;
+          profilesByKey.set(key, {
+            userKey: key,
+            email: u.email,
+            name: u.name,
+            picture: u.picture
+          });
+        }
+      }
+      return buildLeagueSummary({
+        userKey,
+        days: n,
+        profilesByKey,
+        countsByUserDate
+      });
+    },
     async importCards({ trackId, topicTitle, rows, filename, note }) {
       const topicId = `${trackId}_${slugify(topicTitle || 'imported')}_${Date.now().toString(36)}`;
       await db.query(
@@ -398,11 +565,20 @@ export function createPgStore(db) {
         [userKey]
       );
       const tracks = await db.query('SELECT COUNT(*)::int AS n FROM glider_tracks');
+      const today = activityDateKey();
+      const xp = await db.query(
+        `SELECT COALESCE(answers, 0)::int AS n
+         FROM glider_daily_activity
+         WHERE user_key = $1 AND activity_date = $2::date`,
+        [userKey, today]
+      );
       return {
         cards: cards.rows[0].n,
         studied: studied.rows[0].n,
         due: due.rows[0].n,
-        tracks: tracks.rows[0].n
+        tracks: tracks.rows[0].n,
+        courses: tracks.rows[0].n,
+        today_xp: xp.rows[0]?.n || 0
       };
     },
     async progressByTrack(userKey) {

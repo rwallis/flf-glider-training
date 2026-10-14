@@ -147,7 +147,7 @@
     }
     .stat b { display: block; font-size: 1.35rem; color: var(--sky-deep); }
     .stat span { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
-    .track {
+    .track, .course {
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: 16px;
@@ -157,7 +157,21 @@
       gap: 12px;
       align-items: flex-start;
     }
-    .track .badge {
+    .course {
+      border-width: 2px;
+      border-color: #E5E5E5;
+      box-shadow: 0 2px 0 #E5E5E5;
+      position: relative;
+      overflow: hidden;
+    }
+    .course::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 8px;
+      background: var(--course-color, var(--sky));
+    }
+    .track .badge, .course .badge {
       flex: 0 0 auto;
       min-width: 52px;
       height: 44px;
@@ -167,15 +181,145 @@
       place-items: center;
       font-weight: 800;
       color: #fff;
-      background: var(--sky);
+      background: var(--course-color, var(--sky));
       font-size: 0.68rem;
       text-align: center;
       line-height: 1.1;
     }
-    .track.upload .badge { background: var(--copper); }
-    .track h2 { margin: 0 0 4px; font-size: 1.05rem; }
-    .track p { margin: 0; color: var(--muted); font-size: 0.88rem; }
-    .track .meta { margin-top: 8px; font-size: 0.8rem; color: var(--sky-deep); font-weight: 700; }
+    .track.upload .badge, .course.upload .badge { background: var(--copper); }
+    .track h2, .course h2 { margin: 0 0 4px; font-size: 1.05rem; }
+    .track p, .course p { margin: 0; color: var(--muted); font-size: 0.88rem; }
+    .track .meta, .course .meta { margin-top: 8px; font-size: 0.8rem; color: var(--sky-deep); font-weight: 700; }
+    .section-title {
+      margin: 18px 0 10px;
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+    .league-card {
+      background: var(--card);
+      border: 2px solid #E5E5E5;
+      border-radius: 18px;
+      box-shadow: 0 2px 0 #E5E5E5;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+    .league-xp {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .league-xp .xp-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FFF4D6;
+      color: #C48A12;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+    .league-xp .week-pill {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-align: right;
+    }
+    .league-chart {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 4px 0 8px;
+    }
+    .league-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      margin: 0 0 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+    .league-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .league-legend i {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .league-row {
+      display: grid;
+      grid-template-columns: 28px 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 8px 0;
+      border-top: 1px solid var(--line);
+    }
+    .league-row:first-child { border-top: 0; }
+    .league-row.you {
+      background: #E8F8D8;
+      margin: 0 -8px;
+      padding: 8px;
+      border-radius: 12px;
+      border-top: 0;
+    }
+    .league-rank {
+      font-weight: 800;
+      color: var(--muted);
+      text-align: center;
+    }
+    .league-name {
+      font-weight: 800;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+    .league-name img {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #E8F2F8;
+    }
+    .league-name .avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--sky);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      flex: 0 0 auto;
+    }
+    .league-xp-count {
+      font-weight: 800;
+      color: #C48A12;
+      white-space: nowrap;
+    }
+    .course-progress {
+      margin-top: 8px;
+      height: 10px;
+      background: #E5E5E5;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .course-progress > span {
+      display: block;
+      height: 100%;
+      background: var(--course-color, var(--grass));
+      border-radius: 999px;
+    }
     .btn-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     button, .btn {
       appearance: none;
@@ -578,7 +722,7 @@
     <button type="button" data-view="home"><span>⌂</span>Home</button>
     <button type="button" data-view="study"><span>✎</span>Study</button>
     <button type="button" data-view="aircraft"><span>✈</span>Aircraft</button>
-    <button type="button" data-view="progress"><span>▣</span>Progress</button>
+    <button type="button" data-view="progress"><span>★</span>League</button>
     <button type="button" data-view="import"><span>↑</span>Import</button>
   </nav>
   <div class="toast" id="toast"></div>
@@ -605,6 +749,7 @@
       },
       imports: [],
       progressTracks: [],
+      league: null,
       aircraft: {
         page: 'hub', // hub | sgs233
         config: 'dual',
@@ -734,12 +879,110 @@
 
     function trackLabel(id) {
       return ({
-        common: 'Common Knowledge',
-        private: 'Private Glider',
+        common: 'Common',
+        private: 'Private',
         commercial: 'Commercial',
         cfi_g: 'CFI-G',
-        aircraft_233: 'SGS 2-33'
+        aircraft_233: '2-33'
       })[id] || id;
+    }
+
+    function courseColor(id) {
+      return ({
+        aircraft_233: '#58CC02',
+        common: '#1CB0F6',
+        commercial: '#FF9600',
+        cfi_g: '#CE82FF',
+        private: '#FF4B4B'
+      })[id] || '#2B8FCC';
+    }
+
+    const LEAGUE_LINE_COLORS = ['#58CC02', '#1CB0F6', '#FF9600', '#CE82FF', '#FF4B4B', '#2F7D32'];
+
+    function shortDayLabel(isoDate) {
+      try {
+        const [y, m, d] = String(isoDate).split('-').map(Number);
+        const dt = new Date(Date.UTC(y, m - 1, d, 17, 0, 0));
+        return new Intl.DateTimeFormat('en-US', { weekday: 'short', timeZone: 'America/Chicago' }).format(dt);
+      } catch {
+        return String(isoDate).slice(5);
+      }
+    }
+
+    function leagueChartSvg(summary) {
+      if (!summary?.dates?.length || !summary?.chart?.length) {
+        return '<div class="empty" style="padding:16px">Answer a few questions to start the league chart.</div>';
+      }
+      const W = 320;
+      const H = 160;
+      const padL = 28;
+      const padR = 10;
+      const padT = 12;
+      const padB = 28;
+      const dates = summary.dates;
+      const seriesList = summary.chart;
+      const maxY = Math.max(5, ...seriesList.flatMap((p) => p.series || [0]));
+      const plotW = W - padL - padR;
+      const plotH = H - padT - padB;
+      const xAt = (i) => padL + (dates.length <= 1 ? plotW / 2 : (i / (dates.length - 1)) * plotW);
+      const yAt = (v) => padT + plotH - (v / maxY) * plotH;
+      const grid = [0, 0.5, 1].map((t) => {
+        const y = padT + plotH * (1 - t);
+        const label = Math.round(maxY * t);
+        return `<line x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" stroke="#E5E5E5" stroke-width="1"/>
+          <text x="${padL - 6}" y="${y + 3}" text-anchor="end" font-size="9" fill="#5A6B76">${label}</text>`;
+      }).join('');
+      const xLabels = dates.map((d, i) =>
+        `<text x="${xAt(i)}" y="${H - 8}" text-anchor="middle" font-size="9" fill="#5A6B76">${escapeHtml(shortDayLabel(d))}</text>`
+      ).join('');
+      const paths = seriesList.map((person, idx) => {
+        const color = person.is_you ? '#58CC02' : LEAGUE_LINE_COLORS[(idx + 1) % LEAGUE_LINE_COLORS.length];
+        const pts = (person.series || []).map((v, i) => `${xAt(i)},${yAt(v)}`).join(' ');
+        const width = person.is_you ? 3.2 : 2;
+        const dots = (person.series || []).map((v, i) =>
+          `<circle cx="${xAt(i)}" cy="${yAt(v)}" r="${person.is_you ? 3.5 : 2.5}" fill="${color}" />`
+        ).join('');
+        return `<polyline fill="none" stroke="${color}" stroke-width="${width}" stroke-linecap="round" stroke-linejoin="round" points="${pts}" />${dots}`;
+      }).join('');
+      return `<svg class="league-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Questions answered per day">${grid}${paths}${xLabels}</svg>`;
+    }
+
+    function leagueLegendHtml(summary) {
+      if (!summary?.chart?.length) return '';
+      return `<div class="league-legend">${summary.chart.map((p, idx) => {
+        const color = p.is_you ? '#58CC02' : LEAGUE_LINE_COLORS[(idx + 1) % LEAGUE_LINE_COLORS.length];
+        return `<span><i style="background:${color}"></i>${escapeHtml(p.display_name)}</span>`;
+      }).join('')}</div>`;
+    }
+
+    function renderLeagueSummary(summary, { compact = false } = {}) {
+      if (!summary) {
+        return `<div class="league-card"><div class="empty" style="padding:12px">Sign in and study to join the daily league.</div></div>`;
+      }
+      const you = summary.you || { today: 0, week_total: 0 };
+      const board = (summary.leaderboard || []).slice(0, compact ? 5 : 12);
+      return `
+        <div class="league-card">
+          <div class="league-xp">
+            <div class="xp-pill">${you.today || 0} XP today</div>
+            <div class="week-pill">${you.week_total || 0} this week<br><span style="font-weight:600;opacity:.85">vs other learners</span></div>
+          </div>
+          ${leagueChartSvg(summary)}
+          ${leagueLegendHtml(summary)}
+          ${board.length ? board.map((row) => `
+            <div class="league-row ${row.is_you ? 'you' : ''}">
+              <div class="league-rank">${row.rank}</div>
+              <div class="league-name">
+                ${row.picture
+                  ? `<img src="${escapeHtml(row.picture)}" alt="" />`
+                  : `<span class="avatar">${escapeHtml((row.display_name || '?').slice(0, 1).toUpperCase())}</span>`}
+                <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${escapeHtml(row.display_name)}</span>
+              </div>
+              <div class="league-xp-count">${row.today || 0} XP</div>
+            </div>
+          `).join('') : '<div class="empty" style="padding:12px">No answers logged today yet.</div>'}
+        </div>
+      `;
     }
 
     function setNav() {
@@ -749,12 +992,14 @@
     }
 
     async function loadHome() {
-      const [tracks, stats] = await Promise.all([
-        api('/api/tracks'),
-        api('/api/stats')
+      const [tracks, stats, league] = await Promise.all([
+        api('/api/courses').catch(() => api('/api/tracks')),
+        api('/api/stats'),
+        api('/api/league?days=7').catch(() => null)
       ]);
-      state.tracks = tracks.tracks;
+      state.tracks = tracks.courses || tracks.tracks || [];
       state.stats = stats;
+      state.league = league;
       render();
     }
 
@@ -791,7 +1036,7 @@
     async function grade(g) {
       const card = state.study.cards[state.study.index];
       if (!card) return;
-      await api('/api/study/' + encodeURIComponent(card.id), {
+      const result = await api('/api/study/' + encodeURIComponent(card.id), {
         method: 'POST',
         body: JSON.stringify({ grade: g })
       });
@@ -801,7 +1046,20 @@
       state.study.editing = false;
       state.study.editDraft = null;
       if (state.study.index >= state.study.cards.length) state.study.index = 0;
-      toast(g.toUpperCase());
+      if (state.stats && result?.activity?.answers != null) {
+        state.stats.today_xp = result.activity.answers;
+      }
+      if (state.league?.you && result?.activity?.answers != null) {
+        const prevToday = state.league.you.today || 0;
+        const nextToday = result.activity.answers;
+        const delta = Math.max(0, nextToday - prevToday);
+        state.league.you.today = nextToday;
+        state.league.you.week_total = (state.league.you.week_total || 0) + delta;
+        if (Array.isArray(state.league.you.series) && state.league.you.series.length) {
+          state.league.you.series[state.league.you.series.length - 1] = nextToday;
+        }
+      }
+      toast(`${g.toUpperCase()} · +1 XP`);
       render();
     }
 
@@ -925,31 +1183,34 @@
     }
 
     function renderHome() {
-      const s = state.stats || { cards: 0, studied: 0, due: 0 };
+      const s = state.stats || { cards: 0, studied: 0, due: 0, today_xp: 0 };
+      const courses = state.tracks || [];
       return `
         <div class="stats">
-          <div class="stat"><b>${s.cards}</b><span>Cards</span></div>
+          <div class="stat"><b>${s.today_xp ?? state.league?.you?.today ?? 0}</b><span>Today XP</span></div>
           <div class="stat"><b>${s.studied}</b><span>Studied</span></div>
           <div class="stat"><b>${s.due}</b><span>Due</span></div>
         </div>
-        <p style="color:var(--muted);font-size:0.9rem;margin:0 0 12px">
-          Self-study now: <strong>Commercial</strong> + Common Knowledge + SGS 2-33.
-          Upload CFI-G Q&amp;A next, Private Glider last.
-        </p>
-        ${state.tracks.map((t) => `
-          <article class="track ${t.status === 'upload_later' ? 'upload' : ''}">
+        <h2 class="section-title">Daily league</h2>
+        ${renderLeagueSummary(state.league, { compact: true })}
+        <h2 class="section-title">Courses</h2>
+        <p class="hint">Pick a course and keep a daily streak of answered questions. Progress is saved to your signed-in account.</p>
+        ${courses.map((t) => {
+          const color = courseColor(t.id);
+          return `
+          <article class="course ${t.status === 'upload_later' ? 'upload' : ''}" style="--course-color:${color}">
             <div class="badge">${trackLabel(t.id)}</div>
             <div style="flex:1">
               <h2>${escapeHtml(t.title)}</h2>
               <p>${escapeHtml(t.description || '')}</p>
-              <div class="meta">${t.card_count || 0} cards · ${t.status === 'upload_later' ? 'upload later' : 'ready'}</div>
+              <div class="meta">${t.card_count || 0} cards · ${t.status === 'upload_later' ? 'coming soon' : 'ready'}</div>
               <div class="btn-row">
-                <button type="button" data-open-study="${t.id}" ${!(t.card_count > 0) ? 'disabled' : ''}>Study</button>
+                <button type="button" data-open-study="${t.id}" ${!(t.card_count > 0) ? 'disabled' : ''}>Continue</button>
                 ${t.status === 'upload_later' ? '<button type="button" class="secondary" data-view-jump="import">Import Q&amp;A</button>' : ''}
               </div>
             </div>
-          </article>
-        `).join('')}
+          </article>`;
+        }).join('')}
       `;
     }
 
@@ -996,7 +1257,7 @@
           <option value="">All topics</option>
           ${topics.map((t) => `<option value="${t.id}" ${state.study.topic === t.id ? 'selected' : ''}>${escapeHtml(t.title)}</option>`).join('')}
         </select>
-        ${!card ? `<div class="empty">No cards in this deck filter. Try All, clear grade filters, another track, or Import.</div>` : `
+        ${!card ? `<div class="empty">No cards in this deck filter. Try All, clear grade filters, another course, or Import.</div>` : `
           <div class="flash">
             <div class="card-toolbar">
               <div class="meta">${remaining} remaining in session · ${escapeHtml(card.topic_id || '')}</div>
@@ -1287,35 +1548,45 @@
     }
 
     async function loadProgress() {
-      const [tracks, stats, byTrack] = await Promise.all([
-        api('/api/tracks'),
+      const [tracks, stats, byTrack, league] = await Promise.all([
+        api('/api/courses').catch(() => api('/api/tracks')),
         api('/api/stats'),
-        api('/api/progress-by-track')
+        api('/api/progress-by-track'),
+        api('/api/league?days=7').catch(() => null)
       ]);
-      state.tracks = tracks.tracks;
+      state.tracks = tracks.courses || tracks.tracks || [];
       state.stats = stats;
       state.progressTracks = byTrack.tracks || [];
+      state.league = league;
       render();
     }
 
     function renderProgress() {
-      const s = state.stats || { cards: 0, studied: 0, due: 0 };
+      const s = state.stats || { cards: 0, studied: 0, due: 0, today_xp: 0 };
       const rows = state.progressTracks || [];
       return `
         <div class="stats">
-          <div class="stat"><b>${s.cards}</b><span>Cards</span></div>
-          <div class="stat"><b>${s.studied}</b><span>Studied</span></div>
+          <div class="stat"><b>${s.today_xp ?? state.league?.you?.today ?? 0}</b><span>Today XP</span></div>
+          <div class="stat"><b>${state.league?.you?.week_total ?? 0}</b><span>Week XP</span></div>
           <div class="stat"><b>${s.due}</b><span>Due</span></div>
         </div>
-        <p class="hint">Last grade per card in each study category. Tap a grade pill to study those cards. Progress is saved to your signed-in account.</p>
-        ${rows.length ? rows.map((t) => `
-          <article class="track ${t.status === 'upload_later' ? 'upload' : ''}">
+        <h2 class="section-title">League this week</h2>
+        <p class="hint">Every graded answer counts as 1 XP for the day (Central Time). Chart shows you next to other signed-in learners.</p>
+        ${renderLeagueSummary(state.league, { compact: false })}
+        <h2 class="section-title">Courses</h2>
+        <p class="hint">Last grade per card in each course. Tap a grade pill to study those cards.</p>
+        ${rows.length ? rows.map((t) => {
+          const color = courseColor(t.id);
+          const pct = t.card_count > 0 ? Math.round((t.studied / t.card_count) * 100) : 0;
+          return `
+          <article class="course ${t.status === 'upload_later' ? 'upload' : ''}" style="--course-color:${color}">
             <div class="badge">${trackLabel(t.id)}</div>
             <div style="flex:1">
               <h2>${escapeHtml(t.title)}</h2>
               <div class="progress-meta">
                 ${t.card_count} cards · ${t.studied} studied · ${t.new} new · ${t.due} due
               </div>
+              <div class="course-progress" aria-label="${pct}% studied"><span style="width:${pct}%"></span></div>
               <div class="grade-pills">
                 <button type="button" class="grade-pill again" data-open-grade-study="${t.id}" data-filter-grade="again" ${!(t.again > 0) ? 'disabled' : ''}><b>${t.again || 0}</b><span>Again</span></button>
                 <button type="button" class="grade-pill hard" data-open-grade-study="${t.id}" data-filter-grade="hard" ${!(t.hard > 0) ? 'disabled' : ''}><b>${t.hard || 0}</b><span>Hard</span></button>
@@ -1323,11 +1594,11 @@
                 <button type="button" class="grade-pill easy" data-open-grade-study="${t.id}" data-filter-grade="easy" ${!(t.easy > 0) ? 'disabled' : ''}><b>${t.easy || 0}</b><span>Easy</span></button>
               </div>
               <div class="btn-row">
-                <button type="button" data-open-study="${t.id}" ${!(t.card_count > 0) ? 'disabled' : ''}>Study</button>
+                <button type="button" data-open-study="${t.id}" ${!(t.card_count > 0) ? 'disabled' : ''}>Continue</button>
               </div>
             </div>
-          </article>
-        `).join('') : '<div class="empty">No study categories yet.</div>'}
+          </article>`;
+        }).join('') : '<div class="empty">No courses yet.</div>'}
       `;
     }
 
@@ -1335,9 +1606,9 @@
       return `
         <p style="color:var(--muted);font-size:0.9rem">
           Upload CSV (<code>question,answer</code> or <code>topic,question,answer</code>) or paste JSON cards.
-          Set track to <strong>cfi_g</strong> next, then <strong>private</strong>.
+          Set course to <strong>cfi_g</strong> or <strong>private</strong>.
         </p>
-        <label>Track</label>
+        <label>Course</label>
         <select id="importTrack">
           <option value="cfi_g">CFI-G</option>
           <option value="private">Private</option>
@@ -1366,15 +1637,15 @@
     function render() {
       setNav();
       const sub = document.getElementById('subtitle');
-      if (state.view === 'home') sub.textContent = 'Pick a track · Commercial is ready';
-      if (state.view === 'study') sub.textContent = `Studying ${state.study.track} · ${state.study.cards.length} in session`;
+      if (state.view === 'home') sub.textContent = 'Courses · daily league';
+      if (state.view === 'study') sub.textContent = `Course ${trackLabel(state.study.track)} · ${state.study.cards.length} in session`;
       if (state.view === 'aircraft') {
         sub.textContent = state.aircraft.page === 'sgs233'
           ? 'SGS 2-33 · MacCready + wind'
           : 'Aircraft performance';
       }
-      if (state.view === 'progress') sub.textContent = 'Your spaced-repetition progress';
-      if (state.view === 'import') sub.textContent = 'Upload CFI-G then Private Q&A';
+      if (state.view === 'progress') sub.textContent = 'League · questions answered by day';
+      if (state.view === 'import') sub.textContent = 'Import into a course';
 
       if (state.view === 'home') app.innerHTML = renderHome();
       else if (state.view === 'study') app.innerHTML = renderStudy();

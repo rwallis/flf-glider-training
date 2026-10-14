@@ -24,9 +24,9 @@
     {
       "id": "cfi_g",
       "title": "CFI-G",
-      "description": "Instructor track — upload FOI and CFI-G Q&A when you start that study.",
+      "description": "Instructor course — FOI and CFI-G written Q&A.",
       "sort_order": 40,
-      "status": "upload_later"
+      "status": "ready"
     },
     {
       "id": "aircraft_233",

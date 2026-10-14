@@ -11,15 +11,24 @@ function requireUserKey(req, res, config) {
 }
 
 export function registerGliderApi(app, { store, config }) {
-  app.get('/api/tracks', async (_req, res) => {
+  async function listCoursesWithCounts() {
     const tracks = await store.listTracks();
-    const withCounts = await Promise.all(
+    return Promise.all(
       tracks.map(async (t) => {
         const cards = await store.listCards({ trackId: t.id });
         return { ...t, card_count: cards.length };
       })
     );
-    res.json({ tracks: withCounts });
+  }
+
+  app.get('/api/tracks', async (_req, res) => {
+    const tracks = await listCoursesWithCounts();
+    res.json({ tracks });
+  });
+
+  app.get('/api/courses', async (_req, res) => {
+    const courses = await listCoursesWithCounts();
+    res.json({ courses, tracks: courses });
   });
 
   app.get('/api/topics', async (req, res) => {
@@ -128,7 +137,17 @@ export function registerGliderApi(app, { store, config }) {
     const prev = await store.getProgressOne(uk, card.id);
     const patch = nextProgress(prev, grade);
     const row = await store.upsertProgress(uk, card.id, patch);
-    res.json({ progress: row });
+    const activity = await store.recordAnswer(uk);
+    res.json({ progress: row, activity });
+  });
+
+  app.get('/api/league', async (req, res) => {
+    const uk = requireUserKey(req, res, config);
+    if (!uk) return;
+    const daysRaw = Number(req.query.days);
+    const days = Number.isFinite(daysRaw) ? daysRaw : 7;
+    const summary = await store.leagueSummary(uk, { days });
+    res.json(summary);
   });
 
   app.patch('/api/cards/:cardId', async (req, res) => {

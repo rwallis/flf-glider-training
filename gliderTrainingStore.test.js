@@ -4,7 +4,9 @@ import {
   nextProgress,
   normalizeCardPatch,
   parseImportPayload,
-  createMemoryStore
+  createMemoryStore,
+  activityDateKey,
+  displayNameFromProfile
 } from './src/store.js';
 
 test('nextProgress again schedules soon and lowers ease', () => {
@@ -88,4 +90,31 @@ test('memory store updateCard edits question answer and choices', async () => {
   assert.deepEqual(updated.choices, ['New A', 'Wrong']);
   const got = await store.getCard('c1');
   assert.equal(got.question, 'New Q');
+});
+
+test('activityDateKey returns YYYY-MM-DD', () => {
+  assert.match(activityDateKey(new Date('2026-10-14T12:00:00Z')), /^\d{4}-\d{2}-\d{2}$/);
+});
+
+test('displayNameFromProfile prefers first name', () => {
+  assert.equal(displayNameFromProfile({ name: 'Ron Wallis', email: 'ron@example.com' }), 'Ron');
+});
+
+test('leagueSummary tracks daily answers across users', async () => {
+  const store = createMemoryStore({
+    tracks: [{ id: 'commercial', title: 'Commercial', sort_order: 1, status: 'ready' }],
+    topics: [],
+    cards: []
+  });
+  await store.setUserProfile({ userKey: 'g:you', name: 'You Person', email: 'you@x.com' });
+  await store.setUserProfile({ userKey: 'g:peer', name: 'Pat Pilot', email: 'pat@x.com' });
+  await store.recordAnswer('g:you');
+  await store.recordAnswer('g:you');
+  await store.recordAnswer('g:peer');
+  const summary = await store.leagueSummary('g:you', { days: 7 });
+  assert.equal(summary.you.today, 2);
+  assert.equal(summary.you.week_total, 2);
+  assert.equal(summary.you.display_name, 'You');
+  assert.ok(summary.chart.some((p) => p.display_name === 'Pat'));
+  assert.ok(summary.leaderboard[0].today >= 1);
 });
