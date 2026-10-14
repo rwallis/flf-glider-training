@@ -2562,6 +2562,384 @@
           "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap7_section_1.html"
         }
       ]
+    },
+    {
+      "card_id": "cfi_g_bank_300",
+      "summary": "VFR operations in Class B are allowed for solo student pilots if they meet the specific Part 61 training/endorsement requirements for that Class B airspace. Class B is not “instructors only” — students can go with the right endorsement and equipment/clearance rules.",
+      "links": [
+        {
+          "label": "14 CFR § 61.95 — Operations in Class B airspace / at airports",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.95"
+        },
+        {
+          "label": "AIM 3-2-3 — Class B Airspace",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_2.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_301",
+      "summary": "Operating in Class B requires two-way radio communications and a Mode C transponder (encoding altimeter) plus ADS-B Out when required by § 91.225. You also need an ATC clearance to enter Class B.",
+      "links": [
+        {
+          "label": "14 CFR § 91.131 — Operations in Class B airspace",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B/section-91.131"
+        },
+        {
+          "label": "14 CFR § 91.215 / § 91.225 — Transponder & ADS-B",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-C/section-91.215"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_302",
+      "summary": "VFR flights are prohibited in Class A airspace. Class A (generally 18,000 MSL to FL600) is IFR only unless a specific authorization applies.",
+      "links": [
+        {
+          "label": "AIM 3-2-2 — Class A Airspace",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_2.html"
+        },
+        {
+          "label": "14 CFR § 91.135 — Operations in Class A",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B/section-91.135"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_304",
+      "summary": "In Class E, basic VFR visibility goes from 3 SM to 5 SM when you are more than 1,200 feet AGL and at or above 10,000 feet MSL (with the matching cloud-clearance change to 1,000 ft above/below and 1 SM horizontal).",
+      "links": [
+        {
+          "label": "14 CFR § 91.155 — Basic VFR weather minimums",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B/section-91.155"
+        },
+        {
+          "label": "AIM 3-1-4 — VFR Weather Minimums",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_306",
+      "summary": "Class D normally extends from the surface up to and including about 2,500 feet AGL (charted as an MSL ceiling). Always read the dashed-blue number on the chart — individual airports vary.",
+      "links": [
+        {
+          "label": "AIM 3-2-5 — Class D Airspace",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_2.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_309",
+      "summary": "Class E VFR, more than 1,200 feet AGL and at/above 10,000 MSL: flight visibility required is 5 SM. Below that altitude band, Class E basic VFR is usually 3 SM.",
+      "links": [
+        {
+          "label": "14 CFR § 91.155 — Basic VFR weather minimums",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B/section-91.155"
+        },
+        {
+          "label": "AIM 3-1-4 — VFR Weather Minimums",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_313",
+      "summary": "Within the contiguous U.S., the floor of Class A airspace is 18,000 feet MSL (up to and including FL600, excluding some areas). Altimeter setting 29.92 in Class A.",
+      "links": [
+        {
+          "label": "AIM 3-2-2 — Class A Airspace",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_2.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_314",
+      "summary": "With certain exceptions, Class E extends upward from 700 or 1,200 feet AGL to, but not including, 18,000 feet MSL (the Class A floor). Magenta/blue vignettes show where the Class E floor starts.",
+      "links": [
+        {
+          "label": "AIM 3-2-6 — Class E Airspace",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_2.html"
+        },
+        {
+          "label": "FAA Chart Users’ Guide",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/aero_guide/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_317",
+      "summary": "Another Class E vertical-limit phrasing used on the test: Class E goes up to, but not including, the base of the overlying controlled airspace (e.g., a Class B/C shelf). Both “to 18,000” and “to overlying controlled” appear depending on the question’s wording.",
+      "links": [
+        {
+          "label": "AIM 3-2-6 — Class E Airspace",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_2.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_322",
+      "summary": "Minimum avionics for Class C: two-way radio communications and a transponder with automatic altitude reporting (Mode C). Establish two-way comm before entry; ADS-B Out also applies in the Mode C veil / rule airspace where required.",
+      "links": [
+        {
+          "label": "14 CFR § 91.130 — Operations in Class C airspace",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B/section-91.130"
+        },
+        {
+          "label": "AIM 3-2-4 — Class C Airspace",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_2.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_324",
+      "summary": "All operations within Class C must be in an aircraft with a Mode C transponder (automatic altitude reporting), unless otherwise authorized. Two-way comm is also required to enter/operate there.",
+      "links": [
+        {
+          "label": "14 CFR § 91.130 — Operations in Class C airspace",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B/section-91.130"
+        },
+        {
+          "label": "14 CFR § 91.215 — ATC transponder equipment",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-C/section-91.215"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_325",
+      "summary": "Do not fly through a restricted area unless you have prior authorization from the controlling agency. Restricted areas contain hazardous activities; permission is not optional.",
+      "links": [
+        {
+          "label": "AIM 3-4-3 — Restricted Areas",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_5.html"
+        },
+        {
+          "label": "14 CFR § 91.133 — Restricted and prohibited areas",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B/section-91.133"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_326",
+      "summary": "A warning area is airspace of defined dimensions from three nautical miles outward from the U.S. coast. Hazardous activities to nonparticipating aircraft may exist — similar in purpose to a restricted area, but over international waters.",
+      "links": [
+        {
+          "label": "AIM 3-4-4 — Warning Areas",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_5.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_327",
+      "summary": "An MOA is established to separate certain military training activities from IFR traffic. VFR is not prohibited, but IFR traffic may be rerouted when the MOA is active.",
+      "links": [
+        {
+          "label": "AIM 3-4-5 — Military Operations Areas",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_5.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_328",
+      "summary": "When operating VFR in an MOA, exercise extreme caution if military activity is being conducted. Check NOTAMs / FSS for MOA status and monitor published frequencies when possible.",
+      "links": [
+        {
+          "label": "AIM 3-4-5 — Military Operations Areas",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_5.html"
+        },
+        {
+          "label": "PHAK — Special Use Airspace",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_329",
+      "summary": "Flight through an MOA is permitted anytime (no clearance required for VFR), but use caution because of military activity. Contrast with restricted areas, which require authorization.",
+      "links": [
+        {
+          "label": "AIM 3-4-5 — Military Operations Areas",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_5.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_634",
+      "summary": "Sectional Figure 44: choose an altitude that stays under the Class B shelves between Northwest (area 2) and McKinney (area 5). Keyed answer is 2,500 feet MSL — read the blue Class B altitude boxes along the route and stay below the floor.",
+      "links": [
+        {
+          "label": "FAA Chart Users’ Guide — Class B",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/aero_guide/"
+        },
+        {
+          "label": "AIM 3-2-3 — Class B Airspace",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_2.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_638",
+      "summary": "Figure 45, McCampbell (area 1): read where controlled airspace begins — keyed as 718 feet MSL for this chart set (often a Class E floor expressed with field elevation context). Always confirm the magenta vignette / chart notes on the figure.",
+      "links": [
+        {
+          "label": "FAA Chart Users’ Guide — Class E floors",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/aero_guide/"
+        },
+        {
+          "label": "AIM 3-2-6 — Class E Airspace",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_2.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_639",
+      "summary": "Figure 45 near Corpus Christi VORTAC (area 5): controlled airspace begins at 700 feet AGL (magenta vignette Class E transition area). Magenta = 700 AGL floor; soft blue = 1,200 AGL floor.",
+      "links": [
+        {
+          "label": "FAA Chart Users’ Guide — Vignettes",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/aero_guide/"
+        },
+        {
+          "label": "AIM 3-2-6 — Class E Airspace",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_2.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_640",
+      "summary": "Figure 45, Bishop to McCampbell at 2,000 MSL: two-way radio is required when entering the Corpus Christi Class C airspace. Outside Class C/D/B, VFR radio may not be required — the trigger is penetrating that Class C.",
+      "links": [
+        {
+          "label": "14 CFR § 91.130 — Operations in Class C",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B/section-91.130"
+        },
+        {
+          "label": "AIM 3-2-4 — Class C Airspace",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_2.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_641",
+      "summary": "Figure 45, Cuddihy (area 8): minimum avionics (with owner permission as the stem notes) are two-way radio and a Mode C transponder — because the airport sits in/under Class C / Mode C requirements for that chart area.",
+      "links": [
+        {
+          "label": "14 CFR § 91.215 — ATC transponder equipment",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-C/section-91.215"
+        },
+        {
+          "label": "FAA Chart Users’ Guide",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/aero_guide/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_642",
+      "summary": "Figure 45, NAS Kingsville (area 2): airspace beginning at the surface is Class D (dashed blue airport traffic area). Military fields still use the same Class D depiction when a tower is operating.",
+      "links": [
+        {
+          "label": "AIM 3-2-5 — Class D Airspace",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_2.html"
+        },
+        {
+          "label": "FAA Chart Users’ Guide",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/aero_guide/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_643",
+      "summary": "Alert areas (Figure 45 area 6): no special clearance or equipment requirement, but pilots should be extremely cautious due to high-volume training. Participation is voluntary awareness — not a clearance regime.",
+      "links": [
+        {
+          "label": "AIM 3-4-6 — Alert Areas",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_5.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_645",
+      "summary": "Figure 46, Livermore Class D: the charted ceiling is 2,900 feet MSL (the number in the dashed-blue box). Class D tops are MSL altitudes on the sectional, not “2,500 AGL” by default.",
+      "links": [
+        {
+          "label": "AIM 3-2-5 — Class D Airspace",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_2.html"
+        },
+        {
+          "label": "FAA Chart Users’ Guide",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/aero_guide/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_646",
+      "summary": "Figure 46 over Hayward (area 3): Class B begins at 1,500 feet MSL per the blue altitude box for that sector. Fly below that floor (or get a clearance) to stay out of Class B.",
+      "links": [
+        {
+          "label": "AIM 3-2-3 — Class B Airspace",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_2.html"
+        },
+        {
+          "label": "FAA Chart Users’ Guide",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/aero_guide/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_647",
+      "summary": "Figure 46, San Jose Class C: the ceiling is charted at 4,000 feet MSL. Read the magenta Class C altitude stacks on the figure — surface/shelf floors and the top.",
+      "links": [
+        {
+          "label": "AIM 3-2-4 — Class C Airspace",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_2.html"
+        },
+        {
+          "label": "FAA Chart Users’ Guide",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/aero_guide/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_671",
+      "summary": "Public figures (VIP movement) are protected by Temporary Flight Restrictions (TFRs), often under § 91.141 / FDC NOTAMs. Check NOTAMs before every flight — stadium and VIP TFRs are common.",
+      "links": [
+        {
+          "label": "AIM 3-5-3 — Temporary Flight Restrictions",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_5.html"
+        },
+        {
+          "label": "14 CFR § 91.137–91.145 — Special flight rules / TFRs",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_672",
+      "summary": "When changing squawk codes, avoid inadvertent selection of 7500 (hijack), 7600 (lost comm), and 7700 (emergency). Dial carefully through those codes; some panels let you preset then activate.",
+      "links": [
+        {
+          "label": "AIM 4-1-20 — Transponder Operation",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap4_section_1.html"
+        },
+        {
+          "label": "AIM 6-4 — Two-way Radio Communications Failure / Emergency codes",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap6_section_4.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_680",
+      "summary": "Bank answer text looks swapped (instrument wording). Concept for the stem: from Hicks (area 1) northeast toward Northwest (area 2) on Figure 44, read the Class B floors and pick the maximum altitude that remains under the shelf — use the figure’s blue altitude boxes (same skill as bank_634).",
+      "links": [
+        {
+          "label": "FAA Chart Users’ Guide — Class B",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/aero_guide/"
+        },
+        {
+          "label": "AIM 3-2-3 — Class B Airspace",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_2.html"
+        }
+      ]
     }
   ]
 }
