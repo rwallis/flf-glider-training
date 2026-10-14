@@ -2054,6 +2054,514 @@
           "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/aero_guide/"
         }
       ]
+    },
+    {
+      "card_id": "cfi_g_bank_219",
+      "summary": "Sea-breeze convective circulation forms because land absorbs and radiates heat faster than water. By day the land heats, air rises over land, and cooler air flows inland from the water; at night the pattern can reverse (land breeze).",
+      "links": [
+        {
+          "label": "PHAK — Weather / Local Winds",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "AIM 7 — Meteorology",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap7_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_220",
+      "summary": "Bank key points to steep escarpments/cliffs as a favored place for convective circulation to develop (strong differential heating / slope lift). Broader teaching: convection needs a heat source and unstable air — cliffs and sun-facing slopes often trigger early thermals.",
+      "links": [
+        {
+          "label": "PHAK — Convective Currents",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook — Thermals",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_227",
+      "summary": "METAR Figure 3: calm wind is coded 00000KT. On the supplement, KDAL reports 00000KT — that is the calm station. Teach students to read wind group first in every METAR.",
+      "links": [
+        {
+          "label": "AIM 7-1-30 — METAR/SPECI",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap7_section_1.html"
+        },
+        {
+          "label": "FAA Aviation Weather Handbook / METAR decoding",
+          "url": "https://www.faa.gov/pilots/safety/pilot_safety_brochures"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_228",
+      "summary": "METAR remarks encode precipitation begin/end. At KAUS, RAB25 means rain began at 25 minutes past the hour; duration to observation time is reckoned from that remark — keyed answer is 26 minutes for this figure set. Always decode RMK begin/end times.",
+      "links": [
+        {
+          "label": "AIM 7-1-30 — METAR Remarks",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap7_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_230",
+      "summary": "Ceiling is the AGL height of the lowest broken (BKN) or overcast (OVC) layer (not SCT). On Figure 3, KDAL’s OVC009 is the lowest ceiling among the stations — 900 feet AGL overcast.",
+      "links": [
+        {
+          "label": "AIM 7-1-30 — Sky Condition / Ceiling",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap7_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_232",
+      "summary": "For KBRO on Figure 3, the reported ceiling is the lowest BKN/OVC layer — keyed as 25,000 feet (OVC250). Remember sky cover heights in METARs are hundreds of feet AGL (250 = 25,000).",
+      "links": [
+        {
+          "label": "AIM 7-1-30 — METAR Sky Cover",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap7_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_294",
+      "summary": "An individual microburst seldom lasts longer than about 15 minutes from the time the burst strikes the ground until dissipation. Brief but severe — plan avoidance, not “ride it out.”",
+      "links": [
+        {
+          "label": "AIM 7-1-26 — Microbursts",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap7_section_1.html"
+        },
+        {
+          "label": "PHAK — Wind Shear / Microburst",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_295",
+      "summary": "Maximum downdrafts in a microburst may reach about 6,000 feet per minute. That vertical rate is unsurvivable near the ground in light aircraft/gliders — recognize virga, blowing dust, and storm outflow early.",
+      "links": [
+        {
+          "label": "AIM 7-1-26 — Microbursts",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap7_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_296",
+      "summary": "Maximum-intensity winds in an individual microburst typically last only 2 to 4 minutes. Short peak, high damage potential — another reason to delay launch/landing when outflow is nearby.",
+      "links": [
+        {
+          "label": "AIM 7-1-26 — Microbursts",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap7_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_318",
+      "summary": "Class C diagram (Figure 47): surface area (inner circle C) normally has a 5 NM radius. Memorize the standard Class C template: 5 NM surface / 10 NM shelf / ~20 NM outer area (when charted).",
+      "links": [
+        {
+          "label": "AIM 3-2-4 — Class C Airspace",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_1.html"
+        },
+        {
+          "label": "14 CFR Part 71 — Designation of Class A, B, C, D, and E",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-E/part-71"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_319",
+      "summary": "Class C shelf area (circle A on Figure 47) normally has a 10 NM radius. Shelf floor/ceiling are charted in the figure boxes — do not assume every Class C is identical; confirm on the chart.",
+      "links": [
+        {
+          "label": "AIM 3-2-4 — Class C Airspace",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_1.html"
+        },
+        {
+          "label": "FAA Chart Users’ Guide",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/aero_guide/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_320",
+      "summary": "On the Class C figure, box 2 is the base of the shelf area — keyed as 1,200 feet AGL for that diagram. Always read the figure’s altitude boxes; real Class C shelves vary by airport.",
+      "links": [
+        {
+          "label": "AIM 3-2-4 — Class C Airspace",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_1.html"
+        },
+        {
+          "label": "FAA Chart Users’ Guide",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/aero_guide/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_333",
+      "summary": "A military airport rotating beacon is green and dual-peaked white (green-white-white). Civil lighted land airports are white-green; water airports white-yellow; heliports white-yellow-green.",
+      "links": [
+        {
+          "label": "AIM 2-1-10 — Airport Beacons",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap2_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_391",
+      "summary": "Under 14 CFR 61.39, an applicant for a practical test must have passed the required knowledge test within the preceding 24 calendar months (when a knowledge test is required).",
+      "links": [
+        {
+          "label": "14 CFR § 61.39 — Prerequisites for practical tests",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.39"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_392",
+      "summary": "If a practical test is not finished in one day, all remaining increments must be satisfactorily completed no later than 60 calendar days after the date the test began (14 CFR 61.43).",
+      "links": [
+        {
+          "label": "14 CFR § 61.43 — Practical tests: general procedures",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.43"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_395",
+      "summary": "After a second practical-test failure, the applicant may retest after the examiner receives a logbook endorsement from an authorized instructor who gave additional training. There is no mandatory wait calendar day — keyed eligibility is the same day (January 13) once the required endorsement/training is done. Know 61.49.",
+      "links": [
+        {
+          "label": "14 CFR § 61.49 — Retesting after failure",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.49"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_424",
+      "summary": "A Recreational Pilot Certificate may be issued for airplanes, gyroplanes, and helicopters — not for gliders (glider private/commercial paths are separate). Confirm category/class privileges in Part 61 Subpart D.",
+      "links": [
+        {
+          "label": "14 CFR § 61.96 — Applicability / recreational pilot",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-D"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_425",
+      "summary": "Minimum age for a Commercial Pilot Certificate is 18 years (14 CFR 61.123). Private is 17 for airplane/rotorcraft/glider; ATP is 23 (or 21 with restricted ATP paths).",
+      "links": [
+        {
+          "label": "14 CFR § 61.123 — Eligibility requirements: commercial",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-F/section-61.123"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_444",
+      "summary": "Bottle-to-throttle: no person may act as a crewmember within 8 hours after consuming alcohol (also 0.04% BAC and “under the influence” rules) — 14 CFR 91.17.",
+      "links": [
+        {
+          "label": "14 CFR § 91.17 — Alcohol or drugs",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-A/section-91.17"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_449",
+      "summary": "PIC must ensure each person on board is briefed on how to fasten and unfasten seat belts (and shoulder harnesses when installed). Crew use rules and “before movement” fastening are in 91.107 — teach both briefing and use.",
+      "links": [
+        {
+          "label": "14 CFR § 91.107 — Use of safety belts / shoulder harnesses",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B/section-91.107"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_452",
+      "summary": "When a glider and an airplane approach head-on at the same altitude, both give way to the right (14 CFR 91.113). Also remember: powered aircraft generally give way to gliders / balloons / airships in converging situations — but head-on is both right.",
+      "links": [
+        {
+          "label": "14 CFR § 91.113 — Right-of-way rules",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B/section-91.113"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_491",
+      "summary": "The owner or operator is primarily responsible for maintaining the aircraft in an airworthy condition (14 CFR 91.403). PIC still determines airworthiness before flight (91.7).",
+      "links": [
+        {
+          "label": "14 CFR § 91.403 — General (maintenance responsibility)",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-E/section-91.403"
+        },
+        {
+          "label": "14 CFR § 91.7 — Civil aircraft airworthiness",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-A/section-91.7"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_492",
+      "summary": "Compliance with Airworthiness Directives is the responsibility of the owner or operator. ADs are Part 39 rules — accomplish as specified before further flight unless an AMOC is approved.",
+      "links": [
+        {
+          "label": "14 CFR § 39.3 — Airworthiness directives",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-C/part-39/section-39.3"
+        },
+        {
+          "label": "14 CFR § 91.403 — Owner/operator responsibility",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-E/section-91.403"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_504",
+      "summary": "NTSB “serious injury” includes injuries that require hospitalization >48 hours, fractures (except simple finger/nose/toe), severe hemorrhages, nerve/muscle/tendon damage, internal organ injury, or second-/third-degree burns over >5% of the body. Tendon damage is one of the listed examples on the test.",
+      "links": [
+        {
+          "label": "49 CFR § 830.2 — Definitions (serious injury)",
+          "url": "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-VIII/part-830/subpart-A/section-830.2"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_505",
+      "summary": "Substantial damage (NTSB) adversely affects structural strength, performance, or flight characteristics and normally requires major repair or replacement of the affected component. Cosmetic damage alone is not substantial damage.",
+      "links": [
+        {
+          "label": "49 CFR § 830.2 — Substantial damage",
+          "url": "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-VIII/part-830/subpart-A/section-830.2"
+        },
+        {
+          "label": "49 CFR Part 830",
+          "url": "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-VIII/part-830"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_506",
+      "summary": "Immediate NTSB notification is required for listed incidents including flight control system malfunction or failure — even when it is not an “accident.” Know the § 830.5 incident list separately from the accident definition.",
+      "links": [
+        {
+          "label": "49 CFR § 830.5 — Immediate notification",
+          "url": "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-VIII/part-830/subpart-B/section-830.5"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_507",
+      "summary": "Accidents (and certain incidents) require immediate notification to the nearest NTSB field office. “Immediately” means without delay once you are able to notify — do not wait for the written report deadline.",
+      "links": [
+        {
+          "label": "49 CFR § 830.5 — Immediate notification",
+          "url": "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-VIII/part-830/subpart-B/section-830.5"
+        },
+        {
+          "label": "NTSB — Report an Accident or Incident",
+          "url": "https://www.ntsb.gov/Pages/Report.aspx"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_508",
+      "summary": "After an accident, the operator must file a written report within 10 days (49 CFR 830.15). Immediate phone/electronic notification is separate from the 10-day report.",
+      "links": [
+        {
+          "label": "49 CFR § 830.15 — Reports and statements to be filed",
+          "url": "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-VIII/part-830/subpart-C/section-830.15"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_509",
+      "summary": "For an incident (not an accident), a written report to the NTSB is required only if the NTSB requests it. Still notify immediately when the incident is on the § 830.5 list.",
+      "links": [
+        {
+          "label": "49 CFR § 830.15 — Reports and statements to be filed",
+          "url": "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-VIII/part-830/subpart-C/section-830.15"
+        },
+        {
+          "label": "49 CFR § 830.5 — Immediate notification",
+          "url": "https://www.ecfr.gov/current/title-49/subtitle-B/chapter-VIII/part-830/subpart-B/section-830.5"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_515",
+      "summary": "A knot in a rope can cut tensile strength roughly in half — a 1,000 lb rope may be good for about 500 lb with a knot. For aerotow, inspect ropes/weak links and avoid knots in the load path; follow GFH / manufacturer practices.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Launch equipment",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "14 CFR § 91.309 — Towing: gliders",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-D/section-91.309"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_531",
+      "summary": "Excessive airspeed on final normally results in floating in ground effect before touchdown. Teach energy management: correct approach speed early; do not dive at the aiming point and expect a short landing.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Landing",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "PHAK — Approaches & Landings",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_592",
+      "summary": "Most midair collisions occur during daylight in VFR conditions — often on clear days near airports/traffic patterns where traffic density is high. See-and-avoid never stops just because the weather is “nice.”",
+      "links": [
+        {
+          "label": "AC 90-48 — Pilots’ Role in Collision Avoidance",
+          "url": "https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_90-48D.pdf"
+        },
+        {
+          "label": "AIM — See and Avoid",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap4_section_4.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_606",
+      "summary": "Antidote for the macho hazardous attitude (“I can do it / watch this”): “Taking chances is foolish.” Pair recognition with the antidote phrase, then choose the safer action.",
+      "links": [
+        {
+          "label": "PHAK — Hazardous Attitudes & Antidotes",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Risk Management Handbook (FAA-H-8083-2A)",
+          "url": "https://www.faa.gov/regulationspolicies/handbooksmanuals/risk-management-handbook-faa-h-8083-2a"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_609",
+      "summary": "Lines of longitude (meridians) cross the Equator at right angles and converge at the poles. Latitude lines are parallel to the Equator. This is basic chart geometry for true course measurement.",
+      "links": [
+        {
+          "label": "PHAK — Latitude and Longitude",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "FAA Chart Users’ Guide",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/aero_guide/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_648",
+      "summary": "On a sectional (Figure 46), the large blue two-digit value like “2a” / MEF in a quadrangle is the Maximum Elevation Figure — highest terrain/obstacle elevation in that grid square, with a safety buffer, expressed in thousands/hundreds of feet MSL.",
+      "links": [
+        {
+          "label": "FAA Chart Users’ Guide — MEF",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/aero_guide/"
+        },
+        {
+          "label": "PHAK — Sectional Charts",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_650",
+      "summary": "Class C outer area (area B on Figure 47) normally has about a 20 NM radius. Procedural ATC services are provided there when participation criteria are met; it is not charted like the Mode C veil of Class B.",
+      "links": [
+        {
+          "label": "AIM 3-2-4 — Class C Airspace",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_651",
+      "summary": "A private pilot (ASEL) may act as PIC of an airplane towing a glider if, within the preceding 24 months, that pilot has made at least three flights as PIC of a glider towed by an aircraft (plus the other 61.69 requirements: endorsements, ground/flight training, etc.).",
+      "links": [
+        {
+          "label": "14 CFR § 61.69 — Glider towing: experience and training",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.69"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_656",
+      "summary": "Elevators rotate the airplane about its lateral axis (pitch). Teach axes with controls: elevator → lateral, ailerons → longitudinal, rudder → vertical.",
+      "links": [
+        {
+          "label": "PHAK — Axes of Rotation",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_657",
+      "summary": "Ailerons rotate the airplane about its longitudinal axis (roll). Coordinate with rudder to manage adverse yaw.",
+      "links": [
+        {
+          "label": "PHAK — Axes of Rotation",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_675",
+      "summary": "Antidote for antiauthority (“don’t tell me”): “Follow the rules. They are usually right.” Say the antidote, then comply / choose the safer legal option.",
+      "links": [
+        {
+          "label": "PHAK — Hazardous Attitudes & Antidotes",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Risk Management Handbook (FAA-H-8083-2A)",
+          "url": "https://www.faa.gov/regulationspolicies/handbooksmanuals/risk-management-handbook-faa-h-8083-2a"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_678",
+      "summary": "METAR Figure 3 at KBRO: rain begin/end remarks give duration — keyed answer is 25 minutes for that observation. Practice decoding RAB/RAE pairs in the RMK section.",
+      "links": [
+        {
+          "label": "AIM 7-1-30 — METAR Remarks",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap7_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_A moist air mass",
+      "summary": "This bank row is OCR-corrupt (broken id/stem/choices). Teaching point usually intended: moist air masses commonly bring poor visibility, stratiform clouds, and stable conditions compared with dry/continental air. Prefer a clean air-mass question from PHAK until this card is repaired in the import.",
+      "links": [
+        {
+          "label": "PHAK — Air Masses",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "AIM 7 — Meteorology",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap7_section_1.html"
+        }
+      ]
     }
   ]
 }
