@@ -97,6 +97,47 @@ test('memory store updateCard edits question answer and choices', async () => {
   assert.equal(got.question, 'New Q');
 });
 
+test('memory store listCards supports q hasFigure track and limit', async () => {
+  const store = createMemoryStore({
+    tracks: [],
+    topics: [],
+    cards: [
+      {
+        id: 'a',
+        track_id: 'cfi_g',
+        topic_id: 'stalls',
+        question: 'What causes a stall?',
+        answer: 'Critical AOA',
+        figure: { number: 1, url: '/figures/cfi-g/01.png' }
+      },
+      {
+        id: 'b',
+        track_id: 'cfi_g',
+        topic_id: 'weather',
+        question: 'What is virga?',
+        answer: 'Precip that evaporates',
+        figure: null
+      },
+      {
+        id: 'c',
+        track_id: 'commercial',
+        topic_id: 'regs',
+        question: 'NTSB notification?',
+        answer: 'Substantial damage',
+        figure: { number: 2, url: '/figures/commercial/02.png' }
+      }
+    ]
+  });
+  const byQ = await store.listCards({ q: 'stall' });
+  assert.equal(byQ.length, 1);
+  assert.equal(byQ[0].id, 'a');
+  const figs = await store.listCards({ hasFigure: true, trackId: 'cfi_g' });
+  assert.equal(figs.length, 1);
+  assert.equal(figs[0].id, 'a');
+  const limited = await store.listCards({ limit: 1 });
+  assert.equal(limited.length, 1);
+});
+
 test('activityDateKey returns YYYY-MM-DD', () => {
   assert.match(activityDateKey(new Date('2026-10-14T12:00:00Z')), /^\d{4}-\d{2}-\d{2}$/);
 });

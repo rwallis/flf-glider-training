@@ -75,7 +75,7 @@ export function loadGliderTrainingConfig() {
       ssl: shouldUseDatabaseSsl(databaseUrl),
       maxPoolSize: Number(process.env.DATABASE_POOL_SIZE ?? 3)
     },
-    /** Optional gate for Import page mutations. Empty = open for signed-in users. */
+    /** Gate for Admin import API. When set, password required; when empty, signed-in user required. */
     importPassword: process.env.GLIDER_IMPORT_PASSWORD?.trim()
       || process.env.ADMIN_CONSOLE_PASSWORD?.trim()
       || '',

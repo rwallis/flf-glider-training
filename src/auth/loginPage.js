@@ -117,7 +117,7 @@ export function renderLoginPage({ error = '', returnUrl = '/' } = {}) {
           </ul>
         </li>
         <li>Study filter <strong>Due</strong> = cards ready for review (including brand-new ones). Grade honestly so spaced repetition works.</li>
-        <li>CFI-G and Private decks can be imported later by a club admin.</li>
+        <li>Club admins manage decks from the Admin tab (search + import).</li>
       </ol>
       ${safeError}
       <div class="cta">

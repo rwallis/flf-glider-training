@@ -57,9 +57,11 @@ Login page (`/login`) includes new-user study instructions.
 5. Set Google OAuth vars above; optional `GLIDER_IMPORT_PASSWORD`, `DATABASE_SSL=true`
 6. **Networking → Generate domain** → open `/healthz` then `/` (redirects to `/login` when auth is on)
 
-## Import Q&A
+## Admin (import & search)
 
-Order: **CFI-G first**, **Private last**.
+In the app, open the **Admin** tab for question search (by text, course, topic, figures) and deck import.
+
+Order for written banks: **CFI-G first**, **Private last**.
 
 CSV (open answer or multiple choice):
 
@@ -73,7 +75,7 @@ Question,Choice A,Choice B,Choice C,Answer Key,Correct Answer
 NTSB notification is required when…,landing gear only,engine failure,adversely affects structure,C,adversely affects structure
 ```
 
-Use the Import tab, or `POST /api/import`.
+Import API: `POST /api/import` (requires signed-in session, or `GLIDER_IMPORT_PASSWORD` / `x-glider-import-password` when configured).
 
 ### Commercial written bank (Google Sheet)
 

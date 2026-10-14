@@ -42,9 +42,17 @@ export function registerGliderApi(app, { store, config }) {
   });
 
   app.get('/api/cards', async (req, res) => {
+    const hasFigureRaw = String(req.query.has_figure || '').trim().toLowerCase();
+    let hasFigure;
+    if (['1', 'true', 'yes', 'only'].includes(hasFigureRaw)) hasFigure = true;
+    else if (['0', 'false', 'no', 'none'].includes(hasFigureRaw)) hasFigure = false;
+    const limitRaw = Number(req.query.limit);
     const cards = await store.listCards({
       trackId: req.query.track || undefined,
-      topicId: req.query.topic || undefined
+      topicId: req.query.topic || undefined,
+      q: req.query.q || undefined,
+      hasFigure,
+      limit: Number.isFinite(limitRaw) ? limitRaw : undefined
     });
     res.json({ cards });
   });
@@ -174,19 +182,27 @@ export function registerGliderApi(app, { store, config }) {
     }
   });
 
-  app.get('/api/imports', async (_req, res) => {
+  function assertImportMutationAccess(req, res) {
+    if (config.importPassword) {
+      const provided = String(req.header('x-glider-import-password') || req.body?.password || '');
+      if (provided !== config.importPassword) {
+        res.status(401).json({ error: 'import password required' });
+        return false;
+      }
+      return true;
+    }
+    return Boolean(requireUserKey(req, res, config));
+  }
+
+  app.get('/api/imports', async (req, res) => {
+    if (!requireUserKey(req, res, config)) return;
     const imports = await store.listImports();
     res.json({ imports });
   });
 
   app.post('/api/import', async (req, res) => {
     try {
-      if (config.importPassword) {
-        const provided = String(req.header('x-glider-import-password') || req.body?.password || '');
-        if (provided !== config.importPassword) {
-          return res.status(401).json({ error: 'import password required' });
-        }
-      }
+      if (!assertImportMutationAccess(req, res)) return;
       const payload = parseImportPayload(req.body || {});
       const result = await store.importCards(payload);
       res.json({ ok: true, ...result });

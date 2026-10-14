@@ -739,6 +739,76 @@
       margin: 6px 0 12px;
     }
     label { font-size: 0.85rem; font-weight: 700; color: var(--muted); }
+    .admin-section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+    .admin-section h2 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      font-weight: 800;
+    }
+    .admin-section .hint {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .admin-filters {
+      display: grid;
+      gap: 0;
+    }
+    .admin-check {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 4px 0 12px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .admin-check input {
+      width: auto;
+      margin: 0;
+    }
+    .admin-result-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 6px;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+    .admin-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #E8F2F8;
+      color: var(--sky-deep);
+    }
+    .admin-pill.fig {
+      background: #FEF3C7;
+      color: #92400E;
+    }
+    .admin-q {
+      margin: 0 0 4px;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+    .admin-a {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+    .admin-search-status {
+      margin: 0 0 10px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 700;
+    }
     .toast {
       position: fixed;
       left: 50%;
@@ -1040,7 +1110,7 @@
     <button type="button" data-view="study"><span>✎</span>Study</button>
     <button type="button" data-view="aircraft"><span>✈</span>Aircraft</button>
     <button type="button" data-view="progress"><span>★</span>League</button>
-    <button type="button" data-view="import"><span>↑</span>Import</button>
+    <button type="button" data-view="admin"><span>⚙</span>Admin</button>
   </nav>
   <div class="toast" id="toast"></div>
   <script src="/aircraft/polar-233.js"></script>
@@ -1067,6 +1137,16 @@
         figureOpen: false
       },
       imports: [],
+      admin: {
+        q: '',
+        track: '',
+        topic: '',
+        hasFigure: false,
+        topics: [],
+        results: [],
+        status: '',
+        searchTimer: null
+      },
       progressTracks: [],
       league: null,
       aircraft: {
@@ -1543,7 +1623,6 @@
               <div class="meta">${t.card_count || 0} cards · ${t.status === 'upload_later' ? 'coming soon' : 'ready'}</div>
               <div class="btn-row">
                 <button type="button" data-open-study="${t.id}" ${!(t.card_count > 0) ? 'disabled' : ''}>Continue</button>
-                ${t.status === 'upload_later' ? '<button type="button" class="secondary" data-view-jump="import">Import Q&amp;A</button>' : ''}
               </div>
             </div>
           </article>`;
@@ -1603,7 +1682,7 @@
           <option value="">All topics</option>
           ${topics.map((t) => `<option value="${t.id}" ${state.study.topic === t.id ? 'selected' : ''}>${escapeHtml(t.title)}</option>`).join('')}
         </select>
-        ${!card ? `<div class="empty">No cards in this deck filter. Try All, clear grade filters, another course, or Import.</div>` : `
+        ${!card ? `<div class="empty">No cards in this deck filter. Try All, clear grade filters, or another course.</div>` : `
           <div class="flash">
             <div class="card-toolbar">
               <div class="meta">
@@ -2117,36 +2196,158 @@
       `;
     }
 
-    function renderImport() {
+    function adminTopicTitle(card) {
+      if (!card?.topic_id) return 'Topic';
+      const match = (state.admin.topics || []).find((t) => t.id === card.topic_id)
+        || (state.topics || []).find((t) => t.id === card.topic_id);
+      if (match?.title) return match.title;
+      return String(card.topic_id).replace(/^[^_]+_/, '').replace(/_/g, ' ');
+    }
+
+    function renderAdminSearchResults() {
+      const rows = state.admin.results || [];
+      if (!rows.length) {
+        return `<div class="empty">${state.admin.status || 'No matching questions.'}</div>`;
+      }
+      return rows.map((card) => `
+        <article class="track">
+          <div class="badge" style="background:${courseColor(card.track_id)}">${trackLabel(card.track_id)}</div>
+          <div style="flex:1;min-width:0">
+            <div class="admin-result-meta">
+              <span class="admin-pill">${escapeHtml(adminTopicTitle(card))}</span>
+              ${card.figure ? '<span class="admin-pill fig">Figure</span>' : ''}
+            </div>
+            <p class="admin-q">${escapeHtml(card.question || '')}</p>
+            <p class="admin-a">${escapeHtml(card.answer || '')}</p>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function renderAdmin() {
+      const a = state.admin;
+      const courseOpts = [
+        ['', 'All courses'],
+        ...(state.tracks || []).map((t) => [t.id, t.title || trackLabel(t.id)])
+      ];
+      const topicOpts = [
+        ['', 'All topics'],
+        ...(a.topics || []).map((t) => [t.id, t.title || t.id])
+      ];
       return `
-        <p style="color:var(--muted);font-size:0.9rem">
-          Upload CSV (<code>question,answer</code> or <code>topic,question,answer</code>) or paste JSON cards.
-          Set course to <strong>cfi_g</strong> or <strong>private</strong>.
-        </p>
-        <label>Course</label>
-        <select id="importTrack">
-          <option value="cfi_g">CFI-G</option>
-          <option value="private">Private</option>
-          <option value="commercial">Commercial</option>
-          <option value="common">Common</option>
-          <option value="aircraft_233">Schweizer 2-33</option>
-        </select>
-        <label>Topic title</label>
-        <input id="importTopic" placeholder="e.g. FOI — Levels of learning" />
-        <label>Import password (if configured on Railway)</label>
-        <input id="importPassword" type="password" placeholder="GLIDER_IMPORT_PASSWORD" autocomplete="off" />
-        <label>CSV</label>
-        <textarea id="importCsv" rows="8" placeholder="topic,question,answer&#10;FOI,What are the four levels of learning?,Rote Understanding Application Correlation"></textarea>
-        <div class="btn-row">
-          <button type="button" id="importBtn">Import deck</button>
-        </div>
-        <h2 style="font-size:1rem;margin:18px 0 8px">Recent imports</h2>
-        ${(state.imports || []).length ? state.imports.map((imp) => `
-          <div class="track"><div class="badge">${trackLabel(imp.track_id)}</div>
-            <div><h2 style="font-size:0.95rem">${escapeHtml(imp.filename || 'upload')}</h2>
-            <p>${imp.card_count} cards · ${escapeHtml(imp.created_at || '')}</p></div></div>
-        `).join('') : '<div class="empty">No imports yet</div>'}
+        <section class="admin-section">
+          <h2>Question search</h2>
+          <p class="hint">Search the bank by question text. Filter by course, topic, or figures.</p>
+          <div class="admin-filters">
+            <label for="adminSearchQ">Question contains</label>
+            <input id="adminSearchQ" type="search" value="${escapeHtml(a.q)}" placeholder="e.g. stall, METAR, aspect ratio" autocomplete="off" />
+            <label for="adminSearchTrack">Course</label>
+            <select id="adminSearchTrack">
+              ${courseOpts.map(([id, label]) =>
+                `<option value="${escapeHtml(id)}" ${a.track === id ? 'selected' : ''}>${escapeHtml(label)}</option>`
+              ).join('')}
+            </select>
+            <label for="adminSearchTopic">Topic</label>
+            <select id="adminSearchTopic" ${a.track ? '' : 'disabled'}>
+              ${topicOpts.map(([id, label]) =>
+                `<option value="${escapeHtml(id)}" ${a.topic === id ? 'selected' : ''}>${escapeHtml(label)}</option>`
+              ).join('')}
+            </select>
+            <label class="admin-check">
+              <input id="adminHasFigure" type="checkbox" ${a.hasFigure ? 'checked' : ''} />
+              Only questions with figures
+            </label>
+            <div class="btn-row">
+              <button type="button" id="adminSearchBtn">Search</button>
+            </div>
+          </div>
+          <p class="admin-search-status">${escapeHtml(a.status || '')}</p>
+          ${renderAdminSearchResults()}
+        </section>
+
+        <section class="admin-section">
+          <h2>Import deck</h2>
+          <p class="hint">
+            Upload CSV (<code>question,answer</code> or <code>topic,question,answer</code>) or paste JSON cards.
+            Prefer course <strong>cfi_g</strong> or <strong>private</strong> for written banks.
+          </p>
+          <label>Course</label>
+          <select id="importTrack">
+            <option value="cfi_g">CFI-G</option>
+            <option value="private">Private</option>
+            <option value="commercial">Commercial</option>
+            <option value="common">Common</option>
+            <option value="aircraft_233">Schweizer 2-33</option>
+          </select>
+          <label>Topic title</label>
+          <input id="importTopic" placeholder="e.g. FOI — Levels of learning" />
+          <label>Import password (if configured on Railway)</label>
+          <input id="importPassword" type="password" placeholder="GLIDER_IMPORT_PASSWORD" autocomplete="off" />
+          <label>CSV</label>
+          <textarea id="importCsv" rows="8" placeholder="topic,question,answer&#10;FOI,What are the four levels of learning?,Rote Understanding Application Correlation"></textarea>
+          <div class="btn-row">
+            <button type="button" id="importBtn">Import deck</button>
+          </div>
+          <h2 style="font-size:1rem;margin:18px 0 8px">Recent imports</h2>
+          ${(state.imports || []).length ? state.imports.map((imp) => `
+            <div class="track"><div class="badge">${trackLabel(imp.track_id)}</div>
+              <div><h2 style="font-size:0.95rem">${escapeHtml(imp.filename || 'upload')}</h2>
+              <p>${imp.card_count} cards · ${escapeHtml(imp.created_at || '')}</p></div></div>
+          `).join('') : '<div class="empty">No imports yet</div>'}
+        </section>
       `;
+    }
+
+    async function loadAdminTopics() {
+      const track = state.admin.track;
+      if (!track) {
+        state.admin.topics = [];
+        state.admin.topic = '';
+        return;
+      }
+      const data = await api('/api/topics?track=' + encodeURIComponent(track));
+      state.admin.topics = data.topics || [];
+      if (state.admin.topic && !state.admin.topics.some((t) => t.id === state.admin.topic)) {
+        state.admin.topic = '';
+      }
+    }
+
+    async function runAdminSearch() {
+      const q = new URLSearchParams({ limit: '150' });
+      if (state.admin.q.trim()) q.set('q', state.admin.q.trim());
+      if (state.admin.track) q.set('track', state.admin.track);
+      if (state.admin.topic) q.set('topic', state.admin.topic);
+      if (state.admin.hasFigure) q.set('has_figure', '1');
+      state.admin.status = 'Searching…';
+      try {
+        const data = await api('/api/cards?' + q.toString());
+        state.admin.results = data.cards || [];
+        const n = state.admin.results.length;
+        state.admin.status = n
+          ? `${n} question${n === 1 ? '' : 's'}${n >= 150 ? ' (showing first 150)' : ''}`
+          : 'No matching questions.';
+      } catch (err) {
+        state.admin.results = [];
+        state.admin.status = err.message || 'Search failed';
+      }
+      if (state.view === 'admin') render();
+    }
+
+    async function loadAdmin() {
+      if (!(state.tracks || []).length) {
+        const tracks = await api('/api/courses').catch(() => api('/api/tracks'));
+        state.tracks = tracks.courses || tracks.tracks || [];
+      }
+      await loadAdminTopics();
+      try {
+        state.imports = (await api('/api/imports')).imports;
+      } catch (err) {
+        state.imports = [];
+        if (!state.admin.status) state.admin.status = err.message || '';
+      }
+      state.admin.status = state.admin.status || 'Searching…';
+      render();
+      await runAdminSearch();
     }
 
     function render() {
@@ -2160,7 +2361,7 @@
           : 'Aircraft performance';
       }
       if (state.view === 'progress') sub.textContent = 'League · questions answered by day';
-      if (state.view === 'import') sub.textContent = 'Import into a course';
+      if (state.view === 'admin') sub.textContent = 'Admin · search & import';
 
       if (state.view === 'home') app.innerHTML = renderHome();
       else if (state.view === 'study') app.innerHTML = renderStudy();
@@ -2168,7 +2369,7 @@
         app.innerHTML = state.aircraft.page === 'sgs233' ? renderAircraft233() : renderAircraftHub();
       }
       else if (state.view === 'progress') app.innerHTML = renderProgress();
-      else if (state.view === 'import') app.innerHTML = renderImport();
+      else if (state.view === 'admin') app.innerHTML = renderAdmin();
 
       bind();
     }
@@ -2343,6 +2544,58 @@
       app.querySelectorAll('.grade-row [data-grade]').forEach((btn) => {
         btn.addEventListener('click', () => grade(btn.dataset.grade));
       });
+      const adminSearchQ = app.querySelector('#adminSearchQ');
+      if (adminSearchQ) {
+        adminSearchQ.addEventListener('input', () => {
+          state.admin.q = adminSearchQ.value;
+          if (state.admin.searchTimer) clearTimeout(state.admin.searchTimer);
+          state.admin.searchTimer = setTimeout(() => {
+            runAdminSearch().catch((err) => toast(err.message));
+          }, 280);
+        });
+        adminSearchQ.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            if (state.admin.searchTimer) clearTimeout(state.admin.searchTimer);
+            runAdminSearch().catch((err) => toast(err.message));
+          }
+        });
+      }
+      const adminSearchTrack = app.querySelector('#adminSearchTrack');
+      if (adminSearchTrack) {
+        adminSearchTrack.addEventListener('change', async () => {
+          state.admin.track = adminSearchTrack.value;
+          state.admin.topic = '';
+          try {
+            await loadAdminTopics();
+            render();
+            await runAdminSearch();
+          } catch (err) {
+            toast(err.message);
+          }
+        });
+      }
+      const adminSearchTopic = app.querySelector('#adminSearchTopic');
+      if (adminSearchTopic) {
+        adminSearchTopic.addEventListener('change', async () => {
+          state.admin.topic = adminSearchTopic.value;
+          await runAdminSearch().catch((err) => toast(err.message));
+        });
+      }
+      const adminHasFigure = app.querySelector('#adminHasFigure');
+      if (adminHasFigure) {
+        adminHasFigure.addEventListener('change', async () => {
+          state.admin.hasFigure = adminHasFigure.checked;
+          await runAdminSearch().catch((err) => toast(err.message));
+        });
+      }
+      const adminSearchBtn = app.querySelector('#adminSearchBtn');
+      if (adminSearchBtn) {
+        adminSearchBtn.addEventListener('click', () => {
+          if (state.admin.searchTimer) clearTimeout(state.admin.searchTimer);
+          runAdminSearch().catch((err) => toast(err.message));
+        });
+      }
       const importBtn = app.querySelector('#importBtn');
       if (importBtn) {
         importBtn.addEventListener('click', async () => {
@@ -2362,8 +2615,8 @@
             toast(`Imported ${result.count} cards`);
             state.imports = (await api('/api/imports')).imports;
             await loadHome();
-            state.view = 'import';
-            render();
+            state.view = 'admin';
+            await runAdminSearch();
           } catch (err) {
             toast(err.message);
           }
@@ -2393,9 +2646,9 @@
         render();
         return;
       }
-      if (state.view === 'import') {
-        state.imports = (await api('/api/imports')).imports;
-        render();
+      if (state.view === 'admin') {
+        await loadAdmin();
+        return;
       }
     });
 

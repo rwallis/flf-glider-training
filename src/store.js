@@ -313,12 +313,19 @@ export function createMemoryStore(seed) {
         .filter((t) => !trackId || t.track_id === trackId)
         .sort((a, b) => a.sort_order - b.sort_order);
     },
-    async listCards({ trackId, topicId } = {}) {
-      return state.cards.filter((c) => {
+    async listCards({ trackId, topicId, q, hasFigure, limit } = {}) {
+      const needle = String(q || '').trim().toLowerCase();
+      let rows = state.cards.filter((c) => {
         if (trackId && c.track_id !== trackId) return false;
         if (topicId && c.topic_id !== topicId) return false;
+        if (needle && !String(c.question || '').toLowerCase().includes(needle)) return false;
+        if (hasFigure === true && !c.figure) return false;
+        if (hasFigure === false && c.figure) return false;
         return true;
       });
+      const lim = Number(limit);
+      if (Number.isFinite(lim) && lim > 0) rows = rows.slice(0, Math.floor(lim));
+      return rows;
     },
     async getCard(id) {
       return state.cards.find((c) => c.id === id) || null;
@@ -545,7 +552,7 @@ export function createPgStore(db) {
         : await db.query('SELECT * FROM glider_topics ORDER BY sort_order, title');
       return rows;
     },
-    async listCards({ trackId, topicId } = {}) {
+    async listCards({ trackId, topicId, q, hasFigure, limit } = {}) {
       const clauses = [];
       const params = [];
       if (trackId) {
@@ -556,9 +563,23 @@ export function createPgStore(db) {
         params.push(topicId);
         clauses.push(`topic_id = $${params.length}`);
       }
+      const needle = String(q || '').trim();
+      if (needle) {
+        params.push(`%${needle}%`);
+        clauses.push(`question ILIKE $${params.length}`);
+      }
+      if (hasFigure === true) {
+        clauses.push(`figure IS NOT NULL`);
+      } else if (hasFigure === false) {
+        clauses.push(`figure IS NULL`);
+      }
       const where = clauses.length ? `WHERE ${clauses.join(' AND ')}` : '';
+      const lim = Number(limit);
+      const limitSql = Number.isFinite(lim) && lim > 0
+        ? ` LIMIT ${Math.min(500, Math.floor(lim))}`
+        : '';
       const { rows } = await db.query(
-        `SELECT * FROM glider_cards ${where} ORDER BY topic_id, id`,
+        `SELECT * FROM glider_cards ${where} ORDER BY topic_id, id${limitSql}`,
         params
       );
       return rows.map((r) => ({
