@@ -3432,6 +3432,2482 @@
           "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-E/section-91.409"
         }
       ]
+    },
+    {
+      "card_id": "cfi_g_bank_090",
+      "summary": "VNO (maximum structural cruising speed) is marked as the upper limit of the green arc on the airspeed indicator (also the lower limit of the yellow arc). Do not confuse with VNE at the red line.",
+      "links": [
+        {
+          "label": "PHAK — Airspeed Indicator Markings",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook — Airspeeds",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_095",
+      "summary": "Density altitude from Figure 24: use pressure altitude (from elevation + altimeter setting) and OAT on the DA chart. For 5,515 ft / 30°C / 29.40 in Hg the keyed DA is about 8,750 feet. Hot + low pressure = high DA.",
+      "links": [
+        {
+          "label": "PHAK — Density Altitude",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "FAA Computer Testing Supplement — Figure 24",
+          "url": "https://www.faa.gov/training_testing/testing/supplements"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_321",
+      "summary": "Class C Figure 47: box 1 is the vertical extent (ceiling) of the surface and shelf areas — keyed as 4,000 feet above the airport for that diagram. Always read the figure altitude boxes; real Class C tops vary.",
+      "links": [
+        {
+          "label": "AIM 3-2-4 — Class C Airspace",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_2.html"
+        },
+        {
+          "label": "FAA Chart Users’ Guide",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/aero_guide/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_334",
+      "summary": "Runway numbers 8 and 26 mean the runway is oriented approximately 080° and 260° magnetic. Numbers are magnetic course to the nearest 10°, with leading zeros dropped (08 → 8).",
+      "links": [
+        {
+          "label": "AIM 2-3-3 — Runway Markings",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap2_section_3.html"
+        },
+        {
+          "label": "PHAK — Airport Marking Aids",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_338",
+      "summary": "Standard practice: inbound to a nontowered airport, continuously monitor the appropriate CTAF from about 10 miles out. Announce position/intentions and fit into the flow.",
+      "links": [
+        {
+          "label": "AIM 4-1-9 — Traffic Advisory Practices at Airports Without Operating Control Towers",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap4_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_346",
+      "summary": "Segmented-circle Figure 54: traffic-pattern indicators show left-hand for Rwy 35 and right-hand for Rwy 17. L-shaped indicators next to the circle show pattern direction for each runway end.",
+      "links": [
+        {
+          "label": "AIM 4-1-5 — Traffic Patterns / Segmented Circle",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap4_section_1.html"
+        },
+        {
+          "label": "PHAK — Traffic Patterns",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_347",
+      "summary": "With the wind cone in Figure 54, use the runway most nearly into the wind and the pattern shown by the indicators — keyed as left traffic on Rwy 35 or right traffic on Rwy 27. Wind sock + segmented circle together select runway and pattern.",
+      "links": [
+        {
+          "label": "AIM 4-1-5 — Traffic Patterns / Segmented Circle",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap4_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_361",
+      "summary": "Parachute jump site information is in the Chart Supplement (formerly Airport/Facility Directory). Check notices for jump aircraft frequencies and altitudes before overflying.",
+      "links": [
+        {
+          "label": "FAA Chart Supplement",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/dafd/"
+        },
+        {
+          "label": "AIM 3-5-4 — Parachute Jump Aircraft Operations",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_5.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_448",
+      "summary": "The preflight action requirement to consider alternatives if the flight cannot be completed (§ 91.103) applies to any flight not in the vicinity of an airport — i.e., away-from-airport / cross-country flights need alternate planning thought.",
+      "links": [
+        {
+          "label": "14 CFR § 91.103 — Preflight action",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B/section-91.103"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_591",
+      "summary": "Effective traffic-pattern collision avoidance: maintain the proper pattern altitude and continually scan. Altitude discipline keeps you predictable; scanning finds traffic early.",
+      "links": [
+        {
+          "label": "AC 90-48 — Pilots’ Role in Collision Avoidance",
+          "url": "https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_90-48D.pdf"
+        },
+        {
+          "label": "AIM 4-1-5 — Traffic Patterns",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap4_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_636",
+      "summary": "Figure 44 obstruction 10 SM west of McKinney: charted obstruction heights — keyed that the top is 487 MSL or less for that symbol/group. Read the bold MSL number (and AGL in parentheses when shown) on the chart.",
+      "links": [
+        {
+          "label": "FAA Chart Users’ Guide — Obstacles",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/aero_guide/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_649",
+      "summary": "Figure 46, Gnoss to Rio Vista: use the highest Maximum Elevation Figure (MEF) along the route for obstruction clearance planning — keyed 3,200 feet MSL. MEF is the large blue two-digit value in each quadrangle.",
+      "links": [
+        {
+          "label": "FAA Chart Users’ Guide — MEF",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/aero_guide/"
+        },
+        {
+          "label": "PHAK — Sectional Charts",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_652",
+      "summary": "The runway/runway hold position sign (red with white runway numbers, often both directions) denotes intersecting runways — hold short of the intersection as directed.",
+      "links": [
+        {
+          "label": "AIM 2-3-8 — Airport Signs",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap2_section_3.html"
+        },
+        {
+          "label": "PHAK — Airport Signs",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_653",
+      "summary": "Runway hold position markings on a taxiway (four yellow lines: two solid, two dashed) hold aircraft short of the runway. Solid lines on your side means do not cross without clearance (or CTAF discipline at nontowered fields).",
+      "links": [
+        {
+          "label": "AIM 2-3-5 — Holding Position Markings",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap2_section_3.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_654",
+      "summary": "An outbound destination sign identifies direction to takeoff runways (black background with yellow legend/arrow pointing toward the runway complex).",
+      "links": [
+        {
+          "label": "AIM 2-3-10 — Destination Signs",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap2_section_3.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_655",
+      "summary": "A taxiway location sign (yellow inscription on black background) identifies the taxiway you are on. Direction signs are black on yellow and point toward other taxiways/runways.",
+      "links": [
+        {
+          "label": "AIM 2-3-9 — Location Signs",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap2_section_3.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_665",
+      "summary": "A runway exit sign indicates the designation and direction of an exit taxiway from the runway — helps you plan rollout exit without missing the turnoff.",
+      "links": [
+        {
+          "label": "AIM 2-3-11 — Information Signs / Exit",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap2_section_3.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_673",
+      "summary": "The ILS critical area boundary sign identifies the edge of the ILS critical area. Do not enter beyond it when ATC protects the ILS (typically low ceilings/visibility) unless cleared.",
+      "links": [
+        {
+          "label": "AIM 2-3-5 — ILS Critical Area Markings / Signs",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap2_section_3.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_677",
+      "summary": "Bank answer text looks swapped (instrument wording). Concept: when turning onto a taxiway from another taxiway, a taxiway directional sign indicates designations/directions of taxiways leading out of the intersection (black legend on yellow) so you select the correct route.",
+      "links": [
+        {
+          "label": "AIM 2-3-10 — Direction Signs",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap2_section_3.html"
+        },
+        {
+          "label": "PHAK — Airport Signs",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_030",
+      "summary": "In severe turbulence, slow to maneuvering speed (VA) or less. VA is the maximum speed at which full control deflection will not overstress the airframe — your turbulence penetration airspeed reference.",
+      "links": [
+        {
+          "label": "PHAK — Load Factor / Maneuvering Speed",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_101",
+      "summary": "With pressure and temperature constant, higher humidity makes air less dense → longer takeoff distance and reduced climb. Water vapor displaces heavier dry-air molecules.",
+      "links": [
+        {
+          "label": "PHAK — Density / Humidity Effects",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook — Performance",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_135",
+      "summary": "Bank answer looks swapped. As CG moves aft, the aircraft becomes less stable (more sensitive in pitch, easier to stall/spin). Forward CG increases stability but raises stall speed and can make flare harder.",
+      "links": [
+        {
+          "label": "PHAK — CG Position Effects",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_137",
+      "summary": "A forward CG is most critical on landing — higher stall speed, heavier elevator forces, and a harder flare / higher risk of wheelbarrowing or hard touchdown. Takeoff with forward CG is also sluggish but landing is the classic “most critical” answer.",
+      "links": [
+        {
+          "label": "PHAK — Forward CG Effects",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook — Landing",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_140",
+      "summary": "Mountain airport landings: expect higher true airspeed for a given IAS and longer landing distance because of high density altitude. Plan a longer rollout and go-around options.",
+      "links": [
+        {
+          "label": "PHAK — Density Altitude / Landing Performance",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_299",
+      "summary": "If a nontowered airport lies inside Class D/C of a towered airport, two-way radio with ATC is required for landing clearance at the tower-controlled airport and to transit that controlled airspace — not for the satellite field’s pattern by itself when outside that requirement.",
+      "links": [
+        {
+          "label": "14 CFR § 91.129 / § 91.130 — Class D / Class C operations",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B"
+        },
+        {
+          "label": "AIM 3-2 — Controlled Airspace",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap3_section_2.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_323",
+      "summary": "Departing a satellite airport inside Class C without a tower: contact ATC as soon as practicable after takeoff. Establish two-way comm promptly; you cannot linger without talking.",
+      "links": [
+        {
+          "label": "14 CFR § 91.130 — Operations in Class C airspace",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B/section-91.130"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_339",
+      "summary": "At an airport with no tower, FSS, or UNICOM, broadcast intentions on the MULTICOM frequency 122.9 MHz. Use Chart Supplement CTAF when published; 122.9 is the default MULTICOM.",
+      "links": [
+        {
+          "label": "AIM 4-1-9 — CTAF / MULTICOM",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap4_section_1.html"
+        },
+        {
+          "label": "FAA Chart Supplement",
+          "url": "https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/dafd/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_358",
+      "summary": "Landing behind a large jet: plan to touch down beyond the jet’s touchdown point so you stay above the sinking vortices. Avoid the “same aim point” that puts you in the wake.",
+      "links": [
+        {
+          "label": "AIM 7-3 — Wake Turbulence Avoidance",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap7_section_3.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_360",
+      "summary": "ATC provides a minimum of 6 miles separation for a small aircraft landing behind a heavy jet (wake turbulence separation). Still fly beyond the touchdown point and stay above the path.",
+      "links": [
+        {
+          "label": "AIM 7-3-9 — Wake Turbulence Separation for Arrivals",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap7_section_3.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_385",
+      "summary": "To act as PIC of a glider using aerotow, you must have received ground and flight training on aerotow procedures/operations and an authorized instructor endorsement certifying proficiency (§ 61.31).",
+      "links": [
+        {
+          "label": "14 CFR § 61.31 — Type rating requirements, additional training, and endorsement requirements",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.31"
+        },
+        {
+          "label": "Glider Flying Handbook — Aerotow",
+          "url": "https://www.faa.gov/sites/faa.gov/files/regulations_policies/handbooks_manuals/aviation/glider_handbook/gfh_ch07.pdf"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_427",
+      "summary": "Commercial Pilot Certificate — glider: among the experience paths, one common bank key is at least 25 hours in gliders and 100 glider flights as PIC (see current § 61.129 glider options — flight/hour combinations vary by launch method).",
+      "links": [
+        {
+          "label": "14 CFR § 61.129 — Aeronautical experience: commercial (glider)",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-F/section-61.129"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_451",
+      "summary": "When two or more aircraft approach an airport to land, right-of-way belongs to the aircraft at the lower altitude — but that aircraft shall not take advantage of the rule to cut in front of or overtake another (§ 91.113).",
+      "links": [
+        {
+          "label": "14 CFR § 91.113 — Right-of-way rules",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B/section-91.113"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_460",
+      "summary": "Except for takeoff or landing, the minimum safe altitude anywhere is an altitude allowing, if a power unit fails, an emergency landing without undue hazard to persons or property on the surface (§ 91.119). Congested-area/other minima also apply.",
+      "links": [
+        {
+          "label": "14 CFR § 91.119 — Minimum safe altitudes",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B/section-91.119"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_463",
+      "summary": "Alternating red and green light from the tower means exercise extreme caution. Steady green = cleared to land/takeoff (context-dependent); flashing red = airport unsafe; etc. Memorize the light-gun table.",
+      "links": [
+        {
+          "label": "AIM 4-3-13 — Traffic Control Light Signals",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap4_section_3.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_513",
+      "summary": "Winch tow: CG hook advantage over nose hook — glider is less likely to pitch up violently if the towline breaks (nose hook can pitch up hard on break). CG hook is preferred for ground launch.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Ground Launch",
+          "url": "https://www.faa.gov/sites/faa.gov/files/regulations_policies/handbooks_manuals/aviation/glider_handbook/gfh_ch07.pdf"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_514",
+      "summary": "Using a CG hook for aerotow tends to make the glider pitch up (CG hook is aft of the nose). Aerotow normally uses the nose hook; CG hook is for winch/auto.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Tow Hooks",
+          "url": "https://www.faa.gov/sites/faa.gov/files/regulations_policies/handbooks_manuals/aviation/glider_handbook/gfh_ch07.pdf"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_516",
+      "summary": "Aerotow towline (weak link) minimum strength is 80% of the glider’s certificated gross weight: 0.80 × 1,040 = 832 lb. Maximum is generally twice gross weight unless the stronger-link-at-towplane exception applies (§ 91.309).",
+      "links": [
+        {
+          "label": "14 CFR § 91.309 — Towing: gliders",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-D/section-91.309"
+        },
+        {
+          "label": "Glider Flying Handbook — Aerotow",
+          "url": "https://www.faa.gov/sites/faa.gov/files/regulations_policies/handbooks_manuals/aviation/glider_handbook/gfh_ch07.pdf"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_525",
+      "summary": "To minimize side loads on the landing gear at touchdown, keep the longitudinal axis parallel to the direction of motion (no crab at touchdown — wing-low / slip method for crosswind).",
+      "links": [
+        {
+          "label": "PHAK — Crosswind Landing",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook — Landing",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_526",
+      "summary": "Proper crosswind landing at touchdown: aircraft’s direction of motion and longitudinal axis both parallel to the runway (aligned, not crabbed).",
+      "links": [
+        {
+          "label": "PHAK — Crosswind Landing",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Instructor’s Handbook — Landing instruction",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/aviation_instructors_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_527",
+      "summary": "Emergency downwind landing: expect faster groundspeed at touchdown, longer ground roll, and higher chance of overshooting the aim point. Pick a longer field and accept the energy.",
+      "links": [
+        {
+          "label": "PHAK — Emergency Approaches / Landings",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook — Off-field landing",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_528",
+      "summary": "On final, use a faster-than-normal IAS when turbulent conditions exist (gust factor / turbulence margin). Extra speed protects against sudden sink and control loss.",
+      "links": [
+        {
+          "label": "PHAK — Approach Speeds / Gust Factor",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook — Approaches",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_529",
+      "summary": "Students round out high when they focus on references that are too close or look directly down. Teach aiming-point / peripheral ground-rush references farther ahead.",
+      "links": [
+        {
+          "label": "Aviation Instructor’s Handbook — Landing common errors",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/aviation_instructors_handbook"
+        },
+        {
+          "label": "PHAK — Roundout / Flare",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_530",
+      "summary": "Focusing too far ahead on approach makes it hard to judge height — result can be a delayed flare and nose-first / firm touchdown. Balance near and mid-distance visual cues.",
+      "links": [
+        {
+          "label": "Aviation Instructor’s Handbook — Landing common errors",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/aviation_instructors_handbook"
+        },
+        {
+          "label": "Glider Flying Handbook — Landing",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_532",
+      "summary": "Misjudging sink rate on landing often causes ballooning — too much back pressure when sink is less than expected. Recover with a slight forward pressure / wait for the float to settle, then finish the flare.",
+      "links": [
+        {
+          "label": "PHAK — Ballooning",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Instructor’s Handbook — Landing errors",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/aviation_instructors_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_533",
+      "summary": "Bank stem/answer look swapped (seatbelts vs landing attitude). Landing cue often tested: hold a constant landing attitude in the flare/roundout. Separately, seatbelt briefing/use is § 91.107.",
+      "links": [
+        {
+          "label": "PHAK — Roundout / Flare",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "14 CFR § 91.107 — Use of safety belts / shoulder harnesses",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B/section-91.107"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_549",
+      "summary": "Excessive aerotow slack: yaw the nose to one side with rudder while keeping wings level with ailerons to take up the slack smoothly — do not dive aggressively into the rope.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Aerotow",
+          "url": "https://www.faa.gov/sites/faa.gov/files/regulations_policies/handbooks_manuals/aviation/glider_handbook/gfh_ch07.pdf"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_551",
+      "summary": "Cannot-release signal → towplane fishtails: plan final in low-tow and land before the towplane; use no spoilers or wheel brake on the rollout until after the towplane touches down (so you do not overrun into the rope/towplane).",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Aerotow emergencies",
+          "url": "https://www.faa.gov/sites/faa.gov/files/regulations_policies/handbooks_manuals/aviation/glider_handbook/gfh_ch07.pdf"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_552",
+      "summary": "Auto launch pitch limits (classic bank): do not exceed about 15° at 50 ft, 30° at 100 ft, and 45° at 200 ft. Progressive pitch protects against early rope break / whip-stall.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Auto / Winch Launch",
+          "url": "https://www.faa.gov/sites/faa.gov/files/regulations_policies/handbooks_manuals/aviation/glider_handbook/gfh_ch07.pdf"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_553",
+      "summary": "On auto tow, establish the maximum pitch attitude for the climb at about 200 feet AGL (after stepping through the lower pitch limits).",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Auto Launch",
+          "url": "https://www.faa.gov/sites/faa.gov/files/regulations_policies/handbooks_manuals/aviation/glider_handbook/gfh_ch07.pdf"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_554",
+      "summary": "Auto tow in strong crosswind: position glider and towrope obliquely to the takeoff line on the downwind side of the tow vehicle so the initial pull aligns better and reduces weathervane/side-load problems.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Auto Launch / Crosswind",
+          "url": "https://www.faa.gov/sites/faa.gov/files/regulations_policies/handbooks_manuals/aviation/glider_handbook/gfh_ch07.pdf"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_555",
+      "summary": "Bank keys “raise the nose” to increase airspeed on ground launch — that conflicts with usual pitch-for-airspeed teaching (lower nose → accelerate). Treat the key cautiously; GFH/practice: pitch down to gain speed, pitch up to climb/slow. Confirm against your POH/training syllabus.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Ground Launch",
+          "url": "https://www.faa.gov/sites/faa.gov/files/regulations_policies/handbooks_manuals/aviation/glider_handbook/gfh_ch07.pdf"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_556",
+      "summary": "Winch-launch pitch oscillations are most often from insufficient up-elevator (or porpoising corrections). Smooth, adequate pitch control and correct climb schedule reduce oscillations.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Winch Launch",
+          "url": "https://www.faa.gov/sites/faa.gov/files/regulations_policies/handbooks_manuals/aviation/glider_handbook/gfh_ch07.pdf"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_559",
+      "summary": "Strong thermal on final (swirling dust/leaves): close spoilers and increase airspeed to punch through the sink/shear on the edges and preserve energy for the landing. Do not open more drag in the sink.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Approaches / Thermals",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_563",
+      "summary": "Off-field landing: land uphill if possible, even if that means some downwind component — slope often matters more than light wind for rollout/stop. Still respect strong wind and obstacles.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Off-field Landing",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_666",
+      "summary": "Figure 30 wind component: landing Runway 18 with wind 220° at 30 kt → 40° off the nose. Crosswind ≈ 30 × sin(40°) ≈ 19 knots. Use the wind rose / component chart in the supplement.",
+      "links": [
+        {
+          "label": "PHAK — Wind Component Chart",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "FAA Testing Supplement — Figure 30",
+          "url": "https://www.faa.gov/training_testing/testing/supplements"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_667",
+      "summary": "High density altitude reduces climb performance (and lengthens takeoff/landing distances). Thin air = less lift and less propeller/engine performance for powered ships; for gliders, true airspeed and energy management change.",
+      "links": [
+        {
+          "label": "PHAK — Density Altitude",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook — Performance",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_669",
+      "summary": "If density altitude is beyond chart capability, do not attempt takeoff until conditions allow calculations that show a safe takeoff and climbout. No guesswork past the chart.",
+      "links": [
+        {
+          "label": "PHAK — Performance Charts",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "14 CFR § 91.103 — Preflight action",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B/section-91.103"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_689",
+      "summary": "If the towplane releases while the glider is in low-tow, the rope can foul the glider’s nose, canopy, or flying surfaces. Prefer high-tow for release; brief rope-on-glider emergencies.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Aerotow / Release",
+          "url": "https://www.faa.gov/sites/faa.gov/files/regulations_policies/handbooks_manuals/aviation/glider_handbook/gfh_ch07.pdf"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_692",
+      "summary": "Yellow demarcation bar marks the boundary between a runway with a displaced threshold and a blast pad, stopway, or taxiway that precedes the runway. Land beyond the displaced threshold markings.",
+      "links": [
+        {
+          "label": "AIM 2-3-3 — Displaced Threshold / Demarcation Bar",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap2_section_3.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_696",
+      "summary": "Same marking purpose as bank_692: the yellow demarcation bar delineates a displaced-threshold runway from the preceding blast pad/stopway/taxiway.",
+      "links": [
+        {
+          "label": "AIM 2-3-3 — Displaced Threshold / Demarcation Bar",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap2_section_3.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_046",
+      "summary": "Aspect ratio = wingspan ÷ mean chord. High aspect ratio (long, skinny wings) is typical of sailplanes and reduces induced drag at a given lift.",
+      "links": [
+        {
+          "label": "PHAK — Aspect Ratio",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook — Aerodynamics",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_048",
+      "summary": "At constant velocity, a high aspect-ratio wing has less drag than a low aspect-ratio wing — especially at high AOA — because induced drag falls as aspect ratio rises.",
+      "links": [
+        {
+          "label": "PHAK — Induced Drag / Aspect Ratio",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_049",
+      "summary": "Figure 21 aspect-ratio table: highest AR is the largest span/chord ratio — keyed aircraft 3. Compute AR ≈ span ÷ average chord for each row.",
+      "links": [
+        {
+          "label": "PHAK — Aspect Ratio",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "FAA Testing Supplement — Figure 21",
+          "url": "https://www.faa.gov/training_testing/testing/supplements"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_050",
+      "summary": "Figure 21: lowest aspect ratio is keyed as aircraft 4. Short span relative to chord → low AR → more induced drag.",
+      "links": [
+        {
+          "label": "FAA Testing Supplement — Figure 21",
+          "url": "https://www.faa.gov/training_testing/testing/supplements"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_051",
+      "summary": "Holding other factors constant, the highest aspect-ratio wing (aircraft 3 on Figure 21) generates the greatest lift efficiency / greatest lift in the bank’s framing — high AR wings are more efficient producers of lift for a given area/AOA regime.",
+      "links": [
+        {
+          "label": "PHAK — Aspect Ratio / Lift",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "FAA Testing Supplement — Figure 21",
+          "url": "https://www.faa.gov/training_testing/testing/supplements"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_052",
+      "summary": "Figure 21, other factors constant: lowest aspect-ratio wing (aircraft 4) generates the greatest drag — induced drag rises as AR falls.",
+      "links": [
+        {
+          "label": "PHAK — Induced Drag",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "FAA Testing Supplement — Figure 21",
+          "url": "https://www.faa.gov/training_testing/testing/supplements"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_068",
+      "summary": "Adding ballast/weight: best L/D ratio stays about the same, but the airspeed for that glide ratio increases. Heavy = same glide angle at a higher speed (better penetration, worse low-speed climb in weak lift).",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Weight / Ballast / Performance",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "PHAK — Glide Performance",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_069",
+      "summary": "Figure 38 glide problem: L/D 20:1 at 40 MPH. Altitude needed at B equals height to cover remaining distance at that glide ratio plus the 800 ft AGL arrival over C (no sink). Keyed answer 4,320 feet AGL — work distance÷20 then add 800.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Glide Ratio",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "FAA Testing Supplement — Figure 38",
+          "url": "https://www.faa.gov/training_testing/testing/supplements"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_070",
+      "summary": "Best glide speed (L/Dmax) gives the longest distance / longest cross-country glide in still air. Minimum sink maximizes time aloft, not distance.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Best Glide / Min Sink",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "PHAK — Maximum Glide",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_078",
+      "summary": "Pitot-static system errors are generally greatest at low airspeed (high AOA / large position-error regime). Airspeed and altimeter can both be less trustworthy near the stall.",
+      "links": [
+        {
+          "label": "PHAK — Pitot-Static Instruments / Errors",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_093",
+      "summary": "Maximum structural cruising speed (VNO) is color-coded — upper end of the green arc / bottom of the yellow arc. VNE is the red line; VA is not color-coded.",
+      "links": [
+        {
+          "label": "PHAK — Airspeed Indicator Markings",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_094",
+      "summary": "Maneuvering speed (VA) is an important limitation not shown by color coding on the ASI. It changes with weight and must be memorized from the POH/placards.",
+      "links": [
+        {
+          "label": "PHAK — Maneuvering Speed",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_096",
+      "summary": "Figure 24 DA problem: elevation 3,795 ft, OAT 24°C, altimeter 29.70 → keyed density altitude about 5,750 feet. Convert to pressure altitude, then apply temperature on the DA chart.",
+      "links": [
+        {
+          "label": "PHAK — Density Altitude",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "FAA Testing Supplement — Figure 24",
+          "url": "https://www.faa.gov/training_testing/testing/supplements"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_097",
+      "summary": "Figure 24: elevation 3,450 ft, 35°C, 30.40 in Hg → keyed DA about 5,950 feet. Hot day still drives DA up even with a high altimeter setting.",
+      "links": [
+        {
+          "label": "FAA Testing Supplement — Figure 24",
+          "url": "https://www.faa.gov/training_testing/testing/supplements"
+        },
+        {
+          "label": "PHAK — Density Altitude",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_099",
+      "summary": "At a given airport, an increase in air temperature increases density altitude (air less dense). High DA hurts takeoff/climb performance.",
+      "links": [
+        {
+          "label": "PHAK — Density Altitude",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_152",
+      "summary": "Density altitude is found by correcting pressure altitude for nonstandard temperature. Pressure altitude first (29.92), then temperature correction → DA.",
+      "links": [
+        {
+          "label": "PHAK — Pressure & Density Altitude",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_416",
+      "summary": "Pre-solo knowledge test must cover applicable regulations, flight characteristics, and operational limitations of the make/model to be flown (§ 61.87).",
+      "links": [
+        {
+          "label": "14 CFR § 61.87 — Solo requirements for student pilots",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-C/section-61.87"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_482",
+      "summary": "Between 12,500 and 14,000 feet MSL, required minimum flight crew may operate up to 30 minutes without supplemental oxygen; above 14,000 continuous use is required (§ 91.211). The bank keys 12,600 as inside that 30-minute band.",
+      "links": [
+        {
+          "label": "14 CFR § 91.211 — Supplemental oxygen",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-C/section-91.211"
+        },
+        {
+          "label": "AIM 8-1-2 — Effects of Altitude",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap8_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_548",
+      "summary": "Long final glide into a strong headwind: fly about best L/D speed plus half the estimated headwind at altitude (penetration speed). Pure best L/D into a headwind leaves you short.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Speed to Fly / Headwind",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_562",
+      "summary": "Passing through lift with no plan to work it: bank suggests minimum sink speed to take altitude quickly while straight. (XC MacCready practice may differ — teach the keyed FAA answer for the test.)",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Speeds to Fly",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_573",
+      "summary": "Dark adaptation is impaired by cabin altitudes above about 5,000 feet (hypoxic effect on night vision). Also avoid bright white light before night flight.",
+      "links": [
+        {
+          "label": "AIM 8-1-6 — Night Vision / Dark Adaptation",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap8_section_1.html"
+        },
+        {
+          "label": "PHAK — Vision in Flight",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_658",
+      "summary": "Bank answer text looks swapped. True altitude is actual height above mean sea level (calibrated for nonstandard temperature/pressure). Indicated altitude is what you read on the altimeter with local setting.",
+      "links": [
+        {
+          "label": "PHAK — Types of Altitude",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_659",
+      "summary": "Absolute altitude is height above the terrain/surface (AGL). Radar altimeters read absolute altitude; you estimate it visually or from chart elevation + true altitude.",
+      "links": [
+        {
+          "label": "PHAK — Absolute Altitude",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_660",
+      "summary": "Indicated altitude equals true altitude at sea level under standard conditions (when the altimeter setting and atmosphere match the calibration assumptions).",
+      "links": [
+        {
+          "label": "PHAK — Indicated vs True Altitude",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_662",
+      "summary": "Figure 24: at pressure altitude 3,000 ft, raising temperature from 30°F to 50°F increases density altitude about 1,300 feet. Warmer air → higher DA.",
+      "links": [
+        {
+          "label": "FAA Testing Supplement — Figure 24",
+          "url": "https://www.faa.gov/training_testing/testing/supplements"
+        },
+        {
+          "label": "PHAK — Density Altitude",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_663",
+      "summary": "Pressure altitude ≈ field elevation corrected for altimeter setting vs 29.92. For 3,563 ft and 29.96, keyed PA is 3,527 ft MSL (slightly below elevation because setting > 29.92).",
+      "links": [
+        {
+          "label": "PHAK — Pressure Altitude",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "FAA Testing Supplement — Figure 24",
+          "url": "https://www.faa.gov/training_testing/testing/supplements"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_668",
+      "summary": "Pressure altitude is the altitude indicated when the altimeter’s barometric scale is set to 29.92 in Hg. It is the standard starting point for performance and DA calculations.",
+      "links": [
+        {
+          "label": "PHAK — Pressure Altitude",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_681",
+      "summary": "Figure 21 among aircraft 1–3: lowest aspect ratio is aircraft 1 (compute span÷chord). Low AR → more induced drag.",
+      "links": [
+        {
+          "label": "FAA Testing Supplement — Figure 21",
+          "url": "https://www.faa.gov/training_testing/testing/supplements"
+        },
+        {
+          "label": "PHAK — Aspect Ratio",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_683",
+      "summary": "After scuba diving without a controlled ascent, wait at least 12 hours before flight to cabin altitudes of 8,000 feet or less. Decompression sickness risk rises with altitude after diving.",
+      "links": [
+        {
+          "label": "AIM 8-1-2 — Scuba Diving / Flying",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap8_section_1.html"
+        },
+        {
+          "label": "PHAK — Aeromedical Factors",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_684",
+      "summary": "After scuba diving that required a controlled ascent (decompression stop), wait at least 24 hours before flying to 8,000 feet or less. Longer waits apply for higher cabin altitudes.",
+      "links": [
+        {
+          "label": "AIM 8-1-2 — Scuba Diving / Flying",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap8_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_044",
+      "summary": "Positive static stability with negative dynamic stability produces divergent oscillations — the airplane initially returns toward equilibrium but each swing grows larger. You want positive static and positive (damped) dynamic stability.",
+      "links": [
+        {
+          "label": "PHAK — Static & Dynamic Stability",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_088",
+      "summary": "A total-energy compensator makes the variometer respond primarily to air-mass vertical motion (up/down currents), not to stick-induced climbs/dives. TE probes sense pitot + static so pitch-driven altitude changes are largely cancelled.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Instruments / Variometers",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_209",
+      "summary": "Bank stem/answer look swapped. Warm-front fog is typically from warm moist air overrunning cooler air / saturation by evaporation and cooling. Separately: excellent soaring can exist in the cold air ahead of a warm front — that is a soaring-front teaching point, not the fog mechanism.",
+      "links": [
+        {
+          "label": "PHAK — Fronts / Fog",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook — Weather for Soaring",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_211",
+      "summary": "Cold-front passage often leaves clear, unstable, dry air behind it — excellent soaring for hours to days. Warm-front weather is usually poorer for thermals (stable, moist, layered cloud).",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Fronts & Soaring",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "PHAK — Cold Fronts",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_213",
+      "summary": "Bank answer looks swapped (thermal/sun wording). Near mountains, the greatest danger from strong vertical/rotor currents is usually on the downwind (lee) side — rotor, turbulence, and sink. Stay upwind or well clear of the lee rotor zone.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Mountain / Wave / Rotor",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "PHAK — Mountain Wave",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_218",
+      "summary": "One of the best visual thermal markers is a smooth cumulus with a concave (domed-up / scooped) base — active feed from below. Ragged, decaying tops/bases are weaker.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Thermal Indicators",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_221",
+      "summary": "In stable weather (poor thermals), you can still soar on the upwind side of hills/ridges with moderate wind — ridge lift. No sun-driven convection required if the wind hits the slope.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Ridge Soaring",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_560",
+      "summary": "Multiple gliders in one thermal: turn in the same direction as the first glider that entered. Opposite-direction circling is a collision hazard. Announce and look before joining.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Thermal Etiquette",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "SSA / soaring safety — joining thermals",
+          "url": "https://www.ssa.org/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_561",
+      "summary": "Slope/ridge soaring: all reversing turns should be made into the wind, away from the slope — never turn toward the ridge into rising/closing terrain. Standard ridge-safety rule.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Ridge Soaring",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_685",
+      "summary": "K-index +17: expect good afternoon soaring with a chance of showers (moderate instability/moisture). Higher K → better thunderstorm potential; very high K is more storm than soar.",
+      "links": [
+        {
+          "label": "PHAK — Stability Indexes / Thunderstorms",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook — Weather Indexes",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_691",
+      "summary": "Trigger temperature is the surface temperature needed for the surface parcel to rise through roughly the first 4,000 feet on a dry adiabatic lapse rate — i.e., when thermals start “triggering” deep convection for soaring.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Thermal Triggering",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "PHAK — Stability / Adiabatic Processes",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_693",
+      "summary": "A K-index of 10 indicates little or no thunderstorm potential (stable/dry enough that storms are unlikely). Contrast with K 30+ for high storm chances.",
+      "links": [
+        {
+          "label": "PHAK — K-Index",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Center",
+          "url": "https://aviationweather.gov/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_006",
+      "summary": "To increase turn rate and decrease turn radius at the same time: steepen the bank and decrease airspeed. Rate ↑ with bank and with lower speed; radius ↓ with bank and with lower speed (within stall/load-factor limits).",
+      "links": [
+        {
+          "label": "PHAK — Turn Performance",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook — Maneuvering",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_056",
+      "summary": "At 60° of bank in a coordinated level turn, load factor is 2 G — the resultant of weight and centrifugal force equals twice the glider’s weight. Memorize: 60° → 2 G; 45° → 1.4 G.",
+      "links": [
+        {
+          "label": "PHAK — Load Factor / Bank Angle",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_007",
+      "summary": "Spin entry after a full stall: the down-going wing stays stalled while the rising wing unstalls and produces some lift — that lift asymmetry drives autorotation. Teach stall + yaw → spin; recovery starts with reducing AOA and stopping yaw.",
+      "links": [
+        {
+          "label": "Airplane Flying Handbook — Spins",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/airplane_handbook"
+        },
+        {
+          "label": "PHAK — Stalls / Spins",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_032",
+      "summary": "A stall occurs when the wing exceeds its critical angle of attack — regardless of airspeed, attitude, or power. Any flight attitude can stall if AOA is high enough; “slow = stall” is incomplete teaching.",
+      "links": [
+        {
+          "label": "PHAK — Stalls",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook — Stalls",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_047",
+      "summary": "High aspect-ratio wings (long, narrow) typically stall at a lower airspeed than low aspect-ratio wings of similar area — more efficient lift at a given AOA, lower stall speed. Gliders exploit this; expect different handling vs short-wing trainers.",
+      "links": [
+        {
+          "label": "PHAK — Aspect Ratio / Wing Design",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_063",
+      "summary": "Spoilers’ primary purpose on gliders is to decrease lift (and increase drag) so you can steepen the approach without a large airspeed increase. Teach approach control with spoilers, not “dive flaps.”",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Spoilers",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "PHAK — High-Lift / Drag Devices",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_064",
+      "summary": "A spin has at least one wing stalled (autorotation). A steep spiral does not — both wings are flying, airspeed and G rise, and the spiral can exceed VNE/load limits. Differentiating spin vs spiral is a core CFI teaching point.",
+      "links": [
+        {
+          "label": "Airplane Flying Handbook — Spins vs Spirals",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/airplane_handbook"
+        },
+        {
+          "label": "PHAK — Spins",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_130",
+      "summary": "CG aft of the aft limit: pitch stability is reduced and stall/spin recovery can become difficult or impossible. Never fly outside the weight-and-balance envelope — especially aft.",
+      "links": [
+        {
+          "label": "PHAK — Weight and Balance / Stability",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook — Loading",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_132",
+      "summary": "CG at the aft limit (vs forward): lowest stalling speed, highest cruise performance, and least stability. Forward CG is more stable but stalls sooner and needs more elevator for flare.",
+      "links": [
+        {
+          "label": "PHAK — CG Effects on Performance",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_138",
+      "summary": "As CG moves rearward, stall recovery becomes progressively more difficult — less nose-down pitching moment available and less static stability. Emphasize this when teaching loading and spin awareness.",
+      "links": [
+        {
+          "label": "PHAK — CG and Stability",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Airplane Flying Handbook — Stall Recovery",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/airplane_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_139",
+      "summary": "CG too far aft can allow a flat spin — high rotation rate, nose-high attitude, and recovery that may be delayed or impossible. Aft loading is a spin-risk multiplier.",
+      "links": [
+        {
+          "label": "Airplane Flying Handbook — Spins",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/airplane_handbook"
+        },
+        {
+          "label": "PHAK — Weight and Balance",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_397",
+      "summary": "A CFI applicant must demonstrate spins (airplane or glider, as appropriate) when being retested for deficiencies in instructional proficiency on stall awareness or spins from the initial test — not as a routine extra on every retest for unrelated items.",
+      "links": [
+        {
+          "label": "14 CFR Part 61 — Flight Instructor Practical Tests",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61"
+        },
+        {
+          "label": "FAA Flight Instructor PTS / ACS (Glider)",
+          "url": "https://www.faa.gov/training_testing/testing/acs"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_538",
+      "summary": "Accelerated stall in a steep turn: in a slip the high wing stalls first; in a skid the low wing stalls first; in coordinated flight both wings stall together. Teach coordination as spin-prevention, not just “pretty ball.”",
+      "links": [
+        {
+          "label": "Airplane Flying Handbook — Accelerated Stalls",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/airplane_handbook"
+        },
+        {
+          "label": "PHAK — Stalls in Turns",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_546",
+      "summary": "Towplane choice for aerotow: match (among other factors) stall speeds so the towplane does not force the glider into a high-AOA / stall-risk regime on climb or in turbulence. Towplane too slow or too fast both create teaching problems.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Aerotow",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "PHAK — Performance",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_557",
+      "summary": "Steep wind gradient on base/final into the wind: if you do not keep adequate airspeed, expect undershoot of the aim point or a stall as wind decreases near the surface. Add margin and plan a higher approach speed in gradient/shear.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Approach / Wind Gradient",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "PHAK — Wind Shear / Gradient",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_558",
+      "summary": "Rule of thumb for final: about 50% above the glider’s stall speed plus half the estimated windspeed. Example: Vs 40, wind 20 → ~40×1.5 + 10 = 70. Adjust for ship, density altitude, and turbulence — POH wins.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Approach Speeds",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "PHAK — Performance / Wind",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_564",
+      "summary": "Safe off-field landing odds improve when you hold an approach speed of at least ~50% above stall plus half the estimated wind — same rule of thumb as a normal final, with extra respect for unknown surface and gradient.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Off-Field Landing",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "PHAK — Emergency Procedures",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_605",
+      "summary": "Hazardous attitude — anti-authority: “The aircraft can handle a lot more than maneuvering speed.” Va (or design maneuvering speed) is a structural/control limit in turbulence and abrupt inputs; instructors must model respect for it, not dismiss it.",
+      "links": [
+        {
+          "label": "Aviation Instructor’s Handbook — Hazardous Attitudes",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/aviation_instructors_handbook"
+        },
+        {
+          "label": "PHAK — Maneuvering Speed",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_698",
+      "summary": "In a developed spin, load factor is typically low — about 0.5 to 1.5 G — not a high-G spiral. That is why “it doesn’t feel violent” can lull pilots; airspeed and turn rate still matter for recovery and structural limits after recovery.",
+      "links": [
+        {
+          "label": "Airplane Flying Handbook — Spins",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/airplane_handbook"
+        },
+        {
+          "label": "PHAK — Load Factor",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_442",
+      "summary": "In an in-flight emergency requiring immediate action, the PIC may deviate from any rule in 14 CFR to the extent required to meet that emergency (§ 91.3). Teach: declare when able, fly the ship first, then sort paperwork.",
+      "links": [
+        {
+          "label": "14 CFR § 91.3 — Responsibility and authority of the PIC",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-A/section-91.3"
+        },
+        {
+          "label": "AIM — Emergency Procedures",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_461",
+      "summary": "If you deviate from an ATC instruction in an emergency and are given priority, submit a detailed report within 48 hours if the ATC facility manager requests it (§ 91.123). Know the 48-hour clock separately from NTSB accident reporting.",
+      "links": [
+        {
+          "label": "14 CFR § 91.123 — Compliance with ATC clearances and instructions",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B/section-91.123"
+        },
+        {
+          "label": "14 CFR § 91.3 — PIC emergency authority",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-A/section-91.3"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_079",
+      "summary": "A clogged pitot tube affects the airspeed indicator (impact pressure). Static-only instruments (altimeter, VSI) are unaffected unless the static system is also blocked. Teach partial-panel implications for gliders with limited backup.",
+      "links": [
+        {
+          "label": "PHAK — Pitot-Static System",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook — Instruments",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_082",
+      "summary": "Never replenish an aircraft oxygen system with industrial oxygen — contaminants and moisture can be hazardous. Use only aviators’ breathing oxygen. (Bank answer text is truncated/OCR-noisy; the teaching point is aviation-grade O₂ only.)",
+      "links": [
+        {
+          "label": "PHAK — Oxygen Systems",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "AIM — Oxygen Use",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_084",
+      "summary": "Replenish aircraft oxygen systems with aviation (aviators’ breathing) oxygen only — not medical or industrial grades sold for other uses.",
+      "links": [
+        {
+          "label": "PHAK — Oxygen Equipment",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook — High Altitude",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_087",
+      "summary": "A total-energy compensator reduces climb/dive (stick-thermal) errors on the variometer caused by airspeed changes — so the vario better reflects air-mass vertical motion rather than zoom climbs and pushovers.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Variometers / TE",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "PHAK — Instruments",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_089",
+      "summary": "In a continuous-flow oxygen mask, the rebreather bag stores exhaled oxygen-rich gas so you can re-inhale part of it — helping conserve the oxygen supply.",
+      "links": [
+        {
+          "label": "PHAK — Continuous-Flow Oxygen",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "AIM — Supplemental Oxygen",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_574",
+      "summary": "As you climb, the percentage of oxygen in the atmosphere stays about 21% — partial pressure falls with total pressure. Hypoxia risk rises because fewer O₂ molecules are available per breath, not because the mix changes.",
+      "links": [
+        {
+          "label": "PHAK — Atmosphere / Hypoxia",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "AIM — Aeromedical",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_588",
+      "summary": "Although not always required by regulation at that altitude, supplemental oxygen is recommended for night flight above about 5,000 feet — night vision is especially hypoxia-sensitive.",
+      "links": [
+        {
+          "label": "PHAK — Night Flying / Oxygen",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "14 CFR § 91.211 — Supplemental oxygen",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-C/section-91.211"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_661",
+      "summary": "The pitot system supplies impact (ram) pressure to the airspeed indicator. Altimeter and VSI use static pressure only.",
+      "links": [
+        {
+          "label": "PHAK — Pitot-Static Instruments",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_674",
+      "summary": "Bank is mis-topic’d under systems (certificate renewal). Passing a flight instructor practical test in one category/class (e.g., single-engine airplane) renews the instructor certificate with its ratings for the renewal period — you do not need a separate ride in every rating to renew the whole certificate. Confirm current Part 61 renewal paths (FIRC vs practical test).",
+      "links": [
+        {
+          "label": "14 CFR § 61.197 — Renewal requirements for flight instructor certification",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-H/section-61.197"
+        },
+        {
+          "label": "Aviation Instructor’s Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/aviation_instructors_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_016",
+      "summary": "Bank misfiled under weather (aerodynamics). At zero geometric AOA the upper surface can still have pressure below atmospheric because of camber/flow acceleration — lift is about pressure difference, not “nose-up attitude.”",
+      "links": [
+        {
+          "label": "PHAK — Aerodynamics of Lift",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook — Aerodynamics",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_029",
+      "summary": "Bank misfiled under weather (aerodynamics). Flying in ground effect just clear of the surface can be sustained at a slightly lower airspeed than out of ground effect because the ground interferes with wingtip vortices / downwash, reducing induced drag.",
+      "links": [
+        {
+          "label": "PHAK — Ground Effect",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook — Landing",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_141",
+      "summary": "Bank answer looks wrong: most weather occurs in the troposphere, not the tropopause. The tropopause is the lid; the weather layer is the troposphere beneath it. Study the troposphere for fronts, clouds, and turbulence.",
+      "links": [
+        {
+          "label": "PHAK — Atmosphere",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_143",
+      "summary": "Standard average lapse rate in the troposphere used on many FAA questions: about 2 °C per 1,000 feet (≈ 3.5 °F/1,000 ft). Actual lapse rate varies and determines stability.",
+      "links": [
+        {
+          "label": "PHAK — Lapse Rate",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_144",
+      "summary": "The most common ground-/surface-based temperature inversion is from terrestrial radiation on a clear, relatively calm night — ground cools, air near the surface becomes colder than air above.",
+      "links": [
+        {
+          "label": "PHAK — Temperature Inversions",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_145",
+      "summary": "Beneath a low-level inversion with high relative humidity, expect smooth air and poor visibility from fog, haze, or low clouds — pollutants and moisture are trapped under the lid.",
+      "links": [
+        {
+          "label": "PHAK — Inversions / Visibility",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "AIM — Weather",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_153",
+      "summary": "Standard sea-level values: 59 °F (15 °C) and 1013.2 mb (29.92 inHg). These are the ISA baseline for performance and altimetry teaching.",
+      "links": [
+        {
+          "label": "PHAK — Standard Atmosphere",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_154",
+      "summary": "Wind is caused by pressure differences — air moves from high toward low pressure, then is turned by Coriolis and modified by friction near the surface.",
+      "links": [
+        {
+          "label": "PHAK — Wind / Pressure Gradient",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_155",
+      "summary": "Flow around a low is cyclonic (counterclockwise in the Northern Hemisphere). Highs are anticyclonic (clockwise NH).",
+      "links": [
+        {
+          "label": "PHAK — Highs and Lows",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_160",
+      "summary": "A low-pressure area or trough is associated with rising air (and often clouds/precipitation). Highs/ridges favor sinking air and clearer conditions.",
+      "links": [
+        {
+          "label": "PHAK — Pressure Systems",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_161",
+      "summary": "As relative humidity increases, the temperature–dewpoint spread decreases. Small spread → closer to saturation → higher fog/cloud potential.",
+      "links": [
+        {
+          "label": "PHAK — Moisture / Dewpoint",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_162",
+      "summary": "Relative humidity is the ratio of water vapor actually in the air to the maximum that could exist at that temperature (saturation).",
+      "links": [
+        {
+          "label": "PHAK — Humidity",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_166",
+      "summary": "Virga: precipitation that falls from a cloud but evaporates before reaching the ground. Often a dry-air / evaporative-cooling cue under the base.",
+      "links": [
+        {
+          "label": "PHAK — Precipitation",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_167",
+      "summary": "Atmospheric stability is determined from the ambient (environmental) lapse rate compared with dry/moist adiabatic rates — steep lapse → unstable; shallow/inverted → stable.",
+      "links": [
+        {
+          "label": "PHAK — Stability",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_168",
+      "summary": "Whether lifted moist air forms mostly stratiform or cumuliform clouds depends on the stability of the air being lifted — stable → layer/stratus; unstable → cumulus/showers.",
+      "links": [
+        {
+          "label": "PHAK — Clouds and Stability",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_169",
+      "summary": "Cumuliform cloud-base estimate (°F): (temperature − dewpoint) ÷ 4.4 × 1,000 ≈ feet AGL. Here (77 − 53) / 4.4 ≈ 5,500 feet AGL.",
+      "links": [
+        {
+          "label": "PHAK — Cloud Base Estimate",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook — Soaring Weather",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_170",
+      "summary": "Cumuliform cloud-base estimate (°C): (temperature − dewpoint) × 400 ≈ feet AGL. Here (33 − 15) × 400 = 7,200 feet AGL.",
+      "links": [
+        {
+          "label": "PHAK — Cloud Base Estimate",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook — Soaring Weather",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_171",
+      "summary": "Very stable moist air forced up a mountain slope tends to form stratus-type clouds with little vertical development and little or no turbulence — orographic layer cloud, not towering cumulus.",
+      "links": [
+        {
+          "label": "PHAK — Orographic Lift / Stability",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_172",
+      "summary": "Middle-cloud bases in middle latitudes are commonly about 6,500 to 23,000 feet. Know low / middle / high families for icing and weather briefing vocabulary.",
+      "links": [
+        {
+          "label": "PHAK — Cloud Classification",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_173",
+      "summary": "Nimbostratus: middle-level (often thickening) rain/snow/ice-pellet producer that can pose a serious icing hazard when temperatures are near or below freezing — continuous precip, not showery CB.",
+      "links": [
+        {
+          "label": "PHAK — Cloud Types / Icing",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_175",
+      "summary": "Unstable air is normally associated with good visibility (except in blowing sand or snow), cumuliform clouds, and turbulence — contrast with stable air’s haze and stratiform layers.",
+      "links": [
+        {
+          "label": "PHAK — Stable vs Unstable Air",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_176",
+      "summary": "A moist, unstable air mass: cumuliform clouds and showery precipitation (plus turbulence and good visibility outside showers).",
+      "links": [
+        {
+          "label": "PHAK — Air Mass Weather",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_177",
+      "summary": "Advancing warm front with moist, unstable air: cumuliform clouds, turbulent air, and showery precipitation — not the classic stable warm-front stratus/drizzle pattern.",
+      "links": [
+        {
+          "label": "PHAK — Fronts",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_178",
+      "summary": "Bank answer looks swapped. Moist cold air being warmed from below becomes unstable (cumulus, turbulence, good visibility outside precip) — “restricted visibility” is the usual stable-air cue. Know the contrast for the checkride even if the key is noisy.",
+      "links": [
+        {
+          "label": "PHAK — Stability Modification",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_179",
+      "summary": "Stable air characteristically brings restricted visibility (haze, fog, smoke trapped in a layer) plus stratiform clouds and smooth air.",
+      "links": [
+        {
+          "label": "PHAK — Characteristics of Stable Air",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_180",
+      "summary": "Bank Q/A garbled (OCR mix of humidity-spread wording with a thunderstorm answer). Strong updrafts and cumulonimbus are signatures of deep moist instability — not of an increasing temperature–dewpoint spread with rising RH (that statement is false).",
+      "links": [
+        {
+          "label": "PHAK — Thunderstorms / Stability",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_181",
+      "summary": "Typical stable air-mass weather includes continuous (steady) precipitation from layered clouds — contrast with showery precip in unstable air.",
+      "links": [
+        {
+          "label": "PHAK — Stable Air Masses",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_182",
+      "summary": "Moist warm air being cooled from below becomes more stable — expect smooth air (and often stratiform cloud/fog potential), not towering cumulus.",
+      "links": [
+        {
+          "label": "PHAK — Stability",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_183",
+      "summary": "Frontal waves normally form on slow-moving cold fronts or stationary fronts — the wave can amplify into a mature cyclone with warm and cold fronts.",
+      "links": [
+        {
+          "label": "PHAK — Frontal Waves / Cyclogenesis",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_184",
+      "summary": "Cool air moving over a warm surface is heated from below → instability and showers (and often good visibility between showers).",
+      "links": [
+        {
+          "label": "PHAK — Air Mass Modification",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_185",
+      "summary": "Wave on a stationary front oriented east–west across the U.S.: portion east of the wave normally becomes a warm front; portion west becomes a cold front — classic open-wave cyclone geometry.",
+      "links": [
+        {
+          "label": "PHAK — Mid-Latitude Cyclones",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_188",
+      "summary": "Bank stem truncated. Over hills/ridges, expect the worst downdrafts/turbulence on the leeward (downwind) side — especially when flying into the wind toward the ridge lee. Stay upwind or high enough to clear rotor/sink.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Ridge / Mountain Flying",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "PHAK — Mountain Flying",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_189",
+      "summary": "Low-level wind shear with a sudden direction change can occur with a low-level temperature inversion and strong winds above the inversion — classic morning shear under a nocturnal inversion.",
+      "links": [
+        {
+          "label": "PHAK — Wind Shear",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "AIM — Wind Shear / LLWS",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_190",
+      "summary": "Bank stem truncated (strong wind above an inversion). Expect wind shear and possible sudden airspeed loss when climbing or descending through the inversion top — brief hard, add approach margin.",
+      "links": [
+        {
+          "label": "PHAK — Inversion Wind Shear",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Glider Flying Handbook — Wind Gradient",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_195",
+      "summary": "Thunderstorm life cycle: beginning of rain at the surface marks transition into the mature stage (updraft + downdraft). Cumulus = updrafts; dissipating = mostly downdrafts.",
+      "links": [
+        {
+          "label": "PHAK — Thunderstorm Life Cycle",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_196",
+      "summary": "Tornadoes are most likely with steady-state thunderstorms associated with cold fronts or squall lines — not ordinary air-mass “pulse” storms.",
+      "links": [
+        {
+          "label": "PHAK — Severe Thunderstorms / Tornadoes",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_197",
+      "summary": "Cumulus stage of a thunderstorm: continuous updrafts (little or no precipitation at the surface yet). Bank stem has OCR bleed from mountain-wave text — answer is still continuous updrafts.",
+      "links": [
+        {
+          "label": "PHAK — Thunderstorm Stages",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_198",
+      "summary": "Bank stem OCR-mashed (mountain-wave statements mixed with CB/funnel wording). Correct pick for the mountain-wave true statements is typically 2 and 3: waves develop in a series on the lee side; humid large-amplitude waves show lenticulars at the crests. Use the Figure / handbook diagram, not the scrambled stem alone.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Mountain Wave",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "PHAK — Mountain Wave",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_199",
+      "summary": "A squall line is usually associated with a fast-moving cold front — a narrow band of intense thunderstorms ahead of or with the front.",
+      "links": [
+        {
+          "label": "PHAK — Squall Lines",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_200",
+      "summary": "Hail hazard true statements (bank): large hail with strong updrafts + high liquid water; hail usually in the mature stage; hailstones can be thrown outward for several miles. Visual appearance alone is a poor hail predictor; hail can exist outside the cloud core downwind of the anvil.",
+      "links": [
+        {
+          "label": "PHAK — Hail",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_201",
+      "summary": "Hailstones may be thrown outward from a storm cloud for several miles — clear air beside a CB is not automatically hail-safe, especially under/near the anvil.",
+      "links": [
+        {
+          "label": "PHAK — Thunderstorm Hazards",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "AIM — Thunderstorm Flying",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_202",
+      "summary": "Hail as an in-flight hazard is most likely associated with cumulonimbus clouds — avoid by wide margins; do not plan to “skirt” under the anvil.",
+      "links": [
+        {
+          "label": "PHAK — Cumulonimbus / Hail",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_203",
+      "summary": "Hail is most likely to be encountered beneath the anvil of a large cumulonimbus — ice is lofted in the updraft and falls out downwind under the anvil.",
+      "links": [
+        {
+          "label": "PHAK — Hail Distribution",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "AIM — Thunderstorms",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_204",
+      "summary": "Fog needs high relative humidity (near saturation) plus a cooling or moistening process. Without moisture near saturation, fog does not form.",
+      "links": [
+        {
+          "label": "PHAK — Fog",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_205",
+      "summary": "Radiation fog: high humidity in early evening, cool clear night, light wind, and favorable topography (valleys/drainage). Calm traps the cold layer; too much wind mixes it out.",
+      "links": [
+        {
+          "label": "PHAK — Radiation Fog",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_206",
+      "summary": "Advection fog forms when moist air moves over a colder surface — common along coasts and with warm air over cool water/ground.",
+      "links": [
+        {
+          "label": "PHAK — Advection Fog",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_207",
+      "summary": "Advection fog can appear suddenly day or night and is typically more persistent than radiation fog — wind that would clear radiation fog often sustains advection fog.",
+      "links": [
+        {
+          "label": "PHAK — Fog Types",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_208",
+      "summary": "Warm fronts commonly bring precipitation-induced fog — rain evaporates into cool stable air ahead of the front, saturating the layer.",
+      "links": [
+        {
+          "label": "PHAK — Precipitation-Induced Fog",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Weather Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_212",
+      "summary": "Mountain-wave formation favors a stable layer near mountaintop height and a wind of at least about 15–25 knots blowing roughly perpendicular across the ridge — plus increasing wind with height in many setups.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Mountain Wave",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "PHAK — Mountain Wave",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_215",
+      "summary": "One of the most dangerous mountain-wave features is severe turbulence in and below lenticular clouds (rotor zone). Lenticulars mark the wave; the rotor under them can destroy aircraft.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Rotor / Lenticulars",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "PHAK — Mountain Wave Hazards",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_229",
+      "summary": "METAR true set per bank: FG only with visibility < 5/8 SM; BR from 5/8 up to 6 SM; no provision for partial obscurations in that older keying. (Modern decoding still: know FG vs BR thresholds; VV is treated as ceiling in current practice — bank item 1 may be outdated.)",
+      "links": [
+        {
+          "label": "AIM — METAR/SPECI",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/"
+        },
+        {
+          "label": "FAA Aviation Weather Services (AC 00-45)",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_231",
+      "summary": "(Figure 3) Read KAUS temperature and dewpoint from the METAR/surface report in the figure; the spread is temperature − dewpoint = 4 °C. Use the Figure pill for the actual print.",
+      "links": [
+        {
+          "label": "AIM — METAR",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/"
+        },
+        {
+          "label": "PHAK — Temperature / Dewpoint",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_307",
+      "summary": "Bank misfiled under weather (VFR cloud clearance). In controlled airspace more than 1,200 feet AGL and below 10,000 feet MSL, VFR minimum horizontal distance from clouds is 2,000 feet (also 500 below / 1,000 above).",
+      "links": [
+        {
+          "label": "14 CFR § 91.155 — Basic VFR weather minimums",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B/section-91.155"
+        },
+        {
+          "label": "AIM — VFR Cloud Clearance",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_308",
+      "summary": "Class G, more than 1,200 feet AGL and at or above 10,000 feet MSL: remain 1,000 feet below, 1,000 feet above, and 1 mile horizontal from clouds (plus 5 SM visibility).",
+      "links": [
+        {
+          "label": "14 CFR § 91.155 — Basic VFR weather minimums",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B/section-91.155"
+        },
+        {
+          "label": "AIM 3-1-4 — VFR Weather Minimums",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_447",
+      "summary": "Required preflight action for every flight (§ 91.103): become familiar with all available information, including runway lengths at airports of intended use (and takeoff/landing distance data). Weather briefing is part of “all available information,” but this item’s keyed answer is runway lengths.",
+      "links": [
+        {
+          "label": "14 CFR § 91.103 — Preflight action",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-B/section-91.103"
+        },
+        {
+          "label": "PHAK — Preflight",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_569",
+      "summary": "Upsloping terrain creates the illusion that the aircraft is higher than it actually is — pilots tend to fly too low on approach. Downsloping terrain does the opposite.",
+      "links": [
+        {
+          "label": "PHAK — Optical Illusions / Approach",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "AIM — Illusions",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_577",
+      "summary": "Above about 15,000 feet without supplemental oxygen in an unpressurized aircraft, expect hypoxic signs such as cyanosis (blue lips/fingernails) and tunnel vision — plus impaired judgment. Use oxygen early; do not wait for symptoms.",
+      "links": [
+        {
+          "label": "PHAK — Hypoxia",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "14 CFR § 91.211 — Supplemental oxygen",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-C/section-91.211"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_686",
+      "summary": "(Figure 8) On a Surface Analysis chart, symbol “12” denotes a squall line. Use the Figure pill; match the legend for fronts, troughs, and squall-line symbology.",
+      "links": [
+        {
+          "label": "Aviation Weather Services — Surface Analysis",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation"
+        },
+        {
+          "label": "PHAK — Weather Charts",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
     }
   ]
 }
