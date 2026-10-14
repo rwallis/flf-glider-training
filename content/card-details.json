@@ -194,6 +194,356 @@
           "url": "https://www.faa.gov/sites/faa.gov/files/2022-06/risk_management_handbook_2A.pdf"
         }
       ]
+    },
+    {
+      "card_id": "cfi_g_bank_381",
+      "summary": "Under 14 CFR 61.15, a conviction for any federal or state offense involving the growing, processing, manufacture, sale, disposition, possession, transportation, or importation of narcotic drugs, marijuana, or depressant or stimulant drugs or substances is grounds for suspension or revocation of any certificate, rating, or authorization issued under Part 61. Related alcohol/drug motor vehicle actions also trigger reporting and certificate action rules in 61.15.",
+      "links": [
+        {
+          "label": "14 CFR § 61.15 — Offenses involving alcohol or drugs",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-A/section-61.15"
+        },
+        {
+          "label": "14 CFR § 91.17 — Alcohol or drugs",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-A/section-91.17"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_445",
+      "summary": "14 CFR 91.17 prohibits acting or attempting to act as a crewmember of a civil aircraft while having a blood alcohol concentration of 0.04 percent or greater by weight. Also barred: within 8 hours after consuming alcohol, while under the influence of alcohol, or while using any drug that affects faculties contrary to safety.",
+      "links": [
+        {
+          "label": "14 CFR § 91.17 — Alcohol or drugs",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-A/section-91.17"
+        },
+        {
+          "label": "AIM 8-1-1 — Fitness for Flight / Alcohol",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap8_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_565",
+      "summary": "Alcohol is a central nervous system depressant that impairs judgment, coordination, and reaction time. It also reduces the body’s tolerance to hypoxia — a given altitude feels “higher” physiologically after drinking. Coffee does not metabolize alcohol faster; only time clears it. Teach the 8-hour bottle-to-throttle rule as a minimum, not a guarantee of fitness.",
+      "links": [
+        {
+          "label": "AIM 8-1-1 — Alcohol",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap8_section_1.html"
+        },
+        {
+          "label": "14 CFR § 91.17 — Alcohol or drugs",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-A/section-91.17"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_570",
+      "summary": "Spatial disorientation happens when the vestibular and proprioceptive senses conflict with what the eyes see — especially in IMC, night, or unusual attitudes. The recommended recovery is to ignore body sensations and rely entirely on the flight instruments (or a competent safety pilot / instructor on the gauges). Head movement reduction helps avoid vestibular illusions but is not the primary recovery procedure.",
+      "links": [
+        {
+          "label": "AIM 8-1-5 — Spatial Disorientation",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap8_section_1.html"
+        },
+        {
+          "label": "PHAK — Aeromedical Factors",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_575",
+      "summary": "Hypoxia symptoms vary by person but commonly include euphoria, belligerence, a false sense of security, impaired judgment, headache, dizziness, tingling, and cyanosis. Nitrogen bubbles cause decompression sickness (the bends), not hypoxia. Concentration alone cannot overcome hypoxia — you need oxygen, lower altitude, or both.",
+      "links": [
+        {
+          "label": "AIM 8-1-2 — Effects of Altitude / Hypoxia",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap8_section_1.html"
+        },
+        {
+          "label": "PHAK — Aeromedical Factors",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_576",
+      "summary": "Hypoxic hypoxia at altitude is caused by reduced barometric (atmospheric) pressure, which lowers the partial pressure of oxygen available to the lungs — even though the percentage of oxygen in air stays about 21%. The trap choice “decreasing amount of oxygen with altitude” confuses percentage with partial pressure. Teach students: same mix, less pressure, less O₂ molecules per breath.",
+      "links": [
+        {
+          "label": "AIM 8-1-2 — Hypoxia",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap8_section_1.html"
+        },
+        {
+          "label": "PHAK — Aeromedical Factors",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_578",
+      "summary": "Hyperventilation is abnormally rapid or deep breathing that blows off too much carbon dioxide (hypocapnia). Symptoms can mimic hypoxia (dizziness, tingling, visual disturbance). It is a CO₂ problem, not primarily an oxygen shortage — and increasing supplemental oxygen flow is not the fix.",
+      "links": [
+        {
+          "label": "AIM 8-1-3 — Hyperventilation",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap8_section_1.html"
+        },
+        {
+          "label": "PHAK — Aeromedical Factors",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_579",
+      "summary": "Rapid or overly deep breathing while on oxygen commonly causes hyperventilation. Students may over-breathe when anxious or when first using a mask/cannula. Watch for lightheadedness and tingling; coach calm, normal-rate breathing rather than “more oxygen.”",
+      "links": [
+        {
+          "label": "AIM 8-1-3 — Hyperventilation",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap8_section_1.html"
+        },
+        {
+          "label": "14 CFR § 91.211 — Supplemental oxygen",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-C/section-91.211"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_580",
+      "summary": "To overcome hyperventilation: slow the breathing rate and restore carbon dioxide (breathe normally; historically, rebreathing into a paper bag was taught when hypoxia is ruled out). Do not speed up breathing. Distinguish hypoxia (need O₂ / descend) from hyperventilation (need slower breathing / more CO₂).",
+      "links": [
+        {
+          "label": "AIM 8-1-3 — Hyperventilation",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap8_section_1.html"
+        },
+        {
+          "label": "PHAK — Aeromedical Factors",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_581",
+      "summary": "Smoking (and carbon monoxide exposure) reduces the blood’s oxygen-carrying capability by binding to hemoglobin — a form of hypemic hypoxia. It also degrades night vision. Teach smokers that physiological altitude is effectively higher and that CO plus altitude compounds risk.",
+      "links": [
+        {
+          "label": "AIM 8-1-2 / 8-1-4 — Hypoxia & Carbon Monoxide",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap8_section_1.html"
+        },
+        {
+          "label": "PHAK — Aeromedical Factors",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_583",
+      "summary": "For motion sickness in training: have the student minimize unnecessary head movement and keep eyes on a fixed outside reference (horizon). Closing eyes or looking down often worsens it. Avoid recommending medication that is not approved / that impairs performance; many anti-motion-sickness drugs are sedating.",
+      "links": [
+        {
+          "label": "AIM 8-1-8 — Motion Sickness",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap8_section_1.html"
+        },
+        {
+          "label": "Aviation Instructor’s Handbook — Student emotional reactions",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/aviation_instructors_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_584",
+      "summary": "Motion sickness is caused by continued stimulation of the vestibular apparatus in the inner ear (the organs that sense balance and motion), especially when visual and vestibular cues disagree. Experience and smooth instruction help, but the mechanism is vestibular — not stomach acid.",
+      "links": [
+        {
+          "label": "AIM 8-1-8 — Motion Sickness",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap8_section_1.html"
+        },
+        {
+          "label": "PHAK — Aeromedical Factors",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_585",
+      "summary": "ADM frames every aviation situation with four fundamental risk elements: Pilot, Aircraft, Environment, and External pressures (often taught as mission / external pressures — PAVE: Pilot, Aircraft, enVironment, External pressures). Instructors should have students score each element on every flight.",
+      "links": [
+        {
+          "label": "Risk Management Handbook (FAA-H-8083-2A)",
+          "url": "https://www.faa.gov/regulationspolicies/handbooksmanuals/risk-management-handbook-faa-h-8083-2a"
+        },
+        {
+          "label": "PHAK — Aeronautical Decision-Making",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_589",
+      "summary": "Altitude-chamber (or similar controlled hypoxia) training’s main advantage is that each pilot learns their own personal hypoxia symptoms in a safe, supervised setting. Symptom sets differ person-to-person; recognizing your pattern early is the teaching point — not merely watching others or relying on rapid chamber repressurization.",
+      "links": [
+        {
+          "label": "AIM 8-1-2 — Hypoxia",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap8_section_1.html"
+        },
+        {
+          "label": "FAA Civil Aerospace Medical Institute (aeromedical education)",
+          "url": "https://www.faa.gov/pilots/training/airman_education"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_590",
+      "summary": "Hypemic (“anemic”) hypoxia occurs when blood cannot carry enough oxygen — classic classroom example is carbon monoxide from a leaking exhaust system binding to hemoglobin. Symptoms resemble hypoxic hypoxia, but the cause is blood oxygen transport, not low ambient pressure. Treat with fresh air / oxygen and land; fix the exhaust leak on the ground.",
+      "links": [
+        {
+          "label": "AIM 8-1-4 — Carbon Monoxide Poisoning",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap8_section_1.html"
+        },
+        {
+          "label": "PHAK — Types of Hypoxia",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_594",
+      "summary": "FAA definition: Aeronautical Decision Making (ADM) is a systematic approach to the mental process used by pilots to consistently determine the best course of action in response to a given set of circumstances. It is more than “good judgment” alone — it is a structured process (DECIDE plus risk tools like PAVE/CARE).",
+      "links": [
+        {
+          "label": "PHAK — Aeronautical Decision-Making",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Risk Management Handbook (FAA-H-8083-2A)",
+          "url": "https://www.faa.gov/regulationspolicies/handbooksmanuals/risk-management-handbook-faa-h-8083-2a"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_595",
+      "summary": "Risk management within ADM reduces flight risk through situational awareness, problem recognition, and good judgment. Teach students to notice change early (SA), name the problem, then apply sound judgment and mitigation — not just memorize procedures after the fact.",
+      "links": [
+        {
+          "label": "Risk Management Handbook (FAA-H-8083-2A)",
+          "url": "https://www.faa.gov/regulationspolicies/handbooksmanuals/risk-management-handbook-faa-h-8083-2a"
+        },
+        {
+          "label": "PHAK — Aeronautical Decision-Making",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_596",
+      "summary": "One explicit step in the ADM process is identifying personal attitudes hazardous to safe flight. Before antidotes or DECIDE steps help, the pilot must know which hazardous attitude is driving the poor choice. Build this into debriefs: “Which attitude showed up today?”",
+      "links": [
+        {
+          "label": "PHAK — Hazardous Attitudes",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Risk Management Handbook (FAA-H-8083-2A)",
+          "url": "https://www.faa.gov/regulationspolicies/handbooksmanuals/risk-management-handbook-faa-h-8083-2a"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_598",
+      "summary": "Dangerous tendencies / behavior patterns called out in ADM training include peer pressure, get-there-itis / scud running, loss of situational awareness, and operating with inadequate fuel (or energy/options) reserves. Instructors should name these patterns in scenario training and require a mitigation before launch.",
+      "links": [
+        {
+          "label": "PHAK — Aeronautical Decision-Making",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Risk Management Handbook (FAA-H-8083-2A)",
+          "url": "https://www.faa.gov/regulationspolicies/handbooksmanuals/risk-management-handbook-faa-h-8083-2a"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_600",
+      "summary": "Classic hazardous attitudes include antiauthority (“don’t tell me”), impulsivity (“do it quickly”), and resignation (“what’s the use”) — along with macho and invulnerability. Know the five; this question samples three of them. Pair each with its antidote phrase in oral prep.",
+      "links": [
+        {
+          "label": "PHAK — Hazardous Attitudes & Antidotes",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Instructor’s Handbook — ADM teaching",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/aviation_instructors_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_601",
+      "summary": "Hazardous attitudes are counteracted by an appropriate antidotal phrase (e.g., antiauthority → “Follow the rules. They are usually right.”; impulsivity → “Not so fast. Think first.”; invulnerability → “It could happen to me.”; macho → “Taking chances is foolish.”; resignation → “I’m not helpless. I can make a difference.”). Recognition alone is not enough — apply the antidote.",
+      "links": [
+        {
+          "label": "PHAK — Hazardous Attitudes & Antidotes",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Risk Management Handbook (FAA-H-8083-2A)",
+          "url": "https://www.faa.gov/regulationspolicies/handbooksmanuals/risk-management-handbook-faa-h-8083-2a"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_602",
+      "summary": "The five hazardous attitudes every pilot faces to some degree: antiauthority, impulsivity, invulnerability, macho, and resignation. Memorize all five and their antidotes for the FOI/ADM oral and written.",
+      "links": [
+        {
+          "label": "PHAK — Hazardous Attitudes",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Risk Management Handbook (FAA-H-8083-2A)",
+          "url": "https://www.faa.gov/regulationspolicies/handbooksmanuals/risk-management-handbook-faa-h-8083-2a"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_603",
+      "summary": "The first step in neutralizing a hazardous attitude is recognizing the hazardous thought when it appears. Only after recognition can the pilot apply the antidote and choose a safer action. Drill recognition in flight debriefs with concrete examples from the lesson.",
+      "links": [
+        {
+          "label": "PHAK — Hazardous Attitudes",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Aviation Instructor’s Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/aviation_instructors_handbook"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_607",
+      "summary": "Cockpit stress management starts before the crisis: assess stress areas in one’s personal life. Life stress carries into the cockpit and reduces spare mental capacity. Instructors should model go/no-go honesty when life stress is high (IMSAFE: Illness, Medication, Stress, Alcohol, Fatigue, Emotion/Eating).",
+      "links": [
+        {
+          "label": "PHAK — Stress Management / ADM",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "AIM 8-1-1 — Fitness for Flight",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap8_section_1.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_608",
+      "summary": "At the first sign of cockpit stress, relax and think rationally — deliberate calm beats rushing into the next switch or control input. Teach a brief reset: breathe, prioritize aviate/navigate/communicate, then act. Avoid dumping unrelated life-stress analogies into the moment of the emergency.",
+      "links": [
+        {
+          "label": "PHAK — Stress & ADM",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        },
+        {
+          "label": "Risk Management Handbook (FAA-H-8083-2A)",
+          "url": "https://www.faa.gov/regulationspolicies/handbooksmanuals/risk-management-handbook-faa-h-8083-2a"
+        }
+      ]
     }
   ]
 }
