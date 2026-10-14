@@ -34,6 +34,48 @@ export function xpForCorrectness(correct) {
   return correct ? 2 : 1;
 }
 
+/** Percent correct from cumulative answer counts (null when no answers). */
+export function correctPercent(answersCorrect, answersTotal) {
+  const total = Number(answersTotal) || 0;
+  if (total <= 0) return null;
+  const correct = Math.max(0, Number(answersCorrect) || 0);
+  return Math.round((100 * correct) / total);
+}
+
+function topicAccuracyRows(topics, cards, progressByCard) {
+  return topics.map((topic) => {
+    const topicCards = cards.filter((c) => c.topic_id === topic.id);
+    let answersCorrect = 0;
+    let answersTotal = 0;
+    let studied = 0;
+    for (const card of topicCards) {
+      const p = progressByCard.get(card.id);
+      if (!p) continue;
+      studied += 1;
+      const total = Number(p.answers_total) || 0;
+      if (total > 0) {
+        answersTotal += total;
+        answersCorrect += Number(p.answers_correct) || 0;
+      } else {
+        const g = String(p.last_result || '').toLowerCase();
+        if (!g) continue;
+        answersTotal += 1;
+        if (g === 'hard' || g === 'good' || g === 'easy') answersCorrect += 1;
+      }
+    }
+    return {
+      id: topic.id,
+      title: topic.title,
+      sort_order: topic.sort_order ?? 0,
+      card_count: topicCards.length,
+      studied,
+      answers_correct: answersCorrect,
+      answers_total: answersTotal,
+      correct_pct: correctPercent(answersCorrect, answersTotal)
+    };
+  });
+}
+
 /**
  * Resolve whether the learner got the card right.
  * Prefer explicit correct / choice match; flashcards without a choice treat "again" as wrong.
@@ -238,9 +280,20 @@ export function createMemoryStore(seed) {
       }
       return out;
     },
-    async upsertProgress(userKey, cardId, patch) {
+    async upsertProgress(userKey, cardId, patch, { correct } = {}) {
       const key = `${userKey}::${cardId}`;
-      const row = { user_key: userKey, card_id: cardId, ...patch };
+      const prev = state.progress.get(key) || {};
+      const answered = typeof correct === 'boolean';
+      const row = {
+        user_key: userKey,
+        card_id: cardId,
+        ...prev,
+        ...patch,
+        last_correct: answered ? correct : prev.last_correct ?? null,
+        answers_correct:
+          (Number(prev.answers_correct) || 0) + (answered && correct ? 1 : 0),
+        answers_total: (Number(prev.answers_total) || 0) + (answered ? 1 : 0)
+      };
       state.progress.set(key, row);
       return row;
     },
@@ -378,6 +431,10 @@ export function createMemoryStore(seed) {
         .sort((a, b) => a.sort_order - b.sort_order)
         .map((t) => {
           const cards = state.cards.filter((c) => c.track_id === t.id);
+          const topics = state.topics
+            .filter((topic) => topic.track_id === t.id)
+            .slice()
+            .sort((a, b) => (a.sort_order ?? 0) - (b.sort_order ?? 0) || a.title.localeCompare(b.title));
           const grades = { again: 0, hard: 0, good: 0, easy: 0 };
           let studied = 0;
           let due = 0;
@@ -397,7 +454,8 @@ export function createMemoryStore(seed) {
             studied,
             due,
             new: Math.max(0, cards.length - studied),
-            ...grades
+            ...grades,
+            topics: topicAccuracyRows(topics, cards, byCard)
           };
         });
     }
@@ -487,11 +545,15 @@ export function createPgStore(db) {
       );
       return rows[0] || null;
     },
-    async upsertProgress(userKey, cardId, patch) {
+    async upsertProgress(userKey, cardId, patch, { correct } = {}) {
+      const answered = typeof correct === 'boolean';
+      const correctInc = answered && correct ? 1 : 0;
+      const totalInc = answered ? 1 : 0;
       const { rows } = await db.query(
         `INSERT INTO glider_progress
-          (user_key, card_id, ease, interval_days, due_at, reps, lapses, last_result, last_studied_at)
-         VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)
+          (user_key, card_id, ease, interval_days, due_at, reps, lapses, last_result, last_studied_at,
+           last_correct, answers_correct, answers_total)
+         VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)
          ON CONFLICT (user_key, card_id) DO UPDATE SET
            ease = EXCLUDED.ease,
            interval_days = EXCLUDED.interval_days,
@@ -499,7 +561,10 @@ export function createPgStore(db) {
            reps = EXCLUDED.reps,
            lapses = EXCLUDED.lapses,
            last_result = EXCLUDED.last_result,
-           last_studied_at = EXCLUDED.last_studied_at
+           last_studied_at = EXCLUDED.last_studied_at,
+           last_correct = COALESCE(EXCLUDED.last_correct, glider_progress.last_correct),
+           answers_correct = glider_progress.answers_correct + EXCLUDED.answers_correct,
+           answers_total = glider_progress.answers_total + EXCLUDED.answers_total
          RETURNING *`,
         [
           userKey,
@@ -510,7 +575,10 @@ export function createPgStore(db) {
           patch.reps,
           patch.lapses,
           patch.last_result,
-          patch.last_studied_at
+          patch.last_studied_at,
+          answered ? correct : null,
+          correctInc,
+          totalInc
         ]
       );
       return rows[0];
@@ -705,6 +773,50 @@ export function createPgStore(db) {
          ORDER BY t.sort_order, t.title`,
         [userKey]
       );
+      const { rows: topicRows } = await db.query(
+        `SELECT
+           tp.track_id,
+           tp.id,
+           tp.title,
+           tp.sort_order,
+           COUNT(c.id)::int AS card_count,
+           COUNT(p.card_id)::int AS studied,
+           COALESCE(SUM(
+             CASE
+               WHEN COALESCE(p.answers_total, 0) > 0 THEN p.answers_total
+               WHEN p.last_result IS NOT NULL THEN 1
+               ELSE 0
+             END
+           ), 0)::int AS answers_total,
+           COALESCE(SUM(
+             CASE
+               WHEN COALESCE(p.answers_total, 0) > 0 THEN p.answers_correct
+               WHEN p.last_result IN ('hard', 'good', 'easy') THEN 1
+               ELSE 0
+             END
+           ), 0)::int AS answers_correct
+         FROM glider_topics tp
+         LEFT JOIN glider_cards c ON c.topic_id = tp.id
+         LEFT JOIN glider_progress p ON p.card_id = c.id AND p.user_key = $1
+         GROUP BY tp.track_id, tp.id, tp.title, tp.sort_order
+         ORDER BY tp.sort_order, tp.title`,
+        [userKey]
+      );
+      const topicsByTrack = new Map();
+      for (const row of topicRows) {
+        const list = topicsByTrack.get(row.track_id) || [];
+        list.push({
+          id: row.id,
+          title: row.title,
+          sort_order: row.sort_order,
+          card_count: row.card_count,
+          studied: row.studied,
+          answers_correct: row.answers_correct,
+          answers_total: row.answers_total,
+          correct_pct: correctPercent(row.answers_correct, row.answers_total)
+        });
+        topicsByTrack.set(row.track_id, list);
+      }
       return rows.map((r) => ({
         id: r.id,
         title: r.title,
@@ -716,7 +828,8 @@ export function createPgStore(db) {
         again: r.again,
         hard: r.hard,
         good: r.good,
-        easy: r.easy
+        easy: r.easy,
+        topics: topicsByTrack.get(r.id) || []
       }));
     }
   };

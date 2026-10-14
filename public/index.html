@@ -676,6 +676,67 @@
       cursor: pointer;
       font: inherit;
     }
+    .topic-accuracy {
+      margin-top: 12px;
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+    }
+    .topic-accuracy-title {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 8px;
+    }
+    .topic-accuracy-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 6px;
+      font-size: 0.82rem;
+    }
+    .topic-accuracy-row:last-child { margin-bottom: 0; }
+    .topic-accuracy-name {
+      font-weight: 700;
+      color: var(--ink);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .topic-accuracy-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .topic-accuracy-pct {
+      min-width: 2.4em;
+      text-align: right;
+    }
+    .topic-accuracy-pct.hi { color: var(--grass); }
+    .topic-accuracy-pct.mid { color: #C48A12; }
+    .topic-accuracy-pct.lo { color: var(--copper); }
+    .topic-accuracy-bar {
+      width: 52px;
+      height: 6px;
+      border-radius: 999px;
+      background: #EDEDED;
+      overflow: hidden;
+    }
+    .topic-accuracy-bar > span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--course-color, var(--sky));
+    }
+    .topic-accuracy-empty {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
     button.grade-pill:disabled {
       opacity: 0.4;
       cursor: default;
@@ -1590,10 +1651,11 @@
         <p class="hint">Correct answers earn 2 XP; wrong answers earn 1 XP (Central Time). Chart shows you next to other signed-in learners.</p>
         ${renderLeagueSummary(state.league, { compact: false })}
         <h2 class="section-title">Courses</h2>
-        <p class="hint">Last grade per card in each course. Tap a grade pill to study those cards.</p>
+        <p class="hint">Last grade per card in each course. Topic % is answers marked correct. Tap a grade pill to study those cards.</p>
         ${rows.length ? rows.map((t) => {
           const color = courseColor(t.id);
           const pct = t.card_count > 0 ? Math.round((t.studied / t.card_count) * 100) : 0;
+          const topicRows = (t.topics || []).filter((topic) => (topic.answers_total || 0) > 0);
           return `
           <article class="course ${t.status === 'upload_later' ? 'upload' : ''}" style="--course-color:${color}">
             <div class="badge">${trackLabel(t.id)}</div>
@@ -1608,6 +1670,21 @@
                 <button type="button" class="grade-pill hard" data-open-grade-study="${t.id}" data-filter-grade="hard" ${!(t.hard > 0) ? 'disabled' : ''}><b>${t.hard || 0}</b><span>Hard</span></button>
                 <button type="button" class="grade-pill good" data-open-grade-study="${t.id}" data-filter-grade="good" ${!(t.good > 0) ? 'disabled' : ''}><b>${t.good || 0}</b><span>Good</span></button>
                 <button type="button" class="grade-pill easy" data-open-grade-study="${t.id}" data-filter-grade="easy" ${!(t.easy > 0) ? 'disabled' : ''}><b>${t.easy || 0}</b><span>Easy</span></button>
+              </div>
+              <div class="topic-accuracy">
+                <div class="topic-accuracy-title">Correct by topic</div>
+                ${topicRows.length ? topicRows.map((topic) => {
+                  const correctPct = topic.correct_pct == null ? 0 : topic.correct_pct;
+                  const tone = correctPct >= 80 ? 'hi' : correctPct >= 50 ? 'mid' : 'lo';
+                  return `
+                    <div class="topic-accuracy-row" title="${topic.answers_correct || 0} correct of ${topic.answers_total || 0} answers">
+                      <div class="topic-accuracy-name">${escapeHtml(topic.title)}</div>
+                      <div class="topic-accuracy-meta">
+                        <div class="topic-accuracy-bar" aria-hidden="true"><span style="width:${correctPct}%"></span></div>
+                        <span class="topic-accuracy-pct ${tone}">${correctPct}%</span>
+                      </div>
+                    </div>`;
+                }).join('') : '<div class="topic-accuracy-empty">No answers in this course yet.</div>'}
               </div>
               <div class="btn-row">
                 <button type="button" data-open-study="${t.id}" ${!(t.card_count > 0) ? 'disabled' : ''}>Continue</button>

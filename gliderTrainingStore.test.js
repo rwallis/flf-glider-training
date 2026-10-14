@@ -8,7 +8,8 @@ import {
   activityDateKey,
   displayNameFromProfile,
   resolveStudyCorrect,
-  xpForCorrectness
+  xpForCorrectness,
+  correctPercent
 } from './src/store.js';
 
 test('nextProgress again schedules soon and lowers ease', () => {
@@ -132,4 +133,35 @@ test('resolveStudyCorrect uses choice match then grade fallback', () => {
   assert.equal(resolveStudyCorrect({ card, choice: 'controllability' }), false);
   assert.equal(resolveStudyCorrect({ card, grade: 'again' }), false);
   assert.equal(resolveStudyCorrect({ card, grade: 'good' }), true);
+});
+
+test('correctPercent rounds answer accuracy', () => {
+  assert.equal(correctPercent(0, 0), null);
+  assert.equal(correctPercent(1, 2), 50);
+  assert.equal(correctPercent(2, 3), 67);
+});
+
+test('progressByTrack includes topic correct percentages', async () => {
+  const store = createMemoryStore({
+    tracks: [{ id: 'commercial', title: 'Commercial', sort_order: 1, status: 'ready' }],
+    topics: [
+      { id: 'comm_weather', track_id: 'commercial', title: 'Weather', sort_order: 10 },
+      { id: 'comm_aero', track_id: 'commercial', title: 'Principles of flight', sort_order: 20 }
+    ],
+    cards: [
+      { id: 'c1', track_id: 'commercial', topic_id: 'comm_weather', question: 'Q1', answer: 'A1' },
+      { id: 'c2', track_id: 'commercial', topic_id: 'comm_weather', question: 'Q2', answer: 'A2' },
+      { id: 'c3', track_id: 'commercial', topic_id: 'comm_aero', question: 'Q3', answer: 'A3' }
+    ]
+  });
+  await store.upsertProgress('u1', 'c1', nextProgress(null, 'good'), { correct: true });
+  await store.upsertProgress('u1', 'c2', nextProgress(null, 'again'), { correct: false });
+  await store.upsertProgress('u1', 'c3', nextProgress(null, 'easy'), { correct: true });
+  const rows = await store.progressByTrack('u1');
+  assert.equal(rows.length, 1);
+  const weather = rows[0].topics.find((t) => t.id === 'comm_weather');
+  const aero = rows[0].topics.find((t) => t.id === 'comm_aero');
+  assert.equal(weather.answers_total, 2);
+  assert.equal(weather.correct_pct, 50);
+  assert.equal(aero.correct_pct, 100);
 });

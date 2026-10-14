@@ -141,13 +141,13 @@ export function registerGliderApi(app, { store, config }) {
     if (!card) return res.status(404).json({ error: 'card not found' });
     const prev = await store.getProgressOne(uk, card.id);
     const patch = nextProgress(prev, grade);
-    const row = await store.upsertProgress(uk, card.id, patch);
     const correct = resolveStudyCorrect({
       card,
       choice: req.body?.choice,
       correct: req.body?.correct,
       grade
     });
+    const row = await store.upsertProgress(uk, card.id, patch, { correct });
     const xp = xpForCorrectness(correct);
     const activity = await store.recordAnswer(uk, xp);
     res.json({ progress: row, activity, correct, xp });

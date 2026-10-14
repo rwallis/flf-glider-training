@@ -82,6 +82,21 @@ CREATE INDEX IF NOT EXISTS glider_daily_activity_date_idx
   ON glider_daily_activity (activity_date DESC);
 `;
 
+const PROGRESS_ACCURACY_SQL = `
+ALTER TABLE glider_progress
+  ADD COLUMN IF NOT EXISTS last_correct BOOLEAN,
+  ADD COLUMN IF NOT EXISTS answers_correct INT NOT NULL DEFAULT 0,
+  ADD COLUMN IF NOT EXISTS answers_total INT NOT NULL DEFAULT 0;
+
+UPDATE glider_progress
+SET
+  last_correct = (last_result IN ('hard', 'good', 'easy')),
+  answers_total = 1,
+  answers_correct = CASE WHEN last_result IN ('hard', 'good', 'easy') THEN 1 ELSE 0 END
+WHERE last_result IS NOT NULL
+  AND answers_total = 0;
+`;
+
 export async function createGliderPool(config) {
   if (!config.database.url) {
     console.warn('[glider-training] DATABASE_URL not set; running without Postgres');
@@ -97,6 +112,7 @@ export async function createGliderPool(config) {
 export async function ensureGliderSchema(db) {
   if (!db) return false;
   await db.query(SCHEMA_SQL);
+  await db.query(PROGRESS_ACCURACY_SQL);
   return true;
 }
 
