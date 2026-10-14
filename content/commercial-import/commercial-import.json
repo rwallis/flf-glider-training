@@ -189,10 +189,10 @@
         "commercial_written",
         "multiple_choice",
         "commercial",
-        "comm_landings"
+        "comm_regs"
       ],
-      "topic_id": "comm_landings",
-      "topic_title": "Landings & pattern"
+      "topic_id": "comm_regs",
+      "topic_title": "Regulations & publications"
     },
     {
       "id": "commercial_written_002",
@@ -209,10 +209,10 @@
         "commercial_written",
         "multiple_choice",
         "commercial",
-        "comm_landings"
+        "comm_regs"
       ],
-      "topic_id": "comm_landings",
-      "topic_title": "Landings & pattern"
+      "topic_id": "comm_regs",
+      "topic_title": "Regulations & publications"
     },
     {
       "id": "commercial_written_003",
@@ -389,10 +389,10 @@
         "commercial_written",
         "multiple_choice",
         "commercial",
-        "comm_landings"
+        "comm_regs"
       ],
-      "topic_id": "comm_landings",
-      "topic_title": "Landings & pattern"
+      "topic_id": "comm_regs",
+      "topic_title": "Regulations & publications"
     },
     {
       "id": "commercial_written_012",
@@ -409,10 +409,10 @@
         "commercial_written",
         "multiple_choice",
         "commercial",
-        "comm_landings"
+        "comm_perf"
       ],
-      "topic_id": "comm_landings",
-      "topic_title": "Landings & pattern"
+      "topic_id": "comm_perf",
+      "topic_title": "Performance airspeeds"
     },
     {
       "id": "commercial_written_013",
@@ -689,10 +689,10 @@
         "commercial_written",
         "multiple_choice",
         "commercial",
-        "comm_systems"
+        "comm_preflight"
       ],
-      "topic_id": "comm_systems",
-      "topic_title": "Systems & instruments"
+      "topic_id": "comm_preflight",
+      "topic_title": "Preflight preparation"
     },
     {
       "id": "commercial_written_027",
@@ -709,10 +709,10 @@
         "commercial_written",
         "multiple_choice",
         "commercial",
-        "comm_systems"
+        "comm_preflight"
       ],
-      "topic_id": "comm_systems",
-      "topic_title": "Systems & instruments"
+      "topic_id": "comm_preflight",
+      "topic_title": "Preflight preparation"
     },
     {
       "id": "commercial_written_028",
@@ -849,10 +849,10 @@
         "commercial_written",
         "multiple_choice",
         "commercial",
-        "comm_perf"
+        "comm_regs"
       ],
-      "topic_id": "comm_perf",
-      "topic_title": "Performance airspeeds"
+      "topic_id": "comm_regs",
+      "topic_title": "Regulations & publications"
     },
     {
       "id": "commercial_written_035",
@@ -869,10 +869,10 @@
         "commercial_written",
         "multiple_choice",
         "commercial",
-        "comm_perf"
+        "comm_regs"
       ],
-      "topic_id": "comm_perf",
-      "topic_title": "Performance airspeeds"
+      "topic_id": "comm_regs",
+      "topic_title": "Regulations & publications"
     },
     {
       "id": "commercial_written_036",
@@ -1029,10 +1029,10 @@
         "commercial_written",
         "multiple_choice",
         "commercial",
-        "comm_certs"
+        "comm_airspace"
       ],
-      "topic_id": "comm_certs",
-      "topic_title": "Certificates & privileges"
+      "topic_id": "comm_airspace",
+      "topic_title": "National Airspace System"
     },
     {
       "id": "commercial_written_044",
@@ -1049,10 +1049,10 @@
         "commercial_written",
         "multiple_choice",
         "commercial",
-        "comm_certs"
+        "comm_airspace"
       ],
-      "topic_id": "comm_certs",
-      "topic_title": "Certificates & privileges"
+      "topic_id": "comm_airspace",
+      "topic_title": "National Airspace System"
     },
     {
       "id": "commercial_written_045",
@@ -1069,10 +1069,10 @@
         "commercial_written",
         "multiple_choice",
         "commercial",
-        "comm_aero"
+        "comm_airspace"
       ],
-      "topic_id": "comm_aero",
-      "topic_title": "Principles of flight"
+      "topic_id": "comm_airspace",
+      "topic_title": "National Airspace System"
     },
     {
       "id": "commercial_written_046",
@@ -1089,10 +1089,10 @@
         "commercial_written",
         "multiple_choice",
         "commercial",
-        "comm_aero"
+        "comm_airspace"
       ],
-      "topic_id": "comm_aero",
-      "topic_title": "Principles of flight"
+      "topic_id": "comm_airspace",
+      "topic_title": "National Airspace System"
     },
     {
       "id": "commercial_written_047",
@@ -1109,10 +1109,10 @@
         "commercial_written",
         "multiple_choice",
         "commercial",
-        "comm_weather"
+        "comm_airspace"
       ],
-      "topic_id": "comm_weather",
-      "topic_title": "Weather"
+      "topic_id": "comm_airspace",
+      "topic_title": "National Airspace System"
     },
     {
       "id": "commercial_written_048",
@@ -1129,10 +1129,10 @@
         "commercial_written",
         "multiple_choice",
         "commercial",
-        "comm_weather"
+        "comm_airspace"
       ],
-      "topic_id": "comm_weather",
-      "topic_title": "Weather"
+      "topic_id": "comm_airspace",
+      "topic_title": "National Airspace System"
     },
     {
       "id": "commercial_written_049",
@@ -1189,10 +1189,10 @@
         "commercial_written",
         "multiple_choice",
         "commercial",
-        "comm_airworthy"
+        "comm_preflight"
       ],
-      "topic_id": "comm_airworthy",
-      "topic_title": "Airworthiness"
+      "topic_id": "comm_preflight",
+      "topic_title": "Preflight preparation"
     },
     {
       "id": "commercial_written_052",
@@ -1249,10 +1249,10 @@
         "commercial_written",
         "multiple_choice",
         "commercial",
-        "comm_airworthy"
+        "comm_preflight"
       ],
-      "topic_id": "comm_airworthy",
-      "topic_title": "Airworthiness"
+      "topic_id": "comm_preflight",
+      "topic_title": "Preflight preparation"
     },
     {
       "id": "commercial_written_055",
@@ -1369,10 +1369,10 @@
         "commercial_written",
         "multiple_choice",
         "commercial",
-        "comm_aero"
+        "comm_landings"
       ],
-      "topic_id": "comm_aero",
-      "topic_title": "Principles of flight"
+      "topic_id": "comm_landings",
+      "topic_title": "Landings & pattern"
     },
     {
       "id": "commercial_written_061",
@@ -1389,10 +1389,10 @@
         "commercial_written",
         "multiple_choice",
         "commercial",
-        "comm_aero"
+        "comm_landings"
       ],
-      "topic_id": "comm_aero",
-      "topic_title": "Principles of flight"
+      "topic_id": "comm_landings",
+      "topic_title": "Landings & pattern"
     },
     {
       "id": "commercial_written_062",
@@ -1489,10 +1489,10 @@
         "commercial_written",
         "multiple_choice",
         "commercial",
-        "comm_landings"
+        "comm_airspace"
       ],
-      "topic_id": "comm_landings",
-      "topic_title": "Landings & pattern"
+      "topic_id": "comm_airspace",
+      "topic_title": "National Airspace System"
     },
     {
       "id": "commercial_written_067",
@@ -7369,10 +7369,10 @@
         "commercial_written",
         "multiple_choice",
         "commercial",
-        "comm_controls"
+        "comm_regs"
       ],
-      "topic_id": "comm_controls",
-      "topic_title": "Flight controls & devices"
+      "topic_id": "comm_regs",
+      "topic_title": "Regulations & publications"
     },
     {
       "id": "commercial_written_370",
@@ -7649,10 +7649,10 @@
         "commercial_written",
         "multiple_choice",
         "commercial",
-        "comm_landings"
+        "comm_airspace"
       ],
-      "topic_id": "comm_landings",
-      "topic_title": "Landings & pattern"
+      "topic_id": "comm_airspace",
+      "topic_title": "National Airspace System"
     },
     {
       "id": "commercial_written_384",
@@ -7669,10 +7669,10 @@
         "commercial_written",
         "multiple_choice",
         "commercial",
-        "comm_weather"
+        "comm_airspace"
       ],
-      "topic_id": "comm_weather",
-      "topic_title": "Weather"
+      "topic_id": "comm_airspace",
+      "topic_title": "National Airspace System"
     }
   ]
 }

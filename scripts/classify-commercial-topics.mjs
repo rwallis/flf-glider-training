@@ -173,6 +173,42 @@ const TOPIC_BY_ID = Object.fromEntries(COMMERCIAL_TOPICS.map((t) => [t.id, t]));
 /** Ordered rules: first match wins. */
 const RULES = [
   {
+    // Keep NTSB/accident-report items out of Landings (choices often say "landing gear").
+    id: 'comm_regs',
+    any: [
+      /\bNTSB\b/,
+      /\bsubstantial damage\b/i,
+      /\baccident report\b/i,
+      /\bimmediate notification\b/i,
+      /\bnotification of an aircraft accident\b/i,
+      /\bsupplemental oxygen\b/i,
+      /\boxygen requirements?\b/i,
+      /\bcabin pressure altitudes?\b/i
+    ]
+  },
+  {
+    // VFR cloud/visibility minima are airspace operating rules, not meteorology.
+    id: 'comm_airspace',
+    any: [
+      /\bminimum flight visibility\b/i,
+      /\bproximity to cloud\b/i,
+      /\bdistance from clouds?\b/i,
+      /\bbasic VFR\b/i,
+      /\bVFR (?:flight )?(?:weather )?minimums?\b/i,
+      /\bclass [abcdefg]\b/i,
+      /\bairspace\b/i
+    ]
+  },
+  {
+    id: 'comm_preflight',
+    any: [
+      /\bAirplane \(or Rotorcraft\) Flight Manual\b/i,
+      /\bFlight Manual\b/i,
+      /\brequired by regulation to be available\b/i,
+      /\bcertificates and documents\b/i
+    ]
+  },
+  {
     id: 'comm_scan',
     any: [
       /\bwake turbulence\b/i,
@@ -214,9 +250,10 @@ const RULES = [
       /\bforward slip\b/i,
       /\bside slip\b/i,
       /\btouchdown\b/i,
-      /\blanding\b/i,
       /\bapproach to land/i,
-      /\bdownwind landing\b/i
+      /\bdownwind landing\b/i,
+      /\b(?:soft|short).?field landing\b/i,
+      /\blanding(?:s)?\b(?!\s+gear)/i
     ]
   },
   {
@@ -248,11 +285,11 @@ const RULES = [
   {
     id: 'comm_perf',
     any: [
-      /\bdensity alt/i,
-      /\bpressure alt/i,
-      /\babsolute alt/i,
-      /\btrue alt/i,
-      /\bindicated alt/i,
+      /\bdensity altitude\b/i,
+      /\b(?<!cabin )pressure altitude\b/i,
+      /\babsolute altitude\b/i,
+      /\btrue altitude\b/i,
+      /\bindicated altitude\b/i,
       /\bglide ratio\b/i,
       /\bL\/D\b/i,
       /\baspect ratio\b/i,
