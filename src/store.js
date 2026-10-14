@@ -221,7 +221,7 @@ function buildLeagueSummary({ userKey, days, profilesByKey, countsByUserDate }) 
   };
 }
 
-/** Normalize a card edit payload (question / answer / choices / source). */
+/** Normalize a card edit payload (question / answer / choices / details / source). */
 export function normalizeCardPatch(body = {}) {
   const patch = {};
   if (body.question !== undefined) {
@@ -250,6 +250,19 @@ export function normalizeCardPatch(body = {}) {
     } else {
       const choices = body.choices.map((c) => String(c ?? '').trim()).filter(Boolean);
       patch.choices = choices.length ? choices : null;
+    }
+  }
+  if (body.details !== undefined) {
+    if (body.details == null || body.details === '') {
+      patch.details = null;
+    } else if (typeof body.details !== 'object' || Array.isArray(body.details)) {
+      throw new Error('details must be an object with summary and links');
+    } else {
+      const details = normalizeCardDetails(body.details, { source: 'manual' });
+      if (!details) {
+        throw new Error('details need a summary and/or at least one https link');
+      }
+      patch.details = details;
     }
   }
   if (!Object.keys(patch).length) throw new Error('no fields to update');
@@ -613,6 +626,11 @@ export function createPgStore(db) {
         params.push(patch.choices ? JSON.stringify(patch.choices) : null);
         fields.push(`choices = $${params.length}::jsonb`);
       }
+      if (patch.details !== undefined) {
+        params.push(patch.details ? JSON.stringify(patch.details) : null);
+        fields.push(`details = $${params.length}::jsonb`);
+      }
+      if (!fields.length) throw new Error('no fields to update');
       params.push(id);
       const { rows } = await db.query(
         `UPDATE glider_cards SET ${fields.join(', ')}, updated_at = NOW()

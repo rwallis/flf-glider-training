@@ -46,7 +46,7 @@ export async function loadCardDetails() {
   }
 }
 
-export function normalizeCardDetails(raw) {
+export function normalizeCardDetails(raw, { source } = {}) {
   if (!raw || typeof raw !== 'object') return null;
   const summary = String(raw.summary || '').trim();
   const links = Array.isArray(raw.links)
@@ -58,7 +58,10 @@ export function normalizeCardDetails(raw) {
         .filter((link) => link.label && /^https?:\/\//i.test(link.url))
     : [];
   if (!summary && !links.length) return null;
-  return { summary, links };
+  const out = { summary, links };
+  const resolvedSource = source || raw.source;
+  if (resolvedSource === 'manual') out.source = 'manual';
+  return out;
 }
 
 export async function loadCardFigures() {
@@ -212,12 +215,21 @@ export async function seedGliderContent(db, { force = false } = {}) {
     const cardId = String(row?.card_id || '').trim();
     const details = normalizeCardDetails(row);
     if (!cardId || !details) continue;
-    const result = await db.query(
-      `UPDATE glider_cards
-       SET details = $2::jsonb, updated_at = NOW()
-       WHERE id = $1`,
-      [cardId, JSON.stringify(details)]
-    );
+    // Do not overwrite Details that were edited in the app (source=manual).
+    const result = force
+      ? await db.query(
+          `UPDATE glider_cards
+           SET details = $2::jsonb, updated_at = NOW()
+           WHERE id = $1`,
+          [cardId, JSON.stringify(details)]
+        )
+      : await db.query(
+          `UPDATE glider_cards
+           SET details = $2::jsonb, updated_at = NOW()
+           WHERE id = $1
+             AND (details IS NULL OR COALESCE(details->>'source', '') <> 'manual')`,
+          [cardId, JSON.stringify(details)]
+        );
     detailsUpserted += result.rowCount || 0;
   }
 

@@ -97,6 +97,41 @@ test('memory store updateCard edits question answer and choices', async () => {
   assert.equal(got.question, 'New Q');
 });
 
+test('normalizeCardPatch and updateCard persist manual details', async () => {
+  const patch = normalizeCardPatch({
+    details: {
+      summary: ' Teach rollout aileron drag. ',
+      links: [{ label: 'PHAK', url: 'https://www.faa.gov/phak' }, { label: 'bad', url: 'ftp://x' }]
+    }
+  });
+  assert.equal(patch.details.summary, 'Teach rollout aileron drag.');
+  assert.equal(patch.details.source, 'manual');
+  assert.equal(patch.details.links.length, 1);
+  assert.throws(() => normalizeCardPatch({ details: { summary: '', links: [] } }));
+
+  const store = createMemoryStore({
+    tracks: [],
+    topics: [],
+    cards: [{
+      id: 'c1',
+      track_id: 'cfi_g',
+      topic_id: 't1',
+      question: 'Q',
+      answer: 'A',
+      details: null
+    }]
+  });
+  const updated = await store.updateCard('c1', {
+    details: {
+      summary: 'Manual note',
+      links: [{ label: 'AIM', url: 'https://www.faa.gov/aim' }]
+    }
+  });
+  assert.equal(updated.details.summary, 'Manual note');
+  assert.equal(updated.details.source, 'manual');
+  assert.equal(updated.details.links[0].label, 'AIM');
+});
+
 test('memory store listCards supports q hasFigure track and limit', async () => {
   const store = createMemoryStore({
     tracks: [],
