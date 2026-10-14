@@ -3370,6 +3370,20 @@
           "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-C/section-61.93"
         }
       ]
+    },
+    {
+      "card_id": "cfi_stub_1",
+      "summary": "Placeholder leftover from early CFI-G scaffolding. The real Logbooks and endorsements bank is imported as cfi_g_bank_* cards. Ignore this stub for study; it can be deleted from the DB when convenient.",
+      "links": [
+        {
+          "label": "14 CFR Part 61 — Certification: Pilots, Flight Instructors",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61"
+        },
+        {
+          "label": "14 CFR § 61.189 — Flight instructor records",
+          "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61/subpart-H/section-61.189"
+        }
+      ]
     }
   ]
 }
