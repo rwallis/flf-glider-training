@@ -144,6 +144,56 @@
           "url": "https://www.ecfr.gov/current/title-14/chapter-I/subchapter-F/part-91/subpart-E/section-91.403"
         }
       ]
+    },
+    {
+      "card_id": "cfi_foi_levels",
+      "summary": "The four levels of learning build from lowest to highest: Rote (repeat facts), Understanding (explain concepts), Application (use knowledge to solve problems / perform skills), and Correlation (relate knowledge across domains and adapt in new situations). Instructors should teach toward correlation, not stop at rote memorization.",
+      "links": [
+        {
+          "label": "Aviation Instructor’s Handbook (FAA-H-8083-9B)",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/aviation_instructors_handbook"
+        },
+        {
+          "label": "AIH PDF — Learning Process / Levels of Learning",
+          "url": "https://www.faa.gov/sites/faa.gov/files/regulations_policies/handbooks_manuals/aviation/aviation_instructors_handbook/aviation_instructors_handbook.pdf"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_586",
+      "summary": "Introduce aeronautical decision making (ADM) as soon as the student can control the aircraft in basic maneuvers — not after solo, and not delayed until cross-country. Early ADM builds risk awareness while the student still has cognitive bandwidth once basic control is established. Keep ADM practical: identify hazards, assess risk, and mitigate during normal lesson tasks.",
+      "links": [
+        {
+          "label": "Aviation Instructor’s Handbook — ADM / Risk Management teaching",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/aviation_instructors_handbook"
+        },
+        {
+          "label": "Risk Management Handbook (FAA-H-8083-2)",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/risk_management_handbook"
+        },
+        {
+          "label": "Pilot’s Handbook of Aeronautical Knowledge — Aeronautical Decision-Making",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_587",
+      "summary": "Realistic distractions during training flights check whether the student can maintain aircraft control while attention is diverted — a core divide-attention / workload skill. Distractions should be intentional teaching tools (radio calls, checklist interruptions, “passenger” questions), not unsafe overload. The goal is safe control first, then resume the interrupted task.",
+      "links": [
+        {
+          "label": "Aviation Instructor’s Handbook — Teaching Methods / Flight Instruction",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/aviation_instructors_handbook"
+        },
+        {
+          "label": "AIH PDF (full handbook)",
+          "url": "https://www.faa.gov/sites/faa.gov/files/regulations_policies/handbooks_manuals/aviation/aviation_instructors_handbook/aviation_instructors_handbook.pdf"
+        },
+        {
+          "label": "Risk Management Handbook — Workload and distractions",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/risk_management_handbook"
+        }
+      ]
     }
   ]
 }
