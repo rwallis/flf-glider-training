@@ -385,6 +385,47 @@
       font-size: 0.78rem;
       color: var(--muted);
     }
+    .card-toolbar .meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      min-width: 0;
+    }
+    .card-toolbar .meta-remaining {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .topic-pill {
+      display: inline-flex;
+      align-items: center;
+      max-width: 100%;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #E8F2F8;
+      color: var(--sky-deep);
+      font-size: 0.72rem;
+      font-weight: 800;
+      line-height: 1.2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .details-pill {
+      appearance: none;
+      border: 1px solid #D7E4EE;
+      background: #F4F9FC;
+      color: var(--sky-deep);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+    .details-pill:active { transform: scale(0.98); }
     .grade-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -588,10 +629,6 @@
       justify-content: space-between;
       gap: 8px;
       margin-bottom: 8px;
-    }
-    .card-toolbar .meta {
-      font-size: 0.78rem;
-      color: var(--muted);
     }
     .card-toolbar .linkish {
       appearance: none;
@@ -1364,11 +1401,20 @@
       `;
     }
 
+    function topicTitleFor(card) {
+      if (!card?.topic_id) return 'Topic';
+      const match = (state.topics || []).find((t) => t.id === card.topic_id);
+      if (match?.title) return match.title;
+      if (card.topic_title) return card.topic_title;
+      return String(card.topic_id).replace(/^[^_]+_/, '').replace(/_/g, ' ');
+    }
+
     function renderStudy() {
       const card = currentCard();
       const topics = state.topics.filter((t) => t.track_id === state.study.track);
       const grades = state.study.grades || [];
       const remaining = Math.max(0, state.study.cards.length - state.study.index);
+      const topicTitle = card ? topicTitleFor(card) : '';
       const gradeHint = grades.length
         ? ` Last grade filter: ${grades.map((g) => g[0].toUpperCase() + g.slice(1)).join(', ')}.`
         : '';
@@ -1410,7 +1456,10 @@
         ${!card ? `<div class="empty">No cards in this deck filter. Try All, clear grade filters, another course, or Import.</div>` : `
           <div class="flash">
             <div class="card-toolbar">
-              <div class="meta">${remaining} remaining in session · ${escapeHtml(card.topic_id || '')}</div>
+              <div class="meta">
+                <span class="meta-remaining">${remaining} remaining in session</span>
+                <span class="topic-pill" title="${escapeHtml(card.topic_id || '')}">${escapeHtml(topicTitle)}</span>
+              </div>
               <button type="button" class="linkish" id="toggleEditBtn">${state.study.editing ? 'Editing…' : 'Edit'}</button>
             </div>
             ${state.study.editing ? renderEditCard(card) : `
@@ -1429,9 +1478,9 @@
               ` : (!state.study.revealed
                 ? `<div class="btn-row"><button type="button" id="revealBtn">Show answer</button></div>`
                 : '')}
+              <button type="button" class="details-pill" id="cardDetailsBtn" data-card-id="${escapeHtml(card.id)}">Details</button>
               ${state.study.revealed ? `
                 ${!(Array.isArray(card.choices) && card.choices.length) ? `<div class="a">${escapeHtml(card.answer)}</div>` : ''}
-                <div class="source">${escapeHtml(card.source || '')}</div>
                 <div class="grade-row">
                   <button type="button" class="again" data-grade="again">Again</button>
                   <button type="button" class="hard" data-grade="hard">Hard</button>
@@ -2017,6 +2066,13 @@
         state.study.revealed = true;
         render();
       });
+      const detailsBtn = app.querySelector('#cardDetailsBtn');
+      if (detailsBtn) {
+        detailsBtn.addEventListener('click', () => {
+          const card = currentCard();
+          toast(card?.id ? `Details for ${card.id} coming soon` : 'Details coming soon');
+        });
+      }
       app.querySelectorAll('[data-choice-index]').forEach((btn) => {
         btn.addEventListener('click', () => {
           if (state.study.revealed || state.study.editing) return;
