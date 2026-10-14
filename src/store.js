@@ -269,36 +269,83 @@ export function normalizeCardPatch(body = {}) {
   return patch;
 }
 
-/** Simple SM-2-ish update for study reps. */
-export function nextProgress(prev, grade) {
+export const STUDY_SCHEDULE_KEY = 'study_schedule';
+
+/** Default due delays by grade (Admin can override). */
+export const DEFAULT_STUDY_SCHEDULE = {
+  again: { value: 10, unit: 'minutes' },
+  hard: { value: 1, unit: 'days' },
+  good: { value: 7, unit: 'days' },
+  easy: { value: 0, unit: 'never' }
+};
+
+const SCHEDULE_UNITS = new Set(['minutes', 'hours', 'days', 'never']);
+const NEVER_DUE_ISO = '9999-12-31T00:00:00.000Z';
+
+export function normalizeStudySchedule(raw) {
+  const out = {
+    again: { ...DEFAULT_STUDY_SCHEDULE.again },
+    hard: { ...DEFAULT_STUDY_SCHEDULE.hard },
+    good: { ...DEFAULT_STUDY_SCHEDULE.good },
+    easy: { ...DEFAULT_STUDY_SCHEDULE.easy }
+  };
+  for (const grade of ['again', 'hard', 'good', 'easy']) {
+    const rule = raw?.[grade];
+    if (!rule || typeof rule !== 'object') continue;
+    const unit = String(rule.unit || '').toLowerCase();
+    if (!SCHEDULE_UNITS.has(unit)) continue;
+    if (unit === 'never') {
+      out[grade] = { value: 0, unit: 'never' };
+      continue;
+    }
+    const value = Number(rule.value);
+    if (!Number.isFinite(value) || value < 0) continue;
+    const max = unit === 'minutes' ? 525600 : unit === 'hours' ? 8760 : 3650;
+    out[grade] = { value: Math.min(max, Math.floor(value)), unit };
+  }
+  return out;
+}
+
+export function dueAtFromSchedule(grade, schedule, now = new Date()) {
+  const rule = normalizeStudySchedule(schedule)[grade] || DEFAULT_STUDY_SCHEDULE.again;
+  if (rule.unit === 'never') return new Date(NEVER_DUE_ISO);
+  let ms = 0;
+  if (rule.unit === 'minutes') ms = rule.value * 60 * 1000;
+  else if (rule.unit === 'hours') ms = rule.value * 60 * 60 * 1000;
+  else ms = rule.value * 24 * 60 * 60 * 1000;
+  return new Date(now.getTime() + ms);
+}
+
+export function intervalDaysFromSchedule(grade, schedule) {
+  const rule = normalizeStudySchedule(schedule)[grade] || DEFAULT_STUDY_SCHEDULE.again;
+  if (rule.unit === 'never') return 36500;
+  if (rule.unit === 'minutes') return rule.value / 1440;
+  if (rule.unit === 'hours') return rule.value / 24;
+  return rule.value;
+}
+
+/** Update progress after a grade using the Admin study schedule. */
+export function nextProgress(prev, grade, schedule = DEFAULT_STUDY_SCHEDULE) {
   // grade: again | hard | good | easy
   const now = new Date();
   let ease = prev?.ease ?? 2.5;
-  let interval = prev?.interval_days ?? 0;
   let reps = prev?.reps ?? 0;
   let lapses = prev?.lapses ?? 0;
 
   if (grade === 'again') {
     reps = 0;
     lapses += 1;
-    interval = 0;
     ease = Math.max(1.3, ease - 0.2);
   } else {
     reps += 1;
     if (grade === 'hard') ease = Math.max(1.3, ease - 0.15);
     if (grade === 'easy') ease = ease + 0.15;
-    if (reps === 1) interval = grade === 'easy' ? 3 : 1;
-    else if (reps === 2) interval = grade === 'easy' ? 7 : 3;
-    else interval = Math.max(1, Math.round(interval * ease));
   }
-
-  const due = new Date(now.getTime() + interval * 24 * 60 * 60 * 1000);
-  if (grade === 'again') due.setTime(now.getTime() + 10 * 60 * 1000);
 
   return {
     ease,
-    interval_days: interval,
-    due_at: due.toISOString(),
+    interval_days: intervalDaysFromSchedule(grade, schedule),
+    due_at: dueAtFromSchedule(grade, schedule, now).toISOString(),
     reps,
     lapses,
     last_result: grade,
@@ -314,10 +361,21 @@ export function createMemoryStore(seed) {
     progress: new Map(),
     imports: [],
     dailyActivity: new Map(), // `${userKey}::YYYY-MM-DD` -> answers
-    profiles: new Map() // userKey -> { name, email, picture, userKey }
+    profiles: new Map(), // userKey -> { name, email, picture, userKey }
+    settings: new Map([
+      [STUDY_SCHEDULE_KEY, normalizeStudySchedule(seed.studySchedule || DEFAULT_STUDY_SCHEDULE)]
+    ])
   };
 
   return {
+    async getStudySchedule() {
+      return normalizeStudySchedule(state.settings.get(STUDY_SCHEDULE_KEY));
+    },
+    async setStudySchedule(schedule) {
+      const next = normalizeStudySchedule(schedule);
+      state.settings.set(STUDY_SCHEDULE_KEY, next);
+      return next;
+    },
     async listTracks() {
       return state.tracks.sort((a, b) => a.sort_order - b.sort_order);
     },
@@ -550,6 +608,23 @@ export function createMemoryStore(seed) {
 
 export function createPgStore(db) {
   return {
+    async getStudySchedule() {
+      const { rows } = await db.query(
+        'SELECT value FROM glider_settings WHERE key = $1',
+        [STUDY_SCHEDULE_KEY]
+      );
+      return normalizeStudySchedule(rows[0]?.value);
+    },
+    async setStudySchedule(schedule) {
+      const next = normalizeStudySchedule(schedule);
+      await db.query(
+        `INSERT INTO glider_settings (key, value, updated_at)
+         VALUES ($1, $2::jsonb, NOW())
+         ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value, updated_at = NOW()`,
+        [STUDY_SCHEDULE_KEY, JSON.stringify(next)]
+      );
+      return next;
+    },
     async listTracks() {
       const { rows } = await db.query(
         'SELECT * FROM glider_tracks ORDER BY sort_order, title'

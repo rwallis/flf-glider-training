@@ -858,6 +858,27 @@
       color: var(--muted);
       font-weight: 700;
     }
+    .schedule-row {
+      display: grid;
+      grid-template-columns: 72px 1fr 1fr;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .schedule-row .grade-name {
+      font-weight: 800;
+      font-size: 0.88rem;
+    }
+    .schedule-row input,
+    .schedule-row select {
+      margin: 0;
+    }
+    .schedule-row input:disabled {
+      opacity: 0.45;
+    }
+    @media (max-width: 420px) {
+      .schedule-row { grid-template-columns: 1fr; }
+    }
     .admin-result {
       width: 100%;
       text-align: left;
@@ -1231,7 +1252,13 @@
         topics: [],
         results: [],
         status: '',
-        searchTimer: null
+        searchTimer: null,
+        schedule: {
+          again: { value: 10, unit: 'minutes' },
+          hard: { value: 1, unit: 'days' },
+          good: { value: 7, unit: 'days' },
+          easy: { value: 0, unit: 'never' }
+        }
       },
       progressTracks: [],
       league: null,
@@ -1777,7 +1804,8 @@
           `).join('')}
         </div>
         <div class="chip-row">
-          <button type="button" class="chip ${state.study.mode === 'due' ? 'active' : ''}" data-set-mode="due">Due &amp; new</button>
+          <button type="button" class="chip ${state.study.mode === 'due' ? 'active' : ''}" data-set-mode="due">Due</button>
+          <button type="button" class="chip ${state.study.mode === 'new' ? 'active' : ''}" data-set-mode="new">New</button>
           <button type="button" class="chip ${state.study.mode === 'all' ? 'active' : ''}" data-set-mode="all">All cards</button>
           <button type="button" class="chip ${state.study.mode === 'weak' ? 'active' : ''}" data-set-mode="weak">Weak cards</button>
         </div>
@@ -1795,10 +1823,12 @@
         </div>
         <p class="hint">${
           state.study.mode === 'due'
-            ? 'Due &amp; new: cards you have never studied, plus cards whose review date is today or overdue.'
-            : state.study.mode === 'weak'
-              ? 'Weak cards: ones you marked Again often or that have a low ease score.'
-              : 'All cards: every card in this category, ignoring review schedule.'
+            ? 'Due: cards you have studied whose next review time is now or overdue (set in Admin → Due schedule).'
+            : state.study.mode === 'new'
+              ? 'New: cards you have never graded yet.'
+              : state.study.mode === 'weak'
+                ? 'Weak cards: ones you marked Again often or that have a low ease score.'
+                : 'All cards: every card in this category, ignoring review schedule.'
         }${gradeHint} Showing ${state.study.cards.length} of ${state.study.matched || state.study.cards.length} matched.</p>
         <label>Topic</label>
         <select id="topicSelect">
@@ -2501,6 +2531,36 @@
         </section>
 
         <section class="admin-section">
+          <h2>Due schedule</h2>
+          <p class="hint">
+            How long until a card becomes Due again after each grade.
+            <strong>Not due</strong> (Easy default) keeps the card out of the Due list.
+          </p>
+          ${['again', 'hard', 'good', 'easy'].map((grade) => {
+            const rule = a.schedule?.[grade] || { value: 0, unit: 'days' };
+            const never = rule.unit === 'never';
+            const label = grade[0].toUpperCase() + grade.slice(1);
+            return `
+              <div class="schedule-row" data-schedule-grade="${grade}">
+                <div class="grade-name">${label}</div>
+                <input type="number" min="0" step="1" data-schedule-value
+                  value="${never ? '' : escapeHtml(String(rule.value ?? 0))}"
+                  placeholder="0" ${never ? 'disabled' : ''} />
+                <select data-schedule-unit>
+                  <option value="minutes" ${rule.unit === 'minutes' ? 'selected' : ''}>Minutes</option>
+                  <option value="hours" ${rule.unit === 'hours' ? 'selected' : ''}>Hours</option>
+                  <option value="days" ${rule.unit === 'days' ? 'selected' : ''}>Days</option>
+                  <option value="never" ${never ? 'selected' : ''}>Not due</option>
+                </select>
+              </div>`;
+          }).join('')}
+          <div class="btn-row">
+            <button type="button" class="secondary" id="resetScheduleBtn">Reset defaults</button>
+            <button type="button" id="saveScheduleBtn">Save schedule</button>
+          </div>
+        </section>
+
+        <section class="admin-section">
           <h2>Import deck</h2>
           <p class="hint">
             Upload CSV (<code>question,answer</code> or <code>topic,question,answer</code>) or paste JSON cards.
@@ -2568,12 +2628,36 @@
       if (state.view === 'admin') render();
     }
 
+    function readScheduleFromDom() {
+      const schedule = {};
+      app.querySelectorAll('[data-schedule-grade]').forEach((row) => {
+        const grade = row.dataset.scheduleGrade;
+        const unit = row.querySelector('[data-schedule-unit]')?.value || 'days';
+        if (unit === 'never') {
+          schedule[grade] = { value: 0, unit: 'never' };
+          return;
+        }
+        const value = Number(row.querySelector('[data-schedule-value]')?.value);
+        schedule[grade] = {
+          value: Number.isFinite(value) && value >= 0 ? Math.floor(value) : 0,
+          unit
+        };
+      });
+      return schedule;
+    }
+
     async function loadAdmin() {
       if (!(state.tracks || []).length) {
         const tracks = await api('/api/courses').catch(() => api('/api/tracks'));
         state.tracks = tracks.courses || tracks.tracks || [];
       }
       await loadAdminTopics();
+      try {
+        const sched = await api('/api/study-schedule');
+        if (sched?.schedule) state.admin.schedule = sched.schedule;
+      } catch {
+        /* keep defaults */
+      }
       try {
         state.imports = (await api('/api/imports')).imports;
       } catch (err) {
@@ -2877,6 +2961,46 @@
           }
         });
       });
+      app.querySelectorAll('[data-schedule-unit]').forEach((sel) => {
+        sel.addEventListener('change', () => {
+          const row = sel.closest('[data-schedule-grade]');
+          const input = row?.querySelector('[data-schedule-value]');
+          if (!input) return;
+          const never = sel.value === 'never';
+          input.disabled = never;
+          if (never) input.value = '';
+          else if (input.value === '') input.value = '1';
+        });
+      });
+      const resetScheduleBtn = app.querySelector('#resetScheduleBtn');
+      if (resetScheduleBtn) {
+        resetScheduleBtn.addEventListener('click', () => {
+          state.admin.schedule = {
+            again: { value: 10, unit: 'minutes' },
+            hard: { value: 1, unit: 'days' },
+            good: { value: 7, unit: 'days' },
+            easy: { value: 0, unit: 'never' }
+          };
+          render();
+        });
+      }
+      const saveScheduleBtn = app.querySelector('#saveScheduleBtn');
+      if (saveScheduleBtn) {
+        saveScheduleBtn.addEventListener('click', async () => {
+          try {
+            const schedule = readScheduleFromDom();
+            const result = await api('/api/study-schedule', {
+              method: 'PUT',
+              body: JSON.stringify({ schedule })
+            });
+            state.admin.schedule = result.schedule;
+            toast('Due schedule saved');
+            render();
+          } catch (err) {
+            toast(err.message || 'Save failed');
+          }
+        });
+      }
       const importBtn = app.querySelector('#importBtn');
       if (importBtn) {
         importBtn.addEventListener('click', async () => {

@@ -83,7 +83,7 @@ export function registerGliderApi(app, { store, config }) {
     if (!uk) return;
     const trackId = req.query.track || undefined;
     const topicId = req.query.topic || undefined;
-    const mode = req.query.mode || 'due'; // due | all | weak
+    const mode = req.query.mode || 'due'; // due | new | all | weak
     const limitRaw = Number(req.query.limit);
     const limit = Number.isFinite(limitRaw)
       ? Math.min(200, Math.max(1, Math.floor(limitRaw)))
@@ -105,9 +105,11 @@ export function registerGliderApi(app, { store, config }) {
     if (mode === 'due') {
       deck = deck.filter((c) => {
         const p = c.progress;
-        if (!p) return true;
+        if (!p) return false;
         return new Date(p.due_at).getTime() <= now;
       });
+    } else if (mode === 'new') {
+      deck = deck.filter((c) => !c.progress);
     } else if (mode === 'weak') {
       deck = deck.filter((c) => c.progress && (c.progress.lapses > 0 || c.progress.ease < 2.2));
     }
@@ -148,7 +150,8 @@ export function registerGliderApi(app, { store, config }) {
     const card = await store.getCard(req.params.cardId);
     if (!card) return res.status(404).json({ error: 'card not found' });
     const prev = await store.getProgressOne(uk, card.id);
-    const patch = nextProgress(prev, grade);
+    const schedule = await store.getStudySchedule();
+    const patch = nextProgress(prev, grade, schedule);
     const correct = resolveStudyCorrect({
       card,
       choice: req.body?.choice,
@@ -177,6 +180,22 @@ export function registerGliderApi(app, { store, config }) {
       const card = await store.updateCard(req.params.cardId, req.body || {});
       if (!card) return res.status(404).json({ error: 'card not found' });
       res.json({ ok: true, card });
+    } catch (error) {
+      res.status(400).json({ error: error.message || String(error) });
+    }
+  });
+
+  app.get('/api/study-schedule', async (req, res) => {
+    if (!requireUserKey(req, res, config)) return;
+    const schedule = await store.getStudySchedule();
+    res.json({ schedule });
+  });
+
+  app.put('/api/study-schedule', async (req, res) => {
+    if (!requireUserKey(req, res, config)) return;
+    try {
+      const schedule = await store.setStudySchedule(req.body?.schedule || req.body || {});
+      res.json({ ok: true, schedule });
     } catch (error) {
       res.status(400).json({ error: error.message || String(error) });
     }

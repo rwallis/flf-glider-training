@@ -80,6 +80,12 @@ CREATE TABLE IF NOT EXISTS glider_daily_activity (
 
 CREATE INDEX IF NOT EXISTS glider_daily_activity_date_idx
   ON glider_daily_activity (activity_date DESC);
+
+CREATE TABLE IF NOT EXISTS glider_settings (
+  key TEXT PRIMARY KEY,
+  value JSONB NOT NULL,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
 `;
 
 const PROGRESS_ACCURACY_SQL = `

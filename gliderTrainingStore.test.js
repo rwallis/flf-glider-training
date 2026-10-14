@@ -3,6 +3,7 @@ import test from 'node:test';
 import {
   nextProgress,
   normalizeCardPatch,
+  normalizeStudySchedule,
   parseImportPayload,
   createMemoryStore,
   activityDateKey,
@@ -10,7 +11,8 @@ import {
   resolveStudyCorrect,
   xpForCorrectness,
   correctPercent,
-  computeCourseReadiness
+  computeCourseReadiness,
+  DEFAULT_STUDY_SCHEDULE
 } from './src/store.js';
 import { normalizeCardDetails } from './src/seed.js';
 
@@ -23,12 +25,46 @@ test('nextProgress again schedules soon and lowers ease', () => {
   assert.ok(new Date(out.due_at) - Date.now() < 15 * 60 * 1000);
 });
 
-test('nextProgress good increases interval after first reps', () => {
-  const first = nextProgress(null, 'good');
-  assert.equal(first.reps, 1);
-  const second = nextProgress(first, 'good');
-  assert.equal(second.reps, 2);
-  assert.ok(second.interval_days >= 1);
+test('nextProgress uses grade schedule defaults', () => {
+  const hard = nextProgress(null, 'hard');
+  assert.equal(hard.reps, 1);
+  assert.ok(Math.abs(hard.interval_days - 1) < 0.001);
+  const dueHard = new Date(hard.due_at) - Date.now();
+  assert.ok(dueHard > 20 * 60 * 60 * 1000 && dueHard < 26 * 60 * 60 * 1000);
+
+  const good = nextProgress(null, 'good');
+  assert.ok(Math.abs(good.interval_days - 7) < 0.001);
+
+  const easy = nextProgress(null, 'easy');
+  assert.equal(new Date(easy.due_at).getUTCFullYear(), 9999);
+
+  const custom = nextProgress(null, 'good', {
+    ...DEFAULT_STUDY_SCHEDULE,
+    good: { value: 2, unit: 'hours' }
+  });
+  const dueCustom = new Date(custom.due_at) - Date.now();
+  assert.ok(dueCustom > 90 * 60 * 1000 && dueCustom < 150 * 60 * 1000);
+});
+
+test('normalizeStudySchedule fills defaults and accepts never', () => {
+  const s = normalizeStudySchedule({ easy: { unit: 'never' }, hard: { value: 3, unit: 'days' } });
+  assert.equal(s.again.unit, 'minutes');
+  assert.equal(s.again.value, 10);
+  assert.equal(s.hard.value, 3);
+  assert.equal(s.easy.unit, 'never');
+});
+
+test('memory store persists study schedule', async () => {
+  const store = createMemoryStore({ tracks: [], topics: [], cards: [] });
+  const saved = await store.setStudySchedule({
+    again: { value: 5, unit: 'minutes' },
+    hard: { value: 2, unit: 'days' },
+    good: { value: 14, unit: 'days' },
+    easy: { value: 0, unit: 'never' }
+  });
+  assert.equal(saved.again.value, 5);
+  const got = await store.getStudySchedule();
+  assert.equal(got.good.value, 14);
 });
 
 test('parseImportPayload accepts csv', () => {
