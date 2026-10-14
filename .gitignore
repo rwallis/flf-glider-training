@@ -8,3 +8,4 @@ node_modules/
 
 content/commercial-written-raw.csv
 content/commercial-written-import.json
+content/faa-supplements/*.pdf
