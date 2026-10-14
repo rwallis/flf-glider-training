@@ -544,6 +544,90 @@
           "url": "https://www.faa.gov/regulationspolicies/handbooksmanuals/risk-management-handbook-faa-h-8083-2a"
         }
       ]
+    },
+    {
+      "card_id": "cfi_g_bank_216",
+      "summary": "Bank stem text looks mis-pasted (mentions thermal indices), but the choices/key test dust-devil technique: avoid the clear area at the outside edge of the dust column because of severe downdrafts. Dust marks the rising core; the clear rim is often where air sinks hard. Teach students to treat that clear collar as a no-go, not a “cleaner” entry.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "AIM 7-3 — Wake Turbulence (related vortex hazards)",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap7_section_3.html"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_217",
+      "summary": "When soaring in a dust devil, an important precaution is to avoid the eye (core) of the vortex because of extreme turbulence. Dust may look inviting as a thermal marker, but the center can be violently turbulent. Prefer the smoother lift on the outside of the rotating column and leave immediately if the ride gets rough.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        },
+        {
+          "label": "PHAK — Weather / Thermals context",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_355",
+      "summary": "Wake turbulence wingtip vortices circulate outward, upward, and around each wingtip. From behind the generating airplane, each vortex is a horizontal tornado that sinks and drifts with the wind. Knowing the circulation direction helps you picture where the hazard sits relative to the flightpath.",
+      "links": [
+        {
+          "label": "AIM 7-3-2 — Vortex Generation / Behavior",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap7_section_3.html"
+        },
+        {
+          "label": "AC 90-48 — Pilots’ Role in Collision Avoidance",
+          "url": "https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_90-48D.pdf"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_357",
+      "summary": "Departing behind a large jet: minimize wingtip-vortex hazard by becoming airborne before you reach the jet’s flightpath (rotate prior to the jet’s rotation point / liftoff path), then turn clear of the wake. Remaining below the jet’s path keeps you in the sinking vortices; extending the roll past the jet’s rotation point puts you into the vortex trail.",
+      "links": [
+        {
+          "label": "AIM 7-3-6 — Vortex Avoidance Procedures",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap7_section_3.html"
+        },
+        {
+          "label": "AC 90-48 — Pilots’ Role in Collision Avoidance",
+          "url": "https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_90-48D.pdf"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_359",
+      "summary": "Helicopters in forward flight generate wingtip-like vortices similar to fixed-wing aircraft (plus strong rotor downwash when hovering or at low speed). Do not teach “helicopters only make downwash.” Also remember vortices sink below the generating aircraft’s path after a short time — they do not stay level indefinitely.",
+      "links": [
+        {
+          "label": "AIM 7-3-7 — Helicopters / Wake",
+          "url": "https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap7_section_3.html"
+        },
+        {
+          "label": "AC 90-48 — Pilots’ Role in Collision Avoidance",
+          "url": "https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_90-48D.pdf"
+        }
+      ]
+    },
+    {
+      "card_id": "cfi_g_bank_550",
+      "summary": "Releasing from aerotow while still in the low-tow position risks the tow ring / rope striking and damaging the glider after release (the rope can slap up into the nose or canopy area). Teach normal release from high-tow (or the POH-approved position), confirm clear, then release — and brief abort/rope-break procedures so students never “dive off” low-tow as a habit.",
+      "links": [
+        {
+          "label": "Glider Flying Handbook — Launches and Landing (Ch 7)",
+          "url": "https://www.faa.gov/sites/faa.gov/files/regulations_policies/handbooks_manuals/aviation/glider_handbook/gfh_ch07.pdf"
+        },
+        {
+          "label": "Glider Flying Handbook",
+          "url": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
+        }
+      ]
     }
   ]
 }
