@@ -313,6 +313,13 @@
       "track": "cfi_g"
     },
     {
+      "card_id": "cfi_g_bank_052",
+      "figure": 21,
+      "title": "Aspect Ratio",
+      "url": "/figures/cfi-g/figure-21.jpg",
+      "track": "cfi_g"
+    },
+    {
       "card_id": "cfi_g_bank_069",
       "figure": 38,
       "title": "Cross-Country",
@@ -562,6 +569,13 @@
       "figure": 24,
       "title": "Density Altitude Chart",
       "url": "/figures/cfi-g/figure-24.jpg",
+      "track": "cfi_g"
+    },
+    {
+      "card_id": "cfi_g_bank_666",
+      "figure": 30,
+      "title": "Wind Component Chart",
+      "url": "/figures/cfi-g/figure-30.jpg",
       "track": "cfi_g"
     },
     {
