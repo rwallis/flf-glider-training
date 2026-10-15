@@ -302,7 +302,7 @@ test('computeCourseReadiness requires full coverage and 80% score', () => {
   assert.equal(ready.blocker, null);
 });
 
-test('progressByTrack includes topic correct percentages', async () => {
+test('progressByTrack topic percent uses last answer; hover keeps history', async () => {
   const store = createMemoryStore({
     tracks: [{ id: 'commercial', title: 'Commercial', sort_order: 1, status: 'ready' }],
     topics: [
@@ -315,6 +315,7 @@ test('progressByTrack includes topic correct percentages', async () => {
       { id: 'c3', track_id: 'commercial', topic_id: 'comm_aero', question: 'Q3', answer: 'A3' }
     ]
   });
+  await store.upsertProgress('u1', 'c1', nextProgress(null, 'again'), { correct: false });
   await store.upsertProgress('u1', 'c1', nextProgress(null, 'good'), { correct: true });
   await store.upsertProgress('u1', 'c2', nextProgress(null, 'again'), { correct: false });
   await store.upsertProgress('u1', 'c3', nextProgress(null, 'easy'), { correct: true });
@@ -322,7 +323,10 @@ test('progressByTrack includes topic correct percentages', async () => {
   assert.equal(rows.length, 1);
   const weather = rows[0].topics.find((t) => t.id === 'comm_weather');
   const aero = rows[0].topics.find((t) => t.id === 'comm_aero');
-  assert.equal(weather.answers_total, 2);
+  // Hover history still counts every graded attempt on the topic.
+  assert.equal(weather.answers_total, 3);
+  assert.equal(weather.answers_correct, 1);
+  // Displayed % uses last answer per card only (c1 correct, c2 wrong → 50%).
   assert.equal(weather.correct_pct, 50);
   assert.equal(aero.correct_pct, 100);
   assert.equal(rows[0].readiness.coverage_pct, 100);

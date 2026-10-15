@@ -105,10 +105,12 @@ function topicAccuracyRows(topics, cards, progressByCard) {
     let answersCorrect = 0;
     let answersTotal = 0;
     let studied = 0;
+    let lastCorrect = 0;
     for (const card of topicCards) {
       const p = progressByCard.get(card.id);
       if (!p) continue;
       studied += 1;
+      if (progressLooksCorrect(p)) lastCorrect += 1;
       const total = Number(p.answers_total) || 0;
       if (total > 0) {
         answersTotal += total;
@@ -126,9 +128,11 @@ function topicAccuracyRows(topics, cards, progressByCard) {
       sort_order: topic.sort_order ?? 0,
       card_count: topicCards.length,
       studied,
+      // Historical totals kept for hover tooltips.
       answers_correct: answersCorrect,
       answers_total: answersTotal,
-      correct_pct: correctPercent(answersCorrect, answersTotal)
+      // Displayed % = readiness: last answer per card only.
+      correct_pct: correctPercent(lastCorrect, studied)
     };
   });
 }
@@ -977,6 +981,12 @@ export function createPgStore(db) {
            tp.sort_order,
            COUNT(c.id)::int AS card_count,
            COUNT(p.card_id)::int AS studied,
+           COUNT(*) FILTER (
+             WHERE p.card_id IS NOT NULL AND (
+               p.last_correct IS TRUE
+               OR (p.last_correct IS NULL AND p.last_result IN ('hard', 'good', 'easy'))
+             )
+           )::int AS last_correct,
            COALESCE(SUM(
              CASE
                WHEN COALESCE(p.answers_total, 0) > 0 THEN p.answers_total
@@ -1007,9 +1017,11 @@ export function createPgStore(db) {
           sort_order: row.sort_order,
           card_count: row.card_count,
           studied: row.studied,
+          // Historical totals kept for hover tooltips.
           answers_correct: row.answers_correct,
           answers_total: row.answers_total,
-          correct_pct: correctPercent(row.answers_correct, row.answers_total)
+          // Displayed % = readiness: last answer per card only.
+          correct_pct: correctPercent(row.last_correct, row.studied)
         });
         topicsByTrack.set(row.track_id, list);
       }
