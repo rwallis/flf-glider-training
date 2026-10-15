@@ -634,6 +634,31 @@
       margin-top: 14px;
     }
     .grade-row button { padding: 14px 6px; font-size: 0.85rem; }
+    .study-nav-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .study-nav-row button {
+      padding: 10px 12px;
+      font-size: 0.85rem;
+      background: #E8F2F8;
+      color: var(--sky-deep);
+    }
+    .study-nav-row button:disabled {
+      opacity: 0.45;
+      cursor: default;
+    }
+    .study-nav-row .study-nav-back { justify-self: start; }
+    .study-nav-row .study-nav-next { justify-self: end; }
+    .study-nav-pos {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--muted);
+      white-space: nowrap;
+    }
     .nav {
       position: fixed;
       left: 0; right: 0; bottom: 0;
@@ -1667,6 +1692,25 @@
       return state.study.cards[state.study.index] || null;
     }
 
+    function resetStudyCardUi() {
+      state.study.revealed = false;
+      state.study.quizChoice = null;
+      state.study.editing = false;
+      state.study.editDraft = null;
+      state.study.detailsOpen = false;
+      state.study.detailsEditing = false;
+      state.study.detailsDraft = null;
+      state.study.figureOpen = false;
+    }
+
+    function moveStudy(delta) {
+      const next = state.study.index + delta;
+      if (next < 0 || next >= state.study.cards.length) return;
+      state.study.index = next;
+      resetStudyCardUi();
+      render();
+    }
+
     function beginEditCard() {
       const card = currentCard();
       if (!card) return;
@@ -1909,6 +1953,11 @@
                   <button type="button" class="easy" data-grade="easy">Easy</button>
                 </div>
               ` : ''}
+              <div class="study-nav-row">
+                <button type="button" class="study-nav-back" id="studyBackBtn" ${state.study.index <= 0 ? 'disabled' : ''}>← Back</button>
+                <span class="study-nav-pos">${state.study.index + 1} / ${state.study.cards.length}</span>
+                <button type="button" class="study-nav-next" id="studyNextBtn" ${state.study.index >= state.study.cards.length - 1 ? 'disabled' : ''}>Next →</button>
+              </div>
             `}
           </div>
           ${state.study.detailsOpen ? renderDetailsSheet(card) : ''}
@@ -2931,6 +2980,14 @@
       app.querySelectorAll('.grade-row [data-grade]').forEach((btn) => {
         btn.addEventListener('click', () => grade(btn.dataset.grade));
       });
+      const studyBackBtn = app.querySelector('#studyBackBtn');
+      if (studyBackBtn) {
+        studyBackBtn.addEventListener('click', () => moveStudy(-1));
+      }
+      const studyNextBtn = app.querySelector('#studyNextBtn');
+      if (studyNextBtn) {
+        studyNextBtn.addEventListener('click', () => moveStudy(1));
+      }
       const adminSearchQ = app.querySelector('#adminSearchQ');
       if (adminSearchQ) {
         adminSearchQ.addEventListener('input', () => {
