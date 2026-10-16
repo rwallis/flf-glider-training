@@ -1265,6 +1265,7 @@
         matched: 0,
         cards: [],
         index: 0,
+        doneIds: new Set(),
         revealed: false,
         quizChoice: null,
         editing: false,
@@ -1585,6 +1586,7 @@
       state.study.cards = data.cards;
       state.study.matched = data.matched ?? data.cards.length;
       state.study.index = 0;
+      state.study.doneIds = new Set();
       state.study.revealed = false;
       state.study.quizChoice = null;
       state.study.editing = false;
@@ -1635,6 +1637,7 @@
       state.study.cards = cards;
       state.study.matched = data.matched ?? cards.length;
       state.study.index = idx;
+      state.study.doneIds = new Set();
       render();
     }
 
@@ -1642,6 +1645,15 @@
       if (!card || choice == null) return null;
       const norm = (s) => String(s ?? '').trim().replace(/[.?!,;:]+$/g, '').replace(/\s+/g, ' ').toLowerCase();
       return norm(choice) === norm(card.answer);
+    }
+
+    function findNextIncomplete(fromIndex) {
+      const cards = state.study.cards;
+      const done = state.study.doneIds || new Set();
+      for (let i = Math.max(0, fromIndex); i < cards.length; i++) {
+        if (cards[i] && !done.has(cards[i].id)) return i;
+      }
+      return -1;
     }
 
     async function grade(g) {
@@ -1660,7 +1672,9 @@
           correct
         })
       });
-      state.study.cards.splice(state.study.index, 1);
+      // Keep graded cards in the session list so Back can return to them.
+      if (!state.study.doneIds) state.study.doneIds = new Set();
+      state.study.doneIds.add(card.id);
       state.study.revealed = false;
       state.study.quizChoice = null;
       state.study.editing = false;
@@ -1669,7 +1683,13 @@
       state.study.detailsEditing = false;
       state.study.detailsDraft = null;
       state.study.figureOpen = false;
-      if (state.study.index >= state.study.cards.length) state.study.index = 0;
+      const nextIncomplete = findNextIncomplete(state.study.index + 1);
+      if (nextIncomplete >= 0) {
+        state.study.index = nextIncomplete;
+      } else {
+        const wrap = findNextIncomplete(0);
+        if (wrap >= 0) state.study.index = wrap;
+      }
       if (state.stats && result?.activity?.answers != null) {
         state.stats.today_xp = result.activity.answers;
       }
@@ -1870,7 +1890,8 @@
       const card = currentCard();
       const topics = state.topics.filter((t) => t.track_id === state.study.track);
       const grades = state.study.grades || [];
-      const remaining = Math.max(0, state.study.cards.length - state.study.index);
+      const done = state.study.doneIds || new Set();
+      const remaining = state.study.cards.filter((c) => c && !done.has(c.id)).length;
       const topicTitle = card ? topicTitleFor(card) : '';
       const gradeHint = grades.length
         ? ` Last grade filter: ${grades.map((g) => g[0].toUpperCase() + g.slice(1)).join(', ')}.`
