@@ -37,61 +37,414 @@
     }
   ],
   "topics": [
-    { "id": "common_aero", "track_id": "common", "title": "Aerodynamics", "description": "Lift, drag, stalls, load factor.", "pts_ref": "GFH / PHAK", "sort_order": 10 },
-    { "id": "common_wx", "track_id": "common", "title": "Weather & lift", "description": "Thermals, fronts, thunderstorms, soaring forecasts.", "pts_ref": "FAA-H-8083-28", "sort_order": 20 },
-    { "id": "common_regs", "track_id": "common", "title": "Regulations basics", "description": "61 / 91 essentials for glider PIC.", "pts_ref": "14 CFR 61, 91", "sort_order": 30 },
-    { "id": "common_adm", "track_id": "common", "title": "ADM & human factors", "description": "IMSAFE, hazardous attitudes, hypoxia.", "pts_ref": "AIM / PHAK", "sort_order": 40 },
-    { "id": "common_airspace", "track_id": "common", "title": "Airspace & equipment", "description": "Classes, VFR minima, transponder rules for gliders.", "pts_ref": "91.155, 91.215", "sort_order": 50 },
-
-    { "id": "priv_placeholder", "track_id": "private", "title": "Upload private Q&A", "description": "Import CSV/JSON when ready.", "pts_ref": "Private Glider PTS", "sort_order": 10 },
-
-    { "id": "comm_certs", "track_id": "commercial", "title": "Certificates & privileges", "description": "Commercial privileges, currency, medical, experience.", "pts_ref": "PTS I.A / 61.133", "sort_order": 10 },
-    { "id": "comm_airworthy", "track_id": "commercial", "title": "Airworthiness", "description": "Inspections, ADs, maintenance records, INOP gear.", "pts_ref": "PTS I.B", "sort_order": 20 },
-    { "id": "comm_aeromedical", "track_id": "commercial", "title": "Aeromedical & human factors", "description": "Hypoxia, ADM, hazardous attitudes, fitness to fly.", "pts_ref": "AIM / PHAK", "sort_order": 30 },
-    { "id": "comm_scan", "track_id": "commercial", "title": "Scanning & collision avoidance", "description": "See-and-avoid, wake turbulence, clearing procedures.", "pts_ref": "AC 90-48", "sort_order": 40 },
-    { "id": "comm_aero", "track_id": "commercial", "title": "Principles of flight", "description": "Lift, drag, stability, airfoils, forces in flight.", "pts_ref": "GFH / PHAK", "sort_order": 50 },
-    { "id": "comm_controls", "track_id": "commercial", "title": "Flight controls & devices", "description": "Ailerons, rudder, trim, spoilers, dive brakes, adverse yaw.", "pts_ref": "GFH", "sort_order": 60 },
-    { "id": "comm_wb", "track_id": "commercial", "title": "Weight & balance", "description": "CG, ballast, loading, envelopes.", "pts_ref": "PTS / POH", "sort_order": 70 },
-    { "id": "comm_nav", "track_id": "commercial", "title": "Navigation & flight planning", "description": "Charts, pilotage, dead reckoning, XC planning.", "pts_ref": "PTS VIII", "sort_order": 80 },
-    { "id": "comm_regs", "track_id": "commercial", "title": "Regulations & publications", "description": "14 CFR, NTSB, AIM, Chart Supplement, NOTAMs.", "pts_ref": "14 CFR / NTSB 830", "sort_order": 90 },
-    { "id": "comm_airspace", "track_id": "commercial", "title": "National Airspace System", "description": "Airspace classes, TFRs, SUA, communications.", "pts_ref": "AIM / 91.155", "sort_order": 100 },
-    { "id": "comm_preflight", "track_id": "commercial", "title": "Preflight preparation", "description": "Documents, weather briefing, assembly, ground handling.", "pts_ref": "PTS I–II", "sort_order": 110 },
-    { "id": "comm_airport", "track_id": "commercial", "title": "Airport & gliderport operations", "description": "Patterns, signs, markings, lighting, taxi.", "pts_ref": "PTS III", "sort_order": 120 },
-    { "id": "comm_tow", "track_id": "commercial", "title": "Aerotow & abnormals", "description": "Positions, boxing, rope break, release failures, winch/auto.", "pts_ref": "PTS IV.A–G", "sort_order": 130 },
-    { "id": "comm_landings", "track_id": "commercial", "title": "Landings & pattern", "description": "Approach, slips, touchdown, downwind landings.", "pts_ref": "PTS III.B / IV.Q–S", "sort_order": 140 },
-    { "id": "comm_perf", "track_id": "commercial", "title": "Performance airspeeds", "description": "Min sink, best L/D, speed-to-fly, density altitude.", "pts_ref": "PTS V", "sort_order": 150 },
-    { "id": "comm_soaring", "track_id": "commercial", "title": "Soaring techniques", "description": "Thermals, ridge, wave, lift sources.", "pts_ref": "PTS VI", "sort_order": 160 },
-    { "id": "comm_maneuvers", "track_id": "commercial", "title": "Performance maneuvers", "description": "Straight glides, turns to headings, steep turns.", "pts_ref": "PTS VII", "sort_order": 170 },
-    { "id": "comm_stalls", "track_id": "commercial", "title": "Slow flight, stalls & spins", "description": "Stall recognition/recovery, spin entry/recovery.", "pts_ref": "PTS IX", "sort_order": 180 },
-    { "id": "comm_emergency", "track_id": "commercial", "title": "Emergency operations", "description": "Rope break, off-field, systems failures, abnormals.", "pts_ref": "PTS X", "sort_order": 190 },
-    { "id": "comm_weather", "track_id": "commercial", "title": "Weather", "description": "Reports, forecasts, fronts, thunderstorms, icing.", "pts_ref": "AC 00-6 / AIM", "sort_order": 200 },
-    { "id": "comm_systems", "track_id": "commercial", "title": "Systems & instruments", "description": "Pitot-static, compass, ASI markings, oxygen.", "pts_ref": "GFH / PHAK", "sort_order": 210 },
-
-    { "id": "cfi_foi", "track_id": "cfi_g", "title": "Fundamentals of Instructing", "description": "Learning process, teaching methods, critique, lesson planning.", "pts_ref": "FOI / AIH", "sort_order": 10 },
-    { "id": "cfi_aeromedical", "track_id": "cfi_g", "title": "Aeromedical & human factors", "description": "Hypoxia, ADM, hazardous attitudes, fitness to fly.", "pts_ref": "FIG II.A / AIM", "sort_order": 20 },
-    { "id": "cfi_scan", "track_id": "cfi_g", "title": "Scanning & collision avoidance", "description": "See-and-avoid, wake turbulence, clearing procedures.", "pts_ref": "FIG II.B / AC 90-48", "sort_order": 30 },
-    { "id": "cfi_aero", "track_id": "cfi_g", "title": "Principles of flight", "description": "Lift, drag, stability, airfoils, forces in flight.", "pts_ref": "FIG II.D / GFH", "sort_order": 40 },
-    { "id": "cfi_controls", "track_id": "cfi_g", "title": "Flight controls & devices", "description": "Ailerons, rudder, trim, spoilers, dive brakes, adverse yaw.", "pts_ref": "FIG II.E–F", "sort_order": 50 },
-    { "id": "cfi_wb", "track_id": "cfi_g", "title": "Weight & balance", "description": "CG, ballast, loading, envelopes.", "pts_ref": "FIG II.G", "sort_order": 60 },
-    { "id": "cfi_nav", "track_id": "cfi_g", "title": "Navigation & flight planning", "description": "Charts, pilotage, dead reckoning, XC planning.", "pts_ref": "FIG II.H", "sort_order": 70 },
-    { "id": "cfi_regs", "track_id": "cfi_g", "title": "Regulations & publications", "description": "14 CFR, NTSB, AIM, Chart Supplement, ADs.", "pts_ref": "FIG II.I", "sort_order": 80 },
-    { "id": "cfi_airspace", "track_id": "cfi_g", "title": "National Airspace System", "description": "Airspace classes, TFRs, SUA, communications.", "pts_ref": "FIG II.J", "sort_order": 90 },
-    { "id": "cfi_endorsements", "track_id": "cfi_g", "title": "Logbooks & endorsements", "description": "Instructor endorsements, certificates, privileges, duration.", "pts_ref": "FIG II.K / Part 61", "sort_order": 100 },
-    { "id": "cfi_preflight", "track_id": "cfi_g", "title": "Preflight preparation", "description": "Documents, weather briefing, assembly, ground handling.", "pts_ref": "FIG III–V", "sort_order": 110 },
-    { "id": "cfi_airport", "track_id": "cfi_g", "title": "Airport & gliderport operations", "description": "Patterns, signs, markings, lighting, taxi.", "pts_ref": "FIG VI", "sort_order": 120 },
-    { "id": "cfi_launch", "track_id": "cfi_g", "title": "Launches & landings", "description": "Aerotow, winch/auto, rope rules, slips, landings.", "pts_ref": "FIG VII", "sort_order": 130 },
-    { "id": "cfi_perf", "track_id": "cfi_g", "title": "Performance airspeeds", "description": "Min sink, best L/D, speed-to-fly, density altitude.", "pts_ref": "FIG IX", "sort_order": 140 },
-    { "id": "cfi_soaring", "track_id": "cfi_g", "title": "Soaring techniques", "description": "Thermals, ridge, wave, lift sources.", "pts_ref": "FIG X", "sort_order": 150 },
-    { "id": "cfi_maneuvers", "track_id": "cfi_g", "title": "Performance maneuvers", "description": "Straight glides, turns to headings, steep turns.", "pts_ref": "FIG XI", "sort_order": 160 },
-    { "id": "cfi_stalls", "track_id": "cfi_g", "title": "Slow flight, stalls & spins", "description": "Stall recognition/recovery, spin entry/recovery.", "pts_ref": "FIG XII", "sort_order": 170 },
-    { "id": "cfi_emergency", "track_id": "cfi_g", "title": "Emergency operations", "description": "Rope break, off-field, systems failures, abnormals.", "pts_ref": "FIG XIII", "sort_order": 180 },
-    { "id": "cfi_weather", "track_id": "cfi_g", "title": "Weather", "description": "Reports, forecasts, fronts, thunderstorms, icing.", "pts_ref": "AC 00-6 / AIM", "sort_order": 190 },
-    { "id": "cfi_systems", "track_id": "cfi_g", "title": "Systems & instruments", "description": "Pitot-static, compass, ASI markings, oxygen.", "pts_ref": "GFH / PHAK", "sort_order": 200 },
-
-    { "id": "a233_speeds", "track_id": "aircraft_233", "title": "Speeds & limits", "description": "POH airspeeds and load factors.", "pts_ref": "2-33 POH", "sort_order": 10 },
-    { "id": "a233_wb", "track_id": "aircraft_233", "title": "Weight & balance", "description": "MGW, placards, ballast.", "pts_ref": "2-33 POH / TCDS G2EA", "sort_order": 20 },
-    { "id": "a233_systems", "track_id": "aircraft_233", "title": "Systems & preflight", "description": "Dive brakes, release, trim, papers.", "pts_ref": "2-33 POH", "sort_order": 30 },
-    { "id": "a233_ads", "track_id": "aircraft_233", "title": "Airworthiness Directives", "description": "Current airframe ADs to brief from the logbook.", "pts_ref": "DRS ADFRAWD", "sort_order": 40 }
+    {
+      "id": "common_aero",
+      "track_id": "common",
+      "title": "Aerodynamics",
+      "description": "Lift, drag, stalls, load factor.",
+      "pts_ref": "GFH / PHAK",
+      "sort_order": 10
+    },
+    {
+      "id": "common_wx",
+      "track_id": "common",
+      "title": "Weather & lift",
+      "description": "Thermals, fronts, thunderstorms, soaring forecasts.",
+      "pts_ref": "FAA-H-8083-28",
+      "sort_order": 20
+    },
+    {
+      "id": "common_regs",
+      "track_id": "common",
+      "title": "Regulations basics",
+      "description": "61 / 91 essentials for glider PIC.",
+      "pts_ref": "14 CFR 61, 91",
+      "sort_order": 30
+    },
+    {
+      "id": "common_adm",
+      "track_id": "common",
+      "title": "ADM & human factors",
+      "description": "IMSAFE, hazardous attitudes, hypoxia.",
+      "pts_ref": "AIM / PHAK",
+      "sort_order": 40
+    },
+    {
+      "id": "common_airspace",
+      "track_id": "common",
+      "title": "Airspace & equipment",
+      "description": "Classes, VFR minima, transponder rules for gliders.",
+      "pts_ref": "91.155, 91.215",
+      "sort_order": 50
+    },
+    {
+      "id": "priv_placeholder",
+      "track_id": "private",
+      "title": "Upload private Q&A",
+      "description": "Import CSV/JSON when ready.",
+      "pts_ref": "Private Glider PTS",
+      "sort_order": 10
+    },
+    {
+      "id": "comm_certs",
+      "track_id": "commercial",
+      "title": "Certificates & privileges",
+      "description": "Commercial privileges, currency, medical, experience.",
+      "pts_ref": "PTS I.A / 61.133",
+      "sort_order": 10
+    },
+    {
+      "id": "comm_airworthy",
+      "track_id": "commercial",
+      "title": "Airworthiness",
+      "description": "Inspections, ADs, maintenance records, INOP gear.",
+      "pts_ref": "PTS I.B",
+      "sort_order": 20
+    },
+    {
+      "id": "comm_aeromedical",
+      "track_id": "commercial",
+      "title": "Aeromedical & human factors",
+      "description": "Hypoxia, ADM, hazardous attitudes, fitness to fly.",
+      "pts_ref": "AIM / PHAK",
+      "sort_order": 30
+    },
+    {
+      "id": "comm_scan",
+      "track_id": "commercial",
+      "title": "Scanning & collision avoidance",
+      "description": "See-and-avoid, wake turbulence, clearing procedures.",
+      "pts_ref": "AC 90-48",
+      "sort_order": 40
+    },
+    {
+      "id": "comm_aero",
+      "track_id": "commercial",
+      "title": "Principles of flight",
+      "description": "Lift, drag, stability, airfoils, forces in flight.",
+      "pts_ref": "GFH / PHAK",
+      "sort_order": 50
+    },
+    {
+      "id": "comm_controls",
+      "track_id": "commercial",
+      "title": "Flight controls & devices",
+      "description": "Ailerons, rudder, trim, spoilers, dive brakes, adverse yaw.",
+      "pts_ref": "GFH",
+      "sort_order": 60
+    },
+    {
+      "id": "comm_wb",
+      "track_id": "commercial",
+      "title": "Weight & balance",
+      "description": "CG, ballast, loading, envelopes.",
+      "pts_ref": "PTS / POH",
+      "sort_order": 70
+    },
+    {
+      "id": "comm_nav",
+      "track_id": "commercial",
+      "title": "Navigation & flight planning",
+      "description": "Charts, pilotage, dead reckoning, XC planning.",
+      "pts_ref": "PTS VIII",
+      "sort_order": 80
+    },
+    {
+      "id": "comm_regs",
+      "track_id": "commercial",
+      "title": "Regulations & publications",
+      "description": "14 CFR, NTSB, AIM, Chart Supplement, NOTAMs.",
+      "pts_ref": "14 CFR / NTSB 830",
+      "sort_order": 90
+    },
+    {
+      "id": "comm_airspace",
+      "track_id": "commercial",
+      "title": "National Airspace System",
+      "description": "Airspace classes, TFRs, SUA, communications.",
+      "pts_ref": "AIM / 91.155",
+      "sort_order": 100
+    },
+    {
+      "id": "comm_preflight",
+      "track_id": "commercial",
+      "title": "Preflight preparation",
+      "description": "Documents, weather briefing, assembly, ground handling.",
+      "pts_ref": "PTS I–II",
+      "sort_order": 110
+    },
+    {
+      "id": "comm_airport",
+      "track_id": "commercial",
+      "title": "Airport & gliderport operations",
+      "description": "Patterns, signs, markings, lighting, taxi.",
+      "pts_ref": "PTS III",
+      "sort_order": 120
+    },
+    {
+      "id": "comm_tow",
+      "track_id": "commercial",
+      "title": "Aerotow & abnormals",
+      "description": "Positions, boxing, rope break, release failures, winch/auto.",
+      "pts_ref": "PTS IV.A–G",
+      "sort_order": 130
+    },
+    {
+      "id": "comm_landings",
+      "track_id": "commercial",
+      "title": "Landings & pattern",
+      "description": "Approach, slips, touchdown, downwind landings.",
+      "pts_ref": "PTS III.B / IV.Q–S",
+      "sort_order": 140
+    },
+    {
+      "id": "comm_perf",
+      "track_id": "commercial",
+      "title": "Performance airspeeds",
+      "description": "Min sink, best L/D, speed-to-fly, density altitude.",
+      "pts_ref": "PTS V",
+      "sort_order": 150
+    },
+    {
+      "id": "comm_soaring",
+      "track_id": "commercial",
+      "title": "Soaring techniques",
+      "description": "Thermals, ridge, wave, lift sources.",
+      "pts_ref": "PTS VI",
+      "sort_order": 160
+    },
+    {
+      "id": "comm_maneuvers",
+      "track_id": "commercial",
+      "title": "Performance maneuvers",
+      "description": "Straight glides, turns to headings, steep turns.",
+      "pts_ref": "PTS VII",
+      "sort_order": 170
+    },
+    {
+      "id": "comm_stalls",
+      "track_id": "commercial",
+      "title": "Slow flight, stalls & spins",
+      "description": "Stall recognition/recovery, spin entry/recovery.",
+      "pts_ref": "PTS IX",
+      "sort_order": 180
+    },
+    {
+      "id": "comm_emergency",
+      "track_id": "commercial",
+      "title": "Emergency operations",
+      "description": "Rope break, off-field, systems failures, abnormals.",
+      "pts_ref": "PTS X",
+      "sort_order": 190
+    },
+    {
+      "id": "comm_weather",
+      "track_id": "commercial",
+      "title": "Weather",
+      "description": "Reports, forecasts, fronts, thunderstorms, icing.",
+      "pts_ref": "AC 00-6 / AIM",
+      "sort_order": 200
+    },
+    {
+      "id": "comm_systems",
+      "track_id": "commercial",
+      "title": "Systems & instruments",
+      "description": "Pitot-static, compass, ASI markings, oxygen.",
+      "pts_ref": "GFH / PHAK",
+      "sort_order": 210
+    },
+    {
+      "id": "cfi_foi",
+      "track_id": "cfi_g",
+      "title": "Fundamentals of Instructing",
+      "description": "Learning process, teaching methods, critique, lesson planning.",
+      "pts_ref": "FOI / AIH",
+      "sort_order": 10
+    },
+    {
+      "id": "cfi_aeromedical",
+      "track_id": "cfi_g",
+      "title": "Aeromedical & human factors",
+      "description": "Hypoxia, ADM, hazardous attitudes, fitness to fly.",
+      "pts_ref": "FIG II.A / AIM",
+      "sort_order": 20
+    },
+    {
+      "id": "cfi_scan",
+      "track_id": "cfi_g",
+      "title": "Scanning & collision avoidance",
+      "description": "See-and-avoid, wake turbulence, clearing procedures.",
+      "pts_ref": "FIG II.B / AC 90-48",
+      "sort_order": 30
+    },
+    {
+      "id": "cfi_aero",
+      "track_id": "cfi_g",
+      "title": "Principles of flight",
+      "description": "Lift, drag, stability, airfoils, forces in flight.",
+      "pts_ref": "FIG II.D / GFH",
+      "sort_order": 40
+    },
+    {
+      "id": "cfi_controls",
+      "track_id": "cfi_g",
+      "title": "Flight controls & devices",
+      "description": "Ailerons, rudder, trim, spoilers, dive brakes, adverse yaw.",
+      "pts_ref": "FIG II.E–F",
+      "sort_order": 50
+    },
+    {
+      "id": "cfi_wb",
+      "track_id": "cfi_g",
+      "title": "Weight & balance",
+      "description": "CG, ballast, loading, envelopes.",
+      "pts_ref": "FIG II.G",
+      "sort_order": 60
+    },
+    {
+      "id": "cfi_nav",
+      "track_id": "cfi_g",
+      "title": "Navigation & flight planning",
+      "description": "Charts, pilotage, dead reckoning, XC planning.",
+      "pts_ref": "FIG II.H",
+      "sort_order": 70
+    },
+    {
+      "id": "cfi_regs",
+      "track_id": "cfi_g",
+      "title": "Regulations & publications",
+      "description": "14 CFR, NTSB, AIM, Chart Supplement, ADs.",
+      "pts_ref": "FIG II.I",
+      "sort_order": 80
+    },
+    {
+      "id": "cfi_airspace",
+      "track_id": "cfi_g",
+      "title": "National Airspace System",
+      "description": "Airspace classes, TFRs, SUA, communications.",
+      "pts_ref": "FIG II.J",
+      "sort_order": 90
+    },
+    {
+      "id": "cfi_endorsements",
+      "track_id": "cfi_g",
+      "title": "Logbooks & endorsements",
+      "description": "Instructor endorsements, certificates, privileges, duration.",
+      "pts_ref": "FIG II.K / Part 61",
+      "sort_order": 100
+    },
+    {
+      "id": "cfi_preflight",
+      "track_id": "cfi_g",
+      "title": "Preflight preparation",
+      "description": "Documents, weather briefing, assembly, ground handling.",
+      "pts_ref": "FIG III–V",
+      "sort_order": 110
+    },
+    {
+      "id": "cfi_airport",
+      "track_id": "cfi_g",
+      "title": "Airport & gliderport operations",
+      "description": "Patterns, signs, markings, lighting, taxi.",
+      "pts_ref": "FIG VI",
+      "sort_order": 120
+    },
+    {
+      "id": "cfi_launch",
+      "track_id": "cfi_g",
+      "title": "Launches & landings",
+      "description": "Aerotow, winch/auto, rope rules, slips, landings.",
+      "pts_ref": "FIG VII",
+      "sort_order": 130
+    },
+    {
+      "id": "cfi_perf",
+      "track_id": "cfi_g",
+      "title": "Performance airspeeds",
+      "description": "Min sink, best L/D, speed-to-fly, density altitude.",
+      "pts_ref": "FIG IX",
+      "sort_order": 140
+    },
+    {
+      "id": "cfi_soaring",
+      "track_id": "cfi_g",
+      "title": "Soaring techniques",
+      "description": "Thermals, ridge, wave, lift sources.",
+      "pts_ref": "FIG X",
+      "sort_order": 150
+    },
+    {
+      "id": "cfi_maneuvers",
+      "track_id": "cfi_g",
+      "title": "Performance maneuvers",
+      "description": "Straight glides, turns to headings, steep turns.",
+      "pts_ref": "FIG XI",
+      "sort_order": 160
+    },
+    {
+      "id": "cfi_stalls",
+      "track_id": "cfi_g",
+      "title": "Slow flight, stalls & spins",
+      "description": "Stall recognition/recovery, spin entry/recovery.",
+      "pts_ref": "FIG XII",
+      "sort_order": 170
+    },
+    {
+      "id": "cfi_emergency",
+      "track_id": "cfi_g",
+      "title": "Emergency operations",
+      "description": "Rope break, off-field, systems failures, abnormals.",
+      "pts_ref": "FIG XIII",
+      "sort_order": 180
+    },
+    {
+      "id": "cfi_weather",
+      "track_id": "cfi_g",
+      "title": "Weather",
+      "description": "Reports, forecasts, fronts, thunderstorms, icing.",
+      "pts_ref": "AC 00-6 / AIM",
+      "sort_order": 190
+    },
+    {
+      "id": "cfi_systems",
+      "track_id": "cfi_g",
+      "title": "Systems & instruments",
+      "description": "Pitot-static, compass, ASI markings, oxygen.",
+      "pts_ref": "GFH / PHAK",
+      "sort_order": 200
+    },
+    {
+      "id": "a233_speeds",
+      "track_id": "aircraft_233",
+      "title": "Speeds & limits",
+      "description": "POH airspeeds and load factors.",
+      "pts_ref": "2-33 POH",
+      "sort_order": 10
+    },
+    {
+      "id": "a233_wb",
+      "track_id": "aircraft_233",
+      "title": "Weight & balance",
+      "description": "MGW, placards, ballast.",
+      "pts_ref": "2-33 POH / TCDS G2EA",
+      "sort_order": 20
+    },
+    {
+      "id": "a233_systems",
+      "track_id": "aircraft_233",
+      "title": "Systems & preflight",
+      "description": "Dive brakes, release, trim, papers.",
+      "pts_ref": "2-33 POH",
+      "sort_order": 30
+    },
+    {
+      "id": "a233_ads",
+      "track_id": "aircraft_233",
+      "title": "Airworthiness Directives",
+      "description": "Current airframe ADs to brief from the logbook.",
+      "pts_ref": "DRS ADFRAWD",
+      "sort_order": 40
+    }
   ],
   "cards": [
     {
@@ -100,9 +453,17 @@
       "topic_id": "common_aero",
       "question": "About how much does stall speed increase in a 45° coordinated bank?",
       "answer": "Load factor ≈ 1.4 g, so stall speed rises by about √1.4 ≈ 18%.",
-      "choices": ["About 5%", "About 18%", "About 41%", "It does not change"],
+      "choices": [
+        "About 5%",
+        "About 18%",
+        "About 41%",
+        "It does not change"
+      ],
       "source": "PHAK / GFH load factor",
-      "tags": ["stall", "load_factor"]
+      "tags": [
+        "stall",
+        "load_factor"
+      ]
     },
     {
       "id": "c_aero_60",
@@ -110,9 +471,16 @@
       "topic_id": "common_aero",
       "question": "What is the load factor in a 60° bank level turn, and roughly the stall speed increase?",
       "answer": "2 g; stall speed about 41% higher (√2).",
-      "choices": ["1.15 g / ~7%", "1.4 g / ~18%", "2 g / ~41%", "3 g / ~73%"],
+      "choices": [
+        "1.15 g / ~7%",
+        "1.4 g / ~18%",
+        "2 g / ~41%",
+        "3 g / ~73%"
+      ],
       "source": "PHAK",
-      "tags": ["steep_turn"]
+      "tags": [
+        "steep_turn"
+      ]
     },
     {
       "id": "c_aero_dalr",
@@ -120,9 +488,16 @@
       "topic_id": "common_wx",
       "question": "What is the dry adiabatic lapse rate used in soaring discussions?",
       "answer": "About 3°C per 1,000 ft (≈5.4°F / 1,000 ft).",
-      "choices": ["2°C/1000 ft", "3°C/1000 ft", "5°C/1000 ft", "10°C/1000 ft"],
+      "choices": [
+        "2°C/1000 ft",
+        "3°C/1000 ft",
+        "5°C/1000 ft",
+        "10°C/1000 ft"
+      ],
       "source": "Aviation Weather Handbook",
-      "tags": ["thermal"]
+      "tags": [
+        "thermal"
+      ]
     },
     {
       "id": "c_wx_ts",
@@ -132,7 +507,9 @@
       "answer": "Unstable air + lifting action + moisture (humidity).",
       "choices": null,
       "source": "GFH / weather texts",
-      "tags": ["thunderstorm"]
+      "tags": [
+        "thunderstorm"
+      ]
     },
     {
       "id": "c_wx_cloud_base_f",
@@ -142,7 +519,9 @@
       "answer": "(Temperature − dew point) / 4.4 × 1,000 = approximate base AGL.",
       "choices": null,
       "source": "Soaring weather rules of thumb",
-      "tags": ["cloudbase"]
+      "tags": [
+        "cloudbase"
+      ]
     },
     {
       "id": "c_regs_medical",
@@ -150,9 +529,16 @@
       "topic_id": "common_regs",
       "question": "Do glider pilots need an FAA medical certificate?",
       "answer": "No. But under 61.53 you must not fly with a known medical deficiency that makes you unsafe.",
-      "choices": ["Yes, third-class always", "Yes, BasicMed", "No medical, but 61.53 fitness still applies", "Only if carrying passengers"],
+      "choices": [
+        "Yes, third-class always",
+        "Yes, BasicMed",
+        "No medical, but 61.53 fitness still applies",
+        "Only if carrying passengers"
+      ],
       "source": "61.23 / 61.53 / GFH",
-      "tags": ["medical"]
+      "tags": [
+        "medical"
+      ]
     },
     {
       "id": "c_regs_solo_age",
@@ -160,9 +546,16 @@
       "topic_id": "common_regs",
       "question": "Minimum ages: solo glider and Private Pilot — Glider?",
       "answer": "Solo 14; Private Pilot glider 16.",
-      "choices": ["16 and 17", "14 and 16", "15 and 17", "14 and 18"],
+      "choices": [
+        "16 and 17",
+        "14 and 16",
+        "15 and 17",
+        "14 and 18"
+      ],
       "source": "61.83 / 61.103",
-      "tags": ["age"]
+      "tags": [
+        "age"
+      ]
     },
     {
       "id": "c_regs_passenger",
@@ -172,7 +565,9 @@
       "answer": "Three takeoffs and landings in a glider within the preceding 90 days (61.57), plus a current flight review as applicable.",
       "choices": null,
       "source": "61.57",
-      "tags": ["currency"]
+      "tags": [
+        "currency"
+      ]
     },
     {
       "id": "c_adm_imsafe",
@@ -182,7 +577,9 @@
       "answer": "Illness, Medication, Stress, Alcohol, Fatigue, Emotion.",
       "choices": null,
       "source": "AIM 8-1",
-      "tags": ["imsafe"]
+      "tags": [
+        "imsafe"
+      ]
     },
     {
       "id": "c_adm_attitudes",
@@ -192,7 +589,9 @@
       "answer": "Anti-authority → follow the rules; Impulsivity → not so fast; Invulnerability → it could happen to me; Macho → taking chances is foolish; Resignation → I can make a difference.",
       "choices": null,
       "source": "PHAK ADM",
-      "tags": ["adm"]
+      "tags": [
+        "adm"
+      ]
     },
     {
       "id": "c_as_g_day",
@@ -200,9 +599,16 @@
       "topic_id": "common_airspace",
       "question": "Class G day below 1,200 AGL — basic VFR for a glider?",
       "answer": "1 SM visibility, clear of clouds.",
-      "choices": ["3 SM / 500-1000-2000", "1 SM clear of clouds", "5 SM clear of clouds", "3 SM clear of clouds"],
+      "choices": [
+        "3 SM / 500-1000-2000",
+        "1 SM clear of clouds",
+        "5 SM clear of clouds",
+        "3 SM clear of clouds"
+      ],
       "source": "91.155",
-      "tags": ["vfr"]
+      "tags": [
+        "vfr"
+      ]
     },
     {
       "id": "c_xpdr_veil",
@@ -212,7 +618,9 @@
       "answer": "A glider may operate unequipped if outside A/B/C and below the B/C ceiling or 10,000 MSL, whichever is lower.",
       "choices": null,
       "source": "91.215(b)(3)",
-      "tags": ["transponder"]
+      "tags": [
+        "transponder"
+      ]
     },
     {
       "id": "c_xpdr_10k",
@@ -220,11 +628,17 @@
       "topic_id": "common_airspace",
       "question": "Does the 'above 10,000 MSL' Mode C rule apply to gliders?",
       "answer": "No — 91.215(b)(5) excepts aircraft without an engine-driven electrical system, balloons, and gliders (excluding ≤2,500 AGL carve-out language for powered ships).",
-      "choices": ["Yes, always", "No, gliders are excepted", "Only above 18,000", "Only in Class E"],
+      "choices": [
+        "Yes, always",
+        "No, gliders are excepted",
+        "Only above 18,000",
+        "Only in Class E"
+      ],
       "source": "91.215(b)(5)",
-      "tags": ["transponder"]
+      "tags": [
+        "transponder"
+      ]
     },
-
     {
       "id": "priv_stub_1",
       "track_id": "private",
@@ -233,9 +647,10 @@
       "answer": "Use Import to upload CSV/JSON with track=private when your private study Q&A are ready (planned last after CFI-G).",
       "choices": null,
       "source": "App stub",
-      "tags": ["stub"]
+      "tags": [
+        "stub"
+      ]
     },
-
     {
       "id": "comm_priv_133",
       "track_id": "commercial",
@@ -244,7 +659,9 @@
       "answer": "Act as PIC of a glider carrying persons or property for compensation or hire; exercise commercial privileges in the glider category (not airplane privileges in a glider).",
       "choices": null,
       "source": "61.133",
-      "tags": ["privileges"]
+      "tags": [
+        "privileges"
+      ]
     },
     {
       "id": "comm_129_f2",
@@ -254,7 +671,9 @@
       "answer": "20 glider PIC flights; 3 hours dual or 10 training flights including 3 prep flights in the 2 calendar months before the test month; 5 solo flights on 61.127(b)(6) areas.",
       "choices": null,
       "source": "61.129(f)(2)",
-      "tags": ["experience"]
+      "tags": [
+        "experience"
+      ]
     },
     {
       "id": "comm_addon_kt",
@@ -262,9 +681,16 @@
       "topic_id": "comm_certs",
       "question": "Adding glider to an existing commercial airplane certificate — knowledge test?",
       "answer": "Generally no new knowledge test under 61.63 for the additional category rating; you still take the commercial glider practical test (PTS 23B additional-rating table).",
-      "choices": ["Always required", "Not required for add-on under 61.63", "Oral only forever", "Only FOI"],
+      "choices": [
+        "Always required",
+        "Not required for add-on under 61.63",
+        "Oral only forever",
+        "Only FOI"
+      ],
       "source": "61.63",
-      "tags": ["addon"]
+      "tags": [
+        "addon"
+      ]
     },
     {
       "id": "comm_119",
@@ -274,7 +700,9 @@
       "answer": "14 CFR 119.1(e)(5) excepts nonstop commercial air tours in an airplane or glider within 25 SM of takeoff (sightseeing). 91.147 / Part 136 do not apply to gliders; 91.409(b) 100-hour still applies when carrying persons for hire.",
       "choices": null,
       "source": "119.1(e)(5); Fields 2013",
-      "tags": ["sightseeing"]
+      "tags": [
+        "sightseeing"
+      ]
     },
     {
       "id": "comm_100hr",
@@ -282,9 +710,16 @@
       "topic_id": "comm_airworthy",
       "question": "When is a 100-hour inspection required for a glider?",
       "answer": "When carrying persons for hire (instruction for hire or paid sightseeing) — 91.409(b). Annual still required.",
-      "choices": ["Never for gliders", "Only for Part 135", "When carrying persons for hire", "Only if IFR"],
+      "choices": [
+        "Never for gliders",
+        "Only for Part 135",
+        "When carrying persons for hire",
+        "Only if IFR"
+      ],
       "source": "91.409(b)",
-      "tags": ["inspection"]
+      "tags": [
+        "inspection"
+      ]
     },
     {
       "id": "comm_inop",
@@ -292,9 +727,16 @@
       "topic_id": "comm_airworthy",
       "question": "INOP equipment on a 2-33 without an MEL — which rule?",
       "answer": "91.213(d): remove or deactivate, placard, and determine it is not a hazard. Required instruments (e.g., ASI per POH) must work.",
-      "choices": ["91.205 only", "91.213(d)", "Part 43 only", "Ignore if day VFR"],
+      "choices": [
+        "91.205 only",
+        "91.213(d)",
+        "Part 43 only",
+        "Ignore if day VFR"
+      ],
       "source": "91.213",
-      "tags": ["inop"]
+      "tags": [
+        "inop"
+      ]
     },
     {
       "id": "comm_rope_pts",
@@ -302,9 +744,16 @@
       "topic_id": "comm_tow",
       "question": "Is towline / rope break on the commercial glider practical test?",
       "answer": "Yes. FAA-S-8081-23B Area IV Task G (Aerotow — Abnormal Occurrences) includes towline break and related abnormals; evaluator may simulate.",
-      "choices": ["No, DPE preference only", "Yes, PTS IV.G", "Only private PTS", "Oral only always"],
+      "choices": [
+        "No, DPE preference only",
+        "Yes, PTS IV.G",
+        "Only private PTS",
+        "Oral only always"
+      ],
       "source": "FAA-S-8081-23B IV.G",
-      "tags": ["rope_break"]
+      "tags": [
+        "rope_break"
+      ]
     },
     {
       "id": "comm_box_wake",
@@ -314,7 +763,9 @@
       "answer": "On tow, maneuver slightly outside the towplane’s wake in a rectangular pattern while maintaining control and coordination (PTS IV.E). GFH: not below 1,000 AGL.",
       "choices": null,
       "source": "PTS IV.E / GFH",
-      "tags": ["boxing"]
+      "tags": [
+        "boxing"
+      ]
     },
     {
       "id": "comm_91_309",
@@ -324,7 +775,9 @@
       "answer": "Towline ≥200 ft; strength 80–200% of glider max certificated operating weight. If rope is stronger than twice MGW, use glider-end safety link (80–200% MGW) and stronger towplane-end link (≤25% greater than glider-end link, ≤2× MGW).",
       "choices": null,
       "source": "91.309",
-      "tags": ["weak_link"]
+      "tags": [
+        "weak_link"
+      ]
     },
     {
       "id": "comm_dual_release",
@@ -332,9 +785,16 @@
       "topic_id": "comm_tow",
       "question": "Glider and towplane both fail to release — how is it tested?",
       "answer": "Oral only on the commercial PTS (IV.G). Discuss signals, low-tow on final, glider lands first.",
-      "choices": ["Flown every checkride", "Oral only", "Not on PTS", "Winch only"],
+      "choices": [
+        "Flown every checkride",
+        "Oral only",
+        "Not on PTS",
+        "Winch only"
+      ],
       "source": "PTS IV.G",
-      "tags": ["release"]
+      "tags": [
+        "release"
+      ]
     },
     {
       "id": "comm_landing_100",
@@ -342,9 +802,16 @@
       "topic_id": "comm_landings",
       "question": "Commercial landing touchdown/stop standard?",
       "answer": "Touch in the designated area; stop short of and within 100 ft of the designated point without rolling past it (light–medium brake).",
-      "choices": ["Within 200 ft", "Within 100 ft, not past the point", "Any runway length", "Stop on the numbers only"],
+      "choices": [
+        "Within 200 ft",
+        "Within 100 ft, not past the point",
+        "Any runway length",
+        "Stop on the numbers only"
+      ],
       "source": "PTS IV.Q",
-      "tags": ["landing"]
+      "tags": [
+        "landing"
+      ]
     },
     {
       "id": "comm_slip",
@@ -354,7 +821,9 @@
       "answer": "Evaluator picks one type (forward/side/turning). Demonstrate slip without drag devices; maintain track; 2-33 POH: initiate recovery so you are out of the slip by 50 ft remaining.",
       "choices": null,
       "source": "PTS IV.R / 2-33 POH",
-      "tags": ["slip"]
+      "tags": [
+        "slip"
+      ]
     },
     {
       "id": "comm_stall_1500",
@@ -362,9 +831,16 @@
       "topic_id": "comm_maneuvers",
       "question": "Stall recognition/recovery completion altitude on commercial glider PTS?",
       "answer": "Select an entry altitude that allows completion no lower than 1,500 ft AGL. Recover at first buffet or rapid decay of control effectiveness.",
-      "choices": ["500 AGL", "1,000 AGL", "1,500 AGL", "3,000 AGL"],
+      "choices": [
+        "500 AGL",
+        "1,000 AGL",
+        "1,500 AGL",
+        "3,000 AGL"
+      ],
       "source": "PTS IX.B",
-      "tags": ["stall"]
+      "tags": [
+        "stall"
+      ]
     },
     {
       "id": "comm_steep",
@@ -374,7 +850,9 @@
       "answer": "720° turn, 45° ±5° bank, airspeed ±5 kt, rollout on entry heading ±10°.",
       "choices": null,
       "source": "PTS VII.C",
-      "tags": ["steep_turn"]
+      "tags": [
+        "steep_turn"
+      ]
     },
     {
       "id": "comm_controls",
@@ -384,7 +862,9 @@
       "answer": "“You have the flight controls” / “I have the flight controls” / “You have the flight controls,” then a visual check.",
       "choices": null,
       "source": "PTS Introduction",
-      "tags": ["crm"]
+      "tags": [
+        "crm"
+      ]
     },
     {
       "id": "comm_minsink",
@@ -394,7 +874,9 @@
       "answer": "Know the concepts; determine and maintain each selected speed ±5 knots (PTS V).",
       "choices": null,
       "source": "PTS V",
-      "tags": ["performance"]
+      "tags": [
+        "performance"
+      ]
     },
     {
       "id": "comm_xc_glide",
@@ -402,9 +884,16 @@
       "topic_id": "comm_perf",
       "question": "XC planning glide ratio for a 2-33 — published L/D vs planning figure?",
       "answer": "Published L/D ~23:1; plan about half (≈11:1 / ~2 NM per 1,000 ft) so you still make a field.",
-      "choices": ["Always 23:1", "~11:1 planning / ~23:1 published", "3:1 always", "40:1"],
+      "choices": [
+        "Always 23:1",
+        "~11:1 planning / ~23:1 published",
+        "3:1 always",
+        "40:1"
+      ],
       "source": "FLF notes / GFH practice",
-      "tags": ["xc"]
+      "tags": [
+        "xc"
+      ]
     },
     {
       "id": "comm_off_airport",
@@ -412,9 +901,16 @@
       "topic_id": "comm_landings",
       "question": "How is simulated off-airport landing flown on the commercial test?",
       "answer": "At an established airport, without using the altimeter. Field selection knowledge is oral.",
-      "choices": ["Land in a farm field", "Airport, no altimeter", "Only oral", "Winch only"],
+      "choices": [
+        "Land in a farm field",
+        "Airport, no altimeter",
+        "Only oral",
+        "Winch only"
+      ],
       "source": "PTS X.A",
-      "tags": ["emergency"]
+      "tags": [
+        "emergency"
+      ]
     },
     {
       "id": "comm_addon_table",
@@ -424,9 +920,10 @@
       "answer": "Navigation (VIII) is NONE. Also typically skip I.A Certificates and II.D Flight Deck Management and III.A/C — but the evaluator may still sample skipped tasks. Prepare them.",
       "choices": null,
       "source": "PTS Additional Rating Task Table",
-      "tags": ["addon"]
+      "tags": [
+        "addon"
+      ]
     },
-
     {
       "id": "cfi_stub_1",
       "track_id": "cfi_g",
@@ -435,7 +932,9 @@
       "answer": "When you start CFI-G study, upload FOI and instructor Q&A via Import (CSV/JSON, track=cfi_g). Do this before building the private deck.",
       "choices": null,
       "source": "App stub",
-      "tags": ["stub"]
+      "tags": [
+        "stub"
+      ]
     },
     {
       "id": "cfi_foi_levels",
@@ -443,20 +942,34 @@
       "topic_id": "cfi_foi",
       "question": "FOI stub: what are the four levels of learning?",
       "answer": "Rote → Understanding → Application → Correlation. (Expand with your uploaded FOI deck later.)",
-      "choices": ["Rote, Memory, Skill, Test", "Rote, Understanding, Application, Correlation", "Watch, Do, Teach", "Knowledge, Skill, Attitude"],
+      "choices": [
+        "Rote, Memory, Skill, Test",
+        "Rote, Understanding, Application, Correlation",
+        "Watch, Do, Teach",
+        "Knowledge, Skill, Attitude"
+      ],
       "source": "FOI outline stub",
-      "tags": ["foi", "stub"]
+      "tags": [
+        "foi",
+        "stub"
+      ]
     },
-
     {
       "id": "a233_vne",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 never-exceed / max aero-tow / max dive-or-glide speed?",
       "answer": "98 mph (placarded).",
-      "choices": ["69 mph", "85 mph", "98 mph", "110 mph"],
+      "choices": [
+        "69 mph",
+        "85 mph",
+        "98 mph",
+        "110 mph"
+      ],
       "source": "2-33 POH / TCDS G2EA",
-      "tags": ["vne"]
+      "tags": [
+        "vne"
+      ]
     },
     {
       "id": "a233_winch",
@@ -464,9 +977,16 @@
       "topic_id": "a233_speeds",
       "question": "2-33 max auto/winch tow speed?",
       "answer": "69 mph.",
-      "choices": ["55", "69", "98", "120"],
+      "choices": [
+        "55",
+        "69",
+        "98",
+        "120"
+      ],
       "source": "2-33 POH",
-      "tags": ["winch"]
+      "tags": [
+        "winch"
+      ]
     },
     {
       "id": "a233_approach",
@@ -474,9 +994,16 @@
       "topic_id": "a233_speeds",
       "question": "2-33 normal approach speed rule (POH)?",
       "answer": "55 mph + 1 mph for each 1 mph of wind. (Discard “half the wind” mnemonics that conflict with the POH.)",
-      "choices": ["50 + ½ wind", "55 + 1 per 1 mph wind", "60 fixed", "Best L/D only"],
+      "choices": [
+        "50 + ½ wind",
+        "55 + 1 per 1 mph wind",
+        "60 fixed",
+        "Best L/D only"
+      ],
       "source": "2-33 POH rev 2/15/22",
-      "tags": ["approach"]
+      "tags": [
+        "approach"
+      ]
     },
     {
       "id": "a233_stall",
@@ -486,7 +1013,9 @@
       "answer": "About 34 mph solo / 38 mph dual; dive brakes add ~2 mph.",
       "choices": null,
       "source": "2-33 POH p.10",
-      "tags": ["stall"]
+      "tags": [
+        "stall"
+      ]
     },
     {
       "id": "a233_ld",
@@ -496,7 +1025,9 @@
       "answer": "Best L/D about 50 mph; published L/D about 23:1. Min-sink ~42 mph.",
       "choices": null,
       "source": "2-33 POH / type data",
-      "tags": ["ld"]
+      "tags": [
+        "ld"
+      ]
     },
     {
       "id": "a233_g",
@@ -506,7 +1037,9 @@
       "answer": "Limit +4.67 / −2.56 g; ultimate +7.0 / −3.8 g.",
       "choices": null,
       "source": "2-33 POH",
-      "tags": ["g_limit"]
+      "tags": [
+        "g_limit"
+      ]
     },
     {
       "id": "a233_xwind",
@@ -514,296 +1047,527 @@
       "topic_id": "a233_speeds",
       "question": "2-33 demonstrated / placarded crosswind?",
       "answer": "17 mph (per POH notes used at FLF).",
-      "choices": ["10 mph", "17 mph", "25 mph", "No limit"],
+      "choices": [
+        "10 mph",
+        "17 mph",
+        "25 mph",
+        "No limit"
+      ],
       "source": "2-33 POH",
-      "tags": ["crosswind"]
+      "tags": [
+        "crosswind"
+      ]
     },
     {
       "id": "a233_vs_solo",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 stall, level, dive brakes closed (Vs) — solo ~790 lb?",
-      "answer": "34 mph (30 kt).",
-      "choices": ["30 mph (26 kt)", "34 mph (30 kt)", "38 mph (33 kt)", "45 mph (39 kt)"],
+      "answer": "34 mph (30 kt)",
+      "choices": [
+        "30 mph (26 kt)",
+        "34 mph (30 kt)",
+        "38 mph (33 kt)",
+        "45 mph (39 kt)"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["stall", "examiner"]
+      "tags": [
+        "stall",
+        "examiner"
+      ]
     },
     {
       "id": "a233_vs_dual",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 stall, level, dive brakes closed (Vs) — dual ~1,040 lb?",
-      "answer": "38 mph (33 kt).",
-      "choices": ["34 mph (30 kt)", "36 mph (31 kt)", "38 mph (33 kt)", "42 mph (36 kt)"],
+      "answer": "38 mph (33 kt)",
+      "choices": [
+        "34 mph (30 kt)",
+        "36 mph (31 kt)",
+        "38 mph (33 kt)",
+        "42 mph (36 kt)"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["stall", "examiner"]
+      "tags": [
+        "stall",
+        "examiner"
+      ]
     },
     {
       "id": "a233_vs_1080",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 stall, level, dive brakes closed (Vs) — 1,080 lb if eligible?",
-      "answer": "39 mph (34 kt).",
-      "choices": ["36 mph (31 kt)", "38 mph (33 kt)", "39 mph (34 kt)", "41 mph (36 kt)"],
+      "answer": "39 mph (34 kt)",
+      "choices": [
+        "36 mph (31 kt)",
+        "38 mph (33 kt)",
+        "39 mph (34 kt)",
+        "41 mph (36 kt)"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["stall", "examiner"]
+      "tags": [
+        "stall",
+        "examiner"
+      ]
     },
     {
       "id": "a233_vso_solo",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 stall, dive brakes open (Vso) — solo ~790 lb?",
-      "answer": "36 mph (31 kt).",
-      "choices": ["34 mph (30 kt)", "36 mph (31 kt)", "38 mph (33 kt)", "40 mph (35 kt)"],
+      "answer": "36 mph (31 kt)",
+      "choices": [
+        "34 mph (30 kt)",
+        "36 mph (31 kt)",
+        "38 mph (33 kt)",
+        "40 mph (35 kt)"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["stall", "examiner"]
+      "tags": [
+        "stall",
+        "examiner"
+      ]
     },
     {
       "id": "a233_vso_dual",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 stall, dive brakes open (Vso) — dual ~1,040 lb?",
-      "answer": "40 mph (35 kt).",
-      "choices": ["36 mph (31 kt)", "38 mph (33 kt)", "40 mph (35 kt)", "42 mph (36 kt)"],
+      "answer": "40 mph (35 kt)",
+      "choices": [
+        "36 mph (31 kt)",
+        "38 mph (33 kt)",
+        "40 mph (35 kt)",
+        "42 mph (36 kt)"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["stall", "examiner"]
+      "tags": [
+        "stall",
+        "examiner"
+      ]
     },
     {
       "id": "a233_vso_1080",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 stall, dive brakes open (Vso) — 1,080 lb if eligible?",
-      "answer": "41 mph (36 kt).",
-      "choices": ["38 mph (33 kt)", "40 mph (35 kt)", "41 mph (36 kt)", "44 mph (38 kt)"],
+      "answer": "41 mph (36 kt)",
+      "choices": [
+        "38 mph (33 kt)",
+        "40 mph (35 kt)",
+        "41 mph (36 kt)",
+        "44 mph (38 kt)"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["stall", "examiner"]
+      "tags": [
+        "stall",
+        "examiner"
+      ]
     },
     {
       "id": "a233_stall30_solo",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 stall in a 30° bank — solo ~790 lb?",
-      "answer": "36.5 mph (32 kt).",
-      "choices": ["34 mph (30 kt)", "36.5 mph (32 kt)", "38 mph (33 kt)", "41 mph (36 kt)"],
+      "answer": "36.5 mph (32 kt)",
+      "choices": [
+        "34 mph (30 kt)",
+        "36.5 mph (32 kt)",
+        "38 mph (33 kt)",
+        "41 mph (36 kt)"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["stall", "examiner"]
+      "tags": [
+        "stall",
+        "examiner"
+      ]
     },
     {
       "id": "a233_stall30_dual",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 stall in a 30° bank — dual ~1,040 lb?",
-      "answer": "41 mph (36 kt).",
-      "choices": ["36.5 mph (32 kt)", "38 mph (33 kt)", "41 mph (36 kt)", "42 mph (37 kt)"],
+      "answer": "41 mph (36 kt)",
+      "choices": [
+        "36.5 mph (32 kt)",
+        "38 mph (33 kt)",
+        "41 mph (36 kt)",
+        "42 mph (37 kt)"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["stall", "examiner"]
+      "tags": [
+        "stall",
+        "examiner"
+      ]
     },
     {
       "id": "a233_stall30_1080",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 stall in a 30° bank — 1,080 lb if eligible?",
-      "answer": "42 mph (37 kt).",
-      "choices": ["39 mph (34 kt)", "41 mph (36 kt)", "42 mph (37 kt)", "44 mph (38 kt)"],
+      "answer": "42 mph (37 kt)",
+      "choices": [
+        "39 mph (34 kt)",
+        "41 mph (36 kt)",
+        "42 mph (37 kt)",
+        "44 mph (38 kt)"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["stall", "examiner"]
+      "tags": [
+        "stall",
+        "examiner"
+      ]
     },
     {
       "id": "a233_buffet_solo",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 buffet speed range — solo ~790 lb?",
-      "answer": "34–37 mph (30–32 kt).",
-      "choices": ["30–33 mph", "34–37 mph (30–32 kt)", "38–42 mph", "45–50 mph"],
+      "answer": "34–37 mph (30–32 kt)",
+      "choices": [
+        "30–33 mph",
+        "34–37 mph (30–32 kt)",
+        "38–42 mph",
+        "45–50 mph"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["stall", "examiner"]
+      "tags": [
+        "stall",
+        "examiner"
+      ]
     },
     {
       "id": "a233_buffet_dual",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 buffet speed range — dual ~1,040 lb?",
-      "answer": "39–42 mph (34–37 kt).",
-      "choices": ["34–37 mph", "36–40 mph", "39–42 mph (34–37 kt)", "45–50 mph"],
+      "answer": "39–42 mph (34–37 kt)",
+      "choices": [
+        "34–37 mph",
+        "36–40 mph",
+        "39–42 mph (34–37 kt)",
+        "45–50 mph"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["stall", "examiner"]
+      "tags": [
+        "stall",
+        "examiner"
+      ]
     },
     {
       "id": "a233_buffet_1080",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 buffet speed range — 1,080 lb if eligible?",
-      "answer": "40–43 mph (35–37 kt).",
-      "choices": ["34–37 mph", "39–42 mph", "40–43 mph (35–37 kt)", "44–48 mph"],
+      "answer": "40–43 mph (35–37 kt)",
+      "choices": [
+        "34–37 mph",
+        "39–42 mph",
+        "40–43 mph (35–37 kt)",
+        "44–48 mph"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["stall", "examiner"]
+      "tags": [
+        "stall",
+        "examiner"
+      ]
     },
     {
       "id": "a233_minsink_solo",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 minimum sink — solo ~790 lb?",
-      "answer": "38 mph (33 kt) at 2.6 ft/sec.",
-      "choices": ["34 mph at 2.0 ft/sec", "38 mph (33 kt) at 2.6 ft/sec", "42 mph at 3.1 ft/sec", "45 mph at 2.6 ft/sec"],
+      "answer": "38 mph (33 kt) at 2.6 ft/sec",
+      "choices": [
+        "34 mph at 2.0 ft/sec",
+        "38 mph (33 kt) at 2.6 ft/sec",
+        "42 mph at 3.1 ft/sec",
+        "45 mph at 2.6 ft/sec"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["minsink", "examiner"]
+      "tags": [
+        "minsink",
+        "examiner"
+      ]
     },
     {
       "id": "a233_minsink_dual",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 minimum sink — dual ~1,040 lb?",
-      "answer": "42 mph (36 kt) at 3.1 ft/sec.",
-      "choices": ["38 mph at 2.6 ft/sec", "42 mph (36 kt) at 3.1 ft/sec", "44 mph at 3.2 ft/sec", "50 mph at 3.1 ft/sec"],
+      "answer": "42 mph (36 kt) at 3.1 ft/sec",
+      "choices": [
+        "38 mph at 2.6 ft/sec",
+        "42 mph (36 kt) at 3.1 ft/sec",
+        "44 mph at 3.2 ft/sec",
+        "50 mph at 3.1 ft/sec"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["minsink", "examiner"]
+      "tags": [
+        "minsink",
+        "examiner"
+      ]
     },
     {
       "id": "a233_minsink_1080",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 minimum sink — 1,080 lb if eligible?",
-      "answer": "44 mph (38 kt) at 3.2 ft/sec.",
-      "choices": ["40 mph at 3.0 ft/sec", "42 mph at 3.1 ft/sec", "44 mph (38 kt) at 3.2 ft/sec", "52 mph at 3.2 ft/sec"],
+      "answer": "44 mph (38 kt) at 3.2 ft/sec",
+      "choices": [
+        "40 mph at 3.0 ft/sec",
+        "42 mph at 3.1 ft/sec",
+        "44 mph (38 kt) at 3.2 ft/sec",
+        "52 mph at 3.2 ft/sec"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["minsink", "examiner"]
+      "tags": [
+        "minsink",
+        "examiner"
+      ]
     },
     {
       "id": "a233_bestglide_solo",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 best glide (L/D 23:1) — solo ~790 lb?",
-      "answer": "45 mph (39 kt).",
-      "choices": ["38 mph (33 kt)", "42 mph (36 kt)", "45 mph (39 kt)", "50 mph (43 kt)"],
+      "answer": "45 mph (39 kt)",
+      "choices": [
+        "38 mph (33 kt)",
+        "42 mph (36 kt)",
+        "45 mph (39 kt)",
+        "50 mph (43 kt)"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["ld", "examiner"]
+      "tags": [
+        "ld",
+        "examiner"
+      ]
     },
     {
       "id": "a233_bestglide_dual",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 best glide (L/D 23:1) — dual ~1,040 lb?",
-      "answer": "50 mph (43 kt).",
-      "choices": ["42 mph (36 kt)", "45 mph (39 kt)", "50 mph (43 kt)", "55 mph (48 kt)"],
+      "answer": "50 mph (43 kt)",
+      "choices": [
+        "42 mph (36 kt)",
+        "45 mph (39 kt)",
+        "50 mph (43 kt)",
+        "55 mph (48 kt)"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["ld", "examiner"]
+      "tags": [
+        "ld",
+        "examiner"
+      ]
     },
     {
       "id": "a233_bestglide_1080",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 best glide (L/D 23:1) — 1,080 lb if eligible?",
-      "answer": "52 mph (45 kt).",
-      "choices": ["45 mph (39 kt)", "50 mph (43 kt)", "52 mph (45 kt)", "55 mph (48 kt)"],
+      "answer": "52 mph (45 kt)",
+      "choices": [
+        "45 mph (39 kt)",
+        "50 mph (43 kt)",
+        "52 mph (45 kt)",
+        "55 mph (48 kt)"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["ld", "examiner"]
+      "tags": [
+        "ld",
+        "examiner"
+      ]
     },
     {
       "id": "a233_thermal_solo",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 spiraling speed in a thermal — solo ~790 lb?",
-      "answer": "39 mph (34 kt).",
-      "choices": ["34 mph (30 kt)", "38 mph (33 kt)", "39 mph (34 kt)", "45 mph (39 kt)"],
+      "answer": "39 mph (34 kt)",
+      "choices": [
+        "34 mph (30 kt)",
+        "38 mph (33 kt)",
+        "39 mph (34 kt)",
+        "45 mph (39 kt)"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["thermal", "examiner"]
+      "tags": [
+        "thermal",
+        "examiner"
+      ]
     },
     {
       "id": "a233_thermal_dual",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 spiraling speed in a thermal — dual ~1,040 lb?",
-      "answer": "43 mph (37 kt).",
-      "choices": ["39 mph (34 kt)", "42 mph (36 kt)", "43 mph (37 kt)", "50 mph (43 kt)"],
+      "answer": "43 mph (37 kt)",
+      "choices": [
+        "39 mph (34 kt)",
+        "42 mph (36 kt)",
+        "43 mph (37 kt)",
+        "50 mph (43 kt)"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["thermal", "examiner"]
+      "tags": [
+        "thermal",
+        "examiner"
+      ]
     },
     {
       "id": "a233_thermal_1080",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 spiraling speed in a thermal — 1,080 lb if eligible?",
-      "answer": "44 mph (38 kt).",
-      "choices": ["39 mph (34 kt)", "43 mph (37 kt)", "44 mph (38 kt)", "52 mph (45 kt)"],
+      "answer": "44 mph (38 kt)",
+      "choices": [
+        "39 mph (34 kt)",
+        "43 mph (37 kt)",
+        "44 mph (38 kt)",
+        "52 mph (45 kt)"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["thermal", "examiner"]
+      "tags": [
+        "thermal",
+        "examiner"
+      ]
     },
     {
       "id": "a233_aerotow_normal",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 normal aero-tow speed (solo, dual, or 1,080 lb)?",
-      "answer": "60–70 mph (52–61 kt) — same for all weights.",
-      "choices": ["45–55 mph", "55–60 mph", "60–70 mph (52–61 kt)", "70–85 mph"],
+      "answer": "60–70 mph (52–61 kt)",
+      "choices": [
+        "45–55 mph",
+        "55–60 mph",
+        "60–70 mph (52–61 kt)",
+        "70–85 mph"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["tow", "examiner"]
+      "tags": [
+        "tow",
+        "examiner"
+      ]
     },
     {
       "id": "a233_aerotow_max",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 maximum aero-tow speed — solo or dual (~790 / 1,040 lb)?",
-      "answer": "98 mph (85 kt).",
-      "choices": ["69 mph (60 kt)", "85 mph (74 kt)", "98 mph (85 kt)", "100 mph (87 kt)"],
+      "answer": "98 mph (85 kt)",
+      "choices": [
+        "69 mph (60 kt)",
+        "85 mph (74 kt)",
+        "98 mph (85 kt)",
+        "100 mph (87 kt)"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["tow", "examiner"]
+      "tags": [
+        "tow",
+        "examiner"
+      ]
     },
     {
       "id": "a233_aerotow_max_1080",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 maximum aero-tow speed — 1,080 lb if eligible?",
-      "answer": "100 mph (87 kt).",
-      "choices": ["85 mph (74 kt)", "98 mph (85 kt)", "100 mph (87 kt)", "110 mph (96 kt)"],
+      "answer": "100 mph (87 kt)",
+      "choices": [
+        "85 mph (74 kt)",
+        "98 mph (85 kt)",
+        "100 mph (87 kt)",
+        "110 mph (96 kt)"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["tow", "examiner"]
+      "tags": [
+        "tow",
+        "examiner"
+      ]
     },
     {
       "id": "a233_winch_normal",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 normal auto or winch tow speed (all weights)?",
-      "answer": "55–60 mph (48–52 kt) — same for all weights.",
-      "choices": ["45–50 mph", "55–60 mph (48–52 kt)", "60–70 mph", "69 mph fixed"],
+      "answer": "55–60 mph (48–52 kt)",
+      "choices": [
+        "45–50 mph",
+        "55–60 mph (48–52 kt)",
+        "60–70 mph",
+        "69 mph fixed"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["winch", "examiner"]
+      "tags": [
+        "winch",
+        "examiner"
+      ]
     },
     {
       "id": "a233_winch_max_1080",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 maximum auto or winch tow — 1,080 lb if eligible?",
-      "answer": "70 mph (61 kt). (Solo/dual max is 69 mph / 60 kt.)",
-      "choices": ["60 mph (52 kt)", "69 mph (60 kt)", "70 mph (61 kt)", "98 mph (85 kt)"],
+      "answer": "70 mph (61 kt)",
+      "choices": [
+        "60 mph (52 kt)",
+        "69 mph (60 kt)",
+        "70 mph (61 kt)",
+        "98 mph (85 kt)"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["winch", "examiner"]
+      "tags": [
+        "winch",
+        "examiner"
+      ]
     },
     {
       "id": "a233_approach_base",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 normal landing approach speed (examiner table / all weights)?",
-      "answer": "55 mph (48 kt) — same for all weights. Add 1 mph per 1 mph of wind per POH.",
-      "choices": ["45 mph (39 kt)", "50 mph (43 kt)", "55 mph (48 kt)", "60 mph (52 kt)"],
+      "answer": "55 mph (48 kt)",
+      "choices": [
+        "45 mph (39 kt)",
+        "50 mph (43 kt)",
+        "55 mph (48 kt)",
+        "60 mph (52 kt)"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["approach", "examiner"]
+      "tags": [
+        "approach",
+        "examiner"
+      ]
     },
     {
       "id": "a233_xwind_kt",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 maximum demonstrated crosswind (examiner table)?",
-      "answer": "17 mph (15 kt) — same for all weights.",
-      "choices": ["10 mph (9 kt)", "15 mph (13 kt)", "17 mph (15 kt)", "25 mph (22 kt)"],
+      "answer": "17 mph (15 kt)",
+      "choices": [
+        "10 mph (9 kt)",
+        "15 mph (13 kt)",
+        "17 mph (15 kt)",
+        "25 mph (22 kt)"
+      ],
       "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": ["crosswind", "examiner"]
+      "tags": [
+        "crosswind",
+        "examiner"
+      ]
     },
     {
       "id": "a233_examiner_weights",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "What three weight columns does the FLF examiner airspeed table use for the 2-33?",
-      "answer": "Solo ~790 lb; dual ~1,040 lb; and 1,080 lb if eligible.",
+      "answer": "Solo ~790 / dual ~1,040 / 1,080 lb if eligible",
       "choices": [
         "Solo 700 / dual 900 / max 1,000 lb",
         "Solo ~790 / dual ~1,040 / 1,080 lb if eligible",
@@ -811,7 +1575,10 @@
         "One set of speeds for all weights"
       ],
       "source": "FLF examiner airspeed table",
-      "tags": ["examiner", "wb"]
+      "tags": [
+        "examiner",
+        "wb"
+      ]
     },
     {
       "id": "a233_mgw",
@@ -819,9 +1586,16 @@
       "topic_id": "a233_wb",
       "question": "2-33 maximum gross weight?",
       "answer": "1,040 lb.",
-      "choices": ["850", "960", "1040", "1200"],
+      "choices": [
+        "850",
+        "960",
+        "1040",
+        "1200"
+      ],
       "source": "2-33 POH",
-      "tags": ["wb"]
+      "tags": [
+        "wb"
+      ]
     },
     {
       "id": "a233_weak_math",
@@ -831,7 +1605,9 @@
       "answer": "80–200% → 832–2,080 lb. Verify the actual rope/link tags on the ship.",
       "choices": null,
       "source": "91.309 + MGW",
-      "tags": ["weak_link"]
+      "tags": [
+        "weak_link"
+      ]
     },
     {
       "id": "a233_slip_50",
@@ -839,9 +1615,16 @@
       "topic_id": "a233_systems",
       "question": "POH slip recovery height remaining?",
       "answer": "Initiate recovery so at least 50 ft AGL remains when recovering from the slip.",
-      "choices": ["20 ft", "50 ft", "100 ft", "200 ft"],
+      "choices": [
+        "20 ft",
+        "50 ft",
+        "100 ft",
+        "200 ft"
+      ],
       "source": "2-33 POH p.21",
-      "tags": ["slip"]
+      "tags": [
+        "slip"
+      ]
     },
     {
       "id": "a233_hook",
@@ -851,7 +1634,9 @@
       "answer": "About 5–20 lb on the nose/CG hook check — verify with POH in hand.",
       "choices": null,
       "source": "2-33 POH p.41",
-      "tags": ["release"]
+      "tags": [
+        "release"
+      ]
     },
     {
       "id": "a233_trim",
@@ -861,7 +1646,9 @@
       "answer": "Yellow 2-33A: bungee trim and larger aerodynamically balanced rudder. White 2-33: ratchet trim.",
       "choices": null,
       "source": "FLF fleet notes",
-      "tags": ["trim"]
+      "tags": [
+        "trim"
+      ]
     },
     {
       "id": "a233_ad_list",
@@ -871,7 +1658,9 @@
       "answer": "76-13-11 R1 (drain holes, S/N 1–424, one-time); 77-23-10 (fin spar attach, recurring unless terminated); 87-02-01 (tow-release inspect, 100 hr); 87-17-01 (replace welded-lug arms, one-time). 97-08-06 R1 L’Hotellier dropped 2-33.",
       "choices": null,
       "source": "FAA DRS ADFRAWD (verify current)",
-      "tags": ["ad"]
+      "tags": [
+        "ad"
+      ]
     },
     {
       "id": "a233_papers",
@@ -881,7 +1670,9 @@
       "answer": "Airworthiness certificate, registration, operating limitations/placards/POH, W&B and equipment list, maintenance/AD compliance status.",
       "choices": null,
       "source": "PTS applicant checklist",
-      "tags": ["documents"]
+      "tags": [
+        "documents"
+      ]
     }
   ]
 }

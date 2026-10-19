@@ -129,7 +129,10 @@ export async function seedGliderContent(db, { force = false } = {}) {
   }
 
   for (const card of seed.cards || []) {
-    if (!force) {
+    const tags = Array.isArray(card.tags) ? card.tags : [];
+    // Examiner airspeed cards always refresh so MCQ answer text stays exact-match with a choice.
+    const alwaysRefresh = tags.includes('examiner');
+    if (!force && !alwaysRefresh) {
       const existing = await db.query('SELECT 1 FROM glider_cards WHERE id = $1', [card.id]);
       if (existing.rowCount) continue;
     }
@@ -153,7 +156,7 @@ export async function seedGliderContent(db, { force = false } = {}) {
         card.answer,
         card.choices ? JSON.stringify(card.choices) : null,
         card.source || '',
-        card.tags || []
+        tags
       ]
     );
     cards += 1;
