@@ -162,6 +162,24 @@ export async function seedGliderContent(db, { force = false } = {}) {
     cards += 1;
   }
 
+  // Drop retired 1,080 lb examiner airspeed cards (progress cascades).
+  const retired1080 = [
+    'a233_vs_1080',
+    'a233_vso_1080',
+    'a233_stall30_1080',
+    'a233_buffet_1080',
+    'a233_minsink_1080',
+    'a233_bestglide_1080',
+    'a233_thermal_1080',
+    'a233_aerotow_max_1080',
+    'a233_winch_max_1080'
+  ];
+  const retired = await db.query(
+    `DELETE FROM glider_cards WHERE id = ANY($1::text[])`,
+    [retired1080]
+  );
+  const cardsRetired = retired.rowCount || 0;
+
   // Re-apply syllabus topic_ids from classified import banks.
   let topicRemaps = 0;
   const bankRemaps = [
@@ -287,6 +305,7 @@ export async function seedGliderContent(db, { force = false } = {}) {
     tracks,
     topics,
     cards,
+    cards_retired: cardsRetired,
     force,
     cfi_g_topic_remaps: topicRemaps,
     card_details_upserted: detailsUpserted,

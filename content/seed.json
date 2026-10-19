@@ -1095,24 +1095,6 @@
       ]
     },
     {
-      "id": "a233_vs_1080",
-      "track_id": "aircraft_233",
-      "topic_id": "a233_speeds",
-      "question": "2-33 stall, level, dive brakes closed (Vs) — 1,080 lb if eligible?",
-      "answer": "39 mph (34 kt)",
-      "choices": [
-        "36 mph (31 kt)",
-        "38 mph (33 kt)",
-        "39 mph (34 kt)",
-        "41 mph (36 kt)"
-      ],
-      "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": [
-        "stall",
-        "examiner"
-      ]
-    },
-    {
       "id": "a233_vso_solo",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
@@ -1141,24 +1123,6 @@
         "38 mph (33 kt)",
         "40 mph (35 kt)",
         "42 mph (36 kt)"
-      ],
-      "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": [
-        "stall",
-        "examiner"
-      ]
-    },
-    {
-      "id": "a233_vso_1080",
-      "track_id": "aircraft_233",
-      "topic_id": "a233_speeds",
-      "question": "2-33 stall, dive brakes open (Vso) — 1,080 lb if eligible?",
-      "answer": "41 mph (36 kt)",
-      "choices": [
-        "38 mph (33 kt)",
-        "40 mph (35 kt)",
-        "41 mph (36 kt)",
-        "44 mph (38 kt)"
       ],
       "source": "FLF examiner airspeed table / 2-33 POH",
       "tags": [
@@ -1203,24 +1167,6 @@
       ]
     },
     {
-      "id": "a233_stall30_1080",
-      "track_id": "aircraft_233",
-      "topic_id": "a233_speeds",
-      "question": "2-33 stall in a 30° bank — 1,080 lb if eligible?",
-      "answer": "42 mph (37 kt)",
-      "choices": [
-        "39 mph (34 kt)",
-        "41 mph (36 kt)",
-        "42 mph (37 kt)",
-        "44 mph (38 kt)"
-      ],
-      "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": [
-        "stall",
-        "examiner"
-      ]
-    },
-    {
       "id": "a233_buffet_solo",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
@@ -1249,24 +1195,6 @@
         "36–40 mph",
         "39–42 mph (34–37 kt)",
         "45–50 mph"
-      ],
-      "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": [
-        "stall",
-        "examiner"
-      ]
-    },
-    {
-      "id": "a233_buffet_1080",
-      "track_id": "aircraft_233",
-      "topic_id": "a233_speeds",
-      "question": "2-33 buffet speed range — 1,080 lb if eligible?",
-      "answer": "40–43 mph (35–37 kt)",
-      "choices": [
-        "34–37 mph",
-        "39–42 mph",
-        "40–43 mph (35–37 kt)",
-        "44–48 mph"
       ],
       "source": "FLF examiner airspeed table / 2-33 POH",
       "tags": [
@@ -1311,24 +1239,6 @@
       ]
     },
     {
-      "id": "a233_minsink_1080",
-      "track_id": "aircraft_233",
-      "topic_id": "a233_speeds",
-      "question": "2-33 minimum sink — 1,080 lb if eligible?",
-      "answer": "44 mph (38 kt) at 3.2 ft/sec",
-      "choices": [
-        "40 mph at 3.0 ft/sec",
-        "42 mph at 3.1 ft/sec",
-        "44 mph (38 kt) at 3.2 ft/sec",
-        "52 mph at 3.2 ft/sec"
-      ],
-      "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": [
-        "minsink",
-        "examiner"
-      ]
-    },
-    {
       "id": "a233_bestglide_solo",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
@@ -1356,24 +1266,6 @@
         "42 mph (36 kt)",
         "45 mph (39 kt)",
         "50 mph (43 kt)",
-        "55 mph (48 kt)"
-      ],
-      "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": [
-        "ld",
-        "examiner"
-      ]
-    },
-    {
-      "id": "a233_bestglide_1080",
-      "track_id": "aircraft_233",
-      "topic_id": "a233_speeds",
-      "question": "2-33 best glide (L/D 23:1) — 1,080 lb if eligible?",
-      "answer": "52 mph (45 kt)",
-      "choices": [
-        "45 mph (39 kt)",
-        "50 mph (43 kt)",
-        "52 mph (45 kt)",
         "55 mph (48 kt)"
       ],
       "source": "FLF examiner airspeed table / 2-33 POH",
@@ -1419,28 +1311,10 @@
       ]
     },
     {
-      "id": "a233_thermal_1080",
-      "track_id": "aircraft_233",
-      "topic_id": "a233_speeds",
-      "question": "2-33 spiraling speed in a thermal — 1,080 lb if eligible?",
-      "answer": "44 mph (38 kt)",
-      "choices": [
-        "39 mph (34 kt)",
-        "43 mph (37 kt)",
-        "44 mph (38 kt)",
-        "52 mph (45 kt)"
-      ],
-      "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": [
-        "thermal",
-        "examiner"
-      ]
-    },
-    {
       "id": "a233_aerotow_normal",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
-      "question": "2-33 normal aero-tow speed (solo, dual, or 1,080 lb)?",
+      "question": "2-33 normal aero-tow speed (solo or dual)?",
       "answer": "60–70 mph (52–61 kt)",
       "choices": [
         "45–55 mph",
@@ -1473,24 +1347,6 @@
       ]
     },
     {
-      "id": "a233_aerotow_max_1080",
-      "track_id": "aircraft_233",
-      "topic_id": "a233_speeds",
-      "question": "2-33 maximum aero-tow speed — 1,080 lb if eligible?",
-      "answer": "100 mph (87 kt)",
-      "choices": [
-        "85 mph (74 kt)",
-        "98 mph (85 kt)",
-        "100 mph (87 kt)",
-        "110 mph (96 kt)"
-      ],
-      "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": [
-        "tow",
-        "examiner"
-      ]
-    },
-    {
       "id": "a233_winch_normal",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
@@ -1501,24 +1357,6 @@
         "55–60 mph (48–52 kt)",
         "60–70 mph",
         "69 mph fixed"
-      ],
-      "source": "FLF examiner airspeed table / 2-33 POH",
-      "tags": [
-        "winch",
-        "examiner"
-      ]
-    },
-    {
-      "id": "a233_winch_max_1080",
-      "track_id": "aircraft_233",
-      "topic_id": "a233_speeds",
-      "question": "2-33 maximum auto or winch tow — 1,080 lb if eligible?",
-      "answer": "70 mph (61 kt)",
-      "choices": [
-        "60 mph (52 kt)",
-        "69 mph (60 kt)",
-        "70 mph (61 kt)",
-        "98 mph (85 kt)"
       ],
       "source": "FLF examiner airspeed table / 2-33 POH",
       "tags": [
@@ -1566,12 +1404,12 @@
       "id": "a233_examiner_weights",
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
-      "question": "What three weight columns does the FLF examiner airspeed table use for the 2-33?",
-      "answer": "Solo ~790 / dual ~1,040 / 1,080 lb if eligible",
+      "question": "What weight columns does the FLF examiner airspeed table use for the 2-33?",
+      "answer": "Solo ~790 lb and dual ~1,040 lb.",
       "choices": [
-        "Solo 700 / dual 900 / max 1,000 lb",
-        "Solo ~790 / dual ~1,040 / 1,080 lb if eligible",
-        "Empty / dual / max only",
+        "Solo 700 / dual 900 lb only",
+        "Solo ~790 lb and dual ~1,040 lb.",
+        "Empty weight only",
         "One set of speeds for all weights"
       ],
       "source": "FLF examiner airspeed table",
