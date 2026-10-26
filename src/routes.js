@@ -1,4 +1,5 @@
-import { resolveUserKey } from './auth/middleware.js';
+import { resolveIsAdmin, resolveUserKey } from './auth/middleware.js';
+import { getSessionUser } from './auth/session.js';
 import {
   nextProgress,
   parseImportPayload,
@@ -13,6 +14,15 @@ function requireUserKey(req, res, config) {
     return null;
   }
   return uk;
+}
+
+function requireAdmin(req, res, config) {
+  if (!requireUserKey(req, res, config)) return false;
+  if (!resolveIsAdmin(req, config)) {
+    res.status(403).json({ error: 'Admin access required' });
+    return false;
+  }
+  return true;
 }
 
 export function registerGliderApi(app, { store, config }) {
@@ -174,8 +184,7 @@ export function registerGliderApi(app, { store, config }) {
   });
 
   app.patch('/api/cards/:cardId', async (req, res) => {
-    const uk = requireUserKey(req, res, config);
-    if (!uk) return;
+    if (!requireAdmin(req, res, config)) return;
     try {
       const card = await store.updateCard(req.params.cardId, req.body || {});
       if (!card) return res.status(404).json({ error: 'card not found' });
@@ -192,7 +201,7 @@ export function registerGliderApi(app, { store, config }) {
   });
 
   app.put('/api/study-schedule', async (req, res) => {
-    if (!requireUserKey(req, res, config)) return;
+    if (!requireAdmin(req, res, config)) return;
     try {
       const schedule = await store.setStudySchedule(req.body?.schedule || req.body || {});
       res.json({ ok: true, schedule });
@@ -202,19 +211,19 @@ export function registerGliderApi(app, { store, config }) {
   });
 
   function assertImportMutationAccess(req, res) {
+    if (!requireAdmin(req, res, config)) return false;
     if (config.importPassword) {
       const provided = String(req.header('x-glider-import-password') || req.body?.password || '');
       if (provided !== config.importPassword) {
         res.status(401).json({ error: 'import password required' });
         return false;
       }
-      return true;
     }
-    return Boolean(requireUserKey(req, res, config));
+    return true;
   }
 
   app.get('/api/imports', async (req, res) => {
-    if (!requireUserKey(req, res, config)) return;
+    if (!requireAdmin(req, res, config)) return;
     const imports = await store.listImports();
     res.json({ imports });
   });
@@ -228,5 +237,45 @@ export function registerGliderApi(app, { store, config }) {
     } catch (error) {
       res.status(400).json({ error: error.message || String(error) });
     }
+  });
+
+  app.get('/api/admin/users', async (req, res) => {
+    if (!requireAdmin(req, res, config)) return;
+    const users = await store.listUsers();
+    res.json({ users });
+  });
+
+  app.patch('/api/admin/users/:googleSub', async (req, res) => {
+    if (!requireAdmin(req, res, config)) return;
+    const googleSub = String(req.params.googleSub || '').trim();
+    if (!googleSub) {
+      res.status(400).json({ error: 'googleSub required' });
+      return;
+    }
+    const isAdmin = Boolean(req.body?.is_admin ?? req.body?.isAdmin);
+    const me = getSessionUser(req);
+    if (me?.sub && me.sub === googleSub && !isAdmin) {
+      res.status(400).json({ error: 'You cannot remove your own admin access' });
+      return;
+    }
+    const users = await store.listUsers();
+    const target = users.find((u) => u.google_sub === googleSub);
+    if (!target) {
+      res.status(404).json({ error: 'user not found' });
+      return;
+    }
+    if (target.is_admin && !isAdmin) {
+      const adminCount = users.filter((u) => u.is_admin).length;
+      if (adminCount <= 1) {
+        res.status(400).json({ error: 'At least one admin is required' });
+        return;
+      }
+    }
+    const user = await store.setUserAdmin(googleSub, isAdmin);
+    if (!user) {
+      res.status(404).json({ error: 'user not found' });
+      return;
+    }
+    res.json({ ok: true, user });
   });
 }

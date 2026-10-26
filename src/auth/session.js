@@ -10,7 +10,7 @@ export function getSessionUser(request) {
   return request.session?.user ?? null;
 }
 
-export function attachSessionUser(request, profile) {
+export function attachSessionUser(request, profile, { isAdmin = false } = {}) {
   const userKey = userKeyFromProfile(profile);
   request.session.user = {
     sub: profile.sub || null,
@@ -18,6 +18,7 @@ export function attachSessionUser(request, profile) {
     name: profile.name || profile.email,
     picture: profile.picture || null,
     userKey,
+    isAdmin: Boolean(isAdmin),
     loginAt: new Date().toISOString()
   };
   return request.session.user;

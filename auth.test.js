@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { isPublicPath, resolveUserKey } from './src/auth/middleware.js';
+import { isPublicPath, resolveIsAdmin, resolveUserKey } from './src/auth/middleware.js';
 import { attachSessionUser, userKeyFromProfile } from './src/auth/session.js';
 import { renderLoginPage } from './src/auth/loginPage.js';
 
@@ -34,4 +34,17 @@ test('login page includes new-user instructions and Google CTA', () => {
   assert.match(html, /New here/);
   assert.match(html, /your account/i);
   assert.match(html, /Commercial/);
+});
+
+test('resolveIsAdmin is true when auth is off', () => {
+  const req = { session: {} };
+  assert.equal(resolveIsAdmin(req, { auth: { enabled: false } }), true);
+});
+
+test('resolveIsAdmin reads session isAdmin flag', () => {
+  const req = { session: {} };
+  attachSessionUser(req, { sub: '1', email: 'a@b.com', name: 'A' }, { isAdmin: true });
+  assert.equal(resolveIsAdmin(req, { auth: { enabled: true } }), true);
+  attachSessionUser(req, { sub: '2', email: 'b@c.com', name: 'B' }, { isAdmin: false });
+  assert.equal(resolveIsAdmin(req, { auth: { enabled: true } }), false);
 });

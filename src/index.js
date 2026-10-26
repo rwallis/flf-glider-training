@@ -9,7 +9,12 @@ import {
 } from './auth/session.js';
 import { getAppBuildMeta, getDeployStatusPayload, readInstanceBuildMeta } from './buildMeta.js';
 import { loadGliderTrainingConfig } from './config.js';
-import { closeGliderPool, createGliderPool, ensureGliderSchema } from './db.js';
+import {
+  bootstrapGliderAdmins,
+  closeGliderPool,
+  createGliderPool,
+  ensureGliderSchema
+} from './db.js';
 import { registerGliderApi } from './routes.js';
 import { seedGliderContent } from './seed.js';
 import { createStore } from './store.js';
@@ -23,6 +28,11 @@ async function main() {
   const pool = await createGliderPool(config);
   if (pool) {
     await ensureGliderSchema(pool);
+    const adminBoot = await bootstrapGliderAdmins(pool, config.adminBootstrapEmails);
+    console.log(
+      `[glider-training] admins=${adminBoot.admins}` +
+        (adminBoot.bootstrapped ? ' (bootstrap applied)' : '')
+    );
     const seeded = await seedGliderContent(pool);
     console.log(
       `[glider-training] seed tracks=${seeded.tracks} topics=${seeded.topics} new_cards=${seeded.cards}` +
@@ -76,7 +86,11 @@ async function main() {
     );
   });
 
-  registerAuthRoutes(app, { authConfig: config.auth, db: pool });
+  registerAuthRoutes(app, {
+    authConfig: config.auth,
+    db: pool,
+    bootstrapEmails: config.adminBootstrapEmails
+  });
 
   // Gate SPA + APIs when Google auth is on (public auth/health routes already registered)
   app.use(requireAuth(config.auth));

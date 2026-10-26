@@ -606,6 +606,47 @@ export function createMemoryStore(seed) {
             topics: topicAccuracyRows(topics, cards, byCard)
           };
         });
+    },
+    async listUsers() {
+      return [...state.profiles.values()]
+        .map((p) => ({
+          google_sub: String(p.userKey || '').replace(/^g:/, ''),
+          email: p.email || '',
+          name: p.name || '',
+          picture: p.picture || null,
+          is_admin: Boolean(p.is_admin),
+          created_at: p.created_at || null,
+          last_login_at: p.last_login_at || null
+        }))
+        .sort((a, b) => String(a.email).localeCompare(String(b.email)));
+    },
+    async setUserAdmin(googleSub, isAdmin) {
+      const key = `g:${googleSub}`;
+      const prev = state.profiles.get(key) || { userKey: key, email: '', name: '' };
+      const next = { ...prev, is_admin: Boolean(isAdmin) };
+      state.profiles.set(key, next);
+      return {
+        google_sub: googleSub,
+        email: next.email || '',
+        name: next.name || '',
+        picture: next.picture || null,
+        is_admin: Boolean(next.is_admin),
+        created_at: next.created_at || null,
+        last_login_at: next.last_login_at || null
+      };
+    },
+    async getUserAdminBySub(googleSub) {
+      if (!googleSub) return false;
+      const p = state.profiles.get(`g:${googleSub}`);
+      return Boolean(p?.is_admin);
+    },
+    async getUserAdminByEmail(email) {
+      const needle = String(email || '').trim().toLowerCase();
+      if (!needle) return false;
+      for (const p of state.profiles.values()) {
+        if (String(p.email || '').toLowerCase() === needle) return Boolean(p.is_admin);
+      }
+      return false;
     }
   };
 }
@@ -1048,6 +1089,60 @@ export function createPgStore(db) {
           topics: topicsByTrack.get(r.id) || []
         };
       });
+    },
+    async listUsers() {
+      const { rows } = await db.query(
+        `SELECT google_sub, email, name, picture, is_admin,
+                created_at, last_login_at
+         FROM glider_users
+         ORDER BY lower(email), google_sub`
+      );
+      return rows.map((r) => ({
+        google_sub: r.google_sub,
+        email: r.email,
+        name: r.name,
+        picture: r.picture,
+        is_admin: Boolean(r.is_admin),
+        created_at: r.created_at,
+        last_login_at: r.last_login_at
+      }));
+    },
+    async setUserAdmin(googleSub, isAdmin) {
+      const { rows } = await db.query(
+        `UPDATE glider_users
+         SET is_admin = $2
+         WHERE google_sub = $1
+         RETURNING google_sub, email, name, picture, is_admin, created_at, last_login_at`,
+        [googleSub, Boolean(isAdmin)]
+      );
+      if (!rows[0]) return null;
+      const r = rows[0];
+      return {
+        google_sub: r.google_sub,
+        email: r.email,
+        name: r.name,
+        picture: r.picture,
+        is_admin: Boolean(r.is_admin),
+        created_at: r.created_at,
+        last_login_at: r.last_login_at
+      };
+    },
+    async getUserAdminBySub(googleSub) {
+      if (!googleSub) return false;
+      const { rows } = await db.query(
+        `SELECT is_admin FROM glider_users WHERE google_sub = $1`,
+        [googleSub]
+      );
+      return Boolean(rows[0]?.is_admin);
+    },
+    async getUserAdminByEmail(email) {
+      const needle = String(email || '').trim().toLowerCase();
+      if (!needle) return false;
+      const { rows } = await db.query(
+        `SELECT is_admin FROM glider_users WHERE lower(email) = $1 LIMIT 1`,
+        [needle]
+      );
+      return Boolean(rows[0]?.is_admin);
     }
   };
 }

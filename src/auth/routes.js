@@ -8,21 +8,45 @@ import {
   isSessionAuthenticated
 } from './session.js';
 
-async function upsertGliderUser(db, profile) {
-  if (!db || !profile?.sub) return;
+async function upsertGliderUser(db, profile, { bootstrapEmails = [] } = {}) {
+  if (!db || !profile?.sub) return { isAdmin: false };
+  const email = String(profile.email || '').trim().toLowerCase();
+  const bootstrap = bootstrapEmails.map((e) => String(e || '').trim().toLowerCase()).filter(Boolean);
+  const bootstrapAdmin = Boolean(email && bootstrap.includes(email));
+
   await db.query(
-    `INSERT INTO glider_users (google_sub, email, name, picture, last_login_at)
-     VALUES ($1, $2, $3, $4, NOW())
+    `INSERT INTO glider_users (google_sub, email, name, picture, is_admin, last_login_at)
+     VALUES ($1, $2, $3, $4, $5, NOW())
      ON CONFLICT (google_sub) DO UPDATE SET
        email = EXCLUDED.email,
        name = EXCLUDED.name,
        picture = EXCLUDED.picture,
-       last_login_at = NOW()`,
-    [profile.sub, profile.email, profile.name, profile.picture]
+       last_login_at = NOW(),
+       is_admin = CASE
+         WHEN glider_users.is_admin THEN TRUE
+         WHEN EXCLUDED.is_admin THEN TRUE
+         ELSE glider_users.is_admin
+       END`,
+    [profile.sub, profile.email, profile.name, profile.picture, bootstrapAdmin]
   );
+
+  const { rows } = await db.query(
+    `SELECT is_admin FROM glider_users WHERE google_sub = $1`,
+    [profile.sub]
+  );
+  return { isAdmin: Boolean(rows[0]?.is_admin) };
 }
 
-export function registerAuthRoutes(app, { authConfig, db, defaultReturnPath = '/' } = {}) {
+async function loadIsAdmin(db, profile) {
+  if (!db || !profile?.sub) return false;
+  const { rows } = await db.query(
+    `SELECT is_admin FROM glider_users WHERE google_sub = $1`,
+    [profile.sub]
+  );
+  return Boolean(rows[0]?.is_admin);
+}
+
+export function registerAuthRoutes(app, { authConfig, db, defaultReturnPath = '/', bootstrapEmails = [] } = {}) {
   if (!authConfig?.enabled) return;
 
   function safeReturnPath(value) {
@@ -62,8 +86,8 @@ export function registerAuthRoutes(app, { authConfig, db, defaultReturnPath = '/
 
       const tokenPayload = await exchangeGoogleCode(authConfig, String(request.query.code));
       const profile = await fetchGoogleUserInfo(tokenPayload.access_token);
-      await upsertGliderUser(db, profile);
-      attachSessionUser(request, profile);
+      const { isAdmin } = await upsertGliderUser(db, profile, { bootstrapEmails });
+      attachSessionUser(request, profile, { isAdmin });
 
       const returnPath = safeReturnPath(request.session.oauthReturn);
       delete request.session.oauthState;
@@ -87,12 +111,19 @@ export function registerAuthRoutes(app, { authConfig, db, defaultReturnPath = '/
   app.post('/logout', logout);
   app.get('/logout', logout);
 
-  app.get('/auth/me', (request, response) => {
+  app.get('/auth/me', async (request, response) => {
     if (!isSessionAuthenticated(request)) {
       response.status(401).json({ ok: false, authenticated: false });
       return;
     }
     const user = getSessionUser(request);
+    let isAdmin = Boolean(user.isAdmin);
+    try {
+      isAdmin = await loadIsAdmin(db, user);
+      if (request.session?.user) request.session.user.isAdmin = isAdmin;
+    } catch {
+      /* keep session flag */
+    }
     response.json({
       ok: true,
       authenticated: true,
@@ -101,6 +132,8 @@ export function registerAuthRoutes(app, { authConfig, db, defaultReturnPath = '/
         name: user.name,
         picture: user.picture,
         userKey: user.userKey,
+        sub: user.sub,
+        isAdmin,
         loginAt: user.loginAt
       }
     });

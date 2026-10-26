@@ -58,3 +58,10 @@ export function resolveUserKey(request, config) {
   // Local / auth-off: optional header for scripts, else default
   return String(request.header('x-glider-user') || config.defaultUserKey || 'ron').slice(0, 128);
 }
+
+/** True when the signed-in user is an admin (or auth is off for local use). */
+export function resolveIsAdmin(request, config) {
+  if (!config.auth?.enabled) return true;
+  const user = getSessionUser(request);
+  return Boolean(user?.isAdmin);
+}

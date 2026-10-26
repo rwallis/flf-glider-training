@@ -65,6 +65,7 @@ CREATE TABLE IF NOT EXISTS glider_users (
   email TEXT NOT NULL,
   name TEXT NOT NULL DEFAULT '',
   picture TEXT,
+  is_admin BOOLEAN NOT NULL DEFAULT FALSE,
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   last_login_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
@@ -113,6 +114,56 @@ ALTER TABLE glider_cards
   ADD COLUMN IF NOT EXISTS figure JSONB;
 `;
 
+const USER_ADMIN_SQL = `
+ALTER TABLE glider_users
+  ADD COLUMN IF NOT EXISTS is_admin BOOLEAN NOT NULL DEFAULT FALSE;
+`;
+
+/**
+ * Grant admin to bootstrap emails. On first run, demote everyone else so only
+ * the bootstrap account(s) are admins. Later runs only ensure bootstrap emails
+ * remain admin (UI-granted admins are kept).
+ */
+export async function bootstrapGliderAdmins(db, bootstrapEmails = []) {
+  if (!db) return { bootstrapped: false, admins: 0 };
+  const emails = [...new Set(
+    (bootstrapEmails || [])
+      .map((e) => String(e || '').trim().toLowerCase())
+      .filter(Boolean)
+  )];
+  if (!emails.length) return { bootstrapped: false, admins: 0 };
+
+  const { rows: flagRows } = await db.query(
+    `SELECT value FROM glider_settings WHERE key = 'admin_bootstrap_v1'`
+  );
+  const already = Boolean(flagRows[0]?.value);
+
+  if (!already) {
+    await db.query(
+      `UPDATE glider_users
+       SET is_admin = (lower(email) = ANY($1::text[]))`,
+      [emails]
+    );
+    await db.query(
+      `INSERT INTO glider_settings (key, value, updated_at)
+       VALUES ('admin_bootstrap_v1', 'true'::jsonb, NOW())
+       ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value, updated_at = NOW()`
+    );
+  } else {
+    await db.query(
+      `UPDATE glider_users
+       SET is_admin = TRUE
+       WHERE lower(email) = ANY($1::text[])`,
+      [emails]
+    );
+  }
+
+  const { rows } = await db.query(
+    `SELECT count(*)::int AS n FROM glider_users WHERE is_admin = TRUE`
+  );
+  return { bootstrapped: !already, admins: rows[0]?.n || 0 };
+}
+
 export async function createGliderPool(config) {
   if (!config.database.url) {
     console.warn('[glider-training] DATABASE_URL not set; running without Postgres');
@@ -131,6 +182,7 @@ export async function ensureGliderSchema(db) {
   await db.query(PROGRESS_ACCURACY_SQL);
   await db.query(CARD_DETAILS_SQL);
   await db.query(CARD_FIGURE_SQL);
+  await db.query(USER_ADMIN_SQL);
   return true;
 }
 

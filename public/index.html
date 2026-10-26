@@ -889,6 +889,73 @@
       color: var(--muted);
       font-weight: 700;
     }
+    .admin-user-list {
+      display: grid;
+      gap: 8px;
+    }
+    .admin-user-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+    }
+    .admin-user-row img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #E8F2F8;
+    }
+    .admin-user-row .admin-user-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #E8F2F8;
+      color: var(--sky-deep);
+      font-weight: 800;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .admin-user-meta {
+      flex: 1;
+      min-width: 0;
+    }
+    .admin-user-meta strong {
+      display: block;
+      font-size: 0.92rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .admin-user-meta span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.78rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .admin-user-check {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .admin-user-check input {
+      width: auto;
+      margin: 0;
+    }
+    #nav button.nav-admin-hidden {
+      display: none;
+    }
     .schedule-row {
       display: grid;
       grid-template-columns: 72px 1fr 1fr;
@@ -1246,13 +1313,15 @@
     <button type="button" data-view="study"><span>✎</span>Study</button>
     <button type="button" data-view="aircraft"><span>✈</span>Aircraft</button>
     <button type="button" data-view="progress"><span>★</span>League</button>
-    <button type="button" data-view="admin"><span>⚙</span>Admin</button>
+    <button type="button" data-view="admin" id="navAdminBtn" class="nav-admin-hidden"><span>⚙</span>Admin</button>
   </nav>
   <div class="toast" id="toast"></div>
   <script src="/aircraft/polar-233.js"></script>
   <script>
     const state = {
       view: 'home',
+      user: null,
+      isAdmin: false,
       tracks: [],
       topics: [],
       stats: null,
@@ -1283,8 +1352,11 @@
         hasFigure: false,
         topics: [],
         results: [],
-        status: '',
+        searched: false,
+        status: 'Enter filters and tap Search.',
         searchTimer: null,
+        users: [],
+        usersStatus: '',
         schedule: {
           again: { value: 10, unit: 'minutes' },
           hard: { value: 1, unit: 'days' },
@@ -1362,6 +1434,10 @@
       return html;
     }
 
+    function isAdminUser() {
+      return Boolean(state.isAdmin);
+    }
+
     async function loadAuthUser() {
       const el = document.getElementById('header-user');
       const logoutEl = document.getElementById('header-logout');
@@ -1371,6 +1447,8 @@
         if (!me.authenticated || !me.user) {
           el.classList.add('hidden');
           if (logoutEl) logoutEl.classList.add('hidden');
+          state.isAdmin = false;
+          setNav();
           return;
         }
         const u = me.user;
@@ -1381,9 +1459,20 @@
         el.classList.remove('hidden');
         if (logoutEl) logoutEl.classList.remove('hidden');
         state.user = u;
+        state.isAdmin = Boolean(u.isAdmin);
+        if (!state.isAdmin && state.view === 'admin') state.view = 'home';
+        setNav();
       } catch {
         el.classList.add('hidden');
         if (logoutEl) logoutEl.classList.add('hidden');
+        // Auth disabled locally: treat as admin so the desk remains editable.
+        try {
+          const health = await fetch('/healthz').then((r) => r.json());
+          state.isAdmin = !health.auth_enabled;
+        } catch {
+          state.isAdmin = false;
+        }
+        setNav();
       }
     }
 
@@ -1444,7 +1533,6 @@
       }
     }
 
-    loadAuthUser();
     loadHeaderMeta();
     window.setInterval(pollDeployStatus, 15000);
 
@@ -1557,6 +1645,10 @@
     }
 
     function setNav() {
+      const adminBtn = document.getElementById('navAdminBtn');
+      if (adminBtn) {
+        adminBtn.classList.toggle('nav-admin-hidden', !isAdminUser());
+      }
       document.querySelectorAll('#nav button').forEach((btn) => {
         btn.classList.toggle('active', btn.dataset.view === state.view);
       });
@@ -1732,6 +1824,7 @@
     }
 
     function beginEditCard() {
+      if (!isAdminUser()) return;
       const card = currentCard();
       if (!card) return;
       const choices = Array.isArray(card.choices) ? card.choices.slice() : [];
@@ -1941,7 +2034,7 @@
                 <span class="meta-remaining">${remaining} remaining in session</span>
                 <span class="topic-pill" title="${escapeHtml(card.topic_id || '')}">${escapeHtml(topicTitle)}</span>
               </div>
-              <button type="button" class="linkish" id="toggleEditBtn">${state.study.editing ? 'Editing…' : 'Edit'}</button>
+              ${isAdminUser() ? `<button type="button" class="linkish" id="toggleEditBtn">${state.study.editing ? 'Editing…' : 'Edit'}</button>` : ''}
             </div>
             ${state.study.editing ? renderEditCard(card) : `
               <div class="q">${formatRichText(card.question)}</div>
@@ -1988,6 +2081,7 @@
     }
 
     function beginEditDetails(card) {
+      if (!isAdminUser()) return;
       const details = card?.details || null;
       const links = Array.isArray(details?.links) && details.links.length
         ? details.links.map((l) => ({ label: l.label || '', url: l.url || '' }))
@@ -2082,7 +2176,7 @@
             <header>
               <h3>Question details</h3>
               <div class="details-header-actions">
-                ${editing ? '' : `<button type="button" class="details-edit-btn" id="editDetailsBtn">${details ? 'Edit' : 'Add'}</button>`}
+                ${editing || !isAdminUser() ? '' : `<button type="button" class="details-edit-btn" id="editDetailsBtn">${details ? 'Edit' : 'Add'}</button>`}
                 <button type="button" class="close-details" id="closeDetailsBtn" aria-label="Close">×</button>
               </div>
             </header>
@@ -2109,7 +2203,7 @@
                 </div>
               </div>
             ` : `
-              ${summary ? `<p class="details-summary">${escapeHtml(summary)}</p>` : '<p class="details-empty">No written notes for this question yet. Tap Add to write some.</p>'}
+              ${summary ? `<p class="details-summary">${escapeHtml(summary)}</p>` : `<p class="details-empty">${isAdminUser() ? 'No written notes for this question yet. Tap Add to write some.' : 'No written notes for this question yet.'}</p>`}
               ${links.length ? `
                 <div class="details-links">
                   ${links.map((link) => `
@@ -2574,9 +2668,13 @@
     }
 
     function renderAdminSearchResults() {
-      const rows = state.admin.results || [];
+      const a = state.admin;
+      if (!a.searched) {
+        return `<div class="empty">${escapeHtml(a.status || 'Enter filters and tap Search.')}</div>`;
+      }
+      const rows = a.results || [];
       if (!rows.length) {
-        return `<div class="empty">${state.admin.status || 'No matching questions.'}</div>`;
+        return `<div class="empty">${escapeHtml(a.status || 'No matching questions.')}</div>`;
       }
       return rows.map((card) => `
         <button type="button" class="admin-result" data-open-card="${escapeHtml(card.id)}" title="Open in Study">
@@ -2593,6 +2691,46 @@
       `).join('');
     }
 
+    function formatAdminWhen(value) {
+      if (!value) return '';
+      try {
+        const d = new Date(value);
+        if (Number.isNaN(d.getTime())) return '';
+        return d.toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' });
+      } catch {
+        return '';
+      }
+    }
+
+    function renderAdminUsers() {
+      const users = state.admin.users || [];
+      if (!users.length) {
+        return `<div class="empty">${escapeHtml(state.admin.usersStatus || 'No signed-in users yet.')}</div>`;
+      }
+      return `<div class="admin-user-list">${users.map((u) => {
+        const sub = escapeHtml(u.google_sub || '');
+        const name = escapeHtml(u.name || u.email || 'User');
+        const email = escapeHtml(u.email || '');
+        const last = formatAdminWhen(u.last_login_at);
+        const avatar = u.picture
+          ? `<img src="${escapeHtml(u.picture)}" alt="" referrerpolicy="no-referrer" />`
+          : `<span class="admin-user-avatar">${escapeHtml((u.name || u.email || '?').slice(0, 1).toUpperCase())}</span>`;
+        const self = state.user?.sub && state.user.sub === u.google_sub;
+        return `
+          <div class="admin-user-row">
+            ${avatar}
+            <div class="admin-user-meta">
+              <strong>${name}${self ? ' (you)' : ''}</strong>
+              <span>${email}${last ? ` · last login ${escapeHtml(last)}` : ''}</span>
+            </div>
+            <label class="admin-user-check">
+              <input type="checkbox" data-admin-user="${sub}" ${u.is_admin ? 'checked' : ''} ${self ? 'disabled' : ''} />
+              Admin
+            </label>
+          </div>`;
+      }).join('')}</div>`;
+    }
+
     function renderAdmin() {
       const a = state.admin;
       const courseOpts = [
@@ -2605,8 +2743,15 @@
       ];
       return `
         <section class="admin-section">
+          <h2>Users &amp; admins</h2>
+          <p class="hint">Everyone who has signed in with Google. Check Admin to grant edit access and the Admin tab.</p>
+          ${a.usersStatus && (a.users || []).length ? `<p class="admin-search-status">${escapeHtml(a.usersStatus)}</p>` : ''}
+          ${renderAdminUsers()}
+        </section>
+
+        <section class="admin-section">
           <h2>Question search</h2>
-          <p class="hint">Search by question text, then tap a result to open it in Study. Filter by course, topic, or figures.</p>
+          <p class="hint">Enter filters, then tap Search. Results stay hidden until you search. Tap a result to open it in Study.</p>
           <div class="admin-filters">
             <label for="adminSearchQ">Question contains</label>
             <input id="adminSearchQ" type="search" value="${escapeHtml(a.q)}" placeholder="e.g. stall, METAR, aspect ratio" autocomplete="off" />
@@ -2717,7 +2862,9 @@
       if (state.admin.track) q.set('track', state.admin.track);
       if (state.admin.topic) q.set('topic', state.admin.topic);
       if (state.admin.hasFigure) q.set('has_figure', '1');
+      state.admin.searched = true;
       state.admin.status = 'Searching…';
+      if (state.view === 'admin') render();
       try {
         const data = await api('/api/cards?' + q.toString());
         state.admin.results = data.cards || [];
@@ -2730,6 +2877,37 @@
         state.admin.status = err.message || 'Search failed';
       }
       if (state.view === 'admin') render();
+    }
+
+    async function loadAdminUsers() {
+      state.admin.usersStatus = 'Loading users…';
+      try {
+        const data = await api('/api/admin/users');
+        state.admin.users = data.users || [];
+        const n = state.admin.users.length;
+        state.admin.usersStatus = n
+          ? `${n} signed-in user${n === 1 ? '' : 's'}`
+          : 'No signed-in users yet.';
+      } catch (err) {
+        state.admin.users = [];
+        state.admin.usersStatus = err.message || 'Failed to load users';
+      }
+    }
+
+    async function setUserAdminFlag(googleSub, isAdmin) {
+      const data = await api('/api/admin/users/' + encodeURIComponent(googleSub), {
+        method: 'PATCH',
+        body: JSON.stringify({ is_admin: isAdmin })
+      });
+      const next = data.user;
+      state.admin.users = (state.admin.users || []).map((u) =>
+        u.google_sub === next.google_sub ? { ...u, ...next } : u
+      );
+      if (state.user?.sub === next.google_sub) {
+        state.user = { ...state.user, isAdmin: Boolean(next.is_admin) };
+        state.isAdmin = Boolean(next.is_admin);
+      }
+      render();
     }
 
     function readScheduleFromDom() {
@@ -2751,11 +2929,17 @@
     }
 
     async function loadAdmin() {
+      if (!isAdminUser()) {
+        state.view = 'home';
+        await loadHome();
+        return;
+      }
       if (!(state.tracks || []).length) {
         const tracks = await api('/api/courses').catch(() => api('/api/tracks'));
         state.tracks = tracks.courses || tracks.tracks || [];
       }
       await loadAdminTopics();
+      await loadAdminUsers();
       try {
         const sched = await api('/api/study-schedule');
         if (sched?.schedule) state.admin.schedule = sched.schedule;
@@ -2766,11 +2950,12 @@
         state.imports = (await api('/api/imports')).imports;
       } catch (err) {
         state.imports = [];
-        if (!state.admin.status) state.admin.status = err.message || '';
       }
-      state.admin.status = state.admin.status || 'Searching…';
+      if (!state.admin.searched) {
+        state.admin.results = [];
+        state.admin.status = 'Enter filters and tap Search.';
+      }
       render();
-      await runAdminSearch();
     }
 
     function render() {
@@ -3013,15 +3198,10 @@
       if (adminSearchQ) {
         adminSearchQ.addEventListener('input', () => {
           state.admin.q = adminSearchQ.value;
-          if (state.admin.searchTimer) clearTimeout(state.admin.searchTimer);
-          state.admin.searchTimer = setTimeout(() => {
-            runAdminSearch().catch((err) => toast(err.message));
-          }, 280);
         });
         adminSearchQ.addEventListener('keydown', (e) => {
           if (e.key === 'Enter') {
             e.preventDefault();
-            if (state.admin.searchTimer) clearTimeout(state.admin.searchTimer);
             runAdminSearch().catch((err) => toast(err.message));
           }
         });
@@ -3034,7 +3214,6 @@
           try {
             await loadAdminTopics();
             render();
-            await runAdminSearch();
           } catch (err) {
             toast(err.message);
           }
@@ -3042,25 +3221,39 @@
       }
       const adminSearchTopic = app.querySelector('#adminSearchTopic');
       if (adminSearchTopic) {
-        adminSearchTopic.addEventListener('change', async () => {
+        adminSearchTopic.addEventListener('change', () => {
           state.admin.topic = adminSearchTopic.value;
-          await runAdminSearch().catch((err) => toast(err.message));
         });
       }
       const adminHasFigure = app.querySelector('#adminHasFigure');
       if (adminHasFigure) {
-        adminHasFigure.addEventListener('change', async () => {
+        adminHasFigure.addEventListener('change', () => {
           state.admin.hasFigure = adminHasFigure.checked;
-          await runAdminSearch().catch((err) => toast(err.message));
         });
       }
       const adminSearchBtn = app.querySelector('#adminSearchBtn');
       if (adminSearchBtn) {
         adminSearchBtn.addEventListener('click', () => {
-          if (state.admin.searchTimer) clearTimeout(state.admin.searchTimer);
           runAdminSearch().catch((err) => toast(err.message));
         });
       }
+      app.querySelectorAll('[data-admin-user]').forEach((input) => {
+        input.addEventListener('change', async () => {
+          const googleSub = input.dataset.adminUser;
+          const next = input.checked;
+          input.disabled = true;
+          try {
+            await setUserAdminFlag(googleSub, next);
+            toast(next ? 'Admin granted' : 'Admin removed');
+          } catch (err) {
+            input.checked = !next;
+            toast(err.message);
+          } finally {
+            const self = state.user?.sub && state.user.sub === googleSub;
+            input.disabled = Boolean(self);
+          }
+        });
+      });
       app.querySelectorAll('[data-open-card]').forEach((btn) => {
         btn.addEventListener('click', async () => {
           const id = btn.dataset.openCard;
@@ -3144,7 +3337,12 @@
     document.getElementById('nav').addEventListener('click', async (e) => {
       const btn = e.target.closest('button[data-view]');
       if (!btn) return;
-      state.view = btn.dataset.view;
+      const nextView = btn.dataset.view;
+      if (nextView === 'admin' && !isAdminUser()) {
+        toast('Admin access required');
+        return;
+      }
+      state.view = nextView;
       if (state.view === 'home') {
         await loadHome();
         return;
@@ -3169,9 +3367,11 @@
       }
     });
 
-    loadHome().catch((err) => {
-      app.innerHTML = `<div class="empty">Failed to load: ${escapeHtml(err.message)}</div>`;
-    });
+    loadAuthUser()
+      .then(() => loadHome())
+      .catch((err) => {
+        app.innerHTML = `<div class="empty">Failed to load: ${escapeHtml(err.message)}</div>`;
+      });
   </script>
 </body>
 </html>

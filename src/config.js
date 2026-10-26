@@ -75,11 +75,16 @@ export function loadGliderTrainingConfig() {
       ssl: shouldUseDatabaseSsl(databaseUrl),
       maxPoolSize: Number(process.env.DATABASE_POOL_SIZE ?? 3)
     },
-    /** Gate for Admin import API. When set, password required; when empty, signed-in user required. */
+    /** Gate for Admin import API. When set, password required; when empty, admin user required. */
     importPassword: process.env.GLIDER_IMPORT_PASSWORD?.trim()
       || process.env.ADMIN_CONSOLE_PASSWORD?.trim()
       || '',
     defaultUserKey: process.env.GLIDER_DEFAULT_USER?.trim() || 'ron',
+    /** Comma-separated emails that always get (and initially exclusively hold) admin. */
+    adminBootstrapEmails: (process.env.ADMIN_BOOTSTRAP_EMAILS || 'ron.wallis@gmail.com')
+      .split(',')
+      .map((e) => e.trim().toLowerCase())
+      .filter(Boolean),
     auth: loadAuthConfig()
   };
 }
