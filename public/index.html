@@ -243,10 +243,29 @@
       font-weight: 700;
       color: var(--muted);
     }
-    .league-legend span {
+    .league-legend span,
+    .league-legend button {
       display: inline-flex;
       align-items: center;
       gap: 5px;
+      cursor: pointer;
+      border: 0;
+      background: transparent;
+      padding: 2px 6px;
+      border-radius: 999px;
+      font: inherit;
+      color: inherit;
+    }
+    .league-legend button:hover,
+    .league-legend button.selected {
+      background: #E8F2F8;
+      color: var(--ink);
+    }
+    .league-legend button.selected {
+      box-shadow: inset 0 0 0 1.5px var(--sky);
+    }
+    .league-chart .league-series {
+      cursor: pointer;
     }
     .league-legend i {
       width: 10px;
@@ -261,14 +280,25 @@
       align-items: center;
       padding: 8px 0;
       border-top: 1px solid var(--line);
+      cursor: pointer;
+      border-radius: 10px;
+      transition: background 0.12s ease;
     }
+    .league-row:hover { background: #F3F8FC; }
     .league-row:first-child { border-top: 0; }
+    .league-row.selected {
+      background: #E8F2F8;
+      box-shadow: inset 0 0 0 1.5px var(--sky);
+    }
     .league-row.you {
       background: #E8F8D8;
       margin: 0 -8px;
       padding: 8px;
       border-radius: 12px;
       border-top: 0;
+    }
+    .league-row.you.selected {
+      box-shadow: inset 0 0 0 1.5px #58CC02;
     }
     .league-rank {
       font-weight: 800;
@@ -1365,6 +1395,11 @@
         }
       },
       progressTracks: [],
+      leagueFocus: {
+        userKey: null,
+        displayName: 'You',
+        isYou: true
+      },
       league: null,
       aircraft: {
         page: 'hub', // hub | sgs233
@@ -1594,23 +1629,32 @@
       const xLabels = dates.map((d, i) =>
         `<text x="${xAt(i)}" y="${H - 8}" text-anchor="middle" font-size="9" fill="#5A6B76">${escapeHtml(shortDayLabel(d))}</text>`
       ).join('');
+      const focusKey = state.leagueFocus?.userKey || summary.you?.user_key || '';
       const paths = seriesList.map((person, idx) => {
         const color = person.is_you ? '#58CC02' : LEAGUE_LINE_COLORS[(idx + 1) % LEAGUE_LINE_COLORS.length];
         const pts = (person.series || []).map((v, i) => `${xAt(i)},${yAt(v)}`).join(' ');
-        const width = person.is_you ? 3.2 : 2;
+        const selected = focusKey && person.user_key === focusKey;
+        const width = selected || person.is_you ? 3.2 : 2;
         const dots = (person.series || []).map((v, i) =>
-          `<circle cx="${xAt(i)}" cy="${yAt(v)}" r="${person.is_you ? 3.5 : 2.5}" fill="${color}" />`
+          `<circle cx="${xAt(i)}" cy="${yAt(v)}" r="${selected || person.is_you ? 3.5 : 2.5}" fill="${color}" />`
         ).join('');
-        return `<polyline fill="none" stroke="${color}" stroke-width="${width}" stroke-linecap="round" stroke-linejoin="round" points="${pts}" />${dots}`;
+        const hit = (person.series || []).map((v, i) =>
+          `<circle cx="${xAt(i)}" cy="${yAt(v)}" r="10" fill="transparent" />`
+        ).join('');
+        return `<g class="league-series" data-league-user="${escapeHtml(person.user_key || '')}" data-league-name="${escapeHtml(person.display_name || '')}" data-league-you="${person.is_you ? '1' : '0'}" role="button" tabindex="0" aria-label="Show progress for ${escapeHtml(person.display_name || 'learner')}">
+          <polyline fill="none" stroke="${color}" stroke-width="${width}" stroke-linecap="round" stroke-linejoin="round" points="${pts}" />${dots}${hit}
+        </g>`;
       }).join('');
       return `<svg class="league-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Questions answered per day">${grid}${paths}${xLabels}</svg>`;
     }
 
     function leagueLegendHtml(summary) {
       if (!summary?.chart?.length) return '';
+      const focusKey = state.leagueFocus?.userKey || summary.you?.user_key || '';
       return `<div class="league-legend">${summary.chart.map((p, idx) => {
         const color = p.is_you ? '#58CC02' : LEAGUE_LINE_COLORS[(idx + 1) % LEAGUE_LINE_COLORS.length];
-        return `<span><i style="background:${color}"></i>${escapeHtml(p.display_name)}</span>`;
+        const selected = focusKey && p.user_key === focusKey ? 'selected' : '';
+        return `<button type="button" class="${selected}" data-league-user="${escapeHtml(p.user_key || '')}" data-league-name="${escapeHtml(p.display_name || '')}" data-league-you="${p.is_you ? '1' : '0'}"><i style="background:${color}"></i>${escapeHtml(p.display_name)}</button>`;
       }).join('')}</div>`;
     }
 
@@ -1620,6 +1664,7 @@
       }
       const you = summary.you || { today: 0, week_total: 0 };
       const board = (summary.leaderboard || []).slice(0, compact ? 5 : 12);
+      const focusKey = state.leagueFocus?.userKey || you.user_key || '';
       return `
         <div class="league-card">
           <div class="league-xp">
@@ -1629,7 +1674,7 @@
           ${leagueChartSvg(summary)}
           ${leagueLegendHtml(summary)}
           ${board.length ? board.map((row) => `
-            <div class="league-row ${row.is_you ? 'you' : ''}">
+            <div class="league-row ${row.is_you ? 'you' : ''} ${focusKey && row.user_key === focusKey ? 'selected' : ''}" data-league-user="${escapeHtml(row.user_key || '')}" data-league-name="${escapeHtml(row.display_name || '')}" data-league-you="${row.is_you ? '1' : '0'}" role="button" tabindex="0">
               <div class="league-rank">${row.rank}</div>
               <div class="league-name">
                 ${row.picture
@@ -1642,6 +1687,36 @@
           `).join('') : '<div class="empty" style="padding:12px">No answers logged today yet.</div>'}
         </div>
       `;
+    }
+
+    function isViewingOtherProgress() {
+      return Boolean(state.leagueFocus && state.leagueFocus.isYou === false);
+    }
+
+    async function selectLeagueUser(userKey, displayName, isYou) {
+      const key = String(userKey || '').trim();
+      const selfKey = state.league?.you?.user_key || state.user?.userKey || '';
+      const viewingSelf = Boolean(isYou) || !key || (selfKey && key === selfKey);
+      state.leagueFocus = {
+        userKey: viewingSelf ? (selfKey || key || null) : key,
+        displayName: viewingSelf ? 'You' : (displayName || 'Learner'),
+        isYou: viewingSelf
+      };
+      if (state.view !== 'progress') state.view = 'progress';
+      const q = viewingSelf ? '' : ('?user=' + encodeURIComponent(key));
+      const [byTrack, stats] = await Promise.all([
+        api('/api/progress-by-track' + q),
+        viewingSelf ? api('/api/stats').catch(() => state.stats) : Promise.resolve(state.stats)
+      ]);
+      state.progressTracks = byTrack.tracks || [];
+      if (byTrack.display_name && !viewingSelf) {
+        state.leagueFocus.displayName = byTrack.display_name;
+      }
+      if (viewingSelf && stats) state.stats = stats;
+      if (!state.league) {
+        state.league = await api('/api/league?days=7').catch(() => null);
+      }
+      render();
     }
 
     function setNav() {
@@ -2504,16 +2579,30 @@
     }
 
     async function loadProgress() {
+      const focus = state.leagueFocus;
+      const viewingOther = focus && focus.isYou === false && focus.userKey;
+      const progressQuery = viewingOther
+        ? ('?user=' + encodeURIComponent(focus.userKey))
+        : '';
       const [tracks, stats, byTrack, league] = await Promise.all([
         api('/api/courses').catch(() => api('/api/tracks')),
         api('/api/stats'),
-        api('/api/progress-by-track'),
+        api('/api/progress-by-track' + progressQuery),
         api('/api/league?days=7').catch(() => null)
       ]);
       state.tracks = tracks.courses || tracks.tracks || [];
       state.stats = stats;
       state.progressTracks = byTrack.tracks || [];
       state.league = league;
+      if (!viewingOther) {
+        state.leagueFocus = {
+          userKey: league?.you?.user_key || state.user?.userKey || null,
+          displayName: 'You',
+          isYou: true
+        };
+      } else if (byTrack.display_name) {
+        state.leagueFocus.displayName = byTrack.display_name;
+      }
       render();
     }
 
@@ -2606,6 +2695,8 @@
     function renderProgress() {
       const s = state.stats || { cards: 0, studied: 0, due: 0, today_xp: 0 };
       const rows = state.progressTracks || [];
+      const viewingOther = isViewingOtherProgress();
+      const focusName = state.leagueFocus?.displayName || 'Learner';
       return `
         <div class="stats">
           <div class="stat"><b>${s.today_xp ?? state.league?.you?.today ?? 0}</b><span>Today XP</span></div>
@@ -2613,13 +2704,16 @@
           <div class="stat"><b>${s.due}</b><span>Due</span></div>
         </div>
         <h2 class="section-title">League this week</h2>
-        <p class="hint">Correct answers earn 2 XP; wrong answers earn 1 XP (Central Time). Chart shows you next to other signed-in learners.</p>
+        <p class="hint">Correct answers earn 2 XP; wrong answers earn 1 XP (Central Time). Tap a learner on the chart, legend, or list to inspect their course progress. Studying still only updates your own record.</p>
         ${renderLeagueSummary(state.league, { compact: false })}
-        <h2 class="section-title">Courses</h2>
-        <p class="hint">Readiness hits 100% only after every card is answered and course score is 80%+. Outer ring = seen; inner ring = score toward 80%. Tap a grade pill to study those cards.</p>
+        <h2 class="section-title">Courses${viewingOther ? ` · ${escapeHtml(focusName)}` : ''}</h2>
+        <p class="hint">${viewingOther
+          ? `Read-only view of ${escapeHtml(focusName)}'s readiness. Continue and grade filters stay on your own study deck — tap yourself in the league to return.`
+          : 'Readiness hits 100% only after every card is answered and course score is 80%+. Outer ring = seen; inner ring = score toward 80%. Tap a grade pill to study those cards.'}</p>
         ${rows.length ? rows.map((t) => {
           const color = courseColor(t.id);
-          const topicRows = (t.topics || []).filter((topic) => (topic.answers_total || 0) > 0);
+          const topicRows = (t.topics || []).filter((topic) => (topic.answers_total || 0) > 0 || (topic.studied || 0) > 0);
+          const studyDisabled = viewingOther || !(t.card_count > 0);
           return `
           <article class="course ${t.status === 'upload_later' ? 'upload' : ''}" style="--course-color:${color}">
             <div class="badge">${trackLabel(t.id)}</div>
@@ -2630,10 +2724,10 @@
               </div>
               ${renderReadinessMeter(t)}
               <div class="grade-pills">
-                <button type="button" class="grade-pill again" data-open-grade-study="${t.id}" data-filter-grade="again" ${!(t.again > 0) ? 'disabled' : ''}><b>${t.again || 0}</b><span>Again</span></button>
-                <button type="button" class="grade-pill hard" data-open-grade-study="${t.id}" data-filter-grade="hard" ${!(t.hard > 0) ? 'disabled' : ''}><b>${t.hard || 0}</b><span>Hard</span></button>
-                <button type="button" class="grade-pill good" data-open-grade-study="${t.id}" data-filter-grade="good" ${!(t.good > 0) ? 'disabled' : ''}><b>${t.good || 0}</b><span>Good</span></button>
-                <button type="button" class="grade-pill easy" data-open-grade-study="${t.id}" data-filter-grade="easy" ${!(t.easy > 0) ? 'disabled' : ''}><b>${t.easy || 0}</b><span>Easy</span></button>
+                <button type="button" class="grade-pill again" data-open-grade-study="${t.id}" data-filter-grade="again" ${viewingOther || !(t.again > 0) ? 'disabled' : ''}><b>${t.again || 0}</b><span>Again</span></button>
+                <button type="button" class="grade-pill hard" data-open-grade-study="${t.id}" data-filter-grade="hard" ${viewingOther || !(t.hard > 0) ? 'disabled' : ''}><b>${t.hard || 0}</b><span>Hard</span></button>
+                <button type="button" class="grade-pill good" data-open-grade-study="${t.id}" data-filter-grade="good" ${viewingOther || !(t.good > 0) ? 'disabled' : ''}><b>${t.good || 0}</b><span>Good</span></button>
+                <button type="button" class="grade-pill easy" data-open-grade-study="${t.id}" data-filter-grade="easy" ${viewingOther || !(t.easy > 0) ? 'disabled' : ''}><b>${t.easy || 0}</b><span>Easy</span></button>
               </div>
               <div class="topic-accuracy">
                 <div class="topic-accuracy-title">Correct by topic</div>
@@ -2651,7 +2745,7 @@
                 }).join('') : '<div class="topic-accuracy-empty">No answers in this course yet.</div>'}
               </div>
               <div class="btn-row">
-                <button type="button" data-open-study="${t.id}" ${!(t.card_count > 0) ? 'disabled' : ''}>Continue</button>
+                <button type="button" data-open-study="${t.id}" ${studyDisabled ? 'disabled' : ''}>Continue</button>
               </div>
             </div>
           </article>`;
@@ -2983,8 +3077,30 @@
     }
 
     function bind() {
+      app.querySelectorAll('[data-league-user]').forEach((el) => {
+        const activate = async (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const userKey = el.dataset.leagueUser || '';
+          if (!userKey) return;
+          try {
+            await selectLeagueUser(
+              userKey,
+              el.dataset.leagueName || '',
+              el.dataset.leagueYou === '1'
+            );
+          } catch (err) {
+            toast(err.message);
+          }
+        };
+        el.addEventListener('click', activate);
+        el.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') activate(e);
+        });
+      });
       app.querySelectorAll('[data-open-study]').forEach((btn) => {
         btn.addEventListener('click', async () => {
+          if (isViewingOtherProgress()) return;
           await openStudy({
             track: btn.dataset.openStudy,
             topic: '',
@@ -2994,6 +3110,7 @@
       });
       app.querySelectorAll('[data-open-grade-study]').forEach((btn) => {
         btn.addEventListener('click', async () => {
+          if (isViewingOtherProgress()) return;
           const g = btn.dataset.filterGrade;
           if (!g) return;
           await openStudy({

@@ -647,6 +647,18 @@ export function createMemoryStore(seed) {
         if (String(p.email || '').toLowerCase() === needle) return Boolean(p.is_admin);
       }
       return false;
+    },
+    async getProfileByUserKey(userKey) {
+      const key = String(userKey || '').trim();
+      if (!key) return null;
+      const p = state.profiles.get(key);
+      if (!p) return null;
+      return {
+        userKey: key,
+        email: p.email || '',
+        name: p.name || '',
+        picture: p.picture || null
+      };
     }
   };
 }
@@ -1143,6 +1155,25 @@ export function createPgStore(db) {
         [needle]
       );
       return Boolean(rows[0]?.is_admin);
+    },
+    async getProfileByUserKey(userKey) {
+      const key = String(userKey || '').trim();
+      if (!key.startsWith('g:')) return null;
+      const sub = key.slice(2);
+      if (!sub) return null;
+      const { rows } = await db.query(
+        `SELECT google_sub, email, name, picture
+         FROM glider_users
+         WHERE google_sub = $1`,
+        [sub]
+      );
+      if (!rows[0]) return null;
+      return {
+        userKey: key,
+        email: rows[0].email || '',
+        name: rows[0].name || '',
+        picture: rows[0].picture || null
+      };
     }
   };
 }

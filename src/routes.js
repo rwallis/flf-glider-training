@@ -84,8 +84,33 @@ export function registerGliderApi(app, { store, config }) {
   app.get('/api/progress-by-track', async (req, res) => {
     const uk = requireUserKey(req, res, config);
     if (!uk) return;
-    const tracks = await store.progressByTrack(uk);
-    res.json({ tracks });
+    const requested = String(req.query.user || req.query.user_key || '').trim();
+    let target = uk;
+    if (requested && requested !== uk) {
+      if (!/^[a-zA-Z0-9:._@+-]{1,128}$/.test(requested)) {
+        res.status(400).json({ error: 'invalid user' });
+        return;
+      }
+      target = requested;
+    }
+    const tracks = await store.progressByTrack(target);
+    let displayName = target === uk ? 'You' : null;
+    let picture = null;
+    if (target !== uk && typeof store.getProfileByUserKey === 'function') {
+      const profile = await store.getProfileByUserKey(target);
+      if (profile) {
+        displayName = profile.name || profile.email || target;
+        picture = profile.picture || null;
+      }
+    }
+    if (!displayName) displayName = target === uk ? 'You' : 'Learner';
+    res.json({
+      tracks,
+      user_key: target,
+      is_you: target === uk,
+      display_name: displayName,
+      picture
+    });
   });
 
   app.get('/api/study', async (req, res) => {
