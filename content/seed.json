@@ -24,8 +24,15 @@
     {
       "id": "cfi_g",
       "title": "CFI-G",
-      "description": "Instructor course — FOI and CFI-G written Q&A.",
+      "description": "Flight instructor — Glider written and practical Q&A.",
       "sort_order": 40,
+      "status": "ready"
+    },
+    {
+      "id": "foi",
+      "title": "Fundamentals of Instruction (FOI)",
+      "description": "FOI knowledge bank — learning process, human behavior, teaching methods, critique, and instructor responsibilities.",
+      "sort_order": 35,
       "status": "ready"
     },
     {

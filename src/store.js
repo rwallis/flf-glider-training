@@ -1178,9 +1178,52 @@ export function createPgStore(db) {
   };
 }
 
+async function loadFoiBankForMemory() {
+  try {
+    const { readFile } = await import('node:fs/promises');
+    const { fileURLToPath } = await import('node:url');
+    const path = await import('node:path');
+    const root = path.dirname(fileURLToPath(import.meta.url));
+    const raw = await readFile(path.join(root, '..', 'content', 'foi-import', 'foi-import.json'), 'utf8');
+    const data = JSON.parse(raw);
+    return {
+      topics: Array.isArray(data.topics) ? data.topics : [],
+      cards: Array.isArray(data.cards)
+        ? data.cards.map((c) => ({
+            ...c,
+            track_id: 'foi',
+            tags: Array.isArray(c.tags) ? c.tags : ['imported', 'foi_written', 'foi']
+          }))
+        : []
+    };
+  } catch {
+    return { topics: [], cards: [] };
+  }
+}
+
 export async function createStore(db) {
   if (db) return createPgStore(db);
   const seed = await loadSeedFile();
+  const foi = await loadFoiBankForMemory();
+  const topicIds = new Set((seed.topics || []).map((t) => t.id));
+  for (const topic of foi.topics) {
+    if (!topic?.id || topicIds.has(topic.id)) continue;
+    seed.topics.push({
+      id: String(topic.id),
+      track_id: 'foi',
+      title: String(topic.title || topic.id),
+      description: String(topic.description || ''),
+      pts_ref: String(topic.pts_ref || ''),
+      sort_order: Number.isFinite(Number(topic.sort_order)) ? Number(topic.sort_order) : 100
+    });
+    topicIds.add(topic.id);
+  }
+  const cardIds = new Set((seed.cards || []).map((c) => c.id));
+  for (const card of foi.cards) {
+    if (!card?.id || cardIds.has(card.id)) continue;
+    seed.cards.push(card);
+    cardIds.add(card.id);
+  }
   const detailRows = await loadCardDetails();
   const byId = new Map(
     detailRows
@@ -1203,8 +1246,8 @@ export async function createStore(db) {
 
 export function parseImportPayload(body) {
   const trackId = String(body.track_id || body.track || '').trim();
-  if (!['private', 'cfi_g', 'commercial', 'common', 'aircraft_233'].includes(trackId)) {
-    throw new Error('track_id must be one of: private, cfi_g, commercial, common, aircraft_233');
+  if (!['private', 'cfi_g', 'commercial', 'common', 'aircraft_233', 'foi'].includes(trackId)) {
+    throw new Error('track_id must be one of: private, cfi_g, commercial, common, aircraft_233, foi');
   }
   let rows = body.cards || body.rows || [];
   if (typeof body.csv === 'string' && body.csv.trim()) {

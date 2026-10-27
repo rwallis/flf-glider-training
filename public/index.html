@@ -1643,6 +1643,7 @@
         private: 'Private',
         commercial: 'Commercial',
         cfi_g: 'CFI-G',
+        foi: 'FOI',
         aircraft_233: '2-33'
       })[id] || id;
     }
@@ -1653,6 +1654,7 @@
         common: '#1CB0F6',
         commercial: '#FF9600',
         cfi_g: '#CE82FF',
+        foi: '#2F7D32',
         private: '#FF4B4B'
       })[id] || '#2B8FCC';
     }
@@ -2141,7 +2143,7 @@
         : '';
       return `
         <div class="chip-row">
-          ${['commercial','common','aircraft_233','cfi_g','private'].map((id) => `
+          ${['commercial','common','aircraft_233','foi','cfi_g','private'].map((id) => `
             <button type="button" class="chip ${state.study.track === id ? 'active' : ''}" data-set-track="${id}">${trackLabel(id)}</button>
           `).join('')}
         </div>
@@ -3131,6 +3133,7 @@
           </p>
           <label>Course</label>
           <select id="importTrack">
+            <option value="foi">Fundamentals of Instruction (FOI)</option>
             <option value="cfi_g">CFI-G</option>
             <option value="private">Private</option>
             <option value="commercial">Commercial</option>

@@ -1,8 +1,8 @@
 {
-  "track_id": "cfi_g",
-  "topic_title": "FOI written question bank",
+  "track_id": "foi",
+  "topic_title": "Fundamentals of Instruction (FOI)",
   "filename": "IMG_0002.pdf",
-  "note": "OCR from GPGS FOI bank IMG_0002.pdf · 276 MC · answer key pp.18-19",
+  "note": "OCR from GPGS FOI bank IMG_0002.pdf · 276 MC · answer key pp.18-19 · course track foi",
   "topics": [
     {
       "id": "foi_learning",
@@ -10,7 +10,7 @@
       "description": "Principles of learning, perception, insight, memory, transfer.",
       "pts_ref": "FOI / AIH",
       "sort_order": 10,
-      "track_id": "cfi_g"
+      "track_id": "foi"
     },
     {
       "id": "foi_human",
@@ -18,7 +18,7 @@
       "description": "Defense mechanisms, anxiety, motivation, needs, Maslow.",
       "pts_ref": "FOI / AIH",
       "sort_order": 20,
-      "track_id": "cfi_g"
+      "track_id": "foi"
     },
     {
       "id": "foi_teaching",
@@ -26,7 +26,7 @@
       "description": "Lesson plans, lecture, demonstration, guided discussion, CBT.",
       "pts_ref": "FOI / AIH",
       "sort_order": 30,
-      "track_id": "cfi_g"
+      "track_id": "foi"
     },
     {
       "id": "foi_critique",
@@ -34,7 +34,7 @@
       "description": "Critique, assessment, oral quiz, written test.",
       "pts_ref": "FOI / AIH",
       "sort_order": 40,
-      "track_id": "cfi_g"
+      "track_id": "foi"
     },
     {
       "id": "foi_instructor",
@@ -42,7 +42,7 @@
       "description": "Professionalism, ADM as instructor, risk, barriers to communication.",
       "pts_ref": "FOI / AIH",
       "sort_order": 50,
-      "track_id": "cfi_g"
+      "track_id": "foi"
     },
     {
       "id": "foi_planning",
@@ -50,7 +50,7 @@
       "description": "Syllabus, PTS/ACS, learning plateaus, rates of learning.",
       "pts_ref": "FOI / AIH",
       "sort_order": 60,
-      "track_id": "cfi_g"
+      "track_id": "foi"
     },
     {
       "id": "foi_misc",
@@ -58,7 +58,7 @@
       "description": "FOI items that do not fit a primary topic bucket.",
       "pts_ref": "FOI / AIH",
       "sort_order": 70,
-      "track_id": "cfi_g"
+      "track_id": "foi"
     }
   ],
   "cards": [
@@ -76,7 +76,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -96,7 +96,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -116,7 +116,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -136,7 +136,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -156,7 +156,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -176,7 +176,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -196,7 +196,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -216,7 +216,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -236,7 +236,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -256,7 +256,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -276,7 +276,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -296,7 +296,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -316,7 +316,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -336,7 +336,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -356,7 +356,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -376,7 +376,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -396,7 +396,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -416,7 +416,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -436,7 +436,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -456,7 +456,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -476,7 +476,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -496,7 +496,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -516,7 +516,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -536,7 +536,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -556,7 +556,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -576,7 +576,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -596,7 +596,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -616,7 +616,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -636,7 +636,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -656,7 +656,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -676,7 +676,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -696,7 +696,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -716,7 +716,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -736,7 +736,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -756,7 +756,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -776,7 +776,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -796,7 +796,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -816,7 +816,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -836,7 +836,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -856,7 +856,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -876,7 +876,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -896,7 +896,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -916,7 +916,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -936,7 +936,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -956,7 +956,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -976,7 +976,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -996,7 +996,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -1016,7 +1016,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -1036,7 +1036,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -1056,7 +1056,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -1076,7 +1076,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -1096,7 +1096,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -1116,7 +1116,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -1136,7 +1136,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -1156,7 +1156,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -1176,7 +1176,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -1196,7 +1196,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -1216,7 +1216,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -1236,7 +1236,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -1256,7 +1256,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -1276,7 +1276,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -1296,7 +1296,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -1316,7 +1316,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -1336,7 +1336,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -1356,7 +1356,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -1376,7 +1376,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -1396,7 +1396,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -1416,7 +1416,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -1436,7 +1436,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -1456,7 +1456,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_instructor"
       ],
       "topic_id": "foi_instructor",
@@ -1476,7 +1476,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_instructor"
       ],
       "topic_id": "foi_instructor",
@@ -1496,7 +1496,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_instructor"
       ],
       "topic_id": "foi_instructor",
@@ -1516,7 +1516,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -1536,7 +1536,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -1556,7 +1556,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -1576,7 +1576,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -1596,7 +1596,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -1616,7 +1616,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -1636,7 +1636,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -1656,7 +1656,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -1676,7 +1676,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -1696,7 +1696,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -1716,7 +1716,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -1736,7 +1736,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -1756,7 +1756,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -1776,7 +1776,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -1796,7 +1796,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -1816,7 +1816,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -1836,7 +1836,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -1856,7 +1856,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -1876,7 +1876,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -1896,7 +1896,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -1916,7 +1916,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -1936,7 +1936,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -1956,7 +1956,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -1976,7 +1976,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -1996,7 +1996,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -2016,7 +2016,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -2036,7 +2036,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -2056,7 +2056,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -2076,7 +2076,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -2096,7 +2096,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -2116,7 +2116,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -2136,7 +2136,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -2156,7 +2156,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -2176,7 +2176,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -2196,7 +2196,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -2216,7 +2216,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -2236,7 +2236,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -2256,7 +2256,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -2276,7 +2276,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -2296,7 +2296,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -2316,7 +2316,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -2336,7 +2336,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -2356,7 +2356,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -2376,7 +2376,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -2396,7 +2396,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -2416,7 +2416,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -2436,7 +2436,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -2456,7 +2456,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -2476,7 +2476,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -2496,7 +2496,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -2516,7 +2516,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -2536,7 +2536,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -2556,7 +2556,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -2576,7 +2576,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -2596,7 +2596,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -2616,7 +2616,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -2636,7 +2636,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -2656,7 +2656,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -2676,7 +2676,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -2696,7 +2696,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -2716,7 +2716,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -2736,7 +2736,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -2756,7 +2756,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -2776,7 +2776,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -2796,7 +2796,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -2816,7 +2816,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -2836,7 +2836,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -2856,7 +2856,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -2876,7 +2876,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -2896,7 +2896,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -2916,7 +2916,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_instructor"
       ],
       "topic_id": "foi_instructor",
@@ -2936,7 +2936,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -2956,7 +2956,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_instructor"
       ],
       "topic_id": "foi_instructor",
@@ -2976,7 +2976,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -2996,7 +2996,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -3016,7 +3016,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -3036,7 +3036,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -3056,7 +3056,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -3076,7 +3076,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -3096,7 +3096,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -3116,7 +3116,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -3136,7 +3136,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -3156,7 +3156,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -3176,7 +3176,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -3196,7 +3196,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -3216,7 +3216,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -3236,7 +3236,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -3256,7 +3256,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -3276,7 +3276,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -3296,7 +3296,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -3316,7 +3316,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -3336,7 +3336,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -3356,7 +3356,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -3376,7 +3376,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -3396,7 +3396,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -3416,7 +3416,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -3436,7 +3436,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -3456,7 +3456,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -3476,7 +3476,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -3496,7 +3496,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -3516,7 +3516,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -3536,7 +3536,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -3556,7 +3556,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -3576,7 +3576,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -3596,7 +3596,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -3616,7 +3616,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -3636,7 +3636,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -3656,7 +3656,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -3676,7 +3676,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -3696,7 +3696,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -3716,7 +3716,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -3736,7 +3736,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -3756,7 +3756,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -3776,7 +3776,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -3796,7 +3796,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -3816,7 +3816,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -3836,7 +3836,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -3856,7 +3856,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -3876,7 +3876,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -3896,7 +3896,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -3916,7 +3916,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -3936,7 +3936,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -3956,7 +3956,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -3976,7 +3976,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -3996,7 +3996,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -4016,7 +4016,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -4036,7 +4036,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -4056,7 +4056,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -4076,7 +4076,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -4096,7 +4096,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -4116,7 +4116,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -4136,7 +4136,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -4156,7 +4156,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -4176,7 +4176,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -4196,7 +4196,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -4216,7 +4216,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -4236,7 +4236,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -4256,7 +4256,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -4276,7 +4276,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -4296,7 +4296,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -4316,7 +4316,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -4336,7 +4336,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -4356,7 +4356,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -4376,7 +4376,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -4396,7 +4396,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -4416,7 +4416,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -4436,7 +4436,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -4456,7 +4456,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -4476,7 +4476,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -4496,7 +4496,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -4516,7 +4516,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -4536,7 +4536,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -4556,7 +4556,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -4576,7 +4576,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -4596,7 +4596,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -4616,7 +4616,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -4636,7 +4636,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -4656,7 +4656,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -4676,7 +4676,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -4696,7 +4696,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -4716,7 +4716,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -4736,7 +4736,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -4756,7 +4756,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -4776,7 +4776,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -4796,7 +4796,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -4816,7 +4816,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -4836,7 +4836,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -4856,7 +4856,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -4876,7 +4876,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -4896,7 +4896,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -4916,7 +4916,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -4936,7 +4936,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -4956,7 +4956,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -4976,7 +4976,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_instructor"
       ],
       "topic_id": "foi_instructor",
@@ -4996,7 +4996,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -5016,7 +5016,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_instructor"
       ],
       "topic_id": "foi_instructor",
@@ -5036,7 +5036,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -5056,7 +5056,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -5076,7 +5076,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -5096,7 +5096,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -5116,7 +5116,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -5136,7 +5136,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -5156,7 +5156,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -5176,7 +5176,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -5196,7 +5196,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -5216,7 +5216,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -5236,7 +5236,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -5256,7 +5256,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -5276,7 +5276,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -5296,7 +5296,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -5316,7 +5316,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -5336,7 +5336,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -5356,7 +5356,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -5376,7 +5376,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -5396,7 +5396,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_misc"
       ],
       "topic_id": "foi_misc",
@@ -5416,7 +5416,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -5436,7 +5436,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",
@@ -5456,7 +5456,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_planning"
       ],
       "topic_id": "foi_planning",
@@ -5476,7 +5476,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_teaching"
       ],
       "topic_id": "foi_teaching",
@@ -5496,7 +5496,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_human"
       ],
       "topic_id": "foi_human",
@@ -5516,7 +5516,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_instructor"
       ],
       "topic_id": "foi_instructor",
@@ -5536,7 +5536,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_learning"
       ],
       "topic_id": "foi_learning",
@@ -5556,7 +5556,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_instructor"
       ],
       "topic_id": "foi_instructor",
@@ -5576,7 +5576,7 @@
         "imported",
         "foi_written",
         "multiple_choice",
-        "cfi_g",
+        "foi",
         "foi_critique"
       ],
       "topic_id": "foi_critique",

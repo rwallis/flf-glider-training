@@ -18,6 +18,7 @@ const COMMERCIAL_IMPORT_PATH = path.join(
   'commercial-import',
   'commercial-import.json'
 );
+const FOI_IMPORT_PATH = path.join(__dirname, '..', 'content', 'foi-import', 'foi-import.json');
 const CARD_DETAILS_PATH = path.join(__dirname, '..', 'content', 'card-details.json');
 const CARD_FIGURES_PATH = path.join(__dirname, '..', 'content', 'card-figures.json');
 
@@ -33,6 +34,20 @@ async function loadTopicAssignments(filePath) {
     return Array.isArray(data.cards) ? data.cards : [];
   } catch {
     return [];
+  }
+}
+
+async function loadImportBank(filePath) {
+  try {
+    const raw = await readFile(filePath, 'utf8');
+    const data = JSON.parse(raw);
+    return {
+      trackId: String(data.track_id || '').trim(),
+      topics: Array.isArray(data.topics) ? data.topics : [],
+      cards: Array.isArray(data.cards) ? data.cards : []
+    };
+  } catch {
+    return { trackId: '', topics: [], cards: [] };
   }
 }
 
@@ -162,6 +177,67 @@ export async function seedGliderContent(db, { force = false } = {}) {
     cards += 1;
   }
 
+  // Seed Fundamentals of Instruction (FOI) bank from import JSON.
+  const foiBank = await loadImportBank(FOI_IMPORT_PATH);
+  let foiCards = 0;
+  if (foiBank.trackId === 'foi') {
+    for (const topic of foiBank.topics) {
+      if (!topic?.id) continue;
+      await db.query(
+        `INSERT INTO glider_topics (id, track_id, title, description, pts_ref, sort_order)
+         VALUES ($1, $2, $3, $4, $5, $6)
+         ON CONFLICT (id) DO UPDATE SET
+           track_id = EXCLUDED.track_id,
+           title = EXCLUDED.title,
+           description = EXCLUDED.description,
+           pts_ref = EXCLUDED.pts_ref,
+           sort_order = EXCLUDED.sort_order`,
+        [
+          String(topic.id),
+          'foi',
+          String(topic.title || topic.id),
+          String(topic.description || ''),
+          String(topic.pts_ref || ''),
+          Number.isFinite(Number(topic.sort_order)) ? Number(topic.sort_order) : 100
+        ]
+      );
+      topics += 1;
+    }
+    for (const card of foiBank.cards) {
+      if (!card?.id || !card?.question || !card?.answer) continue;
+      const tags = Array.isArray(card.tags) ? card.tags : ['imported', 'foi_written', 'multiple_choice', 'foi'];
+      if (!force) {
+        const existing = await db.query('SELECT 1 FROM glider_cards WHERE id = $1', [card.id]);
+        if (existing.rowCount) continue;
+      }
+      await db.query(
+        `INSERT INTO glider_cards (id, track_id, topic_id, question, answer, choices, source, tags, updated_at)
+         VALUES ($1, $2, $3, $4, $5, $6::jsonb, $7, $8, NOW())
+         ON CONFLICT (id) DO UPDATE SET
+           track_id = EXCLUDED.track_id,
+           topic_id = EXCLUDED.topic_id,
+           question = EXCLUDED.question,
+           answer = EXCLUDED.answer,
+           choices = EXCLUDED.choices,
+           source = EXCLUDED.source,
+           tags = EXCLUDED.tags,
+           updated_at = NOW()`,
+        [
+          String(card.id),
+          'foi',
+          card.topic_id ? String(card.topic_id) : null,
+          String(card.question),
+          String(card.answer),
+          card.choices ? JSON.stringify(card.choices) : null,
+          String(card.source || 'FOI written · IMG_0002.pdf'),
+          tags
+        ]
+      );
+      cards += 1;
+      foiCards += 1;
+    }
+  }
+
   // Drop retired 1,080 lb examiner airspeed cards (progress cascades).
   const retired1080 = [
     'a233_vs_1080',
@@ -184,7 +260,8 @@ export async function seedGliderContent(db, { force = false } = {}) {
   let topicRemaps = 0;
   const bankRemaps = [
     { trackId: 'cfi_g', cards: await loadTopicAssignments(CFI_G_IMPORT_PATH) },
-    { trackId: 'commercial', cards: await loadTopicAssignments(COMMERCIAL_IMPORT_PATH) }
+    { trackId: 'commercial', cards: await loadTopicAssignments(COMMERCIAL_IMPORT_PATH) },
+    { trackId: 'foi', cards: foiBank.cards }
   ];
   for (const { trackId, cards: bankCards } of bankRemaps) {
     for (const card of bankCards) {
@@ -305,6 +382,7 @@ export async function seedGliderContent(db, { force = false } = {}) {
     tracks,
     topics,
     cards,
+    foi_cards: foiCards,
     cards_retired: cardsRetired,
     force,
     cfi_g_topic_remaps: topicRemaps,
