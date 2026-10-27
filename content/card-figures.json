@@ -1,6 +1,7 @@
 {
-  "note": "Official FAA Computer Testing Supplement figures for CFI-G and Commercial. Linked from bank stems that say (Refer to Figure N.). Apply on seed.",
+  "note": "Official FAA Computer Testing Supplement figures for CFI-G, Commercial, and Private. Private bank figure numbers follow GPGS stems; some map to a different FAA figure number when the current Sport/Rec/Private AKTS renumbered plates. Apply on seed.",
   "source_urls": [
+    "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/sport_rec_private_akts.pdf",
     "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/commercial_akts.pdf",
     "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
   ],
@@ -274,6 +275,226 @@
       "track": "commercial",
       "source": "FAA Computer Testing Supplement \u2014 Commercial Pilot",
       "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/commercial_akts.pdf"
+    },
+    {
+      "number": 1,
+      "title": "Lift Vector",
+      "url": "/figures/private/figure-01.jpg",
+      "source_page": 35,
+      "faa_figure": 1,
+      "track": "private",
+      "source": "FAA Computer Testing Supplement \u2014 Sport/Recreational/Private Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/sport_rec_private_akts.pdf"
+    },
+    {
+      "number": 11,
+      "title": "Glider Yaw String",
+      "url": "/figures/private/figure-11.jpg",
+      "source_page": 45,
+      "faa_figure": 11,
+      "track": "private",
+      "source": "FAA Computer Testing Supplement \u2014 Sport/Recreational/Private Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/sport_rec_private_akts.pdf"
+    },
+    {
+      "number": 12,
+      "title": "Aviation Routine Weather Reports (METAR)",
+      "url": "/figures/private/figure-12.jpg",
+      "source_page": 46,
+      "faa_figure": 12,
+      "track": "private",
+      "source": "FAA Computer Testing Supplement \u2014 Sport/Recreational/Private Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/sport_rec_private_akts.pdf"
+    },
+    {
+      "number": 13,
+      "title": "Telephone Weather Briefing",
+      "url": "/figures/private/figure-13.jpg",
+      "source_page": 47,
+      "faa_figure": 13,
+      "track": "private",
+      "source": "FAA Computer Testing Supplement \u2014 Sport/Recreational/Private Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/sport_rec_private_akts.pdf"
+    },
+    {
+      "number": 20,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-20.jpg",
+      "source_page": 53,
+      "faa_figure": 20,
+      "track": "private",
+      "source": "FAA Computer Testing Supplement \u2014 Sport/Recreational/Private Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/sport_rec_private_akts.pdf"
+    },
+    {
+      "number": 21,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-21.jpg",
+      "source_page": 54,
+      "faa_figure": 21,
+      "track": "private",
+      "source": "FAA Computer Testing Supplement \u2014 Sport/Recreational/Private Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/sport_rec_private_akts.pdf"
+    },
+    {
+      "number": 22,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-22.jpg",
+      "source_page": 55,
+      "faa_figure": 22,
+      "track": "private",
+      "source": "FAA Computer Testing Supplement \u2014 Sport/Recreational/Private Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/sport_rec_private_akts.pdf"
+    },
+    {
+      "number": 23,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-23.jpg",
+      "source_page": 56,
+      "faa_figure": 23,
+      "track": "private",
+      "source": "FAA Computer Testing Supplement \u2014 Sport/Recreational/Private Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/sport_rec_private_akts.pdf"
+    },
+    {
+      "number": 24,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-24.jpg",
+      "source_page": 57,
+      "faa_figure": 24,
+      "track": "private",
+      "source": "FAA Computer Testing Supplement \u2014 Sport/Recreational/Private Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/sport_rec_private_akts.pdf"
+    },
+    {
+      "number": 25,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-25.jpg",
+      "source_page": 58,
+      "faa_figure": 25,
+      "track": "private",
+      "source": "FAA Computer Testing Supplement \u2014 Sport/Recreational/Private Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/sport_rec_private_akts.pdf"
+    },
+    {
+      "number": 26,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-26.jpg",
+      "source_page": 59,
+      "faa_figure": 26,
+      "track": "private",
+      "source": "FAA Computer Testing Supplement \u2014 Sport/Recreational/Private Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/sport_rec_private_akts.pdf"
+    },
+    {
+      "number": 31,
+      "title": "Wind Sock Airport Landing Indicator (FAA Fig. 50; bank Fig. 31)",
+      "url": "/figures/private/figure-31.jpg",
+      "source_page": 81,
+      "faa_figure": 50,
+      "track": "private",
+      "source": "FAA Computer Testing Supplement \u2014 Sport/Recreational/Private Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/sport_rec_private_akts.pdf"
+    },
+    {
+      "number": 34,
+      "title": "Glider Weight and Balance Diagram (FAA Fig. 53; bank Fig. 34)",
+      "url": "/figures/private/figure-34.jpg",
+      "source_page": 84,
+      "faa_figure": 53,
+      "track": "private",
+      "source": "FAA Computer Testing Supplement \u2014 Sport/Recreational/Private Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/sport_rec_private_akts.pdf"
+    },
+    {
+      "number": 49,
+      "title": "Airport Diagram",
+      "url": "/figures/private/figure-49.jpg",
+      "source_page": 80,
+      "faa_figure": 49,
+      "track": "private",
+      "source": "FAA Computer Testing Supplement \u2014 Sport/Recreational/Private Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/sport_rec_private_akts.pdf"
+    },
+    {
+      "number": 50,
+      "title": "Wind Sock Airport Landing Indicator",
+      "url": "/figures/private/figure-50.jpg",
+      "source_page": 81,
+      "faa_figure": 50,
+      "track": "private",
+      "source": "FAA Computer Testing Supplement \u2014 Sport/Recreational/Private Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/sport_rec_private_akts.pdf"
+    },
+    {
+      "number": 51,
+      "title": "Wind Sock Airport Landing Indicator (FAA Fig. 50; bank Fig. 51)",
+      "url": "/figures/private/figure-51.jpg",
+      "source_page": 81,
+      "faa_figure": 50,
+      "track": "private",
+      "source": "FAA Computer Testing Supplement \u2014 Sport/Recreational/Private Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/sport_rec_private_akts.pdf"
+    },
+    {
+      "number": 53,
+      "title": "Glider Performance Graph (FAA Fig. 54; bank Fig. 53)",
+      "url": "/figures/private/figure-53.jpg",
+      "source_page": 85,
+      "faa_figure": 54,
+      "track": "private",
+      "source": "FAA Computer Testing Supplement \u2014 Sport/Recreational/Private Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/sport_rec_private_akts.pdf"
+    },
+    {
+      "number": 54,
+      "title": "Glider Weight and Balance Diagram (FAA Fig. 53; bank Fig. 54)",
+      "url": "/figures/private/figure-54.jpg",
+      "source_page": 84,
+      "faa_figure": 53,
+      "track": "private",
+      "source": "FAA Computer Testing Supplement \u2014 Sport/Recreational/Private Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/sport_rec_private_akts.pdf"
+    },
+    {
+      "number": 55,
+      "title": "Glider Performance Graph (FAA Fig. 54; bank Fig. 55)",
+      "url": "/figures/private/figure-55.jpg",
+      "source_page": 85,
+      "faa_figure": 54,
+      "track": "private",
+      "source": "FAA Computer Testing Supplement \u2014 Sport/Recreational/Private Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/sport_rec_private_akts.pdf"
+    },
+    {
+      "number": 56,
+      "title": "Standard Soaring Signals (FAA Fig. 55; bank Fig. 56)",
+      "url": "/figures/private/figure-56.jpg",
+      "source_page": 86,
+      "faa_figure": 55,
+      "track": "private",
+      "source": "FAA Computer Testing Supplement \u2014 Sport/Recreational/Private Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/sport_rec_private_akts.pdf"
+    },
+    {
+      "number": 65,
+      "title": "U.S. Airport Signs",
+      "url": "/figures/private/figure-65.jpg",
+      "source_page": 96,
+      "faa_figure": 65,
+      "track": "private",
+      "source": "FAA Computer Testing Supplement \u2014 Sport/Recreational/Private Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/sport_rec_private_akts.pdf"
+    },
+    {
+      "number": 66,
+      "title": "U.S. Airport Signs (FAA Fig. 65; bank Fig. 66)",
+      "url": "/figures/private/figure-66.jpg",
+      "source_page": 96,
+      "faa_figure": 65,
+      "track": "private",
+      "source": "FAA Computer Testing Supplement \u2014 Sport/Recreational/Private Pilot",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/sport_rec_private_akts.pdf"
     }
   ],
   "cards": [
@@ -871,6 +1092,475 @@
       "title": "Sectional Chart Excerpt",
       "url": "/figures/commercial/figure-54.jpg",
       "track": "commercial"
+    },
+    {
+      "card_id": "private_written_135",
+      "figure": 1,
+      "title": "Lift Vector",
+      "url": "/figures/private/figure-01.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_187",
+      "figure": 11,
+      "title": "Glider Yaw String",
+      "url": "/figures/private/figure-11.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_188",
+      "figure": 11,
+      "title": "Glider Yaw String",
+      "url": "/figures/private/figure-11.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_271",
+      "figure": 13,
+      "title": "Telephone Weather Briefing",
+      "url": "/figures/private/figure-13.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_272",
+      "figure": 13,
+      "title": "Telephone Weather Briefing",
+      "url": "/figures/private/figure-13.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_280",
+      "figure": 20,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-20.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_283",
+      "figure": 22,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-22.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_284",
+      "figure": 26,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-26.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_285",
+      "figure": 25,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-25.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_286",
+      "figure": 25,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-25.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_287",
+      "figure": 20,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-20.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_288",
+      "figure": 26,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-26.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_289",
+      "figure": 21,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-21.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_292",
+      "figure": 26,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-26.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_293",
+      "figure": 22,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-22.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_295",
+      "figure": 26,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-26.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_296",
+      "figure": 26,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-26.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_298",
+      "figure": 26,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-26.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_299",
+      "figure": 25,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-25.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_300",
+      "figure": 25,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-25.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_302",
+      "figure": 22,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-22.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_304",
+      "figure": 20,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-20.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_305",
+      "figure": 20,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-20.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_306",
+      "figure": 20,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-20.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_307",
+      "figure": 21,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-21.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_308",
+      "figure": 23,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-23.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_309",
+      "figure": 23,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-23.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_310",
+      "figure": 23,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-23.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_311",
+      "figure": 24,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-24.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_312",
+      "figure": 24,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-24.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_313",
+      "figure": 25,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-25.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_314",
+      "figure": 25,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-25.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_315",
+      "figure": 20,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-20.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_318",
+      "figure": 26,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-26.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_334",
+      "figure": 49,
+      "title": "Airport Diagram",
+      "url": "/figures/private/figure-49.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_347",
+      "figure": 50,
+      "title": "Wind Sock Airport Landing Indicator",
+      "url": "/figures/private/figure-50.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_348",
+      "figure": 50,
+      "title": "Wind Sock Airport Landing Indicator",
+      "url": "/figures/private/figure-50.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_350",
+      "figure": 51,
+      "title": "Wind Sock Airport Landing Indicator (FAA Fig. 50; bank Fig. 51)",
+      "url": "/figures/private/figure-51.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_351",
+      "figure": 51,
+      "title": "Wind Sock Airport Landing Indicator (FAA Fig. 50; bank Fig. 51)",
+      "url": "/figures/private/figure-51.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_352",
+      "figure": 31,
+      "title": "Wind Sock Airport Landing Indicator (FAA Fig. 50; bank Fig. 31)",
+      "url": "/figures/private/figure-31.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_382",
+      "figure": 34,
+      "title": "Glider Weight and Balance Diagram (FAA Fig. 53; bank Fig. 34)",
+      "url": "/figures/private/figure-34.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_384",
+      "figure": 54,
+      "title": "Glider Weight and Balance Diagram (FAA Fig. 53; bank Fig. 54)",
+      "url": "/figures/private/figure-54.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_385",
+      "figure": 55,
+      "title": "Glider Performance Graph (FAA Fig. 54; bank Fig. 55)",
+      "url": "/figures/private/figure-55.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_386",
+      "figure": 53,
+      "title": "Glider Performance Graph (FAA Fig. 54; bank Fig. 53)",
+      "url": "/figures/private/figure-53.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_387",
+      "figure": 55,
+      "title": "Glider Performance Graph (FAA Fig. 54; bank Fig. 55)",
+      "url": "/figures/private/figure-55.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_388",
+      "figure": 55,
+      "title": "Glider Performance Graph (FAA Fig. 54; bank Fig. 55)",
+      "url": "/figures/private/figure-55.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_389",
+      "figure": 55,
+      "title": "Glider Performance Graph (FAA Fig. 54; bank Fig. 55)",
+      "url": "/figures/private/figure-55.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_390",
+      "figure": 56,
+      "title": "Standard Soaring Signals (FAA Fig. 55; bank Fig. 56)",
+      "url": "/figures/private/figure-56.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_391",
+      "figure": 56,
+      "title": "Standard Soaring Signals (FAA Fig. 55; bank Fig. 56)",
+      "url": "/figures/private/figure-56.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_392",
+      "figure": 56,
+      "title": "Standard Soaring Signals (FAA Fig. 55; bank Fig. 56)",
+      "url": "/figures/private/figure-56.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_393",
+      "figure": 56,
+      "title": "Standard Soaring Signals (FAA Fig. 55; bank Fig. 56)",
+      "url": "/figures/private/figure-56.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_394",
+      "figure": 56,
+      "title": "Standard Soaring Signals (FAA Fig. 55; bank Fig. 56)",
+      "url": "/figures/private/figure-56.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_395",
+      "figure": 56,
+      "title": "Standard Soaring Signals (FAA Fig. 55; bank Fig. 56)",
+      "url": "/figures/private/figure-56.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_396",
+      "figure": 56,
+      "title": "Standard Soaring Signals (FAA Fig. 55; bank Fig. 56)",
+      "url": "/figures/private/figure-56.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_397",
+      "figure": 56,
+      "title": "Standard Soaring Signals (FAA Fig. 55; bank Fig. 56)",
+      "url": "/figures/private/figure-56.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_443",
+      "figure": 66,
+      "title": "U.S. Airport Signs (FAA Fig. 65; bank Fig. 66)",
+      "url": "/figures/private/figure-66.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_444",
+      "figure": 66,
+      "title": "U.S. Airport Signs (FAA Fig. 65; bank Fig. 66)",
+      "url": "/figures/private/figure-66.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_447",
+      "figure": 66,
+      "title": "U.S. Airport Signs (FAA Fig. 65; bank Fig. 66)",
+      "url": "/figures/private/figure-66.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_454",
+      "figure": 20,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-20.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_456",
+      "figure": 65,
+      "title": "U.S. Airport Signs",
+      "url": "/figures/private/figure-65.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_464",
+      "figure": 21,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-21.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_465",
+      "figure": 21,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-21.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_466",
+      "figure": 65,
+      "title": "U.S. Airport Signs",
+      "url": "/figures/private/figure-65.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_467",
+      "figure": 65,
+      "title": "U.S. Airport Signs",
+      "url": "/figures/private/figure-65.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_469",
+      "figure": 25,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-25.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_470",
+      "figure": 20,
+      "title": "Sectional Chart Excerpt",
+      "url": "/figures/private/figure-20.jpg",
+      "track": "private"
+    },
+    {
+      "card_id": "private_written_473",
+      "figure": 12,
+      "title": "Aviation Routine Weather Reports (METAR)",
+      "url": "/figures/private/figure-12.jpg",
+      "track": "private"
     }
   ]
 }
