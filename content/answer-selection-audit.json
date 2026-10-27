@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-10-27T21:25:01.985Z",
+  "summary": [
+    {
+      "name": "private",
+      "total_cards": 446,
+      "mc_cards": 446,
+      "bad": 0
+    },
+    {
+      "name": "foi",
+      "total_cards": 276,
+      "mc_cards": 276,
+      "bad": 0
+    },
+    {
+      "name": "commercial",
+      "total_cards": 375,
+      "mc_cards": 375,
+      "bad": 0
+    },
+    {
+      "name": "cfi_g",
+      "total_cards": 440,
+      "mc_cards": 440,
+      "bad": 0
+    },
+    {
+      "name": "seed",
+      "total_cards": 69,
+      "mc_cards": 43,
+      "bad": 0
+    }
+  ],
+  "bad_count": 0,
+  "cards": []
+}

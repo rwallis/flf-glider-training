@@ -459,7 +459,7 @@
       "track_id": "common",
       "topic_id": "common_aero",
       "question": "About how much does stall speed increase in a 45° coordinated bank?",
-      "answer": "Load factor ≈ 1.4 g, so stall speed rises by about √1.4 ≈ 18%.",
+      "answer": "About 18%",
       "choices": [
         "About 5%",
         "About 18%",
@@ -477,7 +477,7 @@
       "track_id": "common",
       "topic_id": "common_aero",
       "question": "What is the load factor in a 60° bank level turn, and roughly the stall speed increase?",
-      "answer": "2 g; stall speed about 41% higher (√2).",
+      "answer": "2 g / ~41%",
       "choices": [
         "1.15 g / ~7%",
         "1.4 g / ~18%",
@@ -494,7 +494,7 @@
       "track_id": "common",
       "topic_id": "common_wx",
       "question": "What is the dry adiabatic lapse rate used in soaring discussions?",
-      "answer": "About 3°C per 1,000 ft (≈5.4°F / 1,000 ft).",
+      "answer": "3°C/1000 ft",
       "choices": [
         "2°C/1000 ft",
         "3°C/1000 ft",
@@ -535,7 +535,7 @@
       "track_id": "common",
       "topic_id": "common_regs",
       "question": "Do glider pilots need an FAA medical certificate?",
-      "answer": "No. But under 61.53 you must not fly with a known medical deficiency that makes you unsafe.",
+      "answer": "No medical, but 61.53 fitness still applies",
       "choices": [
         "Yes, third-class always",
         "Yes, BasicMed",
@@ -552,7 +552,7 @@
       "track_id": "common",
       "topic_id": "common_regs",
       "question": "Minimum ages: solo glider and Private Pilot — Glider?",
-      "answer": "Solo 14; Private Pilot glider 16.",
+      "answer": "14 and 16",
       "choices": [
         "16 and 17",
         "14 and 16",
@@ -605,7 +605,7 @@
       "track_id": "common",
       "topic_id": "common_airspace",
       "question": "Class G day below 1,200 AGL — basic VFR for a glider?",
-      "answer": "1 SM visibility, clear of clouds.",
+      "answer": "1 SM clear of clouds",
       "choices": [
         "3 SM / 500-1000-2000",
         "1 SM clear of clouds",
@@ -634,7 +634,7 @@
       "track_id": "common",
       "topic_id": "common_airspace",
       "question": "Does the 'above 10,000 MSL' Mode C rule apply to gliders?",
-      "answer": "No — 91.215(b)(5) excepts aircraft without an engine-driven electrical system, balloons, and gliders (excluding ≤2,500 AGL carve-out language for powered ships).",
+      "answer": "No, gliders are excepted",
       "choices": [
         "Yes, always",
         "No, gliders are excepted",
@@ -687,7 +687,7 @@
       "track_id": "commercial",
       "topic_id": "comm_certs",
       "question": "Adding glider to an existing commercial airplane certificate — knowledge test?",
-      "answer": "Generally no new knowledge test under 61.63 for the additional category rating; you still take the commercial glider practical test (PTS 23B additional-rating table).",
+      "answer": "Not required for add-on under 61.63",
       "choices": [
         "Always required",
         "Not required for add-on under 61.63",
@@ -716,7 +716,7 @@
       "track_id": "commercial",
       "topic_id": "comm_airworthy",
       "question": "When is a 100-hour inspection required for a glider?",
-      "answer": "When carrying persons for hire (instruction for hire or paid sightseeing) — 91.409(b). Annual still required.",
+      "answer": "When carrying persons for hire",
       "choices": [
         "Never for gliders",
         "Only for Part 135",
@@ -733,7 +733,7 @@
       "track_id": "commercial",
       "topic_id": "comm_airworthy",
       "question": "INOP equipment on a 2-33 without an MEL — which rule?",
-      "answer": "91.213(d): remove or deactivate, placard, and determine it is not a hazard. Required instruments (e.g., ASI per POH) must work.",
+      "answer": "91.213(d)",
       "choices": [
         "91.205 only",
         "91.213(d)",
@@ -750,7 +750,7 @@
       "track_id": "commercial",
       "topic_id": "comm_tow",
       "question": "Is towline / rope break on the commercial glider practical test?",
-      "answer": "Yes. FAA-S-8081-23B Area IV Task G (Aerotow — Abnormal Occurrences) includes towline break and related abnormals; evaluator may simulate.",
+      "answer": "Yes, PTS IV.G",
       "choices": [
         "No, DPE preference only",
         "Yes, PTS IV.G",
@@ -791,7 +791,7 @@
       "track_id": "commercial",
       "topic_id": "comm_tow",
       "question": "Glider and towplane both fail to release — how is it tested?",
-      "answer": "Oral only on the commercial PTS (IV.G). Discuss signals, low-tow on final, glider lands first.",
+      "answer": "Oral only",
       "choices": [
         "Flown every checkride",
         "Oral only",
@@ -808,7 +808,7 @@
       "track_id": "commercial",
       "topic_id": "comm_landings",
       "question": "Commercial landing touchdown/stop standard?",
-      "answer": "Touch in the designated area; stop short of and within 100 ft of the designated point without rolling past it (light–medium brake).",
+      "answer": "Within 100 ft, not past the point",
       "choices": [
         "Within 200 ft",
         "Within 100 ft, not past the point",
@@ -837,7 +837,7 @@
       "track_id": "commercial",
       "topic_id": "comm_maneuvers",
       "question": "Stall recognition/recovery completion altitude on commercial glider PTS?",
-      "answer": "Select an entry altitude that allows completion no lower than 1,500 ft AGL. Recover at first buffet or rapid decay of control effectiveness.",
+      "answer": "1,500 AGL",
       "choices": [
         "500 AGL",
         "1,000 AGL",
@@ -890,7 +890,7 @@
       "track_id": "commercial",
       "topic_id": "comm_perf",
       "question": "XC planning glide ratio for a 2-33 — published L/D vs planning figure?",
-      "answer": "Published L/D ~23:1; plan about half (≈11:1 / ~2 NM per 1,000 ft) so you still make a field.",
+      "answer": "~11:1 planning / ~23:1 published",
       "choices": [
         "Always 23:1",
         "~11:1 planning / ~23:1 published",
@@ -907,7 +907,7 @@
       "track_id": "commercial",
       "topic_id": "comm_landings",
       "question": "How is simulated off-airport landing flown on the commercial test?",
-      "answer": "At an established airport, without using the altimeter. Field selection knowledge is oral.",
+      "answer": "Airport, no altimeter",
       "choices": [
         "Land in a farm field",
         "Airport, no altimeter",
@@ -948,7 +948,7 @@
       "track_id": "cfi_g",
       "topic_id": "cfi_foi",
       "question": "FOI stub: what are the four levels of learning?",
-      "answer": "Rote → Understanding → Application → Correlation. (Expand with your uploaded FOI deck later.)",
+      "answer": "Rote, Understanding, Application, Correlation",
       "choices": [
         "Rote, Memory, Skill, Test",
         "Rote, Understanding, Application, Correlation",
@@ -966,7 +966,7 @@
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 never-exceed / max aero-tow / max dive-or-glide speed?",
-      "answer": "98 mph (placarded).",
+      "answer": "98 mph",
       "choices": [
         "69 mph",
         "85 mph",
@@ -983,7 +983,7 @@
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 max auto/winch tow speed?",
-      "answer": "69 mph.",
+      "answer": "69",
       "choices": [
         "55",
         "69",
@@ -1000,7 +1000,7 @@
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 normal approach speed rule (POH)?",
-      "answer": "55 mph + 1 mph for each 1 mph of wind. (Discard “half the wind” mnemonics that conflict with the POH.)",
+      "answer": "55 + 1 per 1 mph wind",
       "choices": [
         "50 + ½ wind",
         "55 + 1 per 1 mph wind",
@@ -1053,7 +1053,7 @@
       "track_id": "aircraft_233",
       "topic_id": "a233_speeds",
       "question": "2-33 demonstrated / placarded crosswind?",
-      "answer": "17 mph (per POH notes used at FLF).",
+      "answer": "17 mph",
       "choices": [
         "10 mph",
         "17 mph",
@@ -1430,7 +1430,7 @@
       "track_id": "aircraft_233",
       "topic_id": "a233_wb",
       "question": "2-33 maximum gross weight?",
-      "answer": "1,040 lb.",
+      "answer": "1040",
       "choices": [
         "850",
         "960",
@@ -1459,7 +1459,7 @@
       "track_id": "aircraft_233",
       "topic_id": "a233_systems",
       "question": "POH slip recovery height remaining?",
-      "answer": "Initiate recovery so at least 50 ft AGL remains when recovering from the slip.",
+      "answer": "50 ft",
       "choices": [
         "20 ft",
         "50 ft",

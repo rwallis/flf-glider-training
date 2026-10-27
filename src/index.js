@@ -38,6 +38,10 @@ async function main() {
       `[glider-training] seed tracks=${seeded.tracks} topics=${seeded.topics} new_cards=${seeded.cards}` +
         (seeded.foi_cards != null ? ` foi_cards=${seeded.foi_cards}` : '') +
         (seeded.private_cards != null ? ` private_cards=${seeded.private_cards}` : '') +
+        (seeded.answers_aligned != null ? ` answers_aligned=${seeded.answers_aligned}` : '') +
+        (seeded.answer_selection_flags != null
+          ? ` answer_flags=${seeded.answer_selection_flags}`
+          : '') +
         (seeded.cfi_g_topic_remaps != null ? ` cfi_g_topic_remaps=${seeded.cfi_g_topic_remaps}` : '') +
         (seeded.card_details_upserted != null
           ? ` card_details=${seeded.card_details_upserted}`
