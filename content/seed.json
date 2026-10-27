@@ -10,9 +10,9 @@
     {
       "id": "private",
       "title": "Private Glider",
-      "description": "Private Pilot — Glider PTS bank — upload Q&A when you are ready (last).",
+      "description": "Private Pilot — Glider written question bank (GPGS) for self-study.",
       "sort_order": 20,
-      "status": "upload_later"
+      "status": "ready"
     },
     {
       "id": "commercial",

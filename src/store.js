@@ -1201,10 +1201,41 @@ async function loadFoiBankForMemory() {
   }
 }
 
+async function loadPrivateBankForMemory() {
+  try {
+    const { readFile } = await import('node:fs/promises');
+    const { fileURLToPath } = await import('node:url');
+    const path = await import('node:path');
+    const root = path.dirname(fileURLToPath(import.meta.url));
+    const raw = await readFile(
+      path.join(root, '..', 'content', 'private-import', 'private-import.json'),
+      'utf8'
+    );
+    const data = JSON.parse(raw);
+    return {
+      topics: Array.isArray(data.topics) ? data.topics : [],
+      cards: Array.isArray(data.cards)
+        ? data.cards
+            .filter((c) => c?.id && c?.question && c?.answer && !String(c.answer).startsWith('[missing'))
+            .map((c) => ({
+              ...c,
+              track_id: 'private',
+              tags: Array.isArray(c.tags)
+                ? c.tags
+                : ['imported', 'private_written', 'private']
+            }))
+        : []
+    };
+  } catch {
+    return { topics: [], cards: [] };
+  }
+}
+
 export async function createStore(db) {
   if (db) return createPgStore(db);
   const seed = await loadSeedFile();
   const foi = await loadFoiBankForMemory();
+  const privateBank = await loadPrivateBankForMemory();
   const topicIds = new Set((seed.topics || []).map((t) => t.id));
   for (const topic of foi.topics) {
     if (!topic?.id || topicIds.has(topic.id)) continue;
@@ -1218,8 +1249,25 @@ export async function createStore(db) {
     });
     topicIds.add(topic.id);
   }
+  for (const topic of privateBank.topics) {
+    if (!topic?.id || topicIds.has(topic.id)) continue;
+    seed.topics.push({
+      id: String(topic.id),
+      track_id: 'private',
+      title: String(topic.title || topic.id),
+      description: String(topic.description || ''),
+      pts_ref: String(topic.pts_ref || ''),
+      sort_order: Number.isFinite(Number(topic.sort_order)) ? Number(topic.sort_order) : 100
+    });
+    topicIds.add(topic.id);
+  }
   const cardIds = new Set((seed.cards || []).map((c) => c.id));
   for (const card of foi.cards) {
+    if (!card?.id || cardIds.has(card.id)) continue;
+    seed.cards.push(card);
+    cardIds.add(card.id);
+  }
+  for (const card of privateBank.cards) {
     if (!card?.id || cardIds.has(card.id)) continue;
     seed.cards.push(card);
     cardIds.add(card.id);

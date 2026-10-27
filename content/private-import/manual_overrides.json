@@ -1,0 +1,2202 @@
+{
+  "4": {
+    "question": "With respect to the certification of aircraft, which is a class of aircraft?",
+    "choices": {
+      "A": "Airplane, rotorcraft, glider, balloon.",
+      "B": "Normal, utility, acrobatic, limited.",
+      "C": "Transport, restricted, provisional."
+    }
+  },
+  "5": {
+    "question": "The definition of nighttime is",
+    "choices": {
+      "A": "sunset to sunrise.",
+      "B": "1 hour after sunset to 1 hour before sunrise.",
+      "C": "the time between the end of evening civil twilight and the beginning of morning civil twilight."
+    }
+  },
+  "6": {
+    "question": "Which V-speed represents maneuvering speed?",
+    "choices": {
+      "A": "V(A).",
+      "B": "V(LO).",
+      "C": "V(NE)."
+    }
+  },
+  "7": {
+    "question": "Which V-speed represents maximum flap extended speed?",
+    "choices": {
+      "A": "V(FE).",
+      "B": "V(LOF).",
+      "C": "V(FC)."
+    }
+  },
+  "8": {
+    "question": "Which V-speed represents maximum landing gear extended speed?",
+    "choices": {
+      "A": "V(LE).",
+      "B": "V(LO).",
+      "C": "V(FE)."
+    }
+  },
+  "9": {
+    "question": "V(NO) is defined as the",
+    "choices": {
+      "A": "normal operating range.",
+      "B": "never-exceed speed.",
+      "C": "maximum structural cruising speed."
+    }
+  },
+  "10": {
+    "question": "V(SO) is defined as the",
+    "choices": {
+      "A": "stalling speed or minimum steady flight speed in the landing configuration.",
+      "B": "stalling speed or minimum steady flight speed in a specified configuration.",
+      "C": "stalling speed or minimum takeoff safety speed."
+    }
+  },
+  "50": {
+    "question": "In addition to other preflight actions for a VFR flight away from the vicinity of the departure airport, regulations specifically require the pilot in command to",
+    "choices": {
+      "A": "review traffic control light signal procedures.",
+      "B": "check the accuracy of the navigation equipment and the emergency locator transmitter (ELT).",
+      "C": "determine runway lengths at airports of intended use and the aircraft's takeoff and landing distance data."
+    }
+  },
+  "51": {
+    "question": "Flight crewmembers are required to keep their safety belts and shoulder harnesses fastened during",
+    "choices": {
+      "A": "takeoffs and landings.",
+      "B": "all flight conditions.",
+      "C": "flight in turbulent air."
+    }
+  },
+  "52": {
+    "question": "Which best describes the flight conditions under which flight crewmembers are specifically required to keep their safety belts and shoulder harnesses fastened?",
+    "choices": {
+      "A": "Safety belts during takeoff and landing; shoulder harnesses during takeoff and landing.",
+      "B": "Safety belts during takeoff and landing; shoulder harnesses during takeoff and landing and while en route.",
+      "C": "Safety belts during takeoff and landing and while en route; shoulder harnesses during takeoff and landing."
+    }
+  },
+  "53": {
+    "question": "With respect to passengers, what obligation, if any, does a pilot in command have concerning the use of safety belts?",
+    "choices": {
+      "A": "The pilot in command must instruct the passengers to keep their safety belts fastened for the entire flight.",
+      "B": "The pilot in command must brief the passengers on the use of safety belts and notify them to fasten their safety belts during taxi, takeoff, and landing.",
+      "C": "The pilot in command has no obligation in regard to passengers' use of safety belts."
+    }
+  },
+  "54": {
+    "question": "With certain exceptions, safety belts are required to be secured about passengers during",
+    "choices": {
+      "A": "taxi, takeoffs, and landings.",
+      "B": "all flight conditions.",
+      "C": "flight in turbulent air."
+    }
+  },
+  "55": {
+    "question": "Safety belts are required to be properly secured about which persons in an aircraft and when?",
+    "choices": {
+      "A": "Pilots only, during takeoffs and landings.",
+      "B": "Passengers, during taxi, takeoffs, and landings only.",
+      "C": "Each person on board the aircraft during the entire flight."
+    }
+  },
+  "56": {
+    "question": "No person may operate an aircraft in formation flight",
+    "choices": {
+      "A": "over a densely populated area.",
+      "B": "in Class D airspace under special VFR.",
+      "C": "except by prior arrangement with the pilot in command of each aircraft."
+    }
+  },
+  "57": {
+    "question": "Which aircraft has the right-of-way over all other air traffic?",
+    "choices": {
+      "A": "A balloon.",
+      "B": "An aircraft in distress.",
+      "C": "An aircraft on final approach to land."
+    }
+  },
+  "58": {
+    "question": "What action is required when two aircraft of the same category converge, but not head-on?",
+    "choices": {
+      "A": "The faster aircraft shall give way.",
+      "B": "The aircraft on the left shall give way.",
+      "C": "Each aircraft shall give way to the right."
+    }
+  },
+  "59": {
+    "question": "Which aircraft has the right-of-way over the other aircraft listed?",
+    "choices": {
+      "A": "Gyroplane.",
+      "B": "Airship.",
+      "C": "Aircraft towing other aircraft."
+    }
+  },
+  "60": {
+    "question": "Which aircraft has the right-of-way over the other aircraft listed?",
+    "choices": {
+      "A": "Glider.",
+      "B": "Airship.",
+      "C": "Aircraft refueling other aircraft."
+    }
+  },
+  "61": {
+    "question": "What action should the pilots of a glider and an airplane take if on a head-on collision course?",
+    "choices": {
+      "A": "The airplane pilot should give way to the left.",
+      "B": "The glider pilot should give way to the right.",
+      "C": "Both pilots should give way to the right."
+    }
+  },
+  "62": {
+    "question": "When two or more aircraft are approaching an airport for the purpose of landing, the right-of-way belongs to the aircraft",
+    "choices": {
+      "A": "that has the other to its right.",
+      "B": "that is the least maneuverable.",
+      "C": "at the lower altitude, but it shall not take advantage of this rule to cut in front of or to overtake another."
+    }
+  },
+  "63": {
+    "question": "Except when necessary for takeoff or landing, what is the minimum safe altitude for a pilot to operate an aircraft anywhere?",
+    "choices": {
+      "A": "An altitude allowing, if a power unit fails, an emergency landing without undue hazard to persons or property on the surface.",
+      "B": "An altitude of 500 feet above the surface and no closer than 500 feet to any person, vessel, vehicle, or structure.",
+      "C": "An altitude of 500 feet above the highest obstacle within a horizontal radius of 1,000 feet."
+    }
+  },
+  "64": {
+    "question": "Except when necessary for takeoff or landing, what is the minimum safe altitude required for a pilot to operate an aircraft over congested areas?",
+    "choices": {
+      "A": "An altitude of 1,000 feet above any person, vessel, vehicle, or structure.",
+      "B": "An altitude of 500 feet above the highest obstacle within a horizontal radius of 1,000 feet of the aircraft.",
+      "C": "An altitude of 1,000 feet above the highest obstacle within a horizontal radius of 2,000 feet of the aircraft."
+    }
+  },
+  "65": {
+    "question": "Except when necessary for takeoff or landing, what is the minimum safe altitude required for a pilot to operate an aircraft over other than a congested area?",
+    "choices": {
+      "A": "An altitude allowing, if a power unit fails, an emergency landing without undue hazard to persons or property on the surface.",
+      "B": "An altitude of 500 feet AGL, except over open water or a sparsely populated area, which requires 500 feet from any person, vessel, vehicle, or structure.",
+      "C": "An altitude of 500 feet above the highest obstacle within a horizontal radius of 1,000 feet."
+    }
+  },
+  "66": {
+    "question": "Except when necessary for takeoff or landing, an aircraft may not be operated closer than what distance from any person, vessel, vehicle, or structure?",
+    "choices": {
+      "A": "500 feet.",
+      "B": "700 feet.",
+      "C": "1,000 feet."
+    }
+  },
+  "67": {
+    "question": "If an altimeter setting is not available before flight, to which altitude should the pilot adjust the altimeter?",
+    "choices": {
+      "A": "The elevation of the nearest airport corrected to mean sea level.",
+      "B": "The elevation of the departure area.",
+      "C": "Pressure altitude corrected for nonstandard temperature."
+    }
+  },
+  "68": {
+    "question": "Prior to takeoff, the altimeter should be set to which altitude or altimeter setting?",
+    "choices": {
+      "A": "The current local altimeter setting, if available, or the departure airport elevation.",
+      "B": "The corrected density altitude of the departure airport.",
+      "C": "The corrected pressure altitude for the departure airport."
+    }
+  },
+  "69": {
+    "question": "At what altitude shall the altimeter be set to 29.92, when climbing to cruising flight level?",
+    "choices": {
+      "A": "14,500 feet MSL.",
+      "B": "18,000 feet MSL.",
+      "C": "24,000 feet MSL."
+    }
+  },
+  "70": {
+    "question": "When an ATC clearance has been obtained, no pilot in command may deviate from that clearance, unless that pilot obtains an amended clearance. The one exception to this regulation is",
+    "choices": {
+      "A": "when the clearance states \"at pilot's discretion.\"",
+      "B": "an emergency.",
+      "C": "if the clearance contains a restriction."
+    }
+  },
+  "71": {
+    "question": "When would a pilot be required to submit a detailed report of an emergency which caused the pilot to deviate from an ATC clearance?",
+    "choices": {
+      "A": "When requested by ATC.",
+      "B": "Immediately.",
+      "C": "Within 7 days."
+    }
+  },
+  "72": {
+    "question": "What action, if any, is appropriate if the pilot deviates from an ATC instruction during an emergency and is given priority?",
+    "choices": {
+      "A": "Take no special action since you are pilot in command.",
+      "B": "File a detailed report within 48 hours to the chief of the appropriate ATC facility, if requested.",
+      "C": "File a report to the FAA Administrator, as soon as possible."
+    }
+  },
+  "73": {
+    "question": "A steady green light signal directed from the control tower to an aircraft in flight is a signal that the pilot",
+    "choices": {
+      "A": "is cleared to land.",
+      "B": "should give way to other aircraft and continue circling.",
+      "C": "should return for landing."
+    }
+  },
+  "74": {
+    "question": "An alternating red and green light signal directed from the control tower to an aircraft in flight is a signal to",
+    "choices": {
+      "A": "hold position.",
+      "B": "exercise extreme caution.",
+      "C": "not land; the airport is unsafe."
+    }
+  },
+  "75": {
+    "question": "A blue segmented circle on a Sectional Chart depicts which class airspace?",
+    "choices": {
+      "A": "Class B.",
+      "B": "Class C.",
+      "C": "Class D."
+    }
+  },
+  "76": {
+    "question": "Airspace at an airport with a part-time control tower is classified as Class D airspace only",
+    "choices": {
+      "A": "when the weather minimums are below basic VFR.",
+      "B": "when the associated control tower is in operation.",
+      "C": "when the associated Flight Service Station is in operation."
+    }
+  },
+  "77": {
+    "question": "Unless otherwise authorized, two-way radio communications with Air Traffic Control are required for landings or takeoffs",
+    "choices": {
+      "A": "at all tower controlled airports regardless of weather conditions.",
+      "B": "at all tower-controlled airports only when weather conditions are less than VFR.",
+      "C": "at all tower-controlled airports within Class D airspace only when weather conditions are less than VFR."
+    }
+  },
+  "78": {
+    "question": "Two-way radio communication must be established with the Air Traffic Control facility having jurisdiction over the area prior to entering which class airspace?",
+    "choices": {
+      "A": "Class C.",
+      "B": "Class E.",
+      "C": "Class G."
+    }
+  },
+  "79": {
+    "question": "What minimum radio equipment is required for operation within Class C airspace?",
+    "choices": {
+      "A": "Two-way radio communications equipment and a 4096-code transponder.",
+      "B": "Two-way radio communications equipment, a 4096-code transponder, and DME.",
+      "C": "Two-way radio communications equipment, a 4096-code transponder, an encoding altimeter and ADSB out."
+    }
+  },
+  "80": {
+    "question": "What minimum pilot certification is required for operation within Class B airspace?",
+    "choices": {
+      "A": "Commercial Pilot Certificate.",
+      "B": "Private Pilot Certificate or Student Pilot Certificate with appropriate logbook endorsements.",
+      "C": "Private Pilot Certificate with an instrument rating."
+    }
+  },
+  "81": {
+    "question": "What minimum pilot certification is required for operation within Class B airspace?",
+    "choices": {
+      "A": "Private Pilot Certificate or Student Pilot Certificate with appropriate logbook endorsements.",
+      "B": "Recreational Pilot Certificate.",
+      "C": "Private Pilot Certificate with an instrument rating."
+    }
+  },
+  "82": {
+    "question": "What minimum radio equipment is required for VFR operation within Class B airspace?",
+    "choices": {
+      "A": "Two-way radio communications equipment and a 4096-code transponder.",
+      "B": "Two-way radio communications equipment, a 4096-code transponder, an encoding altimeter and ADSB out.",
+      "C": "Two-way radio communications equipment, a 4096-code transponder, an encoding altimeter, and a VOR or TACAN receiver."
+    }
+  },
+  "99": {
+    "question": "When operating an aircraft at cabin pressure altitudes above 12,500 feet MSL up to and including 14,000 feet MSL, supplemental oxygen shall be used during",
+    "choices": {
+      "A": "the entire flight time at those altitudes.",
+      "B": "that flight time in excess of 30 minutes at those altitudes.",
+      "C": "that flight time in excess of 30 minutes at those altitudes."
+    }
+  },
+  "100": {
+    "question": "Unless each occupant is provided with supplemental oxygen, no person may operate a civil aircraft of U.S. registry above a maximum cabin pressure altitude of",
+    "choices": {
+      "A": "12,500 feet MSL.",
+      "B": "14,000 feet MSL.",
+      "C": "15,000 feet MSL."
+    }
+  },
+  "101": {
+    "question": "An operable 4096-code transponder with an encoding altimeter is required in which airspace?",
+    "choices": {
+      "A": "Class A, Class B (and within 30 miles of the Class B primary airport), and Class C.",
+      "B": "Class D and Class E (below 10,000 feet MSL).",
+      "C": "Class D and Class G (below 10,000 feet MSL)."
+    }
+  },
+  "107": {
+    "question": "An approved chair-type parachute may be carried in an aircraft for emergency use if it has been packed by an appropriately rated parachute rigger within the preceding",
+    "choices": {
+      "A": "120 days.",
+      "B": "180 days.",
+      "C": "365 days."
+    }
+  },
+  "108": {
+    "question": "With certain exceptions, when must each occupant of an aircraft wear an approved parachute?",
+    "choices": {
+      "A": "When a door is removed from the aircraft to facilitate parachute jumpers.",
+      "B": "When intentionally pitching the nose of the aircraft up or down 30° or more.",
+      "C": "When intentionally banking in excess of 30°."
+    }
+  },
+  "109": {
+    "question": "The minimum allowable strength of a towline used for an aerotow of a glider having a certificated gross weight of 700 pounds is",
+    "choices": {
+      "A": "560 pounds.",
+      "B": "700 pounds.",
+      "C": "1,000 pounds."
+    }
+  },
+  "110": {
+    "question": "The minimum allowable strength of a towline used for an aerotow of a glider having a certificated gross weight of 1,040 pounds is",
+    "choices": {
+      "A": "502 pounds.",
+      "B": "832 pounds.",
+      "C": "1,040 pounds."
+    }
+  },
+  "111": {
+    "question": "For the aerotow of a glider that weighs 700 pounds, which towrope tensile strength would require the use of safety links at each end of the rope?",
+    "choices": {
+      "A": "850 pounds.",
+      "B": "1,040 pounds.",
+      "C": "1,450 pounds."
+    }
+  },
+  "112": {
+    "question": "When using a towline having a breaking strength more than twice the maximum certificated operating weight of the glider, an approved safety link must be installed at what point(s)?",
+    "choices": {
+      "A": "Only the point where the towline is attached to the glider.",
+      "B": "The point where the towline is attached to the glider and the point of attachment of the towline to the towplane.",
+      "C": "Only the point where the towline is attached to the towplane."
+    }
+  },
+  "113": {
+    "question": "Which is normally prohibited when operating a restricted category civil aircraft?",
+    "choices": {
+      "A": "Flight under instrument flight rules.",
+      "B": "Flight over a densely populated area.",
+      "C": "Flight within Class D airspace."
+    }
+  },
+  "114": {
+    "question": "Unless otherwise specifically authorized, no person may operate an aircraft that has an experimental certificate",
+    "choices": {
+      "A": "beneath the floor of Class B airspace.",
+      "B": "over a densely populated area or in a congested airway.",
+      "C": "from the primary airport within Class D airspace."
+    }
+  },
+  "115": {
+    "question": "The responsibility for ensuring that an aircraft is maintained in an airworthy condition is primarily that of the",
+    "choices": {
+      "A": "pilot in command.",
+      "B": "owner or operator.",
+      "C": "mechanic who performs the work."
+    }
+  },
+  "116": {
+    "question": "The airworthiness of an aircraft can be determined by a preflight inspection and a",
+    "choices": {
+      "A": "statement from the owner or operator that the aircraft is airworthy.",
+      "B": "logbook endorsement from a flight instructor.",
+      "C": "review of the maintenance records."
+    }
+  },
+  "121": {
+    "question": "If an alteration or repair substantially affects an aircraft's operation in flight, that aircraft must be test flown by an appropriately rated pilot and approved for return to service prior to being operated",
+    "choices": {
+      "A": "by any private pilot.",
+      "B": "with passengers aboard.",
+      "C": "for compensation or hire."
+    }
+  },
+  "122": {
+    "question": "Before passengers can be carried in an aircraft that has been altered in a manner that may have appreciably changed its flight characteristics, it must be flight tested by an appropriately rated pilot who holds at least a",
+    "choices": {
+      "A": "Commercial Pilot Certificate with an instrument rating.",
+      "B": "Private Pilot Certificate.",
+      "C": "Commercial Pilot Certificate and a mechanic's certificate."
+    }
+  },
+  "123": {
+    "question": "An aircraft's annual inspection was performed on July 12, this year. The next annual inspection will be due no later than",
+    "choices": {
+      "A": "July 1, next year.",
+      "B": "July 13, next year.",
+      "C": "July 31, next year."
+    }
+  },
+  "124": {
+    "question": "To determine the expiration date of the last annual aircraft inspection, a person should refer to the",
+    "choices": {
+      "A": "Airworthiness Certificate.",
+      "B": "Registration Certificate.",
+      "C": "aircraft maintenance records."
+    }
+  },
+  "125": {
+    "question": "How long does the Airworthiness Certificate of an aircraft remain valid?",
+    "choices": {
+      "A": "As long as the aircraft has a current Registration Certificate.",
+      "B": "Indefinitely unless the aircraft suffers major damage.",
+      "C": "As long as the aircraft is maintained and operated as required by Federal Aviation Regulations."
+    }
+  },
+  "126": {
+    "question": "What aircraft inspections are required for rental aircraft that are also used for flight instruction?",
+    "choices": {
+      "A": "Annual and 100-hour inspections.",
+      "B": "Biannual and 100-hour inspections.",
+      "C": "Annual and 50-hour inspections."
+    }
+  },
+  "127": {
+    "question": "Which records or documents shall the owner or operator of an aircraft keep to show compliance with an applicable Airworthiness Directive?",
+    "choices": {
+      "A": "Aircraft maintenance records.",
+      "B": "Airworthiness Certificate and Pilot's Operating Handbook.",
+      "C": "Airworthiness and Registration Certificates."
+    }
+  },
+  "128": {
+    "question": "If an aircraft is involved in an accident which results in substantial damage to the aircraft, the nearest NTSB field office should be notified",
+    "choices": {
+      "A": "immediately.",
+      "B": "within 48 hours.",
+      "C": "within 7 days."
+    }
+  },
+  "129": {
+    "question": "Which incident requires an immediate notification to the nearest NTSB field office?",
+    "choices": {
+      "A": "A forced landing due to engine failure.",
+      "B": "Landing gear damage, due to a hard landing.",
+      "C": "Flight control system malfunction or failure."
+    }
+  },
+  "130": {
+    "question": "Which incident would necessitate an immediate notification to the nearest NTSB field office?",
+    "choices": {
+      "A": "An in-flight generator/alternator failure.",
+      "B": "An in-flight fire.",
+      "C": "An in-flight loss of VOR receiver capability."
+    }
+  },
+  "131": {
+    "question": "Which incident requires an immediate notification be made to the nearest NTSB field office?",
+    "choices": {
+      "A": "An overdue aircraft that is believed to be involved in an accident.",
+      "B": "An in-flight radio communications failure.",
+      "C": "An in-flight generator or alternator failure."
+    }
+  },
+  "132": {
+    "question": "May aircraft wreckage be moved prior to the time the NTSB takes custody?",
+    "choices": {
+      "A": "Yes, but only if moved by a federal, state, or local law enforcement officer.",
+      "B": "Yes, but only to protect the wreckage from further damage.",
+      "C": "No, it may not be moved under any circumstances."
+    }
+  },
+  "133": {
+    "question": "The operator of an aircraft that has been involved in an accident is required to file an accident report within how many days?",
+    "choices": {
+      "A": "5.",
+      "B": "7.",
+      "C": "10."
+    }
+  },
+  "134": {
+    "question": "The operator of an aircraft that has been involved in an incident is required to submit a report to the nearest field office of the NTSB",
+    "choices": {
+      "A": "within 7 days.",
+      "B": "within 10 days.",
+      "C": "when requested."
+    }
+  },
+  "135": {
+    "question": "(Refer to Figure 1.) The acute angle A is the angle of",
+    "choices": {
+      "A": "incidence.",
+      "B": "attack.",
+      "C": "dihedral."
+    }
+  },
+  "136": {
+    "question": "The term \"angle of attack\" is defined as the angle",
+    "choices": {
+      "A": "between the wing chord line and the relative wind.",
+      "B": "between the airplane's climb angle and the horizon.",
+      "C": "formed by the longitudinal axis of the airplane and the chord line of the wing."
+    }
+  },
+  "137": {
+    "question": "How will frost on the wings of an airplane affect takeoff performance?",
+    "choices": {
+      "A": "Frost will disrupt the smooth flow of air over the wing, adversely affecting its lifting capability.",
+      "B": "Frost will change the camber of the wing, increasing its lifting capability.",
+      "C": "Frost will cause the airplane to become airborne with a higher angle of attack, decreasing the stall speed."
+    }
+  },
+  "138": {
+    "question": "An airplane said to be inherently stable will",
+    "choices": {
+      "A": "be difficult to stall.",
+      "B": "require less effort to control.",
+      "C": "not spin."
+    }
+  },
+  "139": {
+    "question": "What determines the longitudinal stability of an airplane?",
+    "choices": {
+      "A": "The location of the CG with respect to the center of lift.",
+      "B": "The effectiveness of the horizontal stabilizer, rudder, and rudder trim tab.",
+      "C": "The relationship of thrust and lift to weight and drag."
+    }
+  },
+  "140": {
+    "question": "What is the purpose of the rudder on an airplane?",
+    "choices": {
+      "A": "To control yaw.",
+      "B": "To control overbanking tendency.",
+      "C": "To control roll."
+    }
+  },
+  "141": {
+    "question": "One of the main functions of flaps during approach and landing is to",
+    "choices": {
+      "A": "decrease the angle of descent without increasing the airspeed.",
+      "B": "permit a touchdown at a higher indicated airspeed.",
+      "C": "increase the angle of descent without increasing the airspeed."
+    }
+  },
+  "142": {
+    "question": "What is one purpose of wing flaps?",
+    "choices": {
+      "A": "To enable the pilot to make steeper approaches to a landing without increasing the airspeed.",
+      "B": "To relieve the pilot of maintaining continuous pressure on the controls.",
+      "C": "To decrease wing area to vary the lift."
+    }
+  },
+  "143": {
+    "question": "If the pitot tube and outside static vents become clogged, which instruments would be affected?",
+    "choices": {
+      "A": "The altimeter, airspeed indicator, and turn-and-slip indicator.",
+      "B": "The altimeter, airspeed indicator, and vertical speed indicator.",
+      "C": "The altimeter, attitude indicator, and turn-and-slip indicator."
+    }
+  },
+  "144": {
+    "question": "Which instrument will become inoperative if the pitot tube becomes clogged?",
+    "choices": {
+      "A": "Altimeter.",
+      "B": "Vertical speed.",
+      "C": "Airspeed."
+    }
+  },
+  "145": {
+    "question": "Which instrument(s) will become inoperative if the static vents become clogged?",
+    "choices": {
+      "A": "Airspeed only.",
+      "B": "Altimeter only.",
+      "C": "Airspeed, altimeter, and vertical speed."
+    }
+  },
+  "150": {
+    "question": "Altimeter setting is the value to which the barometric pressure scale of the altimeter is set so the altimeter indicates",
+    "choices": {
+      "A": "calibrated altitude at field elevation.",
+      "B": "absolute altitude at field elevation.",
+      "C": "true altitude at field elevation."
+    }
+  },
+  "151": {
+    "question": "How do variations in temperature affect the altimeter?",
+    "choices": {
+      "A": "Pressure levels are raised on warm days and the indicated altitude is lower than true altitude.",
+      "B": "Higher temperatures expand the pressure levels, and the indicated altitude is higher than true altitude.",
+      "C": "Lower temperatures lower the pressure levels, and the indicated altitude is lower than true altitude."
+    }
+  },
+  "152": {
+    "question": "What is true altitude?",
+    "choices": {
+      "A": "The vertical distance of the aircraft above sea level.",
+      "B": "The vertical distance of the aircraft above the surface.",
+      "C": "The height above the standard datum plane."
+    }
+  },
+  "153": {
+    "question": "What is absolute altitude?",
+    "choices": {
+      "A": "The altitude read directly from the altimeter.",
+      "B": "The vertical distance of the aircraft above the surface.",
+      "C": "The height above the standard datum plane."
+    }
+  },
+  "154": {
+    "question": "What is density altitude?",
+    "choices": {
+      "A": "The height above the standard datum plane.",
+      "B": "The pressure altitude corrected for nonstandard temperature.",
+      "C": "The altitude read directly from the altimeter."
+    }
+  },
+  "155": {
+    "question": "What is pressure altitude?",
+    "choices": {
+      "A": "The indicated altitude corrected for position and installation error.",
+      "B": "The altitude indicated when the barometric pressure scale is set to 29.92.",
+      "C": "The indicated altitude corrected for nonstandard temperature and pressure."
+    }
+  },
+  "156": {
+    "question": "Under what condition is indicated altitude the same as true altitude?",
+    "choices": {
+      "A": "If the altimeter has no mechanical error.",
+      "B": "When at sea level under standard conditions.",
+      "C": "When at 18,000 feet MSL with the altimeter set at 29.92."
+    }
+  },
+  "157": {
+    "question": "If it is necessary to set the altimeter from 29.15 to 29.85, what change occurs?",
+    "choices": {
+      "A": "70-foot increase in indicated altitude.",
+      "B": "70-foot increase in density altitude.",
+      "C": "700-foot increase in indicated altitude."
+    }
+  },
+  "158": {
+    "question": "The pitot system provides impact pressure for which instrument?",
+    "choices": {
+      "A": "Altimeter.",
+      "B": "Vertical-speed indicator.",
+      "C": "Airspeed indicator."
+    }
+  },
+  "159": {
+    "question": "As altitude increases, the indicated airspeed at which a given airplane stalls in a particular configuration will",
+    "choices": {
+      "A": "decrease as the true airspeed decreases.",
+      "B": "decrease as the true airspeed increases.",
+      "C": "remain the same regardless of altitude."
+    }
+  },
+  "160": {
+    "question": "What does the red line on an airspeed indicator represent?",
+    "choices": {
+      "A": "Maneuvering speed.",
+      "B": "Turbulent or rough-air speed.",
+      "C": "Never-exceed speed."
+    }
+  },
+  "180": {
+    "question": "What must a pilot be aware of as a result of ground effect?",
+    "choices": {
+      "A": "Wingtip vortices increase creating wake turbulence problems for arriving and departing aircraft.",
+      "B": "Induced drag decreases; therefore, any excess speed at the point of flare may cause considerable floating.",
+      "C": "A full stall landing will require less up elevator deflection than would a full stall when done free of ground effect."
+    }
+  },
+  "181": {
+    "question": "Ground effect is most likely to result in which problem?",
+    "choices": {
+      "A": "Settling to the surface abruptly during landing.",
+      "B": "Becoming airborne before reaching recommended takeoff speed.",
+      "C": "Inability to get airborne even though airspeed is sufficient for normal takeoff needs."
+    }
+  },
+  "182": {
+    "question": "During an approach to a stall, an increased load factor will cause the airplane to",
+    "choices": {
+      "A": "stall at a higher airspeed.",
+      "B": "have a tendency to spin.",
+      "C": "be more difficult to control."
+    }
+  },
+  "183": {
+    "question": "Angle of attack is defined as the angle between the chord line of an airfoil and the",
+    "choices": {
+      "A": "direction of the relative wind.",
+      "B": "pitch angle of an airfoil.",
+      "C": "rotor plane of rotation."
+    }
+  },
+  "184": {
+    "question": "What force provides the forward motion necessary to move a glider through the air?",
+    "choices": {
+      "A": "Lift.",
+      "B": "Centripetal force.",
+      "C": "Gravity."
+    }
+  },
+  "185": {
+    "question": "To obtain maximum distance over the ground, the airspeed to use is the",
+    "choices": {
+      "A": "minimum control speed.",
+      "B": "best lift/drag speed.",
+      "C": "minimum sink speed."
+    }
+  },
+  "186": {
+    "question": "What effect would gusts and turbulence have on the load factor of a glider with changes in airspeed?",
+    "choices": {
+      "A": "Load factor decreases as airspeed increases.",
+      "B": "Load factor increases as airspeed increases.",
+      "C": "Load factor increases as airspeed decreases."
+    }
+  },
+  "187": {
+    "question": "(Refer to Figure 11.) Which yaw string and inclinometer illustrations indicate a slipping right turn?",
+    "choices": {
+      "A": "3 and 6.",
+      "B": "2 and 6.",
+      "C": "2 and 4."
+    }
+  },
+  "188": {
+    "question": "(Refer to Figure 11.) Which of the illustrations depicts the excessive use of right rudder during the entry of a right turn?",
+    "choices": {
+      "A": "2 only.",
+      "B": "2 and 4.",
+      "C": "3 and 4."
+    }
+  },
+  "189": {
+    "question": "A sailplane has a best glide ratio of 23:1. How many feet will the glider lose in 8 nautical miles?",
+    "choices": {
+      "A": "1,840 feet.",
+      "B": "2,100 feet.",
+      "C": "2,750 feet."
+    }
+  },
+  "190": {
+    "question": "A sailplane has a best glide ratio of 30:1. How many nautical miles will the glider travel while losing 2,000 feet?",
+    "choices": {
+      "A": "10 nautical miles.",
+      "B": "15 nautical miles.",
+      "C": "21 nautical miles."
+    }
+  },
+  "191": {
+    "question": "A sailplane has lost 2,000 feet in 9 nautical miles. The best glide ratio for this sailplane is approximately",
+    "choices": {
+      "A": "24:1.",
+      "B": "27:1.",
+      "C": "30:1."
+    }
+  },
+  "192": {
+    "question": "How many feet will a sailplane sink in 15 nautical miles if its lift/drag ratio is 22:1?",
+    "choices": {
+      "A": "2,700 feet.",
+      "B": "3,600 feet.",
+      "C": "4,100 feet."
+    }
+  },
+  "193": {
+    "question": "How many feet will a glider sink in 10 nautical miles if its lift/drag ratio is 23:1?",
+    "choices": {
+      "A": "2,400 feet.",
+      "B": "2,600 feet.",
+      "C": "4,300 feet."
+    }
+  },
+  "194": {
+    "question": "What is the proper airspeed to use when flying between thermals on a cross-country flight against a headwind?",
+    "choices": {
+      "A": "The best lift/drag speed increased by one-half the estimated wind velocity.",
+      "B": "The minimum sink speed increased by one-half the estimated wind velocity.",
+      "C": "The best lift/drag speed decreased by one-half the estimated wind velocity."
+    }
+  },
+  "218": {
+    "question": "What is a characteristic of stable air?",
+    "choices": {
+      "A": "Stratiform clouds.",
+      "B": "Unlimited visibility.",
+      "C": "Cumulus clouds."
+    }
+  },
+  "219": {
+    "question": "Moist, stable air flowing upslope can be expected to",
+    "choices": {
+      "A": "produce stratus type clouds.",
+      "B": "cause showers and thunderstorms.",
+      "C": "develop convective turbulence."
+    }
+  },
+  "220": {
+    "question": "If an unstable air mass is forced upward, what type clouds can be expected?",
+    "choices": {
+      "A": "Stratus clouds with little vertical development.",
+      "B": "Stratus clouds with considerable associated turbulence.",
+      "C": "Clouds with considerable vertical development and associated turbulence."
+    }
+  },
+  "221": {
+    "question": "What feature is associated with a temperature inversion?",
+    "choices": {
+      "A": "A stable layer of air.",
+      "B": "An unstable layer of air.",
+      "C": "Chinook winds on mountain slopes."
+    }
+  },
+  "222": {
+    "question": "What is the approximate base of the cumulus clouds if the surface air temperature at 1,000 feet MSL is 70°F and the dewpoint is 48°F?",
+    "choices": {
+      "A": "4,000 feet MSL.",
+      "B": "5,000 feet MSL.",
+      "C": "6,000 feet MSL."
+    }
+  },
+  "223": {
+    "question": "At approximately what altitude above the surface would the pilot expect the base of cumuliform clouds if the surface air temperature is 82°F and the dewpoint is 38°F?",
+    "choices": {
+      "A": "9,000 feet AGL.",
+      "B": "10,000 feet AGL.",
+      "C": "11,000 feet AGL."
+    }
+  },
+  "224": {
+    "question": "What are characteristics of a moist, unstable air mass?",
+    "choices": {
+      "A": "Cumuliform clouds and showery precipitation.",
+      "B": "Poor visibility and smooth air.",
+      "C": "Stratiform clouds and showery precipitation."
+    }
+  },
+  "225": {
+    "question": "What are characteristics of unstable air?",
+    "choices": {
+      "A": "Turbulence and good surface visibility.",
+      "B": "Turbulence and poor surface visibility.",
+      "C": "Nimbostratus clouds and good surface visibility."
+    }
+  },
+  "226": {
+    "question": "A stable air mass is most likely to have which characteristic?",
+    "choices": {
+      "A": "Showery precipitation.",
+      "B": "Turbulent air.",
+      "C": "Smooth air."
+    }
+  },
+  "227": {
+    "question": "The suffix \"nimbus,\" used in naming clouds, means",
+    "choices": {
+      "A": "a cloud with extensive vertical development.",
+      "B": "a rain cloud.",
+      "C": "a middle cloud containing ice pellets."
+    }
+  },
+  "228": {
+    "question": "Clouds are divided into four families according to their",
+    "choices": {
+      "A": "outward shape.",
+      "B": "height range.",
+      "C": "composition."
+    }
+  },
+  "229": {
+    "question": "An almond or lens-shaped cloud which appears stationary, but which may contain winds of 50 knots or more, is referred to as",
+    "choices": {
+      "A": "an inactive frontal cloud.",
+      "B": "a funnel cloud.",
+      "C": "a lenticular cloud."
+    }
+  },
+  "230": {
+    "question": "Crests of standing mountain waves may be marked by stationary, lens-shaped clouds known as",
+    "choices": {
+      "A": "mammatocumulus clouds.",
+      "B": "standing lenticular clouds.",
+      "C": "roll clouds."
+    }
+  },
+  "231": {
+    "question": "What clouds have the greatest turbulence?",
+    "choices": {
+      "A": "Towering cumulus.",
+      "B": "Cumulonimbus.",
+      "C": "Nimbostratus."
+    }
+  },
+  "232": {
+    "question": "What cloud types would indicate convective turbulence?",
+    "choices": {
+      "A": "Cirrus clouds.",
+      "B": "Nimbostratus clouds.",
+      "C": "Towering cumulus clouds."
+    }
+  },
+  "239": {
+    "question": "When may hazardous wind shear be expected?",
+    "choices": {
+      "A": "When stable air crosses a mountain barrier where it tends to flow in layers forming lenticular clouds.",
+      "B": "In areas of low-level temperature inversion, frontal zones, and clear air turbulence.",
+      "C": "Following frontal passage when stratocumulus clouds form indicating mechanical mixing."
+    }
+  },
+  "240": {
+    "question": "A pilot can expect a wind-shear zone in a temperature inversion whenever the windspeed at 2,000 to 4,000 feet above the surface is at least",
+    "choices": {
+      "A": "10 knots.",
+      "B": "15 knots.",
+      "C": "25 knots."
+    }
+  },
+  "241": {
+    "question": "One in-flight condition necessary for structural icing to form is",
+    "choices": {
+      "A": "small temperature/dewpoint spread.",
+      "B": "stratiform clouds.",
+      "C": "visible moisture."
+    }
+  },
+  "242": {
+    "question": "Why is frost considered hazardous to flight?",
+    "choices": {
+      "A": "Frost changes the basic aerodynamic shape of the airfoils, thereby increasing lift.",
+      "B": "Frost slows the airflow over the airfoils, thereby increasing control effectiveness.",
+      "C": "Frost spoils the smooth flow of air over the wings, thereby decreasing lifting capability."
+    }
+  },
+  "257": {
+    "question": "Which is considered to be the most hazardous condition when soaring in the vicinity of thunderstorms?",
+    "choices": {
+      "A": "Static electricity.",
+      "B": "Lightning.",
+      "C": "Wind shear and turbulence."
+    }
+  },
+  "258": {
+    "question": "Convective circulation patterns associated with sea breezes are caused by",
+    "choices": {
+      "A": "warm, dense air moving inland from over the water.",
+      "B": "water absorbing and radiating heat faster than the land.",
+      "C": "cool, dense air moving inland from over the water."
+    }
+  },
+  "259": {
+    "question": "During which period is a sea breeze front most suitable for soaring flight?",
+    "choices": {
+      "A": "Shortly after sunrise.",
+      "B": "During the early forenoon.",
+      "C": "During the afternoon."
+    }
+  },
+  "260": {
+    "question": "Which weather phenomenon is always associated with a thunderstorm?",
+    "choices": {
+      "A": "Lightning.",
+      "B": "Heavy rain.",
+      "C": "Hail."
+    }
+  },
+  "261": {
+    "question": "Individual forecasts for specific routes of flight can be obtained from which weather source?",
+    "choices": {
+      "A": "Transcribed Weather Broadcasts (TWEB's).",
+      "B": "Terminal Forecasts.",
+      "C": "Area Forecasts."
+    }
+  },
+  "262": {
+    "question": "Transcribed Weather Broadcasts (TWEB's) may be monitored by tuning the appropriate radio receiver to certain",
+    "choices": {
+      "A": "airport advisory frequencies.",
+      "B": "VOR and NDB frequencies.",
+      "C": "ATIS frequencies."
+    }
+  },
+  "263": {
+    "question": "When telephoning a weather briefing facility for preflight weather information, pilots should state",
+    "choices": {
+      "A": "whether they intend to fly VFR only.",
+      "B": "that they possess a current pilot certificate.",
+      "C": "the full name and address of the formation commander."
+    }
+  },
+  "264": {
+    "question": "To get a complete weather briefing for the planned flight, the pilot should request",
+    "choices": {
+      "A": "a general briefing.",
+      "B": "an abbreviated briefing.",
+      "C": "a standard briefing."
+    }
+  },
+  "267": {
+    "question": "To update a previous weather briefing, a pilot should request",
+    "choices": {
+      "A": "an abbreviated briefing.",
+      "B": "a standard briefing.",
+      "C": "an outlook briefing."
+    }
+  },
+  "268": {
+    "question": "A weather briefing that is provided when the information requested is 6 or more hours in advance of the proposed departure time is",
+    "choices": {
+      "A": "an outlook briefing.",
+      "B": "a forecast briefing.",
+      "C": "a prognostic briefing."
+    }
+  },
+  "269": {
+    "question": "When requesting weather information for the following morning, a pilot should request",
+    "choices": {
+      "A": "an outlook briefing.",
+      "B": "a standard briefing.",
+      "C": "an abbreviated briefing."
+    }
+  },
+  "280": {
+    "question": "(Refer to Figure 20, area 3.) Determine the approximate latitude and longitude of Currituck County Airport.",
+    "choices": {
+      "A": "36°24'N - 76°01'W.",
+      "B": "36°48'N - 76°01'W.",
+      "C": "47°24'N - 75°58'W."
+    }
+  },
+  "283": {
+    "question": "(Refer to Figure 22, area 3.) Determine the approximate latitude and longitude of Shoshone County Airport.",
+    "choices": {
+      "A": "47°02'N - 116°11'W.",
+      "B": "47°33'N - 116°11'W.",
+      "C": "47°32'N - 116°41'W."
+    }
+  },
+  "289": {
+    "question": "(Refer to Figure 21, area 3.) What type of military flight operations should a pilot expect along IR 644?",
+    "choices": {
+      "A": "IFR training flights above 1,500 feet AGL at speeds in excess of 250 knots.",
+      "B": "VFR training flights above 1,500 feet AGL at speeds less than 250 knots.",
+      "C": "Instrument training flights below 1,500 feet AGL at speeds in excess of 150 knots."
+    }
+  },
+  "292": {
+    "question": "(Refer to Figure 26, area 3.) When flying over Arrowwood National Wildlife Refuge, a pilot should fly no lower than",
+    "choices": {
+      "A": "2,000 feet AGL.",
+      "B": "2,500 feet AGL.",
+      "C": "3,000 feet AGL."
+    }
+  },
+  "299": {
+    "question": "(Refer to Figure 25, area 7.) The airspace overlying McKinney (TKI) is controlled from the surface to",
+    "choices": {
+      "A": "2,500 feet MSL.",
+      "B": "2,900 feet MSL.",
+      "C": "700 feet AGL."
+    }
+  },
+  "300": {
+    "question": "(Refer to Figure 25, area 4.) The airspace directly overlying Fort Worth Meacham is",
+    "choices": {
+      "A": "Class B airspace to 10,000 feet MSL.",
+      "B": "Class C airspace to 5,000 feet MSL.",
+      "C": "Class D airspace to 3,200 feet MSL."
+    }
+  },
+  "302": {
+    "question": "(Refer to Figure 22, area 3.) The vertical limits of that portion of Class E airspace designated as a Federal Airway over Magee Airport are",
+    "choices": {
+      "A": "700 feet MSL to 12,500 feet MSL.",
+      "B": "7,500 feet MSL to 17,999 feet MSL.",
+      "C": "1,200 feet AGL to 17,999 feet MSL."
+    }
+  },
+  "304": {
+    "question": "(Refer to Figure 20, area 5.) The CAUTION box denotes what hazard to aircraft?",
+    "choices": {
+      "A": "Unmarked balloon on cable to 3,008 feet MSL.",
+      "B": "Unmarked balloon on cable to 3,008 feet AGL.",
+      "C": "Unmarked blimp hangars at 308 feet MSL."
+    }
+  },
+  "305": {
+    "question": "(Refer to Figure 20, area 2.) The flag symbol at Lake Drummond represents a",
+    "choices": {
+      "A": "compulsory reporting point for Norfolk Class C airspace.",
+      "B": "compulsory reporting point for Hampton Roads Airport.",
+      "C": "visual checkpoint used to identify position for initial callup to Norfolk Approach Control."
+    }
+  },
+  "311": {
+    "question": "(Refer to Figure 24.) What minimum altitude is necessary to vertically clear the obstacle on the northeast side of Airpark East Airport by 500 feet?",
+    "choices": {
+      "A": "1,010 feet MSL.",
+      "B": "1,273 feet MSL.",
+      "C": "1,283 feet MSL."
+    }
+  },
+  "312": {
+    "question": "(Refer to Figure 24, area 2.) What minimum altitude is necessary to vertically clear the obstacle on the southeast side of Winnsboro Airport by 500 feet?",
+    "choices": {
+      "A": "823 feet MSL.",
+      "B": "1,013 feet MSL.",
+      "C": "1,403 feet MSL."
+    }
+  },
+  "313": {
+    "question": "(Refer to Figure 25, area 2.) The control tower frequency for Addison Airport is",
+    "choices": {
+      "A": "122.95 MHz.",
+      "B": "126.0 MHz.",
+      "C": "133.4 MHz."
+    }
+  },
+  "314": {
+    "question": "(Refer to Figure 25, area 3.) The navigation facility at Dallas-Ft. Worth International (DFW) is a",
+    "choices": {
+      "A": "VOR.",
+      "B": "VORTAC.",
+      "C": "VOR/DME."
+    }
+  },
+  "322": {
+    "question": "FAA advisory circulars (some free, others at cost) are available to all pilots and are obtained by",
+    "choices": {
+      "A": "distribution from the nearest FAA district office.",
+      "B": "referring to the FAA internet home page and following the links to the AC's.",
+      "C": "subscribing to the Federal Register."
+    }
+  },
+  "323": {
+    "question": "Prior to starting each maneuver, pilots should",
+    "choices": {
+      "A": "check altitude, airspeed, and heading indications.",
+      "B": "visually scan the entire area for collision avoidance.",
+      "C": "announce their intentions on the nearest CTAF."
+    }
+  },
+  "324": {
+    "question": "What minimum upward current must a glider encounter to maintain altitude?",
+    "choices": {
+      "A": "At least 2 feet per second.",
+      "B": "The same as the glider's sink rate.",
+      "C": "The same as the adjacent down currents."
+    }
+  },
+  "325": {
+    "question": "On which side of a rocky knoll, that is surrounded by vegetation, should a pilot find the best thermals?",
+    "choices": {
+      "A": "On the side facing the Sun.",
+      "B": "On the downwind side.",
+      "C": "Exactly over the center."
+    }
+  },
+  "326": {
+    "question": "What is one recommended method for locating thermals?",
+    "choices": {
+      "A": "Fly an ever-increasing circular path.",
+      "B": "Maintain a straight track downwind.",
+      "C": "Look for converging streamers of dust or smoke."
+    }
+  },
+  "327": {
+    "question": "What is a recommended procedure for entering a dust devil for soaring?",
+    "choices": {
+      "A": "Enter above 500 feet and circle the edge in the same direction as the rotation.",
+      "B": "Enter below 500 feet and circle the edge opposite the direction of rotation.",
+      "C": "Enter at or above 500 feet and circle the edge opposite the direction of rotation."
+    }
+  },
+  "328": {
+    "question": "What is an important precaution when soaring in a dust devil?",
+    "choices": {
+      "A": "Avoid the eye of the vortex.",
+      "B": "Avoid the clear area at the outside edge of the dust.",
+      "C": "Maintain the same direction as the rotation of the vortex."
+    }
+  },
+  "334": {
+    "question": "(Refer to Figure 49.) Area C on the airport depicted is classified as a",
+    "choices": {
+      "A": "stabilized area.",
+      "B": "multiple heliport.",
+      "C": "closed runway."
+    }
+  },
+  "336": {
+    "question": "The vertical limit of Class C airspace above the primary airport is normally",
+    "choices": {
+      "A": "1,200 feet AGL.",
+      "B": "3,000 feet AGL.",
+      "C": "4,000 feet AGL."
+    }
+  },
+  "340": {
+    "question": "Under what condition, if any, may pilots fly through a restricted area?",
+    "choices": {
+      "A": "When flying on airways with an ATC clearance.",
+      "B": "With the controlling agency's authorization.",
+      "C": "Regulations do not allow this."
+    }
+  },
+  "341": {
+    "question": "What action should a pilot take when operating under VFR in a Military Operations Area (MOA)?",
+    "choices": {
+      "A": "Obtain a clearance from the controlling agency prior to entering the MOA.",
+      "B": "Operate only on the airways that transverse the MOA.",
+      "C": "Exercise extreme caution when military activity is being conducted."
+    }
+  },
+  "342": {
+    "question": "Responsibility for collision avoidance in an alert area rests with",
+    "choices": {
+      "A": "the controlling agency.",
+      "B": "all pilots.",
+      "C": "Air Traffic Control."
+    }
+  },
+  "343": {
+    "question": "The lateral dimensions of Class D airspace are based on",
+    "choices": {
+      "A": "the number of airports that lie within the Class D airspace.",
+      "B": "5 statute miles from the geographical center of the primary airport.",
+      "C": "the instrument procedures for which the controlled airspace is established."
+    }
+  },
+  "344": {
+    "question": "A non-tower satellite airport, within the same Class D airspace as that designated for the primary airport, requires radio communications be established and maintained with the",
+    "choices": {
+      "A": "satellite airport's UNICOM.",
+      "B": "associated Flight Service Station.",
+      "C": "primary airport's control tower."
+    }
+  },
+  "345": {
+    "question": "Prior to entering an Airport Advisory Area, a pilot should",
+    "choices": {
+      "A": "monitor ATIS for weather and traffic advisories.",
+      "B": "contact approach control for vectors to the traffic pattern.",
+      "C": "contact the local FSS for airport and traffic advisories."
+    }
+  },
+  "348": {
+    "question": "(Refer to Figure 50.) If the wind is as shown by the landing direction indicator, the pilot should land on",
+    "choices": {
+      "A": "Runway 18 and expect a crosswind from the right.",
+      "B": "Runway 22 directly into the wind.",
+      "C": "Runway 36 and expect a crosswind from the right."
+    }
+  },
+  "356": {
+    "question": "Wingtip vortices created by large aircraft tend to",
+    "choices": {
+      "A": "sink below the aircraft generating turbulence.",
+      "B": "rise into the traffic pattern.",
+      "C": "rise into the takeoff or landing path of a crossing runway."
+    }
+  },
+  "357": {
+    "question": "When taking off or landing at an airport where heavy aircraft are operating, one should be particularly alert to the hazards of wingtip vortices because this turbulence tends to",
+    "choices": {
+      "A": "rise from a crossing runway into the takeoff or landing path.",
+      "B": "rise into the traffic pattern area surrounding the airport.",
+      "C": "sink into the flightpath of aircraft operating below the aircraft generating the turbulence."
+    }
+  },
+  "358": {
+    "question": "The wind condition that requires maximum caution when avoiding wake turbulence on landing is a",
+    "choices": {
+      "A": "light, quartering headwind.",
+      "B": "light, quartering tailwind.",
+      "C": "strong headwind."
+    }
+  },
+  "385": {
+    "question": "(Refer to Figure 55.) How many feet will the glider sink in 1 statute mile at 53 MPH in still air?",
+    "choices": {
+      "A": "144 feet.",
+      "B": "171 feet.",
+      "C": "211 feet."
+    }
+  },
+  "413": {
+    "question": "What is the one common factor which affects most preventable accidents?",
+    "choices": {
+      "A": "Structural failure.",
+      "B": "Mechanical malfunction.",
+      "C": "Human error."
+    }
+  },
+  "414": {
+    "question": "What often leads to spatial disorientation or collision with ground obstacles when flying under Visual Flight Rules (VFR)?",
+    "choices": {
+      "A": "Continual flight into instrument conditions.",
+      "B": "Getting behind the aircraft.",
+      "C": "Duck-under syndrome."
+    }
+  },
+  "415": {
+    "question": "What is one of the neglected items when a pilot relies on short- and long-term memory for repetitive tasks?",
+    "choices": {
+      "A": "Checklists.",
+      "B": "Situation awareness.",
+      "C": "Flying outside the envelope."
+    }
+  },
+  "416": {
+    "question": "To meet the recency of experience requirements to act as pilot in command carrying passengers at night, a pilot must have made at least three takeoffs and three landings to a full stop within the preceding 90 days in",
+    "choices": {
+      "A": "the same category and class of aircraft to be used.",
+      "B": "the same type of aircraft to be used.",
+      "C": "any aircraft."
+    }
+  },
+  "18": {
+    "question": "What document(s) must be in your personal possession or readily accessible in the aircraft while operating as pilot in command of an aircraft?",
+    "choices": {
+      "A": "Certificates showing accomplishment of a checkout in the aircraft and a current flight review.",
+      "B": "A pilot certificate with an endorsement showing accomplishment of an annual flight review and a pilot logbook showing recency of experience.",
+      "C": "An appropriate pilot certificate and an appropriate current medical certificate if required."
+    }
+  },
+  "19": {
+    "question": "When must a current pilot certificate be in the pilot's personal possession or readily accessible in the aircraft?",
+    "choices": {
+      "A": "When acting as a crew chief during launch and recovery.",
+      "B": "Only when passengers are carried.",
+      "C": "Anytime when acting as pilot in command or as a required crewmember."
+    }
+  },
+  "20": {
+    "question": "A recreational or private pilot acting as pilot in command, or in any other capacity as a required pilot flight crewmember, must have in their personal possession or readily accessible in the aircraft a current",
+    "choices": {
+      "A": "logbook endorsement to show that a flight review has been satisfactorily accomplished.",
+      "B": "medical certificate if required and an appropriate pilot certificate.",
+      "C": "endorsement on the pilot certificate to show that a flight review has been satisfactorily accomplished."
+    }
+  },
+  "21": {
+    "question": "Each person who holds a pilot certificate or a medical certificate shall present it for inspection upon the request of the Administrator, the National Transportation Safety Board, or any",
+    "choices": {
+      "A": "authorized representative of the Department of Transportation.",
+      "B": "person in a position of authority.",
+      "C": "federal, state, or local law enforcement officer."
+    }
+  },
+  "22": {
+    "question": "To act as pilot in command of an aircraft carrying passengers, a pilot must show by logbook endorsement the satisfactory completion of a flight review or completion of a pilot proficiency check within the preceding",
+    "choices": {
+      "A": "6 calendar months.",
+      "B": "12 calendar months.",
+      "C": "24 calendar months."
+    }
+  },
+  "23": {
+    "question": "To act as pilot in command of an aircraft carrying passengers, the pilot must have made at least three takeoffs and three landings in an aircraft of the same category, class, and if a type rating is required, of the same type, within the preceding",
+    "choices": {
+      "A": "90 days.",
+      "B": "12 calendar months.",
+      "C": "24 calendar months."
+    }
+  },
+  "24": {
+    "question": "To act as pilot in command of an aircraft carrying passengers, the pilot must have made three takeoffs and three landings within the preceding 90 days in an aircraft of the same",
+    "choices": {
+      "A": "make and model.",
+      "B": "category and class, but not type.",
+      "C": "category, class, and type, if a type rating is required."
+    }
+  },
+  "25": {
+    "question": "If a certificated pilot changes permanent mailing address and fails to notify the FAA Airmen Certification Branch of the new address, the pilot is entitled to exercise the privileges of the pilot certificate for a period of only",
+    "choices": {
+      "A": "30 days after the date of the move.",
+      "B": "60 days after the date of the move.",
+      "C": "90 days after the date of the move."
+    }
+  },
+  "26": {
+    "question": "A certificated private pilot may not act as pilot in command of an aircraft towing a glider unless there is entered in the pilot's logbook a minimum of",
+    "choices": {
+      "A": "100 hours of pilot flight time in any aircraft that the pilot is using to tow a glider.",
+      "B": "100 hours of pilot-in-command time in the aircraft category, class, and type, if required, that the pilot is using to tow a glider.",
+      "C": "200 hours of pilot-in-command time in the aircraft category, class, and type, if required, that the pilot is using to tow a glider."
+    }
+  },
+  "27": {
+    "question": "To act as pilot in command of an aircraft towing a glider, a pilot is required to have made within the preceding 24 months",
+    "choices": {
+      "A": "at least three flights as observer in a glider being towed by an aircraft.",
+      "B": "at least three flights in a powered glider.",
+      "C": "at least three actual or simulated glider tows while accompanied by a qualified pilot."
+    }
+  },
+  "28": {
+    "question": "If a recreational or private pilot had a flight review on August 8, this year, when is the next flight review required?",
+    "choices": {
+      "A": "August 8, 2 years later.",
+      "B": "August 31, next year.",
+      "C": "August 31, 2 years later."
+    }
+  },
+  "29": {
+    "question": "Each recreational or private pilot is required to have",
+    "choices": {
+      "A": "a flight review within 24 months.",
+      "B": "an annual flight review.",
+      "C": "a semiannual flight review."
+    }
+  },
+  "30": {
+    "question": "If a recreational or private pilot had a flight review on August 8, this year, when is the next flight review required?",
+    "choices": {
+      "A": "August 8, next year.",
+      "B": "August 31, 1 year later.",
+      "C": "August 31, 2 years later."
+    }
+  },
+  "31": {
+    "question": "Prior to becoming certified as a private pilot with a glider rating, the pilot must have in his or her possession what type of medical?",
+    "choices": {
+      "A": "A statement from a designated medical examiner.",
+      "B": "A third-class medical certificate.",
+      "C": "A medical certificate is not required."
+    }
+  },
+  "32": {
+    "question": "In regard to privileges and limitations, a private pilot may",
+    "choices": {
+      "A": "not pay less than the pro rata share of the operating expenses of a flight with passengers provided the expenses involve only fuel, oil, airport expenditures, or rental fees.",
+      "B": "act as pilot in command of an aircraft carrying a passenger for compensation if the flight is in connection with a business or employment.",
+      "C": "not be paid in any manner for the operating expenses of a flight."
+    }
+  },
+  "33": {
+    "question": "According to regulations pertaining to privileges and limitations, a private pilot may",
+    "choices": {
+      "A": "be paid for the operating expenses of a flight if at least three takeoffs and three landings were made by the pilot within the preceding 90 days.",
+      "B": "not be paid in any manner for the operating expenses of a flight.",
+      "C": "not pay less than the pro rata share of the operating expenses of a flight with passengers provided the expenses involve only fuel, oil, airport expenditures, or rental fees."
+    }
+  },
+  "34": {
+    "question": "What exception, if any, permits a private pilot to act as pilot in command of an aircraft carrying passengers who pay for the flight?",
+    "choices": {
+      "A": "If the passengers pay all the operating expenses.",
+      "B": "If a donation is made to a charitable organization for the flight.",
+      "C": "There is no exception."
+    }
+  },
+  "35": {
+    "question": "The width of a Federal Airway from either side of the centerline is",
+    "choices": {
+      "A": "4 nautical miles.",
+      "B": "6 nautical miles.",
+      "C": "8 nautical miles."
+    }
+  },
+  "36": {
+    "question": "Unless otherwise specified, Federal Airways include that Class E airspace extending upward from",
+    "choices": {
+      "A": "700 feet above the surface up to and including 17,999 feet MSL.",
+      "B": "1,200 feet above the surface up to and including 17,999 feet MSL.",
+      "C": "the surface up to and including 18,000 feet MSL."
+    }
+  },
+  "37": {
+    "question": "Normal VFR operations in Class D airspace with an operating control tower require the ceiling and visibility to be at least",
+    "choices": {
+      "A": "1,000 feet and 1 mile.",
+      "B": "1,000 feet and 3 miles.",
+      "C": "2,500 feet and 3 miles."
+    }
+  },
+  "38": {
+    "question": "The final authority as to the operation of an aircraft is the",
+    "choices": {
+      "A": "Federal Aviation Administration.",
+      "B": "pilot in command.",
+      "C": "aircraft manufacturer."
+    }
+  },
+  "39": {
+    "question": "The person directly responsible for the pre-launch briefing of passengers for a flight is the",
+    "choices": {
+      "A": "safety officer.",
+      "B": "pilot in command.",
+      "C": "ground crewmember."
+    }
+  },
+  "40": {
+    "question": "If an in-flight emergency requires immediate action, the pilot in command may",
+    "choices": {
+      "A": "deviate from the FAR's to the extent required to meet the emergency but must submit a written report to the Administrator within 24 hours.",
+      "B": "deviate from the FAR's to the extent required to meet that emergency.",
+      "C": "not deviate from the FAR's unless prior to the deviation approval is granted by the Administrator."
+    }
+  },
+  "41": {
+    "question": "When must a pilot who deviates from a regulation during an emergency send a written report of that deviation to the Administrator?",
+    "choices": {
+      "A": "Within 7 days.",
+      "B": "Within 10 days.",
+      "C": "Upon request."
+    }
+  },
+  "42": {
+    "question": "Who is responsible for determining if an aircraft is in condition for safe flight?",
+    "choices": {
+      "A": "A certificated aircraft mechanic.",
+      "B": "The pilot in command.",
+      "C": "The owner or operator."
+    }
+  },
+  "43": {
+    "question": "Where may an aircraft's operating limitations be found?",
+    "choices": {
+      "A": "On the Airworthiness Certificate.",
+      "B": "In the current, FAA-approved flight manual, approved manual material, markings, and placards, or any combination thereof.",
+      "C": "In the aircraft airframe and engine logbooks."
+    }
+  },
+  "44": {
+    "question": "Under what conditions may objects be dropped from an aircraft?",
+    "choices": {
+      "A": "Only in an emergency.",
+      "B": "If precautions are taken to avoid injury or damage to persons or property on the surface.",
+      "C": "If prior permission is received from the Federal Aviation Administration."
+    }
+  },
+  "45": {
+    "question": "A person may not act as a crewmember of a civil aircraft if alcoholic beverages have been consumed by that person within the preceding",
+    "choices": {
+      "A": "8 hours.",
+      "B": "12 hours.",
+      "C": "24 hours."
+    }
+  },
+  "46": {
+    "question": "Under what condition, if any, may a pilot allow a person who is obviously under the influence of drugs to be carried aboard an aircraft?",
+    "choices": {
+      "A": "In an emergency or if the person is a medical patient under proper care.",
+      "B": "Only if the person does not have access to the cockpit or pilot's compartment.",
+      "C": "Under no condition."
+    }
+  },
+  "47": {
+    "question": "No person may attempt to act as a crewmember of a civil aircraft with",
+    "choices": {
+      "A": ".008 percent by weight or more alcohol in the blood.",
+      "B": ".004 percent by weight or more alcohol in the blood.",
+      "C": ".04 percent by weight or more alcohol in the blood."
+    }
+  },
+  "48": {
+    "question": "Which preflight action is specifically required of the pilot prior to each flight?",
+    "choices": {
+      "A": "Check the aircraft logbooks for appropriate entries.",
+      "B": "Become familiar with all available information concerning the flight.",
+      "C": "Review wake turbulence avoidance procedures."
+    }
+  },
+  "49": {
+    "question": "Preflight action, as required for all flights away from the vicinity of an airport, shall include",
+    "choices": {
+      "A": "the designation of an alternate airport.",
+      "B": "a study of arrival procedures at airports/heliports of intended use.",
+      "C": "an alternate course of action if the flight cannot be completed as planned."
+    }
+  },
+  "83": {
+    "question": "An operable 4096-code transponder, Mode C encoding altimeter and ADSB out are required in",
+    "choices": {
+      "A": "Class B airspace and within 30 miles of the Class B primary airport.",
+      "B": "Class D airspace.",
+      "C": "Class E airspace below 10,000 feet MSL."
+    }
+  },
+  "84": {
+    "question": "In which type of airspace are VFR flights prohibited?",
+    "choices": {
+      "A": "Class A.",
+      "B": "Class B.",
+      "C": "Class C."
+    }
+  },
+  "85": {
+    "question": "During operations within controlled airspace at altitudes of less than 1,200 feet AGL, the minimum horizontal distance from clouds requirement for VFR flight is",
+    "choices": {
+      "A": "1,000 feet.",
+      "B": "1,500 feet.",
+      "C": "2,000 feet."
+    }
+  },
+  "86": {
+    "question": "What minimum visibility and clearance from clouds are required for VFR operations in Class G airspace at 700 feet AGL or below during daylight hours?",
+    "choices": {
+      "A": "1 mile visibility and clear of clouds.",
+      "B": "1 mile visibility, 500 feet below, 1,000 feet above, and 2,000 feet horizontal clearance from clouds.",
+      "C": "3 miles visibility and clear of clouds."
+    }
+  },
+  "87": {
+    "question": "What minimum flight visibility is required for VFR flight operations on an airway below 10,000 feet MSL?",
+    "choices": {
+      "A": "1 mile.",
+      "B": "3 miles.",
+      "C": "4 miles."
+    }
+  },
+  "88": {
+    "question": "The minimum distance from clouds required for VFR operations on an airway below 10,000 feet MSL is",
+    "choices": {
+      "A": "remain clear of clouds.",
+      "B": "500 feet below, 1,000 feet above, and 2,000 feet horizontally.",
+      "C": "500 feet above, 1,000 feet below, and 2,000 feet horizontally."
+    }
+  },
+  "89": {
+    "question": "During operations within controlled airspace at altitudes of more than 1,200 feet AGL, but less than 10,000 feet MSL, the minimum distance above clouds requirement for VFR flight is",
+    "choices": {
+      "A": "500 feet.",
+      "B": "1,000 feet.",
+      "C": "1,500 feet."
+    }
+  },
+  "90": {
+    "question": "VFR flight in controlled airspace above 1,200 feet AGL and below 10,000 feet MSL requires a minimum visibility and vertical cloud clearance of",
+    "choices": {
+      "A": "3 miles, and 500 feet below or 1,000 feet above the clouds in controlled airspace.",
+      "B": "5 miles, and 1,000 feet below or 1,000 feet above the clouds at all altitudes.",
+      "C": "5 miles, and 1,000 feet below or 1,000 feet above the clouds only in Class A airspace."
+    }
+  },
+  "91": {
+    "question": "Outside controlled airspace, the minimum flight visibility requirement for VFR flight above 1,200 feet AGL and below 10,000 feet MSL during daylight hours is",
+    "choices": {
+      "A": "1 mile.",
+      "B": "3 miles.",
+      "C": "5 miles."
+    }
+  },
+  "92": {
+    "question": "The minimum flight visibility required for VFR flights above 10,000 feet MSL and more than 1,200 feet AGL in controlled airspace is",
+    "choices": {
+      "A": "1 mile.",
+      "B": "3 miles.",
+      "C": "5 miles."
+    }
+  },
+  "93": {
+    "question": "For VFR flight operations above 10,000 feet MSL and more than 1,200 feet AGL, the minimum horizontal distance from clouds required is",
+    "choices": {
+      "A": "1,000 feet.",
+      "B": "2,000 feet.",
+      "C": "1 mile."
+    }
+  },
+  "94": {
+    "question": "During operations at altitudes of more than 1,200 feet AGL and at or above 10,000 feet MSL, the minimum distance above clouds requirement for VFR flight is",
+    "choices": {
+      "A": "500 feet.",
+      "B": "1,000 feet.",
+      "C": "1,500 feet."
+    }
+  },
+  "95": {
+    "question": "No person may take off or land an aircraft under basic VFR at an airport that lies within Class D airspace unless the",
+    "choices": {
+      "A": "flight visibility at that airport is at least 1 mile.",
+      "B": "ground visibility at that airport is at least 1 mile.",
+      "C": "ground visibility at that airport is at least 3 miles."
+    }
+  },
+  "96": {
+    "question": "The basic VFR weather minimums for operating an aircraft within Class D airspace are",
+    "choices": {
+      "A": "500-foot ceiling and 1 mile visibility.",
+      "B": "1,000-foot ceiling and 3 miles visibility.",
+      "C": "clear of clouds and 2 miles visibility."
+    }
+  },
+  "97": {
+    "question": "In addition to a valid Airworthiness Certificate, what documents or records must be aboard an aircraft during flight?",
+    "choices": {
+      "A": "Aircraft engine and airframe logbooks, and owner's manual.",
+      "B": "Radio operator's permit, and repair and alteration forms.",
+      "C": "Operating limitations and Registration Certificate."
+    }
+  },
+  "98": {
+    "question": "Except in Alaska, during what time period should lighted position lights be displayed on an aircraft?",
+    "choices": {
+      "A": "End of evening civil twilight to the beginning of morning civil twilight.",
+      "B": "1 hour after sunset to 1 hour before sunrise.",
+      "C": "Sunset to sunrise."
+    }
+  },
+  "170": {
+    "question": "During flight, when are the indications of a magnetic compass accurate?",
+    "choices": {
+      "A": "Only in straight-and-level unaccelerated flight.",
+      "B": "As long as the airspeed is constant.",
+      "C": "During turns if the bank does not exceed 18°."
+    }
+  },
+  "198": {
+    "question": "The most frequent type of ground or surface-based temperature inversion is that which is produced by",
+    "choices": {
+      "A": "terrestrial radiation on a clear, relatively still night.",
+      "B": "warm air being lifted rapidly aloft in the vicinity of mountainous terrain.",
+      "C": "the movement of colder air under warm air, or the movement of warm air over cold air."
+    }
+  },
+  "201": {
+    "question": "If a pilot changes the altimeter setting from 30.11 to 29.96, what is the approximate change in indication?",
+    "choices": {
+      "A": "Altimeter will indicate .15\" Hg higher.",
+      "B": "Altimeter will indicate 150 feet higher.",
+      "C": "Altimeter will indicate 150 feet lower."
+    }
+  },
+  "207": {
+    "question": "Which condition would cause the altimeter to indicate a lower altitude than true altitude?",
+    "choices": {
+      "A": "Air temperature lower than standard.",
+      "B": "Atmospheric pressure lower than standard.",
+      "C": "Air temperature warmer than standard."
+    }
+  },
+  "210": {
+    "question": "What is meant by the term \"dewpoint\"?",
+    "choices": {
+      "A": "The temperature at which condensation and evaporation are equal.",
+      "B": "The temperature at which dew will always form.",
+      "C": "The temperature to which air must be cooled to become saturated."
+    }
+  },
+  "216": {
+    "question": "What measurement can be used to determine the stability of the atmosphere?",
+    "choices": {
+      "A": "Atmospheric pressure.",
+      "B": "Actual lapse rate.",
+      "C": "Surface temperature."
+    }
+  },
+  "217": {
+    "question": "What would decrease the stability of an air mass?",
+    "choices": {
+      "A": "Warming from below.",
+      "B": "Cooling from below.",
+      "C": "Decrease in water vapor."
+    }
+  },
+  "370": {
+    "question": "A pilot experiencing the effects of hyperventilation should be able to restore the proper carbon dioxide level in the body by",
+    "choices": {
+      "A": "closely monitoring the flight instruments to control the airplane.",
+      "B": "slowing the breathing rate, breathing into a bag, or talking aloud.",
+      "C": "increasing the breathing rate in order to increase lung ventilation."
+    }
+  },
+  "371": {
+    "question": "The danger of spatial disorientation during flight in poor visual conditions may be reduced by",
+    "choices": {
+      "A": "shifting the eyes quickly between the exterior visual field and the instrument panel.",
+      "B": "having faith in the instruments rather than taking a chance on the sensory organs.",
+      "C": "leaning the body in the opposite direction of the motion of the aircraft."
+    }
+  },
+  "419": {
+    "question": "Automatic Terminal Information Service (ATIS) is the continuous broadcast of recorded information concerning",
+    "choices": {
+      "A": "pilots of radar-identified aircraft whose aircraft is in dangerous proximity to terrain or to an obstruction.",
+      "B": "nonessential information to reduce frequency congestion.",
+      "C": "noncontrolled information in selected high-activity terminal areas."
+    }
+  },
+  "423": {
+    "question": "Changes in the center of pressure of a wing affect the aircraft's",
+    "choices": {
+      "A": "lift coefficient.",
+      "B": "lifting capacity.",
+      "C": "aerodynamic balance and controllability."
+    }
+  },
+  "424": {
+    "question": "When landing behind a large aircraft, which procedure should be followed for vortex avoidance?",
+    "choices": {
+      "A": "Stay above its final approach flightpath all the way to touchdown.",
+      "B": "Stay below and to one side of its final approach flightpath.",
+      "C": "Stay below its final approach flightpath and land at least 2,000 feet behind."
+    }
+  },
+  "425": {
+    "question": "How does the wake turbulence vortex circulate around each wingtip?",
+    "choices": {
+      "A": "Inward, upward, and around each tip.",
+      "B": "Inward, upward, and counterclockwise.",
+      "C": "Outward, upward, and around each tip."
+    }
+  },
+  "426": {
+    "question": "The angular difference between true north and magnetic north is",
+    "choices": {
+      "A": "magnetic deviation.",
+      "B": "magnetic variation.",
+      "C": "compass acceleration error."
+    }
+  },
+  "427": {
+    "question": "What should be the indication on the magnetic compass as you roll into a standard rate turn to the right from a south heading in the Northern Hemisphere?",
+    "choices": {
+      "A": "The compass will initially indicate a turn to the left.",
+      "B": "The compass will indicate a turn to the right, but at a faster rate than is actually occurring.",
+      "C": "The compass will remain on south for a short time, then gradually catch up to the magnetic heading of the airplane."
+    }
+  },
+  "428": {
+    "question": "How soon after the conviction for driving while intoxicated by alcohol or drugs shall it be reported to the FAA, Civil Aviation Security Division?",
+    "choices": {
+      "A": "No later than 60 days after the motor vehicle action.",
+      "B": "No later than 30 working days after the motor vehicle action.",
+      "C": "Required to be reported upon renewal of medical certificate."
+    }
+  },
+  "429": {
+    "question": "Where may an aircraft's operating limitations be found if the aircraft has an Experimental or Special light-sport airworthiness certificate?",
+    "choices": {
+      "A": "Attached to the Airworthiness Certificate.",
+      "B": "In the current, FAA-approved flight manual.",
+      "C": "In the aircraft airframe and engine logbooks."
+    }
+  },
+  "430": {
+    "question": "The numbers 8 and 26 on the approach ends of the runway indicate that the runway is oriented approximately",
+    "choices": {
+      "A": "008° and 026° true.",
+      "B": "080° and 260° true.",
+      "C": "080° and 260° magnetic."
+    }
+  },
+  "431": {
+    "question": "Hazardous attitudes occur to every pilot to some degree at some time. What are some of these hazardous attitudes?",
+    "choices": {
+      "A": "Poor risk management and lack of stress management.",
+      "B": "Anti-authority, impulsivity, macho, resignation, and invulnerability.",
+      "C": "Poor situational awareness, snap judgments, and lack of a decision-making process."
+    }
+  },
+  "432": {
+    "question": "In the aeronautical decision making (ADM) process, what is the first step in neutralizing a hazardous attitude?",
+    "choices": {
+      "A": "Making a rational judgment.",
+      "B": "Recognizing hazardous thoughts.",
+      "C": "Recognizing the invulnerability of the situation."
+    }
+  },
+  "433": {
+    "question": "Risk management, as part of the aeronautical decision making (ADM) process, relies on which features to reduce the risks associated with each flight?",
+    "choices": {
+      "A": "Application of stress management and risk element procedures.",
+      "B": "Situational awareness, problem recognition, and good judgment.",
+      "C": "The mental process of analyzing all information in a particular situation and making a timely decision on what action to take."
+    }
+  },
+  "434": {
+    "question": "Most midair collision accidents occur during",
+    "choices": {
+      "A": "hazy days.",
+      "B": "clear days.",
+      "C": "cloudy nights."
+    }
+  },
+  "435": {
+    "question": "Which statement about longitude and latitude is true?",
+    "choices": {
+      "A": "Lines of longitude are parallel to the Equator.",
+      "B": "Lines of longitude cross the Equator at right angles.",
+      "C": "The 0° line of latitude passes through Greenwich, England."
+    }
+  },
+  "436": {
+    "question": "When converting from true course to magnetic heading, a pilot should",
+    "choices": {
+      "A": "subtract easterly variation and right wind correction angle.",
+      "B": "add westerly variation and subtract left wind correction angle.",
+      "C": "subtract westerly variation and add right wind correction angle."
+    }
+  },
+  "437": {
+    "question": "When a control tower, located on an airport within Class D airspace, ceases operation for the day, what happens to the airspace designation?",
+    "choices": {
+      "A": "The airspace designation normally will not change.",
+      "B": "The airspace remains Class D airspace as long as a weather observer or automated weather system is available.",
+      "C": "The airspace reverts to Class E or a combination of Class E and G airspace during the hours the tower is not in operation."
+    }
+  },
+  "438": {
+    "question": "With certain exceptions, Class E airspace extends upward from either 700 feet or 1,200 feet AGL to, but does not include,",
+    "choices": {
+      "A": "10,000 feet MSL.",
+      "B": "14,500 feet MSL.",
+      "C": "18,000 feet MSL."
+    }
+  },
+  "439": {
+    "question": "Flight through a restricted area should not be accomplished unless the pilot has",
+    "choices": {
+      "A": "filed an IFR flight plan.",
+      "B": "received prior authorization from the controlling agency.",
+      "C": "received prior permission from the commanding officer of the nearest military base."
+    }
+  },
+  "440": {
+    "question": "As standard operating practice, all inbound traffic to an airport without a control tower should continuously monitor the appropriate facility from a distance of",
+    "choices": {
+      "A": "25 miles.",
+      "B": "20 miles.",
+      "C": "10 miles."
+    }
+  },
+  "442": {
+    "question": "What does an inbound destination sign indicate?",
+    "choices": {
+      "A": "Defines directions for arriving aircraft.",
+      "B": "Defines direction and designation of exit taxiway from runway.",
+      "C": "Identifies runway on which the aircraft is located."
+    }
+  },
+  "443": {
+    "question": "Refer to Figure 66, page 17-4. The inbound destination sign is figure",
+    "choices": {
+      "A": "D.",
+      "B": "I.",
+      "C": "K."
+    }
+  },
+  "444": {
+    "question": "Refer to Figure 66, page 17-4. The taxiway direction sign is figure",
+    "choices": {
+      "A": "F.",
+      "B": "J.",
+      "C": "K."
+    }
+  },
+  "445": {
+    "question": "What is indicated when a current CONVECTIVE SIGMET forecasts thunderstorms?",
+    "choices": {
+      "A": "Moderate thunderstorms covering 30 percent of the area.",
+      "B": "Moderate or severe turbulence.",
+      "C": "Thunderstorms obscured by massive cloud layers."
+    }
+  },
+  "447": {
+    "question": "(Refer to Figure 66.) Which airport marking is a runway safety area/obstacle free zone boundary?",
+    "choices": {
+      "A": "H.",
+      "B": "N.",
+      "C": "G."
+    }
+  },
+  "448": {
+    "question": "What is the purpose of the No Entry sign?",
+    "choices": {
+      "A": "Identifies the exit boundary for the runway protected area.",
+      "B": "Identifies area that does not continue beyond intersection.",
+      "C": "Identifies a paved area where aircraft are prohibited from entering."
+    }
+  },
+  "387": {
+    "question": "(Refer to Figure 55.) How many feet will the glider descend at minimum sink speed for 1 statute mile in still air?",
+    "choices": {
+      "A": "132 feet.",
+      "B": "170 feet.",
+      "C": "180 feet."
+    }
+  },
+  "388": {
+    "question": "(Refer to Figure 55.) At what speed will the glider gain the most distance while descending 1,000 feet in still air?",
+    "choices": {
+      "A": "44 MPH.",
+      "B": "53 MPH.",
+      "C": "83 MPH."
+    }
+  },
+  "389": {
+    "question": "(Refer to Figure 55.) What approximate lift/drag ratio will the glider attain at 68 MPH in still air?",
+    "choices": {
+      "A": "10.5:1.",
+      "B": "21.7:1.",
+      "C": "28.5:1."
+    }
+  },
+  "379": {
+    "question": "To stop pitch oscillation (porpoising) during a winch launch, the pilot should",
+    "choices": {
+      "A": "release back pressure and then pull back against the cycle of pitching oscillation to get in phase with the undulations.",
+      "B": "signal the ground crew to increase the speed of the tow.",
+      "C": "relax the back pressure on the control stick and shallow the angle of climb."
+    }
+  },
+  "168": {
+    "question": "In the Northern Hemisphere, if an aircraft is accelerated or decelerated, the magnetic compass will normally indicate",
+    "choices": {
+      "A": "a turn momentarily.",
+      "B": "correctly when on a north or south heading.",
+      "C": "a turn toward the south."
+    }
+  },
+  "171": {
+    "question": "An airplane has been loaded in such a manner that the CG is located aft of the aft CG limit. One undesirable flight characteristic a pilot might experience with this airplane would be",
+    "choices": {
+      "A": "a longer takeoff run.",
+      "B": "difficulty in recovering from a stalled condition.",
+      "C": "stalling at higher-than-normal airspeed."
+    }
+  },
+  "177": {
+    "question": "The angle of attack at which an airplane wing stalls will",
+    "choices": {
+      "A": "increase if the CG is moved forward.",
+      "B": "change with an increase in gross weight.",
+      "C": "remain the same regardless of gross weight."
+    }
+  },
+  "306": {
+    "question": "(Refer to Figure 20, area 2.) The elevation of the Chesapeake Regional Airport is",
+    "choices": {
+      "A": "19 feet.",
+      "B": "55 feet.",
+      "C": "230 feet."
+    }
+  },
+  "307": {
+    "question": "(Refer to Figure 21.) The terrain elevation of the light tan area between Minot (area 1) and Audubon Lake (area 2) varies from",
+    "choices": {
+      "A": "sea level to 2,000 feet MSL.",
+      "B": "2,000 feet to 2,500 feet MSL.",
+      "C": "2,000 feet to 2,700 feet MSL."
+    }
+  },
+  "308": {
+    "question": "(Refer to Figure 23.) The flag symbols at Statesboro Bullock County Airport, Claxton-Evans County Airport (area 2), and Ridgeland Airport are",
+    "choices": {
+      "A": "outer boundaries of Savannah Class C airspace.",
+      "B": "airports with special traffic patterns.",
+      "C": "visual checkpoints to identify position for initial callup prior to entering Savannah Class C airspace."
+    }
+  },
+  "309": {
+    "question": "(Refer to Figure 23, area 3.) What is the height of the lighted obstacle approximately 6 nautical miles southwest of Savannah International?",
+    "choices": {
+      "A": "1,500 feet MSL.",
+      "B": "1,532 feet AGL.",
+      "C": "1,548 feet MSL."
+    }
+  },
+  "315": {
+    "question": "(Refer to Figure 20.) Over which area should a glider pilot expect to find the best lift under normal conditions?",
+    "choices": {
+      "A": "2.",
+      "B": "7.",
+      "C": "5."
+    }
+  },
+  "377": {
+    "question": "FAA advisory circulars containing subject matter specifically related to Air Traffic Control and General Operations are issued under which subject number?",
+    "choices": {
+      "A": "60.",
+      "B": "70.",
+      "C": "90."
+    }
+  },
+  "390": {
+    "question": "(Refer to Figure 56.) Illustration 2 means",
+    "choices": {
+      "A": "release towline.",
+      "B": "ready to tow.",
+      "C": "hold position."
+    }
+  },
+  "391": {
+    "question": "(Refer to Figure 56.) Illustration 3 means",
+    "choices": {
+      "A": "stop operations.",
+      "B": "release towline.",
+      "C": "take up slack."
+    }
+  },
+  "392": {
+    "question": "(Refer to Figure 56.) Which illustration is a signal to stop operation?",
+    "choices": {
+      "A": "2.",
+      "B": "3.",
+      "C": "7."
+    }
+  },
+  "393": {
+    "question": "(Refer to Figure 56.) Which illustration is a signal from the sailplane for the towplane to turn right?",
+    "choices": {
+      "A": "5.",
+      "B": "6.",
+      "C": "11."
+    }
+  },
+  "394": {
+    "question": "(Refer to Figure 56.) Which illustration is a signal that the glider is unable to release?",
+    "choices": {
+      "A": "8.",
+      "B": "10.",
+      "C": "11."
+    }
+  },
+  "395": {
+    "question": "(Refer to Figure 56.) Which illustration is a signal to the towplane to reduce airspeed?",
+    "choices": {
+      "A": "7.",
+      "B": "10.",
+      "C": "12."
+    }
+  },
+  "420": {
+    "question": "The acute angle between the chord line of an airfoil and the relative wind is known as the angle of",
+    "choices": {
+      "A": "incidence.",
+      "B": "attack.",
+      "C": "dihedral."
+    }
+  },
+  "421": {
+    "question": "Which statement relates to Bernoulli's principle?",
+    "choices": {
+      "A": "For every action there is an equal and opposite reaction.",
+      "B": "An additional upward force is generated as the lower surface of the wing deflects air downward.",
+      "C": "Air traveling faster over the curved upper surface of an airfoil causes lower pressure on the top surface."
+    }
+  },
+  "422": {
+    "question": "Which statement is based on Newton's Third Law of Motion?",
+    "choices": {
+      "A": "Force equals mass times acceleration.",
+      "B": "For every action there is an equal and opposite reaction.",
+      "C": "Energy cannot be created or destroyed."
+    }
+  }
+}

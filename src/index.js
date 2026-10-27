@@ -37,6 +37,7 @@ async function main() {
     console.log(
       `[glider-training] seed tracks=${seeded.tracks} topics=${seeded.topics} new_cards=${seeded.cards}` +
         (seeded.foi_cards != null ? ` foi_cards=${seeded.foi_cards}` : '') +
+        (seeded.private_cards != null ? ` private_cards=${seeded.private_cards}` : '') +
         (seeded.cfi_g_topic_remaps != null ? ` cfi_g_topic_remaps=${seeded.cfi_g_topic_remaps}` : '') +
         (seeded.card_details_upserted != null
           ? ` card_details=${seeded.card_details_upserted}`
