@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Extract FAA Computer Testing Supplement figures for CFI-G and Commercial decks.
+"""Extract FAA Computer Testing Supplement figures for study decks.
 
 Sources:
   CFI-G:      content/faa-supplements/flight_ground_instructor_akts.pdf
   Commercial: content/faa-supplements/commercial_akts.pdf
+  Private:    content/faa-supplements/sport_rec_private_akts.pdf
 
 Writes:
   public/figures/cfi-g/figure-NN.jpg
   public/figures/commercial/figure-NN.jpg
+  public/figures/private/figure-NN.jpg
   content/card-figures.json
 """
 
@@ -27,10 +29,10 @@ ROOT = Path(__file__).resolve().parents[1]
 SUPPLEMENTS_DIR = ROOT / "content" / "faa-supplements"
 CARD_FIGURES_JSON = ROOT / "content" / "card-figures.json"
 
-# Accept "(Refer to Figure 52, point 1.)" and "(Refer to figure 54. Area 2)".
+# Accept "(Refer to Figure 52, point 1.)", "Refer to Figure 66, page 17-4.", OCR "Reler".
 REFER_RE = re.compile(
-    r"\(\s*Refer to\s+(?:Fig(?:ure|ue)?|Pigure)\s+(\d+)\b[^)]*\)?",
-    re.I,
+    r"(?:\(|^)\s*Refe[rl]\s+to\s+(?:Fig(?:ure|ue)?|Pigure)\s+(\d+)\b",
+    re.I | re.M,
 )
 FIGURE_LABEL_RE = re.compile(r"(?im)^\s*Figure\s+(\d+)\.\s*(.+?)\s*$")
 
@@ -57,6 +59,18 @@ SUPPLEMENTS = {
         "source_url": (
             "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/"
             "supplements/commercial_akts.pdf"
+        ),
+        "needed": None,  # derive from import bank stems
+    },
+    "private": {
+        "pdf": SUPPLEMENTS_DIR / "sport_rec_private_akts.pdf",
+        "out_dir": ROOT / "public" / "figures" / "private",
+        "url_prefix": "/figures/private",
+        "import_json": ROOT / "content" / "private-import" / "private-import.json",
+        "source_name": "FAA Computer Testing Supplement — Sport/Recreational/Private Pilot",
+        "source_url": (
+            "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/"
+            "supplements/sport_rec_private_akts.pdf"
         ),
         "needed": None,  # derive from import bank stems
     },
@@ -182,17 +196,18 @@ def main() -> None:
         source_urls.append(cfg["source_url"])
         print(f"[{track_key}] linked {len(rows)} cards")
 
-    # If only one track was requested, preserve the other track's existing entries.
+    # If only one track was requested, preserve other tracks' existing entries.
     if only and CARD_FIGURES_JSON.exists():
         prev = json.loads(CARD_FIGURES_JSON.read_text(encoding="utf-8"))
-        keep_track = "commercial" if only == "cfi_g" else "cfi_g"
         all_figures = [
-            f for f in (prev.get("figures") or []) if f.get("track") == keep_track
+            f for f in (prev.get("figures") or []) if f.get("track") != only
         ] + all_figures
         all_cards = [
-            c for c in (prev.get("cards") or []) if c.get("track") == keep_track
+            c for c in (prev.get("cards") or []) if c.get("track") != only
         ] + all_cards
-        for url in prev.get("source_urls") or ([] if not prev.get("source_url") else [prev["source_url"]]):
+        for url in prev.get("source_urls") or (
+            [] if not prev.get("source_url") else [prev["source_url"]]
+        ):
             if url and url not in source_urls:
                 source_urls.append(url)
 
@@ -201,7 +216,7 @@ def main() -> None:
 
     payload = {
         "note": (
-            "Official FAA Computer Testing Supplement figures for CFI-G and Commercial. "
+            "Official FAA Computer Testing Supplement figures for CFI-G, Commercial, and Private. "
             "Linked from bank stems that say (Refer to Figure N.). Apply on seed."
         ),
         "source_urls": source_urls,
