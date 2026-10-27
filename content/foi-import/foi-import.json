@@ -1,0 +1,5586 @@
+{
+  "track_id": "foi",
+  "topic_title": "Fundamentals of Instruction (FOI)",
+  "filename": "IMG_0002.pdf",
+  "note": "OCR from GPGS FOI bank IMG_0002.pdf · 276 MC · answer key pp.18-19 · course track foi",
+  "topics": [
+    {
+      "id": "foi_learning",
+      "title": "Learning process",
+      "description": "Principles of learning, perception, insight, memory, transfer.",
+      "pts_ref": "FOI / AIH",
+      "sort_order": 10,
+      "track_id": "foi"
+    },
+    {
+      "id": "foi_human",
+      "title": "Human behavior",
+      "description": "Defense mechanisms, anxiety, motivation, needs, Maslow.",
+      "pts_ref": "FOI / AIH",
+      "sort_order": 20,
+      "track_id": "foi"
+    },
+    {
+      "id": "foi_teaching",
+      "title": "Teaching methods",
+      "description": "Lesson plans, lecture, demonstration, guided discussion, CBT.",
+      "pts_ref": "FOI / AIH",
+      "sort_order": 30,
+      "track_id": "foi"
+    },
+    {
+      "id": "foi_critique",
+      "title": "Critique & evaluation",
+      "description": "Critique, assessment, oral quiz, written test.",
+      "pts_ref": "FOI / AIH",
+      "sort_order": 40,
+      "track_id": "foi"
+    },
+    {
+      "id": "foi_instructor",
+      "title": "Instructor responsibilities",
+      "description": "Professionalism, ADM as instructor, risk, barriers to communication.",
+      "pts_ref": "FOI / AIH",
+      "sort_order": 50,
+      "track_id": "foi"
+    },
+    {
+      "id": "foi_planning",
+      "title": "Course & lesson planning",
+      "description": "Syllabus, PTS/ACS, learning plateaus, rates of learning.",
+      "pts_ref": "FOI / AIH",
+      "sort_order": 60,
+      "track_id": "foi"
+    },
+    {
+      "id": "foi_misc",
+      "title": "FOI miscellaneous",
+      "description": "FOI items that do not fit a primary topic bucket.",
+      "pts_ref": "FOI / AIH",
+      "sort_order": 70,
+      "track_id": "foi"
+    }
+  ],
+  "cards": [
+    {
+      "id": "foi_written_001",
+      "question": "A change in behavior as a result of experience can be defined as",
+      "answer": "learning",
+      "choices": [
+        "learning",
+        "knowledge",
+        "understanding"
+      ],
+      "source": "FOI written · #1 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_002",
+      "question": "The learning process may include some elements such as verbal, conceptual, and",
+      "answer": "problem solving",
+      "choices": [
+        "habitual",
+        "experiential",
+        "problem solving"
+      ],
+      "source": "FOI written · #2 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_003",
+      "question": "While learning the material being taught, students may be learning other things as well. This additional learning is called",
+      "answer": "incidental",
+      "choices": [
+        "residual",
+        "conceptual",
+        "incidental"
+      ],
+      "source": "FOI written · #3 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_004",
+      "question": "Individuals make more progress learning if they have a clear objective. This is one feature of the principle of",
+      "answer": "readiness",
+      "choices": [
+        "primacy",
+        "readiness",
+        "willingness"
+      ],
+      "source": "FOI written · #4 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_005",
+      "question": "Providing opportunities for a student to practice and then directing this process towards a goal is the basis of the principle of",
+      "answer": "exercise",
+      "choices": [
+        "exercise",
+        "learning",
+        "readiness"
+      ],
+      "source": "FOI written · #5 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_006",
+      "question": "The principle that is based on the emotional reaction of the learner is the principle of",
+      "answer": "effect",
+      "choices": [
+        "effect",
+        "primacy",
+        "intensity"
+      ],
+      "source": "FOI written · #6 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_007",
+      "question": "Things most often repeated are best remembered because of which principle of learning?",
+      "answer": "Principle of exercise",
+      "choices": [
+        "Principle of effect",
+        "Principle of recency",
+        "Principle of exercise"
+      ],
+      "source": "FOI written · #7 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_008",
+      "question": "Which principle of learning implies that a student will learn more from the real thing than from a substitute?",
+      "answer": "Principle of intensity",
+      "choices": [
+        "Principle of effect",
+        "Principle of primacy",
+        "Principle of intensity"
+      ],
+      "source": "FOI written · #8 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_009",
+      "question": "Which principle of learning often determines the sequence of lectures within a course of instruction?",
+      "answer": "Principle of recency",
+      "choices": [
+        "Principle of primacy",
+        "Principle of recency",
+        "Principle of intensity. C"
+      ],
+      "source": "FOI written · #9 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_010",
+      "question": "Which principle of learning often creates a strong impression?",
+      "answer": "Principle of primacy",
+      "choices": [
+        "Principle of primacy",
+        "Principle of intensity",
+        "Principle of readiness"
+      ],
+      "source": "FOI written · #10 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_011",
+      "question": "What is the basis of all learning?",
+      "answer": "Perception",
+      "choices": [
+        "Perception",
+        "Motivation",
+        "Positive self-concept"
+      ],
+      "source": "FOI written · #11 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_012",
+      "question": "A basic need that affects all of a person's perceptions is the need to",
+      "answer": "maintain and enhance the organized self",
+      "choices": [
+        "maintain and enhance the organized self",
+        "accomplish a higher level of satisfaction",
+        "avoid areas that pose a threat to success"
+      ],
+      "source": "FOI written · #12 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_013",
+      "question": "Which factor affecting perceptions is based on the effectiveness of the use of a properly planned training syllabus?",
+      "answer": "Time and opportunity",
+      "choices": [
+        "Basic need",
+        "Time and opportunity",
+        "Goals and values"
+      ],
+      "source": "FOI written · #13 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_014",
+      "question": "Which factor affecting perception has a great influence on the total perceptual process?",
+      "answer": "Self-concept",
+      "choices": [
+        "Self-concept",
+        "Goals and values",
+        "Time and opportunity"
+      ],
+      "source": "FOI written · #14 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_015",
+      "question": "Perceptions result when a person",
+      "answer": "gives meaning to sensations being experienced",
+      "choices": [
+        "gives meaning to sensations being experienced",
+        "is able to discern items of useful information",
+        "responds to visual cues first, then aural cues, and relates these cues to ones previously learned"
+      ],
+      "source": "FOI written · #15 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_016",
+      "question": "The factor which contributes most to a student's failure to remain receptive e to new experiences and which creates a tendency to reject additional training is",
+      "answer": "negative self-concept",
+      "choices": [
+        "basic needs",
+        "element of threat",
+        "negative self-concept"
+      ],
+      "source": "FOI written · #16 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_017",
+      "question": "The mental grouping of affiliated perceptions is called",
+      "answer": "insights",
+      "choices": [
+        "insights",
+        "association",
+        "conceptualization"
+      ],
+      "source": "FOI written · #17 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_018",
+      "question": "An instructor may foster the development of insights by",
+      "answer": "helping the student acquire and maintain a favorable self-concept",
+      "choices": [
+        "helping the student acquire and maintain a favorable self-concept",
+        "pointing out the attractive features of the activity to be learned",
+        "keeping the rate of learning consistent so that it is predictable"
+      ],
+      "source": "FOI written · #18 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_019",
+      "question": "In the learning process, fear or the element of threat will",
+      "answer": "narrow the student's perceptual field",
+      "choices": [
+        "narrow the student's perceptual field",
+        "decrease the rate of associative reactions",
+        "cause a student to focus on several areas of perception"
+      ],
+      "source": "FOI written · #19 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_020",
+      "question": "Name one way an instructor can help develop student insights",
+      "answer": "Provide a secure and nonthreatening environment in which to learn",
+      "choices": [
+        "Provide a secure and nonthreatening environment in which to learn",
+        "Point out various items to avoid during the learning process",
+        "Keep learning blocks small so they are easier to understand"
+      ],
+      "source": "FOI written · #20 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_021",
+      "question": "Insights, as applied to leaming, involve a person's",
+      "answer": "grouping of associated perceptions into meaningful wholes",
+      "choices": [
+        "association of learning with change",
+        "grouping of associated perceptions into meaningful wholes",
+        "ability to recognize the reason for earning a procedure"
+      ],
+      "source": "FOI written · #21 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_022",
+      "question": "Which statement is true concerning motivations?",
+      "answer": "Motivations may be very subtle and difficult to identify",
+      "choices": [
+        "Motivations must be tangible to be effective",
+        "Motivations may be very subtle and difficult to identify",
+        "Negative motivations often are as effective as positive motivations"
+      ],
+      "source": "FOI written · #22 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_023",
+      "question": "Motivations that cause a student to react with fear and anxiety are",
+      "answer": "negative",
+      "choices": [
+        "tangible",
+        "negative",
+        "difficult to identify"
+      ],
+      "source": "FOI written · #23 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_024",
+      "question": "For a motivation to be effective, students must believe their efforts will be rewarded in a definite manner. This type of motivation is",
+      "answer": "tangible",
+      "choices": [
+        "subtle",
+        "negative",
+        "tangible"
+      ],
+      "source": "FOI written · #24 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_025",
+      "question": "Which is generally the more effective way for an instructor to properly motivate students?",
+      "answer": "Provide positive motivations by the promise or achievement of rewards",
+      "choices": [
+        "Maintain pleasant personal relationships with students",
+        "Provide positive motivations by the promise or achievement of rewards",
+        "Reinforce their self-confidence by requiring no tasks beyond their ability to perform"
+      ],
+      "source": "FOI written · #25 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_026",
+      "question": "Motivations in the form of reproof and threats should be avoided with all but the student who is",
+      "answer": "overconfident and impuisive,",
+      "choices": [
+        "overconfident and impuisive,",
+        "avidly seeking group approval",
+        "experiencing a learning plateau"
+      ],
+      "source": "FOI written · #26 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_027",
+      "question": "What level of knowledge is being tested if asked, \"What is the maneuvering speed of the aircraft listed in the owner's manual?'",
+      "answer": "Rote",
+      "choices": [
+        "Rote",
+        "Application",
+        "Understanding C _"
+      ],
+      "source": "FOI written · #27 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_028",
+      "question": "During the flight portion of a practical test, the examiner simulates complete oss of engine power by closing the throttle and announcing 'simulated engine failure.' What level of learning is being tested?",
+      "answer": "Correlation",
+      "choices": [
+        "Application",
+        "Correlation",
+        "Understanding"
+      ],
+      "source": "FOI written · #28 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_029",
+      "question": "When asking a student to explain how gross weight affects maneuvering speed, what level of learning is being tested?",
+      "answer": "Understanding",
+      "choices": [
+        "Application",
+        "Correlation",
+        "Understanding"
+      ],
+      "source": "FOI written · #29 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_030",
+      "question": "At which level of learning do most instructors stop teaching?",
+      "answer": "Application",
+      "choices": [
+        "Application",
+        "Correlation",
+        "Understanding"
+      ],
+      "source": "FOI written · #30 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_031",
+      "question": "The best way to prepare a student to perform a task is to",
+      "answer": "provide a clear, step-by-step example",
+      "choices": [
+        "explain the purpose of the task",
+        "provide a clear, step-by-step example",
+        "give the student an outline of the task"
+      ],
+      "source": "FOI written · #31 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_032",
+      "question": "A primary consideration in planning for student performance is the",
+      "answer": "length of the practice session",
+      "choices": [
+        "student's motivational level",
+        "student's intellectual level",
+        "length of the practice session"
+      ],
+      "source": "FOI written · #32 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_033",
+      "question": "A learning plateau may be defined as the",
+      "answer": "normal leveling-off of an individual's learning rate",
+      "choices": [
+        "point in the learning curve at which skill proficiency retrogresses",
+        "normal leveling-off of an individual's learning rate",
+        "achievement of the highest possible level of competence for a particular individual"
+      ],
+      "source": "FOI written · #33 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_034",
+      "question": "According to one theory, some forgetting is due to the practice of submerging an unpleasant experience into the subconscious. This is called",
+      "answer": "repression. it",
+      "choices": [
+        "blanking",
+        "immersion",
+        "repression. it"
+      ],
+      "source": "FOI written · #34 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_035",
+      "question": "When the learning of similar things overshadows other learning experiences, it is called",
+      "answer": "interference",
+      "choices": [
+        "suppression",
+        "correlation",
+        "interference"
+      ],
+      "source": "FOI written · #35 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_036",
+      "question": "When a person has difficulty recalling facts after several years, this is known as",
+      "answer": "disuse",
+      "choices": [
+        "disuse",
+        "repression",
+        "poor retention"
+      ],
+      "source": "FOI written · #36 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_037",
+      "question": "Responses that produce a pleasurable return are called",
+      "answer": "praise",
+      "choices": [
+        "reward",
+        "praise",
+        "positive feedback"
+      ],
+      "source": "FOI written · #37 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_038",
+      "question": "Which transfer of learning occurs when the performance of a maneuver interferes with the learning of another maneuver?",
+      "answer": "Negative",
+      "choices": [
+        "Adverse",
+        "Positive",
+        "Negative"
+      ],
+      "source": "FOI written · #38 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_039",
+      "question": "The performance of rectangular patterns helps a student fly traffic patterns. What type of transfer of learning is this?",
+      "answer": "Positive",
+      "choices": [
+        "Lateral",
+        "Positive",
+        "Deliberate"
+      ],
+      "source": "FOI written · #39 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_040",
+      "question": "Which memory system processes input from the environment?",
+      "answer": "Sensory register",
+      "choices": [
+        "Long-term",
+        "Working",
+        "Sensory register"
+      ],
+      "source": "FOI written · #40 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_041",
+      "question": "The use of some type of association, such as rhymes or mnemonics is best suited to which memory system?",
+      "answer": "Short-term",
+      "choices": [
+        "Short-term",
+        "Sensory",
+        "Long-term"
+      ],
+      "source": "FOI written · #41 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_042",
+      "question": "How can encoding be described?",
+      "answer": "The initial storage of information in short-term memory.",
+      "choices": [
+        "The relating of incoming information to concepts or knowledge already in memory.",
+        "The initial storage of information in short-term memory.",
+        "The selective process where the sensory register is set to recognize certain stimuli."
+      ],
+      "source": "FOI written · #42 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_043",
+      "question": "Where is information for future use stored?",
+      "answer": "Long-term memory",
+      "choices": [
+        "Short-term memory",
+        "Sensory register",
+        "Long-term memory"
+      ],
+      "source": "FOI written · #43 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_044",
+      "question": "When has instruction taken place?",
+      "answer": "When a procedure has been explained, and the desired student response has occurred",
+      "choices": [
+        "When a procedure has been explained, and the desired student response has occurred",
+        "When the student hears what is presented",
+        "When all the required material has been presented"
+      ],
+      "source": "FOI written · #44 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_045",
+      "question": "To ensure proper habits and correct techniques during training, an instructor should",
+      "answer": "use the building block technique of instruction",
+      "choices": [
+        "use the building block technique of instruction",
+        "repeat subject matter the student has already learned",
+        "introduce challenging material to continually motivate the student. C"
+      ],
+      "source": "FOI written · #45 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_046",
+      "question": "Which domain of learning deals with knowledge?",
+      "answer": "Cognitive",
+      "choices": [
+        "Affective",
+        "Cognitive",
+        "Psychomotor"
+      ],
+      "source": "FOI written · #46 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_047",
+      "question": "Affective domain reiates to",
+      "answer": "attitudes, beliefs, and values",
+      "choices": [
+        "physical skills",
+        "knowledge",
+        "attitudes, beliefs, and values"
+      ],
+      "source": "FOI written · #47 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_048",
+      "question": "The educational objective levels for the cognitive domain are",
+      "answer": "knowledge, comprehension, application, analysis, synthesis, and evaluation",
+      "choices": [
+        "receiving, responding, valuing, organization, and characterization",
+        "perception, set, guided response, mechanism, complex overt response, adaptation, and origination",
+        "knowledge, comprehension, application, analysis, synthesis, and evaluation"
+      ],
+      "source": "FOI written · #48 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_049",
+      "question": "The listing of the hierarchy of objectives is often referred to as a",
+      "answer": "taxonomy",
+      "choices": [
+        "taxonomy",
+        "skill",
+        "domain"
+      ],
+      "source": "FOI written · #49 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_050",
+      "question": "The most complex outcome in the affective domain is",
+      "answer": "characterization",
+      "choices": [
+        "organization",
+        "characterization",
+        "valuing"
+      ],
+      "source": "FOI written · #50 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_051",
+      "question": "The least complex outcome in the psychomotor domain is",
+      "answer": "perception",
+      "choices": [
+        "adaptation",
+        "mechanism",
+        "perception"
+      ],
+      "source": "FOI written · #51 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_052",
+      "question": "Before a student can concentrate on learning, which human needs must be satisfied?",
+      "answer": "Physical",
+      "choices": [
+        "Safety",
+        "Physical",
+        "Security"
+      ],
+      "source": "FOI written · #52 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_053",
+      "question": "After individuals are physically comfortable and have no fear for their safety, which human needs become the prime influence on their behavior?",
+      "answer": "Social",
+      "choices": [
+        "Social",
+        "Physical",
+        "Egoistic"
+      ],
+      "source": "FOI written · #53 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_054",
+      "question": "Which of the student's human needs offer the greatest challenge to an instructor?",
+      "answer": "Self-fulfillment",
+      "choices": [
+        "Social",
+        "Egoistic",
+        "Self-fulfillment"
+      ],
+      "source": "FOI written · #54 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_055",
+      "question": "When a student uses excuses to justify inadequate performance, it is an indication of the defense mechanism known as",
+      "answer": "rationalization",
+      "choices": [
+        "flight",
+        "aggression",
+        "rationalization"
+      ],
+      "source": "FOI written · #55 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_056",
+      "question": "Although defense mechanisms can serve a useful purpose, they can also",
+      "answer": "involve some degree of self-deception and distortion of reality",
+      "choices": [
+        "provide feelings of adequacy",
+        "alleviate the cause of problems",
+        "involve some degree of self-deception and distortion of reality"
+      ],
+      "source": "FOI written · #56 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_057",
+      "question": "When a student asks irrelevant questions or refuses to participate in class activities, it usually is an indication of the defense mechanism known as",
+      "answer": "aggression",
+      "choices": [
+        "flight",
+        "aggression",
+        "resignation"
+      ],
+      "source": "FOI written · #57 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_058",
+      "question": "Taking physical or mental flight is a defense mechanism students use when they",
+      "answer": "want to escape from frustrating situations",
+      "choices": [
+        "want to escape from frustrating situations",
+        "cannot accept the real reasons for their behavior",
+        "lose interest during the advanced stages of training"
+      ],
+      "source": "FOI written · #58 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_059",
+      "question": "When students subconsciously use the defense mechanism called rationalization, they",
+      "answer": "cannot accept the real reasons for their behavior",
+      "choices": [
+        "use excuses to justify acceptable behavior",
+        "cannot accept the real reasons for their behavior",
+        "develop symptoms that give them excuses for removing themselves from frustration"
+      ],
+      "source": "FOI written · #59 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_060",
+      "question": "When students display the defense mechanism called aggression, they",
+      "answer": "may refuse to participate in class activities",
+      "choices": [
+        "become visibly angry, upset, and childish",
+        "may refuse to participate in class activities",
+        "attempt to justify actions by asking numerous questions"
+      ],
+      "source": "FOI written · #60 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_061",
+      "question": "When a student engages in daydreaming, it is a defense mechanism of",
+      "answer": "fantasy",
+      "choices": [
+        "fantasy",
+        "compensation",
+        "denial"
+      ],
+      "source": "FOI written · #61 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_062",
+      "question": "When a student becomes bewildered and lost in the advanced phase of training after completing the early phase without grasping the fundamentals, the defense mechanism is usually in the form of",
+      "answer": "resignation",
+      "choices": [
+        "submission",
+        "resignation",
+        "rationalization"
+      ],
+      "source": "FOI written · #62 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_063",
+      "question": "Which would more likely result in students becoming frustrated?",
+      "answer": "Telling students their work is unsatisfactory with no explanation",
+      "choices": [
+        "Giving the students meaningless praise",
+        "Telling students their work is unsatisfactory with no explanation",
+        "Covering up instructor mistakes or bluffing when the instructor is in doubt. C"
+      ],
+      "source": "FOI written · #63 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_064",
+      "question": "When students are unable to see the benefits or purpose of a lesson, they will",
+      "answer": "be less motivated",
+      "choices": [
+        "be less motivated",
+        "not learn as quickly",
+        "be expected to increase their efforts"
+      ],
+      "source": "FOI written · #64 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_065",
+      "question": "When the instructor keeps the student informed of lesson objectives and completion standards, it minimizes the student's feelings of",
+      "answer": "insecurity",
+      "choices": [
+        "insecurity",
+        "resignation",
+        "aggressiveness"
+      ],
+      "source": "FOI written · #65 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_066",
+      "question": "Student confidence tends to be destroyed if instructors",
+      "answer": "bluff whenever in doubt about some point",
+      "choices": [
+        "bluff whenever in doubt about some point",
+        "continually identify student errors and failures",
+        "direct and control the student's actions and behavior"
+      ],
+      "source": "FOI written · #66 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_067",
+      "question": "The effectiveness of communication between instructor and student is measured by the",
+      "answer": "similarity between the idea transmitted and the idea received",
+      "choices": [
+        "degree of dynamic, interrelated elements",
+        "similarity between the idea transmitted and the idea received",
+        "relationship between communicative and dynamic elements"
+      ],
+      "source": "FOI written · #67 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_068",
+      "question": "To be more likely ta communicate effectively, an instructor should speak or write from a background of",
+      "answer": "up to date, stimulating material",
+      "choices": [
+        "technical expertise",
+        "knowing the ideas presented",
+        "up to date, stimulating material"
+      ],
+      "source": "FOI written · #68 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_069",
+      "question": "To communicate effectively, instructors must",
+      "answer": "reveal a positive attitude while delivering their message",
+      "choices": [
+        "recognize the level of comprehension",
+        "provide an atmosphere which encourages questioning",
+        "reveal a positive attitude while delivering their message"
+      ],
+      "source": "FOI written · #69 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_070",
+      "question": "Effective communication has taken place when, and only when, the",
+      "answer": "receivers react with understanding and change their behavior accordingly",
+      "choices": [
+        "information is transmitted and received",
+        "receivers react with understanding and change their behavior accordingly",
+        "receivers have the ability to question and comprehend ideas that have been transmitted"
+      ],
+      "source": "FOI written · #70 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_instructor"
+      ],
+      "topic_id": "foi_instructor",
+      "topic_title": "Instructor responsibilities"
+    },
+    {
+      "id": "foi_written_071",
+      "question": "In the communication process, the communicator will! be more successful in 1e gaining and retaining the receiver's attention by",
+      "answer": "using a varied communicative approach",
+      "choices": [
+        "being friendly and informative",
+        "using a varied communicative approach",
+        "using a variety of audiovisual aids in class"
+      ],
+      "source": "FOI written · #71 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_instructor"
+      ],
+      "topic_id": "foi_instructor",
+      "topic_title": "Instructor responsibilities"
+    },
+    {
+      "id": "foi_written_072",
+      "question": "By using abstractions in the communication process, the communicator will",
+      "answer": "not evoke in the listener's or reader's mind the specific items of experience the communicator intends",
+      "choices": [
+        "bring forth specific items of experience in the minds of the receivers",
+        "be using words which refer to objects or ideas that human beings can experience directly",
+        "not evoke in the listener's or reader's mind the specific items of experience the communicator intends"
+      ],
+      "source": "FOI written · #72 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_instructor"
+      ],
+      "topic_id": "foi_instructor",
+      "topic_title": "Instructor responsibilities"
+    },
+    {
+      "id": "foi_written_073",
+      "question": "The danger in using abstract words is that they",
+      "answer": "will not evoke the specific items of experience in the listener's mind that the communicator intends",
+      "choices": [
+        "sum up vast areas of experience",
+        "call forth different mental images in the minds of the receivers",
+        "will not evoke the specific items of experience in the listener's mind that the communicator intends"
+      ],
+      "source": "FOI written · #73 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_074",
+      "question": "Probably the greatest single barrier to effective communication in the teaching process is a lack of",
+      "answer": "a common experience level between instructor and student",
+      "choices": [
+        "respect for the instructor",
+        "personality harmony between instructor and student",
+        "a common experience level between instructor and student"
+      ],
+      "source": "FOI written · #74 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_075",
+      "question": "A communicator's words cannot communicate the desired meaning to another person unless the",
+      "answer": "listener or reader has had some experience with the objects or concepts to which these words refer",
+      "choices": [
+        "words have meaningful referents",
+        "words give the meaning that is in the mind of the receiver",
+        "listener or reader has had some experience with the objects or concepts to which these words refer"
+      ],
+      "source": "FOI written · #75 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_076",
+      "question": "When teaching new material, the teaching process can be divided into which steps?",
+      "answer": "Preparation, presentation, application, and review and evaluation",
+      "choices": [
+        "Preparation, presentation, application, and review and evaluation",
+        "Preparation, demonstration, practice, and review",
+        "Explanation, demonstration, practice, and evaluation"
+      ],
+      "source": "FOI written · #76 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_077",
+      "question": "Which method of presentation is desirable for teaching a skill such as ground school lesson on the flight computer?",
+      "answer": "Demonstration/performance",
+      "choices": [
+        "Presentation/practice",
+        "Demonstration/performance",
+        "Lecture/application"
+      ],
+      "source": "FOI written · #77 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_078",
+      "question": "Which statement is true regarding student evaluation?",
+      "answer": "Evaluation of the student's learning should be an integral part of each lesson",
+      "choices": [
+        "The student's own evaluations can only be objective",
+        "Evaluation of the student's learning should be an integral part of each lesson",
+        "If deficiencies or faults not associated with the present lesson are revealed, they should be corrected immediately"
+      ],
+      "source": "FOI written · #78 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_079",
+      "question": "In the teaching process, which method of presentation is suitable for presenting new material. for summarizing ideas, and for showing relationships between theory and practice?",
+      "answer": "Lecture method",
+      "choices": [
+        "Lecture method",
+        "Integrated instruction method",
+        "Demonstration/performance method C"
+      ],
+      "source": "FOI written · #79 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_080",
+      "question": "Evaluation of student performance and accomplishment during a lesson should be based on",
+      "answer": "objectives and goals established in the lesson plan",
+      "choices": [
+        "objectives and goals established in the lesson plan",
+        "performance of each student compared to an objective standard",
+        "each student's ability to make an objective evaluation of their own progress"
+      ],
+      "source": "FOI written · #80 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_081",
+      "question": "To enhance a student's acceptance of further instruction, the instructor should",
+      "answer": "keep the student informed of the progress made",
+      "choices": [
+        "keep the student informed of the progress made",
+        "continually prod the student to maintain motivational levels",
+        "establish performance standards a little above the student's actual ability"
+      ],
+      "source": "FOI written · #81 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_082",
+      "question": "The proper sequence for the subparts of an introduction is",
+      "answer": "attention, motivation, and overview",
+      "choices": [
+        "attention, motivation, and overview",
+        "attention, development, and overview",
+        "overview, motivation, and conclusion"
+      ],
+      "source": "FOI written · #82 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_083",
+      "question": "In organizing lesson material, which step sets the stage for everything to come?",
+      "answer": "Introduction",
+      "choices": [
+        "Overview",
+        "Conclusion",
+        "Introduction"
+      ],
+      "source": "FOI written · #83 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_084",
+      "question": "The method of arranging lesson material from the simple to complex, past to present, and known to unknown, is one that",
+      "answer": "shows the relationships of the main points of the lesson",
+      "choices": [
+        "creates student thought pattern departures",
+        "shows the relationships of the main points of the lesson",
+        "requires students to actively participate in the lesson"
+      ],
+      "source": "FOI written · #84 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_085",
+      "question": "When teaching from the known to the unknown, an instructor is using the student's",
+      "answer": "previous experiences and knowledge",
+      "choices": [
+        "current knowledge of the subject",
+        "previous experiences and knowledge",
+        "previously held opinions, both valid and invalid"
+      ],
+      "source": "FOI written · #85 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_086",
+      "question": "In developing a lesson, the instructor should organize explanations and demonstrations to help the student",
+      "answer": "achieve the desired learning outcome",
+      "choices": [
+        "achieve the desired learning outcome",
+        "acquire a thorough understanding of the material presented",
+        "acquire new concepts. generally progressing from the known to the n unknown,"
+      ],
+      "source": "FOI written · #86 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_087",
+      "question": "The first step in preparing a lecture is to",
+      "answer": "establish the objective and desired outcome",
+      "choices": [
+        "research the subject",
+        "develop the main ideas or key points",
+        "establish the objective and desired outcome"
+      ],
+      "source": "FOI written · #87 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_088",
+      "question": "Which is a true statement regarding the teaching lecture?",
+      "answer": "Instructor must develop a keen perception for subtle responses and be able to interpret the meaning of these reactions",
+      "choices": [
+        "Delivering the lecture in an extemporaneous manner is not recommended",
+        "Instructor receives direct feedback from students which is easy to interpret",
+        "Instructor must develop a keen perception for subtle responses and be able to interpret the meaning of these reactions"
+      ],
+      "source": "FOI written · #88 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_089",
+      "question": "During a teaching lecture, what would detract from an instructor's dignity and reflect upon the student's intelligence?",
+      "answer": "Errors in grammar and use of vulgarisms",
+      "choices": [
+        "Use of figurative language",
+        "Errors in grammar and use of vulgarisms",
+        "Using picturesque slang and colloquialisms"
+      ],
+      "source": "FOI written · #89 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_090",
+      "question": "What is one advantage of a lecture?",
+      "answer": "Uses time economically",
+      "choices": [
+        "Uses time economically",
+        "Excellent when additional research is required",
+        "Allows for maximum attainment of certain types of learning outcomes"
+      ],
+      "source": "FOI written · #90 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_091",
+      "question": "An instructor can inspire active student participation during informal lectures through the use of",
+      "answer": "questions",
+      "choices": [
+        "questions",
+        "visual aids",
+        "encouragement"
+      ],
+      "source": "FOI written · #91 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_092",
+      "question": "The distinguishing characteristic of an informal lecture is the",
+      "answer": "student's participation",
+      "choices": [
+        "use of visual aids",
+        "student's participation",
+        "requirement for informal notes"
+      ],
+      "source": "FOI written · #92 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_093",
+      "question": "Which teaching method is most economical in terms of the time required to present a given amount of material?",
+      "answer": "Teaching lecture",
+      "choices": [
+        "Briefing",
+        "Teaching lecture",
+        "Demonstration/performance"
+      ],
+      "source": "FOI written · #93 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_094",
+      "question": "The most significant characteristic of group learning is that it",
+      "answer": "continually requires active participation of the student",
+      "choices": [
+        "continually requires active participation of the student",
+        "continually requires active participation of both the student and the instructor",
+        "usually requires passive participation of the student"
+      ],
+      "source": "FOI written · #94 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_095",
+      "question": "The main advantage(s) with heterogeneous groups are that students tend to",
+      "answer": "interact and achieve in ways and at levels that are rarely found with other instructional strategies",
+      "choices": [
+        "think for themselves since they are in a group of dissimilar students",
+        "interact and achieve in ways and at levels that are rarely found with other instructional strategies",
+        "interact and achieve since they are in a group of similar students"
+      ],
+      "source": "FOI written · #95 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_096",
+      "question": "The main reason that students are put in cooperative learning groups is so they",
+      "answer": "can individually achieve greater success than if they were to study alone",
+      "choices": [
+        "learn and help each other",
+        "can individually achieve greater success than if they were to study alone",
+        "learn that teamwork is essential if all members are to learn equally well"
+      ],
+      "source": "FOI written · #96 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_097",
+      "question": "An instructional strategy which organizes students into small groups so that they can work together to maximize their own and each other's learning is called",
+      "answer": "cooperative or group learning",
+      "choices": [
+        "workshop learning",
+        "heterogeneous group learning",
+        "cooperative or group learning"
+      ],
+      "source": "FOI written · #97 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_098",
+      "question": "A question directed to an entire group to stimulate thought and response from each group member is identified as",
+      "answer": "Overhead",
+      "choices": [
+        "Relay",
+        "Overhead",
+        "Rhetorical"
+      ],
+      "source": "FOI written · #98 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_099",
+      "question": "Which statement about the guided discussion method of teaching is true?",
+      "answer": "Unless the students have some knowledge to exchange with each other, es they cannot reach the desired learning outcomes",
+      "choices": [
+        "The lesson objective becomes apparent at the application level of learning",
+        "Students without a background in the subject can also be included in the discussion",
+        "Unless the students have some knowledge to exchange with each other, es they cannot reach the desired learning outcomes"
+      ],
+      "source": "FOI written · #99 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_100",
+      "question": "In a guided discussion, learning is achieved through the",
+      "answer": "skillful use of questions",
+      "choices": [
+        "skillful use of questions",
+        "use of questions, each of which contains several ideas",
+        "use of reverse questions directed to the class as a whole"
+      ],
+      "source": "FOI written · #100 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_101",
+      "question": "Which question would be best as a leadoff question for a guided discussion on the subject of torque?",
+      "answer": "How does torque affect an airplane? <)",
+      "choices": [
+        "Does torque affect an airplane?",
+        "How does torque affect an airplane? <)",
+        "What effect does torque have on an airplane in a turn?"
+      ],
+      "source": "FOI written · #101 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_102",
+      "question": "In a guided discussion, leadoff questions should usually begin with",
+      "answer": "why",
+      "choices": [
+        "why",
+        "what",
+        "when"
+      ],
+      "source": "FOI written · #102 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_103",
+      "question": "When it appears students have adequately discussed the ideas presented Dr during a guided discussion, one of the most valuable tools an instructor can use s",
+      "answer": "an interim summary of what the students accomplished",
+      "choices": [
+        "a session of verbal testing",
+        "a written test on the subject discussed",
+        "an interim summary of what the students accomplished"
+      ],
+      "source": "FOI written · #103 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_104",
+      "question": "What are the essential steps in the demonstration/performance method of teaching?",
+      "answer": "Explanation, demonstration, student performance, instructor supervision, and evaluation",
+      "choices": [
+        "Demonstration, practice, and evaluation",
+        "Demonstration, student performance, and evaluation",
+        "Explanation, demonstration, student performance, instructor supervision, and evaluation"
+      ],
+      "source": "FOI written · #104 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_105",
+      "question": "In the demonstration/performance method of instruction, which two separate actions are performed concurrently?",
+      "answer": "Student performance and instructor supervision",
+      "choices": [
+        "Instructor explanation and demonstration",
+        "Student performance and instructor supervision",
+        "Instructor explanation and student demonstration"
+      ],
+      "source": "FOI written · #105 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_106",
+      "question": "What is the last step in the demonstration/performance method?",
+      "answer": "Evaluation",
+      "choices": [
+        "Summary",
+        "Evaluation",
+        "Student performance"
+      ],
+      "source": "FOI written · #106 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_107",
+      "question": "Which statement is true concerning computer-based training (CBT)?",
+      "answer": "One of the major advantages of CBT is that students can progress at a rate which is comfortable for them",
+      "choices": [
+        "The instructor need not be actively involved with the students when using instructional aids",
+        "CBT may be used by the instructor as stand-alone training",
+        "One of the major advantages of CBT is that students can progress at a rate which is comfortable for them"
+      ],
+      "source": "FOI written · #107 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_108",
+      "question": "Some of the more advanced computer-based training (CBT) applications allow students to progress through a series of interactive segments where the presentation varies as a result of their",
+      "answer": "responses",
+      "choices": [
+        "training",
+        "responses",
+        "needs"
+      ],
+      "source": "FOI written · #108 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_109",
+      "question": "The major advantage of computer-based training (CBT) over other forms of instruction is that it is interactive - the computer responds in different ways, depending on the student's",
+      "answer": "input",
+      "choices": [
+        "background",
+        "input",
+        "training"
+      ],
+      "source": "FOI written · #109 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_110",
+      "question": "Which statement is true about an instructor's critique of a student's performance?",
+      "answer": "It should be constructive and objective",
+      "choices": [
+        "Praise for praise's sake is of value",
+        "It should be constructive and objective",
+        "It should treat every aspect of the performance in detail"
+      ],
+      "source": "FOI written · #110 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_111",
+      "question": "Which statement is true about instructors' critiques?",
+      "answer": "Before students willingly accept their instructor's critique, they must first accept the instructor",
+      "choices": [
+        "Instructors should rely on their personality to make a critique more acceptable",
+        "A comprehensive critique should emphasize positive aspects of student performance",
+        "Before students willingly accept their instructor's critique, they must first accept the instructor"
+      ],
+      "source": "FOI written · #111 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_112",
+      "question": "When an instructor critiques a student, it should always be",
+      "answer": "conducted immediately after the student's performance C",
+      "choices": [
+        "done in private",
+        "subjective rather than objective",
+        "conducted immediately after the student's performance C"
+      ],
+      "source": "FOI written · #112 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_113",
+      "question": "An instructor's critique of a student's performance should",
+      "answer": "provide direction and guidance to improve performance",
+      "choices": [
+        "treat every aspect of the performance in detail",
+        "be private so that the student is not embarrassed",
+        "provide direction and guidance to improve performance"
+      ],
+      "source": "FOI written · #113 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_114",
+      "question": "Which statement is true about an instructor's critique of a student's performance?",
+      "answer": "It should be constructive and objective",
+      "choices": [
+        "Praise for praise's sake is of value",
+        "It should be constructive and objective",
+        "It should treat every aspect of the performance in detail"
+      ],
+      "source": "FOI written · #114 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_115",
+      "question": "To be effective, a critique should",
+      "answer": "be flexible enough to satisfy the requirements of the moment",
+      "choices": [
+        "not contain negative remarks",
+        "treat every aspect of the performance in detail",
+        "be flexible enough to satisfy the requirements of the moment"
+      ],
+      "source": "FOI written · #115 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_116",
+      "question": "Which is a valid reason for the use of proper oral quizzing during a lesson?",
+      "answer": "Promotes active student participation",
+      "choices": [
+        "Promotes active student participation",
+        "Identifies points that need less emphasis",
+        "Helps the instructor determine the general intelligence level of the students"
+      ],
+      "source": "FOI written · #116 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_117",
+      "question": "Practical tests for pilot certification are",
+      "answer": "criterion-referenced",
+      "choices": [
+        "evaluation-referenced",
+        "norm-referenced",
+        "criterion-referenced"
+      ],
+      "source": "FOI written · #117 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_118",
+      "question": "The objective of the Practical Test Standards (PTS) is to ensure the certification of pilots at a high level of performance and proficiency, consistent with",
+      "answer": "safety",
+      "choices": [
+        "the time available",
+        "safety",
+        "their abilities"
+      ],
+      "source": "FOI written · #118 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_119",
+      "question": "Proper oral quizzing by the instructor during a lesson can have which result?",
+      "answer": "Identifies points which need more emphasis",
+      "choices": [
+        "Promotes effective use of available time",
+        "Identifies points which need more emphasis",
+        "Permits the introduction of new material not covered previously"
+      ],
+      "source": "FOI written · #119 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_120",
+      "question": "One desirable result of proper oral quizzing by the instructor is to",
+      "answer": "reveal the effectiveness of the instructor's training procedures",
+      "choices": [
+        "reveal the effectiveness of the instructor's training procedures",
+        "fulfill the requirements set forth in the overall objectives of the course",
+        "reveal the essential information from which the student can determine progress"
+      ],
+      "source": "FOI written · #120 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_121",
+      "question": "During oral quizzing in a given lesson, effective questions should",
+      "answer": "be brief and concise",
+      "choices": [
+        "be brief and concise",
+        "provide answers that can be expressed in a variety of ways",
+        "divert the student's thoughts to subjects covered in previous lessons"
+      ],
+      "source": "FOI written · #121 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_122",
+      "question": "Regarding oral quizzes, what kind of question would be answered based on memory or recall?",
+      "answer": "A fact question",
+      "choices": [
+        "A fact question",
+        "A provocative question",
+        "A thought question"
+      ],
+      "source": "FOI written · #122 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_123",
+      "question": "To be effective in orai quizzing during the conduct of a lesson, a question should",
+      "answer": "be of suitable difficulty for that stage of training",
+      "choices": [
+        "be of suitable difficulty for that stage of training",
+        "include a combination of where, how, and why",
+        "divert the student's thoughts to subjects covered in other lessons"
+      ],
+      "source": "FOI written · #123 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_124",
+      "question": "To answer a student's question, it is most important that the instructor",
+      "answer": "clearly understand the question",
+      "choices": [
+        "clearly understand the question",
+        "have complete knowledge of the subject",
+        "introduce more complicated information to partially answer the question, if necessary"
+      ],
+      "source": "FOI written · #124 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_125",
+      "question": "A written test has validity when it",
+      "answer": "measures what it is supposed to measure",
+      "choices": [
+        "yields consistent results",
+        "samples liberally whatever is being measured",
+        "measures what it is supposed to measure"
+      ],
+      "source": "FOI written · #125 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_126",
+      "question": "A written test that has reliability",
+      "answer": "yields consistent results",
+      "choices": [
+        "yields consistent results",
+        "measures small differences in the achievement of students",
+        "actually measures what it is supposed to measure and nothing else"
+      ],
+      "source": "FOI written · #126 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_127",
+      "question": "The characteristic of a written test, which measures small differences in achievement between students, is its",
+      "answer": "discrimination",
+      "choices": [
+        "validity",
+        "reliability",
+        "discrimination"
+      ],
+      "source": "FOI written · #127 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_128",
+      "question": "A written test having the characteristic of discrimination will",
+      "answer": "distinguish between students both low and high in achievement",
+      "choices": [
+        "be easy to give and easily graded",
+        "include a representative and comprehensive sampling of the course objectives",
+        "distinguish between students both low and high in achievement"
+      ],
+      "source": "FOI written · #128 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_129",
+      "question": "A written test is said to be comprehensive when it",
+      "answer": "samples liberally whatever is being measured",
+      "choices": [
+        "includes all levels of difficulty",
+        "samples liberally whatever is being measured",
+        "measures knowledge of the same topic in many different ways"
+      ],
+      "source": "FOI written · #129 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_130",
+      "question": "Which type of test item creates the greatest probability of guessing?",
+      "answer": "True-false",
+      "choices": [
+        "True-false",
+        "Supply-type",
+        "Multiple choice. C _"
+      ],
+      "source": "FOI written · #130 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_131",
+      "question": "Which is the main disadvantage of supply-type test items?",
+      "answer": "They cannot be graded with uniformity",
+      "choices": [
+        "They cannot be graded with uniformity",
+        "They are readily answered by guessing",
+        "They are easily adapted to statistical analysis"
+      ],
+      "source": "FOI written · #131 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_132",
+      "question": "What is a characteristic of supply-type test items?",
+      "answer": "The same test graded by different instructors would probably be given different scores",
+      "choices": [
+        "They are easily adapted to testing of knowledge facts and details",
+        "Test results would be graded the same regardless of the student or the grader",
+        "The same test graded by different instructors would probably be given different scores"
+      ],
+      "source": "FOI written · #132 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_133",
+      "question": "One of the main advantages of selection-type test items over supply-type test items is that the selection-type",
+      "answer": "would be graded objectively regardless of the student or the grader",
+      "choices": [
+        "decreases discrimination between responses",
+        "would be graded objectively regardless of the student or the grader",
+        "precludes comparison of students under one instructor with those under another instructor"
+      ],
+      "source": "FOI written · #133 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_134",
+      "question": "Which is one of the major difficulties encountered in the construction of multiple-choice test items?",
+      "answer": "Inventing distractors which will be attractive to students lacking knowledge or understanding",
+      "choices": [
+        "Adapting the items to statistical item analysis",
+        "Keeping all responses approximately equal in length",
+        "Inventing distractors which will be attractive to students lacking knowledge or understanding"
+      ],
+      "source": "FOI written · #134 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_135",
+      "question": "Which statement is true about multiple-choice test items that are intended to measure achievement at a higher level of learning?",
+      "answer": "Some or all of the alternatives should be acceptable but only one should be clearly better than the others",
+      "choices": [
+        "It is unethical to mislead students into selecting an incorrect alternative",
+        "Some or all of the alternatives should be acceptable but only one should be clearly better than the others",
+        "The use of common errors as distracting alternatives to divert the student from the correct response is ineffective and invalid"
+      ],
+      "source": "FOI written · #135 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_136",
+      "question": "Which statement is true relative to effective multiple-choice test items?",
+      "answer": "Keep ail alternatives of approximately equal length",
+      "choices": [
+        "Negative words or phrases need not be emphasized",
+        "Items should call for abstract background knowledge",
+        "Keep ail alternatives of approximately equal length"
+      ],
+      "source": "FOI written · #136 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_137",
+      "question": "In a written test, which type of selection-type test items reduces the probability of guessing correct responses?",
+      "answer": "Matching",
+      "choices": [
+        "Essay",
+        "Matching",
+        "Multiple-choice"
+      ],
+      "source": "FOI written · #137 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_138",
+      "question": "Which type test is desirable for evaluating training that involves an operation, procedure, or process?",
+      "answer": "Performance",
+      "choices": [
+        "Oral",
+        "Performance",
+        "Proficiency"
+      ],
+      "source": "FOI written · #138 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_139",
+      "question": "Which is a true statement concerning the use of instructional aids?",
+      "answer": "instructional aids should be designed to cover the key points in a lesson",
+      "choices": [
+        "instructional aids should be designed to cover the key points in a lesson",
+        "Instructional aids ensure getting and holding the student's attention",
+        "Instructional aids should not be used simply to cover a subject in less time"
+      ],
+      "source": "FOI written · #139 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_140",
+      "question": "Instructional aids used in the teaching/learning process should be",
+      "answer": "compatible with the learning outcomes to be achieved",
+      "choices": [
+        "self-supporting and require no explanation",
+        "compatible with the learning outcomes to be achieved",
+        "selected prior to developing and organizing the lesson plan"
+      ],
+      "source": "FOI written · #140 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_141",
+      "question": "instructional aids used in the teaching/learning process should not be used",
+      "answer": "as a crutch by the instructor",
+      "choices": [
+        "as a crutch by the instructor",
+        "for teaching more in less time",
+        "to visualize relationships between abstracts"
+      ],
+      "source": "FOI written · #141 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_142",
+      "question": "The use of instructiona} aids should be based on their ability to support a specific point in the lesson. What is the first step in determining if and where instructional aids are necessary?",
+      "answer": "Clearly establish the lesson objective, being certain what must be communicated",
+      "choices": [
+        "Organize subject material into an outline or a lesson plan",
+        "Determine what ideas should be supported with instructional aids",
+        "Clearly establish the lesson objective, being certain what must be communicated"
+      ],
+      "source": "FOI written · #142 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_143",
+      "question": "Which statement is true regarding true professionalism as an instructor?",
+      "answer": "Anything less than sincere performance destroys the effectiveness of the professional instructor",
+      "choices": [
+        "Anything less than sincere performance destroys the effectiveness of the professional instructor",
+        "To achieve professionalism, actions and decisions must be limited to standard patterns and practices",
+        "A single definition of professionalism would encompass all of the qualifications and considerations which must be present"
+      ],
+      "source": "FOI written · #143 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_instructor"
+      ],
+      "topic_id": "foi_instructor",
+      "topic_title": "Instructor responsibilities"
+    },
+    {
+      "id": "foi_written_144",
+      "question": "Aviation instructors should be constantly alert for ways to improve the services they provide to their students, their effectiveness, and their",
+      "answer": "qualifications",
+      "choices": [
+        "appearance",
+        "qualifications",
+        "demeanor"
+      ],
+      "source": "FOI written · #144 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_145",
+      "question": "True performance as a professional is based on study and",
+      "answer": "research",
+      "choices": [
+        "perseverance",
+        "research",
+        "attitude"
+      ],
+      "source": "FOI written · #145 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_instructor"
+      ],
+      "topic_id": "foi_instructor",
+      "topic_title": "Instructor responsibilities"
+    },
+    {
+      "id": "foi_written_146",
+      "question": "An instructor can most effectively maintain a high level of student motivation by",
+      "answer": "making each lesson a pleasurable experience",
+      "choices": [
+        "making each lesson a pleasurable experience",
+        "relaxing the standards of performance required during the early phase of training",
+        "continually challenging the student to meet the highest objectives of training that can be established C"
+      ],
+      "source": "FOI written · #146 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_147",
+      "question": "Confusion, disinterest, and uneasiness on the part of the student could happen as a result of not knowing the",
+      "answer": "objective of each period of instruction",
+      "choices": [
+        "importance of each period of instruction",
+        "objective of each period of instruction",
+        "subject of each period of instruction"
+      ],
+      "source": "FOI written · #147 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_148",
+      "question": "A pretest constructed to measure knowledge and skills necessary to begin a course is referred to as a",
+      "answer": "criterion-referenced test e",
+      "choices": [
+        "virtual-reality test",
+        "norm-referenced test",
+        "criterion-referenced test e"
+      ],
+      "source": "FOI written · #148 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_149",
+      "question": "Faulty performance due to student overconfidence should be corrected by",
+      "answer": "increasing the standard of performance for each lesson",
+      "choices": [
+        "increasing the standard of performance for each lesson",
+        "praising the student only when the performance is perfect",
+        "providing strong. negative evaluation at the end of each lesson"
+      ],
+      "source": "FOI written · #149 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_150",
+      "question": "What should an instructor do with a student who assumes that correction of errors is unimportant?",
+      "answer": "Raise the standard of performance for each lesson, demanding greater effort",
+      "choices": [
+        "Divide complex flight maneuvers into elements",
+        "Try to reduce the student's overconfidence to reduce the chance of an accident",
+        "Raise the standard of performance for each lesson, demanding greater effort"
+      ],
+      "source": "FOI written · #150 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_151",
+      "question": "Which statement is true regarding the achievement of an adequate standard of performance?",
+      "answer": "Flight instructors fail to provide competent instruction when they permit students to partially learn an important item of knowledge or skill",
+      "choices": [
+        "A flight instructor should devote major effort and attention to the continuous evaluation of student performance",
+        "Flight instructors can affect a genuine improvement in the student/instructor telationship by not strictly enforcing standards",
+        "Flight instructors fail to provide competent instruction when they permit students to partially learn an important item of knowledge or skill"
+      ],
+      "source": "FOI written · #151 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_152",
+      "question": "Which statement is true regarding positive or negative approaches in aviation instructional techniques?",
+      "answer": "A positive approach, to be effective, will point out the pleasurable features of aviation before the unpleasant possibilities are discussed",
+      "choices": [
+        "A student with normal abilities should not be affected by an instructor who. emphasizes emergency procedures early in training",
+        "A positive approach, to be effective, will point out the pleasurable features of aviation before the unpleasant possibilities are discussed",
+        "The introduction of emergency procedures before the student is acquainted with normal operations is likely to be neither discouraging nor affect learning"
+      ],
+      "source": "FOI written · #152 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_153",
+      "question": "Which is an example of a positive approach in the first flight lesson of a student with no previous aviation experience?",
+      "answer": "A normal flight to a nearby airport and return. }",
+      "choices": [
+        "Conducting a thorough preflight",
+        "A normal flight to a nearby airport and return. }",
+        "Instruction in the care which must be taken when taxiing an airptane"
+      ],
+      "source": "FOI written · #153 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_154",
+      "question": "Evaluation of demonstrated ability during flight instruction must be based upon",
+      "answer": "established standards of performance, suitably modified to apply to the student's experience",
+      "choices": [
+        "the instructor's background and experience relating to student pilots at this stage of training",
+        "the progress of the student, considering the time and experience attained since beginning training",
+        "established standards of performance, suitably modified to apply to the student's experience"
+      ],
+      "source": "FOI written · #154 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_155",
+      "question": "Evaluation of demonstrated ability during flight instruction must be based upon",
+      "answer": "established standards of performance",
+      "choices": [
+        "the progress of the student",
+        "the instructor's opinion concerning the maneuver(s)",
+        "established standards of performance"
+      ],
+      "source": "FOI written · #155 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_156",
+      "question": "In evaluating student demonstrations of piloting ability, it is important for the flight instructor to",
+      "answer": "keep the student informed of progress",
+      "choices": [
+        "remain silent and observe",
+        "keep the student informed of progress",
+        "explain errors in performance immediately"
+      ],
+      "source": "FOI written · #156 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_157",
+      "question": "The student should be capable of handling problems that might occur, such as traffic pattern congestion, change in active runway, or unexpected crosswinds prior to",
+      "answer": "initial solo",
+      "choices": [
+        "the first solo cross-country flight",
+        "initial solo",
+        "being recommended for a Recreational or Private Pilot Certificate"
+      ],
+      "source": "FOI written · #157 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_158",
+      "question": "Before endorsing a student for solo flight, the instructor should require the student to demonstrate consistent ability to perform",
+      "answer": "all of the fundamental maneuvers",
+      "choices": [
+        "ail maneuvers specified in the Student Pilot Guide",
+        "all of the fundamental maneuvers",
+        "slow flight, stalls, emergency landings, takeoffs and landings, and goarounds"
+      ],
+      "source": "FOI written · #158 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_159",
+      "question": "Examples of ail common endorsements can be found in the current issue of",
+      "answer": "AC 91-67, Appendix 1",
+      "choices": [
+        "AC 61-67, Appendix 1",
+        "AC 91-67, Appendix 1",
+        "AC 61-65, Appendix 1"
+      ],
+      "source": "FOI written · #159 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_160",
+      "question": "When under stress, normal individuals usually react",
+      "answer": "by responding rapidly and exactly, often automatically, within the limits of their experience and training",
+      "choices": [
+        "by showing excellent morale followed by deep depression",
+        "by responding rapidly and exactly, often automatically, within the limits of their experience and training",
+        "inappropriately such as extreme overcooperation, painstaking self-control, and inappropriate laughing or singing"
+      ],
+      "source": "FOI written · #160 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_161",
+      "question": "One possible indication of a student's abnormal reaction to stress would be",
+      "answer": "extreme over cooperation",
+      "choices": [
+        "a hesitancy to act",
+        "extreme over cooperation",
+        "a noticeable lack of self-control C"
+      ],
+      "source": "FOI written · #161 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_162",
+      "question": "The instructor can counteract anxiety in a student by",
+      "answer": "treating the student's fears as a normal reaction",
+      "choices": [
+        "treating the student's fears as a normal reaction",
+        "discontinuing instruction in tasks that cause anxiety",
+        "allowing the student to decide when he/she is ready for a new maneuver to be introduced"
+      ],
+      "source": "FOI written · #162 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_163",
+      "question": "Which would most likely be an indication that a student is reacting abnormally to stress?",
+      "answer": "Inappropriate laughter or singing",
+      "choices": [
+        "Slow learning",
+        "Inappropriate laughter or singing",
+        "Automatic response to a given situation"
+      ],
+      "source": "FOI written · #163 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_164",
+      "question": "The basic demonstration/performance method of instruction consists of several steps in proper order. They are",
+      "answer": "instructor tells -- instructor does; student tells -- instructor does; student tells - student does; student does -- instructor evaluates",
+      "choices": [
+        "instructor tells -- student does; student tells -- student does; student does -instructor evaluates",
+        "instructor tells -- instructor does; student tells -- instructor does; student does -- instructor evaluates",
+        "instructor tells -- instructor does; student tells -- instructor does; student tells - student does; student does -- instructor evaluates"
+      ],
+      "source": "FOI written · #164 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_165",
+      "question": "Integrated flight instruction has many benefits but, the main objective is to",
+      "answer": "help the student develop habit patterns for observance of and reliance on flight instruments",
+      "choices": [
+        "develop the student's ability to fly the aircraft during inadvertent IMC",
+        "ensure the student is not overly dependent on instruments during VFR flight",
+        "help the student develop habit patterns for observance of and reliance on flight instruments"
+      ],
+      "source": "FOI written · #165 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_166",
+      "question": "The primary objective of integrated flight instruction is the",
+      "answer": "formation of firm habit patterns for observing and relying on flight instruments",
+      "choices": [
+        "formation of firm habit patterns for observing and relying on flight instruments",
+        "difference in the pilot's operation of the flight controls during both VMC and MC",
+        "developing of the habit of occasionally monitoring their own and the aircraft's performance"
+      ],
+      "source": "FOI written · #166 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_167",
+      "question": "Which is an acceptable procedure when using the integrated method of flight instruction?",
+      "answer": "Include in the student's first instruction on the function of flight controls the instrument indication to be expected, as well as the outside references used in attitude control",
+      "choices": [
+        "Use alternate and distinct periods devoted entirely to instrument flight or to visual flight",
+        "Prior to the first flight, clearly explain the differences in the manipulation of flight controls for maintaining aircraft control when under simulated instrument conditions and when using references outside the aircraft",
+        "Include in the student's first instruction on the function of flight controls the instrument indication to be expected, as well as the outside references used in attitude control"
+      ],
+      "source": "FOI written · #167 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_168",
+      "question": "During integrated flight instruction, the instructor must be sure the student",
+      "answer": "develops the habit of looking for other traffic",
+      "choices": [
+        "develops the habit of looking for other traffic",
+        "is able to control the aircraft for extended periods under IMC",
+        "can depend on the flight instruments when maneuvering by outside references"
+      ],
+      "source": "FOI written · #168 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_169",
+      "question": "Students who grow impatient when !earning the basic elements of a task are those who",
+      "answer": "should have the preliminary training presented one step at a time with clearly stated goals for each step",
+      "choices": [
+        "are less easily discouraged than the unaggressive students",
+        "should have the preliminary training presented one step at a time with clearly stated goals for each step",
+        "should be advanced to the next higher level of learning and not held back by insisting that the immediate goal be reached before they proceed to the next evel"
+      ],
+      "source": "FOI written · #169 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_170",
+      "question": "Which obstacle to learning is a greater deterrent to learning pilot skills than is generaily recognized?",
+      "answer": "Impatience",
+      "choices": [
+        "Anxiety",
+        "Impatience",
+        "Physical discomfort"
+      ],
+      "source": "FOI written · #170 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_171",
+      "question": "What is the primary consideration in determining the length and frequency of flight instruction periods?",
+      "answer": "Fatigue",
+      "choices": [
+        "Fatigue",
+        "Mental acuity",
+        "Instructor preparation"
+      ],
+      "source": "FOI written · #171 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_172",
+      "question": "Students quickly become apathetic when they",
+      "answer": "recognize that the instructor is not adequately prepared",
+      "choices": [
+        "realize material is being withheld by the instructor",
+        "understand the objectives toward which they are working",
+        "recognize that the instructor is not adequately prepared"
+      ],
+      "source": "FOI written · #172 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_173",
+      "question": "Which is one of the ways in which anxiety witl affect a student?",
+      "answer": "Anxiety may limit the student's ability to learn from perceptions",
+      "choices": [
+        "Anxiety may limit the student's ability to learn from perceptions",
+        "Anxiety will speed up the learning process for the student if properly controlled and directed by the instructor",
+        "Anxiety causes dispersal of the student's attention over such a wide range of matters as to interfere with normal reactions"
+      ],
+      "source": "FOI written · #173 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_174",
+      "question": "In planning any instructional activity, the first consideration should be to",
+      "answer": "determine the overall objectives and standards",
+      "choices": [
+        "determine the overall objectives and standards",
+        "establish common ground between the instructor and student",
+        "identify the blocks of learning which make up the overall objective"
+      ],
+      "source": "FOI written · #174 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_175",
+      "question": "Which statement is true concerning extraneous blocks of instruction during a course of training?",
+      "answer": "They detract from the completion of the final objective",
+      "choices": [
+        "They are usually necessary parts of the total objective",
+        "They detract from the completion of the final objective",
+        "They assist in the attainment of the lesson's objective"
+      ],
+      "source": "FOI written · #175 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_176",
+      "question": "Development and assembly of blocks of learning in their proper relationship will provide a means for",
+      "answer": "allowing the student to master the segments of the overall pilot performance requirements individually and combining these with other related segments",
+      "choices": [
+        "both the instructor and student to easily correct faulty habit patterns",
+        "challenging the student by progressively increasing the units of learning",
+        "allowing the student to master the segments of the overall pilot performance requirements individually and combining these with other related segments"
+      ],
+      "source": "FOI written · #176 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_177",
+      "question": "In planning instructional activity, the second step is to",
+      "answer": "identify blocks of learning which constitute the necessary parts of the total y objective",
+      "choices": [
+        "develop lesson plans for each period or unit of instruction",
+        "identify blocks of learning which constitute the necessary parts of the total y objective",
+        "develop a training syllabus that will serve as a guide for conducting training y at each level of learning"
+      ],
+      "source": "FOI written · #177 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_178",
+      "question": "Each lesson of a training syllabus includes",
+      "answer": "objective, content, and completion standards",
+      "choices": [
+        "attention, motivation, and overview",
+        "introduction, development, and conclusion",
+        "objective, content, and completion standards"
+      ],
+      "source": "FOI written · #178 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_179",
+      "question": "When it is impossible to conduct a scheduled lesson, it is preferable for the instructor to",
+      "answer": "conduct a lesson that is not predicated completely on skills to be developed during the lesson which was postponed",
+      "choices": [
+        "review and possibly revise the training syllabus",
+        "proceed to the next scheduled lesson, or if this is not practical, cancel the esson",
+        "conduct a lesson that is not predicated completely on skills to be developed during the lesson which was postponed"
+      ],
+      "source": "FOI written · #179 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_180",
+      "question": "Which statement is true regarding lesson plans?",
+      "answer": "Lesson plans help instructors keep a constant check on their own activity as well as that of their students",
+      "choices": [
+        "Lesson plans should not be directed toward the course objective. only to the esson objective",
+        "A well-thought-out mental outline of a lesson may be used any time as long as the instructor is well prepared",
+        "Lesson plans help instructors keep a constant check on their own activity as well as that of their students"
+      ],
+      "source": "FOI written · #180 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_181",
+      "question": "Every lesson, when adequately developed, falls logically into the four steps of the teaching process",
+      "answer": "preparation, presentation, application, and review and evaluation",
+      "choices": [
+        "preparation, introduction, presentation, and review and evaluation",
+        "preparation, introduction, presentation, and review and application",
+        "preparation, presentation, application, and review and evaluation"
+      ],
+      "source": "FOI written · #181 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_182",
+      "question": "The main concern in developing a lesson plan is the",
+      "answer": "student",
+      "choices": [
+        "format",
+        "content",
+        "student"
+      ],
+      "source": "FOI written · #182 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_183",
+      "question": "With regard to the characteristics of a well-planned lesson, each lesson should contain",
+      "answer": "new material that is related to the lesson previously presented.",
+      "choices": [
+        "new material that is related to the lesson previously presented.",
+        "one basic element of the principle, procedure, or skill appropriate to that lesson.",
+        "every bit of information needed to reach the objective of the training syllabus."
+      ],
+      "source": "FOI written · #183 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_184",
+      "question": "Which statement is true about lesson plans?",
+      "answer": "The use of standard lesson plans may not be effective for students requiring a different approach.",
+      "choices": [
+        "Lesson plans should follow a prescribed format.",
+        "Standard prepared lesson plans are effective for teaching all students.",
+        "The use of standard lesson plans may not be effective for students requiring a different approach."
+      ],
+      "source": "FOI written · #184 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_185",
+      "question": "A lesson plan, if constructed properly, wiil provide an outline for",
+      "answer": "the teaching procedure to be used in a single instructional period",
+      "choices": [
+        "proceeding from the unknown to the known",
+        "the teaching procedure to be used in a single instructional period",
+        "establishing blocks of learning that become progressively larger in scope"
+      ],
+      "source": "FOI written · #185 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_186",
+      "question": "(Refer to Figure 1.) Section A is titled",
+      "answer": "Objective",
+      "choices": [
+        "Overview",
+        "Introduction",
+        "Objective"
+      ],
+      "source": "FOI written · #186 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_187",
+      "question": "(Refer to Figure 1.) Section B is titled",
+      "answer": "Content",
+      "choices": [
+        "Elements",
+        "Course of Training",
+        "Content"
+      ],
+      "source": "FOI written · #187 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_188",
+      "question": "(Refer to Figure 1.) Section G is titled",
+      "answer": "Completion Standards",
+      "choices": [
+        "Summary",
+        "Completion Standards",
+        "Evaluation"
+      ],
+      "source": "FOI written · #188 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_189",
+      "question": "(Refer to Figure 1.) Section E is titled",
+      "answer": "Instructor's Actions",
+      "choices": [
+        "Instructor's Actions",
+        "Discussion",
+        "Content"
+      ],
+      "source": "FOI written · #189 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_190",
+      "question": "(Refer to Figure 1.) Section C is titled",
+      "answer": "Schedule",
+      "choices": [
+        "Overview",
+        "Training Schedule",
+        "Schedule"
+      ],
+      "source": "FOI written · #190 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_191",
+      "question": "(Refer to Figure 1.) Section D is titied",
+      "answer": "Equipment",
+      "choices": [
+        "Instructor's Actions",
+        "Content",
+        "Equipment"
+      ],
+      "source": "FOI written · #191 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_192",
+      "question": "(Refer to Figure 1.) Section F is titled",
+      "answer": "Student's Actions",
+      "choices": [
+        "Student's Actions",
+        "Understanding",
+        "Application"
+      ],
+      "source": "FOI written · #192 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_193",
+      "question": "Learning can be classified by different types, such as verbal, conceptual, and",
+      "answer": "emotional. . C",
+      "choices": [
+        "cognitive",
+        "experiential",
+        "emotional. . C"
+      ],
+      "source": "FOI written · #193 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_194",
+      "question": "As perceptions increase in number, the student develops insight by",
+      "answer": "assembling them into larger blocks of learning",
+      "choices": [
+        "assembling them into larger blocks of learning",
+        "unassociated perceptions",
+        "organizing demonstrations and explanation"
+      ],
+      "source": "FOI written · #194 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_195",
+      "question": "A rote question is not represented by",
+      "answer": "Supply-type questions",
+      "choices": [
+        "Multiple-choice questions",
+        "True-false questions",
+        "Supply-type questions"
+      ],
+      "source": "FOI written · #195 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_196",
+      "question": "Which of the following is an example of a rote question?",
+      "answer": "True-false",
+      "choices": [
+        "Multiple-choice",
+        "True-false",
+        "Supply-type"
+      ],
+      "source": "FOI written · #196 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_197",
+      "question": "Which is true regarding overlearning knowledge?",
+      "answer": "Overlearning can result in automatic responses that are undesirable",
+      "choices": [
+        "Overlearning can result in automatic responses that are undesirable",
+        "Overlearning is helpful to increase student proficiency of a subject",
+        "Overlearning is part of acquiring higher-order thinking skills"
+      ],
+      "source": "FOI written · #197 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_198",
+      "question": "What type of test promotes guessing?",
+      "answer": "Selection type",
+      "choices": [
+        "Multiple choice",
+        "Supply type",
+        "Selection type"
+      ],
+      "source": "FOI written · #198 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_199",
+      "question": "Which is true regarding the overlearning of knowledge?",
+      "answer": "Overlearning sometimes occurs when knowledge used frequently begins to take on the properties of a skill",
+      "choices": [
+        "An advantage of overlearning is the eventual replacement of basic knowledge or concepts with automated skills",
+        "Overlearning almost always makes the application of knowledge less streamlined and less efficient",
+        "Overlearning sometimes occurs when knowledge used frequently begins to take on the properties of a skill"
+      ],
+      "source": "FOI written · #199 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_200",
+      "question": "Which is true regarding long term memory?",
+      "answer": "It allows the ability to instinctively perform certain maneuvers or tasks, allowing more time to concentrate on other duties such as navigation, communications, and visual scanning for other aircraft",
+      "choices": [
+        "It allows the ability to instinctively perform certain maneuvers or tasks, allowing more time to concentrate on other duties such as navigation, communications, and visual scanning for other aircraft",
+        "it is the part of the memory system that receives initial stimuli from the environment and processes them according to the individual's preconceived concept of what is important",
+        "It has three basic operations: iconic memory, acoustic memory, and working memory"
+      ],
+      "source": "FOI written · #200 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_201",
+      "question": "Which skill is an example of psychomotor domain of learning?",
+      "answer": "Flying the airplane",
+      "choices": [
+        "Flying the airplane",
+        "Asking a question after the instructor tunes the GPS",
+        "Signing an endorsement in a logbook"
+      ],
+      "source": "FOI written · #201 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_202",
+      "question": "Which skill involves the cognitive domain of learning?",
+      "answer": "Understanding how the flight controls should be positioned during a turn",
+      "choices": [
+        "Understanding how the flight controls should be positioned during a turn",
+        "A positive reception for learning new skills",
+        "Performing a short-field approach and tanding to Practical Test Standards"
+      ],
+      "source": "FOI written · #202 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_203",
+      "question": "Which is an example of the affective domain?",
+      "answer": "Reacting to an instructor's question",
+      "choices": [
+        "Reacting to an instructor's question",
+        "Answering an instructor's question",
+        "Demonstrating a skill to the instructor"
+      ],
+      "source": "FOI written · #203 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_204",
+      "question": "Fatigue can be either",
+      "answer": "acute or chronic.",
+      "choices": [
+        "physiological or psychological.",
+        "physical or mental.",
+        "acute or chronic."
+      ],
+      "source": "FOI written · #204 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_205",
+      "question": "A CFI can detect fatigue by noting these characteristics in the student:",
+      "answer": "Loss of accuracy and control, and irritability.",
+      "choices": [
+        "Nervous laughter.",
+        "Loss of accuracy and control, and irritability.",
+        "Poor performance and macho attitude."
+      ],
+      "source": "FOI written · #205 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_206",
+      "question": "Chronic fatigue can be defined as",
+      "answer": "a combination of both physiological problems and psychological issues",
+      "choices": [
+        "a combination of both physiological problems and psychological issues",
+        "a result of continuous stress",
+        "anormal occurrence of everyday living"
+      ],
+      "source": "FOI written · #206 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_207",
+      "question": "Acute fatigue is characterized by",
+      "answer": "errors in timing and neglect of secondary tasks",
+      "choices": [
+        "errors in timing and neglect of secondary tasks",
+        "a combination of both physiological problems and psychological issues",
+        "a lack of physical robustness or mental acuity"
+      ],
+      "source": "FOI written · #207 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_208",
+      "question": "Which is true regarding learning plateaus?",
+      "answer": "Learning plateaus are a normal part of the learning process and are usually temporary",
+      "choices": [
+        "Learning plateaus result from poor instruction",
+        "Learning plateaus are a normal part of the learning process and are usually temporary",
+        "Learning plateaus result from lack of practice"
+      ],
+      "source": "FOI written · #208 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_209",
+      "question": "How can instructors help students through a learning plateau?",
+      "answer": "Move to a different place in the curriculum",
+      "choices": [
+        "Continue practicing until the progress is made",
+        "Assume the student has reached his/her potential for that skill",
+        "Move to a different place in the curriculum"
+      ],
+      "source": "FOI written · #209 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_210",
+      "question": "Which stage of skill acquisition is characterized by a student who is able to assess personal progress and adjust performance accordingly?",
+      "answer": "Associative stage",
+      "choices": [
+        "Cognitive stage",
+        "Associative stage",
+        "Automatic response stage C"
+      ],
+      "source": "FOI written · #210 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_211",
+      "question": "Which stage of skill acquisition is characterized by a student who is able to perform a procedure rapidly and smoothly while simultaneously performing other tasks?",
+      "answer": "Automatic response stage",
+      "choices": [
+        "Cognitive stage",
+        "Associative stage",
+        "Automatic response stage"
+      ],
+      "source": "FOI written · #211 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_212",
+      "question": "Which stage of skill acquisition is characterized by student entering a steep turn with the proper power and pitch trim but unable to hold the correct control inputs?",
+      "answer": "Cognitive stage",
+      "choices": [
+        "Cognitive stage",
+        "Associative stage",
+        "Automatic response stage"
+      ],
+      "source": "FOI written · #212 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_213",
+      "question": "Studies suggest a student achieves better results if distractions are avoided during what type of practice?",
+      "answer": "Deliberate practice",
+      "choices": [
+        "Deliberate practice",
+        "Blocked practice",
+        "Random practice"
+      ],
+      "source": "FOI written · #213 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_214",
+      "question": "What type of practice includes repeating the same drill or task until the movement becomes automatic?",
+      "answer": "Blocked practice",
+      "choices": [
+        "Deliberate practice",
+        "Blocked practice",
+        "Random practice"
+      ],
+      "source": "FOI written · #214 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_215",
+      "question": "What type of practice mixes up the skills to be acquired throughout the practice session?",
+      "answer": "Random practice",
+      "choices": [
+        "Deliberate practice",
+        "Blocked practice",
+        "Random practice"
+      ],
+      "source": "FOI written · #215 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_216",
+      "question": "Chronic fatigue",
+      "answer": "occurs when there is not enough time for a full recovery from repeated episodes of acute fatigue",
+      "choices": [
+        "occurs when there is not enough time for a full recovery from repeated episodes of acute fatigue",
+        "is the tiredness felt after long periods of physical and mental strain and lack of sleep",
+        "impairs performance and ability but not judgment"
+      ],
+      "source": "FOI written · #216 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_217",
+      "question": "Chronic fatigue may be evidenced by a student pilot's apparent",
+      "answer": "acceptance of unwarranted risks",
+      "choices": [
+        "increase in knowledge and skill retention",
+        "need for sleep",
+        "acceptance of unwarranted risks"
+      ],
+      "source": "FOI written · #217 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_218",
+      "question": "Acute fatigue may be evidenced by a student pilot's apparent",
+      "answer": "neglect of secondary tasks",
+      "choices": [
+        "increase in attention to detail",
+        "neglect of secondary tasks",
+        "acceptance of unwarranted risks"
+      ],
+      "source": "FOI written · #218 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_219",
+      "question": "Before a student can concentrate on learning, which human needs must be satisfied?",
+      "answer": "Biological",
+      "choices": [
+        "Aesthetic",
+        "Biological",
+        "Psychological"
+      ],
+      "source": "FOI written · #219 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_220",
+      "question": "When a student presents beliefs opposite to what they truly believe, it usually is an indication of the defense mechanism known as",
+      "answer": "reaction formation",
+      "choices": [
+        "fantasy",
+        "reaction formation",
+        "displacement"
+      ],
+      "source": "FOI written · #220 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_221",
+      "question": "A student pitot blames the failure of a Practical Exam on an unfair evaluation by the examiner. This demonstrates the defense mechanism known as",
+      "answer": "projection",
+      "choices": [
+        "rationalization",
+        "projection",
+        "denial"
+      ],
+      "source": "FOI written · #221 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_222",
+      "question": "The process of psychologically counterbalancing perceived weaknesses by emphasizing strength in other areas is",
+      "answer": "compensation",
+      "choices": [
+        "projection",
+        "compensation",
+        "rationalization"
+      ],
+      "source": "FOI written · #222 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_223",
+      "question": "When students dispiay the defense mechanism called repression, they",
+      "answer": "place uncomfortable thoughts into inaccessible areas of the unconscious",
+      "choices": [
+        "refuse to accept reality",
+        "place uncomfortable thoughts into inaccessible areas of the unconscious",
+        "attempt to justify actions by asking numerous questions"
+      ],
+      "source": "FOI written · #223 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_224",
+      "question": "If a lesson objective is not clearly stated, the student will become",
+      "answer": "less motivated",
+      "choices": [
+        "apathetic",
+        "motivated to see the big picture",
+        "less motivated"
+      ],
+      "source": "FOI written · #224 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_225",
+      "question": "In the teaching lecture,",
+      "answer": "simple rather than complex words should be used whenever possible",
+      "choices": [
+        "simple rather than complex words should be used whenever possible",
+        "slang and colloquialisms should be avoided",
+        "use substandard English to add variety and vividness"
+      ],
+      "source": "FOI written · #225 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_226",
+      "question": "How is learning enhanced by electronic-based learning?",
+      "answer": "Less time can be spent on instruction compared to traditional classroom training",
+      "choices": [
+        "Instructors can control what is learned and how fast students learn it",
+        "Less time can be spent on instruction compared to traditional classroom training",
+        "Peer interaction and personal feedback are limited resulting in a more efficient training program. C"
+      ],
+      "source": "FOI written · #226 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_227",
+      "question": "What type of training aids are interactive?",
+      "answer": "Web-based instruction with email discussions and assignments",
+      "choices": [
+        "Interactive video",
+        "Web-based instruction with email discussions and assignments",
+        "Multi-media presentations"
+      ],
+      "source": "FOI written · #227 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_228",
+      "question": "The Practical Test Standards is to be used",
+      "answer": "for flight training and tests",
+      "choices": [
+        "for flight training only",
+        "for flight training and tests",
+        "for testing only"
+      ],
+      "source": "FOI written · #228 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_229",
+      "question": "The Practical Test Standards are an example of",
+      "answer": "criterion referenced tests",
+      "choices": [
+        "criterion referenced tests",
+        "formative assessments",
+        "summative assessments"
+      ],
+      "source": "FOI written · #229 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_230",
+      "question": "As a professional pilot, you know that",
+      "answer": "the FAA practical test standards are standards-based and should be used as a primary aid to instruction as well as for testing",
+      "choices": [
+        "the FAA practical test standards are criterion-based and should only be used for testing purposes",
+        "the FAA practical test standards are objective-based and should be used for y training and testing purposes",
+        "the FAA practical test standards are standards-based and should be used as a primary aid to instruction as well as for testing"
+      ],
+      "source": "FOI written · #230 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_231",
+      "question": "The FAA practical test standards",
+      "answer": "are criterion-based and should used for training and testing purposes",
+      "choices": [
+        "are criterion-based and should used for training and testing purposes",
+        "are objective-based and should be used for training and testing purposes",
+        "are standards-based and contain additional tasks that go beyond those required under 14 CFR Part 61"
+      ],
+      "source": "FOI written · #231 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_232",
+      "question": "When should an instructor introduce the Practical Test Standards?",
+      "answer": "During the 3-hour practical exam prep",
+      "choices": [
+        "During the 3-hour practical exam prep",
+        "At instructor's discretion",
+        "At the introduction of each new maneuver"
+      ],
+      "source": "FOI written · #232 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_233",
+      "question": "The most common means of assessment is",
+      "answer": "indirect or direct oral questioning of the student by the instructor",
+      "choices": [
+        "indirect or direct oral questioning of the student by the instructor",
+        "written testing",
+        "authentic"
+      ],
+      "source": "FOI written · #233 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_234",
+      "question": "Criterion-referenced tests",
+      "answer": "include performance-based objectives",
+      "choices": [
+        "include norm-based objectives",
+        "include performance-based objectives",
+        "are subjective"
+      ],
+      "source": "FOI written · #234 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_235",
+      "question": "What are the desirable results of oral quizzing?",
+      "answer": "Identifies points that need more emphasis",
+      "choices": [
+        "Identifies points that need more emphasis",
+        "Provides medium to test a combination of ideas in one question",
+        "A solid yes/no response to ensure the knowledge is complete"
+      ],
+      "source": "FOI written · #235 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_236",
+      "question": "During oral quizzing in a given lesson. effective questions should",
+      "answer": "be brief and concise",
+      "choices": [
+        "start with why, how, what. where, when, or a combination of these",
+        "should be related to the desired outcome of the lesson",
+        "be brief and concise"
+      ],
+      "source": "FOI written · #236 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_237",
+      "question": "A disadvantage of using commercially produced study material is that",
+      "answer": "students often exhibit a lack of knowledge during oral questioning",
+      "choices": [
+        "students may learn to pass a given test",
+        "students use rote learning to remember key knowledge",
+        "students often exhibit a lack of knowledge during oral questioning"
+      ],
+      "source": "FOI written · #237 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_238",
+      "question": "Computer-assisted learning (CAL)",
+      "answer": "couples the personal computer with multimedia software to create a training device",
+      "choices": [
+        "eliminates the need for instructor-led training",
+        "encourages rote learning",
+        "couples the personal computer with multimedia software to create a training device"
+      ],
+      "source": "FOI written · #238 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_239",
+      "question": "Commercially developed test preparation material",
+      "answer": "places emphasis on rote learning over the more advanced learning levels",
+      "choices": [
+        "replaces instructor-led training",
+        "teaches higher-order thinking skills",
+        "places emphasis on rote learning over the more advanced learning levels"
+      ],
+      "source": "FOI written · #239 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_240",
+      "question": "Which of the following is true concerning the use of instructional aids?",
+      "answer": "Instructional aids can be used to show the physical relationship between material objects or concepts",
+      "choices": [
+        "Instructional aids often fail to evoke the image of the symbol in the minds of the receivers",
+        "Instructional aids can tead to confusion between the symbol and idea",
+        "Instructional aids can be used to show the physical relationship between material objects or concepts"
+      ],
+      "source": "FOI written · #240 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_241",
+      "question": "Which type of assessment is desirable for evaluating a student's ability to use Critical thinking skills in performing real-world tasks?",
+      "answer": "Authentic assessment",
+      "choices": [
+        "Authentic assessment",
+        "Traditional assessment",
+        "Practical assessment"
+      ],
+      "source": "FOI written · #241 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_242",
+      "question": "The instructor can counteract anxiety in students by",
+      "answer": "teaching students to cope with their fears",
+      "choices": [
+        "teaching students to cope with their fears",
+        "avoiding anxiety-causing fessons",
+        "explaining how these maneuvers are necessary for safe flight"
+      ],
+      "source": "FOI written · #242 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_243",
+      "question": "How does a student who is responding abnormally react to stress?",
+      "answer": "Inadequate or completely absent response",
+      "choices": [
+        "Inadequate or completely absent response",
+        "By responding rapidly and exactly often automatically within the limits of their experience",
+        "Slow learning"
+      ],
+      "source": "FOI written · #243 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_244",
+      "question": "Which would most likely be an indication that a student is reacting normally to stress?",
+      "answer": "Automatic response to a given situation",
+      "choices": [
+        "Slow learning",
+        "Inappropriate laughter or singing",
+        "Automatic response to a given situation"
+      ],
+      "source": "FOI written · #244 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_245",
+      "question": "A student demonstrates a specific flight maneuver correctly; however, the instructor believes the student does not understand the fundamentals of the maneuver. What should the instructor do?",
+      "answer": "Ask the student to demonstrate a different maneuver which uses the same fundamentals",
+      "choices": [
+        "Ask the student to orally explain the maneuver",
+        "Ask the student to demonstrate a different maneuver which uses the same fundamentals",
+        "Ask the student to demonstrate the same maneuver again"
+      ],
+      "source": "FOI written · #245 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_246",
+      "question": "Which of the following is a risk element of ADM?",
+      "answer": "The aircraft",
+      "choices": [
+        "The aircraft",
+        "The amount of fuel on board",
+        "Any passengers"
+      ],
+      "source": "FOI written · #246 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_instructor"
+      ],
+      "topic_id": "foi_instructor",
+      "topic_title": "Instructor responsibilities"
+    },
+    {
+      "id": "foi_written_247",
+      "question": "If a pilot wants to mitigate risk during a cross-country flight in marginal VFR conditions. the pilot could",
+      "answer": "take a pilot who is IFR-rated",
+      "choices": [
+        "take a pilot who is IFR-rated",
+        "continue the flight as planned",
+        "stay out of controlled airspace"
+      ],
+      "source": "FOI written · #247 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_248",
+      "question": "A pilot's experience in direct crosswinds greater than 10 knots is an example of which of the fundamental risk elements?",
+      "answer": "The pilot in command",
+      "choices": [
+        "The aircraft",
+        "The pilot in command",
+        "The external pressures"
+      ],
+      "source": "FOI written · #248 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_instructor"
+      ],
+      "topic_id": "foi_instructor",
+      "topic_title": "Instructor responsibilities"
+    },
+    {
+      "id": "foi_written_249",
+      "question": "A method for correcting student impatience is for the instructor to",
+      "answer": "present the necessary preliminary training one step at a time, with clearly stated goals for each step",
+      "choices": [
+        "present the necessary preliminary training one step at a time, with clearly stated goals for each step",
+        "key the instruction to use the interests and enthusiasm students bring with them",
+        "avoid assigning impossible or unreasonable goals for the student to accomplish"
+      ],
+      "source": "FOI written · #249 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_250",
+      "question": "The accurate perception and understanding of all the factors and conditions within the four fundamental risk elements that affect safety is called",
+      "answer": "aeronautical decision making.",
+      "choices": [
+        "aeronautical decision making.",
+        "Single Pilot Resource Management.",
+        "situational awareness."
+      ],
+      "source": "FOI written · #250 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_251",
+      "question": "Performance-based objectives consist of which elements?",
+      "answer": "Description of the skill or behavior, conditions, and criteria",
+      "choices": [
+        "Flight training scenarios, judgment assessment, and maneuver assessment",
+        "Cognitive skills, affective skills, and psychomotor skills",
+        "Description of the skill or behavior, conditions, and criteria"
+      ],
+      "source": "FOI written · #251 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_252",
+      "question": "Drill and practice method of training delivery is based on the learning principle of",
+      "answer": "exercise",
+      "choices": [
+        "intensity",
+        "recency",
+        "exercise"
+      ],
+      "source": "FOI written · #252 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_253",
+      "question": "Which memory system can be enhanced by practice and repetition?",
+      "answer": "Short-term",
+      "choices": [
+        "Short-term",
+        "Long-term",
+        "Sensory register"
+      ],
+      "source": "FOI written · #253 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_254",
+      "question": "The use of some type of association such as rhymes or word patterns to assist in remembering information is called",
+      "answer": "mnemonics",
+      "choices": [
+        "association",
+        "mnemonics",
+        "transfer"
+      ],
+      "source": "FOI written · #254 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_255",
+      "question": "Describe pencoding",
+      "answer": "The selective process where the sensory register is set to recognize certain stimuli",
+      "choices": [
+        "The selective process where the sensory register is set to recognize certain stimuli",
+        "The initial storage of information in short-term memory",
+        "The relating of incoming information to concepts or knowledge already in memory"
+      ],
+      "source": "FOI written · #255 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_256",
+      "question": "Short-term memory (STM) is time limited, and has a capacity limited",
+      "answer": "to usually seven bits of chunks of information",
+      "choices": [
+        "to usually seven bits of chunks of information",
+        "to usually nine bits or chunks of information",
+        "by the rate at which chunks are recorded to individual experiences"
+      ],
+      "source": "FOI written · #256 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_257",
+      "question": "Which domain of learning requires remembering specific facts and concepts?",
+      "answer": "Cognitive.",
+      "choices": [
+        "Cognitive.",
+        "Affective.",
+        "Comprehensive."
+      ],
+      "source": "FOI written · #257 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_258",
+      "question": "An example of a skill involving the psychomotor domain would be",
+      "answer": "programming a global positioning satellite (GPS) receiver.",
+      "choices": [
+        "learning to correctly evaluate a flight maneuver.",
+        "determining the temperature at a specific altitude using standard lapse rate.",
+        "programming a global positioning satellite (GPS) receiver."
+      ],
+      "source": "FOI written · #258 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_259",
+      "question": "An example of a skill involving the cognitive domain would be",
+      "answer": "learning to fly a precision approach procedure.",
+      "choices": [
+        "programming a global positioning satellite (GPS) receiver.",
+        "making a logbook entry.",
+        "learning to fly a precision approach procedure."
+      ],
+      "source": "FOI written · #259 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_260",
+      "question": "When new events displace something that had been previously learned, it is called",
+      "answer": "interference.",
+      "choices": [
+        "displacement.",
+        "interference.",
+        "repression."
+      ],
+      "source": "FOI written · #260 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_261",
+      "question": "When a student attempts to disguise a weak or undesirable quality by emphasizing a more positive one, this is a defense mechanism in the form of",
+      "answer": "compensation.",
+      "choices": [
+        "rationalization.",
+        "submission.",
+        "compensation."
+      ],
+      "source": "FOI written · #261 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_262",
+      "question": "When students display the defense mechanism of denial they",
+      "answer": "may attempt to minimize the situation.",
+      "choices": [
+        "become visibly angry, upset, or childish.",
+        "may attempt to minimize the situation.",
+        "attempt to justify actions by asking numerous questions."
+      ],
+      "source": "FOI written · #262 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_263",
+      "question": "A student who has a hidden fear of flying that inhibits learning during training is displaying the defense mechanism of",
+      "answer": "repression.",
+      "choices": [
+        "flight.",
+        "repression.",
+        "resignation."
+      ],
+      "source": "FOI written · #263 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_264",
+      "question": "Students who recognize that the instructor is inadequately prepared can become",
+      "answer": "apathetic.",
+      "choices": [
+        "assertive.",
+        "apprehensive.",
+        "apathetic."
+      ],
+      "source": "FOI written · #264 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_265",
+      "question": "Which statement is true about an instructor's assessment of a student's performance?",
+      "answer": "It is a step in the learning process, not just in the grading process.",
+      "choices": [
+        "Instructor comments and recommendations should be based on the performance as it should have been.",
+        "The critique should always be conducted in private.",
+        "It is a step in the learning process, not just in the grading process."
+      ],
+      "source": "FOI written · #265 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_266",
+      "question": "During a flight training course, when is it appropriate to introduce the students to the acceptable standards for passing the practical test?",
+      "answer": "Not until 3 hours before the practical test preparation instruction required by regulation.",
+      "choices": [
+        "At the beginning of each flight lesson.",
+        "Not until 3 hours before the practical test preparation instruction required by regulation.",
+        "During phase/stage check to assess a student's progression at strategic course transitions."
+      ],
+      "source": "FOI written · #266 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_267",
+      "question": "Commercially-developed test preparation material is",
+      "answer": "intended to be used as a supplement to instructor-led training and materials.",
+      "choices": [
+        "FAA approved for knowledge tests only.",
+        "designed to be used as a stand-alone method of study.",
+        "intended to be used as a supplement to instructor-led training and materials."
+      ],
+      "source": "FOI written · #267 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_misc"
+      ],
+      "topic_id": "foi_misc",
+      "topic_title": "FOI miscellaneous"
+    },
+    {
+      "id": "foi_written_268",
+      "question": "Which statement is true regarding assessment of student learning?",
+      "answer": "Assessment of student learning should be an integral part of each lesson.",
+      "choices": [
+        "Assessment should be a formal process and results recorded so the students are continually aware of their progress.",
+        "Assessment of student learning should be an integral part of each lesson.",
+        "If deficiencies or faults not associated with the present lesson are revealed, they should be corrected immediately."
+      ],
+      "source": "FOI written · #268 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_269",
+      "question": "What type of assessment focuses on real-world skills?",
+      "answer": "Authentic.",
+      "choices": [
+        "Collaborative.",
+        "Authentic.",
+        "Traditional."
+      ],
+      "source": "FOI written · #269 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    },
+    {
+      "id": "foi_written_270",
+      "question": "An instructor can help a student cope with fear or anxiety by",
+      "answer": "emphasizing the benefits and pleasurable experiences from flying.",
+      "choices": [
+        "emphasizing the benefits and pleasurable experiences from flying.",
+        "discontinuing the lesson or maneuver and moving them to another part of the curriculum.",
+        "repeating the lesson or maneuver until the anxiety goes away."
+      ],
+      "source": "FOI written · #270 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_planning"
+      ],
+      "topic_id": "foi_planning",
+      "topic_title": "Course & lesson planning"
+    },
+    {
+      "id": "foi_written_271",
+      "question": "For the integrated method of flight instruction to be fully effective, the use of instrument reference should begin",
+      "answer": "the first time each new maneuver is introduced.",
+      "choices": [
+        "after the student has mastered the elements of using visual references.",
+        "only after collision avoidance scanning techniques have been developed.",
+        "the first time each new maneuver is introduced."
+      ],
+      "source": "FOI written · #271 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_teaching"
+      ],
+      "topic_id": "foi_teaching",
+      "topic_title": "Teaching methods"
+    },
+    {
+      "id": "foi_written_272",
+      "question": "Assignment of goals the student considers difficult",
+      "answer": "usually provides a challenge and promotes learning.",
+      "choices": [
+        "usually provides a challenge and promotes learning.",
+        "may discourage the student and retard learning.",
+        "is usually appropriate for only highly motivated students."
+      ],
+      "source": "FOI written · #272 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_human"
+      ],
+      "topic_id": "foi_human",
+      "topic_title": "Human behavior"
+    },
+    {
+      "id": "foi_written_273",
+      "question": "What systematic approach to the mental process does the pilot consistently apply to take the best course of action in a given situation?",
+      "answer": "Aeronautical decision making.",
+      "choices": [
+        "Aeronautical decision making.",
+        "Pilot judgment chain.",
+        "Crew resource management."
+      ],
+      "source": "FOI written · #273 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_instructor"
+      ],
+      "topic_id": "foi_instructor",
+      "topic_title": "Instructor responsibilities"
+    },
+    {
+      "id": "foi_written_274",
+      "question": "What are the six major levels of Bloom's Taxonomy of the Cognitive Domain?",
+      "answer": "Knowledge, Comprehension, Application, Analysis, Synthesis, Evaluate.",
+      "choices": [
+        "Recall Information, Understanding, Application, Analyze, Synthesize, Evaluate.",
+        "Knowledge, Comprehension, Application, Analysis, Synthesis, Evaluate.",
+        "Define, Describe, Determine, Points Out, Create, Appraise."
+      ],
+      "source": "FOI written · #274 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_learning"
+      ],
+      "topic_id": "foi_learning",
+      "topic_title": "Learning process"
+    },
+    {
+      "id": "foi_written_275",
+      "question": "What is not a part of the PAVE acronym?",
+      "answer": "Passengers.",
+      "choices": [
+        "Environment.",
+        "Airplane.",
+        "Passengers."
+      ],
+      "source": "FOI written · #275 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_instructor"
+      ],
+      "topic_id": "foi_instructor",
+      "topic_title": "Instructor responsibilities"
+    },
+    {
+      "id": "foi_written_276",
+      "question": "What kind of test should the instructor give the student regarding airplane performance, airspace and regulations?",
+      "answer": "Pre-solo test.",
+      "choices": [
+        "Pre-solo test.",
+        "[truncated on source scan — choice B]",
+        "[truncated on source scan — choice C]"
+      ],
+      "source": "FOI written · #276 · IMG_0002.pdf",
+      "tags": [
+        "imported",
+        "foi_written",
+        "multiple_choice",
+        "foi",
+        "foi_critique"
+      ],
+      "topic_id": "foi_critique",
+      "topic_title": "Critique & evaluation"
+    }
+  ]
+}

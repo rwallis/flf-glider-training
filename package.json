@@ -3,7 +3,7 @@
   "version": "0.3.0",
   "private": true,
   "type": "module",
-  "description": "Phone-first Fault Line Flyers glider study app (Common, Commercial, 2-33; CFI-G/Private via import).",
+  "description": "Phone-first Fault Line Flyers glider study app (Common, Commercial, FOI, 2-33; CFI-G/Private via import).",
   "engines": {
     "node": ">=20"
   },
