@@ -357,16 +357,6 @@ export function nextProgress(prev, grade, schedule = DEFAULT_STUDY_SCHEDULE) {
   };
 }
 
-export function normalizeUserPrefs(raw) {
-  const src = raw && typeof raw === 'object' ? raw : {};
-  const walkthroughEnabled =
-    typeof src.walkthroughEnabled === 'boolean' ? src.walkthroughEnabled : true;
-  return {
-    walkthroughEnabled,
-    walkthroughCompleted: Boolean(src.walkthroughCompleted)
-  };
-}
-
 export function createMemoryStore(seed) {
   const state = {
     tracks: [...(seed.tracks || [])],
@@ -376,7 +366,6 @@ export function createMemoryStore(seed) {
     imports: [],
     dailyActivity: new Map(), // `${userKey}::YYYY-MM-DD` -> answers
     profiles: new Map(), // userKey -> { name, email, picture, userKey }
-    prefs: new Map(), // userKey -> prefs
     flags: [],
     settings: new Map([
       [STUDY_SCHEDULE_KEY, normalizeStudySchedule(seed.studySchedule || DEFAULT_STUDY_SCHEDULE)]
@@ -646,23 +635,6 @@ export function createMemoryStore(seed) {
         created_at: next.created_at || null,
         last_login_at: next.last_login_at || null
       };
-    },
-    async getUserPrefs(userKey) {
-      const key = String(userKey || '').trim();
-      if (!key) return normalizeUserPrefs(null);
-      if (!state.prefs.has(key)) {
-        // First login default: walkthrough on.
-        state.prefs.set(key, normalizeUserPrefs(null));
-      }
-      return normalizeUserPrefs(state.prefs.get(key));
-    },
-    async setUserPrefs(userKey, patch) {
-      const key = String(userKey || '').trim();
-      if (!key) throw new Error('userKey required');
-      const prev = await this.getUserPrefs(key);
-      const next = normalizeUserPrefs({ ...prev, ...(patch || {}) });
-      state.prefs.set(key, next);
-      return next;
     },
     async flagCard(userKey, cardId, note = '') {
       const card = state.cards.find((c) => c.id === cardId);
@@ -1225,33 +1197,6 @@ export function createPgStore(db) {
         name: rows[0].name || '',
         picture: rows[0].picture || null
       };
-    },
-    async getUserPrefs(userKey) {
-      const key = String(userKey || '').trim();
-      if (!key.startsWith('g:')) return normalizeUserPrefs(null);
-      const sub = key.slice(2);
-      const { rows } = await db.query(
-        `SELECT prefs FROM glider_users WHERE google_sub = $1`,
-        [sub]
-      );
-      if (!rows[0]) return normalizeUserPrefs(null);
-      return normalizeUserPrefs(rows[0].prefs);
-    },
-    async setUserPrefs(userKey, patch) {
-      const key = String(userKey || '').trim();
-      if (!key.startsWith('g:')) throw new Error('userKey required');
-      const sub = key.slice(2);
-      const prev = await this.getUserPrefs(key);
-      const next = normalizeUserPrefs({ ...prev, ...(patch || {}) });
-      const { rowCount } = await db.query(
-        `UPDATE glider_users SET prefs = $2::jsonb WHERE google_sub = $1`,
-        [sub, JSON.stringify(next)]
-      );
-      if (!rowCount) {
-        // User row may not exist yet in local/dev; still return normalized prefs.
-        return next;
-      }
-      return next;
     },
     async flagCard(userKey, cardId, note = '') {
       const card = await this.getCard(cardId);

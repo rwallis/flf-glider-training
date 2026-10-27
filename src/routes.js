@@ -264,21 +264,6 @@ export function registerGliderApi(app, { store, config }) {
     }
   });
 
-  app.get('/api/prefs', async (req, res) => {
-    const uk = requireUserKey(req, res, config);
-    if (!uk) return;
-    const prefs = await store.getUserPrefs(uk);
-    res.json({ prefs });
-  });
-
-  app.put('/api/prefs', async (req, res) => {
-    const uk = requireUserKey(req, res, config);
-    if (!uk) return;
-    const body = req.body?.prefs && typeof req.body.prefs === 'object' ? req.body.prefs : req.body || {};
-    const prefs = await store.setUserPrefs(uk, body);
-    res.json({ ok: true, prefs });
-  });
-
   app.post('/api/cards/:cardId/flag', async (req, res) => {
     const uk = requireUserKey(req, res, config);
     if (!uk) return;
