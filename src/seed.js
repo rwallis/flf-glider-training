@@ -425,6 +425,69 @@ export async function seedGliderContent(db, { force = false } = {}) {
     figuresUpserted += result.rowCount || 0;
   }
 
+  // Keep MC seed answers aligned with a selectable choice (grading requires exact match).
+  let answersAligned = 0;
+  for (const card of seed.cards || []) {
+    const choices = Array.isArray(card.choices)
+      ? card.choices.map((c) => String(c ?? '').trim()).filter(Boolean)
+      : [];
+    const answer = String(card.answer || '').trim();
+    if (choices.length < 2 || !answer) continue;
+    const norm = (s) => String(s || '').trim().replace(/\s+/g, ' ').toLowerCase();
+    if (!choices.some((ch) => norm(ch) === norm(answer))) continue;
+    const result = await db.query(
+      `UPDATE glider_cards
+       SET answer = $2, choices = $3::jsonb, updated_at = NOW()
+       WHERE id = $1
+         AND (
+           answer IS DISTINCT FROM $2
+           OR choices IS DISTINCT FROM $3::jsonb
+         )`,
+      [card.id, answer, JSON.stringify(choices)]
+    );
+    answersAligned += result.rowCount || 0;
+  }
+
+  // Flag MC cards whose answer is not one of the choices (study grading cannot select it).
+  let answerFlags = 0;
+  const { rows: mcRows } = await db.query(
+    `SELECT id, track_id, question, answer, choices
+     FROM glider_cards
+     WHERE choices IS NOT NULL
+       AND jsonb_typeof(choices) = 'array'
+       AND jsonb_array_length(choices) >= 2`
+  );
+  const norm = (s) => String(s || '').trim().replace(/\s+/g, ' ').toLowerCase();
+  for (const row of mcRows) {
+    const choices = Array.isArray(row.choices)
+      ? row.choices.map((c) => String(c ?? '').trim())
+      : [];
+    const answer = String(row.answer || '').trim();
+    const ok =
+      Boolean(answer) &&
+      choices.some((ch) => norm(ch) === norm(answer)) &&
+      !choices.some((ch) => !ch || /\[missing\]|\[truncated\]/i.test(ch));
+    if (ok) continue;
+    const note = !answer
+      ? 'Audit: multiple-choice card has no answer selected.'
+      : 'Audit: answer text is not one of the listed choices (cannot be selected).';
+    const existing = await db.query(
+      `SELECT 1 FROM glider_card_flags
+       WHERE card_id = $1
+         AND user_key = 'system:answer-audit'
+         AND status = 'open'
+       LIMIT 1`,
+      [row.id]
+    );
+    if (existing.rowCount) continue;
+    await db.query(
+      `INSERT INTO glider_card_flags (card_id, user_key, note, status)
+       VALUES ($1, 'system:answer-audit', $2, 'open')`,
+      [row.id, note]
+    );
+    answerFlags += 1;
+  }
+
   // Keep live DB wording aligned: SFM → POH (Pilot's Operating Handbook).
   const renamed = await db.query(
     `UPDATE glider_cards SET
@@ -467,6 +530,8 @@ export async function seedGliderContent(db, { force = false } = {}) {
     cfi_g_topic_remaps: topicRemaps,
     card_details_upserted: detailsUpserted,
     card_figures_upserted: figuresUpserted,
+    answers_aligned: answersAligned,
+    answer_selection_flags: answerFlags,
     renamed_sfm_to_poh: renamed.rowCount || 0
   };
 }
