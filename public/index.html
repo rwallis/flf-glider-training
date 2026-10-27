@@ -1378,44 +1378,6 @@
       color: var(--muted);
       font-weight: 600;
     }
-    .tour-toggle-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 12px 14px;
-      margin: 0 0 14px;
-      border-radius: 14px;
-      background: #EEF6FB;
-      border: 1px solid #D5E6F0;
-    }
-    .tour-toggle-row strong { display: block; font-size: 0.95rem; }
-    .tour-toggle-row span { display: block; font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
-    .tour-switch {
-      position: relative;
-      width: 48px;
-      height: 28px;
-      border-radius: 999px;
-      border: 0;
-      background: #B7C9D4;
-      cursor: pointer;
-      flex-shrink: 0;
-      transition: background .15s ease;
-    }
-    .tour-switch.on { background: var(--sky-deep); }
-    .tour-switch::after {
-      content: '';
-      position: absolute;
-      top: 3px;
-      left: 3px;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: #fff;
-      transition: transform .15s ease;
-      box-shadow: 0 1px 3px rgba(0,0,0,.2);
-    }
-    .tour-switch.on::after { transform: translateX(20px); }
     .flag-pill {
       border: 1px solid #E2B4B4;
       background: #FFF5F5;
@@ -1426,56 +1388,6 @@
       font-weight: 700;
     }
     .flag-pill:disabled { opacity: 0.55; }
-    .tour-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 80;
-      display: none;
-    }
-    .tour-overlay.active { display: block; }
-    .tour-scrim {
-      position: absolute;
-      inset: 0;
-      background: rgba(12, 28, 40, 0.45);
-    }
-    .tour-card {
-      position: absolute;
-      left: 16px;
-      right: 16px;
-      bottom: 88px;
-      max-width: 440px;
-      margin: 0 auto;
-      background: #fff;
-      border-radius: 18px;
-      padding: 16px 16px 14px;
-      box-shadow: 0 18px 50px rgba(0,0,0,.28);
-    }
-    .tour-card .tour-kicker {
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--sky-deep);
-      margin: 0 0 6px;
-    }
-    .tour-card h2 { margin: 0 0 8px; font-size: 1.15rem; }
-    .tour-card p {
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.4;
-    }
-    .tour-actions { display: flex; gap: 8px; align-items: center; }
-    .tour-actions .spacer { flex: 1; }
-    .tour-actions button.secondary { background: #EEF2F5; color: #334; }
-    .tour-spotlight {
-      position: absolute;
-      border-radius: 14px;
-      box-shadow: 0 0 0 9999px rgba(12, 28, 40, 0.55);
-      outline: 2px solid #fff;
-      pointer-events: none;
-      transition: all .18s ease;
-    }
     .admin-flag-list .flag-row {
       padding: 10px 0;
       border-bottom: 1px solid #E6EEF3;
@@ -1505,42 +1417,19 @@
   </header>
   <main id="app"></main>
   <nav class="nav" id="nav">
-    <button type="button" data-view="home" data-tour="nav-home"><span>⌂</span>Home</button>
-    <button type="button" data-view="study" data-tour="nav-study"><span>✎</span>Study</button>
-    <button type="button" data-view="aircraft" data-tour="nav-aircraft"><span>✈</span>Aircraft</button>
-    <button type="button" data-view="progress" data-tour="nav-league"><span>★</span>League</button>
-    <button type="button" data-view="admin" id="navAdminBtn" class="nav-admin-hidden" data-tour="nav-admin"><span>⚙</span>Admin</button>
+    <button type="button" data-view="home"><span>⌂</span>Home</button>
+    <button type="button" data-view="study"><span>✎</span>Study</button>
+    <button type="button" data-view="aircraft"><span>✈</span>Aircraft</button>
+    <button type="button" data-view="progress"><span>★</span>League</button>
+    <button type="button" data-view="admin" id="navAdminBtn" class="nav-admin-hidden"><span>⚙</span>Admin</button>
   </nav>
   <div class="toast" id="toast"></div>
-  <div class="tour-overlay" id="tourOverlay" aria-hidden="true">
-    <div class="tour-scrim" id="tourScrim"></div>
-    <div class="tour-spotlight" id="tourSpotlight" hidden></div>
-    <div class="tour-card" id="tourCard" role="dialog" aria-modal="true" aria-labelledby="tourTitle">
-      <p class="tour-kicker" id="tourKicker">Tour</p>
-      <h2 id="tourTitle">Welcome</h2>
-      <p id="tourBody"></p>
-      <div class="tour-actions">
-        <button type="button" class="secondary" id="tourSkipBtn">Skip</button>
-        <span class="spacer"></span>
-        <button type="button" class="secondary" id="tourBackBtn">Back</button>
-        <button type="button" id="tourNextBtn">Next</button>
-      </div>
-    </div>
-  </div>
   <script src="/aircraft/polar-233.js"></script>
   <script>
     const state = {
       view: 'home',
       user: null,
       isAdmin: false,
-      prefs: {
-        walkthroughEnabled: true,
-        walkthroughCompleted: false
-      },
-      tour: {
-        active: false,
-        step: 0
-      },
       flags: [],
       tracks: [],
       topics: [],
@@ -1671,205 +1560,6 @@
       return Boolean(state.isAdmin);
     }
 
-    const TOUR_STEPS = [
-      {
-        title: 'Welcome to FLF Glider Study',
-        body: 'A quick tour of Home, Study, Aircraft, and League. You can turn this walk-through on or off anytime from Home.',
-        target: null,
-        view: 'home'
-      },
-      {
-        title: 'Home · courses',
-        body: 'Pick a course (Commercial, Private, FOI, CFI-G, 2-33, Common) and continue where you left off. Your progress is saved to your signed-in account.',
-        target: null,
-        view: 'home'
-      },
-      {
-        title: 'Study tab',
-        body: 'Use Study to filter by Due / New / All, session size, and topic. Tap a choice to answer, then grade Again / Hard / Good / Easy.',
-        target: '[data-tour="nav-study"]',
-        view: 'study'
-      },
-      {
-        title: 'Details, figures & calculator',
-        body: 'On a card, open Details for teaching notes, Figure when a testing-supplement plate is linked, and Calculator for quick math.',
-        target: '[data-tour="nav-study"]',
-        view: 'study'
-      },
-      {
-        title: 'Flag a bad question',
-        body: 'See a typo, wrong answer, or broken figure? Tap Flag error on the card so an admin can review it.',
-        target: '[data-tour="nav-study"]',
-        view: 'study'
-      },
-      {
-        title: 'Aircraft',
-        body: 'Aircraft has the SGS 2-33 polar tools — MacCready, wind, and speed-to-fly helpers for club flying.',
-        target: '[data-tour="nav-aircraft"]',
-        view: 'aircraft'
-      },
-      {
-        title: 'League',
-        body: 'League shows daily XP for you and peers. Tap a name to peek at their course progress (read-only).',
-        target: '[data-tour="nav-league"]',
-        view: 'progress'
-      },
-      {
-        title: 'You are set',
-        body: 'Replay this tour anytime with the Walk-through switch on Home. Happy studying!',
-        target: null,
-        view: 'home'
-      }
-    ];
-
-    function prefsStorageKey() {
-      const uk = state.user?.userKey || state.user?.sub || 'local';
-      return `flf_glider_prefs_${uk}`;
-    }
-
-    function readLocalPrefs() {
-      try {
-        const raw = localStorage.getItem(prefsStorageKey());
-        if (!raw) return null;
-        return JSON.parse(raw);
-      } catch {
-        return null;
-      }
-    }
-
-    function writeLocalPrefs(prefs) {
-      try {
-        localStorage.setItem(prefsStorageKey(), JSON.stringify(prefs));
-      } catch {
-        /* ignore quota */
-      }
-    }
-
-    async function loadPrefs() {
-      let prefs = {
-        walkthroughEnabled: true,
-        walkthroughCompleted: false
-      };
-      try {
-        const res = await api('/api/prefs');
-        if (res?.prefs) prefs = { ...prefs, ...res.prefs };
-      } catch {
-        const local = readLocalPrefs();
-        if (local) prefs = { ...prefs, ...local };
-      }
-      state.prefs = {
-        walkthroughEnabled: prefs.walkthroughEnabled !== false,
-        walkthroughCompleted: Boolean(prefs.walkthroughCompleted)
-      };
-      writeLocalPrefs(state.prefs);
-      return state.prefs;
-    }
-
-    async function savePrefs(patch) {
-      state.prefs = {
-        ...state.prefs,
-        ...patch
-      };
-      writeLocalPrefs(state.prefs);
-      try {
-        const res = await api('/api/prefs', {
-          method: 'PUT',
-          body: JSON.stringify({ prefs: state.prefs })
-        });
-        if (res?.prefs) state.prefs = { ...state.prefs, ...res.prefs };
-      } catch {
-        /* local copy already saved */
-      }
-      return state.prefs;
-    }
-
-    function setTourOverlay(active) {
-      const el = document.getElementById('tourOverlay');
-      if (!el) return;
-      el.classList.toggle('active', active);
-      el.setAttribute('aria-hidden', active ? 'false' : 'true');
-    }
-
-    function updateTourSpotlight(selector) {
-      const spot = document.getElementById('tourSpotlight');
-      if (!spot) return;
-      if (!selector) {
-        spot.hidden = true;
-        return;
-      }
-      const target = document.querySelector(selector);
-      if (!target) {
-        spot.hidden = true;
-        return;
-      }
-      const rect = target.getBoundingClientRect();
-      spot.hidden = false;
-      spot.style.left = Math.max(8, rect.left - 6) + 'px';
-      spot.style.top = Math.max(8, rect.top - 6) + 'px';
-      spot.style.width = Math.min(window.innerWidth - 16, rect.width + 12) + 'px';
-      spot.style.height = Math.min(window.innerHeight - 16, rect.height + 12) + 'px';
-    }
-
-    async function showTourStep(index) {
-      const steps = TOUR_STEPS;
-      const step = steps[index];
-      if (!step) {
-        await finishTour({ markCompleted: true });
-        return;
-      }
-      state.tour.active = true;
-      state.tour.step = index;
-      if (step.view && state.view !== step.view) {
-        state.view = step.view;
-        if (step.view === 'home') await loadHome({ skipTour: true });
-        else if (step.view === 'study') {
-          state.topics = (await api('/api/topics?track=' + encodeURIComponent(state.study.track))).topics;
-          await loadStudyDeck({ skipTour: true });
-        } else if (step.view === 'aircraft') {
-          if (!state.aircraft.page) state.aircraft.page = 'hub';
-          render();
-        } else if (step.view === 'progress') {
-          await loadProgress({ skipTour: true });
-        } else render();
-      }
-      setTourOverlay(true);
-      const kicker = document.getElementById('tourKicker');
-      const title = document.getElementById('tourTitle');
-      const body = document.getElementById('tourBody');
-      const back = document.getElementById('tourBackBtn');
-      const next = document.getElementById('tourNextBtn');
-      if (kicker) kicker.textContent = `Step ${index + 1} of ${steps.length}`;
-      if (title) title.textContent = step.title;
-      if (body) body.textContent = step.body;
-      if (back) back.disabled = index === 0;
-      if (next) next.textContent = index === steps.length - 1 ? 'Done' : 'Next';
-      requestAnimationFrame(() => updateTourSpotlight(step.target));
-    }
-
-    async function startTour({ force = false } = {}) {
-      if (!force && !state.prefs.walkthroughEnabled) return;
-      await showTourStep(0);
-    }
-
-    async function finishTour({ markCompleted = true, disable = false } = {}) {
-      state.tour.active = false;
-      setTourOverlay(false);
-      const spot = document.getElementById('tourSpotlight');
-      if (spot) spot.hidden = true;
-      const patch = {};
-      if (markCompleted) patch.walkthroughCompleted = true;
-      if (disable) patch.walkthroughEnabled = false;
-      if (Object.keys(patch).length) await savePrefs(patch);
-      if (state.view === 'home') render();
-    }
-
-    async function maybeAutoStartTour() {
-      if (state.tour.active) return;
-      if (!state.prefs.walkthroughEnabled) return;
-      if (state.prefs.walkthroughCompleted) return;
-      await startTour({ force: true });
-    }
-
     async function loadAuthUser() {
       const el = document.getElementById('header-user');
       const logoutEl = document.getElementById('header-logout');
@@ -1894,7 +1584,6 @@
         state.isAdmin = Boolean(u.isAdmin);
         if (!state.isAdmin && state.view === 'admin') state.view = 'home';
         setNav();
-        await loadPrefs();
       } catch {
         el.classList.add('hidden');
         if (logoutEl) logoutEl.classList.add('hidden');
@@ -1906,7 +1595,6 @@
           state.isAdmin = false;
         }
         setNav();
-        await loadPrefs();
       }
     }
 
@@ -2130,7 +1818,7 @@
       });
     }
 
-    async function loadHome(opts = {}) {
+    async function loadHome() {
       const [tracks, stats, league] = await Promise.all([
         api('/api/courses').catch(() => api('/api/tracks')),
         api('/api/stats'),
@@ -2140,10 +1828,9 @@
       state.stats = stats;
       state.league = league;
       render();
-      if (!opts.skipTour) await maybeAutoStartTour();
     }
 
-    async function loadStudyDeck(opts = {}) {
+    async function loadStudyDeck() {
       const q = new URLSearchParams({
         track: state.study.track,
         mode: state.study.mode,
@@ -2162,9 +1849,6 @@
       state.study.editing = false;
       state.study.editDraft = null;
       render();
-      if (!opts.skipTour && state.tour.active) {
-        requestAnimationFrame(() => updateTourSpotlight(TOUR_STEPS[state.tour.step]?.target));
-      }
     }
 
     async function openStudy(opts = {}) {
@@ -2432,15 +2116,7 @@
     function renderHome() {
       const s = state.stats || { cards: 0, studied: 0, due: 0, today_xp: 0 };
       const courses = state.tracks || [];
-      const tourOn = state.prefs.walkthroughEnabled !== false;
       return `
-        <div class="tour-toggle-row" data-tour="tour-toggle">
-          <div>
-            <strong>App walk-through</strong>
-            <span>${tourOn ? 'On for new sessions until you finish or turn it off.' : 'Off. Turn on to replay the tour.'}</span>
-          </div>
-          <button type="button" class="tour-switch ${tourOn ? 'on' : ''}" id="tourToggleBtn" aria-pressed="${tourOn ? 'true' : 'false'}" aria-label="Toggle walk-through"></button>
-        </div>
         <div class="stats">
           <div class="stat"><b>${s.today_xp ?? state.league?.you?.today ?? 0}</b><span>Today XP</span></div>
           <div class="stat"><b>${s.studied}</b><span>Studied</span></div>
@@ -2568,7 +2244,7 @@
                   <button type="button" class="figure-pill has-figure" id="cardFigureBtn" data-card-id="${escapeHtml(card.id)}">Figure ${escapeHtml(String(card.figure.number))}</button>
                 ` : ''}
                 <button type="button" class="calc-pill" id="cardCalcBtn">Calculator</button>
-                <button type="button" class="flag-pill" id="flagCardBtn" data-card-id="${escapeHtml(card.id)}" data-tour="flag-btn">Flag error</button>
+                <button type="button" class="flag-pill" id="flagCardBtn" data-card-id="${escapeHtml(card.id)}">Flag error</button>
               </div>
               ${state.study.revealed ? `
                 ${!(Array.isArray(card.choices) && card.choices.length) ? `<div class="a">${escapeHtml(card.answer)}</div>` : ''}
@@ -3146,7 +2822,7 @@
       updatePolarPills(result);
     }
 
-    async function loadProgress(opts = {}) {
+    async function loadProgress() {
       const focus = state.leagueFocus;
       const viewingOther = focus && focus.isYou === false && focus.userKey;
       const progressQuery = viewingOther
@@ -3172,9 +2848,6 @@
         state.leagueFocus.displayName = byTrack.display_name;
       }
       render();
-      if (!opts.skipTour && state.tour.active) {
-        requestAnimationFrame(() => updateTourSpotlight(TOUR_STEPS[state.tour.step]?.target));
-      }
     }
 
     function readinessRing(pct, radius, stroke, color) {
@@ -3673,19 +3346,6 @@
     }
 
     function bind() {
-      const tourToggle = app.querySelector('#tourToggleBtn');
-      if (tourToggle) {
-        tourToggle.addEventListener('click', async () => {
-          const next = !(state.prefs.walkthroughEnabled !== false);
-          await savePrefs({
-            walkthroughEnabled: next,
-            walkthroughCompleted: next ? false : true
-          });
-          render();
-          if (next) await startTour({ force: true });
-          else await finishTour({ markCompleted: true, disable: true });
-        });
-      }
       const flagBtn = app.querySelector('#flagCardBtn');
       if (flagBtn) {
         flagBtn.addEventListener('click', async () => {
@@ -4186,22 +3846,6 @@
         await loadAdmin();
         return;
       }
-    });
-
-    document.getElementById('tourNextBtn')?.addEventListener('click', async () => {
-      await showTourStep(state.tour.step + 1);
-    });
-    document.getElementById('tourBackBtn')?.addEventListener('click', async () => {
-      if (state.tour.step <= 0) return;
-      await showTourStep(state.tour.step - 1);
-    });
-    document.getElementById('tourSkipBtn')?.addEventListener('click', async () => {
-      await finishTour({ markCompleted: true, disable: true });
-      toast('Walk-through turned off. Re-enable it anytime on Home.');
-    });
-    window.addEventListener('resize', () => {
-      if (!state.tour.active) return;
-      updateTourSpotlight(TOUR_STEPS[state.tour.step]?.target);
     });
 
     loadAuthUser()

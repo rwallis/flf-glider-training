@@ -119,11 +119,6 @@ ALTER TABLE glider_users
   ADD COLUMN IF NOT EXISTS is_admin BOOLEAN NOT NULL DEFAULT FALSE;
 `;
 
-const USER_PREFS_SQL = `
-ALTER TABLE glider_users
-  ADD COLUMN IF NOT EXISTS prefs JSONB NOT NULL DEFAULT '{}'::jsonb;
-`;
-
 const CARD_FLAGS_SQL = `
 CREATE TABLE IF NOT EXISTS glider_card_flags (
   id BIGSERIAL PRIMARY KEY,
@@ -205,7 +200,6 @@ export async function ensureGliderSchema(db) {
   await db.query(CARD_DETAILS_SQL);
   await db.query(CARD_FIGURE_SQL);
   await db.query(USER_ADMIN_SQL);
-  await db.query(USER_PREFS_SQL);
   await db.query(CARD_FLAGS_SQL);
   return true;
 }
