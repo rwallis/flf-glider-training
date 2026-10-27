@@ -94,50 +94,158 @@ const TOPIC_LINKS = {
   comm_systems: [LINKS.gfh, LINKS.phak],
 };
 
-const TOPIC_TIP = {
+/** Topic backdrop — added only when keyword tips are thin. Does not restate Q/A. */
+const TOPIC_CONTEXT = {
   comm_certs:
-    'Know privilege vs limitation wording on the commercial certificate and what 61.133 does (and does not) authorize in gliders.',
+    'Commercial privileges are category-specific: a glider rating does not borrow airplane commercial privileges, and Part 61 tables control add-on vs initial paths.',
   comm_airworthy:
-    'Airworthiness is continuous: inspections, ADs, and required documents must be current before every flight.',
+    'Airworthiness is continuous after the annual — ADs, 100-hour (when for hire), and required equipment status all matter before launch.',
   comm_aeromedical:
-    'Fitness to fly and recognition of hypoxia, fatigue, and hazardous attitudes are part of commercial judgment.',
+    'Commercial judgment includes fitness to fly: hypoxia, fatigue, dehydration, and hazardous attitudes show up before the weather does.',
   comm_scan:
-    'See-and-avoid is active: organized scanning beats staring at one spot or relying on the other pilot.',
+    'Collision avoidance is a scan pattern plus clearing turns — not a quick peek. Time-share near/far and left/right instead of fixating.',
   comm_aero:
-    'Relate the force balance and airfoil behavior to what you feel on the stick in the glider.',
+    'In steady flight the force pairs balance; when you change bank, pitch, or speed, lift/drag/weight/thrust (or tow tension) rearrange immediately.',
   comm_controls:
-    'Name the primary effect of each control and how spoilers/dive brakes change both lift and drag.',
+    'Primary effects first, then secondary (adverse yaw, pitch with spoiler). Spoilers dump lift and add drag — they are not “flaps in reverse.”',
   comm_wb:
-    'CG and weight must stay inside the envelope — empty weight alone is not a loading check.',
+    'Empty weight and empty CG come from this glider’s records; seat arms and ballast stations come from the Flight Manual. Both must be current.',
   comm_nav:
-    'Pilotage and planning still matter in gliders: know where you are and where you can land.',
+    'Glider XC is energy and landability: plan conservative glide ratios and always know the next landable field, not just the destination.',
   comm_regs:
-    'Match the regulation to the action — NTSB notification, Part 91 operating rules, and definitions are frequent written traps.',
+    'Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.',
   comm_airspace:
-    'Class, weather minimums, and communication requirements change together — memorize the basic VFR table.',
+    'Airspace answers usually need class + altitude + visibility/cloud clearance together. Chart depictions change when the tower closes.',
   comm_preflight:
-    'A commercial preflight is systematic: documents, weather, assembly, and a walk-around that catches real defects.',
+    'Treat assembly, positive control checks, and document review as launch-critical — most glider accidents start on the ground.',
   comm_airport:
-    'Signs, markings, and pattern discipline prevent runway incursions and midairs at busy fields.',
+    'Holding-position markings, runway signs, and right-of-way on the gliderport keep towplanes, gliders, and cars from occupying the same asphalt.',
   comm_tow:
-    'Tow is a two-aircraft system: positions, signals, weak link, and rope-break plans are non-negotiable.',
+    'Brief rope-break altitudes and signals before takeoff. Weak-link placement protects the glider; boxing/wake work stays high enough to recover.',
   comm_landings:
-    'Energy management on final (spoilers, slips, aim point) is the commercial landing skill.',
+    'Aim point, energy dump (spoilers/slip), and a planned stop point beat a long float. Commercial tolerances reward precision, not heroic saves.',
   comm_perf:
-    'Min sink, best L/D, and speed-to-fly are different numbers for different jobs — do not mix them up.',
+    'Min sink maximizes time; best L/D maximizes distance in still air; speed-to-fly trades glide ratio against wind and sink. Pick the job first.',
   comm_soaring:
-    'Thermal, ridge, and wave each have entry, centering, and exit discipline tied to weather.',
+    'Lift type drives tactics: thermals need centering, ridge needs terrain clearance and wind, wave needs rotor awareness and oxygen planning.',
   comm_maneuvers:
-    'Commercial maneuvers are precision tasks: set-up, tolerances, and lookout before every break.',
+    'Set altitude/airspeed/bank references before entry, clear the area, then fly to published commercial tolerances — not “about right.”',
   comm_stalls:
-    'Stalls are AOA events. Teach recognition and recovery before airspeed myths.',
+    'Critical AOA is the stall, not a particular airspeed. Recover by reducing AOA first; altitude is the margin you buy with entry height.',
   comm_emergency:
-    'Decide early: landable field, rope-break plan, and fly the aircraft first.',
+    'Aviate, navigate, communicate: fly a landable speed toward a field before troubleshooting releases, radios, or instruments.',
   comm_weather:
-    'Soaring weather is about stability, moisture, and wind structure — not just “clear and sunny.”',
+    'Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.',
   comm_systems:
-    'Know how the glider’s systems fail and what the POH requires before flight.',
+    'Know normal and failure modes for release, spoilers, instruments, and oxygen — and what the POH says you must have working.',
 };
+
+/**
+ * Keyword → extra teaching note. Matched against question+answer+choices for relevance,
+ * but the note itself must add context (regs, traps, related numbers) — never restate the key.
+ */
+const KEYWORD_NOTES = [
+  {
+    re: /substantial damage/,
+    note: '“Substantial damage” is about structural strength, performance, or flight characteristics needing major repair — paint scratches and tire changes do not qualify.',
+  },
+  {
+    re: /ntsb|part 830|immediate notification/,
+    note: 'Part 830 separates accidents from listed incidents; when notification is required, do it immediately by the fastest means, then follow up with the written report as specified.',
+  },
+  {
+    re: /airworthiness directive|\bads?\b/,
+    note: 'ADs are legally binding under Part 39. Compliance is an owner/operator duty before further flight unless an AMOC is approved.',
+  },
+  {
+    re: /100-?hour|annual inspection/,
+    note: 'Annual is always on the calendar; 100-hour is driven by for-hire use (instruction or paid rides). One does not replace the other.',
+  },
+  {
+    re: /inoperative|mel\b|91\.213/,
+    note: 'Without an MEL, 91.213(d) means deactivate or remove, placard, and confirm the airplane/glider is still safe. Required instruments listed in the POH cannot be deferred.',
+  },
+  {
+    re: /commercial operator|compensation or hire|61\.133/,
+    note: 'Commercial operator / privilege questions turn on whether persons or property are carried for compensation or hire — and in which category the certificate authorizes that work.',
+  },
+  {
+    re: /class [bcd]|basic vfr|cloud clearance|visibility/,
+    note: 'Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band.',
+  },
+  {
+    re: /class d|tower.*closed|part-time tower/,
+    note: 'When a part-time Class D tower closes, the airspace typically reverts to Class E (or G) as charted — weather minimums and radio requirements change with it.',
+  },
+  {
+    re: /\bwinch\b|\bauto-?tow\b|pitch oscillation/,
+    note: 'Winch launches punish over-rotation: ease back-pressure and shallow the climb if the glider starts porpoising; a cable break on a steep winch climb needs an immediate nose-down.',
+  },
+  {
+    re: /\bweak link\b|\btowline\b|91\.309|\baerotow\b|\btow rope\b|\btowplane\b/,
+    note: '91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong.',
+  },
+  {
+    re: /oxygen|91\.211|hypoxia/,
+    note: 'Supplemental oxygen rules are time-and-altitude based for the required crew; passengers have a higher altitude trigger. Hypoxia sneaks up — use oxygen before you “feel fine.”',
+  },
+  {
+    re: /\bcg\b|center of gravity|weight and balance|ballast/,
+    note: 'Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope.',
+  },
+  {
+    re: /stall|critical angle|spin|autorotation/,
+    note: 'Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries.',
+  },
+  {
+    re: /min(?:imum)? sink|best l\/d|l\/d|speed to fly|maccready|mac cready/,
+    note: 'Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind.',
+  },
+  {
+    re: /virga|thunderstorm|front|stability|thermal|wave|ridge/,
+    note: 'Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.',
+  },
+  {
+    re: /scan|collision|see and avoid|traffic/,
+    note: 'Effective traffic scan is short eye movements across sectors with periodic distant focus — not a slow sweep that parks on the panel or the other seat.',
+  },
+  {
+    re: /wake turbulence|boxing the wake/,
+    note: 'Stay outside the towplane’s wake when boxing; give yourself altitude to recover if you get spit out. Jet/heavy wake is a separate landing/takeoff hazard.',
+  },
+  {
+    re: /density altitude|\bhigh da\b|pressure altitude.*temperature|takeoff distance|performance chart/,
+    note: 'High density altitude thins air: true airspeed reads higher for the same IAS, and both towplane and glider performance suffer — plan longer rolls and weaker climb.',
+  },
+  {
+    re: /v-?speed|\bvs\b|\bvne\b|\bva\b|maneuvering/,
+    note: 'V-speeds are defined terms. VS is stall / minimum steady flight speed in a defined configuration — do not confuse it with approach or min-sink speeds.',
+  },
+  {
+    re: /flight manual|afm|poh|limitations/,
+    note: 'The approved Flight Manual / POH is the controlling document for limitations, loading, and required equipment for that serial-number aircraft.',
+  },
+  {
+    re: /right of way|converging|head-on|overtaking/,
+    note: 'Right-of-way rules prevent midairs when radio fails: head-on both alter right, converging yield to the right, overtaking keep clear of the one ahead — gliders still follow 91.113.',
+  },
+  {
+    re: /holding position|runway.*marking|taxiway/,
+    note: 'Surface painted holding-position markings and red/white runway signs are hard stops without clearance — chart supplement and AIM figures are worth a quick review.',
+  },
+  {
+    re: /slip|forward slip|side slip/,
+    note: 'Slips trade altitude for track without adding much airspeed when spoilers are already out or unavailable — recover to coordinated flight with enough height left to flare.',
+  },
+  {
+    re: /medical|basicmed|fitness|alcohol|drug/,
+    note: 'Glider commercial ops still need a medical path that matches the operation. Impairments (alcohol, meds, fatigue) are judgment failures before they are regulatory ones.',
+  },
+  {
+    re: /notam|chart supplement|sectional|tf?r\b/,
+    note: 'Preflight data is layered: sectional for structure, Chart Supplement for local procedures, NOTAMs/TFRs for what changed today — skip one layer and you miss a closure.',
+  },
+];
 
 /** Seed commercial practical cards (short IDs) — hand-tuned teaching notes. */
 const SEED_DETAILS = [
@@ -263,62 +371,36 @@ const SEED_DETAILS = [
   },
 ];
 
-function capitalize(text) {
-  if (!text) return '';
-  return text.charAt(0).toUpperCase() + text.slice(1);
+function corpus(card) {
+  // Match on stem/choices only. Omit the answer (so Details never echoes the key)
+  // and omit topic titles/ids (e.g. “Aerotow & abnormals”) that false-trigger tips.
+  const parts = [card.question, ...(Array.isArray(card.choices) ? card.choices : [])];
+  return parts.filter(Boolean).join(' ').toLowerCase();
 }
 
-function endsWithPunct(text) {
-  return /[.!?]$/.test(text.trim());
-}
-
+/**
+ * Build Details text that adds teaching value only — never restates the
+ * question stem or the correct-answer wording.
+ */
 function buildSummary(card) {
-  const question = String(card.question || '').replace(/\s+/g, ' ').trim();
-  const answer = String(card.answer || '').replace(/\s+/g, ' ').trim();
-  const tip =
-    TOPIC_TIP[card.topic_id] ||
-    'Know why the correct choice is right and what trap the wrong choices set.';
+  const text = corpus(card);
+  const notes = [];
 
-  if (!answer) {
-    return `${question} Review the commercial glider references for this item. ${tip}`;
+  for (const row of KEYWORD_NOTES) {
+    if (row.re.test(text)) notes.push(row.note);
+    if (notes.length >= 2) break;
   }
 
-  const stem = question.replace(/\?+$/, '').trim();
-  const ans = answer.replace(/^\s+/, '');
-  const continuation =
-    /^[a-z]/.test(ans) ||
-    /^(which|that|to|for|when|by|in|of|a|an|the|and|or|with|from|as|if|because)\b/i.test(ans);
-  const incompleteStem =
-    /\b(which of the following|which is true|which is|which means|defined as|required when|required if|means that|best described as)\b/i.test(
-      stem
-    ) || /[:—–-]\s*$/.test(stem);
+  const topicNote = TOPIC_CONTEXT[card.topic_id];
+  if (topicNote && notes.length < 2) notes.push(topicNote);
 
-  let core;
-  if (continuation && stem) {
-    core = `${stem} ${ans}`;
-  } else if (incompleteStem && stem) {
-    // Multiple-choice stem + complete choice text → one teaching sentence.
-    core = `${stem}: ${ans}`;
-  } else if (stem && !ans.toLowerCase().includes(stem.slice(0, 24).toLowerCase())) {
-    const cleanStem = stem
-      .replace(
-        /\b(which of the following|which is true|which is correct|which is|as a result of which incident|which means|means that)\b.*$/i,
-        ''
-      )
-      .replace(/[:—–-]\s*$/, '')
-      .trim();
-    const choice =
-      /^[A-Z][a-z]/.test(ans) ? ans.charAt(0).toLowerCase() + ans.slice(1) : ans;
-    core = cleanStem ? `${cleanStem} — ${choice}` : ans;
-  } else if (/[.!?]$/.test(ans)) {
-    core = ans;
-  } else {
-    core = `${ans}.`;
+  if (!notes.length) {
+    notes.push(
+      'Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.'
+    );
   }
 
-  core = capitalize(core.replace(/\s+/g, ' ').trim());
-  if (!endsWithPunct(core)) core += '.';
-  return `${core} ${tip}`;
+  return notes.slice(0, 2).join(' ');
 }
 
 function linksFor(card) {
