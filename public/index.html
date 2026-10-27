@@ -454,7 +454,7 @@
       gap: 8px;
       margin-top: 12px;
     }
-    .details-pill, .figure-pill {
+    .details-pill, .figure-pill, .calc-pill {
       appearance: none;
       border: 1px solid #D7E4EE;
       background: #F4F9FC;
@@ -467,7 +467,7 @@
       cursor: pointer;
       margin-top: 0;
     }
-    .details-pill:active, .figure-pill:active { transform: scale(0.98); }
+    .details-pill:active, .figure-pill:active, .calc-pill:active { transform: scale(0.98); }
     .details-pill.has-details {
       background: #E8F8D8;
       border-color: #B7DFA3;
@@ -478,9 +478,67 @@
       border-color: #A9C7DD;
       color: var(--sky-deep);
     }
+    .calc-pill {
+      background: #FFF7ED;
+      border-color: #F6D4A8;
+      color: #9A3412;
+    }
     .figure-pill:disabled {
       opacity: 0.45;
       cursor: default;
+    }
+    .calc-panel {
+      max-width: 320px;
+      margin: 0 auto;
+      width: 100%;
+      max-height: none;
+      overflow: visible;
+    }
+    .calc-display {
+      margin: 0 0 12px;
+      padding: 14px 14px;
+      border-radius: 12px;
+      background: #111827;
+      color: #F9FAFB;
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      min-height: 1.4em;
+      word-break: break-all;
+    }
+    .calc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    .calc-grid button {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: #F3F4F6;
+      color: var(--ink);
+      border-radius: 12px;
+      min-height: 48px;
+      margin: 0;
+      font: inherit;
+      font-size: 1.05rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .calc-grid button:active { transform: scale(0.97); }
+    .calc-grid button.op {
+      background: #E8F2F8;
+      color: var(--sky-deep);
+      border-color: #A9C7DD;
+    }
+    .calc-grid button.eq {
+      background: var(--sky);
+      color: #fff;
+      border-color: var(--sky-deep);
+    }
+    .calc-grid button.span-2 {
+      grid-column: span 2;
     }
     .figure-image-wrap {
       margin: 0;
@@ -1373,7 +1431,14 @@
         detailsOpen: false,
         detailsEditing: false,
         detailsDraft: null,
-        figureOpen: false
+        figureOpen: false,
+        calcOpen: false,
+        calc: {
+          display: '0',
+          acc: null,
+          op: null,
+          fresh: true
+        }
       },
       imports: [],
       admin: {
@@ -2155,6 +2220,7 @@
                 ${card.figure ? `
                   <button type="button" class="figure-pill has-figure" id="cardFigureBtn" data-card-id="${escapeHtml(card.id)}">Figure ${escapeHtml(String(card.figure.number))}</button>
                 ` : ''}
+                <button type="button" class="calc-pill" id="cardCalcBtn">Calculator</button>
               </div>
               ${state.study.revealed ? `
                 ${!(Array.isArray(card.choices) && card.choices.length) ? `<div class="a">${escapeHtml(card.answer)}</div>` : ''}
@@ -2174,6 +2240,7 @@
           </div>
           ${state.study.detailsOpen ? renderDetailsSheet(card) : ''}
           ${state.study.figureOpen ? renderFigureSheet(card) : ''}
+          ${state.study.calcOpen ? renderCalcSheet() : ''}
         `}
       `;
     }
@@ -2344,6 +2411,136 @@
               <img src="${escapeHtml(figure.url)}" alt="${escapeHtml(title)}" loading="lazy" />
             </div>
             <p class="figure-caption">From the FAA Computer Testing Supplement. Pinch/scroll to zoom on phone.</p>
+          </div>
+        </div>
+      `;
+    }
+
+    function formatCalcDisplay(value) {
+      if (!Number.isFinite(value)) return 'Error';
+      const abs = Math.abs(value);
+      if (abs !== 0 && (abs >= 1e10 || abs < 1e-7)) return value.toExponential(6);
+      const text = String(Number(value.toPrecision(12)));
+      return text.length > 14 ? value.toPrecision(10).replace(/\.?0+$/, '') : text;
+    }
+
+    function applyCalcOp(a, op, b) {
+      if (op === '+') return a + b;
+      if (op === '-') return a - b;
+      if (op === '*') return a * b;
+      if (op === '/') return b === 0 ? NaN : a / b;
+      return b;
+    }
+
+    function calcDigit(digit) {
+      const c = state.study.calc;
+      if (c.fresh || c.display === 'Error') {
+        c.display = String(digit);
+        c.fresh = false;
+        return;
+      }
+      if (c.display === '0') c.display = String(digit);
+      else if (c.display === '-0') c.display = '-' + digit;
+      else if (c.display.replace('-', '').length < 12) c.display += String(digit);
+    }
+
+    function calcDecimal() {
+      const c = state.study.calc;
+      if (c.fresh || c.display === 'Error') {
+        c.display = '0.';
+        c.fresh = false;
+        return;
+      }
+      if (!c.display.includes('.')) c.display += '.';
+    }
+
+    function calcClear() {
+      state.study.calc = { display: '0', acc: null, op: null, fresh: true };
+    }
+
+    function calcBackspace() {
+      const c = state.study.calc;
+      if (c.fresh || c.display === 'Error') {
+        c.display = '0';
+        c.fresh = true;
+        return;
+      }
+      const next = c.display.length <= 1 || (c.display.length === 2 && c.display.startsWith('-'))
+        ? '0'
+        : c.display.slice(0, -1);
+      c.display = next;
+      if (next === '0') c.fresh = true;
+    }
+
+    function calcSetOp(op) {
+      const c = state.study.calc;
+      const current = Number(c.display);
+      if (c.acc != null && c.op && !c.fresh) {
+        const result = applyCalcOp(c.acc, c.op, current);
+        c.display = formatCalcDisplay(result);
+        c.acc = Number.isFinite(result) ? result : null;
+      } else if (Number.isFinite(current)) {
+        c.acc = current;
+      }
+      c.op = op;
+      c.fresh = true;
+    }
+
+    function calcEquals() {
+      const c = state.study.calc;
+      if (c.acc == null || !c.op) return;
+      const current = Number(c.display);
+      const result = applyCalcOp(c.acc, c.op, current);
+      c.display = formatCalcDisplay(result);
+      c.acc = null;
+      c.op = null;
+      c.fresh = true;
+    }
+
+    function calcToggleSign() {
+      const c = state.study.calc;
+      if (c.display === 'Error') return;
+      if (c.display === '0' || c.display === '0.') return;
+      c.display = c.display.startsWith('-') ? c.display.slice(1) : '-' + c.display;
+      c.fresh = false;
+    }
+
+    function closeCalcSheet() {
+      state.study.calcOpen = false;
+      render();
+    }
+
+    function renderCalcSheet() {
+      const display = state.study.calc?.display || '0';
+      return `
+        <div class="details-sheet" id="calcSheet" role="dialog" aria-modal="true" aria-label="Calculator">
+          <div class="details-panel calc-panel">
+            <header>
+              <h3>Calculator</h3>
+              <button type="button" class="close-details" id="closeCalcBtn" aria-label="Close">×</button>
+            </header>
+            <div class="calc-display" id="calcDisplay" aria-live="polite">${escapeHtml(display)}</div>
+            <div class="calc-grid">
+              <button type="button" data-calc="clear">C</button>
+              <button type="button" data-calc="sign">±</button>
+              <button type="button" data-calc="back">⌫</button>
+              <button type="button" class="op" data-calc-op="/">÷</button>
+              <button type="button" data-calc-digit="7">7</button>
+              <button type="button" data-calc-digit="8">8</button>
+              <button type="button" data-calc-digit="9">9</button>
+              <button type="button" class="op" data-calc-op="*">×</button>
+              <button type="button" data-calc-digit="4">4</button>
+              <button type="button" data-calc-digit="5">5</button>
+              <button type="button" data-calc-digit="6">6</button>
+              <button type="button" class="op" data-calc-op="-">−</button>
+              <button type="button" data-calc-digit="1">1</button>
+              <button type="button" data-calc-digit="2">2</button>
+              <button type="button" data-calc-digit="3">3</button>
+              <button type="button" class="op" data-calc-op="+">+</button>
+              <button type="button" class="span-2" data-calc-digit="0">0</button>
+              <button type="button" data-calc="dot">.</button>
+              <button type="button" class="eq" data-calc="eq">=</button>
+            </div>
           </div>
         </div>
       `;
@@ -3237,6 +3434,7 @@
           state.study.detailsEditing = false;
           state.study.detailsDraft = null;
           state.study.figureOpen = false;
+          state.study.calcOpen = false;
           render();
         });
       }
@@ -3247,6 +3445,18 @@
           state.study.detailsOpen = false;
           state.study.detailsEditing = false;
           state.study.detailsDraft = null;
+          state.study.calcOpen = false;
+          render();
+        });
+      }
+      const calcBtn = app.querySelector('#cardCalcBtn');
+      if (calcBtn) {
+        calcBtn.addEventListener('click', () => {
+          state.study.calcOpen = true;
+          state.study.detailsOpen = false;
+          state.study.detailsEditing = false;
+          state.study.detailsDraft = null;
+          state.study.figureOpen = false;
           render();
         });
       }
@@ -3312,6 +3522,41 @@
           }
         });
       }
+      const closeCalc = app.querySelector('#closeCalcBtn');
+      if (closeCalc) closeCalc.addEventListener('click', () => closeCalcSheet());
+      const calcSheet = app.querySelector('#calcSheet');
+      if (calcSheet) {
+        calcSheet.addEventListener('click', (e) => {
+          if (e.target === calcSheet) closeCalcSheet();
+        });
+      }
+      const refreshCalcDisplay = () => {
+        const el = app.querySelector('#calcDisplay');
+        if (el) el.textContent = state.study.calc.display;
+      };
+      app.querySelectorAll('[data-calc-digit]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          calcDigit(btn.dataset.calcDigit);
+          refreshCalcDisplay();
+        });
+      });
+      app.querySelectorAll('[data-calc-op]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          calcSetOp(btn.dataset.calcOp);
+          refreshCalcDisplay();
+        });
+      });
+      app.querySelectorAll('[data-calc]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const action = btn.dataset.calc;
+          if (action === 'clear') calcClear();
+          else if (action === 'back') calcBackspace();
+          else if (action === 'dot') calcDecimal();
+          else if (action === 'eq') calcEquals();
+          else if (action === 'sign') calcToggleSign();
+          refreshCalcDisplay();
+        });
+      });
       app.querySelectorAll('[data-choice-index]').forEach((btn) => {
         btn.addEventListener('click', () => {
           if (state.study.revealed || state.study.editing) return;
