@@ -19,6 +19,13 @@ const COMMERCIAL_IMPORT_PATH = path.join(
   'commercial-import.json'
 );
 const FOI_IMPORT_PATH = path.join(__dirname, '..', 'content', 'foi-import', 'foi-import.json');
+const PRIVATE_IMPORT_PATH = path.join(
+  __dirname,
+  '..',
+  'content',
+  'private-import',
+  'private-import.json'
+);
 const CARD_DETAILS_PATH = path.join(__dirname, '..', 'content', 'card-details.json');
 const CARD_FIGURES_PATH = path.join(__dirname, '..', 'content', 'card-figures.json');
 
@@ -238,6 +245,70 @@ export async function seedGliderContent(db, { force = false } = {}) {
     }
   }
 
+  // Seed Private Pilot Glider bank from import JSON.
+  const privateBank = await loadImportBank(PRIVATE_IMPORT_PATH);
+  let privateCards = 0;
+  if (privateBank.trackId === 'private') {
+    for (const topic of privateBank.topics) {
+      if (!topic?.id) continue;
+      await db.query(
+        `INSERT INTO glider_topics (id, track_id, title, description, pts_ref, sort_order)
+         VALUES ($1, $2, $3, $4, $5, $6)
+         ON CONFLICT (id) DO UPDATE SET
+           track_id = EXCLUDED.track_id,
+           title = EXCLUDED.title,
+           description = EXCLUDED.description,
+           pts_ref = EXCLUDED.pts_ref,
+           sort_order = EXCLUDED.sort_order`,
+        [
+          String(topic.id),
+          'private',
+          String(topic.title || topic.id),
+          String(topic.description || ''),
+          String(topic.pts_ref || ''),
+          Number.isFinite(Number(topic.sort_order)) ? Number(topic.sort_order) : 100
+        ]
+      );
+      topics += 1;
+    }
+    for (const card of privateBank.cards) {
+      if (!card?.id || !card?.question || !card?.answer) continue;
+      if (String(card.answer).startsWith('[missing')) continue;
+      const tags = Array.isArray(card.tags)
+        ? card.tags
+        : ['imported', 'private_written', 'multiple_choice', 'private'];
+      if (!force) {
+        const existing = await db.query('SELECT 1 FROM glider_cards WHERE id = $1', [card.id]);
+        if (existing.rowCount) continue;
+      }
+      await db.query(
+        `INSERT INTO glider_cards (id, track_id, topic_id, question, answer, choices, source, tags, updated_at)
+         VALUES ($1, $2, $3, $4, $5, $6::jsonb, $7, $8, NOW())
+         ON CONFLICT (id) DO UPDATE SET
+           track_id = EXCLUDED.track_id,
+           topic_id = EXCLUDED.topic_id,
+           question = EXCLUDED.question,
+           answer = EXCLUDED.answer,
+           choices = EXCLUDED.choices,
+           source = EXCLUDED.source,
+           tags = EXCLUDED.tags,
+           updated_at = NOW()`,
+        [
+          String(card.id),
+          'private',
+          card.topic_id ? String(card.topic_id) : null,
+          String(card.question),
+          String(card.answer),
+          card.choices ? JSON.stringify(card.choices) : null,
+          String(card.source || 'Private written · IMG_0003.pdf'),
+          tags
+        ]
+      );
+      cards += 1;
+      privateCards += 1;
+    }
+  }
+
   // Drop retired 1,080 lb examiner airspeed cards (progress cascades).
   const retired1080 = [
     'a233_vs_1080',
@@ -261,7 +332,8 @@ export async function seedGliderContent(db, { force = false } = {}) {
   const bankRemaps = [
     { trackId: 'cfi_g', cards: await loadTopicAssignments(CFI_G_IMPORT_PATH) },
     { trackId: 'commercial', cards: await loadTopicAssignments(COMMERCIAL_IMPORT_PATH) },
-    { trackId: 'foi', cards: foiBank.cards }
+    { trackId: 'foi', cards: foiBank.cards },
+    { trackId: 'private', cards: privateBank.cards }
   ];
   for (const { trackId, cards: bankCards } of bankRemaps) {
     for (const card of bankCards) {
@@ -303,6 +375,12 @@ export async function seedGliderContent(db, { force = false } = {}) {
     `DELETE FROM glider_topics t
      WHERE t.track_id = 'commercial'
        AND t.id LIKE 'commercial_commercial_written_%'
+       AND NOT EXISTS (SELECT 1 FROM glider_cards c WHERE c.topic_id = t.id)`
+  );
+  await db.query(
+    `DELETE FROM glider_topics t
+     WHERE t.track_id = 'private'
+       AND t.id = 'priv_placeholder'
        AND NOT EXISTS (SELECT 1 FROM glider_cards c WHERE c.topic_id = t.id)`
   );
 
@@ -383,6 +461,7 @@ export async function seedGliderContent(db, { force = false } = {}) {
     topics,
     cards,
     foi_cards: foiCards,
+    private_cards: privateCards,
     cards_retired: cardsRetired,
     force,
     cfi_g_topic_remaps: topicRemaps,
