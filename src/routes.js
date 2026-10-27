@@ -264,6 +264,45 @@ export function registerGliderApi(app, { store, config }) {
     }
   });
 
+  app.get('/api/prefs', async (req, res) => {
+    const uk = requireUserKey(req, res, config);
+    if (!uk) return;
+    const prefs = await store.getUserPrefs(uk);
+    res.json({ prefs });
+  });
+
+  app.put('/api/prefs', async (req, res) => {
+    const uk = requireUserKey(req, res, config);
+    if (!uk) return;
+    const body = req.body?.prefs && typeof req.body.prefs === 'object' ? req.body.prefs : req.body || {};
+    const prefs = await store.setUserPrefs(uk, body);
+    res.json({ ok: true, prefs });
+  });
+
+  app.post('/api/cards/:cardId/flag', async (req, res) => {
+    const uk = requireUserKey(req, res, config);
+    if (!uk) return;
+    const cardId = String(req.params.cardId || '').trim();
+    if (!cardId) {
+      res.status(400).json({ error: 'cardId required' });
+      return;
+    }
+    const note = String(req.body?.note || '').trim();
+    const flag = await store.flagCard(uk, cardId, note);
+    if (!flag) {
+      res.status(404).json({ error: 'card not found' });
+      return;
+    }
+    res.json({ ok: true, flag });
+  });
+
+  app.get('/api/admin/flags', async (req, res) => {
+    if (!requireAdmin(req, res, config)) return;
+    const status = String(req.query.status || 'open').trim() || 'open';
+    const flags = await store.listCardFlags({ status, limit: Number(req.query.limit) || 100 });
+    res.json({ flags });
+  });
+
   app.get('/api/admin/users', async (req, res) => {
     if (!requireAdmin(req, res, config)) return;
     const users = await store.listUsers();

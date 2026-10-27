@@ -357,6 +357,16 @@ export function nextProgress(prev, grade, schedule = DEFAULT_STUDY_SCHEDULE) {
   };
 }
 
+export function normalizeUserPrefs(raw) {
+  const src = raw && typeof raw === 'object' ? raw : {};
+  const walkthroughEnabled =
+    typeof src.walkthroughEnabled === 'boolean' ? src.walkthroughEnabled : true;
+  return {
+    walkthroughEnabled,
+    walkthroughCompleted: Boolean(src.walkthroughCompleted)
+  };
+}
+
 export function createMemoryStore(seed) {
   const state = {
     tracks: [...(seed.tracks || [])],
@@ -366,6 +376,8 @@ export function createMemoryStore(seed) {
     imports: [],
     dailyActivity: new Map(), // `${userKey}::YYYY-MM-DD` -> answers
     profiles: new Map(), // userKey -> { name, email, picture, userKey }
+    prefs: new Map(), // userKey -> prefs
+    flags: [],
     settings: new Map([
       [STUDY_SCHEDULE_KEY, normalizeStudySchedule(seed.studySchedule || DEFAULT_STUDY_SCHEDULE)]
     ])
@@ -634,6 +646,45 @@ export function createMemoryStore(seed) {
         created_at: next.created_at || null,
         last_login_at: next.last_login_at || null
       };
+    },
+    async getUserPrefs(userKey) {
+      const key = String(userKey || '').trim();
+      if (!key) return normalizeUserPrefs(null);
+      if (!state.prefs.has(key)) {
+        // First login default: walkthrough on.
+        state.prefs.set(key, normalizeUserPrefs(null));
+      }
+      return normalizeUserPrefs(state.prefs.get(key));
+    },
+    async setUserPrefs(userKey, patch) {
+      const key = String(userKey || '').trim();
+      if (!key) throw new Error('userKey required');
+      const prev = await this.getUserPrefs(key);
+      const next = normalizeUserPrefs({ ...prev, ...(patch || {}) });
+      state.prefs.set(key, next);
+      return next;
+    },
+    async flagCard(userKey, cardId, note = '') {
+      const card = state.cards.find((c) => c.id === cardId);
+      if (!card) return null;
+      const row = {
+        id: state.flags.length + 1,
+        card_id: cardId,
+        user_key: String(userKey || '').trim(),
+        note: String(note || '').trim().slice(0, 2000),
+        status: 'open',
+        created_at: new Date().toISOString(),
+        question: card.question,
+        track_id: card.track_id
+      };
+      state.flags.unshift(row);
+      return row;
+    },
+    async listCardFlags({ status = 'open', limit = 100 } = {}) {
+      const lim = Math.max(1, Math.min(500, Number(limit) || 100));
+      return state.flags
+        .filter((f) => !status || f.status === status)
+        .slice(0, lim);
     },
     async getUserAdminBySub(googleSub) {
       if (!googleSub) return false;
@@ -1174,6 +1225,70 @@ export function createPgStore(db) {
         name: rows[0].name || '',
         picture: rows[0].picture || null
       };
+    },
+    async getUserPrefs(userKey) {
+      const key = String(userKey || '').trim();
+      if (!key.startsWith('g:')) return normalizeUserPrefs(null);
+      const sub = key.slice(2);
+      const { rows } = await db.query(
+        `SELECT prefs FROM glider_users WHERE google_sub = $1`,
+        [sub]
+      );
+      if (!rows[0]) return normalizeUserPrefs(null);
+      return normalizeUserPrefs(rows[0].prefs);
+    },
+    async setUserPrefs(userKey, patch) {
+      const key = String(userKey || '').trim();
+      if (!key.startsWith('g:')) throw new Error('userKey required');
+      const sub = key.slice(2);
+      const prev = await this.getUserPrefs(key);
+      const next = normalizeUserPrefs({ ...prev, ...(patch || {}) });
+      const { rowCount } = await db.query(
+        `UPDATE glider_users SET prefs = $2::jsonb WHERE google_sub = $1`,
+        [sub, JSON.stringify(next)]
+      );
+      if (!rowCount) {
+        // User row may not exist yet in local/dev; still return normalized prefs.
+        return next;
+      }
+      return next;
+    },
+    async flagCard(userKey, cardId, note = '') {
+      const card = await this.getCard(cardId);
+      if (!card) return null;
+      const { rows } = await db.query(
+        `INSERT INTO glider_card_flags (card_id, user_key, note, status)
+         VALUES ($1, $2, $3, 'open')
+         RETURNING id, card_id, user_key, note, status, created_at`,
+        [cardId, String(userKey || '').trim(), String(note || '').trim().slice(0, 2000)]
+      );
+      const row = rows[0];
+      return {
+        ...row,
+        question: card.question,
+        track_id: card.track_id
+      };
+    },
+    async listCardFlags({ status = 'open', limit = 100 } = {}) {
+      const lim = Math.max(1, Math.min(500, Number(limit) || 100));
+      const params = [];
+      let where = '';
+      if (status) {
+        params.push(String(status));
+        where = `WHERE f.status = $${params.length}`;
+      }
+      params.push(lim);
+      const { rows } = await db.query(
+        `SELECT f.id, f.card_id, f.user_key, f.note, f.status, f.created_at,
+                c.question, c.track_id
+         FROM glider_card_flags f
+         LEFT JOIN glider_cards c ON c.id = f.card_id
+         ${where}
+         ORDER BY f.created_at DESC
+         LIMIT $${params.length}`,
+        params
+      );
+      return rows;
     }
   };
 }

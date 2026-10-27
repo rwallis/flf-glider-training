@@ -119,6 +119,28 @@ ALTER TABLE glider_users
   ADD COLUMN IF NOT EXISTS is_admin BOOLEAN NOT NULL DEFAULT FALSE;
 `;
 
+const USER_PREFS_SQL = `
+ALTER TABLE glider_users
+  ADD COLUMN IF NOT EXISTS prefs JSONB NOT NULL DEFAULT '{}'::jsonb;
+`;
+
+const CARD_FLAGS_SQL = `
+CREATE TABLE IF NOT EXISTS glider_card_flags (
+  id BIGSERIAL PRIMARY KEY,
+  card_id TEXT NOT NULL REFERENCES glider_cards(id) ON DELETE CASCADE,
+  user_key TEXT NOT NULL,
+  note TEXT NOT NULL DEFAULT '',
+  status TEXT NOT NULL DEFAULT 'open',
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS glider_card_flags_status_idx
+  ON glider_card_flags (status, created_at DESC);
+
+CREATE INDEX IF NOT EXISTS glider_card_flags_card_idx
+  ON glider_card_flags (card_id);
+`;
+
 /**
  * Grant admin to bootstrap emails. On first run, demote everyone else so only
  * the bootstrap account(s) are admins. Later runs only ensure bootstrap emails
@@ -183,6 +205,8 @@ export async function ensureGliderSchema(db) {
   await db.query(CARD_DETAILS_SQL);
   await db.query(CARD_FIGURE_SQL);
   await db.query(USER_ADMIN_SQL);
+  await db.query(USER_PREFS_SQL);
+  await db.query(CARD_FLAGS_SQL);
   return true;
 }
 
