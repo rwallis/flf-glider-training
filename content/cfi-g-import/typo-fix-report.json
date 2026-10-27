@@ -1,0 +1,56 @@
+{
+  "changedCards": 5,
+  "changeCount": 5,
+  "report": [
+    {
+      "id": "cfi_g_bank_140",
+      "changes": [
+        {
+          "field": "manual_answer",
+          "from": "Tropopause.",
+          "to": "Higher true airspeed and longer landing distance."
+        }
+      ]
+    },
+    {
+      "id": "cfi_g_bank_188",
+      "changes": [
+        {
+          "field": "answer_align",
+          "from": "leeward side when flying into the wind.",
+          "to": "leeward side when flying into the wind"
+        }
+      ]
+    },
+    {
+      "id": "cfi_g_bank_596",
+      "changes": [
+        {
+          "field": "question",
+          "from": "The aeronautical decision making (ADM) process identifies several steps involved in good decision making. One ofthese steps is",
+          "to": "The aeronautical decision making (ADM) process identifies several steps involved in good decision making. One of these steps is"
+        }
+      ]
+    },
+    {
+      "id": "cfi_g_bank_601",
+      "changes": [
+        {
+          "field": "choice_2",
+          "from": "early recognition ofthese hazardous attitudes.",
+          "to": "early recognition of these hazardous attitudes."
+        }
+      ]
+    },
+    {
+      "id": "cfi_g_bank_602",
+      "changes": [
+        {
+          "field": "question",
+          "from": "Hazardous attitudes occur to every pilot to some degree at some time. What are some ofthese hazardous attitudes?",
+          "to": "Hazardous attitudes occur to every pilot to some degree at some time. What are some of these hazardous attitudes?"
+        }
+      ]
+    }
+  ]
+}

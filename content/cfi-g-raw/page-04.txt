@@ -1,0 +1,114 @@
+Glider Pilots Ground School @
+Flight lnstructor Glider
+57
+65- Maximum gliding distance ofan aircraft is obtained
+when
+A- parasite drag is the least.
+B- induced drag and parasite drag are equal.
+C- induced drag equals the coefficient of lift.
+66- The best liff:/&ag ratio of a glider occurs when parasite
+drag is
+A- equal to total drag.
+B- equal to induced drag.
+C- less than induced drag.
+67- The best lifl/drag ratio ofa glid€r is a value that
+A- varies depending upon the weight being carried.
+B- remains constant regardless ofairspeed changes.
+C- remains constant and is independent ofthe weight being
+carried.
+68- Which is true about the effect on a glider's performance
+by the addition ofballast or weight?
+A- The glide ratio at a given airspeed will increase.
+B- A higher airspeed is required to obtain the same glide
+ratio as when lightly loaded.
+C- The heavier the glider is loade4 the less the glide ratio
+will be at all airspeeds.
+69- (Refer to Figure 38.) A glider is flying from A to C.
+With a normal L/D ratio of20:l and a constant airspeed of
+40 MPH, what minimum altitude AGL is needed at B to
+arrive over C at 800 feet AGL with no sinking air?
+A- 3,520 feet.
+B- 4,320 feet.
+C- 6,080 feet.
+70- While maintaining the best glide speed, a glider pilot
+may expect the
+A- fastest cross-country speed.
+B- longest cross-country flight.
+C- loss ofthe least amount of altitude.
+7l - In the Nonhem Hemisphere, a magnetic compass will
+normally indicate a tum toward the north if
+A- a left tum is entered from a west heading.
+B- an airfiaft is decelerated while on an east or west
+heading.
+C- an aircraft is accelerated while on an east or west
+heading.
+72- In the Northem Hemisphere, if an aircraft is accelerated
+or decelerated, the magnetic compass will normally indicate
+A- a turn momentarily, with changes in ainpeed on any
+heading.
+B- a tum toward the south while accelerating on a west
+heading.
+C- correctly when on a north or south heading while either
+accelerating or decelerating.
+73- Deviation error ofthe magnetic compass is caused by
+A- northerly tuming error.
+B- certain metals and electrical systems within the aircraft.
+C- the difference in location of true north and magnetic
+north.
+74- In the Northem Hemisphere, which would be correct
+about starting the rollout fiom a tum using a magnetic
+compass? Start the rollout
+A- after the compass indication passes south by a number of
+degrees approximately equal to the latitude minus the
+normal rollout lead.
+B- before the compass indication reaches south by a
+number of degrees approximately equal to the latitude over
+which the tum is made plus the pilot's normal lead.
+C- after the compass indication passes south by a number of
+degrees approximately equal to the magnetic variation of
+the area over which the tum is made plus the pilot's normal
+lead.
+75- What should be the indication on the magnetic compass
+as you roll into a standard rate tum to the right from a south
+heading in the Northem Hemisphere?
+A- The compass will initially indicate a tum to the left.
+B- The compass will indicate a turn to the right, but at a
+faster rate than is actually occurring.
+C- The compass will remain on south for a short time, then
+gadually catch up to the magnetic heading ofthe airplane.
+76- Which statement is true about magnetic deviation of a
+compass?
+A- Deviation is the same for all aircraft in the same locality.
+B- Deviation varies for different headings ofthe same
+aircraft.
+C- Deviation is different in a given aircraft in different
+localities.
+78- Pitot-static system errors are generally the greatest in
+which range of airspeed?
+A- Low airspeed.
+B- High airspeed.
+C- Maneuvering speed.
+79- Ifa pitot tube is clogged, which instmment would be
+affected?
+A- Altimeter.
+B- Airspeed indicator.
+C- Vertical speed indicator.
+8 I - Which statement is true about the effect of temperature
+changes on the indications ofa sensitive altimeter?
+A- Warmer-than-standard temperatures will place the
+aircraft lower than the altimeter indicates.
+B- Colder-than-standard temperatures will place the aircraft
+lower than the altimeter indicates.
+C- Colder-than-standard temperatures will place the aircraft
+higher than the altimeter indicates.
+82- What precautions should be taken with respect to
+aircraft oxygen systems?
+A- Ensure that only medical oxygen has been used to
+replenish oxygen containers.
+B- Prohibit smoking while in an airoaft equipped with a
+portable oxygen system.
+C- Ensure that industrial oxygen has not been used to
+replenish the system.
+O gpgs 121325
+gliderpilotsgroundschool.com
+303-908-3147

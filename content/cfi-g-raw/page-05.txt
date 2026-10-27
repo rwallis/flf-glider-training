@@ -1,0 +1,114 @@
+Glider Pilots Ground School @
+Flight lnstructor Glider
+OAT
+83- What type ofoxygen system is most commonly found
+in general aviation aircraft?
+A- Demand.
+B- Continuous flow.
+C- Pressue demand.
+84- What type ofoxygen should be used to replenish an
+aircraft oxygen system?
+A- Medical.
+B- Aviation.
+C- lndustrial.
+87- The advantage oftotal energy compensators is that this
+syslem
+A- adds the eflect ofstick thermals to the total energy
+produced by thermals.
+B- reduces climb and dive errors on yariometer indications
+caused by airspeed changes.
+C- compensates for air pressure changes while climbing or
+descending.
+88- Which is true conceming total energy compensators?
+A- The instrument responds only to up and down air
+currents.
+B- The instrument indicates the ayerage rate of climb in a
+thermal.
+C- The instrument reacts to climbs and descents like a
+conventional rate-of-climb indicator.
+89- What is the purpose ofthe rebreather bag on an oxygen
+mask in a continuous-flow system?
+A- Helps to conserve oxygen.
+B- Allows excess oxygen to be expelled during use.
+C- Controls amount of oxygen that each individual breathes
+through the mask.
+90- What airspeed indicator marking identifies the
+maximum structural cruising speed ofan aircraft?
+A- Red radial line.
+B- Upper limit of the green arc.
+C- Upper limit ofthe yellow arc.
+93- Which airspeed is idenrified by color coding on an
+airspeed indicator?
+A- Design maneuvering speed.
+B- Maximum structural cruising speed.
+C- Maximum gear operation or extended speed.
+94- What is an important ahspeed limitation not color
+coded on airspeed indicators?
+A- Maneuvering speed.
+B- Never-exceed speed.
+C- Maximum flaps-extended speed.
+95- (Refer to Figure 24.) Determine the densitv altitude.
+Airport elevation 5,515 ft
+OAT 
+3O'C
+Altimeter setting 29.40" Hg.
+A- 6,000 feet.
+B- 8,450 feet.
+C- 8750 feer.
+96- (Refer to Figure 24.) Determine the density altitude.
+Airport elevation 3,795 ft
+OAT 
+24"C
+Altimeter setting 29.70" Hg.
+A- 5400 feet.
+B- 5750 feet.
+C- 4000 feet.
+97- (Refer to Figure 24.) Determine the density altitude.
+Airport elevation 3,450 ft
+35.C
+Altimeter setting 30.40" Hg.
+A- 3,400 feet.
+B- 6,650 feet.
+C- 5,950 feet.
+98- Density ahitude increases with
+A- an increase in temperature only.
+B- increases in pressure, temperature, and moisture content
+ofthe air.
+C- increases in temperature and moisture content ofthe air,
+and a decrease in pressure.
+99- What would increase the density altitude at a given
+afport?
+A- An increase in at temperature.
+B- A decrease in relative humidity.
+C- An increase in atmospheric pressure.
+l0l- Ifthe atmospheric pressure and temperature remain
+the same, how would an increase in humiditv affect takeoff
+performance?
+A- Longer takeoffdistance; the air is more dense.
+B- Longer takeoffdistance; the air is less dense.
+C- Shorter takeoffdistance; the air is more dense.
+128- The center ofgravity ofan aircraft is computed along
+the
+A- lateral axis.
+B- vertical axis.
+C- longitudinal axis.
+129- The center of gravity ofan aircraft can be determined
+by
+A- dividing total arm by total moments.
+B- dividing total moment by total weight.
+C- multiplying total arm by total weight.
+130- An aircraft is loaded with the CG aft ofthe aff limit.
+What effect will this have on controllability?
+A- Stall and spin recovery may be difticult or impossible.
+B- A stall will occur at a lower airspeed, but recovery will
+be easier because ofreduced wing loading.
+C- A stall will occur at a higher indicated airspeed due to
+the greater downloading on the eleyator.
+l3l- The stalling speed ofan aircraft will be highest when
+the aircraft is loaded with a
+A- high gross weight and aft Cc.
+B- low gross weight and forward CG.
+C- high gross weight and forward CG.
+O gpgs 121325
+gliderpilotsgroundschool.com
+303-908-3147

@@ -1,0 +1,116 @@
+Glider Pilots Ground School @
+Flight lnstructor Glider
+I 9- As airspeed decreases in level flight, total drag of an
+aircraft becomes greater than the total drag produced at the
+maximum liff/drag speed because ofthe
+A- decrease in induced drag.
+B- increase in induced drag.
+C- increase in parasite drag.
+20- The resistance, or skin friction, due to the viscosity of
+the air as it passes along the surface of a wing is called
+A- form drag.
+B- profile drag.
+C- parasite drag.
+2 I - Which relationship is correct when comparing drag and
+ainpeed?
+A- Induced drag increases as the square ofthe airspeed.
+B- Induced drag varies inversely as the square ofthe
+airpeed.
+C- Profile drag varies inversely as the square ofthe
+airspeed.
+22- As the angle ofbank is increased, the vertical
+component of lift
+A- increases and the sink rate increases.
+B- decreases and the sink rate increases.
+C- increases and the sink rate decreases.
+23- Changes in the center ofpressure ofa wing affect the
+aircraft's
+A- liff/drag ratio.
+B- lifting capacity.
+C- aerodynamic batance and controllability.
+24- What action is necessary to make an aircraft tum?
+A- Yaw the aircraft-
+B- Change the dkection of lift.
+C- Change the direction ofthrust.
+25- The angle of attack of a wing directly conhols the
+A- angle of incidurce of the wing.
+B- amount of airflow above and below the wing.
+C- distribution ofpositive and negative pressure acting on
+the wing.
+26- Which statement is true relating to the factors which
+produce stalls?
+A- The critical angle of attack is a firnction ofthe degree of
+bank.
+B- The stalling angle ofattack depords upon the speed of
+the affiow over the wings.
+C- The stalling angle ofattack is independent ofthe speed
+of airflow over the wings.
+27- The qitical angle of attack at which a given aircraft
+stalls is dependent on the
+A- gross weight.
+B- design ofthe wing.
+C- attitude and airspeed.
+28- Ifthe same angle ofattack is maintained in gound
+effect as when out ofground effect, lift will
+A- increase, and induced drag will decrease.
+B- decrease, and parasite drag will increase.
+C- decrease, and paxasite drag will decrease.
+@ gpgs 121325 
+gliderpilotsgroundsdpol.com
+29- It is possible to fly an aircraftjust clear ofthe ground at
+a slightly slower airspeed than that required to sustain level
+flight at higher altitudes. This is the result of
+A- interference ofthe ground surface with the airflow
+patt€ms about the aircraft in flight.
+B- a cushioning effect ofthe air as it is trapped between the
+ground and the descending aircraft.
+C- ground interference with the static pressure system
+which produces false indications on the airspeed indicator.
+30- If severe turbulence is encountered, the aircraft's
+airspeed should be reduced to
+A- maneuvering speed.
+B- normal structural cruising speed.
+C- the minimum steady flight speed in the landing
+configuration.
+32- Which action will result in a stall?
+A- Flying at too low an ainpeed.
+B- Raising the aircraft's nose too high.
+C- Exceeding the critical angle ofattack.
+33- (Refer to Figure 20.) At the airspeed represented by
+point A, in steady flight, the airGaft will
+A- have its maximum liff/drag ratio.
+B- have its minimum liff/drag ratio.
+C- be developing its maximum coefficient of lift.
+34- (Refer to Figure 20.) At an airspeed represented by
+point B, in steady flight, the pilot can expect to obtain the
+aircraft's
+A- maximum coefficient of lift.
+B- minimum coefiicient of lift.
+C- maximum glide range in still air.
+35- Which aircraft characteristics contribute to spiral
+instability?
+A- Weak static directional stability and weak dihe&al
+effect-
+B- Strong static directional stability and weak dihedral
+effect.
+C- Weak static directional stability and strong dihedral
+effect.
+36- The most desirable type ofstability for an aircraft to
+possess is
+A- neutral static stability.
+B- positive static stability.
+C- positive dynamic stability.
+37- The tendency of an aircraft to develop forces that
+further remove the aircraft from its original position, when
+disturbed from a condition of steady flight, is known as
+A- static instability.
+B- dynamic instability.
+C- positive static stability.
+38- Ifthe aircraft's nose initially tends to rehm to its
+original position after the elevator control is pressed
+forward and released, the airmaft displays
+A- positive static stability.
+B- neutral dynamic stability.
+C- negative dynamic stability.
+303908-3147
+55

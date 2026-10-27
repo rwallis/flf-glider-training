@@ -1,0 +1,2341 @@
+{
+  "total": 375,
+  "counts": {
+    "comm_certs": {
+      "title": "Certificates & privileges",
+      "count": 13
+    },
+    "comm_airworthy": {
+      "title": "Airworthiness",
+      "count": 8
+    },
+    "comm_aeromedical": {
+      "title": "Aeromedical & human factors",
+      "count": 18
+    },
+    "comm_scan": {
+      "title": "Scanning & collision avoidance",
+      "count": 7
+    },
+    "comm_aero": {
+      "title": "Principles of flight",
+      "count": 36
+    },
+    "comm_controls": {
+      "title": "Flight controls & devices",
+      "count": 1
+    },
+    "comm_wb": {
+      "title": "Weight & balance",
+      "count": 20
+    },
+    "comm_nav": {
+      "title": "Navigation & flight planning",
+      "count": 15
+    },
+    "comm_regs": {
+      "title": "Regulations & publications",
+      "count": 43
+    },
+    "comm_airspace": {
+      "title": "National Airspace System",
+      "count": 30
+    },
+    "comm_preflight": {
+      "title": "Preflight preparation",
+      "count": 5
+    },
+    "comm_airport": {
+      "title": "Airport & gliderport operations",
+      "count": 7
+    },
+    "comm_tow": {
+      "title": "Aerotow & abnormals",
+      "count": 22
+    },
+    "comm_landings": {
+      "title": "Landings & pattern",
+      "count": 18
+    },
+    "comm_perf": {
+      "title": "Performance airspeeds",
+      "count": 26
+    },
+    "comm_soaring": {
+      "title": "Soaring techniques",
+      "count": 20
+    },
+    "comm_maneuvers": {
+      "title": "Performance maneuvers",
+      "count": 5
+    },
+    "comm_stalls": {
+      "title": "Slow flight, stalls & spins",
+      "count": 14
+    },
+    "comm_emergency": {
+      "title": "Emergency operations",
+      "count": 2
+    },
+    "comm_weather": {
+      "title": "Weather",
+      "count": 58
+    },
+    "comm_systems": {
+      "title": "Systems & instruments",
+      "count": 7
+    }
+  },
+  "assignments": [
+    {
+      "id": "commercial_written_001",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "Notification to the NTSB is required when there has been substantial damage"
+    },
+    {
+      "id": "commercial_written_002",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "NTSB Part 830 requires an immediate notification as a result of which incident?"
+    },
+    {
+      "id": "commercial_written_003",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "Which incident would require that the nearest NTSB field office be notified imme"
+    },
+    {
+      "id": "commercial_written_004",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "When should notification of an aircraft accident be made to the NTSB if there wa"
+    },
+    {
+      "id": "commercial_written_005",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "The operator of an aircraft that has been involved in an incident is required to"
+    },
+    {
+      "id": "commercial_written_006",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "How many days after an accident is a report required to be filed with the neares"
+    },
+    {
+      "id": "commercial_written_007",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "What designated airspace associated with an airport becomes inactive when the co"
+    },
+    {
+      "id": "commercial_written_008",
+      "topic_id": "comm_certs",
+      "title": "Certificates & privileges",
+      "q": "Regulations which refer to \"commercial operators\" relate to that person who"
+    },
+    {
+      "id": "commercial_written_009",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "Which is the correct symbol for the stalling speed or the minimum steady flight "
+    },
+    {
+      "id": "commercial_written_010",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "14 CFR part 1 defines V(NO) as"
+    },
+    {
+      "id": "commercial_written_011",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "14 CFR Part 1 defines V(LE) as"
+    },
+    {
+      "id": "commercial_written_012",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "14 CFR Part 1 defines V(NE) as"
+    },
+    {
+      "id": "commercial_written_013",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "Commercial pilots are required to have a valid and appropriate pilot certificate"
+    },
+    {
+      "id": "commercial_written_014",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "Which of the following are considered aircraft class ratings?"
+    },
+    {
+      "id": "commercial_written_015",
+      "topic_id": "comm_certs",
+      "title": "Certificates & privileges",
+      "q": "Does a commercial pilot certificate have a specific expiration date?"
+    },
+    {
+      "id": "commercial_written_016",
+      "topic_id": "comm_certs",
+      "title": "Certificates & privileges",
+      "q": "What flight time must be documented and recorded by a pilot exercising the privi"
+    },
+    {
+      "id": "commercial_written_017",
+      "topic_id": "comm_certs",
+      "title": "Certificates & privileges",
+      "q": "To act as pilot in command of an aircraft under 14 CFR Part 91, a commercial pil"
+    },
+    {
+      "id": "commercial_written_018",
+      "topic_id": "comm_certs",
+      "title": "Certificates & privileges",
+      "q": "Pilots who change their permanent mailing address and fail to notify the FAA Air"
+    },
+    {
+      "id": "commercial_written_019",
+      "topic_id": "comm_certs",
+      "title": "Certificates & privileges",
+      "q": "To act as pilot in command of an airplane towing a glider, the tow pilot is requ"
+    },
+    {
+      "id": "commercial_written_020",
+      "topic_id": "comm_certs",
+      "title": "Certificates & privileges",
+      "q": "To act as pilot in command of an airplane towing a glider, a pilot must have acc"
+    },
+    {
+      "id": "commercial_written_021",
+      "topic_id": "comm_certs",
+      "title": "Certificates & privileges",
+      "q": "What is the minimum age requirement for a person to be issued a commercial pilot"
+    },
+    {
+      "id": "commercial_written_022",
+      "topic_id": "comm_certs",
+      "title": "Certificates & privileges",
+      "q": "To exercise the privileges of a commercial pilot certificate with a glider categ"
+    },
+    {
+      "id": "commercial_written_023",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "Excluding Hawaii, the vertical limits of the Federal Low Altitude airways extend"
+    },
+    {
+      "id": "commercial_written_024",
+      "topic_id": "comm_landings",
+      "title": "Landings & pattern",
+      "q": "What action must be taken when a pilot in command deviates from any rule in 14 C"
+    },
+    {
+      "id": "commercial_written_025",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "Who is responsible for determining if an aircraft is in condition for safe fligh"
+    },
+    {
+      "id": "commercial_written_026",
+      "topic_id": "comm_preflight",
+      "title": "Preflight preparation",
+      "q": "When operating a U.S.-registered civil aircraft, which document is required by r"
+    },
+    {
+      "id": "commercial_written_027",
+      "topic_id": "comm_preflight",
+      "title": "Preflight preparation",
+      "q": "When operating a U.S.-registered civil aircraft, which document is required by r"
+    },
+    {
+      "id": "commercial_written_028",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "A pilot in command (PIC) of a civil aircraft may not allow any object to be drop"
+    },
+    {
+      "id": "commercial_written_029",
+      "topic_id": "comm_certs",
+      "title": "Certificates & privileges",
+      "q": "When is preflight action required, relative to alternatives available, if the pl"
+    },
+    {
+      "id": "commercial_written_030",
+      "topic_id": "comm_landings",
+      "title": "Landings & pattern",
+      "q": "Required flight crewmembers’ safety belts must be fastened"
+    },
+    {
+      "id": "commercial_written_031",
+      "topic_id": "comm_landings",
+      "title": "Landings & pattern",
+      "q": "Each required flight crewmember is required to keep his or her shoulder harness "
+    },
+    {
+      "id": "commercial_written_032",
+      "topic_id": "comm_tow",
+      "title": "Aerotow & abnormals",
+      "q": "GIVEN: Glider’s maximum certificated operating weight is 1,140 lb. Towline break"
+    },
+    {
+      "id": "commercial_written_033",
+      "topic_id": "comm_tow",
+      "title": "Aerotow & abnormals",
+      "q": "During aerotow of a glider that weighs 940 pounds, which towrope tensile strengt"
+    },
+    {
+      "id": "commercial_written_034",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "In accordance with 14 CFR Part 91, supplemental oxygen must be used by the requi"
+    },
+    {
+      "id": "commercial_written_035",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "What are the oxygen requirements when operating at cabin pressure altitudes abov"
+    },
+    {
+      "id": "commercial_written_036",
+      "topic_id": "comm_certs",
+      "title": "Certificates & privileges",
+      "q": "The carriage of passengers for hire by a commercial pilot is"
+    },
+    {
+      "id": "commercial_written_037",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "Which is true with respect to formation flights? Formation flights are"
+    },
+    {
+      "id": "commercial_written_038",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "Which is true with respect to operating near other aircraft in flight? They are"
+    },
+    {
+      "id": "commercial_written_039",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "Which is true with respect to formation flights? Formation flights are"
+    },
+    {
+      "id": "commercial_written_040",
+      "topic_id": "comm_landings",
+      "title": "Landings & pattern",
+      "q": "Two aircraft of the same category are approaching an airport for the purpose of "
+    },
+    {
+      "id": "commercial_written_041",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "What is the minimum altitude and flight visibility required for acrobatic flight"
+    },
+    {
+      "id": "commercial_written_042",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "Which is true regarding flight operations in Class B airspace?"
+    },
+    {
+      "id": "commercial_written_043",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "Which is true regarding pilot certification requirements for operations in Class"
+    },
+    {
+      "id": "commercial_written_044",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "Which is true regarding flight operations in Class B airspace?"
+    },
+    {
+      "id": "commercial_written_045",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "The minimum flight visibility for VFR flight increases to 5 statute miles beginn"
+    },
+    {
+      "id": "commercial_written_046",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "When flying a glider above 10,000 feet MSL and more than 1,200 feet AGL, what mi"
+    },
+    {
+      "id": "commercial_written_047",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "What is the minimum flight visibility and proximity to cloud requirements for VF"
+    },
+    {
+      "id": "commercial_written_048",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "Which minimum flight visibility and distance from clouds is required for a day V"
+    },
+    {
+      "id": "commercial_written_049",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "Who is primarily responsible for maintaining an aircraft in an airworthy conditi"
+    },
+    {
+      "id": "commercial_written_050",
+      "topic_id": "comm_airworthy",
+      "title": "Airworthiness",
+      "q": "Assuring compliance with an Airworthiness Directive is the responsibility of the"
+    },
+    {
+      "id": "commercial_written_051",
+      "topic_id": "comm_preflight",
+      "title": "Preflight preparation",
+      "q": "After an annual inspection has been completed and the aircraft has been returned"
+    },
+    {
+      "id": "commercial_written_052",
+      "topic_id": "comm_airworthy",
+      "title": "Airworthiness",
+      "q": "A standard airworthiness certificate remains in effect as long as the aircraft r"
+    },
+    {
+      "id": "commercial_written_053",
+      "topic_id": "comm_certs",
+      "title": "Certificates & privileges",
+      "q": "If an aircraft’s operation in flight was substantially affected by an alteration"
+    },
+    {
+      "id": "commercial_written_054",
+      "topic_id": "comm_preflight",
+      "title": "Preflight preparation",
+      "q": "Which is correct concerning preventive maintenance, when accomplished by a pilot"
+    },
+    {
+      "id": "commercial_written_055",
+      "topic_id": "comm_airworthy",
+      "title": "Airworthiness",
+      "q": "An aircraft carrying passengers for hire has been on a schedule of inspection ev"
+    },
+    {
+      "id": "commercial_written_056",
+      "topic_id": "comm_airworthy",
+      "title": "Airworthiness",
+      "q": "Which is true concerning required maintenance inspections?"
+    },
+    {
+      "id": "commercial_written_057",
+      "topic_id": "comm_airworthy",
+      "title": "Airworthiness",
+      "q": "Aircraft maintenance records must include the current status of the"
+    },
+    {
+      "id": "commercial_written_058",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "Which is true relating to Airworthiness Directives (ADs)?"
+    },
+    {
+      "id": "commercial_written_059",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "What person is directly responsible for the final authority as to the operation "
+    },
+    {
+      "id": "commercial_written_060",
+      "topic_id": "comm_landings",
+      "title": "Landings & pattern",
+      "q": "Operating regulations for U.S.-registered civil airplanes require that during mo"
+    },
+    {
+      "id": "commercial_written_061",
+      "topic_id": "comm_landings",
+      "title": "Landings & pattern",
+      "q": "Operating regulations for U.S.-registered civil helicopters require that during "
+    },
+    {
+      "id": "commercial_written_062",
+      "topic_id": "comm_airport",
+      "title": "Airport & gliderport operations",
+      "q": "What altimeter setting is required when operating an aircraft at 18,000 feet MSL"
+    },
+    {
+      "id": "commercial_written_063",
+      "topic_id": "comm_emergency",
+      "title": "Emergency operations",
+      "q": "After an ATC clearance has been obtained, a pilot may not deviate from that clea"
+    },
+    {
+      "id": "commercial_written_064",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "When operating an aircraft in the vicinity of an airport with an operating contr"
+    },
+    {
+      "id": "commercial_written_065",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "When approaching to land at an airport with an ATC facility, in Class D airspace"
+    },
+    {
+      "id": "commercial_written_066",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "Which is true regarding flight operations to or from a satellite airport, withou"
+    },
+    {
+      "id": "commercial_written_067",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "Which is true regarding flight operations to or from a satellite airport, withou"
+    },
+    {
+      "id": "commercial_written_068",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "Which is true regarding flight operations in Class A airspace?"
+    },
+    {
+      "id": "commercial_written_069",
+      "topic_id": "comm_certs",
+      "title": "Certificates & privileges",
+      "q": "A person with a commercial pilot certificate may act as pilot in command of an a"
+    },
+    {
+      "id": "commercial_written_070",
+      "topic_id": "comm_tow",
+      "title": "Aerotow & abnormals",
+      "q": "To act as pilot in command of a glider, using self- launch procedures, that pers"
+    },
+    {
+      "id": "commercial_written_071",
+      "topic_id": "comm_airworthy",
+      "title": "Airworthiness",
+      "q": "No person may operate an aircraft that has an experimental airworthiness certifi"
+    },
+    {
+      "id": "commercial_written_072",
+      "topic_id": "comm_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "A pilot convicted of operating a motor vehicle while either intoxicated by, impa"
+    },
+    {
+      "id": "commercial_written_073",
+      "topic_id": "comm_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "A pilot convicted of a motor vehicle offense involving alcohol or drugs is requi"
+    },
+    {
+      "id": "commercial_written_074",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "A pilot convicted for the violation of any Federal or State statute relating to "
+    },
+    {
+      "id": "commercial_written_075",
+      "topic_id": "comm_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "A pilot convicted of operating an aircraft as a crewmember under the influence o"
+    },
+    {
+      "id": "commercial_written_076",
+      "topic_id": "comm_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "The ratio between the total air load imposed on the wing and the gross weight of"
+    },
+    {
+      "id": "commercial_written_077",
+      "topic_id": "comm_wb",
+      "title": "Weight & balance",
+      "q": "Load factor is the lift generated by the wings of an aircraft at any given time"
+    },
+    {
+      "id": "commercial_written_078",
+      "topic_id": "comm_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "For a given angle of bank, in any airplane, the load factor imposed in a coordin"
+    },
+    {
+      "id": "commercial_written_079",
+      "topic_id": "comm_wb",
+      "title": "Weight & balance",
+      "q": "Airplane wing loading during a level coordinated turn in smooth air depends upon"
+    },
+    {
+      "id": "commercial_written_080",
+      "topic_id": "comm_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "In a rapid recovery from a dive, the effects of load factor would cause the stal"
+    },
+    {
+      "id": "commercial_written_081",
+      "topic_id": "comm_wb",
+      "title": "Weight & balance",
+      "q": "If.an aircraft with a gross weight of 2,000 pounds was subjected to a 60° consta"
+    },
+    {
+      "id": "commercial_written_082",
+      "topic_id": "comm_maneuvers",
+      "title": "Performance maneuvers",
+      "q": "While maintaining a constant angle of bank and altitude in a coordinated turn, a"
+    },
+    {
+      "id": "commercial_written_083",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "Lift on a wing is most properly defined as the"
+    },
+    {
+      "id": "commercial_written_084",
+      "topic_id": "comm_maneuvers",
+      "title": "Performance maneuvers",
+      "q": "While holding the angle of bank constant in a level turn, if the rate of turn is"
+    },
+    {
+      "id": "commercial_written_085",
+      "topic_id": "comm_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "The need to slow an aircraft below V(A) is brought about by the following weathe"
+    },
+    {
+      "id": "commercial_written_086",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "In theory, if the airspeed of an airplane is doubled while in level flight, para"
+    },
+    {
+      "id": "commercial_written_087",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "Which statement is true relative to changing angle of attack?"
+    },
+    {
+      "id": "commercial_written_088",
+      "topic_id": "comm_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "Which airspeed would a pilot be unable to identify by the color coding of an air"
+    },
+    {
+      "id": "commercial_written_089",
+      "topic_id": "comm_nav",
+      "title": "Navigation & flight planning",
+      "q": "Which statement is true about magnetic deviation of a compass? Deviation"
+    },
+    {
+      "id": "commercial_written_090",
+      "topic_id": "comm_landings",
+      "title": "Landings & pattern",
+      "q": "One of the main functions of flaps during the approach and landing is to"
+    },
+    {
+      "id": "commercial_written_091",
+      "topic_id": "comm_maneuvers",
+      "title": "Performance maneuvers",
+      "q": "To increase the rate of turn and at the same time decrease the radius, a pilot s"
+    },
+    {
+      "id": "commercial_written_092",
+      "topic_id": "comm_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "A rectangular wing, as compared to other wing planforms, has a tendency to stall"
+    },
+    {
+      "id": "commercial_written_093",
+      "topic_id": "comm_wb",
+      "title": "Weight & balance",
+      "q": "By changing the angle of attack of a wing, the pilot can control the airplane’s"
+    },
+    {
+      "id": "commercial_written_094",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "The angle of attack of a wing directly controls the"
+    },
+    {
+      "id": "commercial_written_095",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "In theory, if the angle of attack and other factors remain constant and the airs"
+    },
+    {
+      "id": "commercial_written_096",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "An aircraft wing is designed to produce lift resulting from a difference in the"
+    },
+    {
+      "id": "commercial_written_097",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "On a wing, the force of lift acts perpendicular to and the force of drag acts pa"
+    },
+    {
+      "id": "commercial_written_098",
+      "topic_id": "comm_maneuvers",
+      "title": "Performance maneuvers",
+      "q": "The angle of attack at which a wing stalls remains constant regardless of"
+    },
+    {
+      "id": "commercial_written_099",
+      "topic_id": "comm_nav",
+      "title": "Navigation & flight planning",
+      "q": "At higher elevation airports the pilot should know that indicated airspeed"
+    },
+    {
+      "id": "commercial_written_100",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "If the same angle of attack is maintained in ground effect as when out of ground"
+    },
+    {
+      "id": "commercial_written_101",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "Which is true regarding the forces acting on an aircraft in a steady-state desce"
+    },
+    {
+      "id": "commercial_written_102",
+      "topic_id": "comm_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "Which is true regarding the force of lift in steady, unaccelerated flight?"
+    },
+    {
+      "id": "commercial_written_103",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "(Refer to Figure 4.) What increase in load factor would take place if the angle "
+    },
+    {
+      "id": "commercial_written_104",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "As the angle of bank is increased, the vertical component of lift"
+    },
+    {
+      "id": "commercial_written_105",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "Longitudinal dynamic instability in an airplane can be identified by"
+    },
+    {
+      "id": "commercial_written_106",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "(Refer to Figure 5.) The horizontal dashed line from point C to point E represen"
+    },
+    {
+      "id": "commercial_written_107",
+      "topic_id": "comm_systems",
+      "title": "Systems & instruments",
+      "q": "(Refer to Figure 5.) The vertical line from point E to point F is represented on"
+    },
+    {
+      "id": "commercial_written_108",
+      "topic_id": "comm_systems",
+      "title": "Systems & instruments",
+      "q": "(Refer to Figure 5.) The vertical line from point D to point G is represented on"
+    },
+    {
+      "id": "commercial_written_109",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "When the angle of attack of a symmetrical airfoil is increased, the center of pr"
+    },
+    {
+      "id": "commercial_written_110",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "How can you determine if another aircraft is on a collision course with your air"
+    },
+    {
+      "id": "commercial_written_111",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "Which is true regarding electric variometers?"
+    },
+    {
+      "id": "commercial_written_112",
+      "topic_id": "comm_systems",
+      "title": "Systems & instruments",
+      "q": "Which is true regarding variometers?"
+    },
+    {
+      "id": "commercial_written_113",
+      "topic_id": "comm_systems",
+      "title": "Systems & instruments",
+      "q": "Which is true concerning total energy compensators? The instrument"
+    },
+    {
+      "id": "commercial_written_114",
+      "topic_id": "comm_landings",
+      "title": "Landings & pattern",
+      "q": "The purpose of wing spoilers is to decrease"
+    },
+    {
+      "id": "commercial_written_115",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "That portion of the glider’s total drag created by the production of lift is cal"
+    },
+    {
+      "id": "commercial_written_116",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "The best L/D ratio of a glider occurs when parasite drag is"
+    },
+    {
+      "id": "commercial_written_117",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "A glider is designed for an L/D ratio of 22:1 at 50 MPH in calm air. What would "
+    },
+    {
+      "id": "commercial_written_118",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "Which is true regarding aerodynamic drag?"
+    },
+    {
+      "id": "commercial_written_119",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "At a given airspeed, what effect will an increase in air density have on lift an"
+    },
+    {
+      "id": "commercial_written_120",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "Both lift and drag would be increased when which of these devices are extended?"
+    },
+    {
+      "id": "commercial_written_121",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "If the airspeed of a glider is increased from 45 MPH to 90 MPH, the parasite dra"
+    },
+    {
+      "id": "commercial_written_122",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "If the indicated airspeed of a glider is decreased from 90 MPH to 45 MPH, the in"
+    },
+    {
+      "id": "commercial_written_123",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "Which is true regarding wing camber of a glider’s airfoil? The camber is"
+    },
+    {
+      "id": "commercial_written_124",
+      "topic_id": "comm_maneuvers",
+      "title": "Performance maneuvers",
+      "q": "If the glider’s radius of turn is 175 feet at 40 MPH, what would the radius of t"
+    },
+    {
+      "id": "commercial_written_125",
+      "topic_id": "comm_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "In regard to the location of the glider’s CG and its effect on glider spin chara"
+    },
+    {
+      "id": "commercial_written_126",
+      "topic_id": "comm_wb",
+      "title": "Weight & balance",
+      "q": "The CG of most gliders is located"
+    },
+    {
+      "id": "commercial_written_127",
+      "topic_id": "comm_wb",
+      "title": "Weight & balance",
+      "q": "Loading a glider so that the CG exceeds the aft limits results in"
+    },
+    {
+      "id": "commercial_written_128",
+      "topic_id": "comm_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "With regard to the effects of spoilers and wing flaps, which is true if the glid"
+    },
+    {
+      "id": "commercial_written_129",
+      "topic_id": "comm_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "If the angle of attack is increased beyond the critical angle of attack, the win"
+    },
+    {
+      "id": "commercial_written_130",
+      "topic_id": "comm_controls",
+      "title": "Flight controls & devices",
+      "q": "What force causes the glider to turn in flight?"
+    },
+    {
+      "id": "commercial_written_131",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "GIVEN: Glider A-Wingspan- 51 ft. Average wing chord - 4 ft. Glider B- Wingspan- "
+    },
+    {
+      "id": "commercial_written_132",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "GIVEN: Glider A Wingspan - 48 ft. Average wing chord-4.5ft Glider B Wingspan - 5"
+    },
+    {
+      "id": "commercial_written_133",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "The best L/D ratio of a glider is a value that"
+    },
+    {
+      "id": "commercial_written_134",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "A glide ratio of 22:1 with respect to the air mass will be"
+    },
+    {
+      "id": "commercial_written_135",
+      "topic_id": "comm_systems",
+      "title": "Systems & instruments",
+      "q": "The advantage of total energy compensators is that this system"
+    },
+    {
+      "id": "commercial_written_136",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Every physical process of weather is accompanied by or is the result of"
+    },
+    {
+      "id": "commercial_written_137",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "What is the standard temperature at 10,000 feet?"
+    },
+    {
+      "id": "commercial_written_138",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "What is the standard temperature at 20,000 feet?"
+    },
+    {
+      "id": "commercial_written_139",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Which conditions are favorable for the formation of a surface based temperature "
+    },
+    {
+      "id": "commercial_written_140",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "What are the standard temperature and pressure values for sea level?"
+    },
+    {
+      "id": "commercial_written_141",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "What causes wind?"
+    },
+    {
+      "id": "commercial_written_142",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "In the Northern Hemisphere, the wind is deflected to the"
+    },
+    {
+      "id": "commercial_written_143",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Why does the wind have a tendency to flow parallel to the isobars above the fric"
+    },
+    {
+      "id": "commercial_written_144",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "The wind system associated with a low-pressure area in the Northern Hemisphere i"
+    },
+    {
+      "id": "commercial_written_145",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "With regard to wind flow patterns shown on surface analysis charts; when the iso"
+    },
+    {
+      "id": "commercial_written_146",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "What prevents air from flowing directly from high-pressure areas to low-pressure"
+    },
+    {
+      "id": "commercial_written_147",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Which is true with respect to a high- or low- pressure system?"
+    },
+    {
+      "id": "commercial_written_148",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Which is true regarding high- or low-pressure systems?"
+    },
+    {
+      "id": "commercial_written_149",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Which is true regarding actual air temperature and dewpoint temperature spread? "
+    },
+    {
+      "id": "commercial_written_150",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "The general circulation of air associated with a high-pressure area in the North"
+    },
+    {
+      "id": "commercial_written_151",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Virga is best described as"
+    },
+    {
+      "id": "commercial_written_152",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "Moisture is added to a parcel of air by"
+    },
+    {
+      "id": "commercial_written_153",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "When conditionally unstable air with high- moisture content and very warm surfac"
+    },
+    {
+      "id": "commercial_written_154",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "What is the approximate base of the cumulus clouds if the temperature at 2,000 f"
+    },
+    {
+      "id": "commercial_written_155",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "If clouds form as a result of very stable, moist air being forced to ascend a mo"
+    },
+    {
+      "id": "commercial_written_156",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "What determines the structure or type of clouds which will form as a result of a"
+    },
+    {
+      "id": "commercial_written_157",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Refer to the excerpt from the following METAR report: |KTUS.....08004KT 4SM HZ ."
+    },
+    {
+      "id": "commercial_written_158",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "What are the characteristics of stable air?"
+    },
+    {
+      "id": "commercial_written_159",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Which would decrease the stability of an air mass?"
+    },
+    {
+      "id": "commercial_written_160",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "From which measurement of the atmosphere can stability be determined?"
+    },
+    {
+      "id": "commercial_written_161",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "What type of weather can one expect from moist. unstable air, and very warm surf"
+    },
+    {
+      "id": "commercial_written_162",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Which would increase the stability of an air mass?"
+    },
+    {
+      "id": "commercial_written_163",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "The conditions necessary for the formation of stratiform clouds are a lifting ac"
+    },
+    {
+      "id": "commercial_written_164",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Which cloud types would indicate convective turbulence?"
+    },
+    {
+      "id": "commercial_written_165",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "The presence of standing lenticular altocumulus clouds is a good indication of"
+    },
+    {
+      "id": "commercial_written_166",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "The formation of either predominantly stratiform or predominantly cumuliform clo"
+    },
+    {
+      "id": "commercial_written_167",
+      "topic_id": "comm_soaring",
+      "title": "Soaring techniques",
+      "q": "Which combination of weather-producing variables would likely result in cumulifo"
+    },
+    {
+      "id": "commercial_written_168",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "What is a characteristic of stable air?"
+    },
+    {
+      "id": "commercial_written_169",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "A moist, unstable air mass is characterized by"
+    },
+    {
+      "id": "commercial_written_170",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "When an air mass is stable, which of these conditions are most likely to exist?"
+    },
+    {
+      "id": "commercial_written_171",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Which is a characteristic of stable air?"
+    },
+    {
+      "id": "commercial_written_172",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Which is a characteristic typical of a stable air mass?"
+    },
+    {
+      "id": "commercial_written_173",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Which are characteristics of a cold air mass moving over a warm surface?"
+    },
+    {
+      "id": "commercial_written_174",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "The conditions necessary for the formation of cumulonimbus clouds are a lifting "
+    },
+    {
+      "id": "commercial_written_175",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Fog produced by frontal activity is a result of saturation due to"
+    },
+    {
+      "id": "commercial_written_176",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "What is an important characteristic of wind shear?"
+    },
+    {
+      "id": "commercial_written_177",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Hazardous wind shear is commonly encountered"
+    },
+    {
+      "id": "commercial_written_178",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Low-level wind shear may occur when"
+    },
+    {
+      "id": "commercial_written_179",
+      "topic_id": "comm_landings",
+      "title": "Landings & pattern",
+      "q": "If a temperature inversion is encountered immediately after takeoff or during an"
+    },
+    {
+      "id": "commercial_written_180",
+      "topic_id": "comm_landings",
+      "title": "Landings & pattern",
+      "q": "GIVEN: Winds at 3,000 feet AGL - 30 kts. Surface winds — Calm. While on approach"
+    },
+    {
+      "id": "commercial_written_181",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "Convective currents are most active on warm summer afternoons when winds are"
+    },
+    {
+      "id": "commercial_written_182",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "When flying low over hilly terrain, ridges, or mountain ranges, the greatest pot"
+    },
+    {
+      "id": "commercial_written_183",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Which statement is true concerning the hazards of hail?"
+    },
+    {
+      "id": "commercial_written_184",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Hail is most likely to be associated with"
+    },
+    {
+      "id": "commercial_written_185",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "The most severe weather conditions, such as destructive winds, heavy hail, and t"
+    },
+    {
+      "id": "commercial_written_186",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Of the following, which is accurate regarding turbulence associated with thunder"
+    },
+    {
+      "id": "commercial_written_187",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Which statement is true regarding squall lines?"
+    },
+    {
+      "id": "commercial_written_188",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Which statement is true concerning squall lines?"
+    },
+    {
+      "id": "commercial_written_189",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Select the true statement pertaining to the life cycle of a thunderstorm."
+    },
+    {
+      "id": "commercial_written_190",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "What visible signs indicate extreme turbulence in thunderstorms?"
+    },
+    {
+      "id": "commercial_written_191",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Which weather phenomenon signals the beginning of the mature stage of a thunders"
+    },
+    {
+      "id": "commercial_written_192",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "What feature is normally associated with the cumulus stage of a thunderstorm?"
+    },
+    {
+      "id": "commercial_written_193",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "During the life cycle of a thunderstorm, which stage is characterized predominat"
+    },
+    {
+      "id": "commercial_written_194",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "A situation most conducive to the formation of advection fog is"
+    },
+    {
+      "id": "commercial_written_195",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Advection fog has drifted over a coastal airport during the day. What may tend t"
+    },
+    {
+      "id": "commercial_written_196",
+      "topic_id": "comm_soaring",
+      "title": "Soaring techniques",
+      "q": "Select the true statement concerning thermals."
+    },
+    {
+      "id": "commercial_written_197",
+      "topic_id": "comm_soaring",
+      "title": "Soaring techniques",
+      "q": "A thermal column is rising from an asphalt parking lot and the wind is from the "
+    },
+    {
+      "id": "commercial_written_198",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "Which is true regarding the development of convective circulation?"
+    },
+    {
+      "id": "commercial_written_199",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "Which is generally true when comparing the rate of vertical motion of updrafts w"
+    },
+    {
+      "id": "commercial_written_200",
+      "topic_id": "comm_soaring",
+      "title": "Soaring techniques",
+      "q": "Which thermal index would predict the best probability of good soaring condition"
+    },
+    {
+      "id": "commercial_written_201",
+      "topic_id": "comm_soaring",
+      "title": "Soaring techniques",
+      "q": "Which is true regarding the effect of fronts on soaring conditions?"
+    },
+    {
+      "id": "commercial_written_202",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "Convective circulation patterns associated with sea breezes are caused by"
+    },
+    {
+      "id": "commercial_written_203",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "The conditions most favorable to wave formation over mountainous areas are a lay"
+    },
+    {
+      "id": "commercial_written_204",
+      "topic_id": "comm_soaring",
+      "title": "Soaring techniques",
+      "q": "When soaring in the vicinity of mountain ranges the greatest potential danger fr"
+    },
+    {
+      "id": "commercial_written_205",
+      "topic_id": "comm_soaring",
+      "title": "Soaring techniques",
+      "q": "Which is true regarding ridge soaring with the wind direction perpendicular to t"
+    },
+    {
+      "id": "commercial_written_206",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "(Refer to Figure 6.) With regard to the soundings taken at 1400 hours, between w"
+    },
+    {
+      "id": "commercial_written_207",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "(Refer to Figure 6.) With regard to the soundings taken at 0900 hours, from 2,50"
+    },
+    {
+      "id": "commercial_written_208",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Which provides a graphic display of both VFR and IFR weather?"
+    },
+    {
+      "id": "commercial_written_210",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "The difference found by subtracting the temperature of a parcel of air theoretic"
+    },
+    {
+      "id": "commercial_written_211",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "One of the most dangerous features of mountain waves is the turbulent areas in a"
+    },
+    {
+      "id": "commercial_written_212",
+      "topic_id": "comm_nav",
+      "title": "Navigation & flight planning",
+      "q": "True course measurements on a Sectional Aeronautical Chart should be made at a m"
+    },
+    {
+      "id": "commercial_written_213",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "Which is true concerning the blue and magenta colors used to depict airports on "
+    },
+    {
+      "id": "commercial_written_214",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "(Refer to Figure 52, point 1.) The floor of the Class E airspace above Georgetow"
+    },
+    {
+      "id": "commercial_written_215",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "(Refer to Figure 52, point 7.) The floor of Class E airspace over the town of Wo"
+    },
+    {
+      "id": "commercial_written_216",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "(Refer to Figure 52, point 5.) The floor of the Class E airspace over University"
+    },
+    {
+      "id": "commercial_written_217",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "(Refer to Figure 52, point 8.) The floor of the Class E airspace over the town o"
+    },
+    {
+      "id": "commercial_written_218",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "(Refer to Figure 53, point 1.) This thin black shaded line is most likely"
+    },
+    {
+      "id": "commercial_written_219",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "(Refer to Figure 53, point 2.) The 1/6 indicates"
+    },
+    {
+      "id": "commercial_written_220",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "(Refer to Figure 54, point 1.) What minimum altitude is required to avoid the Li"
+    },
+    {
+      "id": "commercial_written_221",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "(Refer to Figure 52, point 9.) An alert area is an area in which"
+    },
+    {
+      "id": "commercial_written_222",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "When a dashed blue circle surrounds an airport on a sectional aeronautical chart"
+    },
+    {
+      "id": "commercial_written_223",
+      "topic_id": "comm_systems",
+      "title": "Systems & instruments",
+      "q": "Calibrated airspeed is best described as indicated airspeed corrected for"
+    },
+    {
+      "id": "commercial_written_224",
+      "topic_id": "comm_systems",
+      "title": "Systems & instruments",
+      "q": "True airspeed is best described as calibrated airspeed corrected for"
+    },
+    {
+      "id": "commercial_written_225",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "Why should flight speeds above V(NE) be avoided?"
+    },
+    {
+      "id": "commercial_written_226",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "Maximum structural cruising speed is the maximum speed at which an airplane can "
+    },
+    {
+      "id": "commercial_written_227",
+      "topic_id": "comm_nav",
+      "title": "Navigation & flight planning",
+      "q": "In the Northern Hemisphere, if a sailplane is accelerated or decelerated, the ma"
+    },
+    {
+      "id": "commercial_written_228",
+      "topic_id": "comm_soaring",
+      "title": "Soaring techniques",
+      "q": "When flying on a heading west from one thermal to the next, the airspeed is incr"
+    },
+    {
+      "id": "commercial_written_229",
+      "topic_id": "comm_wb",
+      "title": "Weight & balance",
+      "q": "If all index units are positive when computing weight and balance, the location "
+    },
+    {
+      "id": "commercial_written_230",
+      "topic_id": "comm_wb",
+      "title": "Weight & balance",
+      "q": "The CG of an aircraft can be determined by which of the following methods?"
+    },
+    {
+      "id": "commercial_written_231",
+      "topic_id": "comm_wb",
+      "title": "Weight & balance",
+      "q": "The CG of an aircraft may be determined by"
+    },
+    {
+      "id": "commercial_written_232",
+      "topic_id": "comm_wb",
+      "title": "Weight & balance",
+      "q": "GIVEN: Weight A: 155 pounds at 45 inches aft of datum. Weight B: 165 pounds at 1"
+    },
+    {
+      "id": "commercial_written_233",
+      "topic_id": "comm_wb",
+      "title": "Weight & balance",
+      "q": "GIVEN: Weight A: 140 pounds at 17 inches aft of datum. Weight B: 120 pounds at 1"
+    },
+    {
+      "id": "commercial_written_234",
+      "topic_id": "comm_wb",
+      "title": "Weight & balance",
+      "q": "GIVEN: Weight A: 135 pounds at 15 inches aft of datum. Weight B: 205 pounds at 1"
+    },
+    {
+      "id": "commercial_written_235",
+      "topic_id": "comm_wb",
+      "title": "Weight & balance",
+      "q": "GIVEN: Weight A: 175 pounds at 135 inches aft of datum. Weight B: 135 pounds at "
+    },
+    {
+      "id": "commercial_written_236",
+      "topic_id": "comm_wb",
+      "title": "Weight & balance",
+      "q": "(Refer to Figure 36.) GIVEN: Empty weight 610 96.47 Pilot (fwd seat) 150 ? Passe"
+    },
+    {
+      "id": "commercial_written_237",
+      "topic_id": "comm_wb",
+      "title": "Weight & balance",
+      "q": "(Refer to Figure 36.) GIVEN: WEIGHT ARM MOMENT Empty weight 612 96.47 i Pilot (f"
+    },
+    {
+      "id": "commercial_written_238",
+      "topic_id": "comm_wb",
+      "title": "Weight & balance",
+      "q": "(Refer to Figure 36.) GIVEN: WEIGHT ARM MOMENT Empty weight 605 96.47 a Pilot (f"
+    },
+    {
+      "id": "commercial_written_239",
+      "topic_id": "comm_wb",
+      "title": "Weight & balance",
+      "q": "GIVEN: WEIGHT ARM MOMENT Empty weight 957 29.07 4 Pilot (fwd seat) 140 -45.30 ? "
+    },
+    {
+      "id": "commercial_written_240",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "To determine pressure altitude prior to takeoff, the altimeter should be set to"
+    },
+    {
+      "id": "commercial_written_241",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "(Refer to Figure 6.) At the 0900 hours sounding and the line plotted from the su"
+    },
+    {
+      "id": "commercial_written_242",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "(Refer to Figure 6.) At the soundings taken at 1400 hours, is the atmosphere sta"
+    },
+    {
+      "id": "commercial_written_243",
+      "topic_id": "comm_soaring",
+      "title": "Soaring techniques",
+      "q": "Which thermal index would predict the best probability of good soaring condition"
+    },
+    {
+      "id": "commercial_written_244",
+      "topic_id": "comm_soaring",
+      "title": "Soaring techniques",
+      "q": "Which is true regarding the effect of fronts on soaring conditions?"
+    },
+    {
+      "id": "commercial_written_245",
+      "topic_id": "comm_soaring",
+      "title": "Soaring techniques",
+      "q": "Which is true regarding ridge soaring with the wind direction perpendicular to t"
+    },
+    {
+      "id": "commercial_written_246",
+      "topic_id": "comm_scan",
+      "title": "Scanning & collision avoidance",
+      "q": "Choose the correct statement regarding wake turbulence."
+    },
+    {
+      "id": "commercial_written_247",
+      "topic_id": "comm_scan",
+      "title": "Scanning & collision avoidance",
+      "q": "During a takeoff made behind a departing large jet airplane, the pilot can minim"
+    },
+    {
+      "id": "commercial_written_248",
+      "topic_id": "comm_scan",
+      "title": "Scanning & collision avoidance",
+      "q": "Which procedure should you follow to avoid wake turbulence if a large jet crosse"
+    },
+    {
+      "id": "commercial_written_249",
+      "topic_id": "comm_scan",
+      "title": "Scanning & collision avoidance",
+      "q": "To avoid possible wake turbulence from a large jet aircraft that has just landed"
+    },
+    {
+      "id": "commercial_written_250",
+      "topic_id": "comm_scan",
+      "title": "Scanning & collision avoidance",
+      "q": "When landing behind a large aircraft, which procedure should be followed for vor"
+    },
+    {
+      "id": "commercial_written_251",
+      "topic_id": "comm_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "As hyperventilation progresses, a pilot can experience"
+    },
+    {
+      "id": "commercial_written_252",
+      "topic_id": "comm_scan",
+      "title": "Scanning & collision avoidance",
+      "q": "To scan properly for traffic, a pilot should"
+    },
+    {
+      "id": "commercial_written_253",
+      "topic_id": "comm_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "Which is a common symptom of hyperventilation?"
+    },
+    {
+      "id": "commercial_written_254",
+      "topic_id": "comm_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "Which would most likely result in hyperventilation?"
+    },
+    {
+      "id": "commercial_written_255",
+      "topic_id": "comm_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "Hypoxia is the result of which of these conditions?"
+    },
+    {
+      "id": "commercial_written_256",
+      "topic_id": "comm_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "To overcome the symptoms of hyperventilation, a pilot should"
+    },
+    {
+      "id": "commercial_written_257",
+      "topic_id": "comm_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "Which is true regarding the presence of alcohol within the human body?"
+    },
+    {
+      "id": "commercial_written_258",
+      "topic_id": "comm_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "To best overcome the effects of spatial disorientation, a pilot should"
+    },
+    {
+      "id": "commercial_written_259",
+      "topic_id": "comm_landings",
+      "title": "Landings & pattern",
+      "q": "What corrective action should be taken during a landing if the glider pilot make"
+    },
+    {
+      "id": "commercial_written_260",
+      "topic_id": "comm_tow",
+      "title": "Aerotow & abnormals",
+      "q": "What consideration should be given in the choice of a towplane for use in aeroto"
+    },
+    {
+      "id": "commercial_written_261",
+      "topic_id": "comm_tow",
+      "title": "Aerotow & abnormals",
+      "q": "Looseness in a glider’s flight control linkage or attachments could result in"
+    },
+    {
+      "id": "commercial_written_262",
+      "topic_id": "comm_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "A left side slip is used to counteract a crosswind drift during the final approa"
+    },
+    {
+      "id": "commercial_written_263",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "(Refer to Figure 48.) If a dual glider weighs 1,040 pounds and an indicated airs"
+    },
+    {
+      "id": "commercial_written_264",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "(Refer to Figure 48.) If a dual glider weighs 1,040 pounds, what is the minimum "
+    },
+    {
+      "id": "commercial_written_265",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "(Refer to Figure 48.) If the airspeed of a glider is increased from 54 MPH to 60"
+    },
+    {
+      "id": "commercial_written_266",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "Minimum sink speed is the airspeed which results in the"
+    },
+    {
+      "id": "commercial_written_267",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "(Refer to Figure 49.) If the airspeed is 70 MPH and the sink rate is 5.5 ft/sec,"
+    },
+    {
+      "id": "commercial_written_268",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "(Refer to Figure 49.) If the airspeed is 50 MPH and the sink rate is 3.2 ft/sec,"
+    },
+    {
+      "id": "commercial_written_269",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "The glider has a normal L/D ratio of 23:1 at an airspeed of 50 MPH. What would b"
+    },
+    {
+      "id": "commercial_written_270",
+      "topic_id": "comm_soaring",
+      "title": "Soaring techniques",
+      "q": "If the glider has drifted a considerable distance from the airport while soaring"
+    },
+    {
+      "id": "commercial_written_271",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "The maximum airspeed at which abrupt and full deflection of the controls would n"
+    },
+    {
+      "id": "commercial_written_272",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "Which is true regarding minimum control airspeed while thermalling? Minimum cont"
+    },
+    {
+      "id": "commercial_written_273",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "(Refer to Figure 50.) Which is true when the glider is operated in the high-perf"
+    },
+    {
+      "id": "commercial_written_274",
+      "topic_id": "comm_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "(Refer to Figure 50.) If the glider’s airspeed is 70 MPH and a vertical gust of "
+    },
+    {
+      "id": "commercial_written_275",
+      "topic_id": "comm_wb",
+      "title": "Weight & balance",
+      "q": "Regarding the effect of loading on glider performance, a heavily loaded glider w"
+    },
+    {
+      "id": "commercial_written_276",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "When flying into a strong headwind on a long final glide or a long glide back to"
+    },
+    {
+      "id": "commercial_written_277",
+      "topic_id": "comm_soaring",
+      "title": "Soaring techniques",
+      "q": "Which procedure can be used to increase forward speed on a cross-country flight?"
+    },
+    {
+      "id": "commercial_written_278",
+      "topic_id": "comm_soaring",
+      "title": "Soaring techniques",
+      "q": "The reason for retaining water ballast while thermals are strong, is to"
+    },
+    {
+      "id": "commercial_written_279",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "When flying into a headwind, penetrating speed is the glider’s"
+    },
+    {
+      "id": "commercial_written_280",
+      "topic_id": "comm_wb",
+      "title": "Weight & balance",
+      "q": "Which is true regarding the effect on a glider’s performance by the addition of "
+    },
+    {
+      "id": "commercial_written_281",
+      "topic_id": "comm_soaring",
+      "title": "Soaring techniques",
+      "q": "When flying on a heading of east from one thermal to the next, the airspeed is i"
+    },
+    {
+      "id": "commercial_written_282",
+      "topic_id": "comm_emergency",
+      "title": "Emergency operations",
+      "q": "Select the true statement concerning oxygen systems that are often installed in "
+    },
+    {
+      "id": "commercial_written_283",
+      "topic_id": "comm_landings",
+      "title": "Landings & pattern",
+      "q": "The spoilers should be in what position when operating in a strong wind?"
+    },
+    {
+      "id": "commercial_written_284",
+      "topic_id": "comm_preflight",
+      "title": "Preflight preparation",
+      "q": "Which is true regarding the assembly of a glider for flight?"
+    },
+    {
+      "id": "commercial_written_285",
+      "topic_id": "comm_tow",
+      "title": "Aerotow & abnormals",
+      "q": "The primary cause of towline slack during aerotows is"
+    },
+    {
+      "id": "commercial_written_286",
+      "topic_id": "comm_tow",
+      "title": "Aerotow & abnormals",
+      "q": "To signal the glider pilot during an aerotow to release immediately, the tow pil"
+    },
+    {
+      "id": "commercial_written_287",
+      "topic_id": "comm_tow",
+      "title": "Aerotow & abnormals",
+      "q": "During an aerotow, moving from the inside to the outside of the towplane’s fligh"
+    },
+    {
+      "id": "commercial_written_288",
+      "topic_id": "comm_tow",
+      "title": "Aerotow & abnormals",
+      "q": "During an aerotow, is it good operating practice to release from a low-tow posit"
+    },
+    {
+      "id": "commercial_written_289",
+      "topic_id": "comm_tow",
+      "title": "Aerotow & abnormals",
+      "q": "During an aerotow, if slack develops in the towline, the glider pilot should cor"
+    },
+    {
+      "id": "commercial_written_290",
+      "topic_id": "comm_tow",
+      "title": "Aerotow & abnormals",
+      "q": "During aerotow takeoffs in crosswind conditions, the glider starts drifting down"
+    },
+    {
+      "id": "commercial_written_291",
+      "topic_id": "comm_tow",
+      "title": "Aerotow & abnormals",
+      "q": "When should the wing runner raise the glider’s wing to the level position in pre"
+    },
+    {
+      "id": "commercial_written_292",
+      "topic_id": "comm_scan",
+      "title": "Scanning & collision avoidance",
+      "q": "During an aerotow, the glider moves to one side of the towplane’s flightpath. Th"
+    },
+    {
+      "id": "commercial_written_293",
+      "topic_id": "comm_tow",
+      "title": "Aerotow & abnormals",
+      "q": "In which manner should the glider be flown while turning during an aerotow? By"
+    },
+    {
+      "id": "commercial_written_294",
+      "topic_id": "comm_tow",
+      "title": "Aerotow & abnormals",
+      "q": "What corrective action should a glider pilot take during takeoff if the towplane"
+    },
+    {
+      "id": "commercial_written_295",
+      "topic_id": "comm_tow",
+      "title": "Aerotow & abnormals",
+      "q": "At what point during an autotow should the glider pilot establish the maximum pi"
+    },
+    {
+      "id": "commercial_written_296",
+      "topic_id": "comm_tow",
+      "title": "Aerotow & abnormals",
+      "q": "When preparing for an autotow with a strong crosswind, where should the glider a"
+    },
+    {
+      "id": "commercial_written_297",
+      "topic_id": "comm_tow",
+      "title": "Aerotow & abnormals",
+      "q": "Which is true regarding the use of glider tow hooks?"
+    },
+    {
+      "id": "commercial_written_298",
+      "topic_id": "comm_tow",
+      "title": "Aerotow & abnormals",
+      "q": "GIVEN: Glider’s max auto/winch tow speed - 66 MPH. Surface wind (direct headwind"
+    },
+    {
+      "id": "commercial_written_299",
+      "topic_id": "comm_tow",
+      "title": "Aerotow & abnormals",
+      "q": "The towrope breaks when at the steepest segment of the climb during a winch laun"
+    },
+    {
+      "id": "commercial_written_300",
+      "topic_id": "comm_tow",
+      "title": "Aerotow & abnormals",
+      "q": "Which would cause pitch oscillations or porpoising during a winch launch?"
+    },
+    {
+      "id": "commercial_written_301",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "During a ground tow, the pitch angle of the glider should not exceed"
+    },
+    {
+      "id": "commercial_written_302",
+      "topic_id": "comm_tow",
+      "title": "Aerotow & abnormals",
+      "q": "To stop pitch oscillation during a winch launch, the pilot should"
+    },
+    {
+      "id": "commercial_written_303",
+      "topic_id": "comm_landings",
+      "title": "Landings & pattern",
+      "q": "What should be expected when making a downwind landing? The likelihood of"
+    },
+    {
+      "id": "commercial_written_304",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "What corrective action should be taken, if while thermalling at minimum sink spe"
+    },
+    {
+      "id": "commercial_written_305",
+      "topic_id": "comm_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "A rule of thumb for flying a final approach is to maintain a speed that is"
+    },
+    {
+      "id": "commercial_written_306",
+      "topic_id": "comm_landings",
+      "title": "Landings & pattern",
+      "q": "To stop a ground loop to the left after landing a glider, it would be best to lo"
+    },
+    {
+      "id": "commercial_written_307",
+      "topic_id": "comm_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "In which situation is a hazardous stall more likely to occur if inadequate airsp"
+    },
+    {
+      "id": "commercial_written_308",
+      "topic_id": "comm_soaring",
+      "title": "Soaring techniques",
+      "q": "With regard to two or more gliders flying in the same thermal, which is true?"
+    },
+    {
+      "id": "commercial_written_309",
+      "topic_id": "comm_soaring",
+      "title": "Soaring techniques",
+      "q": "Which is true regarding the direction in which turns should be made during slope"
+    },
+    {
+      "id": "commercial_written_310",
+      "topic_id": "comm_soaring",
+      "title": "Soaring techniques",
+      "q": "Which airspeed should be used when circling within a thermal?"
+    },
+    {
+      "id": "commercial_written_311",
+      "topic_id": "comm_landings",
+      "title": "Landings & pattern",
+      "q": "Which is a recommended procedure for an off- field landing?"
+    },
+    {
+      "id": "commercial_written_312",
+      "topic_id": "comm_landings",
+      "title": "Landings & pattern",
+      "q": "What would be a proper action or procedure to use if you are getting too low on "
+    },
+    {
+      "id": "commercial_written_313",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "What is the proper speed to fly when passing through lift with no intention of w"
+    },
+    {
+      "id": "commercial_written_314",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "What is the proper airspeed to use when flying between thermals on a cross-count"
+    },
+    {
+      "id": "commercial_written_315",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "What period of time must a person be hospitalized before an injury may be define"
+    },
+    {
+      "id": "commercial_written_316",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "Regulations which refer to operate relate to that person who"
+    },
+    {
+      "id": "commercial_written_318",
+      "topic_id": "comm_nav",
+      "title": "Navigation & flight planning",
+      "q": "When using VOT to make a VOR receiver check, the CDI should be centered and the "
+    },
+    {
+      "id": "commercial_written_319",
+      "topic_id": "comm_nav",
+      "title": "Navigation & flight planning",
+      "q": "An aircraft 60 miles from a VOR station has a CDI indication of one-fifth deflec"
+    },
+    {
+      "id": "commercial_written_320",
+      "topic_id": "comm_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "When a pilot recognizes a hazardous thought, he or she then should correct it by"
+    },
+    {
+      "id": "commercial_written_321",
+      "topic_id": "comm_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "Most pilots have fallen prey to dangerous tendencies or behavior problems at som"
+    },
+    {
+      "id": "commercial_written_322",
+      "topic_id": "comm_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "Hazardous attitudes which contribute to poor pilot judgment can be effectively c"
+    },
+    {
+      "id": "commercial_written_323",
+      "topic_id": "comm_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "The Decide Model is comprised of a 6-step process to provide a pilot a logical w"
+    },
+    {
+      "id": "commercial_written_324",
+      "topic_id": "comm_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "Which of the following is the first step of the Decide Model for effective risk "
+    },
+    {
+      "id": "commercial_written_325",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "Regulations which refer to the operational control of a flight are in relation t"
+    },
+    {
+      "id": "commercial_written_326",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "When is the pilot in command required to hold a category and class rating approp"
+    },
+    {
+      "id": "commercial_written_327",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "When approaching to land at an airport, without an operating control tower, in C"
+    },
+    {
+      "id": "commercial_written_328",
+      "topic_id": "comm_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "To help manage cockpit stress, pilots must"
+    },
+    {
+      "id": "commercial_written_329",
+      "topic_id": "comm_nav",
+      "title": "Navigation & flight planning",
+      "q": "What is the maximum bearing error (+ or -) allowed for an operational VOR equipm"
+    },
+    {
+      "id": "commercial_written_330",
+      "topic_id": "comm_nav",
+      "title": "Navigation & flight planning",
+      "q": "Which situation would result in reverse sensing of a VOR receiver?"
+    },
+    {
+      "id": "commercial_written_333",
+      "topic_id": "comm_nav",
+      "title": "Navigation & flight planning",
+      "q": "When the CDI needle is centered during an airborne VOR check, the omni bearing s"
+    },
+    {
+      "id": "commercial_written_335",
+      "topic_id": "comm_nav",
+      "title": "Navigation & flight planning",
+      "q": "To track outbound on the 180 radial of a VOR station, the recommended procedure "
+    },
+    {
+      "id": "commercial_written_338",
+      "topic_id": "comm_airport",
+      "title": "Airport & gliderport operations",
+      "q": "How should the pilot make a VOR receiver check when the aircraft is located on t"
+    },
+    {
+      "id": "commercial_written_339",
+      "topic_id": "comm_nav",
+      "title": "Navigation & flight planning",
+      "q": "True course measurements on a Sectional Aeronautical Chart should be made at a m"
+    },
+    {
+      "id": "commercial_written_340",
+      "topic_id": "comm_nav",
+      "title": "Navigation & flight planning",
+      "q": "To track inbound on the 215 radial of a VOR station, the recommended procedure i"
+    },
+    {
+      "id": "commercial_written_341",
+      "topic_id": "comm_nav",
+      "title": "Navigation & flight planning",
+      "q": "When checking the course sensitivity of a VOR receiver, how many degrees should "
+    },
+    {
+      "id": "commercial_written_344",
+      "topic_id": "comm_wb",
+      "title": "Weight & balance",
+      "q": "Which of the following elements should be considered when preparing to assemble "
+    },
+    {
+      "id": "commercial_written_345",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "(Refer to figure 54, point 2) After departing from Byron Airport (C83) with a no"
+    },
+    {
+      "id": "commercial_written_346",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Terminal Aerodrome Forecasts (TAF) are issued how many times a day and cover wha"
+    },
+    {
+      "id": "commercial_written_347",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "(Refer to figure 3.) The L/D ratio at a 2° angle of attack is approximately the "
+    },
+    {
+      "id": "commercial_written_348",
+      "topic_id": "comm_landings",
+      "title": "Landings & pattern",
+      "q": "(Refer to figure 31.) The surface wind is 180° at 25 knots. What is the crosswin"
+    },
+    {
+      "id": "commercial_written_349",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "(Refer to figure 31.) What is the headwind Component for a Rwy 13 takeoff if the"
+    },
+    {
+      "id": "commercial_written_350",
+      "topic_id": "comm_airport",
+      "title": "Airport & gliderport operations",
+      "q": "(Refer to figure 51.) When taxiing up to an active runway, you are likely to be "
+    },
+    {
+      "id": "commercial_written_351",
+      "topic_id": "comm_nav",
+      "title": "Navigation & flight planning",
+      "q": "To use VHF/DF facilities for assistance in locating your position, you must have"
+    },
+    {
+      "id": "commercial_written_352",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "An aircraft airfoil is designed to produce lift resulting from a difference in t"
+    },
+    {
+      "id": "commercial_written_353",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "The radius of the uncharted Outer Area of Class C airspace is normally"
+    },
+    {
+      "id": "commercial_written_354",
+      "topic_id": "comm_airworthy",
+      "title": "Airworthiness",
+      "q": "Which of the following preflight actions is the pilot in command required to tak"
+    },
+    {
+      "id": "commercial_written_355",
+      "topic_id": "comm_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "To rid itself of all the alcohol contained in one beer, the body requires about"
+    },
+    {
+      "id": "commercial_written_356",
+      "topic_id": "comm_airport",
+      "title": "Airport & gliderport operations",
+      "q": "(Refer to Figure 57.) You are directed to taxi to runway 10. You see this sign a"
+    },
+    {
+      "id": "commercial_written_357",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "Density altitude is the vertical distance above mean sea level in the standard a"
+    },
+    {
+      "id": "commercial_written_358",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "Aviation Area Forecasts (FAs) for the contiguous U.S. are used in conjunction wi"
+    },
+    {
+      "id": "commercial_written_359",
+      "topic_id": "comm_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "To cope with spatial disorientation, pilots should rely on"
+    },
+    {
+      "id": "commercial_written_360",
+      "topic_id": "comm_airport",
+      "title": "Airport & gliderport operations",
+      "q": "“Runway Holding Position Markings” on taxiways"
+    },
+    {
+      "id": "commercial_written_361",
+      "topic_id": "comm_landings",
+      "title": "Landings & pattern",
+      "q": "The “yellow demarcation bar” marking indicates"
+    },
+    {
+      "id": "commercial_written_362",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "To best determine general aviation forecast Weather conditions covering a flight"
+    },
+    {
+      "id": "commercial_written_363",
+      "topic_id": "comm_tow",
+      "title": "Aerotow & abnormals",
+      "q": "Just before launch you notice that the soaring forecast indicates a K index of K"
+    },
+    {
+      "id": "commercial_written_364",
+      "topic_id": "comm_soaring",
+      "title": "Soaring techniques",
+      "q": "The K-index is +17. You should expect"
+    },
+    {
+      "id": "commercial_written_365",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "While executing a 60° level turn, your aircraft is at a load factor of 2.0. What"
+    },
+    {
+      "id": "commercial_written_366",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "Structural damage or failure is more likely to occur in smooth air at speeds abo"
+    },
+    {
+      "id": "commercial_written_367",
+      "topic_id": "comm_nav",
+      "title": "Navigation & flight planning",
+      "q": "What is a consideration when using a hand-held GPS for VFR navigation?"
+    },
+    {
+      "id": "commercial_written_368",
+      "topic_id": "comm_airworthy",
+      "title": "Airworthiness",
+      "q": "You are PIC of a flight and determine that the aircraft you planned to fly has a"
+    },
+    {
+      "id": "commercial_written_369",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "On a post-flight inspection of your aircraft after an aborted takeoff due to an "
+    },
+    {
+      "id": "commercial_written_370",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "What must a pilot do or be aware of when transitioning an Alert Area?"
+    },
+    {
+      "id": "commercial_written_371",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "(Refer to Figure 53.) You are planning a VFR westbound flight departing the Fres"
+    },
+    {
+      "id": "commercial_written_372",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "(Refer to Figure 54, Area 3.) What is the significance of R-2531? This is a rest"
+    },
+    {
+      "id": "commercial_written_373",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "If a military training route has flights operating at or below 1,500 feet AGL, i"
+    },
+    {
+      "id": "commercial_written_374",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "Your VFR flight will be conducted above 10,000 MSL in Class E airspace. What is "
+    },
+    {
+      "id": "commercial_written_375",
+      "topic_id": "comm_weather",
+      "title": "Weather",
+      "q": "What are the characteristics of an unstable atmosphere?"
+    },
+    {
+      "id": "commercial_written_376",
+      "topic_id": "comm_perf",
+      "title": "Performance airspeeds",
+      "q": "As air temperature increases, density altitude will"
+    },
+    {
+      "id": "commercial_written_377",
+      "topic_id": "comm_airport",
+      "title": "Airport & gliderport operations",
+      "q": "(Refer to Figure 51.) The pilot generally calls ground control when the aircraft"
+    },
+    {
+      "id": "commercial_written_378",
+      "topic_id": "comm_airport",
+      "title": "Airport & gliderport operations",
+      "q": "(Refer to Figure 51.) Which symbol does not directly address runway incursions w"
+    },
+    {
+      "id": "commercial_written_379",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "If a tow pilot towing a glider in low tow position releases the tow rope what ca"
+    },
+    {
+      "id": "commercial_written_380",
+      "topic_id": "comm_aero",
+      "title": "Principles of flight",
+      "q": "What happens to the wing when:"
+    },
+    {
+      "id": "commercial_written_381",
+      "topic_id": "comm_soaring",
+      "title": "Soaring techniques",
+      "q": "Trigger Temperature refers to"
+    },
+    {
+      "id": "commercial_written_382",
+      "topic_id": "comm_regs",
+      "title": "Regulations & publications",
+      "q": "If an aircraft is not equipped with an electrical or anticollision light system,"
+    },
+    {
+      "id": "commercial_written_383",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "(Refer to figure 54. Area 2) Given: Position- 7 NM north of Byron Airport (C83)."
+    },
+    {
+      "id": "commercial_written_384",
+      "topic_id": "comm_airspace",
+      "title": "National Airspace System",
+      "q": "(Refer to Figure 54, area 6) The magenta T/SFC near Oakland Airport indicates"
+    }
+  ]
+}

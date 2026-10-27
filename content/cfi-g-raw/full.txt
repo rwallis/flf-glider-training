@@ -1,0 +1,4252 @@
+===== PAGE 1 =====
+16. FLIGHT INSTRUCTOR GLIDER QUESTION BANK
+Refer to Chapter 17 for the
+1- The tendenry ofan aircraft to develop forces whith
+restore it to its original condition, when disturbed from a
+condition of steady flight, is known as
+A- stability.
+B- control lability-
+C- maneuverability.
+2- Why does increasing speed also increase lift?
+A- The increased velocity ofthe relative wind overcomes
+the increased drag.
+B- The increased impact of the relative wind on an airfoil's
+lower surface creates a greater amount of air being
+deflected downward.
+C- The increased speed ofthe air passing over an airfoil's
+upper surface increases the pressure, thus creating a greater
+pressure differential between the upper and lower surface.
+3- The three axes ofan aircraft intersect at the
+A- center ofgravity.
+B- center ofpressure.
+C- midpoint ofthe mean chord.
+4- Adverse yaw during a tum entry is caused by
+A- increased induced drag on the lowered wing and
+decreased induced drag on the raised \ying.
+B- decreased induced dmg on the lowered wing and
+increased induced drag on the raised wing.
+C- increased parasite drag on the raised wing and decreased
+parasite drag on the lowered wing.
+5- When rolling out of a steepbanked tum, what causes the
+lowered aileron to create more drag than when rolling into
+the tum?
+A- The wing's angle of attack is greater as the rollout is
+started-
+B- The wing being raised is Aaveling faster through the air
+than the wing being lowered.
+C- The wing being lowered is traveling faster through the
+air and producing more lift than the wing being raised.
+6- How can a pilot increase the rate oftum and decrease the
+radius at the same time?
+A- Shallow the bank and increase afuspeed.
+B- Steepen the bank and decrease airspeed.
+C- Steepen the bank and increase ainpeed.
+7- Which statement is true conceming the aerodynamic
+conditions which occur during a spin entry?
+A- After a full stall, both wings remain in a stalled
+condition throughout the rotation.
+B- After a partial stall, the wing that drops remains in a
+stalled condition while the rising wing regains and
+continues to produce lift, causing the rotation.
+C- After a full stall, the wing that drops continues in a
+stalled condition while the rising wing regains and
+continues to produce some lift, causing the rotation.
+8- The point on an airfoil through which lift acts is the
+A- center ofgravity.
+B- center ofpressure.
+C- midpoint ofthe chord.
+@GPGS12'1325 www.qlideroilotsoroundschool.com
+Glider Pilots Ground School
+Fl ight Instructor Glider
+54
+Computer Testing Supplement Figures.
+9- Lift produced by an airfoil is the net force developed
+perpendicular to the
+A- chord.
+B- relative wind.
+C- longitudinal axis ofthe aircraft.
+l0- The angle between the chord line ofthe wing and the
+longitudinal axis ofthe aircraft is known as
+A- dihedral.
+B- the angle ofattack.
+C- the angle of incidence.
+I l- The angle between the chord line ofan airfoil and the
+relative wind is known as the angle of
+A- tift.
+B- attack.
+C- incidence.
+12- A line drawn from the leading edge to th€ tailing edge
+ofan airfoil and equidistant at all points from the upper and
+lower contours is called the
+A- chord line.
+B- camber line.
+C- mean camber line.
+14- Which statement relates to Bernoulli's principle?
+A- For every action there is an equal and opposite reaction.
+B- An additional upward force is generated as the lower
+surface of the wing deflecr air downward.
+C- Air traveling faster over the curved upper surface ofan
+airfoil causes lower pressure on the top surface.
+l5- An aircraft wing is designed to produce lift resulting
+from
+A- negative air pressure below the wing's surface and
+positive air pressure above the wing's surface.
+B- positive a pressure below the wing's surface and
+negative air pressue above the wing's surface.
+C- a larger center ofpressure above the wing's surface and a
+lower center ofpressure below the wing's surface.
+l6- During flight with zero angle of attack, the pressure
+along the upper surface of a wing would be
+A- equal to atnxospheric pressure.
+B- less than atrnospheric pressure.
+C- greater than atrnospheric pressure.
+17- That portion ofthe aircraft's total drag created by the
+production of lift is called
+A- induced drag and is not affected by changes in ainpeed.
+B- induced drag and is greatly affected by changes in
+airspeed.
+C- parasite drag and is greatly affected by changes in
+airspeed.
+l8- As airspeed inoeases in level flight, total drag of an
+aircraft becomes greater than the total drag produced at the
+maximum liff/drag speed because ofthe
+A- increase in induced drag.
+B- decrease in induced drag.
+C- increase in parasite drag.
+301.908-3't 47
+
+===== PAGE 2 =====
+Glider Pilots Ground School @
+Flight lnstructor Glider
+I 9- As airspeed decreases in level flight, total drag of an
+aircraft becomes greater than the total drag produced at the
+maximum liff/drag speed because ofthe
+A- decrease in induced drag.
+B- increase in induced drag.
+C- increase in parasite drag.
+20- The resistance, or skin friction, due to the viscosity of
+the air as it passes along the surface of a wing is called
+A- form drag.
+B- profile drag.
+C- parasite drag.
+2 I - Which relationship is correct when comparing drag and
+ainpeed?
+A- Induced drag increases as the square ofthe airspeed.
+B- Induced drag varies inversely as the square ofthe
+airpeed.
+C- Profile drag varies inversely as the square ofthe
+airspeed.
+22- As the angle ofbank is increased, the vertical
+component of lift
+A- increases and the sink rate increases.
+B- decreases and the sink rate increases.
+C- increases and the sink rate decreases.
+23- Changes in the center ofpressure ofa wing affect the
+aircraft's
+A- liff/drag ratio.
+B- lifting capacity.
+C- aerodynamic batance and controllability.
+24- What action is necessary to make an aircraft tum?
+A- Yaw the aircraft-
+B- Change the dkection of lift.
+C- Change the direction ofthrust.
+25- The angle of attack of a wing directly conhols the
+A- angle of incidurce of the wing.
+B- amount of airflow above and below the wing.
+C- distribution ofpositive and negative pressure acting on
+the wing.
+26- Which statement is true relating to the factors which
+produce stalls?
+A- The critical angle of attack is a firnction ofthe degree of
+bank.
+B- The stalling angle ofattack depords upon the speed of
+the affiow over the wings.
+C- The stalling angle ofattack is independent ofthe speed
+of airflow over the wings.
+27- The qitical angle of attack at which a given aircraft
+stalls is dependent on the
+A- gross weight.
+B- design ofthe wing.
+C- attitude and airspeed.
+28- Ifthe same angle ofattack is maintained in gound
+effect as when out ofground effect, lift will
+A- increase, and induced drag will decrease.
+B- decrease, and parasite drag will increase.
+C- decrease, and paxasite drag will decrease.
+@ gpgs 121325 
+gliderpilotsgroundsdpol.com
+29- It is possible to fly an aircraftjust clear ofthe ground at
+a slightly slower airspeed than that required to sustain level
+flight at higher altitudes. This is the result of
+A- interference ofthe ground surface with the airflow
+patt€ms about the aircraft in flight.
+B- a cushioning effect ofthe air as it is trapped between the
+ground and the descending aircraft.
+C- ground interference with the static pressure system
+which produces false indications on the airspeed indicator.
+30- If severe turbulence is encountered, the aircraft's
+airspeed should be reduced to
+A- maneuvering speed.
+B- normal structural cruising speed.
+C- the minimum steady flight speed in the landing
+configuration.
+32- Which action will result in a stall?
+A- Flying at too low an ainpeed.
+B- Raising the aircraft's nose too high.
+C- Exceeding the critical angle ofattack.
+33- (Refer to Figure 20.) At the airspeed represented by
+point A, in steady flight, the airGaft will
+A- have its maximum liff/drag ratio.
+B- have its minimum liff/drag ratio.
+C- be developing its maximum coefficient of lift.
+34- (Refer to Figure 20.) At an airspeed represented by
+point B, in steady flight, the pilot can expect to obtain the
+aircraft's
+A- maximum coefficient of lift.
+B- minimum coefiicient of lift.
+C- maximum glide range in still air.
+35- Which aircraft characteristics contribute to spiral
+instability?
+A- Weak static directional stability and weak dihe&al
+effect-
+B- Strong static directional stability and weak dihedral
+effect.
+C- Weak static directional stability and strong dihedral
+effect.
+36- The most desirable type ofstability for an aircraft to
+possess is
+A- neutral static stability.
+B- positive static stability.
+C- positive dynamic stability.
+37- The tendency of an aircraft to develop forces that
+further remove the aircraft from its original position, when
+disturbed from a condition of steady flight, is known as
+A- static instability.
+B- dynamic instability.
+C- positive static stability.
+38- Ifthe aircraft's nose initially tends to rehm to its
+original position after the elevator control is pressed
+forward and released, the airmaft displays
+A- positive static stability.
+B- neutral dynamic stability.
+C- negative dynamic stability.
+303908-3147
+55
+
+===== PAGE 3 =====
+Glider Pilots Ground School @
+Flight lnstructor Glider
+56
+39- If the aircraffs nose initially tends to move farther from
+its original position after the elevator control is pressed
+forward and released, the aircraft displays
+A- negative static stability.
+B- positive static stability.
+C- positive dynamic srability.
+40- The quality ofan aircraft that permits it to be operated
+easily and to withstand the stesses imposed on it is
+A- stability.
+B- maneuverability.
+C- controllability.
+4l - The capability of an aircraft to respond to a pilofs
+inputs, especially with regard to flightpath and attitude, is
+A- response.
+B- controllability.
+C- maneuverability.
+42- Ifthe aircraft's nose remains in the new position after
+the elevator control is pressed forward and released, the
+aircraft displays
+A- neutral static stability.
+B- negative static stability.
+C- positive static stability.
+43- If the airspeed increases and decreases during
+Iongitudinal phugoid oscillations, the aircraft
+A- will display poor trimming qualities.
+B- is maintaining a nearly constant angle ofattack.
+C- is constantly changing angle of attack making it difficult
+for the pilot to reduce the magnitude ofthe oscillations.
+44- Ifan aircraft has negative dynamic and positive static
+stability, this will result in
+A- undamped oscillations.
+B- divergent oscillations.
+C- convergent oscillations.
+45- The purpose of airoaft wing dihedral angle is to
+A- increase lateral stability.
+B- increase longitudinal slability.
+C- increase lift coeflicient ofthe wing.
+46- Aspect ratio ofa wing is defined as the ratio ofthe
+A- wingspan to the wing root.
+B- wingspan to the mean chord.
+C- square ofthe chord to the wingspan.
+47- A wing with a very high aspect ratio (in comparison
+with a low aspect ratio wing) will have
+A- a low stall speed.
+B- inqeased drag at high angles ofattack.
+C- poor control qualities at low airspeeds.
+48- At a constant velocity in airflow, a high aspect ratio
+wing will have (in comparison with a low aspect ratio wing)
+A- increased drag, especially at a low angle ofattack.
+B- decreased drag, especially at a high angle ofattack.
+C- inoeased drag, especially at a high angle ofattack.
+49- (Refer to Figure 21.) Which aircraft has the highest
+aspect ratio?
+A-2
+B-3
+c-4
+50- (Refer to Figure 21.) Which aircraft has the lowest
+aspect ratio?
+A-2
+B-3
+c-4
+5l- (Refer to Pigure 21.) Consider only aspect ratio (other
+factorc remain constant). Which aircraft will generate
+greatest lift?
+A-I
+B-2
+c-3
+52- (Refer to Figure 21.) Consider only aspect ratio (other
+factors remain constant). Which aircraft will generate
+greatest drag?
+A-t
+B-3
+c-4
+53- Which statement is generally true regarding wing
+camber ofa glider's airfoil?
+A- There is no camber on either the upper or lower surface
+of the wing.
+B- The camber is the same on both the upper and lower
+surface ofthe wing.
+C- The camber is greater on the upper wing surface than it
+is on the lower surface ofthe wing.
+54- When a slight upward or negative flap deflection is
+used, lhe result is
+A- increased drag.
+B- decreased drag.
+C- decreased lift.
+55- When a glider is tuming in flight, the force that opposes
+the inward tuming force is called
+A- adverse yaw.
+B- resultant force.
+C- centrifugal force.
+56- At what bank angle will the resultant of gravity and
+centrifugal force equal twice a glider's weight?
+A- 30".
+B- 45..
+c- 60..
+63- The primary purpose ofspoilers on gliders is to
+A- decrease lift.
+B- decrease stall speed.
+C- control speed at steep glide angles.
+64- Which characteristic ofa spin is not a characteristic ofa
+steep spiml?
+A- Stalled wing.
+B- High rate ofrotation.
+C- Rapid loss of altitude.
+303-908-3147
+O gpgs 12'1325
+gliderpilotggroundschool.com
+
+===== PAGE 4 =====
+Glider Pilots Ground School @
+Flight lnstructor Glider
+57
+65- Maximum gliding distance ofan aircraft is obtained
+when
+A- parasite drag is the least.
+B- induced drag and parasite drag are equal.
+C- induced drag equals the coefficient of lift.
+66- The best liff:/&ag ratio of a glider occurs when parasite
+drag is
+A- equal to total drag.
+B- equal to induced drag.
+C- less than induced drag.
+67- The best lifl/drag ratio ofa glid€r is a value that
+A- varies depending upon the weight being carried.
+B- remains constant regardless ofairspeed changes.
+C- remains constant and is independent ofthe weight being
+carried.
+68- Which is true about the effect on a glider's performance
+by the addition ofballast or weight?
+A- The glide ratio at a given airspeed will increase.
+B- A higher airspeed is required to obtain the same glide
+ratio as when lightly loaded.
+C- The heavier the glider is loade4 the less the glide ratio
+will be at all airspeeds.
+69- (Refer to Figure 38.) A glider is flying from A to C.
+With a normal L/D ratio of20:l and a constant airspeed of
+40 MPH, what minimum altitude AGL is needed at B to
+arrive over C at 800 feet AGL with no sinking air?
+A- 3,520 feet.
+B- 4,320 feet.
+C- 6,080 feet.
+70- While maintaining the best glide speed, a glider pilot
+may expect the
+A- fastest cross-country speed.
+B- longest cross-country flight.
+C- loss ofthe least amount of altitude.
+7l - In the Nonhem Hemisphere, a magnetic compass will
+normally indicate a tum toward the north if
+A- a left tum is entered from a west heading.
+B- an airfiaft is decelerated while on an east or west
+heading.
+C- an aircraft is accelerated while on an east or west
+heading.
+72- In the Northem Hemisphere, if an aircraft is accelerated
+or decelerated, the magnetic compass will normally indicate
+A- a turn momentarily, with changes in ainpeed on any
+heading.
+B- a tum toward the south while accelerating on a west
+heading.
+C- correctly when on a north or south heading while either
+accelerating or decelerating.
+73- Deviation error ofthe magnetic compass is caused by
+A- northerly tuming error.
+B- certain metals and electrical systems within the aircraft.
+C- the difference in location of true north and magnetic
+north.
+74- In the Northem Hemisphere, which would be correct
+about starting the rollout fiom a tum using a magnetic
+compass? Start the rollout
+A- after the compass indication passes south by a number of
+degrees approximately equal to the latitude minus the
+normal rollout lead.
+B- before the compass indication reaches south by a
+number of degrees approximately equal to the latitude over
+which the tum is made plus the pilot's normal lead.
+C- after the compass indication passes south by a number of
+degrees approximately equal to the magnetic variation of
+the area over which the tum is made plus the pilot's normal
+lead.
+75- What should be the indication on the magnetic compass
+as you roll into a standard rate tum to the right from a south
+heading in the Northem Hemisphere?
+A- The compass will initially indicate a tum to the left.
+B- The compass will indicate a turn to the right, but at a
+faster rate than is actually occurring.
+C- The compass will remain on south for a short time, then
+gadually catch up to the magnetic heading ofthe airplane.
+76- Which statement is true about magnetic deviation of a
+compass?
+A- Deviation is the same for all aircraft in the same locality.
+B- Deviation varies for different headings ofthe same
+aircraft.
+C- Deviation is different in a given aircraft in different
+localities.
+78- Pitot-static system errors are generally the greatest in
+which range of airspeed?
+A- Low airspeed.
+B- High airspeed.
+C- Maneuvering speed.
+79- Ifa pitot tube is clogged, which instmment would be
+affected?
+A- Altimeter.
+B- Airspeed indicator.
+C- Vertical speed indicator.
+8 I - Which statement is true about the effect of temperature
+changes on the indications ofa sensitive altimeter?
+A- Warmer-than-standard temperatures will place the
+aircraft lower than the altimeter indicates.
+B- Colder-than-standard temperatures will place the aircraft
+lower than the altimeter indicates.
+C- Colder-than-standard temperatures will place the aircraft
+higher than the altimeter indicates.
+82- What precautions should be taken with respect to
+aircraft oxygen systems?
+A- Ensure that only medical oxygen has been used to
+replenish oxygen containers.
+B- Prohibit smoking while in an airoaft equipped with a
+portable oxygen system.
+C- Ensure that industrial oxygen has not been used to
+replenish the system.
+O gpgs 121325
+gliderpilotsgroundschool.com
+303-908-3147
+
+===== PAGE 5 =====
+Glider Pilots Ground School @
+Flight lnstructor Glider
+OAT
+83- What type ofoxygen system is most commonly found
+in general aviation aircraft?
+A- Demand.
+B- Continuous flow.
+C- Pressue demand.
+84- What type ofoxygen should be used to replenish an
+aircraft oxygen system?
+A- Medical.
+B- Aviation.
+C- lndustrial.
+87- The advantage oftotal energy compensators is that this
+syslem
+A- adds the eflect ofstick thermals to the total energy
+produced by thermals.
+B- reduces climb and dive errors on yariometer indications
+caused by airspeed changes.
+C- compensates for air pressure changes while climbing or
+descending.
+88- Which is true conceming total energy compensators?
+A- The instrument responds only to up and down air
+currents.
+B- The instrument indicates the ayerage rate of climb in a
+thermal.
+C- The instrument reacts to climbs and descents like a
+conventional rate-of-climb indicator.
+89- What is the purpose ofthe rebreather bag on an oxygen
+mask in a continuous-flow system?
+A- Helps to conserve oxygen.
+B- Allows excess oxygen to be expelled during use.
+C- Controls amount of oxygen that each individual breathes
+through the mask.
+90- What airspeed indicator marking identifies the
+maximum structural cruising speed ofan aircraft?
+A- Red radial line.
+B- Upper limit of the green arc.
+C- Upper limit ofthe yellow arc.
+93- Which airspeed is idenrified by color coding on an
+airspeed indicator?
+A- Design maneuvering speed.
+B- Maximum structural cruising speed.
+C- Maximum gear operation or extended speed.
+94- What is an important ahspeed limitation not color
+coded on airspeed indicators?
+A- Maneuvering speed.
+B- Never-exceed speed.
+C- Maximum flaps-extended speed.
+95- (Refer to Figure 24.) Determine the densitv altitude.
+Airport elevation 5,515 ft
+OAT 
+3O'C
+Altimeter setting 29.40" Hg.
+A- 6,000 feet.
+B- 8,450 feet.
+C- 8750 feer.
+96- (Refer to Figure 24.) Determine the density altitude.
+Airport elevation 3,795 ft
+OAT 
+24"C
+Altimeter setting 29.70" Hg.
+A- 5400 feet.
+B- 5750 feet.
+C- 4000 feet.
+97- (Refer to Figure 24.) Determine the density altitude.
+Airport elevation 3,450 ft
+35.C
+Altimeter setting 30.40" Hg.
+A- 3,400 feet.
+B- 6,650 feet.
+C- 5,950 feet.
+98- Density ahitude increases with
+A- an increase in temperature only.
+B- increases in pressure, temperature, and moisture content
+ofthe air.
+C- increases in temperature and moisture content ofthe air,
+and a decrease in pressure.
+99- What would increase the density altitude at a given
+afport?
+A- An increase in at temperature.
+B- A decrease in relative humidity.
+C- An increase in atmospheric pressure.
+l0l- Ifthe atmospheric pressure and temperature remain
+the same, how would an increase in humiditv affect takeoff
+performance?
+A- Longer takeoffdistance; the air is more dense.
+B- Longer takeoffdistance; the air is less dense.
+C- Shorter takeoffdistance; the air is more dense.
+128- The center ofgravity ofan aircraft is computed along
+the
+A- lateral axis.
+B- vertical axis.
+C- longitudinal axis.
+129- The center of gravity ofan aircraft can be determined
+by
+A- dividing total arm by total moments.
+B- dividing total moment by total weight.
+C- multiplying total arm by total weight.
+130- An aircraft is loaded with the CG aft ofthe aff limit.
+What effect will this have on controllability?
+A- Stall and spin recovery may be difticult or impossible.
+B- A stall will occur at a lower airspeed, but recovery will
+be easier because ofreduced wing loading.
+C- A stall will occur at a higher indicated airspeed due to
+the greater downloading on the eleyator.
+l3l- The stalling speed ofan aircraft will be highest when
+the aircraft is loaded with a
+A- high gross weight and aft Cc.
+B- low gross weight and forward CG.
+C- high gross weight and forward CG.
+O gpgs 121325
+gliderpilotsgroundschool.com
+303-908-3147
+
+===== PAGE 6 =====
+Glider Pilots Ground School @
+Flight lnstructor Glider
+59
+132- An aircraft is loaded with the CG at the aft limit. What
+are the performance characteristics compared with the CG
+at the forward limit?
+A- The aft CG provides the highest stall speed and cruising
+speed.
+B- The aft CG provides the lowest stalling speed, the
+highest cruising speed and least stability.
+C- Cruising speed is lower because of more induced drag
+created by the elevator or stabilizer being required to
+provide more lift with an aft CG.
+133- If the CG of an aircraft is moved from the aft limit to
+beyond the forward limit, how will it affect the cruising and
+stalling speed?
+A- Inoease both the cruising speed and stalling speed.
+B- Decrease both the cmising speed and stalling speed.
+C- Decrease the cruising speed and increase the stalling
+speed.
+134- When an aircraft's forward CG limit is exceeded, it
+will affect the flight characteristics ofthe aircraft by
+producing
+A- improved performance since it reduces the induced drag.
+B- higher stalling speeds and more longitudinal stability.
+C- very light eleyator control forces which make it easy to
+inadvertently overstess the aircraft.
+135- As the CG moves aft, an aircraft becomes
+A- less stable and less conhollable.
+B- less stable, yet easier to control.
+C- more stable and controllable as long as the aft CG is not
+exceeded.
+I 3 7- Under which condition is a forward CG most critical?
+A- On takeoff.
+B- On landing.
+C- \f/hen in an unusual aftitude.
+138- As the CG location is changed, recovery from a stall
+becomes progressively
+A- less dilficult as the CG moves rearward.
+B- more difficult as the CG moves rearward.
+C- more difficult as the CG moves either forward or
+rearward.
+139- What is the effect of center ofgravity on the spin
+characteristics of an aircraft?
+A- A flat spin may develop ifthe CG is too far aft.
+B- If the CG is too far forward, spin entry will be difficult.
+C- Ifthe CG is too far aft, spins can become high-speed
+spirals.
+140- What can a pilot expect when landing at an airyort
+located in the mountains?
+A- Higher true airspeed and longer landing disance.
+B- Higher indicated airspeed and shorter landing distance.
+C- Faster groundspeed and increased aircraft performance.
+I 4 I - In what part of the atnosphere does most weatier
+occur?
+A- Tropopause.
+B- Troposphere.
+C- Stratosphere.
+142- Which is the primary driving force ofweather on the
+Earth?
+A- The Sun.
+B- Coriolis.
+C- Rotation ofthe Earth.
+143- The average lapse rate in the trol,ospher€ is
+A- 2.0oC per 1,000 feet.
+B- 3.0'C per 1,000 feet.
+C- 5.4oC per 1,000 feet.
+lzl4- The most frequent typ€ ofground- or surface-based
+temperature inversion is that produced by
+A- terrestrial radiation on a clear, relatively still night.
+B- warm air being lifted rapidly aloft in the vicinity of
+mountainous terrain.
+C- the movement of colder air under warm air or the
+movement of warm air over cold air.
+145- Which weather conditions should be expected beneath
+a low-level temperature inversion layer when the relative
+humidity is high?
+A- Light wind shear and poor visibility due to light rain.
+B- Smooth air and poor visibility due to fog, haze, or low
+clouds.
+C- Turbulent air and poor visibility due to fog, low stratus
+type clouds, and showery precipitation.
+152- Density altitude may be determined by correcting
+A- true altitude for nonstandard temperature.
+B- pressure altitude for nonstandard temperature.
+C- indicated altitude for temperahfe variations.
+153- What are the standard temperature and pressure values
+for mean sea level?
+A- l5'F and 29.9" Hg.
+B- 59'C and 29.92 mb.
+C- 59'F and 1013.2 mb.
+154- What causes wind?
+A- Coriolis force.
+B- Pressure differences.
+C- The rotation ofthe Earth.
+155- The wind flow around a low pressure is
+A- cyclonic.
+B- adiabatic.
+C- anticyclonic.
+156- Winds at 5,000 feet AcL on a particular flight are
+southwesterly while most ofthe surface winds are
+southerly. This difference in direction is primarily due to
+A- local terrain effects on pressure.
+B- stronger Coriolis force at the surface.
+C- friction between the wind and the surface.
+I 59- The general circulation of air associated with a high-
+pressure area in the Northern Hemisphere is
+A- inward, upward, and clockwise.
+B- outward, downward, and clockwise.
+C- outward, upward, axrd counterclockwise.
+O gpgs 121325
+gliderpilotsgroundschool.com
+303-908-3147
+
+===== PAGE 7 =====
+Glider Pilots Ground School @
+Flight lnstructor Glider
+60
+160- Which statement is fue regarding high- or low-
+pressure systems?
+A- A high-pressure area or ridge is an area ofrising air.
+B- A low-pressure area or hough is an area ofrising air.
+C- A high-pressure area is a trough ofdescending air.
+16l- Which is an operational consideration regarding actual
+air temperature and dewpoint temperature spread?
+A- The temperature spread decreases as the relative
+humidity decreases.
+B- The temperature spread decreases as the relative
+humidity increases.
+C- The t€mperatue spread increas€s as the relative
+humidity increases.
+162- Th€ ratio ofthe existing water vapor in the air, as
+compared to the maximum amount that could exist at a
+given temperahre, is called
+A- the dewpoint.
+B- saturation point.
+C- relative humidity.
+166- Shearners ofprecipitation trailing beneath clouds but
+evaporating before reaching the ground arr knos,n as
+A- virga.
+B- sublimation.
+C- condensation tsails.
+167- From which measurement ofthe atnosphere can
+stability be determined?
+A- Ambient lapse rate.
+B- Atrnospheric pressure.
+C- Difference between standard temperature and surface
+temperature.
+168- The formation ofeither predominantly stratiform or
+predominantly cumuliform clouds is dependent upon the
+A- source of lift.
+B- stability ofthe air being lifted.
+C- percent of moisture content of the air being lifted.
+169- At approximately what altitude above the surface
+would you expect the base of cumuliform clouds ifthe
+surface air temperature is 77"F and the dewpoint is 53.F?
+A- 9,600 feet AGL.
+B- 8,000 feet AGL.
+C- 5,500 feet AGL.
+170- At approximately what altitude above the surface
+would you expect the base ofcumuliform clouds ifthe
+surface air temperature is 33'C and the dewpoint is l5.C?
+A- 4,100 feet AGL.
+B- 6,000 feet AGL.
+C- 7,200 feet AGL.
+I 7 I - If clouds form as a result of very stable, moist air
+being forced to ascend a mountain slope, the clouds will be
+A- cimrs type with no vertical development or turbulence.
+B- cumulonimbus with considerable vertical development
+and heavy rains.
+C- stratus type with little vertical development and little or
+no turbulence.
+172- The height ofthe bases ofthe middle clouds in rhe
+middle latitudes ranges ftom
+A- 1,000 to 10,000 feet.
+B- 6,500 to 23,000 feet
+C- 16,500 to 45,000 feet.
+173- Which middle level clouds are characterized by rain,
+snow, or ice pellets posing a serious icing problem if
+temperatures are near or below fieezing?
+A- Nimbostratus.
+B- Altostratus lenticular.
+C- Altocumulus castellanus.
+174- Consider the following air mass characteristics:
+l. Cumuliform clouds.
+2. Stable lapse rate.
+3. Unstable lapse rate.
+4. Stratiform clouds and fog.
+5. Smooth air (above the friction level) and poor visibility.
+6. Turbulence up to about 10,000 feet and good visibility
+except in areas of precipitation.
+A moist air mass, which is colder than the surface over
+which it passes, fiequently has which ofthe above
+characteristics?
+A- l, 3, and 6.
+B- 3, 4, and 5.
+C- 2,4, nd 5.
+175- The weather condition normallv associated with
+unstable air is
+A- stratiform clouds.
+B- fai to poor visibility.
+C- good visibility, except in blowing sand or snow.
+176- A moist, unstable air mass is characterized by
+A- poor visibility and smooth air.
+B- cumuliform clouds and showery precipitation.
+C- saatiform clouds and continuous precipitation.
+177- What type weather is associated with an advancing
+warm front that has moist, unstable air?
+A- Stratiform clouds, lighhing, steady precipitation.
+B- Cumuliform clouds, smooth air, steady precipitation.
+C- Cumuliform clouds, turbulent air, showery-q?e
+precipitation.
+178- A moist, cold air mass that is being warmed from
+below is characterize4 in part, by
+A- fog and drizzle.
+B- showers and thunderstorms.
+C- continuous heavy precipitation.
+I 79- What is a characteristic of stable air?
+A- Excellent visibility.
+B- Restrict€d visibility.
+C- Showery-type precipitation.
+180- What type weather can one expect from moist,
+unstable air and very wfin surfac€ temperah.re?
+A- Fog and low stratus clouds.
+B- Continuous heavy precipitation.
+C- Sfrong updrafts and cumulonimbus clouds.
+O gpgs 121325
+gliderpilotsgroundschool.com
+303-908-3't47
+
+===== PAGE 8 =====
+Glider Pilots Ground School @ 
+Flight lnstructor Glider 
+61
+181- What is a typical characteristic ofa stable air mass? 
+190- Which condition could be expected ifa strong
+A- Cumuliform clouds. 
+temperature inversion exists near the surface?
+B- Showery precipitation. 
+A- Strong, steady downdrafts and an increase in OAT.
+C- Continuous precipitation. 
+B- A wind shear with the possibility ofa sudden loss of
+airspe€d.
+182- A moist, warm air mass that is being cooled fiom 
+C- An OAT increase or decrease with a constant wind
+below is characterized, in part, by 
+condition.
+A- smooth air.
+B- cumuliform clouds. 
+194- What are the minimum requirements for the formation
+C- showers and thunderstorms. 
+ofa thunderstorm?
+A- Sufficient moisture and a lifting acrion.
+183- Frontal waves normally form on 
+B- Suflicient moisture, an unstable lapse rale, and lifting
+A- stationary or occluded fronts. 
+action.
+B- slow-moving warm fronts or occluded fronts. 
+C- Towering cumulus clouds, sufficient moisture, and a
+C- slow-moving cold fronts or stationary fronts. 
+frontal zone.
+184- Cool air moving over a warm surface is generally 
+195- Select the true statemenl pertaining ro the life cycle of
+characterized by 
+a thunderstorm.
+A- instability and showers. 
+A- The initial stage ofa thunderstorm is always indicated
+B- stability, fog, and drizzle. 
+by the development ofa nimbus cloud.
+C- instability and continuous precipitation. 
+B- The beginning of rain at the Earth's surface indicates the
+185- rra wave were ro form on a stationary riont runnins 
+3-"H: ;:ffi,1$i1#:i'Jr'#*n,, ,urface indicates rhe
+east and west across the United States, that portion east of 
+dissipating stage ofthe thunderstorm.
+the wave would normally
+A- remain stationary with that portion west ofthe wave 
+196- Tomadoes are most likely to occur with which rype of
+becoming a cold front. 
+thunderstorms?
+B- become a warm llont and that portion west ofthe wave 
+A- Tropical thunderstorms during the mahfe stage.
+would become a cold Iiont. 
+B- Squall line thunderstorms that form ahead ofwarm
+C- become a cold fiont and that portion west ofthe wave 
+fionts.
+would become a warm ftont. 
+C- Steady-state thunderstorms associated with cold fionts
+or squall lines.
+187- Consider the following statements about mountain
+waYes: 
+197- What feature is associated with the cumulus stage ofa
+l. Mountain waves always develop in a series on the 
+thunderstorm?
+upwind (windward) side of mountain ridges. 
+A- Frequent lightning.
+2. ln a mountain wave, the air dips sharply downward 
+B- Continuous updrafts.
+immediately to the lee side ofa ridge, before rising and 
+C- Beginning ofrain at the surface.
+falling in a wave motion for a considerable distance
+downsteam. 
+198- Which type ofcloud is associated with violent
+3. If the air is humid and the wave is of large amplitude, 
+turbulence and a tendency toward the production of funnei
+lenticular (lens-shaped) clouds mark the wave's crest. 
+clouds?
+4. [n a typical waye, the greatest amplitude is seldom more 
+A- Cumulonimbus mamma.
+than 1,000 feet above the ridge crest elevation. 
+B- Standing lenticular.
+From the statements above, select tiose which are true. 
+C- Altocumulus castellanus.
+A- 2 and 3.
+B- 1, 2, and 3. 
+199- A squall line is usually associated with a
+C- 1, 3, and 4. 
+A- stationary fiont.
+B- fast-moving cold fiont.
+188- When flying low over hilly t€rrain, ridges, or 
+C- fast-moving warm fiont.
+mountain ranges, the greatest potential danger from
+turbulent air currents will usually be encountered on the
+A- leeward side when flying with the wind.
+B- leeward side when flying into the \Mind.
+C- windward side when flying into the wind.
+189- Low-level wind shear. which results in a sudden
+change olwind direcrion. may occur
+A- after a warm ftont has passed.
+B- when surface winds are light and variable.
+C- when there is a low-level temperature inversion with
+strong winds above the inversion.
+O gpgs 121325
+gliderpilotsgroundschool.com
+303-908-3'147
+
+===== PAGE 9 =====
+Glider Pilots Ground School @
+Flight lnstructor clider
+62
+200- Consider the following statements regarding hail as an
+in-flight hazffd and select those which are correct.
+l. There is a correlation between the visual appearance of
+thunderstorms and the amount of hail within them.
+2. Large hail is most commonly found in thunderstorms
+which have strong updrafts and large liquid water content.
+3. Hail may be found at any level within a thunderstorm but
+not in the clear af outside ofthe storm cloud.
+4. Hail is usually produced during the mature stage ofthe
+thunderstorm's lifespan.
+5. Hailstones may be thrown upward and outward from a
+storm cloud for several miles.
+The true statements are:
+A- 2,4, and 5.
+B- l,2, and 3.
+C- 1,2,4, and 5.
+201- Which statement is true conceming the in-flight
+hazard of hail?
+A- Hail is usually produced by altocumulus clouds.
+B- Rain at the surface indicates the absence ofhail aloft.
+C- Hailstones may be thrown outward from a storm cloud
+for several miles.
+202- Hail, an in-flight hazard, is most likely to be
+associated with
+A- cumulus clouds.
+B- stratocumulus clouds.
+C- cumulonimbus clouds.
+203- Hail will most likely be encountered
+A- beneath the anvil cloud ofa large cumulonimbus.
+B- during the dissipating stage ofthe cumulonimbus.
+C- above the cumulonimbus cloud well above the freezing
+level.
+204- One condition necessary for the formation offog is
+A- calrn air.
+B- visible moisture.
+C- high relative humidity.
+205- Radiation fog is most likely to occur under rryhat
+conditions?
+A- Warm, moist air being forced upslope by light winds
+resulting in the air being cooled and condensed.
+B- High humidity during the early evening, cool cloudless
+night with light winds, and favorable topography.
+C- Low temperahre/dewpoint spread, calrn wind
+conditions, the presence ofhydroscopic nuclei, Iow
+overcast, and favorable topography.
+206- Advection fog is formed as a result of
+A- moist af moving over a colder surface.
+B- the addition of moishre to a mass of cold air as it moves
+over a body ofwater.
+C- the ground cooling adjacent air to the dewpoint
+tempemture on clear, caLn nights.
+207- With respect to advection fog which statement is true?
+A- It forms almost exclusively at night or near daybreak.
+B- It forms when unstable air is cooled adiabatically.
+C- It can appear suddanly during day or night, and it is
+more persistent than radiation fog.
+208- Which in-flight hazard is most commonly associated
+with warm fronts?
+A- Ground fog.
+B- Advection fog.
+C- Precipitation-induced fog.
+209- Fog associated with a warm front is a result of
+sahration due to
+A- noctumal cooling.
+B- evaporation of precipitation.
+C- evaporation of surface moisture.
+2l I - Which statement is true regarding the eflect of fronts
+on soaring conditions?
+A- A slow-moving front provides the strongest lift.
+B- Excellent soaring conditions usually exist in the cold air
+ahead ofa warm front.
+C- Frequently the air behind a cold front provides excellent
+soaring for several days.
+212- The conditions most favorable to wave formation over
+mountainous areas are a layer of
+A- unstable air at mountaintop altitude and a wind ofat
+least 15 to 25 knots blowing across the ridge.
+B- stable air at mountaintop altitude and a wind ofat least
+15 to 25 knots blowing across the ridge.
+C- moist, unstable air at mountaintop altitude and a wind of
+less than 5 knots blowing across the ridge.
+213- When soaring in the vicinity of mountain ranges, the
+g€atest potential danger fiom vertical and rotor-type
+currents will usually be encountered on the
+A- leeward side when flying with the wind.
+B- leeward side when flying into the wind.
+C- windward side when flying into the wind.
+2 I 4- Select the true statement conceming thermals.
+A- Sfrong thermals have proportionately increased sink in
+the air between them.
+B- Thermals will not develop unless the Sun's rays strike
+the Earth at a vertical angle.
+C- A thermal invariably remains directly above the surface
+area from which it developed.
+215- One ofthe most dangerous features ofmountain
+waves is the turbulent areas in and
+A- below rotor clouds.
+B- above rotor clouds.
+C- below lenticular clouds.
+216- Which thermal indices would predict the best
+probability of good soaring conditions?
+A-5
+B- -5
+c- -10
+2 I 7- An imporlant precaution when sofiing in a dust devil
+is to
+A- avoid the eye ofthe vortex because ofextreme
+turbulence.
+B- avoid steep tums on the upwind side to prevent being
+blown into the vortex.
+C- avoid the clear area at the outside edge ofthe dust
+because of severe dovmdraft s.
+303-908-31 47
+@ gpgs 121325
+gliderpilotsgroundschool.com
+
+===== PAGE 10 =====
+Glider Pilots Ground School @
+Flight lnstructor clider
+63
+2 I 8- One of the best visual indications of a thermal is a
+A- smooth cumulus cloud with a concave base.
+B- broken to overcast sky with cumulus clouds.
+C- fragmented cumulus cloud with a concave base.
+219- Convective circulation pattems associated with sea
+breezes are caused by
+A- land absorbing and radiating heat faster than the water.
+B- warm and less dense air moving inland from over the
+water, causing it to rise,
+C- cool and less dense air moving inland from over the
+water, causing it to rise.
+220- Which is true regarding the development ofconvective
+circulation?
+A- Cool air must sink to force the warm air upward.
+B- Warm air is less dense and rises on its own accord.
+C- Cool air surrounding convective circulation sinks at a
+greater rate than the warmer air rises (within the thermal),
+thus forcing the warmer air upward.
+22 I - Under what condition can enough lift be found for
+soaring under stable weather conditions?
+A- Over steep escarpments or cliffs.
+B- In mountain waves that form on the upwind side ofthe
+mountains.
+C- On the upwind side of hills or ridges with moderate
+winds present.
+227- (Refer to Figure 3.) Which station is reporting the
+wind as calm?
+A- KDAL.
+B. KFTW.
+C- KTYR.
+228- (Refer to Figure 3.) What is the reported duration of
+the rain at the time of the observation at KAUS?
+A- 25 minutes.
+B- 26 minutes
+C- 36 minutes.
+229- Consider the following statements regarding an
+Aviation Routine Weather Report (METAR).
+l. A vertical visibility entry does not constitut€ a ceiling.
+2. Fog (FG) can be reported only if the visibility is less than
+5/8 mile.
+3. The ceiling layer will be designated by a 'C'.
+4. Mist (BR) can be reported only ifthe visibility is 5/8
+mile up to six miles
+5. Temperatures reported below zero will be prefixed with a
+,1..(minus).
+6. There is no provision to report partial obscurations.
+Select the true statements.
+A- 2, 4, and,6.
+B- 2, 3, and 5.
+C- 1,2, 5, and 6.
+230- (Refer to Figure 3.) Which sation is reporting the
+lowest ceiling?
+A. KAMA.
+B- KFTW.
+C- KDAL.
+23 I - (Refer to Figure 3 .) The temperature/dewpoint spread
+at KAUS is
+A- 4.C.
+B- 4"F.
+c- 7"c.
+232- (Refer to Figure 3.) In the report for KBRO, what is
+the reported ceiling?
+A- 2,000 feet.
+B- 13,000 feet.
+C- 25,000 feet.
+248- For a brief sumrnary of the location and movement of
+fronts, pressure systems, and circulation pattems, the pilot
+should refer to
+A- Graphical Forecasts for Aviation (GFA)
+B- Terminal Area Forecasts.
+C- Satellite Maps.
+294- What is the expected duration of an individual
+microburst?
+A- One microburst may continue for as long as an hour.
+B- Five minutes with maximum winds lasting
+approximately 2 to 4 minutes.
+C- Seldom longer than l5 minutes from the time the burst
+sfikes the ground until dissipation.
+295- Maximum dorvndrafts in a microburst encounter may
+be as shong as
+A- 6,000 feet per minute.
+B- 4,500 feet per minute.
+C- 1,500 feet per minute.
+296- How long do the maximum intensity winds last in an
+individual microburst?
+A-2to4minutes.
+B- 5 to l0 minutes.
+C- 15 minutes.
+299- An airport without a control tower lies within the
+controlled airspace ofan airport with an operating tower.
+According to regulations, two-way radio communications
+with ATC are required for landing clearance at
+A- both airports, as well as to fly through the area.
+B- the tower-controlled airport only, as well as to fly
+through the area.
+C- the tower-conholled airport only, but not required to fly
+through the area.
+300- Which is true regarding VFR operations in Class B
+airspace?
+A- An operating VOR is required.
+B- A Private Pilot Certificate is required for all flight within
+this ainpace.
+C- Solo student pilots are authorized to fly in Class B
+airspace ifthey meet certain requirements.
+301- Which equipment is required when operating an
+aircraft within Class B airspace?
+A- A VOR or TACAN receiver.
+B- Two-way radio communications.
+C- Two-way radio communications and transponder with
+encoding altimeter and ADSB out.
+@ gpgs 121325
+gliderpilotsgroundschool.com
+303-908-3147
+
+===== PAGE 11 =====
+Glider Pilots Ground School O 
+Flight
+302- In which type ofairspace are VFR flights prohibited?
+A- Class A.
+B- Class B.
+C- Class C.
+304- The minimum visibility for VFR flight in Class E
+airspace increases from 3 to 5 SM beginning at an altitude
+of
+A- 10,000 feet MSL.
+B- 14,500 feet MSL.
+C- 1,200 feet AGL and at or above 10,000 feet MSL.
+306- Nonnally, the vertical limits of Class D airspace
+extend up to and including how many feet above tte
+surface?
+A- 2,500 feet.
+B- 3,000 feet.
+C- 4,000 feet.
+307- Dudng operations within conaolled airspace at
+altitudes ofmore than 1,200 feet AGL, but less than 10,000
+feet MSL, the minimum horizontal distance from clouds
+requircment for VFR flight is
+A- I mile.
+B- 2,000 feet.
+C- 1,000 feet.
+308- While in Class G airspace in VPR conditions, what
+minimum distance from clouds should be maintained when
+flying more than 1,200 feet AGL, and at or above 10,000
+feet MSL?
+A- 500 feet below; 1,000 feet above; 1 mile horizontal.
+B- 1,000 feet below; 1,000 feet above; I mile horimntat.
+C- 500 feet below; 1,000 feet above; 2,000 feet horizontal.
+309- While in Class E airspace in VFR conditions, what in-
+flight visibility is required when flying more than 1,200 feet
+AGL and at or above 10,000 feet MSL?
+A- 5 SM.
+B- 3 SM.
+C- I SM.
+3l l- While in Class G ainpace under day VFR conditions,
+what in-flight visibility is required wh6n flying more than
+1,200 feet AGL and less than 10,000 feet MSL?
+A- 5 SM.
+B- 3 SM_
+C- I SM.
+313- Within the contiguous United States, the floor of Class
+A airspace is
+A- 14,500 feet MSL.
+B- 18,000 feet MSL.
+C- 18,000 feet AGL.
+314- With certain exceptions, Class E airspace extends
+upward from either 700 feet or 1,200 feet AGL to, but does
+not include,
+A- 10,000 feet MSL.
+B- 14,500 feet MSL.
+C- 18,000 feet MSL.
+lnstructor Glider 
+64
+3 I 5- Whsn a control tower, located on an airport within
+Class D ainpace ceases operation for the day, what happens
+to the airspace designation?
+A- The ainpace designation normally will not change.
+B- The airspace remains Class D airspace as long as a
+weather observer or automated weatlrer system is available.
+C- The airspace reverts to Class E or a combination of
+Class E and G airspace during the houn the tower is not in
+operation.
+3 I 6- The vertical limit of Class D airspace will normally be
+designated at
+A- the base of tlre Class E airspace.
+B- up to, and including, 2,500 feet AGL.
+C- up to, but not including, 3,000 feet AGL.
+317- Class E airspace within the contiguous United States
+extends upward from either 700 feet or 1,200 feet AGL to,
+but not including
+A- 3,000 feet MSL.
+B- 14,500 feet MSL.
+C- the base ofthe overlying controlled airspace.
+318- (Refer to Figue 47.) What is the mdius of the surface
+area (circle C)?
+A- 5 miles.
+B- l0 miles.
+C- 15 miles.
+319- (Refer to Figure 47.) What is the radius ofthe shetf
+area (circle A)?
+A- 5 miles.
+B- l0 miles.
+C- 15 miles.
+320- (Refer to Figure 47.) Which altitude (box 2) is
+applicable to the base ofthe shelf area?
+A- 700 feet AGL.
+B- 1,200 feet MSL.
+C- 1,200 feer AGL.
+321- (Refer to Figue 47.) Which altitude (box l) is
+applicable to the vertical extent ofthe surface and shelf
+areas?
+A- 3,000 feet AGL.
+B- 3,000 feet abov€ airport.
+C- 4,000 feet above airport.
+322- What minimum avionics equipment is required for
+operation within Class C airspace?
+A- Two-way communications.
+B- Two-way communications and fansponder with
+automatic altitude reporting capability.
+C- Two-way communications, transponder with auiomatic
+altitude reporting capability, and VOR.
+323- To operate an aircraft within Class C airspace from a
+saiellite airport without an operating contol tower, a pilot
+must
+A- monitor ATC until clear ofthe Class C airspace.
+B- contact ATC as soon as practicable after takeoff.
+C- secure prior approval from ATC before takeoffat the
+airport.
+O gpgs 121325
+gliderpilotsgroundschool.com
+303-908-3147
+
+===== PAGE 12 =====
+Glider Pilots Ground School @
+Flight lnstructor Glider
+65
+324- All operations within Class C airspace must be
+A- in compliance with ATC clearances and instructions.
+B- on a flight plan filed prior to arrival or departure.
+C- in an aircraft equipped with a transponder with
+automatic altitude reporting capability.
+325- Flight through a restricted area should not be
+accomplished unless the pilot has
+A- filed an IFR flight plan.
+B- received prior authorization from the controlling agency.
+C- received prior permission from the commanding officer
+ofthe nearest military base.
+326- A waming area is airspace of defrned dimensions
+established
+A- for training purposes in the vicinity of military bases.
+B- fiom three nautical miles outward fiom the coast ofthe
+U.S.
+C- over either domestic or intemational waters for the
+purpose ofseparating military from civilian airqaft.
+327- A military operations area (MOA) is airspace of
+defmed vertical and lateral limits established for the
+purpose of
+A- separating certain military training activities from IFR
+traffic.
+B- military services conducting VFR low altitude
+navigation, tactical training, and flight testing.
+C- denoting the existence of unusual hazards to aircraft,
+such as artillery firing, aerial gunnery, or guided missiles.
+328- When operating VFR in a military operations area
+(MOA), a pilot
+A- must operate only when military activity is not being
+conducted.
+B- should exercise exreme caution when military activity is
+being conducted.
+C- must obtain a clearance from the controlling agency
+prior to entering the MOA.
+329- Flight though a military operations area (MOA) is
+A- never permitted.
+B- permitted anytime, but caution should be exercised
+because of military activity.
+C- permitted at certain times, but only with prior permission
+from the appropriate authority.
+331- Ifa military training route has flights operating at or
+below 1,500 feet AGL, it will be designated by
+A- VR and a three-digit number only.
+B- IR or VR and a four-digit number.
+C- IR or VR and a three-digit number.
+333- A military airfield can be identified by
+A- a white and red rotating beacon.
+B- white flashing sequence lights (strobes).
+C- a green and dual-peaked white rotating beacon.
+334- The numbers 8 and 26 on the approach ends ofthe
+runway indicate that the runway is orientated approximately
+A- 008" and 026'tme.
+B- 080' and 260' true.
+C- 080' and 260' magnetic.
+O gpgs 121325
+338- As standad operating practice, all inbound trafiic to
+an airport without a control tower should continuously
+monitor the appropriate facility from a distance of
+A- 25 miles.
+B- 20 miles.
+C- l0 miles.
+339- When landing at an airport lhat does not have a tower,
+FSS, or LJNICOM, you should broadcast your intentions on
+A- 122.9 MHz.
+B- 123.0 MHz.
+C- 123.6 MHz.
+346- (Refer to Figue 54.) The segmented circle indicates
+that the airport trafiic pattem is
+A- left-hand for Rwy 17 and right-hand for Rwy 35.
+B- right-hand for R*y 35 and right-hand for Rlry 9.
+C- left-hand for R*y 35 and right-hand for Rwy 17.
+347- (Refer to Figure 54.) Which runway and tsaflic pattem
+should be used as indicated by the wind cone in the
+segmented circle?
+A- Right-hand traffic on Rwy 17.
+B- Left-hand traffic on Rwy 27 or Rwy 35.
+C- Left-hand traffic on Rwy 35 or right-hand faffic on Rwy
+27.
+355- How does the wake turbulence vortex circulate around
+each wingtip?
+A- Inward, upward, and around each tip.
+B- lnward, upward, and counterclockwise.
+C- Outward, upward, and around each tip.
+356- What effect would a crosswind of5 knots or less have
+on the wingip vortices generated by a large aircraft that had
+just aken ofl
+A- A light crosswind would rapidly dissipate the strength of
+both vortices.
+B- The upwind vortex would tend to remain on the runway
+longer than the downwind vortex.
+C- Both vortices would move downwind at a greater rate
+than if the surface wind was directly down the landing
+runway.
+3 57- During a takeoff made behind a departing large jet
+airplane, the pilot can minimize the hazard of wingtip
+vortices by
+A- remaining below the jet's flightpath until able to tum
+clear of its wake.
+B- extending the takeoffroll and not rotating until well
+beyond the jefs rotation point.
+C- being airbome prior to reaching the jet's flightpath until
+able to tum clefi of its wake.
+358- When landing behind a large jet aircraft, at which
+point on the nmway should you plan to land?
+A- Beyond the jet's touchdown point.
+B- At least 1,000 feet beyond thejet's touchdown point.
+C- If any crosswind, land on the windward side of the
+runway and prior to the jet's touchdown point.
+gliderpilotsgroundschool.com
+303-908-3147
+
+===== PAGE 13 =====
+Glider Pilots Ground School @ 
+Flight
+359- Which statement is true regarding wingtip vortices?
+A- Helicopter rotors generate downwash turbulence only,
+not vortices.
+B- Vortices generated by helicopters in forward flight are
+similar to those generated by fixed wing aircraft.
+C- Vortices tend to remain level for a period of time before
+sinking below the generating aircraft,s flightpath.
+360- Due to the effects ofwake turbulence, what minimum
+separation does ATC provide for a small aircraft landing
+behind a heavyjet?
+A- 4 miles.
+B- 5 miles.
+C- 6 miles.
+361- Information conceming parachute jumping sites may
+be found in the
+A-NOTAMs.
+B- Airport/Facility Directory.
+C- Graphic Notices and Supplemental Data.
+380- A person whose Flight Inshuctor Certificate has been
+suspended may not
+A- give flight training but may apply for a mting to be
+added !o that certificate.
+B- apply for any rating to be added to that certificate during
+the period of suspension.
+C- apply for any Flight Inshuctor Certificate for a period of
+I year after the date ofthe suspension.
+3 8 I - Conviction of an offense involving alcohol or drugs is
+grounds for
+A- permanent revocation of all certificates and ratings.
+B- suspension or revocation of any certificate or rating
+issued under FAR Part 61.
+C- denial of an application for any certificate or rating
+issued under FAR Part 6l for a period ofup to 24 months
+after date of conviction.
+3 82- What is the duntion of a Student Pilot Certificate?
+A- Student pilot certificates issued after April I , 20 I 6 will
+have no expiration date.
+B- 12 calendar months from the month in which it was
+issued.
+C- 24 calendar months from the month in which it was
+issued.
+383- What is the duration ofa Flight Instructor Certificate?
+A- Indefmite, unless suspended or revoked.
+B- 24 months after the month in which it was issued or
+renewed.
+C- Indefinite, as long as the holder has a current pilot and
+medical certificate appropriate to th€ pilot privileges being
+exercised.
+385- To act as pilot in command ofa glider using aerotow
+procedures, a person must have
+A- received 5 hours ofground and flight training on
+aerotow procedures and operations in a glider, and
+completed a practical test.
+B- received ground and flight training on aerotow
+procedures and operations in a glider, and received an
+endorsement from an authorized instructor certirying
+proficiency.
+lnstructor Glider
+C- made three solo takeoffs in a glider of the same make
+and model using aerotow procedures, and received an
+endorsement from an authorized instructor certirying
+proficiency in the procedures.
+386- What minimum documentation is required to take an
+FAA knowledge test for any flight instructor rating?
+A- Proper identifi cation.
+B- Proof of satisfactory completion of the appropriate
+ground training or home study course.
+C- Authorization from an FAA inspector who has verified
+and endorsed the applicant's training record.
+387- A person who the Adminishator frnds has cheated or
+committed any unauthorized act while taking a knowledge
+test may not take another knowledge test within
+A- 90 days.
+B- I year.
+C- 2 years.
+3EE- What action may be taken against a penon whom the
+Administrator finds has cheated on a knowledge test?
+A- That person will be required to lryait 24 months before
+taking another lcrowledge test.
+B- Any certificate or rating held by the person may be
+suspended or revoked.
+C- That person may be required to wait a maximum of 6
+months before applying for any other certificate or rating.
+390- A written statement from an authorized instructor
+certirying that an applicant has received the required
+training in preparation for a practical test must be dated
+within how many days preceding the date ofapplication?
+A- 60
+B- 90
+c- 120
+391- To be eligible for a practical test under l4 CFR part
+61, an applicant must have passed the appropriate
+loowledge test (whan required) within the preceding
+A- 6 calendar months.
+B- 12 calendar months.
+C- 24 calendar months
+392- If all increments for a practical test for a certificate or
+rating are not completed on one date, all remaining
+increments must be satisfactorily completed no later than
+A- 90 days from the date ofthe test.
+B- 120 days from the date ofthe test.
+C- 60 days from the date of the test.
+393- What is one requirement for an aircraft fumished for a
+practical test?
+A- All flight instruments must be fully functioning.
+B- Must have no prescribed operating limitations that
+prohibit its use in any required area of operation.
+C- Dual flight controls and engine power controls must be
+operable and easily reached by both pilots in a normal
+manner.
+oo
+@ gpgs '121325
+gliderpilotsgroundschoot.com
+303-908-3147
+
+===== PAGE 14 =====
+Glider Pilots Ground School @
+Flight lnstructor Glider
+ot
+394- An applicant has failed a knowledge test for the
+second time. With training and an endorsement from an
+authorized instructor, when may the applicant apply for a
+retest?
+A- Immediately.
+B- After 30 days.
+C- After 5 days.
+395- Your student took a practical test for a pilot certificate
+on January l0 and failed to meet standards. After being
+retested on January 13 and failing to meet standards again,
+when is your student eligible to retest?
+A- January 13.
+B- February 12.
+C- February 13.
+396- An applicant who fails a pilot knowledge test for the
+first time may apply for retesting after
+A- waiting for a period of20 days.
+B- receiving 5 hours ofground instruction from an
+authorized ground instructor.
+C- presenting an endorsement from an authorized inshuctor
+certirying that additional raining has been given and the
+applicant is competent to pass the test.
+397- A flight instuctor applicant must demonstrate spins in
+an airplane or glider when
+A- the practical test for initial certification is being given.
+B- being retested for deficiencies in instructional
+proficiency on stall awareness or spins demonstrated during
+an initial test.
+C- the airplane or glider to be used for the practical test is
+certificated for spins and the applicant is being given an
+initial practical test.
+398- An applicant who fails a practical test for the second
+time may apply for retesting after
+A- 30 days have passed.
+B- receiving the necessary instruction and an endorsement
+from an authorized instructor who gave the training.
+C- presenting a letter of competency to the examiner signed
+by an authorized flight instructor.
+399- Which training time must be certified by the instructor
+from whom it was received?
+A- Flight training.
+B- Flight training and training in a flight training device.
+C- All flight training, flight simulator training, and ground
+training.
+400- What flight time must be recorded by a pilot
+exercising the privileges ofa commercial certificate?
+A- AII flight time.
+B- Only the flight time recessary to meet the recent flight
+experience requfements.
+C- All flight time flown for hire with passengers and/or
+cargo aboard the aircraft.
+402- A flight review is not required ifa pilot has completed,
+within the time specified,
+A- an industry-sponsored refresher clinic.
+B- a pilot proficiency check conducted by the FAA.
+C- an instrument proficiency check conducted by an
+inshuctor with the Armed Forces.
+403- A flight review will consist of
+A- a minimum of I hour ground training and I hour flight
+training.
+B- at least I hour of flight time to include at least three
+takeoffs and landings.
+C- three takeoffs and landings and a review ofthose
+maneuvers necessary for the pilot to demonstrate the
+appropriate pilot privileges.
+404- A flight instructor who has not satisfactorily
+accomplished a flight review or passed a required
+proficiency check within the prescribed time is
+A- not authorized to fly solo.
+B- authorized to fly solo only.
+C- not authorized to give instruction except to holders of
+Recr€ational Pilot Certifi cates.
+405- A flight review for a glider pilot must consist ofat
+least I hour ofground instruction and
+A- three takeoffs and landings.
+B- I hour offlight training to include three 3604" tums.
+C- I hour offlight haining or three instructional flights,
+each ofwhich includes a flight to faffic pattem altitude.
+408- The holder of a pilot or instructor certificate who fails
+to notify the FAA Airmen Certification Branch in writing
+of a change in permanent mailing address may exercise the
+privileges ofthat certificate for how many days after date of
+change?
+A- 30
+B- 60
+c- 90
+409- When a permanent change ofaddress occurs, pilot or
+instructor privileges may not be exercised unless the FAA
+Airmen Certification Branch is notified, in writing, within
+A- 30 days.
+B- 60 days.
+C- 90 days.
+410- A person seeking a private pilot glider rating is exempt
+fiom taking the knowledge test ifthat person
+A- holds a rating for powered aircraft.
+B- holds a pilot certificate for any category.
+C- has taken a knowledge test for any powered rating
+within the preceding 24 months.
+4 I I - The minimum age requirement for the applicant who
+is seeking a Student Pilot Certificate limited to glider
+operations is
+A- 14 years.
+B- 16 years.
+C- 17 years.
+O 9p9s 12'1325
+gliderpilotsgroundschool.com
+303-908-3147
+
+===== PAGE 15 =====
+Glider Pilots Ground School @
+Flight lnstructor Glider
+68
+412- Which is a required endorsement by an authorized
+flight instructor for a student pilot to operate an aircraft in
+solo flight?
+A- An endorsement that instruction was given in the make
+and model of aircraft to be soloed within the preceding 6
+months.
+B- An endorsement within the preceding 90 days stating
+that instruction was given in the make and model aircraft to
+be flown and the student is competent to make a safe solo
+flight.
+C- An endorsement made within the preceding 180 days
+that instruction was given in the make ofaircraft to be
+soloed and that the instructor found the applicant competent
+to make a safe flight in that aircraft.
+415- Who is responsible for administering the required
+knowledge test to a student pilot prior to solo flight?
+A- The student's authorized instructor.
+B- Any certificated ground instuctor.
+C- Any certificated flight instructor.
+416- What subjects must be covered on the presolo
+knowledge test?
+A- Principles offlight, weather, and aircraft systems.
+B- Applicable regulations, flight characteristics, and
+operational limitations ofmake and model aircraft to be
+flown.
+C- Density altitude, operations from a controlled airport,
+and radio communications with appropriate air traffic
+control facilities.
+417- Prior to solo flight, a student must have received flight
+instruction in
+A- ground reference maneuvers.
+B- unusual attitude recoveries.
+C- basic radio navigation procedures.
+4 I 9- Are students authorized to make repeated solo cross-
+country flights without each flight being logbook endorsed?
+A- No; each solo cross-country flight requires a logbook
+endorsement.
+B- Yes; provided the flights take place under stipulated
+conditions.
+C- Yes; but only if the flights remain within 25 NM of the
+point of departure.
+420- One requirement for a student pilot to be authorized to
+make a solo cross-country flight is an endorsement
+A- in the studenfs logbook that the instructor has given the
+student cross-country instruction in the model of aircraft to
+be used.
+B- in the studenfs logbook that the preflight planning and
+preparation has been reviewed and the student is prepared
+to make the flight safely.
+C- on the Student Pilot Certificate stating the student is
+competent to make cross-country flights in the category,
+class, and type ofaircraft involved.
+421- May repeated solo cross-country flights over the same
+route be made by a student withour receiving an
+endorsement fiom a flight instructor for each flight?
+A- No; an endorsement is required for each solo cross-
+country flight.
+B- Yes; ifthe route is no more than 50 NM tiom the point
+of departure and instruction was given in both directions
+over the route.
+C- Yes; ifthe total route is no more tlan 25 NM fiom the
+point ofdepartue and the student has received at least 3
+hours of cross-count ry instruction and logged at least 5
+hours of solo cross-country flight.
+422- To operate an aircraft on a solo flight within Class B
+airspace, a student must have a logbook endorsement
+showing that he/she has
+A- received flight instruction from any authorized flight
+instructor on operating within Class B airspace.
+B- received ground instruction on and flight instruction in
+that specific airspace for which solo flight is authorized.
+C- within the preceding 90 days, been found to be
+competent by any flight instructor having knowledge ofthe
+student's experience in that specific airspace.
+423- Who is authorized to endorse a student pilot logbook
+authorizing flight in Class B airspace?
+A- Any flight instructor.
+B- Only the flight instructor who conducted the training.
+C- Any flight instructor who has personal knowledge of the
+fl ight training received.
+424- A Recreational Pilot Certificate may be issued for
+A- ainhips, gliden, and balloons.
+B- airplanes, gyoplanes, and helicopters.
+C- airplanes, gliden, helicopters, and $/roplanes.
+425- What is the minimum age required to be eligible for a
+Commercial Pilot Certificate?
+A- t7
+B- l8
+c- 2t
+427- An applicant for a Commercial Pilot Certificate with a
+glider rating must have at least
+A- 35 glider flights launched by ground tow or 20 launched
+by aerotow.
+B- 25 hours as pilot in gliders and 100 glider flights as pilot
+in command.
+C- 200 hours of pilot time in heavier-than-air aircraft,
+including at least l0 glider flights as pilot in command
+during which 360Ao tums were made.
+430- What requirement(s) must an authorized instructor
+meet in order to prepare a glider applicant for an initial
+Flight Instructor Certificate rating?
+A- Held a Flight Instructor Certificate for 24 months or
+given 200 hours of flight training.
+B- Held a Flight Instructor Certificate for 12 months and
+given a minimum of 80 hours of training.
+C- Held a Flight Instructor Certificate for at least 24 months
+and given a minimum of 80 hours ofglider training.
+O gpgs 121325
+gliderpilotsgroundschool.com
+303-908-3't47
+
+===== PAGE 16 =====
+Glider Pilots Ground School @
+Flight lnstructor Glider
+bv
+43 I - The O?e and date of each stud€nt pilot endorsement
+given shall be maintained by each flight instructor. For
+what period of time is this record required to be retained?
+A- I year.
+B- 2 years.
+C- 3 years.
+432- A flight inshuctor who applies for an additional rating
+on that certificate must have a minimum of how many
+hours as pilot in command in the category and class of
+aircraft appropriate to the rating sought?
+A- 15
+B- No minimum number of hours.
+c-5
+433- During any 24 consecutive hours, an instructor is
+limited to how many hours of flight training?
+A-8
+B- t0
+c- t2
+434- To endorse a student pilot for solo cross-country
+privileges, an instructor is required, in part, to have
+A- given that student the required cross-country flight
+training and checked the flight planning.
+B- determined that the student's preparation, planning, and
+procedures are adequate for the proposed flight undo the
+existing conditions.
+C- assurance from another instructor that the student is
+prepared to conduct the flight safely under current
+conditions.
+435- To endorse a student pilot's logbook for solo fligh! an
+instructor is required, in part, to have
+A- given that student cross-country flight training.
+B- given that student flight training in the type of aircraft
+involved.
+C- at leasl 5 hours ofexperience as pilot in command in the
+aircraft involved.
+436- A Flight Instructor Certificate may be renewed by
+A- passing both a knowledge and a practical test.
+B- providing a record oftraining showing evidence the
+applicant has given at least 80 hours of flight haining in the
+last 24 months.
+C- successfully completing a flight instructor refreshsr
+course within 3 calendar months prior to renewal.
+437- The holder of an expired Flight Instructor Certificate
+may exchange that certificate for a new one by
+A- passing the appropriate practical test.
+B- presenting a satisfactory record oftsaining.
+C- successfully completing a flight instructor refresher
+course.
+442- If an in-flight emergency requires immediate action, a
+pilot in command may
+A- deviate from FARS to the extent required to meet that
+emergency.
+B- not deviate from FARs unless permission is obtained
+from air traffic control.
+C- deviate from FARS to the extent required to meet the
+emergency but must submit a written report to the
+Administrator within 24 hours.
+443- Under what condition, ifany, may a pilot allow a
+person who is obviously under the influence of intoxicating
+liquors or drugs to be carried aboard an aircraft?
+A- Under no condition.
+B- Only ifa second pilot is aboard.
+C- Only ifthe person is a medical patient under proper care
+or in an emergency.
+4,14- A penon may not act as a crewmember ofa civil
+aircraft if alcoholic beverages have been consumed by that
+person within the preceding
+A- 8 hours.
+B- 12 hours.
+C- 24 hours.
+445- No person may act as a crewmember ofa civil aircraft
+with a minimum blood alcohol level of
+A- any detectable amount.
+B- .04 percent or greater.
+C- 0.2 percent or greater.
+446- Al aircraffs operating limitations may be found in the
+A- FAA-approved aircraft flight manual.
+B- owner's handbook published by the aircraft
+manufacturer.
+C- aircraft flight manual, approved manual material,
+markings, and placards, or any combination thereof.
+447- Which preflight action is required for every flight?
+A- Check weather reports and forecasts.
+B- Determine runway length at airyorts of intended use.
+C- Determine altematives ifthe flight cannot be completed.
+448- The preflight aaion requied by regulations relative to
+altematives available, if the planned flight cannot be
+completed, is applicable to
+A- IFR flights only.
+B- any flight not in the vicinity ofan airport.
+C- any flight conducted for hire or compensation.
+449- Which statement is true r€garding the use of seatbelts
+and shoulder hamesses?
+A- Crewmembers must keep seatbelts and shoulder
+hamesses fastened at all times during movement on the
+surface.
+B- The pilot in command must ensure that each penon on
+board an aircraft is briefed on how to fasten and unfasten
+seatb€lts.
+C- Passengers must keep seatbelts fastened at all times
+during movement on the surface but use of shoulder
+hamesses is optional.
+451- When two or more aircraft are approaching an airport
+for the purpose of landing, the right-of-way belongs to the
+aircraft
+A- that is the least maneuverable-
+B- that is either ahead ofor to the other's right regardless of
+altitude.
+C- at the lower altitude, but it shall not take advantage of
+this rule to cut in front ofor to overtake another.
+O gpgs 12'1325
+gliderpilotsgroundschool.com
+303-908-3147
+
+===== PAGE 17 =====
+Glider Pilots Ground School @ 
+Flight
+452- What action should be taken if a glider and an airplane
+approach each other at the same altitude and on a head-on
+collision course?
+A- Both should give way to the right.
+B- The airplane should give way because it is more
+maneuverable,
+C- The airplane should give way because the glider has the
+right-of-way.
+459- To operate an aircraft over any congested are4 a pilot
+should maintain an altitude ofat least
+A- 500 feet above the highest obstacle within a horimntal
+radius of 1,000 feet.
+B- 1,000 feet above the highest obstacle within a horimntal
+radius of2,000 feet.
+C- 2,000 feet above the highest obstacle within a horizontal
+radius of 1,000 feet.
+460- Except when necessary for takeoffor landing, what is
+the minimum safe altitude for a pilot to operate an aircraft
+anywhere?
+A- An altitude of 1,000 feet above dte highest obstacle
+within a horizontal radius of2,000 feet.
+B- An altitude of 500 feet above the surface and no closer
+than 500 feet to any person, vessel, vehicle, or structure.
+C- An altitude allowing, ifa power unit fails, an ernergency
+landing without undue hazard to persons or property on the
+surface.
+461- What action is appropriate ifyou deviate Aom an air
+traffrc control instruction during an emergency and are
+given priority?
+A- Submit a report to the nearcst FAA regional office
+within 48 houn.
+B- Submit a report to the manager ofthe air traftic control
+facility within 24 hours.
+C- If requested, submit a detailed report within 48 hous to
+the manager ofthe air traftic conrrol facility.
+463- While in flight, an altemating red and green Iight
+directed at you from the contsol tower means
+A- exercise extreme caution.
+B- give way to other aircraft; continue circling.
+C- retum for landing; expect steady green light at proper
+time.
+466- What minimum pilot certificate will permit a pilot to
+enter Class B airspace?
+A- Private Pilot Certificate.
+B- Commercial Pilot Certificate.
+C- Student Pilot Certificate with an appropriate
+endorsement.
+468- What minimum flight visibility is required when
+flying a glider above I 0,000 feet MSL and more than I ,200
+feet AGL?
+A. 3 SM.
+B- 5 NM.
+c- 5 sM.
+lnstructor Glider
+471- Regarding certificates and documents, no person may
+operate an aircraft unless it has withh it an
+A- Airworthiness Certificate and minimum equipment list
+(MEL).
+B- Airworthiness Certificate, aircraft and engine logbooks,
+and owner's handbook.
+C- Airworthiness Certificate, Registration Certificate, and
+approved flight manual.
+48 I - Unless each occupant is provided with supplemental
+oxygen, no percon may operate a civil aircraft of U.S.
+registry above a cabin pressure altitude of
+A- 12,500 feet MSL.
+B- 14,000 feet MSL.
+C- 15,000 feet MSL.
+482- Which cabin pressure altitude allows a pilot to operate
+an aircraft up to 30 minutes without supplemental oxygen?
+A- 12,500 feet MSL.
+B- 12,600 feet MSL.
+C- 14,100 feet MSL.
+489- What is the minimum altitude and flight visibility
+required for acrobatic flight?
+A- 1,500 feet AGL and 5 miles.
+B- 1,500 feet AGL and 3 miles.
+C- 3,000 feet AGL and 3 miles.
+490- When must each occupant ofan aircraft wear an
+approved parachute?
+A- rtrhen flying over water beyond gliding distance to the
+shore.
+B- When practicing spins or other flight maneuvers for any
+certificate or rating.
+C- When an intentional maneuver that exceeds 30o nose up
+or nose down relative to the horizon is made.
+49 I - Who is primarily responsible for maintaining an
+aircraft in an airworthy condition?
+A- Mechanic.
+B- Pilot in command.
+C- Owner or operator of the aircraft.
+492- Assuring compliance with airworthiness dLectives is
+the responsibility of the
+A- FAA certificated mechanic.
+B- pilot in command of the aircraft.
+C- owner or operator ofthe aircraft.
+493- Completion of an annual inspection and the retum of
+an aircraft to service should always be indicated by
+A- conduct of a test flight and the appropriate logbook
+entry.
+B- the appropriate entries in the aircraft maintenance
+records.
+C- the relicensing date on the Registration Certificate.
+494- Ifan airffaft's operation in flight was substantially
+affected by an alteration or repair, the aircraff documents
+must show that it was test flown and approved for retum to
+service by an appropriately rated pilot prior to being flown
+A- with passengers aboard.
+B- for compensation or hire.
+C- by instmctors and students.
+303-90&3't 47
+70
+@ gpgs 12132s
+gliderpilotsgroundschool.com
+
+===== PAGE 18 =====
+Glider Pilots Ground School @ 
+Flight
+495- An aircraft's last annual inspection was performed on
+July 12, this year. The next annual inspection will be due no
+later than
+A- July 13, next year.
+B- July 3 l, next year.
+C- 12 calendar months after the date shown on the
+Airworthiness Certifi cate.
+496- Which is prohibited ifrhe aircraft being used has not
+had a 100-hour inspection or annual inspection within the
+preceding 100 hours of time in service?
+A- Giving flighl instruction for hire.
+B- Conducting any commercial operation.
+C- Carrying passengers, either for hire or not for hire.
+497- An aircraft operated for hire with passengers aboard
+has a 100-hour inspection performed after 90 hours in
+service. The next 100-hour inspection would be due after
+A- 90 hours' time in service.
+B- I00 hours'time in service.
+C- I l0 hours'time in service.
+504- The NTSB defines a serious injury as any injury which
+A- causes severe tendon damage.
+B- results in a simple fracture ofthe nose.
+C- involves first degree burns over 5 percent ofthe body.
+505- Notification to the NTSB is required when there has
+been substantial damage which
+A- adyersely affects aircraft performance.
+B- causes small, punctured holes in the skin or fabric.
+C- results in more than $25,000 for repairs to the aircraft.
+506- NTSB Part 830 requires an immediate notification as a
+result of which incident?
+A- Aircraft collide on the ground.
+B- Flight control system malfunction.
+C- Damage to property, other thar the aircraft, estimated to
+exceed $10.000.
+507- If an aircraft is involved in an accident which results
+in substantial damage to the aircraft, the nearest NTSB field
+office shall be notified
+A- immediately.
+B- within 7 days.
+C- within l0 days.
+508- The operator ofan aircraft that has been involved in an
+accident is required to file a report within how many days?
+A-3
+B-7
+c- t0
+509- The operator ofan aircraft that has been involved in an
+incident is required to submit a report to the nearest field
+office of the NTSB
+A- within 7 days.
+B- within l0 days.
+C- only ifrequested to do so.
+lnstructor Glider 
+71
+513- For a winch tow, which is an advantage ofthe CG
+hook over the nose hook?
+A- A shallower climb can be used during launch.
+B- Glider is less likely to pitch up ifthe towline breaks.
+C- Likelihood ofapplying too much back-stick pressure is
+reduced.
+514- Which is true regarding glider tow hooks?
+A- Use ofa CG hook for aerotows would cause a glider to
+pitch up.
+B- Use ofa CG hook for winch tows would cause a glider
+to pitch up.
+C- Use ofa nose hitch for aerotows increases the climb
+attitude and release altitude.
+515- What would be the approximate tensile strength ofa
+rope with a 1,000-pound tensile strength ifa knot develops
+in it?
+A- 500 pounds.
+B- 800 pounds.
+C- 1,000 pounds.
+516- What is the minimum allowable stength of a towline
+used for the aerotow ofa glider having a certificated gross
+weight of 1,040 pounds?
+A- 780 pounds.
+B- 832 pounds.
+C- 1,300 pounds.
+5I7- GIVEN:
+Maximum auto winch tow speed 69 MPH
+Surface wind
+Wind gradient
+5 MPH
+5 MPH
+What should the auto winch speed be when a glider reaches
+an altitude of200 feet?
+A.4 MPH.
+B- 49 MPH.
+C- 59 MPH.
+519- During the entry to a right tum, the nose ofthe aircraft
+swings slightly to the left before it swings along the horizon
+to the right. This is a
+A- slipping entry, caused by excessive right rudder
+pressure.
+B- skidding entry; more right rudder pressure and less right
+aileron pressure should have been applied.
+C- slipping enfy; more right rudder pressure should have
+been applied for the amount of aileron pressure being used.
+520- What will cause the nose ofan aircraft to move in the
+direction ofthe tum before the bank starts in a turn entry?
+A- Rudder being applied too late.
+B- Rudder being applied too soon.
+C- Failure to apply back elevator pressure.
+521- How should a student be taught to correct for a nose-
+low attitude dudng a steep tum?
+A- Apply back elevator pressure to attain the desired pitch
+attitude.
+B- Reduce the angle ofbank, then apply back elevator
+pressure to attain the desired pitch attitude.
+C- Apply back elevator pressure to attain the desired pitch
+attitude, then reduce the angle of bank.
+O gpgs 121325
+gliderpilotsgroundschool.com
+303-908-3147
+
+===== PAGE 19 =====
+Glider Pilots Ground School @
+Flight lnstructor Glider
+72
+525- To minimize the side loads placed on the landing gear
+during touchdown, the pilot should keep the
+A- direction of motion ofthe aircraft parallel to the runway.
+B- longitudinal axis ofthe aircraft parallel to the direction
+of its motion.
+C- downwind wing lowered sufficiently to eliminate the
+tendency for the airffaft to drift.
+526- Under normal conditions, a proper crosswind landing
+on a runway requires that, at the moment oftouchdown, the
+A- direction of motion ofthe aircraft and its longitudinal
+axis be parallel to the runway.
+B- downwind wing be lowered sufiiciently to eliminate the
+tendency for the aircraft io &ift.
+C- direction of motion of the aimaft and its lateral axis be
+perpendicular to the nmway.
+527- If an emergency situation requires a downwind
+landing, pilots should expect a faster
+A- airspeed at touchdown, a longer ground roll, and better
+control throughout the landing roll.
+B- groundspeed at touchdown, a longer ground roll, and the
+likelihood of overshooting the desired touchdown point.
+C- groundspeed at touchdown, a shorter ground roll, and
+the likelihood ofundershooting the desired touchdoun.
+528- On final approach to landing, a faster-than-normal
+indicated airspeed should be used when
+A- turbulent conditions exist-
+B- ambient temperatures are above 90oF.
+C- Ianding at airports above 5,000 feet MSL with above
+standard temperature conditions.
+529- One reason a student tends to romd out high during
+landing is
+A- changing focus gradually.
+B- focusing on references too far ahead.
+C- focusing on references tlat are too close or looking
+directly dovm.
+530- What could be a result ofa student focusing too far
+ahead during a landing approach?
+A- Reactions will be either too abrupt or too late.
+B- Rounding out too high and developing an excessive sink
+rate.
+C- Difficulty in judging the closeness of the ground
+resulting in a nose-fiBt touchdown.
+531- What normally results from excessive airspeed on final
+approach?
+A- Bourcing.
+B- Floating.
+C- Ballooning.
+532- What normally results from misjudging the rate of
+sink during a landing?
+A- Floating.
+B- Ballooning.
+C- Poor directional control.
+533- rJr'hat proc€due should be used to correct for slight
+ballooning during landing?
+A- Decrease power.
+B- Decrease angle ofattack.
+C- Hold a constant landing attitude.
+534- To properly compensate for a crosswind during
+straight-andlevel cruising flighr, the pilot should
+A- hold rudder pressure toward the wind.
+B- establish a proper heading into the wind by coordinated
+use ofthe controls.
+C- hold aileron pressure toward the wind and hold opposite
+rudder pressure to prevent a tum.
+538- Ifan accelerated stall occurs in a steep tum, how wilt
+the aircraft respond?
+A- The inside wing stalls first because it is flying at a
+higher angle of attack.
+B- The outside wing stalls first because it is flying at a
+higher angle ofattack.
+C- In a slip, the high wing stalls first; in a skid, the low
+wing stalls first; in coordinated flight, both wings stall at
+the same time-
+541- Which would likely result in a slipping turn?
+A- Not holding bottom rudder in a tum.
+B- Increasing the rate oftum without using rudder.
+C- Increasing the rate of tum without increasing banl.
+546- What consideration should be given in the choice ofa
+towplane for use in aerotows?
+A- Stall speed ofthe towplane.
+B- Gross weight ofthe glider to be towed.
+C- Towplane's low-wing loading and low-power loading.
+547- The reason for retaining water ballast while thermals
+are strong and dumping the water when thermals weaken is
+to
+A- decrease forward speed.
+B- inoease forward speed.
+C- decrease the rate ofdescent.
+548- When flying into a strong headwind on a long glide
+back to the airyort, the recommended speed to use is the
+A- best glide speed.
+B- minimum sinl speed.
+C- best lifl/drag speed plus halfthe estimated windspeed at
+the glider's flight altitude.
+549- How can excessive towline slack that is allowed to
+develop during a glider tow be eliminated?
+A- Increase pitch attitude until towline becomes taut.
+B- Execute a shallow banked coordinated tum to either
+side.
+C- Yaw the nose to one side with rudder while keeping the
+wings level with ailerons.
+550- What could result ifa glider pilot releases while in the
+low-tow position during an aerotow?
+A- Nose ofthe glider would tend to pitch up after release.
+B- Tow ring may strike and damage the glider after release.
+C- Glider may be forced into th€ towplane's wake
+turbulence.
+O gpgs 121325
+gliderpilotsgroundschool.com
+303-908-3147
+
+===== PAGE 20 =====
+Glider Pilots Ground School @
+Flight lnstructor Glider
+55 l - After signaling the tow pilot that the glider pilot
+cannot release, the tow pilot fishtails the afplane. The
+glider pilot should then plan to fly the frnal approach in
+A- low-tow position and land before the to$?lane; but use
+no spoilen or brakes during the landing roll until after the
+towplane touches down.
+B- high-tow position and extend the spoilers just prior to
+the towplane's touchdown.
+C- the towplane's wake and extend the spoilers as needed
+for a normal landing.
+552- Duing an auto launch, the pitch angle ofthe glider
+should not exceed
+A- l0' at 50 feet, 20' at 100 feet, and 45o at 200 feet.
+B- l5' at 50 feet, 20' at 100 feet, and 404" at 200 feet.
+C- 15' at 50 feet, 30o at 100 feet, and 45' at 200 feet.
+553- At what point during an auto tow should the glider
+pilot establish the maximum pitch attitude for the climb?
+A- 200 feet above the ground.
+B- 100 feet above the ground.
+C- Between 300 and 400 feet above the ground.
+554- When preparing for an auto tow with a strong
+crosswind, where should the glider and towrope be
+positioned?
+A- Obliquely to the line of takeoff on the upwind side of the
+tow vehicle.
+B- Obliquely to the line of takeoffon the downwind side of
+the tow vehicle.
+C- Directly behind the tow vehicle and cmbbed into the
+wind with the wing runner holding the upwind wingtip.
+555- During a ground launch, how is the airspeed of a
+glider increased?
+A- Raise the nose.
+B- Lower the nose.
+C- Increase speed ofvehicle or winch.
+556- During a winch launch, which factor would most
+likely result in pitch oscillations?
+A- Winching speed too fast.
+B- Winching speed too slow.
+C- Insuffrcient up-elevator control.
+557- Unless adequate speed control is maintained during
+the turn to base and the final approach for a landing into the
+wind, which would most likely occur if a steep wind
+gradient existed?
+A- The desired landing spot would be undersho! or the
+gtider would stall.
+B- The airspeed on final approach would increase, causing
+the glider to overshoot the desir€d landing spot.
+C- The wingtip on the outside ofthe hlm would stall before
+the wingip on the inside of the tum.
+558- A rule of thumb for flying a final approach is to
+maintain a speed that is
+A- 50 percent above the glidels stall speed, regadless of
+windspeed.
+B- twice the glider's stall speed plus half the estimated
+windspeed.
+C- 50 percent above the glider's stall speed plus halfthe
+estimated windspeed.
+O gpgs 121325
+559- If swirling dust, leaves, or debris indicate a stong
+thermal on the final approach to a landing, it is
+recommended that the glider pilot
+A- open the spoilers and reduce the airspeed.
+B- close the spoilers and increase the airspeed.
+C- open the spoilers and maintain a constant airspeed.
+560- With regard to two or more gliders flying in the same
+thermal, which statement is true?
+A- All tums should be to the right.
+B- Tums should be in the same dircction as the highest
+glider.
+C- Tums should be made in the same direction as the first
+glider to enter the thermal.
+56 I - Which is true relating to the direction in which turns
+should be made during slope soaring?
+A- All reversing tums should be made to the left.
+B- All tums should be made downwind toward the slope.
+C- All revening turns should be made into the wind away
+from the slope.
+562- What is the suggested speed to fly when passing
+through lift with no intention to work the lift?
+A- Best glide speed.
+B- Minimum sink speed.
+C- Best liff/drag speed.
+563- When making an off-field landing, it is recommended
+that the landing be accomplished
+A- in pastures which are seldom cultivated.
+B- uphill, ifpossible, regardless ofthe wind direction.
+C- in cultivated fields where the crops have not yet been
+harvested.
+564- Which would most likely ensure a safe off-field
+landing?
+A- Landing into the wind, regardless ofthe type or slope of
+the terrain.
+B- Landing in a pasture or uncultivated field rather than one
+in cultivation and whose crops have been harvested.
+C- Maintaining an approach airspeed of at l€ast 50 percent
+above the glider's stall speed plus halfthe estimated
+windspeed.
+565- Which statement is true regarding alcohol in the
+human system?
+A- Alcohol renders a pilot more susceptible to hypoxia.
+B- Small amounts of alcohol will not impair flying skills.
+C- Coffee helps metabolize alcohol and alleviates a
+hangover.
+569- An illusion that the aircraft is at a higher altitude than
+it actually is, is produced by
+A- atmospheric haze.
+B- upsloping terrain.
+C- downsloping terrain.
+570- Which procedure is recommended to prevent or
+overcome spatial disorientation ?
+A- Avoid steep tums and rough control movements.
+B- Rely entirely on the indications ofthe flight instruments.
+C- Reduce head and eye movements to the greatest extent
+possible.
+gliderpilotsgroundschool.com
+303-908-3r47
+
+===== PAGE 21 =====
+Glider Pilots cround School @ 
+Flight
+571- What effect does haze have on the ability to see traffic
+or terrain features during flight?
+A- Haze causes the eyes to focus at infinity.
+B- The eyes tend to overwork in haze and do not detect
+relative movernent easily.
+C- All taffic or terain feahres appear to be farther away
+than their actual distance.
+572- Which technique should a student be taught to scan for
+traffic to the right and left during straight-and-level flight?
+A- Continuous sweeping ofthe windshield Aom right to
+left.
+B- Concentmte on relative movement detected in the
+peripheral vision area.
+C- Systematically focus on different segnens ofthe sky for
+short intervals.
+573- Dark adaptation is impaired by exposure to
+A- carbon dioxide.
+B- vitamin A in the diet.
+C- cabin pressure altitudes above 5,000 feet.
+574- During a climb to 18,000 feet, th€ percentage of
+oxygen in the annosphere
+A- increases.
+B- decreases.
+C- remains the same.
+575- Which statement conceming hypoxia is true?
+A- Belligerence or a false sense of security may be
+s).rnptoms ofhypoxia.
+B- Hlpoxia is caused by nitogen bubbles in the joints and
+bloodstream.
+C- Forcing oneselfto concentrate on the flight insfuments
+will help to overcome the effects ofhypoxia.
+576- Hypoxia is the result of
+A- excessive nitrogen in the bloodstream.
+B- reduced barometric pressur€s at altitude.
+C- decreasing amount of orygen as your altitude increases.
+577- What physical change would most likely occur to
+occupants ofan unpressurized aircraft flying above 15,000
+feet without supplemental oxygen?
+A- Gases trapped in the body contract and prevent nitrogen
+from escaping the bloodstream.
+B- The pressure in the middle ear becomes less than the
+atmospheric pressure in the cabin.
+C- A blue coloration ofthe lips and fingemails develop
+along with tunnel vision.
+578- Hyperventilation results in
+A- a lack ofcarbon dioxide in the body.
+B- a need to increase the flow of supplemental orygen.
+C- breathing too rapidly causing a lack of oxygen.
+579- Rapid or extra deep breathing while using oxygen can
+cause
+A- cyanosis.
+B- hyperventilation.
+C- a build-up ofcarbon dioxide in the body.
+lnstructor Glider
+580- A person should be able to overcome the symptoms of
+hyperventilation by
+A- increasing fhe breathing rate in order to increase lung
+ventilation.
+B- slowing the breathing rate and increasing the amount of
+carbon dioxide in the body.
+C- refraining from the use of alcohol and over-the-counter
+drugs such as antihistamines and tranquilizers.
+581- How can smoking affect a pilot?
+A- Can decrease night vision by up to 50 percent.
+B- Reduces the oxygen-carrying capability ofthe blood.
+C- Creat€s additional carbon dioxide gases in the body
+which often leads to hyperventilation.
+582- One aid in increasing night vision effectiveness would
+be to
+A- look directly at objects.
+B- force the eyes to view offcenter.
+C- increase intensity of interior lighting.
+583- What suggestion could you make to students who are
+experiencing motion sickness?
+A- Recommend taking medication to prevent motion
+sicloess.
+B- Have the students lower their head, shut thet eyes, and
+take deep breaths.
+C- Tell the students to avoid unnecessary head movement
+and to keep their eyes on a point outside the aircraft.
+584- Motion sickness is caused by
+A- continued stimulation ofthe tiny portion ofthe inner ear
+which contols sense ofbalance.
+B- an instability in the brain cells which affects balance and
+will generally be overcome with experience.
+C- the movement of an aircraft causing the stomach to
+create an acid substance which causes the stomach lining to
+contract.
+585- What are the four fundamental risk elements in the
+aeronautical decision making (ADM) process that comprise
+any given aviation situation?
+A- Pilot. akcraff, environment, and mission.
+B- Skill, stress, situational awareness, and aircraft.
+C- Situational awareness, risk management, judgment, and
+skill.
+586- When should a flight instructor begin teaching
+aeronautical decision making (ADM) to a student?
+A- Beginning with the hrst flight lesson.
+B- As soon as the student is able to control the aircraft
+during basic maneuvers.
+C- After the student has completed the initial solo flight but
+before conducting cross country flights.
+587- During training flights, an instructor should interject
+realistic distractions to determine ifa student can
+A- leam despite stressful conditions.
+B- maintain aircraft control while his/her attention is
+diverted.
+C- perform maneuvers using the integrated method offlight
+instruction.
+74
+O gpgs 12132s
+gliderpilotsgroundschool.com
+303-908-3147
+
+===== PAGE 22 =====
+Glider Pilots Ground School @ 
+Ftight
+588- Although not required, supplemental oxygen is
+recommended for use when flying at night above
+A- 5,000 feet.
+B- 10,000 feet.
+C- 12,500 feet.
+589- The advantage of experiencing hypoxia in an altitude
+chamber is
+A- it helps pilots leam to recognize their own symptoms in
+a controlled environment.
+B- a person will be able to observe many hypoxic
+symptoms in several people at the same time.
+C- when a person becomes hypoxic, air can quickly be
+readmitted to the chamber to revive that person.
+590- Anemic hlpoxia has the same symptoms as hypoxic
+hypoxia but it is most often a result of
+A- poor blood ctculation.
+B- a leaking exhaust manifold.
+C- use ofalcohol or drugs before flight.
+591- What is an effective way to prevent a collision hazard
+in the trafiic pattern?
+A- Enter the pattern in a descent.
+B- Maintain the proper trafnc pattem altitude and
+continually scan the area.
+C- Rely on radio reports from other aircraft who may be
+operating in the traffic pattem.
+592- Most midair collision accidents occur during
+A- hazy days.
+B- clear days.
+C- cloudy nights.
+593- The most effective technique to use for detecting other
+aircraft at night is to
+A- turn the head and sweep the eyes rapidly over the entire
+visible region.
+B- avoid staring directly at the point where another aircraft
+is suspected to be flying.
+C- avoid scanning the region below the horizon so as to
+avoid the effect ofground lights on the eyes.
+594- Aeronautical decision making (ADM) can be defmed
+asa
+A- mental process of analyzing all available information in
+a particular situation, making a timely decision on what
+action to take, and when to take the action.
+B- decision making process which relies on good judgment
+to reduce risks associated with each flight.
+C- systematic approach to the mental process used by pilots
+to consistently determine the best course ofaction in
+response to a given set of circumstances.
+595- Risk management, as part ofthe aeronautical decision
+making (ADM) process, relies on which features to reduce
+the risks associated with each flight?
+A- Application of stress management and risk element
+procedures.
+B- The mental process ofanalyzing all information in a
+particular situation and making a timely decision on what
+action to take.
+C- Situational awareness, problem recognition, and good
+judgment.
+@ gpgs '121325
+lnstructor Glider
+596- The aeronautical decision making (ADM) process
+identifies several steps involved in good decision making.
+One ofthese steps is
+A- making a rational evaluation ofthe required actions.
+B- identifring personal attitudes hazardous to safe flight.
+C- developing a 'can do' attitude.
+597- Examples ofclassic behavioral traps that experienced
+pilos may fall into are to
+A- promote situational awareness and then necessary
+changes in behavior.
+B- complete a flight as planned, please passengers, meet
+schedules, and 'get thejob done.'
+C- assume additional responsibilities and assert PIC
+authority.
+598- Many experienced pilots have fallen prey to dangerous
+tendencies or behavior problems at some time. Some of
+these dangerous tendencies or behavior pattems which must
+be identified and eliminated include
+A- deficiencies in instrument skills and knowledge of
+aircraft systems or limitations.
+B- peer pressure, scud running, loss of situational
+awareness, and operating with inadequate fuel reserves.
+C- performance deficiencies due to stress from human
+factors such as fatigue, illness, or emotional problems.
+599- In order to gain a realistic perspective on one's attitude
+toward flying, a pilot should
+A- understand the need to complete the flight.
+B- obtain both reatistic and thorough flight inshuction
+during training.
+C- take a Self-Assessment Hazzrdous Attitude Inventory
+Test.
+600- Name some hazardous attitudes that can affect your
+judgment during the aeronautical decision making (ADM)
+process.
+A- Impulsivity, antiestablishment, and reevaluation.
+B- Antiauthority, impulsivity, and resignation.
+C- Peer pressure and stress levels.
+601- Hazardous attitudes which contribute to poor pilot
+judgment can be effectively counteracted by
+A- an appropriate antidotal phrase.
+B- taking meaningful steps to be more assertive with
+attitudes.
+C- early recognition ofthese hazardous attitudes.
+602- Hazardous attitudes occur to every pilot to some
+degree at some time. What are some ofthese hazardous
+attitudes?
+A- Antiauthority, impulsivity, macho, resignation, and
+invulnerability.
+B- Poor situational awareness, snap judgments, and lack of
+a decision-making process.
+C- Poor risk management and lack of stress management.
+603- In the aeronautical decision making (ADM) process,
+what is the first step in neutralizing a hazardous attitude?
+A- Recognizing hazardous thoughts.
+B- Recognizing the invulnerability ofthe situation.
+C- Making a rational judgement.
+75
+gliderpilotsgroundschool.com
+303-908-3147
+
+===== PAGE 23 =====
+Glider Pilots cround School @
+Flight lnstructor Glider
+76
+604- What should a pilot do when recognizing a thought as
+hazardous?
+A- Correct this hazardous thought by making a thorough
+risk assessment.
+B- Label the thought as hazardous and then correct that
+thought by stating the corresponding antidotal phrase.
+C- Avoid allowing this hazardous thought to develop.
+605- During a stall recovery, the instructor allows the
+student to exceed maneuvering speed. Which best illustrates
+an 'antiauthority' reaction by the instructor?
+A- The student should lnow how to recover from a stall by
+this time.
+B- The aircraft can handle a lot more than the maneuvering
+speed.
+C- There hasn't been a problem doing this in the past.
+606- What is the antidotal phrase for a pilot with a ,macho,
+attitude?
+A- I'm not helpless. I can make a difference.
+B- Follow the rules. They are usually right.
+C- Taking chances is foolish.
+607- Success in reducing stress associated with a crisis in
+the cockpit begins with
+A- eliminating the more serious life and cockpit stress
+issues,
+B- knowing the exact cause oftle stress.
+C- assessing stress areas in one's personal life.
+608- To help manage cockpit stess, a pilot should
+A- think of life stress situations that are similar io those in
+flying.
+B- fy to relax and think rationally at the frst sign ofstress.
+C- avoid situations that will degrade the ability to handl€
+cockpit responsibilities.
+609- Which statement about longitude and latitude is true?
+A- Lines of longitude are parallel to the Equator.
+B- Lines of longitude cross the Equaior at right angles.
+C- The 0' line oflatitude passes through Greenwich,
+England.
+610- When planning a distance flight, true course
+measurements on a Sectional Aeronautical Chart should be
+made at a meridian near the midpoint ofthe course because
+the
+A- values of isogonic lines change from point to point.
+B- angles formed by lines of longitude and the course line
+vary from point to point.
+C- angles formed by isogonic lines and lines of tatitude
+vary from point to point.
+6 I I - (Refer to Figue 40.) The line from point A to point B
+ofthe wfutd triangle represents
+A- true heading and airspeed.
+B- true course and groundspeed.
+C- groundspeed and true heading.
+612- (Refer to Figue 40.) The line fiom point C to point B
+of the wind triangle reprcsents
+A- airspeed and heading.
+B- groundspeed and true course.
+C- true heading and groundspeed.
+@gpgs 121325 
+gliderpilotsgroundschoot.com
+613- (Refer to Figure 40.) The line liom point C to point A
+ofthe wind triangle represents
+A- wind direction and velocity.
+B- true course and groundspeed.
+C- true headinB and groundspeed.
+614- When converting flom true course to magnetic
+heading, a pilot should
+A- subtact easterly variation and right wind correction
+angle.
+B- add westerly variation and subtract left wind correction
+angle.
+C- subtract westerly variation and add right wind correction
+angle.
+615- When converting fiom magnetic course to true course,
+a pilot should
+A- add easterly variation regardless ofheading.
+B- add westerly variation regardless ofheading.
+C- subtract easterly yariation when on a heading of360".
+616- When converting from true heading to true course! a
+pilot should
+A- add right wind correction angle.
+B- add left deviation corection angle.
+C- subtract right wind correction angle.
+617- The angular difference between true north and
+magnetic north is
+A- magnetic deviation.
+B- magnetic variation.
+C- compass acceleration error.
+627- (Refer to Figure 42.) At which aircraft position(s) would you
+receive OMNI indication V2
+A- 2 only.
+B- 6 only.
+C- 5 and 8.
+629- (Refer to Figure 42.) At which aircraft position(s) would you
+receive OMNI indication U?
+A- I aad 2.
+B- 2 only.
+C- 6 only.
+630- (Refer to Figure 42.) Which OMNI indication would
+you receive for aircraft 8?
+A- T.
+B-V
+c- w.
+634- (Refer to Figure 44.) What altitude should be selected to
+avoid op€rating in Class B airspace on a flight from Northwest
+Airport (arca 2) to McKinney Airport (area 5)?
+A- 2.500 feet MSL.
+B- 3,000 feet MSL.
+C- 3.500 feet MSl..
+636- (Refer to Figure 44.) Select the correct statement conceming
+the obstruction l0 SM we st of McKinney Airport (area 5).
+A- The obstruction is 3l I MSL
+B- The elevation ofthe top ofthe obstruction is 487 MSL or less.
+C- The obsfuction has high-intensity lights.
+303-908-3147
+
+===== PAGE 24 =====
+Glider Pilots Ground School @
+Flight lnstructor Glider
+77
+638- (Refer to Figure 45.) Where does the floor ofcontrolled
+airspace begin over Mccampbell Airpod (arca l)?
+A- Surface.
+B- 718 feet MSL.
+C- l-217 feet MSI-.
+639- (Rcfer to Figure 45.) The controlled airspace located at the
+Corpus Christi VOR]AC (area 5) begins at
+A- the surface.
+B- 700 feet ACL.
+C- l-200 feet MSL.
+640- (R€fer to Figure 45.) When are rwo-way radio
+communications required on a flight from Bishop Airport (area 4)
+to Mccarnpbell Airpofi (area l) at an altitude of2,000 feet MSL?
+A- Entering rhe Corpus Christi Class C airspace.
+B- Leaving and entering the alert areas and entering Corpus
+Christi Class C airspace.
+C- Leaving and entering the alert areas, entering the Corpus
+Christi Class C airspace, and passing through the Cabaniss Field
+Class D airspace.
+641- (Refer to Figure 45.) Assuming owner pemission, what
+minimum avionics equipment is required for operation into
+Cuddihy Airport (area 8)?
+A- Two-way radio communications equipment.
+B- None, if altitude remains at or below 1,200 feet MSL.
+C- Two-way radio communications equipment and transponder
+with encoding altimeter.
+642- (Refer to Figure 45.) The airspace beginning at the surface
+overlying NAS Kingsville (area 2) is
+A- an Alert Area.
+B- Class D airspace.
+C- a military operations area (MOA).
+643- (Refer to Figure 45.) What arc the requirements for operating
+in the alert area (area 6) just west ofCorpus Christi lntemational
+Airpon (area 3)?
+A- Contact with approach contol on frequency 120.9 is required.
+B- Prior permission must be obtained from the controlling agency.
+C- There are no requirements, but pilots should be extremely
+cautious due to extensive student training.
+645- (Refer to Figure 46.) What is the height ofthe Class D
+airspace over Livermore Airport (arca 5)?
+A- 2,900 feet MSL.
+B- 3-000 feet AGL.
+C- Base ofthe overlying Class B ai.space.
+646- (Refer to Figure 46.) At what altitude does the Class B
+airspace begin over Hayward Airport (area 3)?
+A- Surface.
+B- 1,500 feet MSL.
+C- 3,000 feet MSL.
+647- (Refer to Figure 46.) What is the ceiling ofthe Class C
+airspace surrounding San Jose lntemational Airport (area 2)?
+A- 2-500 feet AGL.
+B- 4-000 feet MSL.
+C- 6-000 feet MSI-.
+648- (Refer to Figure 46.) What does the figure 2a (area 6)
+indicate?
+A- Marimum elevation figure for that quadrangle.
+B- Minimum safe altitude when approaching San Francisco.
+C- Height above ground ofthe tallest obstruction for that
+quadrangle.
+649- (Refer to Figure 46.) An aircraff takes off from Gnoss
+Airport (area 4) and flies eastwad to Rio Vista Airport (area 7).
+What maximum elevation figure would assure obstruction
+clearance during the flight?
+A- 2,200 feet MSL.
+B- 4,200 feet MSL.
+C- 3-200 feet MSL
+650- (Refer to figure 47.) What is the normal mdius ofthe outer
+area (area BX
+A. IO NM
+B. 20 NM.
+C- 25 NM
+651- A private pilot with an airplane single-engine land rating may
+act as pilot in command ofan airplane towing a glider if, within
+the preceding 24 months, this pilot has made
+A- ten actual or simulat€d glider tows.
+B- three flights as pilot in command ofa glider towed by an
+aircraft.
+C- at least six flights as pilot in command ofan airplane towing a
+glider.
+652- What is the purpose ofthe runway/runway hold position
+sign?
+A- Denotes entrance to runwa) fiom a taxiway.
+B- D€notes area protected for an aircraft approaching or departing
+a runway.
+C- Denotes inters€cting runways.
+653- What is the purpose for the runway hold position markings
+on the taxiway?
+A- ldentifies arca where aircraft are prohibited.
+B- Allows an aircraft permission onto the runway.
+C- Holds aircrafl shon ofth€ runway.
+654- What does the outbound destination sign identifo?
+A- Identifies entrance to the runway from a taxiway.
+B- Identifies runway on which an aircraft is located.
+C- Identifies direction to take-offrunways.
+655- What purpose do€s the ta,\iway location sign serve?
+A- Provides general taxiing direction to named runway.
+B- Denoles entrance to runway from a laxiwa).
+C- Identifies ta\iway on which an aircraft is located.
+656-Action ofthe elevators moves the plane on its
+A- lateral axis.
+B- longitudinal axis.
+C- vertical axis.
+657-Action ofthe ailerons movcs the plane on its
+A- lateral axis.
+B- longitudinal axis.
+C- vertical axis.
+658-What is true altitude?
+A- The vertical distance ofthe aircraft above sea level.
+B- The vertical distance ofthe aircBff above the surface.
+C- The hcight above the standard datum plane.
+65g-What is absolute altitude?
+A- The altitudc read directly fi'om the altimeter.
+B- The venical distance ofthe aircraff above the surface.
+C- The height above the standard datum plane.
+660-Under what condition is indicated altitude the sarne as true
+altitude?
+A- Ifthe altimeter has no mechanical error.
+B- When at sea level under standard conditions.
+C- When at 18.000 feet MSL with the altimeter set at 29.92.
+303-908-3147
+O gpgs 121325
+gliderpilotsgroundschool.com
+
+===== PAGE 25 =====
+Glider Pilots Ground School @
+661-Tho pitot system provides impact pressure for which
+671- Public figures arc protected by
+A: special use airspace.
+B: prohibited areas.
+C: temporary flight restriction.
+672- When making routine transponder code changes, pilots
+should avoid inadvertent selection ofwhich codes?
+A: 0700, 1700, 7000.
+B: 1200, 1500, 7000.
+C: 7500, 7600, 7700.
+673- The "lLS critical area boundary sign" identifies
+A: the exit boundary for the runway protected area.
+B: the edge ofthe ILS critical area.
+C: the area where an aircraft is prohibited from entering.
+674- A flight inshuctor's certificate, with multi-engine and
+instrument ratings. expires. As a CFI you know that
+A: a checkride in a single-engine airplane will renew all ratings.
+B: a checkide in a multi-engine airplane reinstates both single
+and multi-engine privileges, but not instrument.
+C: the applicant must take an instrument checkride in a
+multiengine airplane to restore all ratings.
+675- What is the antidotal phmse for an anti-authority hazardous
+anitude?
+A. Follow the rules.
+B. Not so fast. Think first.
+C. Do something quickly.
+676Human behavior
+A. rarely results in accidents unless deliberate actions are
+performed.
+B. causes three out offour accidents.
+C. is w€ll understood, so behavioml induced accidents are
+exceedingly rare occurrences.
+677- When tuming onto a taxiway from another taxiway, what is
+the purpose ofthe taxiway directional sign?
+A. Indicates designation and direction ofexit ta\iway from
+runway.
+B. Indicates designation and direction oftaxiway lsading out ofan
+intersection.
+C- lndicates direction to takeoffrunway.
+678. -(Refer to Figue 3.) What is the reported duration of
+the rain at the time of the observation at KBRO?
+A. 25 minutes.
+8.6 minutes.
+C.l9 minutes
+679. An application for a student pilot certificate must be
+submitted in person to any ofthe following
+A. Flight standards district ofiice, flight instructor,
+designated pilot examiner.
+B. Aviation medical examiner, designated pilot examiner,
+flight instructor.
+C. Aviation medical examiner, FAA inspector, designated
+pilot examiner.
+680. (Refer to Figure 44.) An aircraft takes off fiom Hicks
+Airport (area l) and flies northeast towards Northwest
+Airport (area 2). What maximum altitude could be flown to
+remain undet the class B airspace?
+A. 4,000 feet MSL.
+B. 2.500 feet MSL.
+C. 3,200 feet MSL.
+Flight lnstructor Glider
+78
+instlument?
+A- Altimeter.
+B- Vertical-speed indicator.
+C- Airspeed indicator.
+662-(Refer to Figure 24.) What is the effect of a temperature
+increase ftom 30 to 50 "F on the density altitude ifthe pressure
+altitude remains at 3,000 feet MSL?
+A: 900-foot increase.
+B: 1.1oO-foot decrease.
+C: 1,300-foot increase.
+663-(Refer to figure 24.) Determine the pressure altitude at an
+airport that is 3,563 feet MSL with an altimeter setting of29.96.
+A: 3,527 feet MSL.
+B: 3,556 feet MSL.
+C: 3.639 feet MSI-.
+664-With respect to using the weight information given in a
+typical aircraft owner's manual for computing g.oss weigh! it is
+important to know that if items have been installed in the aircraft
+in addition to the original equipment, the
+A: allowable useful load is deqeased.
+B: allowable useful load remains unchanged.
+C: maximum allowable gross weight is increased.
+665-When exiting the runway, what is the pu.pose ofth€ runway
+exit sign?
+A: Indicates designation ard direction ofexit taxiway from
+runway.
+B: Indicates des,gnation and direction oftaxiway leading out ofan
+intersection.
+C: Indicales direction ro takeoffrunray.
+666- Refer to Figure 30.) What is the crosswind component for a
+landing on Runway l8 ifthe tower reports the wind as 220" at 30
+knots?
+A-:19 knots.
+B: 23 knots.
+C: 30 knots.
+667- What effect does high density altitude have on aircraft
+performance?
+A: lt increases engine performance.
+B: It reduces climb p€rformance.
+C: It increas€s takeoff performance.
+668- What is pressure altitude?
+A: The indicated altitude corrected for position and installation
+elror.
+B: The indicated altitude conected for nonstaodard tempemture
+and pressure.
+C: The altitude indicated when the barometric pressure scale is set
+to 29.92.
+669- When density altitude is beyond capability as indicated on
+th€ performance char!
+A: do not aftempt takeoffuntilconditions pemit calculations that
+result in data showing a safe takeoff and climb out.
+B: extrapolate the data and aftempt takeofL
+C: interpolate the data and attempt takeofi
+670- When viewing a mdar summary char! an echo top entered as
+.250 lunderlined] means the maximum echo top is
+A. 2,500 feet AGL
+B. 25,000 feet AGL.
+C: 25.000 feet MSL
+O gpgs 121325
+gliderpilotsgroundschool.com
+303-908-3147
+
+===== PAGE 26 =====
+Glider Pilots Ground School @ 
+Flight
+681. (Refer to Figure 2l.) Of airoaft l, 2, or 3, which has
+the lowest aspect ratio?
+A. l.
+8.2.
+c.3
+682. While preparing for flight you notice that the forecast
+K index is K35. You can expect
+A. 3 knot lift above 5000 feet.
+B. 60% chance of thunderstoms.
+C. Lift so poor you should not fly today.
+683. Ifan individual has gone scuba diving which has not
+required a controlled ascent and will be flying to cabin
+pressure altitudes of 8000 feet or less, the recommended
+waiting time is a least
+A. 4 hours
+B. 12 hours
+C. 24 hours
+684.Ifan individual has gone scuba diving which has
+required a controlled ascent and will be flying to cabin
+pressure altitudes of 8000 feet or less, the recommended
+waiting time is at least
+A- 8 hours
+B. l2 hours
+C. 24 hours
+685. The K-index is +17. You should expect
+A. Good soaring up to 17,000 ft.
+B. No good soaring above 1700 ft.
+C. Good soaring in the aftemoon with a chance ofshowers.
+686. (Refer to Figure 8.) Vvlat does symbol '12 mean on
+a Sudace Analysis Weather Chart?
+A. Occluded front
+B. Squall Line
+C. High-Pressure ridge
+687. One requirement for a student pilot to be
+authorized to make a solo cross-country f,ight is an
+endorsement
+A. in the students' logbook that the preflight planning
+and preparation has been reviewed and the student is
+prepared to make the flight safely.
+B. in the student's logbook that the instructor has
+given the student cross-country instruction in the
+model of the aircraft to be used.
+C. on the student's pilot certificate stating the student
+is competent to make the cross-country flights in the
+category, class and type of aircraft involved.
+689. lfa tow pilot towing a glider in the low tow position
+releases the towrope what may happen?
+A. Nose ofthe glider pitches up.
+B. The towline can interfere with the glider's surfaces and
+airfoil.
+C. The glider may end up in the towplanes wake.
+690. Which is true conceming the wing?
+A. With flaps in the negative up position the camber
+changes and lift is increased.
+B. With the spoilen up both lift and dmg decrease.
+C. With flaps extended the camber ofthe wing is changed
+and both lift and drag increase.
+691. Trigger Ternperatre refers to
+A. The surface temperature required to make the fint 4000
+feet ofthe atmosphere dry adiabatic.
+B. When thermal strength reaches 200 feet per minute.
+C. When the adiabatic rate indicates lift to the inversion.
+692. The yellow demarcation bar marking delineates.
+A. A runway with a displaced threshold from a blast pad,
+stopway, or taxiway that precedes the runway.
+B. A hold line fiom a taxiway to a runway.
+C. the beginning of available runway for landing on the
+approach side.
+693. A K-index of l0 indicates:
+A. Good soaring in the moming
+B. No chance of thunderstorms
+C. l0 knot lift in the aftemoon.
+694. The most desirable type of stability for an aircraft to
+possess is
+A. positive dynamic stability
+B. neutral static stability
+C. positive static stability
+695. A glider is usually affected by ground effect at what
+height above the surface?
+A. Three to four times the glider's wingspan.
+B. Twice the wingspan above the surface.
+C. Less than halfthe wingspan above the surface.
+696. What is the purpose ofthe yellow demarcation bar
+marking?
+A. Delineates entrance to runway from taxiway.
+B. Delineates runway with a displaced threshold from a
+blast pad, stopway or taxiway that precedes the runway.
+C. Delineates beginning ofrunway available for landing
+when pavement is aligned with runway on approach side.
+697. That portion ofthe airffaft's total drag created by the
+production of lift is called
+A. induced drag, and is not affected by changes in airspeed.
+B. induced drag, and is greatly affected by changes in
+ainpeed.
+C. parasite drag, and is greatly affected by airspeed.
+698. The G load in a spin would be
+A. zero G
+B. 0.5 to 1.5 G
+C. more than 2 G's.
+699. Lift produced by an airfoil is the net force developed
+perpendicular to the
+A. cord
+B. relative wind
+C. longitudinal axis ofthe airuaft.
+lnstructor Glider
+79
+@ gpgs 121325
+gliderpilotsgroundschool.com
+303-908-3147
+
+===== PAGE 27 =====
+Glider Pilots cround School @
+Flight lnstructor Glider
+80
+Chapter 17 COMPUTER TESTING SUPPLEMENT (Graphs and Charts)
+METAR KAMA 3O16512 O5O1tsKT s/aSM RO4I3OOOFT BR
+ovcooT 1 1/e 4301 3 RMK OZB26DZE40
+METAR KAUS 3O16512 l2OOAKT4SM .RAHZ BKNO1O
+BKNO23 C)Vc160 21/17 A3OO5 FMK RAB25
+METAFT KBRO 3016552 15015020',(T 7SM SCTO2o SCTl30
+TcU C)VC2sO 2E/18 A2EE7 RMK RABlERAE2S
+METAR KDAL 3O16492 OOOOOKT 3SM BRHZ O]/COO9 22/17
+A301 0
+METAFT KFTW 3O16542 O9OOAKr 1/28M HZFU VVOOO 21/.17
+43010
+METAR KTYR 3O16502 AUTO OAOO4KT 3SM BR SCTO15
+24/1e A29ee
+Figure 3. - Aviation Routine Weather Reports (METAR).
+1l
+10
+I
+I
+7
+6
+5
+1
+3
+2
+1-,
+Figure 18. Stall speed vs. Load factor chart
+I
+c
+3
+l'!58m
+ttI.
+O gpgs 121325
+gliderpilotsgroundschool.com
+303-908-3147
+SEE THE ACTUAL COMPUTER TESTING SUPPLEMENT ONLINE AT:
+WWW.FAA.GOV
+.TRAINING AND TESTING
+-RESOURCES -PILOTS.TESTING
+-COMPUTER TESTING SUPPLEMENTS
+-PILOTS AND INSTRUCTORS
+
+===== PAGE 28 =====
+Glider Pilots Ground School @
+Flight lnstructor Glider
+81
+20(I)
+.r8u)
+.1€(n
+.r 400
+.!20
+%
+!tXD
+,04(l)
+odo
+o4@
+.o2Jn
+0
+oa
+o{
+02
+0
+tg
+!6
+t4
+t2
+l0
+a
+6
+2
+o
+Figure 19. Angle of Attack vs. Lift chart
+o rY---v
+o .-, .-. .-.
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+v
+'r '7 I.
+.- 
+.-, 
+-^-
+--' t ---'
+s;:7i:7i::;vq=
+-lt*at-
+Figure 8
+Surface
+Analysis
+Chart
+Symbols
+FIGURE 20. - Drag Chart
+@ gpgs 121325
+gliderpilotsgroundschool.com
+303-908-3147
+I
+t)
+7
+12 
+r.a 
+tG
+Bd...Eb (d{ll.r,
+c
+o
+E
+c}
+Parasile drao
+Veimlty
+
+===== PAGE 29 =====
+Glider Pilots Ground School @
+Figure 21. - Aspect Ratio
+Flight lnstructor Glider
+Arcrdl
+WrB.pm
+)rdE wim dlord
+2
+35
+t
+3
+4A
+6
+I
+52
+t0,5'
+'to
+57
+4.S'
+11
+5'|',
+5
+12
+7s',
+3'
+'t3
+5S
+l.t
+g
+7T
+15
+'t17
+l3
+16
+g2
+DENSITY ALTITUDE CHART
+Allina|ir satng
+rHS)
+PntliIE ait&
+omlcfron {aifl}r
+2t!
+6.1
+a2
+5A
+6t
+t
+6t
+8.1
+u,a
+fr.0
+2C.0
+2a.r
+82
+n3
+8t
+tt5
+It-a
+b.7
+29.E
+a.a
+8.82
+ilo
+t.,|
+52
+E',9
+$,
+gr5
+g).4
+9.7
+E',C
+$.e
+5lt
+t.@t
+t:tzt
+trs
+tt,,
+rri
+l.ro
+ta1
+l,ttt
+lfi
+art
+aa!
+78
+a7t
+6n
+fi
+!fi
+ts
+26
+112
+E
+0
+-75
+-16
+487
+-3{t
+-{,to
+-6tl
+-tE
+-7.t2
+-tc,
+-t8g
+-9t6
+'t5
+11
+13
+12
+ti
+t,r0
+T.
+t!a
+I
+I?
+l6
+s$'
+4
+3
+n, &P s 
+{t'
+m. *! ltx' fie
+-7. -'t.
+2JJ.3(,
+-1t -12.
+('ro
+f
+a. t0. 10. 2r.
+**ir7v
+fhd.*Ellf.ratll!
+Figure 24. Density Altitude Chart
+303-908-3147
+gliderpilotsgroundschool.com
+O gpgs 121325
+I
+36
+tl'
+7
+3A
+4'
+5
+fr}
+4
+6
+3{t
+4
+1
+w
+6
+
+===== PAGE 30 =====
+Wlnd component
+Glider Pilots Ground School @
+Flight lnstructor Glider
+goc
+o
+o9
+o
+!
+'D6t
+70
+60
+50
+40
+30
+20
+'10
+Figure 30. Wind Component Chart
+Figure 38. - Glider Cross-Country
+Figure 40.- Wind Triangle
+glide.pilotsgroundschool.com
+@ gpgs 121325
+303-908-3147
+Wind 20 mph 
+l
+
+===== PAGE 31 =====
+Glider Pilots Ground School @
+Flight lnstructor Glider
+84
+k
+Iil
+1,
+I
+.J,
+- -t.
+---r-J
+lr
+i 1'r
+'--l-
+tr
+-- -i. 
+..-,
+r - 
+| 
+_-.-_r
+&
+t
+I
+I@ET
+Figure 42. VOR lndicatiorc - OBS set to 180 degrees.
+@ gpgs '121325 
+gtiderpitotsgroundschoot.com
+303-908-3147
+',,: : 
+ll:.r:i:,rr i
+wlGfrE 6trS <r.f tr". i4rrF
+
+===== PAGE 32 =====
+Glider Pilots Ground School @
+Flight lnstructor Glider
+Figure 47. - Class C Airspace Diagram.
+Figure 54. - Traffic Pattern lndicator
+85
+O gpgs 121325
+gliderpilotsgroundschool.com
+303-908-3147
+Y
+lY/. \4.t_ ri drc e orrirtntcalr(n 3nd mdrlr fd)tac1l
+. . : :,
+lr 
+il I I 
+lr 1..r,r 
+rl
+. rl Ll! 
+' iit ti
+, .ii 
+r: 
+I
+i
+\ ofi,;',1?i;ll:,,
+\.Y
+ll t. I I' r '!l 
+I
+'ll- 
+r 
+,l 
+l'
+N
+io
+II
+I
+I
+t
+t\
+l-
+\
+1
+I
+I
+
+===== PAGE 33 =====
+Glider Pilots Ground School @
+Flight lnstructor Glider
+aao
+,t -utze
+rli
+86
+ea
+i\li
+A1
+co
+t2'
+I rwo
+ltzr - r(
+-A
+ld,:,,
+3E
+.,qfl
+erroo r lrir.
+aar'r ao Ira
+,r.t {'.1
+Flgure '14. Sectional Chart Excerpt.
+llolp: charl ls not to scalo and should not bc used for navigation. usc associabd sca/a.
+)A
+lH]/,o
+\"''
+qaa
+trr4
+rat llal l. -
+ljr'1
+*o 39.i
+......,.,,. ?dl
+l l0 "'*
+u 'k:?
+lml 'l'-4
+r'(! 
+I 
+I
+-,
+'::ghFrsiti-'ee ^* \ -":':H
+h6{lF}ln;,?3;d" "O i5ro.' i
+$il.ff,ek "r.,-[r0 tffi
+T';h '.-
+.@I rit re
+f-'la\ \ 
+.-' a
+HI *;9
+flr1. t ozt3o ,t
+&*ry:
+YiWffi
+;.!!ls,Iff'' 
+s;o
+yjrr{"^
+'i oto
+,\xt;ffi
+O gpgs 121325
+gliderpilotsgroundschool.com
+303-908-3147
+
+===== PAGE 34 =====
+Glider Pilots Ground School @
+Flight lnstructor Glider
+I
+87
+A\.
+,t.
+A,aa
+:\
+t\
+,3q1
+1).
+I
+!r,: a
+'n-
+{:r}lll.X.
+-'., \ a, 3rl. ,
+07
+Flgure,[5. S€ctionel Chart Erc€rpt
+Nqte: Chaft is not to scale and slpuld tr/t be usd for navkgation. lJs assochtad s,alc.
+Ir
+@ gpgs 121325
+gliderpilotsgroundschool.com
+303-908-3147
+I
+I
+I
+
+===== PAGE 35 =====
+Glider Pilots cround School @
+Flight lnstructor Glider
+a
+'l
+3tfaa, *
+\- 10
+1lc
+x.Ailf.ool
+faY,Qt.J
+\r, .t ro
+$r ldto am
+.',
+88
+\\ g..i&td
+ffi
+I
+l[,] ,
+ba
+u
+T
+,fA
+-lt
++\F
+100
+86"
+Flgurc 13. Soction€l Chart Excerpt,
+" NoL: crr./tlsnothscr/r mdshouldnotbauE dbrnavtgatton. Usorcsocirlrdscalc,
+(9 gpg! rz '.rzu 
+9truc'p,rurDg'ou"usuluu,.@,,,
+f,
+t
+i;i{X-
++ko\
+all "ll
+M,.#
+
+===== PAGE 36 =====
+Glider Pilots Ground School @
+Flight lnstructor Glider
+FLIGHT INSTRUCTOR GLIDER ANSWER KEY
+IMPORTANT NOTE: Some questions listed below will not be found in the Chapter 16 question bank. This is
+intentional; they are not currently in use on the FAA CFI tests for glider. Shown with an X.
+89
+l17) x
+il8) X
+9) x
+120) x
+t2l) X
+t22) X
+123) X
+t24) X
+l2s) X
+126) X
+127) X
+l2E) C
+r29) B
+l3o) A
+l3l) C
+132) B
+133) c
+134) B
+r3s) A
+136) B
+137) B
+r3E) B
+139) A
+140) A
+t41) B
+t42) A
+r43) A
+t44) A
+t4s) B
+146) B
+t47) A
+r4E) A
+149) B
+lso) A
+lsr) c
+rs2) B
+ls3) G
+154) B
+rss) A
+ls6) c
+r57) x
+rs8) x
+ls9) B
+160) B
+161) B
+162\ c
+163) x
+164) X
+r6s) x
+166) x
+167) A
+168) B
+l6e) c
+170) c
+l7l ) c
+172) B
+173) A
+t11) A
+gliderpilotsgroundschool.com
+29t) X
+292) X
+293) X
+294) C
+2es) A
+296) A
+297) X
+298) X
+299\ B
+300) c
+301) c
+302) A
+303) A
+304) c
+30s) x
+306) A
+307) B
+308) B
+309) A
+3r0) x
+311) C
+312) B
+313) B
+3r4) C
+3ls) c
+316) B
+317) C
+318) A
+319) B
+320) C
+32r) c
+322) B
+323) B
+324) c
+32s) B
+326) B
+327) A
+328) B
+329) B
+330) X
+331) B
+332) B
+333) C
+334) C
+33s) X
+336) X
+337) X
+338) c
+339) A
+340) X
+34r) X
+342\ X
+343) X
+344) X
+34s) X
+346) C
+347) C
+348) X
+s9) x
+60) x
+6l) X
+62) X
+63) A
+64) A
+6s) B
+66) B
+67) c
+68) B
+6e) B
+70) B
+7l) C
+12) C
+13) B
+74\ A
+7s) B
+76) B
+77) A
+7E) A
+79) B
+80) x
+8l) B
+82) c
+83) B
+84) B
+Es) x
+86) X
+E7) B
+88) A
+8e) A
+90) B
+9l) B
+92) B
+93) B
+94) A
+es) c
+96) B
+e7) c
+e8) c
+ee) A
+100) x
+r01) B
+102) X
+r03) x
+r04) x
+r0s) x
+106) X
+r07) x
+108) X
+109) X
+110) X
+lr1) X
+2) X
+r13) x
+l l4) x
+lls) x
+l16) x
+1)A
+2)B
+3)A
+4)B
+s)A
+6)B
+7)C
+8)B
+e)B
+l0) c
+l l) B
+12) c
+l3) c
+14) c
+rs) B
+16) B
+17) B
+18) C
+19) B
+20) B
+2t) B
+22) B
+23) C
+24) B
+2s) c
+26) c
+27) B
+28) A
+2e) A
+30) A
+3r) C
+32) C
+33) A
+34) c
+3s) B
+36) C
+37) A
+38) A
+39) A
+40) B
+4l) B
+42) A
+43) B
+44) B
+4s) A
+46) B
+47) A
+48) B
+49) B
+s0) c
+sl) c
+52\ C
+s3) c
+s4) B
+ss) c
+s6) c
+s7) x
+s8) x
+17, c
+176) B
+177) c
+r78) B
+179) B
+lE0) c
+l8l) c
+r82) A
+r83) C
+r84) A
+r8s) B
+186) A
+r87) A
+r88) B
+l8e) C
+190) B
+l9l) x
+192\ X
+193) X
+194) B
+l9s) B
+le6) c
+197) B
+198) A
+r99) B
+200) A
+201) c
+202\ C
+203) A
+204) C
+20s) B
+206) A
+207) c
+20E) c
+209) B
+210) x
+211) C
+212) B
+213) B
+214\ A
+21s) C
+216) C
+217) A
+2rE) A
+2t9) A
+22O) A
+22t) c
+222) X
+223) X
+224) X
+22s) X
+226) X
+227) A
+228) B
+229) A
+230) B
+231) A
+232\ C
+233) X
+234\ X
+23s) X
+236) X
+231) X
+238) X
+239) X
+240) X
+24t) X
+242) X
+243) X
+244) x
+24s) x
+246) x
+247) x
+248) A
+249) x
+2s0) x
+2s1) X
+2s2) X
+2s3) X
+254\ X
+2ss) x
+2s6) X
+251) X
+2s8) X
+2s9) X
+260) X
+261) X
+262) X
+263) X
+264) X
+26s) X
+266) X
+267) X
+268) X
+269) X
+270) X
+27t) X
+272) X
+273) X
+274) X
+27s) x
+276) X
+277) X
+27E) x
+219) x
+280) X
+28r) X
+282) X
+2E3) x
+284) x
+zEs) x
+2E6) x
+281) x
+288) X
+269) X
+290) X
+303-908-3147
+O gpgs 121325
+
+===== PAGE 37 =====
+664) A
+66s) A
+666) A
+667) B
+66E) C
+669) A
+670) c
+671) C
+672\ C
+673) B
+674) A
+67s) A
+676) B
+677) B
+678) B
+679) A
+680) B
+681) A
+6E2) B
+6E3) B
+6E4) c
+6Es) C
+686) B
+687) A
+688) X
+689) B
+690) C
+691) A
+692) A
+6e3) B
+694) A
+69s) C
+696) B
+697) B
+698) B
+699) B
+601) A
+602) A
+603) A
+604) B
+60s) B
+606) C
+607) c
+608) B
+609) B
+610) B
+6ll) A
+612) B
+613) A
+614) B
+6rt A
+616) C
+617) B
+618) X
+619) X
+620) X
+62r) X
+622\ X
+623) X
+624) X
+62s) X
+626) X
+627\ A
+628) X
+629) C
+630) C
+63r) X
+632) X
+633) A
+634) A
+63s) C
+636) B
+637) X
+638) B
+639) B
+640) A
+64r) C
+642) B
+643) C
+644) X
+645) A
+646) B
+647) B
+648) A
+649) C
+6s0) B
+6s1) B
+6s2) c
+6s3) c
+6s4) C
+6ss) c
+6s6) A
+6s7) B
+6s8) A
+6s9) B
+660) B
+66r) C
+662) C
+663) A
+s38) C
+s39) X
+s40) x
+s41) B
+s42) X
+s43) X
+s44) X
+s4s) x
+s46) A
+s47) B
+s48) C
+s49) C
+sso) B
+ssl) A
+ss2) c
+ss3) A
+ss4) B
+sss) A
+ss6) c
+557) A
+ss8) c
+ss9) B
+s60) c
+s61) C
+562) B
+s63) B
+s64) C
+s6s) A
+s66) B
+s67) B
+s68) C
+s69) B
+s70) B
+s7r) c
+s72) C
+s73) C
+s74) C
+57s) A
+576) B
+s77) c
+s7E) A
+s7e) B
+s80) B
+s8l) B
+s82) B
+s83) C
+s84) A
+s8s) A
+s86) B
+sE?) B
+s8E) A
+s89) A
+s90) B
+59r) B
+s92) B
+s93) B
+s94) C
+s9s) c
+s96) B
+s97) B
+s98) B
+s99) C
+600) B
+47s) X
+476) X
+477) X
+418) X
+479) X
+480) X
+481) C
+482) B
+483) X
+484) X
+4Es) X
+486) X
+487) X
+488) X
+4E9) B
+490) c
+49r) C
+492) C
+493) B
+494\ A
+49s) B
+496\ A
+497) B
+4e8) X
+499) X
+s00) x
+s01) x
+s02) x
+s03) x
+s04) A
+sos) A
+s06) B
+s07) A
+s08) c
+s09) c
+sl0) x
+srl) x
+sl2) x
+sl3) B
+sl4) A
+srs) A
+516) B
+srD A
+sl8) x
+sl9) c
+s20) B
+s2l) B
+s22\ X
+s23) X
+s24) X
+s25) B
+s26) A
+s27) B
+s28) A
+s29) c
+s30) c
+s3r) B
+s32) B
+s33) C
+s34) B
+s3s) x
+s36) x
+s37) X
+412) B
+413) X
+414) X
+4ls) A
+416) B
+417) A
+418) X
+4r9) B
+420\ B
+421) B
+422) B
+423) B
+424) B
+42s) B
+426) X
+427) B
+42E) X
+42e) X
+430) c
+43r) C
+432) A
+433) A
+434) B
+43s) B
+436) c
+437) A
+43E) X
+43e) X
+440) X
+441) X
+442) A
+443) C
+444) A
+44s) B
+446) C
+447) B
+448) B
+449) B
+4s0) x
+4sr) C
+452) A
+4s3) X
+4s4) X
+4ss) x
+4s6) X
+4s7) X
+4sE) X
+4s9) B
+460) c
+461) C
+462) X
+463) A
+464) X
+46s) X
+466) C
+467) X
+468) C
+469) X
+470) X
+47r) C
+472) X
+473) X
+474) X
+349) X
+3s0) x
+3sr) x
+3s2) X
+3s3) X
+3s4) X
+3ss) C
+3s6) B
+3s7) C
+3s8) A
+3s9) B
+360) C
+361) B
+362) X
+363) X
+364) X
+36s) X
+366) X
+367) X
+368) X
+369) X
+370) X
+371) X
+372) X
+373) X
+374) X
+375) X
+376) X
+377) X
+378) X
+379) X
+380) B
+381) B
+382) A
+383) B
+384) X
+38s) B
+386) A
+387) B
+388) B
+38e) X
+390) A
+391) C
+392) C
+393) B
+394) A
+39s) A
+3e6) C
+397) B
+398) B
+399) C
+400) B
+40r) x
+402) B
+403) A
+404) A
+40s) c
+406) X
+407) x
+408) A
+409) A
+410) A
+4 ) A
+Glider Pilots Ground School O
+Flight lnstructor Glider
+303-908-3147
+gliderpilotsgroundschool.com
+O gpgs '121325

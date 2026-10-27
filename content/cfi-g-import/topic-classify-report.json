@@ -1,0 +1,2727 @@
+{
+  "total": 440,
+  "counts": {
+    "cfi_foi": {
+      "title": "Fundamentals of Instructing",
+      "count": 2
+    },
+    "cfi_aeromedical": {
+      "title": "Aeromedical & human factors",
+      "count": 25
+    },
+    "cfi_scan": {
+      "title": "Scanning & collision avoidance",
+      "count": 6
+    },
+    "cfi_aero": {
+      "title": "Principles of flight",
+      "count": 67
+    },
+    "cfi_controls": {
+      "title": "Flight controls & devices",
+      "count": 12
+    },
+    "cfi_wb": {
+      "title": "Weight & balance",
+      "count": 10
+    },
+    "cfi_nav": {
+      "title": "Navigation & flight planning",
+      "count": 14
+    },
+    "cfi_regs": {
+      "title": "Regulations & publications",
+      "count": 42
+    },
+    "cfi_airspace": {
+      "title": "National Airspace System",
+      "count": 29
+    },
+    "cfi_endorsements": {
+      "title": "Logbooks & endorsements",
+      "count": 39
+    },
+    "cfi_preflight": {
+      "title": "Preflight preparation",
+      "count": 4
+    },
+    "cfi_airport": {
+      "title": "Airport & gliderport operations",
+      "count": 19
+    },
+    "cfi_launch": {
+      "title": "Launches & landings",
+      "count": 41
+    },
+    "cfi_perf": {
+      "title": "Performance airspeeds",
+      "count": 30
+    },
+    "cfi_soaring": {
+      "title": "Soaring techniques",
+      "count": 12
+    },
+    "cfi_maneuvers": {
+      "title": "Performance maneuvers",
+      "count": 2
+    },
+    "cfi_stalls": {
+      "title": "Slow flight, stalls & spins",
+      "count": 17
+    },
+    "cfi_emergency": {
+      "title": "Emergency operations",
+      "count": 2
+    },
+    "cfi_weather": {
+      "title": "Weather",
+      "count": 58
+    },
+    "cfi_systems": {
+      "title": "Systems & instruments",
+      "count": 9
+    }
+  },
+  "assignments": [
+    {
+      "id": "cfi_g_bank_001",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "The tendency of an aircraft to develop forces which restore it to its original c"
+    },
+    {
+      "id": "cfi_g_bank_002",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "Why does increasing speed also increase lift?"
+    },
+    {
+      "id": "cfi_g_bank_003",
+      "topic_id": "cfi_wb",
+      "title": "Weight & balance",
+      "q": "The three axes of an aircraft intersect at the"
+    },
+    {
+      "id": "cfi_g_bank_004",
+      "topic_id": "cfi_controls",
+      "title": "Flight controls & devices",
+      "q": "Adverse yaw during a turn entry is caused by"
+    },
+    {
+      "id": "cfi_g_bank_005",
+      "topic_id": "cfi_controls",
+      "title": "Flight controls & devices",
+      "q": "When rolling out of a steep banked turn, what causes the lowered aileron to crea"
+    },
+    {
+      "id": "cfi_g_bank_006",
+      "topic_id": "cfi_maneuvers",
+      "title": "Performance maneuvers",
+      "q": "How can a pilot increase the rate of turn and decrease the radius at the same ti"
+    },
+    {
+      "id": "cfi_g_bank_007",
+      "topic_id": "cfi_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "Which statement is true conceming the aerodynamic conditions which occur during "
+    },
+    {
+      "id": "cfi_g_bank_008",
+      "topic_id": "cfi_wb",
+      "title": "Weight & balance",
+      "q": "The point on an airfoil through which lift acts is the"
+    },
+    {
+      "id": "cfi_g_bank_009",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "Lift produced by an airfoil is the net force developed perpendicular to the"
+    },
+    {
+      "id": "cfi_g_bank_010",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "The angle between the chord line of the wing and the longitudinal axis of the ai"
+    },
+    {
+      "id": "cfi_g_bank_011",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "The angle between the chord line of an airfoil and the relative wind is known as"
+    },
+    {
+      "id": "cfi_g_bank_012",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "A line drawn from the leading edge to the trailing edge of an airfoil and equidi"
+    },
+    {
+      "id": "cfi_g_bank_014",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "Which statement relates to Bernoulli's principle?"
+    },
+    {
+      "id": "cfi_g_bank_015",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "An aircraft wing is designed to produce lift resulting from"
+    },
+    {
+      "id": "cfi_g_bank_016",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "During flight with zero angle of attack, the pressure along the upper surface of"
+    },
+    {
+      "id": "cfi_g_bank_017",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "That portion of the aircraft's total drag created by the production of lift is c"
+    },
+    {
+      "id": "cfi_g_bank_018",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "As airspeed inoeases in level flight, total drag of an aircraft becomes greater "
+    },
+    {
+      "id": "cfi_g_bank_019",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "As airspeed decreases in level flight, total drag of an aircraft becomes greater"
+    },
+    {
+      "id": "cfi_g_bank_020",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "The resistance, or skin friction, due to the viscosity of the air as it passes a"
+    },
+    {
+      "id": "cfi_g_bank_021",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "Which relationship is correct when comparing drag and airspeed?"
+    },
+    {
+      "id": "cfi_g_bank_022",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "As the angle ofbank is increased, the vertical component of lift"
+    },
+    {
+      "id": "cfi_g_bank_023",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "Changes in the center of pressure ofa wing affect the aircraft's"
+    },
+    {
+      "id": "cfi_g_bank_024",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "What action is necessary to make an aircraft turn?"
+    },
+    {
+      "id": "cfi_g_bank_025",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "The angle of attack of a wing directly conhols the"
+    },
+    {
+      "id": "cfi_g_bank_026",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "Which statement is true relating to the factors which produce stalls?"
+    },
+    {
+      "id": "cfi_g_bank_027",
+      "topic_id": "cfi_wb",
+      "title": "Weight & balance",
+      "q": "The qitical angle of attack at which a given aircraft stalls is dependent on the"
+    },
+    {
+      "id": "cfi_g_bank_028",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "Ifthe same angle of attack is maintained in gound effect as when out ofground ef"
+    },
+    {
+      "id": "cfi_g_bank_029",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "It is possible to fly an aircraftjust clear of the ground at a slightly slower a"
+    },
+    {
+      "id": "cfi_g_bank_030",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "If severe turbulence is encountered, the aircraft's airspeed should be reduced t"
+    },
+    {
+      "id": "cfi_g_bank_032",
+      "topic_id": "cfi_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "Which action will result in a stall?"
+    },
+    {
+      "id": "cfi_g_bank_033",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "(Refer to Figure 20.) At the airspeed represented by point A, in steady flight, "
+    },
+    {
+      "id": "cfi_g_bank_034",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "(Refer to Figure 20.) At an airspeed represented by point B, in steady flight, t"
+    },
+    {
+      "id": "cfi_g_bank_035",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "Which aircraft characteristics contribute to spiral instability?"
+    },
+    {
+      "id": "cfi_g_bank_036",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "The most desirable type ofstability for an aircraft to possess is"
+    },
+    {
+      "id": "cfi_g_bank_037",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "The tendency of an aircraft to develop forces that further remove the aircraft f"
+    },
+    {
+      "id": "cfi_g_bank_038",
+      "topic_id": "cfi_controls",
+      "title": "Flight controls & devices",
+      "q": "Ifthe aircraft's nose initially tends to rehm to its original position after the"
+    },
+    {
+      "id": "cfi_g_bank_039",
+      "topic_id": "cfi_controls",
+      "title": "Flight controls & devices",
+      "q": "If the aircraffs nose initially tends to move farther from its original position"
+    },
+    {
+      "id": "cfi_g_bank_040",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "The quality of an aircraft that permits it to be operated easily and to withstan"
+    },
+    {
+      "id": "cfi_g_bank_041",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "The capability of an aircraft to respond to a pilofs inputs, especially with reg"
+    },
+    {
+      "id": "cfi_g_bank_042",
+      "topic_id": "cfi_controls",
+      "title": "Flight controls & devices",
+      "q": "Ifthe aircraft's nose remains in the new position after the elevator control is "
+    },
+    {
+      "id": "cfi_g_bank_043",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "If the airspeed increases and decreases during Iongitudinal phugoid oscillations"
+    },
+    {
+      "id": "cfi_g_bank_044",
+      "topic_id": "cfi_soaring",
+      "title": "Soaring techniques",
+      "q": "Ifan aircraft has negative dynamic and positive static stability, this will resu"
+    },
+    {
+      "id": "cfi_g_bank_045",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "The purpose of airoaft wing dihedral angle is to"
+    },
+    {
+      "id": "cfi_g_bank_046",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "Aspect ratio ofa wing is defined as the ratio of the"
+    },
+    {
+      "id": "cfi_g_bank_047",
+      "topic_id": "cfi_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "A wing with a very high aspect ratio (in comparison with a low aspect ratio wing"
+    },
+    {
+      "id": "cfi_g_bank_048",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "At a constant velocity in airflow, a high aspect ratio wing will have (in compar"
+    },
+    {
+      "id": "cfi_g_bank_049",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "(Refer to figure 21.) Which aircraft has the highest aspect ratio?"
+    },
+    {
+      "id": "cfi_g_bank_050",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "(Refer to Figure 21.) Which aircraft has the lowest aspect ratio?"
+    },
+    {
+      "id": "cfi_g_bank_051",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "(Refer to Figure 21.) Consider only aspect ratio (other factors remain constant."
+    },
+    {
+      "id": "cfi_g_bank_052",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "Refer to Figure 21.) Consider onluy aspect ratio (other factors remain constant)"
+    },
+    {
+      "id": "cfi_g_bank_053",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "Which statement is generally true regarding wing camber ofa glider's airfoil?"
+    },
+    {
+      "id": "cfi_g_bank_054",
+      "topic_id": "cfi_controls",
+      "title": "Flight controls & devices",
+      "q": "When a slight upward or negative flap deflection is used, lhe result is"
+    },
+    {
+      "id": "cfi_g_bank_055",
+      "topic_id": "cfi_controls",
+      "title": "Flight controls & devices",
+      "q": "When a glider is turning in flight, the force that opposes the inward turning fo"
+    },
+    {
+      "id": "cfi_g_bank_056",
+      "topic_id": "cfi_maneuvers",
+      "title": "Performance maneuvers",
+      "q": "At what bank angle will the resultant of gravity and centrifugal force equal twi"
+    },
+    {
+      "id": "cfi_g_bank_063",
+      "topic_id": "cfi_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "The primary purpose ofspoilers on gliders is to"
+    },
+    {
+      "id": "cfi_g_bank_064",
+      "topic_id": "cfi_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "Which characteristic ofa spin is not a characteristic ofa steep spiml?"
+    },
+    {
+      "id": "cfi_g_bank_065",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "Maximum gliding distance of an aircraft is obtained when"
+    },
+    {
+      "id": "cfi_g_bank_066",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "The best liff:/&ag ratio of a glider occurs when parasite drag is"
+    },
+    {
+      "id": "cfi_g_bank_067",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "The best lift/drag ratio of a glider is a value that"
+    },
+    {
+      "id": "cfi_g_bank_068",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "Which is true about the effect on a glider's performance by the addition ofballa"
+    },
+    {
+      "id": "cfi_g_bank_069",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "(Refer to Figure 38.) A glider is flying from A to C. With a normal L/D ratio of"
+    },
+    {
+      "id": "cfi_g_bank_070",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "While maintaining the best glide speed, a glider pilot may expect the"
+    },
+    {
+      "id": "cfi_g_bank_071",
+      "topic_id": "cfi_nav",
+      "title": "Navigation & flight planning",
+      "q": "In the Nonhem Hemisphere, a magnetic compass will normally indicate a turn towar"
+    },
+    {
+      "id": "cfi_g_bank_072",
+      "topic_id": "cfi_nav",
+      "title": "Navigation & flight planning",
+      "q": "In the Northern Hemisphere, if an aircraft is accelerated or decelerated, the ma"
+    },
+    {
+      "id": "cfi_g_bank_073",
+      "topic_id": "cfi_nav",
+      "title": "Navigation & flight planning",
+      "q": "Deviation error of the magnetic compass is caused by"
+    },
+    {
+      "id": "cfi_g_bank_074",
+      "topic_id": "cfi_nav",
+      "title": "Navigation & flight planning",
+      "q": "In the Northem Hemisphere, which would be correct about starting the rollout fio"
+    },
+    {
+      "id": "cfi_g_bank_075",
+      "topic_id": "cfi_nav",
+      "title": "Navigation & flight planning",
+      "q": "What should be the indication on the magnetic compass as you roll into a standar"
+    },
+    {
+      "id": "cfi_g_bank_076",
+      "topic_id": "cfi_nav",
+      "title": "Navigation & flight planning",
+      "q": "Which statement is true about magnetic deviation of a compass?"
+    },
+    {
+      "id": "cfi_g_bank_078",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "Pitot-static system errors are generally the greatest in which range of airspeed"
+    },
+    {
+      "id": "cfi_g_bank_079",
+      "topic_id": "cfi_systems",
+      "title": "Systems & instruments",
+      "q": "Ifa pitot tube is clogged, which instmment would be affected?"
+    },
+    {
+      "id": "cfi_g_bank_081",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "Which statement is true about the effect of temperature changes on the indicatio"
+    },
+    {
+      "id": "cfi_g_bank_082",
+      "topic_id": "cfi_systems",
+      "title": "Systems & instruments",
+      "q": "What precautions should be taken with respect to aircraft oxygen systems?"
+    },
+    {
+      "id": "cfi_g_bank_083",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "What type ofoxygen system is most commonly found in general aviation aircraft?"
+    },
+    {
+      "id": "cfi_g_bank_084",
+      "topic_id": "cfi_systems",
+      "title": "Systems & instruments",
+      "q": "What type ofoxygen should be used to replenish an aircraft oxygen system?"
+    },
+    {
+      "id": "cfi_g_bank_087",
+      "topic_id": "cfi_systems",
+      "title": "Systems & instruments",
+      "q": "The advantage oftotal energy compensators is that this syslem"
+    },
+    {
+      "id": "cfi_g_bank_088",
+      "topic_id": "cfi_soaring",
+      "title": "Soaring techniques",
+      "q": "Which is true conceming total energy compensators?"
+    },
+    {
+      "id": "cfi_g_bank_089",
+      "topic_id": "cfi_systems",
+      "title": "Systems & instruments",
+      "q": "What is the purpose of the rebreather bag on an oxygen mask in a continuous-flow"
+    },
+    {
+      "id": "cfi_g_bank_090",
+      "topic_id": "cfi_airport",
+      "title": "Airport & gliderport operations",
+      "q": "What airspeed indicator marking identifies the maximum structural cruising speed"
+    },
+    {
+      "id": "cfi_g_bank_093",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "Which airspeed is idenrified by color coding on an airspeed indicator?"
+    },
+    {
+      "id": "cfi_g_bank_094",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "What is an important ahspeed limitation not color coded on airspeed indicators?"
+    },
+    {
+      "id": "cfi_g_bank_095",
+      "topic_id": "cfi_airport",
+      "title": "Airport & gliderport operations",
+      "q": "(Refer to Figure 24.) Determine the densitv altitude. Airport elevation 5,515 ft"
+    },
+    {
+      "id": "cfi_g_bank_096",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "(Refer to Figure 24.) Determine the density altitude. Airport elevation 3,795 ft"
+    },
+    {
+      "id": "cfi_g_bank_097",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "(Refer to Figure 24.) Determine the density altitude. Airport elevation 3,450 ft"
+    },
+    {
+      "id": "cfi_g_bank_098",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "Density ahitude increases with"
+    },
+    {
+      "id": "cfi_g_bank_099",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "What would increase the density altitude at a given afport?"
+    },
+    {
+      "id": "cfi_g_bank_101",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "Ifthe atmospheric pressure and temperature remain the same, how would an increas"
+    },
+    {
+      "id": "cfi_g_bank_128",
+      "topic_id": "cfi_wb",
+      "title": "Weight & balance",
+      "q": "The center of gravity of an aircraft is computed along the"
+    },
+    {
+      "id": "cfi_g_bank_129",
+      "topic_id": "cfi_wb",
+      "title": "Weight & balance",
+      "q": "The center of gravity of an aircraft can be determined by"
+    },
+    {
+      "id": "cfi_g_bank_130",
+      "topic_id": "cfi_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "An aircraft is loaded with the CG aft of the aff limit. What effect will this ha"
+    },
+    {
+      "id": "cfi_g_bank_131",
+      "topic_id": "cfi_wb",
+      "title": "Weight & balance",
+      "q": "The stalling speed of an aircraft will be highest when the aircraft is loaded wi"
+    },
+    {
+      "id": "cfi_g_bank_132",
+      "topic_id": "cfi_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "An aircraft is loaded with the CG at the aft limit. What are the performance cha"
+    },
+    {
+      "id": "cfi_g_bank_133",
+      "topic_id": "cfi_wb",
+      "title": "Weight & balance",
+      "q": "If the CG of an aircraft is moved from the aft limit to beyond the forward limit"
+    },
+    {
+      "id": "cfi_g_bank_134",
+      "topic_id": "cfi_wb",
+      "title": "Weight & balance",
+      "q": "When an aircraft's forward CG limit is exceeded, it will affect the flight chara"
+    },
+    {
+      "id": "cfi_g_bank_135",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "As the CG moves aft, an aircraft becomes"
+    },
+    {
+      "id": "cfi_g_bank_137",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "Under which condition is a forward CG most critical?"
+    },
+    {
+      "id": "cfi_g_bank_138",
+      "topic_id": "cfi_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "As the CG location is changed, recovery from a stall becomes progressively"
+    },
+    {
+      "id": "cfi_g_bank_139",
+      "topic_id": "cfi_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "What is the effect of center of gravity on the spin characteristics of an aircra"
+    },
+    {
+      "id": "cfi_g_bank_140",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "What can a pilot expect when landing at an airport located in the mountains?"
+    },
+    {
+      "id": "cfi_g_bank_141",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "In what part of the atmosphere does most weather occur?"
+    },
+    {
+      "id": "cfi_g_bank_142",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "Which is the primary driving force ofweather on the Earth?"
+    },
+    {
+      "id": "cfi_g_bank_143",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "The average lapse rate in the troposphere. is"
+    },
+    {
+      "id": "cfi_g_bank_144",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "The most frequent type of ground- or surface-based temperature inversion is that"
+    },
+    {
+      "id": "cfi_g_bank_145",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "Which weather conditions should be expected beneath a low-level temperature inve"
+    },
+    {
+      "id": "cfi_g_bank_152",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "Density altitude may be determined by correcting"
+    },
+    {
+      "id": "cfi_g_bank_153",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "What are the standard temperature and pressure values for mean sea level?"
+    },
+    {
+      "id": "cfi_g_bank_154",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "What causes wind?"
+    },
+    {
+      "id": "cfi_g_bank_155",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "The wind flow around a low pressure is"
+    },
+    {
+      "id": "cfi_g_bank_156",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "Winds at 5,000 feet Act on a particular flight are southwesterly while most of t"
+    },
+    {
+      "id": "cfi_g_bank_160",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "Which statement is fue regarding high- or lowpressure systems?"
+    },
+    {
+      "id": "cfi_g_bank_161",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "Which is an operational consideration regarding actual air temperature and dewpo"
+    },
+    {
+      "id": "cfi_g_bank_162",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "The ratio of the existing water vapor in the air, as compared to the maximum amo"
+    },
+    {
+      "id": "cfi_g_bank_166",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "Streamers of precipitation trailing beneath clouds but evaporating before reachi"
+    },
+    {
+      "id": "cfi_g_bank_167",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "From which measurement of the atnosphere can stability be determined?"
+    },
+    {
+      "id": "cfi_g_bank_168",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "The formation ofeither predominantly stratiform or predominantly cumuliform clou"
+    },
+    {
+      "id": "cfi_g_bank_169",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "At approximately what altitude above the surface would you expect the base of cu"
+    },
+    {
+      "id": "cfi_g_bank_170",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "At approximately what altitude above the surface would you expect the base of cu"
+    },
+    {
+      "id": "cfi_g_bank_171",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "If clouds form as a result of very stable, moist air being forced to ascend a mo"
+    },
+    {
+      "id": "cfi_g_bank_172",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "The height of the bases of the middle clouds in rhe middle latitudes ranges ftom"
+    },
+    {
+      "id": "cfi_g_bank_173",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "Which middle level clouds are characterized by rain, snow, or ice pellets posing"
+    },
+    {
+      "id": "cfi_g_bank_A moist air mass",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "frequently has which of the above characteristics?,1"
+    },
+    {
+      "id": "cfi_g_bank_175",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "The weather condition normally associated with unstable air is"
+    },
+    {
+      "id": "cfi_g_bank_176",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "A moist, unstable air mass is characterized by"
+    },
+    {
+      "id": "cfi_g_bank_177",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "What type weather is associated with an advancing warm front that has moist, uns"
+    },
+    {
+      "id": "cfi_g_bank_178",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "A moist, cold air mass that is being warmed from below is characterized in part,"
+    },
+    {
+      "id": "cfi_g_bank_179",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "What is a characteristic of stable air?"
+    },
+    {
+      "id": "cfi_g_bank_180",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "The temperatue spread increases as the relative humidity increases."
+    },
+    {
+      "id": "cfi_g_bank_181",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "What is a typical characteristic of a stable air mass?"
+    },
+    {
+      "id": "cfi_g_bank_182",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "A moist, warm air mass that is being cooled fiom"
+    },
+    {
+      "id": "cfi_g_bank_183",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "Frontal waves normally form on"
+    },
+    {
+      "id": "cfi_g_bank_184",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "Cool air moving over a warm surface is generally characterized by"
+    },
+    {
+      "id": "cfi_g_bank_185",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "If a wave were to form on a stationary front running east and west across the Un"
+    },
+    {
+      "id": "cfi_g_bank_188",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "When flying low over hilly terrain, ridges, or"
+    },
+    {
+      "id": "cfi_g_bank_189",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "Low-level wind shear. which results in a sudden change olwind direcrion. may occ"
+    },
+    {
+      "id": "cfi_g_bank_190",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "Which condition could be expected ifa strong"
+    },
+    {
+      "id": "cfi_g_bank_195",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "Select the true statemenl pertaining ro the life cycle of characterized by a thu"
+    },
+    {
+      "id": "cfi_g_bank_196",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "Tomadoes are most likely to occur with which rype of becoming a cold front. thun"
+    },
+    {
+      "id": "cfi_g_bank_197",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "What feature is associated with the cumulus stage ofa l. Mountain waves always d"
+    },
+    {
+      "id": "cfi_g_bank_198",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "Which type ofcloud is associated with violent 3. If the air is humid and the wav"
+    },
+    {
+      "id": "cfi_g_bank_199",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "A squall line is usually associated with a"
+    },
+    {
+      "id": "cfi_g_bank_200",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "Consider the following statements regarding hail as an in-flight hazffd and sele"
+    },
+    {
+      "id": "cfi_g_bank_201",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "Which statement is true conceming the in-flight hazard of hail?"
+    },
+    {
+      "id": "cfi_g_bank_202",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "Hail, an in-flight hazard, is most likely to be associated with"
+    },
+    {
+      "id": "cfi_g_bank_203",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "Hail will most likely be encountered"
+    },
+    {
+      "id": "cfi_g_bank_204",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "One condition necessary for the formation offog is"
+    },
+    {
+      "id": "cfi_g_bank_205",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "Radiation fog is most likely to occur under rryhat conditions?"
+    },
+    {
+      "id": "cfi_g_bank_206",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "Advection fog is formed as a result of"
+    },
+    {
+      "id": "cfi_g_bank_207",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "With respect to advection fog which statement is true?"
+    },
+    {
+      "id": "cfi_g_bank_208",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "Which in-flight hazard is most commonly associated with warm fronts?"
+    },
+    {
+      "id": "cfi_g_bank_209",
+      "topic_id": "cfi_soaring",
+      "title": "Soaring techniques",
+      "q": "Fog associated with a warm front is a result of sahration due to"
+    },
+    {
+      "id": "cfi_g_bank_211",
+      "topic_id": "cfi_soaring",
+      "title": "Soaring techniques",
+      "q": "Which statement is true regarding the effect of fronts on soaring conditions?"
+    },
+    {
+      "id": "cfi_g_bank_212",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "The conditions most favorable to wave formation over mountainous areas are a lay"
+    },
+    {
+      "id": "cfi_g_bank_213",
+      "topic_id": "cfi_soaring",
+      "title": "Soaring techniques",
+      "q": "When soaring in the vicinity of mountain ranges, the greatest potential danger f"
+    },
+    {
+      "id": "cfi_g_bank_215",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "One of the most dangerous features ofmountain waves is the turbulent areas in an"
+    },
+    {
+      "id": "cfi_g_bank_216",
+      "topic_id": "cfi_scan",
+      "title": "Scanning & collision avoidance",
+      "q": "Which thermal indices would predict the best probability of good soaring conditi"
+    },
+    {
+      "id": "cfi_g_bank_217",
+      "topic_id": "cfi_scan",
+      "title": "Scanning & collision avoidance",
+      "q": "An important precaution when soaring in a dust devil is to"
+    },
+    {
+      "id": "cfi_g_bank_218",
+      "topic_id": "cfi_soaring",
+      "title": "Soaring techniques",
+      "q": "One of the best visual indications of a thermal is a"
+    },
+    {
+      "id": "cfi_g_bank_219",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "Convective circulation patterns associated with sea breezes are caused by"
+    },
+    {
+      "id": "cfi_g_bank_220",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "Which is true regarding the development ofconvective circulation?"
+    },
+    {
+      "id": "cfi_g_bank_221",
+      "topic_id": "cfi_soaring",
+      "title": "Soaring techniques",
+      "q": "Under what condition can enough lift be found for soaring under stable weather c"
+    },
+    {
+      "id": "cfi_g_bank_227",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "(Refer to Figure 3.) Which station is reporting the wind as calm?"
+    },
+    {
+      "id": "cfi_g_bank_228",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "(Refer to Figure 3.) What is the reported duration of the rain at the time of th"
+    },
+    {
+      "id": "cfi_g_bank_229",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "Consider the following statements regarding an Aviation Routine Weather Report ("
+    },
+    {
+      "id": "cfi_g_bank_230",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "(Refer to Figure 3.) Which sation is reporting the lowest ceiling?"
+    },
+    {
+      "id": "cfi_g_bank_231",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "(Refer to Figure 3.) The temperature/dewpoint spread at KAUS is"
+    },
+    {
+      "id": "cfi_g_bank_232",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "(Refer to Figure 3.) In the report for KBRO, what is the reported ceiling?"
+    },
+    {
+      "id": "cfi_g_bank_248",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "For a brief sumrnary of the location and movement of fronts, pressure systems, a"
+    },
+    {
+      "id": "cfi_g_bank_294",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "What is the expected duration of an individual microburst?"
+    },
+    {
+      "id": "cfi_g_bank_295",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "Maximum dorvndrafts in a microburst encounter may be as shong as"
+    },
+    {
+      "id": "cfi_g_bank_296",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "How long do the maximum intensity winds last in an individual microburst?"
+    },
+    {
+      "id": "cfi_g_bank_299",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "An airport without a control tower lies within the controlled airspace of an air"
+    },
+    {
+      "id": "cfi_g_bank_300",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "Which is true regarding VFR operations in Class B airspace?"
+    },
+    {
+      "id": "cfi_g_bank_301",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "Which equipment is required when operating an aircraft within Class B airspace?"
+    },
+    {
+      "id": "cfi_g_bank_302",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "In which type ofairspace are VFR flights prohibited?"
+    },
+    {
+      "id": "cfi_g_bank_304",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "The minimum visibility for VFR flight in Class E airspace increases from 3 to 5 "
+    },
+    {
+      "id": "cfi_g_bank_306",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "Nonnally, the vertical limits of Class D airspace extend up to and including how"
+    },
+    {
+      "id": "cfi_g_bank_307",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "Dudng operations within conaolled airspace at altitudes ofmore than 1,200 feet A"
+    },
+    {
+      "id": "cfi_g_bank_308",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "While in Class G airspace in VPR conditions, what minimum distance from clouds s"
+    },
+    {
+      "id": "cfi_g_bank_309",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "While in Class E airspace in VFR conditions, what inflight visibility is require"
+    },
+    {
+      "id": "cfi_g_bank_313",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "Within the contiguous United States, the floor of Class A airspace is"
+    },
+    {
+      "id": "cfi_g_bank_314",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "With certain exceptions, Class E airspace extends upward from either 700 feet or"
+    },
+    {
+      "id": "cfi_g_bank_317",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "Class E airspace within the contiguous United States extends upward from either "
+    },
+    {
+      "id": "cfi_g_bank_318",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "(Refer to Figue 47.) What is the mdius of the surface area (circle C)?"
+    },
+    {
+      "id": "cfi_g_bank_319",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "(Refer to Figure 47.) What is the radius of the shetf area (circle A)?"
+    },
+    {
+      "id": "cfi_g_bank_320",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "(Refer to Figure 47.) Which altitude (box 2) is applicable to the base of the sh"
+    },
+    {
+      "id": "cfi_g_bank_321",
+      "topic_id": "cfi_airport",
+      "title": "Airport & gliderport operations",
+      "q": "(Refer to Figure 47.) Which altitude (box 1) is applicable to the vertical exten"
+    },
+    {
+      "id": "cfi_g_bank_322",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "What minimum avionics equipment is required for operation within Class C airspac"
+    },
+    {
+      "id": "cfi_g_bank_323",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "To operate an aircraft within Class C airspace from a saiellite airport without "
+    },
+    {
+      "id": "cfi_g_bank_324",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "All operations within Class C airspace must be"
+    },
+    {
+      "id": "cfi_g_bank_325",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "Flight through a restricted area should not be accomplished unless the pilot has"
+    },
+    {
+      "id": "cfi_g_bank_326",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "A waming area is airspace of defrned dimensions established"
+    },
+    {
+      "id": "cfi_g_bank_327",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "A military operations area (MOA) is airspace of defmed vertical and lateral limi"
+    },
+    {
+      "id": "cfi_g_bank_328",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "When operating VFR in a military operations area (MOA), a pilot"
+    },
+    {
+      "id": "cfi_g_bank_329",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "Flight though a military operations area (MOA) is"
+    },
+    {
+      "id": "cfi_g_bank_331",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "Ifa military training route has flights operating at or below 1,500 feet AGL, it"
+    },
+    {
+      "id": "cfi_g_bank_333",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "A military airfield can be identified by"
+    },
+    {
+      "id": "cfi_g_bank_334",
+      "topic_id": "cfi_airport",
+      "title": "Airport & gliderport operations",
+      "q": "The numbers 8 and 26 on the approach ends of the runway indicate that the runway"
+    },
+    {
+      "id": "cfi_g_bank_338",
+      "topic_id": "cfi_airport",
+      "title": "Airport & gliderport operations",
+      "q": "As standad operating practice, all inbound traffic to an airport without a contr"
+    },
+    {
+      "id": "cfi_g_bank_339",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "When landing at an airport lhat does not have a tower, FSS, or LJNICOM, you shou"
+    },
+    {
+      "id": "cfi_g_bank_346",
+      "topic_id": "cfi_airport",
+      "title": "Airport & gliderport operations",
+      "q": "(Refer to Figue 54.) The segmented circle indicates that the airport traffic pat"
+    },
+    {
+      "id": "cfi_g_bank_347",
+      "topic_id": "cfi_airport",
+      "title": "Airport & gliderport operations",
+      "q": "(Refer to Figure 54.) Which runway and tsaflic pattem should be used as indicate"
+    },
+    {
+      "id": "cfi_g_bank_355",
+      "topic_id": "cfi_scan",
+      "title": "Scanning & collision avoidance",
+      "q": "How does the wake turbulence vortex circulate around each wingtip?"
+    },
+    {
+      "id": "cfi_g_bank_356",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "What effect would a crosswind of5 knots or less have on the wingip vortices gene"
+    },
+    {
+      "id": "cfi_g_bank_357",
+      "topic_id": "cfi_scan",
+      "title": "Scanning & collision avoidance",
+      "q": "During a takeoff made behind a departing large jet airplane, the pilot can minim"
+    },
+    {
+      "id": "cfi_g_bank_358",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "When landing behind a large jet aircraft, at which point on the nmway should you"
+    },
+    {
+      "id": "cfi_g_bank_359",
+      "topic_id": "cfi_scan",
+      "title": "Scanning & collision avoidance",
+      "q": "Which statement is true regarding wingtip vortices?"
+    },
+    {
+      "id": "cfi_g_bank_360",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "Due to the effects ofwake turbulence, what minimum separation does ATC provide f"
+    },
+    {
+      "id": "cfi_g_bank_361",
+      "topic_id": "cfi_airport",
+      "title": "Airport & gliderport operations",
+      "q": "Information conceming parachute jumping sites may be found in the"
+    },
+    {
+      "id": "cfi_g_bank_380",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "A person whose Flight Instructor Certificate has been suspended may not"
+    },
+    {
+      "id": "cfi_g_bank_381",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "Conviction of an offense involving alcohol or drugs is grounds for"
+    },
+    {
+      "id": "cfi_g_bank_382",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "What is the duration of a Student Pilot Certificate?"
+    },
+    {
+      "id": "cfi_g_bank_383",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "What is the duration ofa Flight Instructor Certificate?"
+    },
+    {
+      "id": "cfi_g_bank_385",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "To act as pilot in command ofa glider using aerotow procedures, a person must ha"
+    },
+    {
+      "id": "cfi_g_bank_386",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "What minimum documentation is required to take an FAA knowledge test for any fli"
+    },
+    {
+      "id": "cfi_g_bank_387",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "A person who the Adminishator frnds has cheated or committed any unauthorized ac"
+    },
+    {
+      "id": "cfi_g_bank_388",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "What action may be taken against a person whom the Administrator finds has cheat"
+    },
+    {
+      "id": "cfi_g_bank_390",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "A written statement from an authorized instructor certifing that an applicant ha"
+    },
+    {
+      "id": "cfi_g_bank_391",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "To be eligible for a practical test under l4 CFR part 61, an applicant must have"
+    },
+    {
+      "id": "cfi_g_bank_392",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "If all increments for a practical test for a certificate or rating are not compl"
+    },
+    {
+      "id": "cfi_g_bank_393",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "What is one requirement for an aircraft fumished for a practical test?"
+    },
+    {
+      "id": "cfi_g_bank_394",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "An applicant has failed a knowledge test for the second time. With training and "
+    },
+    {
+      "id": "cfi_g_bank_395",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "Your student took a practical test for a pilot certificate on January l0 and fai"
+    },
+    {
+      "id": "cfi_g_bank_396",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "An applicant who fails a pilot knowledge test for the first time may apply for r"
+    },
+    {
+      "id": "cfi_g_bank_397",
+      "topic_id": "cfi_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "A flight instuctor applicant must demonstrate spins in an airplane or glider whe"
+    },
+    {
+      "id": "cfi_g_bank_398",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "An applicant who fails a practical test for the second time may apply for retest"
+    },
+    {
+      "id": "cfi_g_bank_399",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "Which training time must be certified by the instructor from whom it was receive"
+    },
+    {
+      "id": "cfi_g_bank_400",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "What flight time must be recorded by a pilot exercising the privileges ofa comme"
+    },
+    {
+      "id": "cfi_g_bank_402",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "A flight review is not required ifa pilot has completed, within the time specifi"
+    },
+    {
+      "id": "cfi_g_bank_403",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "A flight review will consist of"
+    },
+    {
+      "id": "cfi_g_bank_404",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "A flight instructor who has not satisfactorily accomplished a flight review or p"
+    },
+    {
+      "id": "cfi_g_bank_405",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "A flight review for a glider pilot must consist of at least I hour ofground inst"
+    },
+    {
+      "id": "cfi_g_bank_408",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "The holder of a pilot or instructor certificate who fails to notify the FAA Airm"
+    },
+    {
+      "id": "cfi_g_bank_409",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "When a permanent change ofaddress occurs, pilot or instructor privileges may not"
+    },
+    {
+      "id": "cfi_g_bank_410",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "A person seeking a private pilot glider rating is exempt from taking the knowled"
+    },
+    {
+      "id": "cfi_g_bank_411",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "The minimum age requirement for the applicant who is seeking a Student Pilot Cer"
+    },
+    {
+      "id": "cfi_g_bank_412",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "Which is a required endorsement by an authorized flight instructor for a student"
+    },
+    {
+      "id": "cfi_g_bank_415",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "Who is responsible for administering the required knowledge test to a student pi"
+    },
+    {
+      "id": "cfi_g_bank_416",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "What subjects must be covered on the presolo knowledge test?"
+    },
+    {
+      "id": "cfi_g_bank_417",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "Prior to solo flight, a student must have received flight instruction in"
+    },
+    {
+      "id": "cfi_g_bank_419",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "Are students authorized to make repeated solo cross-country flights without each"
+    },
+    {
+      "id": "cfi_g_bank_420",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "One requirement for a student pilot to be authorized to make a solo cross-countr"
+    },
+    {
+      "id": "cfi_g_bank_421",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "May repeated solo cross-country flights over the same route be made by a student"
+    },
+    {
+      "id": "cfi_g_bank_422",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "To operate an aircraft on a solo flight within Class B airspace, a student must "
+    },
+    {
+      "id": "cfi_g_bank_423",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "Who is authorized to endorse a student pilot logbook authorizing flight in Class"
+    },
+    {
+      "id": "cfi_g_bank_424",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "A Recreational Pilot Certificate may be issued for"
+    },
+    {
+      "id": "cfi_g_bank_425",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "What is the minimum age required to be eligible for a Commercial Pilot Certifica"
+    },
+    {
+      "id": "cfi_g_bank_427",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "An applicant for a Commercial Pilot Certificate with a glider rating must have a"
+    },
+    {
+      "id": "cfi_g_bank_430",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "What requirement(s) must an authorized instructor meet in order to prepare a gli"
+    },
+    {
+      "id": "cfi_g_bank_431",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "The type and date of each student pilot endorsement given shall be maintained by"
+    },
+    {
+      "id": "cfi_g_bank_432",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "A flight instructor who applies for an additional rating on that certificate mus"
+    },
+    {
+      "id": "cfi_g_bank_433",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "During any 24 consecutive hours, an instructor is limited to how many hours of f"
+    },
+    {
+      "id": "cfi_g_bank_434",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "To endorse a student pilot for solo cross-country privileges, an instructor is r"
+    },
+    {
+      "id": "cfi_g_bank_435",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "To endorse a student pilot's logbook for solo fligh! an instructor is required, "
+    },
+    {
+      "id": "cfi_g_bank_436",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "A Flight Instructor Certificate may be renewed by"
+    },
+    {
+      "id": "cfi_g_bank_437",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "The holder of an expired Flight Instructor Certificate may exchange that certifi"
+    },
+    {
+      "id": "cfi_g_bank_442",
+      "topic_id": "cfi_emergency",
+      "title": "Emergency operations",
+      "q": "If an in-flight emergency requires immediate action, a pilot in command may"
+    },
+    {
+      "id": "cfi_g_bank_443",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "Under what condition, if any, may a pilot allow a person who is obviously under "
+    },
+    {
+      "id": "cfi_g_bank_444",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "A person may not act as a crewmember of a civil aircraft if alcoholic beverages "
+    },
+    {
+      "id": "cfi_g_bank_445",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "No person may act as a crewmember ofa civil aircraft with a minimum blood alcoho"
+    },
+    {
+      "id": "cfi_g_bank_446",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "Al aircraffs operating limitations may be found in the"
+    },
+    {
+      "id": "cfi_g_bank_447",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "Which preflight action is required for every flight?"
+    },
+    {
+      "id": "cfi_g_bank_448",
+      "topic_id": "cfi_airport",
+      "title": "Airport & gliderport operations",
+      "q": "The preflight aaion requied by regulations relative to altematives available, if"
+    },
+    {
+      "id": "cfi_g_bank_449",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "Which statement is true regarding the use of seatbelts and shoulder hamesses?"
+    },
+    {
+      "id": "cfi_g_bank_451",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "When two or more aircraft are approaching an airport for the purpose of landing,"
+    },
+    {
+      "id": "cfi_g_bank_452",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "What action should be taken if a glider and an airplane approach each other at t"
+    },
+    {
+      "id": "cfi_g_bank_459",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "To operate an aircraft over any congested are4 a pilot should maintain an altitu"
+    },
+    {
+      "id": "cfi_g_bank_460",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "Except when necessary for takeoffor landing, what is the minimum safe altitude f"
+    },
+    {
+      "id": "cfi_g_bank_461",
+      "topic_id": "cfi_emergency",
+      "title": "Emergency operations",
+      "q": "What action is appropriate ifyou deviate Aom an air traffrc control instruction "
+    },
+    {
+      "id": "cfi_g_bank_463",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "While in flight, an altemating red and green Iight directed at you from the cont"
+    },
+    {
+      "id": "cfi_g_bank_466",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "What minimum pilot certificate will permit a pilot to enter Class B airspace?"
+    },
+    {
+      "id": "cfi_g_bank_468",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "What minimum flight visibility is required when flying a glider above 10,000 fee"
+    },
+    {
+      "id": "cfi_g_bank_471",
+      "topic_id": "cfi_preflight",
+      "title": "Preflight preparation",
+      "q": "Regarding certificates and documents, no person may operate an aircraft unless i"
+    },
+    {
+      "id": "cfi_g_bank_482",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "Which cabin pressure altitude allows a pilot to operate an aircraft up to 30 min"
+    },
+    {
+      "id": "cfi_g_bank_489",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "What is the minimum altitude and flight visibility required for acrobatic flight"
+    },
+    {
+      "id": "cfi_g_bank_490",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "When must each occupant of an aircraft wear an approved parachute?"
+    },
+    {
+      "id": "cfi_g_bank_491",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "Who is primarily responsible for maintaining an aircraft in an airworthy conditi"
+    },
+    {
+      "id": "cfi_g_bank_492",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "Assuring compliance with airworthiness directives is the responsibility of the"
+    },
+    {
+      "id": "cfi_g_bank_493",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "Completion of an annual inspection and the return of an aircraft to service shou"
+    },
+    {
+      "id": "cfi_g_bank_494",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "Ifan airffaft's operation in flight was substantially affected by an alteration "
+    },
+    {
+      "id": "cfi_g_bank_495",
+      "topic_id": "cfi_preflight",
+      "title": "Preflight preparation",
+      "q": "An aircraft's last annual inspection was performed on July 12, this year. The ne"
+    },
+    {
+      "id": "cfi_g_bank_496",
+      "topic_id": "cfi_preflight",
+      "title": "Preflight preparation",
+      "q": "Which is prohibited ifrhe aircraft being used has not had a 100-hour inspection "
+    },
+    {
+      "id": "cfi_g_bank_497",
+      "topic_id": "cfi_preflight",
+      "title": "Preflight preparation",
+      "q": "An aircraft operated for hire with passengers aboard has a 100-hour inspection p"
+    },
+    {
+      "id": "cfi_g_bank_504",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "The NTSB defines a serious injury as any injury which"
+    },
+    {
+      "id": "cfi_g_bank_505",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "Notification to the NTSB is required when there has been substantial damage whic"
+    },
+    {
+      "id": "cfi_g_bank_506",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "NTSB Part 830 requires an immediate notification as a result of which incident?"
+    },
+    {
+      "id": "cfi_g_bank_507",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "If an aircraft is involved in an accident which results in substantial damage to"
+    },
+    {
+      "id": "cfi_g_bank_508",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "The operator of an aircraft that has been involved in an accident is required to"
+    },
+    {
+      "id": "cfi_g_bank_509",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "The operator of an aircraft that has been involved in an incident is required to"
+    },
+    {
+      "id": "cfi_g_bank_513",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "For a winch tow, which is an advantage of the CG hook over the nose hook?"
+    },
+    {
+      "id": "cfi_g_bank_514",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "Which is true regarding glider tow hooks?"
+    },
+    {
+      "id": "cfi_g_bank_515",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "What would be the approximate tensile strength of a rope with a 1,000-pound tens"
+    },
+    {
+      "id": "cfi_g_bank_516",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "What is the minimum allowable stength of a towline used for the aerotow ofa glid"
+    },
+    {
+      "id": "cfi_g_bank_519",
+      "topic_id": "cfi_controls",
+      "title": "Flight controls & devices",
+      "q": "During the entry to a right turn, the nose of the aircraft swings slightly to th"
+    },
+    {
+      "id": "cfi_g_bank_520",
+      "topic_id": "cfi_controls",
+      "title": "Flight controls & devices",
+      "q": "What will cause the nose of an aircraft to move in the direction of the turn bef"
+    },
+    {
+      "id": "cfi_g_bank_521",
+      "topic_id": "cfi_controls",
+      "title": "Flight controls & devices",
+      "q": "How should a student be taught to correct for a noselow attitude dudng a steep t"
+    },
+    {
+      "id": "cfi_g_bank_525",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "To minimize the side loads placed on the landing gear during touchdown, the pilo"
+    },
+    {
+      "id": "cfi_g_bank_526",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "Under normal conditions, a proper crosswind landing on a runway requires that, a"
+    },
+    {
+      "id": "cfi_g_bank_527",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "If an emergency situation requires a downwind landing, pilots should expect a fa"
+    },
+    {
+      "id": "cfi_g_bank_528",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "On final approach to landing, a faster-than-normal indicated airspeed should be "
+    },
+    {
+      "id": "cfi_g_bank_529",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "One reason a student tends to romd out high during landing is"
+    },
+    {
+      "id": "cfi_g_bank_530",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "What could be a result of a student focusing too far ahead during a landing appr"
+    },
+    {
+      "id": "cfi_g_bank_531",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "What normally results from excessive airspeed on final approach?"
+    },
+    {
+      "id": "cfi_g_bank_532",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "What normally results from misjudging the rate of sink during a landing?"
+    },
+    {
+      "id": "cfi_g_bank_533",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "Which statement is true regarding the use of seatbelts and shoulder hamesses?"
+    },
+    {
+      "id": "cfi_g_bank_534",
+      "topic_id": "cfi_controls",
+      "title": "Flight controls & devices",
+      "q": "To properly compensate for a crosswind during straight-andlevel cruising flighr,"
+    },
+    {
+      "id": "cfi_g_bank_538",
+      "topic_id": "cfi_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "Ifan accelerated stall occurs in a steep turn, how wilt the aircraft respond?"
+    },
+    {
+      "id": "cfi_g_bank_541",
+      "topic_id": "cfi_controls",
+      "title": "Flight controls & devices",
+      "q": "Which would likely result in a slipping turn?"
+    },
+    {
+      "id": "cfi_g_bank_546",
+      "topic_id": "cfi_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "What consideration should be given in the choice ofa towplane for use in aerotow"
+    },
+    {
+      "id": "cfi_g_bank_547",
+      "topic_id": "cfi_wb",
+      "title": "Weight & balance",
+      "q": "The reason for retaining water ballast while thermals are strong and dumping the"
+    },
+    {
+      "id": "cfi_g_bank_548",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "When flying into a strong headwind on a long glide back to the airyort, the reco"
+    },
+    {
+      "id": "cfi_g_bank_549",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "How can excessive towline slack that is allowed to develop during a glider tow b"
+    },
+    {
+      "id": "cfi_g_bank_550",
+      "topic_id": "cfi_scan",
+      "title": "Scanning & collision avoidance",
+      "q": "What could result if a glider pilot releases while in the low-tow position durin"
+    },
+    {
+      "id": "cfi_g_bank_551",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "After signaling the tow pilot that the glider pilot cannot release, the tow pilo"
+    },
+    {
+      "id": "cfi_g_bank_552",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "Duing an auto launch, the pitch angle of the glider should not exceed"
+    },
+    {
+      "id": "cfi_g_bank_553",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "At what point during an auto tow should the glider pilot establish the maximum p"
+    },
+    {
+      "id": "cfi_g_bank_554",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "When preparing for an auto tow with a strong crosswind, where should the glider "
+    },
+    {
+      "id": "cfi_g_bank_555",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "During a ground launch, how is the airspeed of a glider increased?"
+    },
+    {
+      "id": "cfi_g_bank_556",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "During a winch launch, which factor would most likely result in pitch oscillatio"
+    },
+    {
+      "id": "cfi_g_bank_557",
+      "topic_id": "cfi_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "Unless adequate speed control is maintained during the turn to base and the fina"
+    },
+    {
+      "id": "cfi_g_bank_558",
+      "topic_id": "cfi_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "A rule of thumb for flying a final approach is to maintain a speed that is"
+    },
+    {
+      "id": "cfi_g_bank_559",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "If swirling dust, leaves, or debris indicate a stong thermal on the final approa"
+    },
+    {
+      "id": "cfi_g_bank_560",
+      "topic_id": "cfi_soaring",
+      "title": "Soaring techniques",
+      "q": "With regard to two or more gliders flying in the same thermal, which statement i"
+    },
+    {
+      "id": "cfi_g_bank_561",
+      "topic_id": "cfi_soaring",
+      "title": "Soaring techniques",
+      "q": "Which is true relating to the direction in which turns should be made during slo"
+    },
+    {
+      "id": "cfi_g_bank_562",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "What is the suggested speed to fly when passing through lift with no intention t"
+    },
+    {
+      "id": "cfi_g_bank_563",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "When making an off-field landing, it is recommended that the landing be accompli"
+    },
+    {
+      "id": "cfi_g_bank_564",
+      "topic_id": "cfi_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "Which would most likely ensure a safe off-field landing?"
+    },
+    {
+      "id": "cfi_g_bank_565",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "Which statement is true regarding alcohol in the human system?"
+    },
+    {
+      "id": "cfi_g_bank_569",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "An illusion that the aircraft is at a higher altitude than it actually is, is pr"
+    },
+    {
+      "id": "cfi_g_bank_570",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "Which procedure is recommended to prevent or overcome spatial disorientation?"
+    },
+    {
+      "id": "cfi_g_bank_571",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "What effect does haze have on the ability to see traffic or terrain features dur"
+    },
+    {
+      "id": "cfi_g_bank_572",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "Which technique should a student be taught to scan for traffic to the right and "
+    },
+    {
+      "id": "cfi_g_bank_573",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "Dark adaptation is impaired by exposure to"
+    },
+    {
+      "id": "cfi_g_bank_574",
+      "topic_id": "cfi_systems",
+      "title": "Systems & instruments",
+      "q": "During a climb to 18,000 feet, the percentage of oxygen in the annosphere"
+    },
+    {
+      "id": "cfi_g_bank_575",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "Which statement conceming hypoxia is true?"
+    },
+    {
+      "id": "cfi_g_bank_576",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "Hypoxia is the result of"
+    },
+    {
+      "id": "cfi_g_bank_577",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "What physical change would most likely occur to occupants of an unpressurized ai"
+    },
+    {
+      "id": "cfi_g_bank_578",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "Hyperventilation results in"
+    },
+    {
+      "id": "cfi_g_bank_579",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "Rapid or extra deep breathing while using oxygen can cause"
+    },
+    {
+      "id": "cfi_g_bank_580",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "A person should be able to overcome the symptoms of hyperventilation by"
+    },
+    {
+      "id": "cfi_g_bank_581",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "How can smoking affect a pilot?"
+    },
+    {
+      "id": "cfi_g_bank_582",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "One aid in increasing night vision effectiveness would be to"
+    },
+    {
+      "id": "cfi_g_bank_583",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "What suggestion could you make to students who are experiencing motion sickness?"
+    },
+    {
+      "id": "cfi_g_bank_584",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "Motion sickness is caused by"
+    },
+    {
+      "id": "cfi_g_bank_585",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "What are the four fundamental risk elements in the aeronautical decision making "
+    },
+    {
+      "id": "cfi_g_bank_586",
+      "topic_id": "cfi_foi",
+      "title": "Fundamentals of Instructing",
+      "q": "When should a flight instructor begin teaching aeronautical decision making (ADM"
+    },
+    {
+      "id": "cfi_g_bank_587",
+      "topic_id": "cfi_foi",
+      "title": "Fundamentals of Instructing",
+      "q": "During training flights, an instructor should interject realistic distractions t"
+    },
+    {
+      "id": "cfi_g_bank_588",
+      "topic_id": "cfi_systems",
+      "title": "Systems & instruments",
+      "q": "Although not required, supplemental oxygen is recommended for use when flying at"
+    },
+    {
+      "id": "cfi_g_bank_589",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "The advantage of experiencing hypoxia in an altitude chamber is"
+    },
+    {
+      "id": "cfi_g_bank_590",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "Anemic hlpoxia has the same symptoms as hypoxic hypoxia but it is most often a r"
+    },
+    {
+      "id": "cfi_g_bank_591",
+      "topic_id": "cfi_airport",
+      "title": "Airport & gliderport operations",
+      "q": "What is an effective way to prevent a collision hazard in the traffic pattern?"
+    },
+    {
+      "id": "cfi_g_bank_592",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "Most midair collision accidents occur during"
+    },
+    {
+      "id": "cfi_g_bank_593",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "The most effective technique to use for detecting other aircraft at night is to"
+    },
+    {
+      "id": "cfi_g_bank_594",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "Aeronautical decision making (ADM) can be defmed asa"
+    },
+    {
+      "id": "cfi_g_bank_595",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "Risk management, as part of the aeronautical decision making (ADM) process, reli"
+    },
+    {
+      "id": "cfi_g_bank_596",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "The aeronautical decision making (ADM) process identifies several steps involved"
+    },
+    {
+      "id": "cfi_g_bank_597",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "Examples ofclassic behavioral traps that experienced pilos may fall into are to"
+    },
+    {
+      "id": "cfi_g_bank_598",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "Many experienced pilots have fallen prey to dangerous tendencies or behavior pro"
+    },
+    {
+      "id": "cfi_g_bank_599",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "In order to gain a realistic perspective on one's attitude toward flying, a pilo"
+    },
+    {
+      "id": "cfi_g_bank_600",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "Name some hazardous attitudes that can affect your judgment during the aeronauti"
+    },
+    {
+      "id": "cfi_g_bank_601",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "Hazardous attitudes which contribute to poor pilot judgment can be effectively c"
+    },
+    {
+      "id": "cfi_g_bank_602",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "Hazardous attitudes occur to every pilot to some degree at some time. What are s"
+    },
+    {
+      "id": "cfi_g_bank_603",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "In the aeronautical decision making (ADM) process, what is the first step in neu"
+    },
+    {
+      "id": "cfi_g_bank_604",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "What should a pilot do when recognizing a thought as hazardous?"
+    },
+    {
+      "id": "cfi_g_bank_605",
+      "topic_id": "cfi_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "During a stall recovery, the instructor allows the student to exceed maneuvering"
+    },
+    {
+      "id": "cfi_g_bank_606",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "What is the antidotal phrase for a pilot with a,macho, attitude?"
+    },
+    {
+      "id": "cfi_g_bank_607",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "Success in reducing stress associated with a crisis in the cockpit begins with"
+    },
+    {
+      "id": "cfi_g_bank_608",
+      "topic_id": "cfi_aeromedical",
+      "title": "Aeromedical & human factors",
+      "q": "To help manage cockpit stess, a pilot should"
+    },
+    {
+      "id": "cfi_g_bank_609",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "Which statement about longitude and latitude is true?"
+    },
+    {
+      "id": "cfi_g_bank_610",
+      "topic_id": "cfi_nav",
+      "title": "Navigation & flight planning",
+      "q": "When planning a distance flight, true course measurements on a Sectional Aeronau"
+    },
+    {
+      "id": "cfi_g_bank_611",
+      "topic_id": "cfi_nav",
+      "title": "Navigation & flight planning",
+      "q": "(Refer to Figure 40.) The line from point A to point B of the wind triangle repr"
+    },
+    {
+      "id": "cfi_g_bank_612",
+      "topic_id": "cfi_nav",
+      "title": "Navigation & flight planning",
+      "q": "(Refer to Figue 40.) The line fiom point C to point B of the wind triangle reprc"
+    },
+    {
+      "id": "cfi_g_bank_613",
+      "topic_id": "cfi_nav",
+      "title": "Navigation & flight planning",
+      "q": "(Refer to Figure 40.) The line liom point C to point A of the wind triangle repr"
+    },
+    {
+      "id": "cfi_g_bank_614",
+      "topic_id": "cfi_nav",
+      "title": "Navigation & flight planning",
+      "q": "When converting flom true course to magnetic heading, a pilot should"
+    },
+    {
+      "id": "cfi_g_bank_615",
+      "topic_id": "cfi_nav",
+      "title": "Navigation & flight planning",
+      "q": "When converting from magnetic course to true course, a pilot should"
+    },
+    {
+      "id": "cfi_g_bank_616",
+      "topic_id": "cfi_nav",
+      "title": "Navigation & flight planning",
+      "q": "When converting from true heading to true course! a pilot should"
+    },
+    {
+      "id": "cfi_g_bank_617",
+      "topic_id": "cfi_nav",
+      "title": "Navigation & flight planning",
+      "q": "The angular difference between true north and magnetic north is"
+    },
+    {
+      "id": "cfi_g_bank_627",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "(Refer to Figure 42.) At which aircraft position(s) would you receive OMNI indic"
+    },
+    {
+      "id": "cfi_g_bank_629",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "(Refer to Figure 42.) At which aircraft position(s) would you receive OMNI indic"
+    },
+    {
+      "id": "cfi_g_bank_630",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "(Refer to Figure 42.) Which OMNI indication would you receive for aircraft 8?"
+    },
+    {
+      "id": "cfi_g_bank_634",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "(Refer to Figure 44.) What altitude should be selected to avoid operating in Cla"
+    },
+    {
+      "id": "cfi_g_bank_636",
+      "topic_id": "cfi_airport",
+      "title": "Airport & gliderport operations",
+      "q": "(Refer to Figure 44.) Select the correct statement conceming the obstruction l0 "
+    },
+    {
+      "id": "cfi_g_bank_638",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "(Refer to Figure 45.) Where does the floor ofcontrolled airspace begin over Mcca"
+    },
+    {
+      "id": "cfi_g_bank_639",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "(Rcfer to Figure 45.) The controlled airspace located at the Corpus Christi VOR]"
+    },
+    {
+      "id": "cfi_g_bank_640",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "(Refer to Figure 45.) When are rwo-way radio communications required on a flight"
+    },
+    {
+      "id": "cfi_g_bank_641",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "(Refer to Figure 45.) Assuming owner permission, what minimum avionics equipment"
+    },
+    {
+      "id": "cfi_g_bank_642",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "(Refer to Figure 45.) The airspace beginning at the surface overlying NAS Kingsv"
+    },
+    {
+      "id": "cfi_g_bank_643",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "(Refer to Figure 45.) What arc the requirements for operating in the alert area "
+    },
+    {
+      "id": "cfi_g_bank_645",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "(Refer to Figure 46.) What is the height of the Class D airspace over Livermore "
+    },
+    {
+      "id": "cfi_g_bank_646",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "(Refer to Figure 46.) At what altitude does the Class B airspace begin over Hayw"
+    },
+    {
+      "id": "cfi_g_bank_647",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "(Refer to Figure 46.) What is the ceiling of the Class C airspace surrounding Sa"
+    },
+    {
+      "id": "cfi_g_bank_648",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "(Refer to Figure 46.) What does the figure 2a (area 6) indicate?"
+    },
+    {
+      "id": "cfi_g_bank_649",
+      "topic_id": "cfi_airport",
+      "title": "Airport & gliderport operations",
+      "q": "(Refer to Figure 46.) An aircraff takes off from Gnoss Airport (area 4) and flie"
+    },
+    {
+      "id": "cfi_g_bank_650",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "(Refer to figure 47.) What is the normal mdius of the outer area (area BX"
+    },
+    {
+      "id": "cfi_g_bank_651",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "A private pilot with an airplane single-engine land rating may act as pilot in c"
+    },
+    {
+      "id": "cfi_g_bank_652",
+      "topic_id": "cfi_airport",
+      "title": "Airport & gliderport operations",
+      "q": "What is the purpose of the runway/runway hold position sign?"
+    },
+    {
+      "id": "cfi_g_bank_653",
+      "topic_id": "cfi_airport",
+      "title": "Airport & gliderport operations",
+      "q": "What is the purpose for the runway hold position markings on the taxiway?"
+    },
+    {
+      "id": "cfi_g_bank_654",
+      "topic_id": "cfi_airport",
+      "title": "Airport & gliderport operations",
+      "q": "What does the outbound destination sign identifo?"
+    },
+    {
+      "id": "cfi_g_bank_655",
+      "topic_id": "cfi_airport",
+      "title": "Airport & gliderport operations",
+      "q": "What purpose does the taxiway location sign serve?"
+    },
+    {
+      "id": "cfi_g_bank_656",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "Action of the elevators moves the plane on its"
+    },
+    {
+      "id": "cfi_g_bank_657",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "Action of the ailerons movcs the plane on its"
+    },
+    {
+      "id": "cfi_g_bank_658",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "What is true altitude?"
+    },
+    {
+      "id": "cfi_g_bank_659",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "What is absolute altitude?"
+    },
+    {
+      "id": "cfi_g_bank_660",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "Under what condition is indicated altitude the sarne as true altitude?"
+    },
+    {
+      "id": "cfi_g_bank_661",
+      "topic_id": "cfi_systems",
+      "title": "Systems & instruments",
+      "q": "The pitot system provides impact pressure for which instrument?"
+    },
+    {
+      "id": "cfi_g_bank_662",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "(Refer to Figure 24.) What is the effect of a temperature increase ftom 30 to 50"
+    },
+    {
+      "id": "cfi_g_bank_663",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "(Refer to figure 24.) Determine the pressure altitude at an airport that is 3,56"
+    },
+    {
+      "id": "cfi_g_bank_664",
+      "topic_id": "cfi_wb",
+      "title": "Weight & balance",
+      "q": "With respect to using the weight information given in a typical aircraft owner's"
+    },
+    {
+      "id": "cfi_g_bank_665",
+      "topic_id": "cfi_airport",
+      "title": "Airport & gliderport operations",
+      "q": "When exiting the runway, what is the purpose of the runway exit sign?"
+    },
+    {
+      "id": "cfi_g_bank_666",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "Refer to Figure 30.) What is the crosswind component for a landing on Runway l8 "
+    },
+    {
+      "id": "cfi_g_bank_667",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "What effect does high density altitude have on aircraft performance?"
+    },
+    {
+      "id": "cfi_g_bank_668",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "What is pressure altitude?"
+    },
+    {
+      "id": "cfi_g_bank_669",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "When density altitude is beyond capability as indicated on the performance chart"
+    },
+    {
+      "id": "cfi_g_bank_670",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "When viewing a mdar summary char! an echo top entered as.250 lunderlined] means "
+    },
+    {
+      "id": "cfi_g_bank_671",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "Public figures arc protected by"
+    },
+    {
+      "id": "cfi_g_bank_672",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "When making routine transponder code changes, pilots should avoid inadvertent se"
+    },
+    {
+      "id": "cfi_g_bank_673",
+      "topic_id": "cfi_airport",
+      "title": "Airport & gliderport operations",
+      "q": "The \"lbs critical area boundary sign\" identifies"
+    },
+    {
+      "id": "cfi_g_bank_674",
+      "topic_id": "cfi_systems",
+      "title": "Systems & instruments",
+      "q": "A flight inshuctor's certificate, with multi-engine and instrument ratings. expi"
+    },
+    {
+      "id": "cfi_g_bank_675",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "What is the antidotal phmse for an anti-authority hazardous anitude?"
+    },
+    {
+      "id": "cfi_g_bank_676",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "Human behavior"
+    },
+    {
+      "id": "cfi_g_bank_677",
+      "topic_id": "cfi_airport",
+      "title": "Airport & gliderport operations",
+      "q": "When turning onto a taxiway from another taxiway, what is the purpose of the tax"
+    },
+    {
+      "id": "cfi_g_bank_678",
+      "topic_id": "cfi_regs",
+      "title": "Regulations & publications",
+      "q": "(Refer to Figure 3.) What is the reported duration of the rain at the time of th"
+    },
+    {
+      "id": "cfi_g_bank_679",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "An application for a student pilot certificate must be submitted in person to an"
+    },
+    {
+      "id": "cfi_g_bank_680",
+      "topic_id": "cfi_airspace",
+      "title": "National Airspace System",
+      "q": "(Refer to Figure 44.) An aircraft takes off fiom Hicks Airport (area l) and flie"
+    },
+    {
+      "id": "cfi_g_bank_681",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "(Refer to Figure 21.) Of aircraft 1, 2, or 3, which has the lowest aspect ratio?"
+    },
+    {
+      "id": "cfi_g_bank_682",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "While preparing for flight you notice that the forecast K index is K35. You can "
+    },
+    {
+      "id": "cfi_g_bank_683",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "Ifan individual has gone scuba diving which has not required a controlled ascent"
+    },
+    {
+      "id": "cfi_g_bank_684",
+      "topic_id": "cfi_perf",
+      "title": "Performance airspeeds",
+      "q": "Ifan individual has gone scuba diving which has required a controlled ascent and"
+    },
+    {
+      "id": "cfi_g_bank_685",
+      "topic_id": "cfi_soaring",
+      "title": "Soaring techniques",
+      "q": "The K-index is +17. You should expect"
+    },
+    {
+      "id": "cfi_g_bank_686",
+      "topic_id": "cfi_weather",
+      "title": "Weather",
+      "q": "(Refer to Figure 8.) Vvlat does symbol '12 mean on a Sudace Analysis Weather Cha"
+    },
+    {
+      "id": "cfi_g_bank_687",
+      "topic_id": "cfi_endorsements",
+      "title": "Logbooks & endorsements",
+      "q": "One requirement for a student pilot to be authorized to make a solo cross-countr"
+    },
+    {
+      "id": "cfi_g_bank_689",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "lfa tow pilot towing a glider in the low tow position releases the towrope what "
+    },
+    {
+      "id": "cfi_g_bank_690",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "Which is true conceming the wing?"
+    },
+    {
+      "id": "cfi_g_bank_691",
+      "topic_id": "cfi_soaring",
+      "title": "Soaring techniques",
+      "q": "Trigger Ternperatre refers to"
+    },
+    {
+      "id": "cfi_g_bank_692",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "The yellow demarcation bar marking delineates."
+    },
+    {
+      "id": "cfi_g_bank_693",
+      "topic_id": "cfi_soaring",
+      "title": "Soaring techniques",
+      "q": "A K-index of l0 indicates:"
+    },
+    {
+      "id": "cfi_g_bank_694",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "The most desirable type of stability for an aircraft to possess is"
+    },
+    {
+      "id": "cfi_g_bank_695",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "A glider is usually affected by ground effect at what height above the surface?"
+    },
+    {
+      "id": "cfi_g_bank_696",
+      "topic_id": "cfi_launch",
+      "title": "Launches & landings",
+      "q": "What is the purpose of the yellow demarcation bar marking?"
+    },
+    {
+      "id": "cfi_g_bank_697",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "That portion of the airffaft's total drag created by the production of lift is c"
+    },
+    {
+      "id": "cfi_g_bank_698",
+      "topic_id": "cfi_stalls",
+      "title": "Slow flight, stalls & spins",
+      "q": "The G load in a spin would be"
+    },
+    {
+      "id": "cfi_g_bank_699",
+      "topic_id": "cfi_aero",
+      "title": "Principles of flight",
+      "q": "Lift produced by an airfoil is the net force developed perpendicular to the"
+    }
+  ]
+}
