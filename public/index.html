@@ -1365,6 +1365,7 @@
         cards: [],
         index: 0,
         doneIds: new Set(),
+        sessionComplete: false,
         revealed: false,
         quizChoice: null,
         editing: false,
@@ -1754,6 +1755,7 @@
       state.study.matched = data.matched ?? data.cards.length;
       state.study.index = 0;
       state.study.doneIds = new Set();
+      state.study.sessionComplete = false;
       state.study.revealed = false;
       state.study.quizChoice = null;
       state.study.editing = false;
@@ -1805,6 +1807,7 @@
       state.study.matched = data.matched ?? cards.length;
       state.study.index = idx;
       state.study.doneIds = new Set();
+      state.study.sessionComplete = false;
       render();
     }
 
@@ -1853,9 +1856,15 @@
       const nextIncomplete = findNextIncomplete(state.study.index + 1);
       if (nextIncomplete >= 0) {
         state.study.index = nextIncomplete;
+        state.study.sessionComplete = false;
       } else {
         const wrap = findNextIncomplete(0);
-        if (wrap >= 0) state.study.index = wrap;
+        if (wrap >= 0) {
+          state.study.index = wrap;
+          state.study.sessionComplete = false;
+        } else {
+          state.study.sessionComplete = true;
+        }
       }
       if (state.stats && result?.activity?.answers != null) {
         state.stats.today_xp = result.activity.answers;
@@ -1894,6 +1903,7 @@
       const next = state.study.index + delta;
       if (next < 0 || next >= state.study.cards.length) return;
       state.study.index = next;
+      state.study.sessionComplete = false;
       resetStudyCardUi();
       render();
     }
@@ -2102,7 +2112,20 @@
           <option value="">All topics</option>
           ${topics.map((t) => `<option value="${t.id}" ${state.study.topic === t.id ? 'selected' : ''}>${escapeHtml(t.title)}</option>`).join('')}
         </select>
-        ${!card ? `<div class="empty">No cards in this deck filter. Try All, clear grade filters, or another course.</div>` : `
+        ${!card ? `<div class="empty">No cards in this deck filter. Try All, clear grade filters, or another course.</div>`
+          : (state.study.sessionComplete && remaining === 0) ? `
+          <div class="flash">
+            <div class="empty" style="padding:28px 16px">
+              <p style="margin:0 0 8px;font-size:1.05rem;font-weight:800">No more questions left in this session.</p>
+              <p class="hint" style="margin:0">You finished all ${state.study.cards.length} card${state.study.cards.length === 1 ? '' : 's'}. Change Due / New / All, topic, or session size to continue.</p>
+            </div>
+            <div class="study-nav-row">
+              <button type="button" class="study-nav-back" id="studyBackBtn">← Review last card</button>
+              <span class="study-nav-pos">${state.study.cards.length} / ${state.study.cards.length}</span>
+              <button type="button" class="study-nav-next" id="studyNextBtn" disabled>Next →</button>
+            </div>
+          </div>
+        ` : `
           <div class="flash">
             <div class="card-toolbar">
               <div class="meta">
@@ -3305,7 +3328,15 @@
       });
       const studyBackBtn = app.querySelector('#studyBackBtn');
       if (studyBackBtn) {
-        studyBackBtn.addEventListener('click', () => moveStudy(-1));
+        studyBackBtn.addEventListener('click', () => {
+          if (state.study.sessionComplete) {
+            state.study.sessionComplete = false;
+            resetStudyCardUi();
+            render();
+            return;
+          }
+          moveStudy(-1);
+        });
       }
       const studyNextBtn = app.querySelector('#studyNextBtn');
       if (studyNextBtn) {
