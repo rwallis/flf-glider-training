@@ -4,6 +4,7 @@ import {
   nextProgress,
   normalizeCardPatch,
   normalizeStudySchedule,
+  normalizeUserPrefs,
   parseImportPayload,
   createMemoryStore,
   activityDateKey,
@@ -65,6 +66,38 @@ test('memory store persists study schedule', async () => {
   assert.equal(saved.again.value, 5);
   const got = await store.getStudySchedule();
   assert.equal(got.good.value, 14);
+});
+
+test('user prefs default walkthrough on for first login', async () => {
+  const defaults = normalizeUserPrefs(null);
+  assert.equal(defaults.walkthroughEnabled, true);
+  assert.equal(defaults.walkthroughCompleted, false);
+  const store = createMemoryStore({
+    tracks: [{ id: 'private', title: 'Private', sort_order: 1, status: 'ready' }],
+    topics: [{ id: 't1', track_id: 'private', title: 'T', sort_order: 1 }],
+    cards: [
+      {
+        id: 'c1',
+        track_id: 'private',
+        topic_id: 't1',
+        question: 'Q?',
+        answer: 'A',
+        choices: ['A', 'B', 'C']
+      }
+    ]
+  });
+  const prefs = await store.getUserPrefs('g:newuser');
+  assert.equal(prefs.walkthroughEnabled, true);
+  const next = await store.setUserPrefs('g:newuser', {
+    walkthroughEnabled: false,
+    walkthroughCompleted: true
+  });
+  assert.equal(next.walkthroughEnabled, false);
+  const flag = await store.flagCard('g:newuser', 'c1', 'wrong answer');
+  assert.equal(flag.card_id, 'c1');
+  assert.equal(flag.note, 'wrong answer');
+  const flags = await store.listCardFlags({ status: 'open' });
+  assert.equal(flags.length, 1);
 });
 
 test('parseImportPayload accepts csv', () => {
