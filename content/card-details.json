@@ -6046,7 +6046,7 @@
     },
     {
       "card_id": "commercial_written_002",
-      "summary": "Part 830 separates accidents from listed incidents; when notification is required, do it immediately by the fastest means, then follow up with the written report as specified. Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Part 830 separates accidents from listed incidents; when notification is required, do it immediately by the fastest means, then follow up with the written report as specified.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -6088,7 +6088,7 @@
     },
     {
       "card_id": "commercial_written_005",
-      "summary": "Part 830 separates accidents from listed incidents; when notification is required, do it immediately by the fastest means, then follow up with the written report as specified. Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Part 830 separates accidents from listed incidents; when notification is required, do it immediately by the fastest means, then follow up with the written report as specified.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -6102,7 +6102,7 @@
     },
     {
       "card_id": "commercial_written_006",
-      "summary": "Part 830 separates accidents from listed incidents; when notification is required, do it immediately by the fastest means, then follow up with the written report as specified. Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Part 830 separates accidents from listed incidents; when notification is required, do it immediately by the fastest means, then follow up with the written report as specified.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -6158,7 +6158,7 @@
     },
     {
       "card_id": "commercial_written_010",
-      "summary": "Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "V-speeds are defined terms. Match the symbol (VS, VA, VNE, VNO, …) to the Part 1 / POH definition — do not swap approach, min-sink, or structural limits.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -6172,7 +6172,7 @@
     },
     {
       "card_id": "commercial_written_011",
-      "summary": "Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "V-speeds are defined terms. Match the symbol (VS, VA, VNE, VNO, …) to the Part 1 / POH definition — do not swap approach, min-sink, or structural limits.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -6186,7 +6186,7 @@
     },
     {
       "card_id": "commercial_written_012",
-      "summary": "Min sink maximizes time; best L/D maximizes distance in still air; speed-to-fly trades glide ratio against wind and sink. Pick the job first.",
+      "summary": "V-speeds are defined terms. Match the symbol (VS, VA, VNE, VNO, …) to the Part 1 / POH definition — do not swap approach, min-sink, or structural limits.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -6246,7 +6246,7 @@
     },
     {
       "card_id": "commercial_written_016",
-      "summary": "Commercial operator / privilege questions turn on whether persons or property are carried for compensation or hire — and in which category the certificate authorizes that work. Commercial privileges are category-specific: a glider rating does not borrow airplane commercial privileges, and Part 61 tables control add-on vs initial paths.",
+      "summary": "Commercial privileges are category-specific: a glider rating does not borrow airplane commercial privileges, and Part 61 tables control add-on vs initial paths.",
       "links": [
         {
           "label": "14 CFR Part 61 — Certification",
@@ -6338,7 +6338,7 @@
     },
     {
       "card_id": "commercial_written_022",
-      "summary": "Glider commercial ops still need a medical path that matches the operation. Impairments (alcohol, meds, fatigue) are judgment failures before they are regulatory ones. Commercial privileges are category-specific: a glider rating does not borrow airplane commercial privileges, and Part 61 tables control add-on vs initial paths.",
+      "summary": "Commercial privileges are category-specific: a glider rating does not borrow airplane commercial privileges, and Part 61 tables control add-on vs initial paths.",
       "links": [
         {
           "label": "14 CFR Part 61 — Certification",
@@ -6352,7 +6352,7 @@
     },
     {
       "card_id": "commercial_written_023",
-      "summary": "Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -6366,7 +6366,7 @@
     },
     {
       "card_id": "commercial_written_024",
-      "summary": "Aim point, energy dump (spoilers/slip), and a planned stop point beat a long float. Commercial tolerances reward precision, not heroic saves.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -6380,7 +6380,7 @@
     },
     {
       "card_id": "commercial_written_025",
-      "summary": "Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -6408,7 +6408,7 @@
     },
     {
       "card_id": "commercial_written_027",
-      "summary": "The approved Flight Manual / POH is the controlling document for limitations, loading, and required equipment for that serial-number aircraft. Treat assembly, positive control checks, and document review as launch-critical — most glider accidents start on the ground.",
+      "summary": "Treat assembly, positive control checks, and document review as launch-critical — most glider accidents start on the ground.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -6440,7 +6440,7 @@
     },
     {
       "card_id": "commercial_written_029",
-      "summary": "Commercial operator / privilege questions turn on whether persons or property are carried for compensation or hire — and in which category the certificate authorizes that work. Commercial privileges are category-specific: a glider rating does not borrow airplane commercial privileges, and Part 61 tables control add-on vs initial paths.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 61 — Certification",
@@ -6454,7 +6454,7 @@
     },
     {
       "card_id": "commercial_written_030",
-      "summary": "Aim point, energy dump (spoilers/slip), and a planned stop point beat a long float. Commercial tolerances reward precision, not heroic saves.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -6468,7 +6468,7 @@
     },
     {
       "card_id": "commercial_written_031",
-      "summary": "Aim point, energy dump (spoilers/slip), and a planned stop point beat a long float. Commercial tolerances reward precision, not heroic saves.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -6496,7 +6496,7 @@
     },
     {
       "card_id": "commercial_written_033",
-      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong. Brief rope-break altitudes and signals before takeoff. Weak-link placement protects the glider; boxing/wake work stays high enough to recover.",
+      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -6524,7 +6524,7 @@
     },
     {
       "card_id": "commercial_written_035",
-      "summary": "Supplemental oxygen rules are time-and-altitude based for the required crew; passengers have a higher altitude trigger. Hypoxia sneaks up — use oxygen before you “feel fine.” Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Supplemental oxygen rules are time-and-altitude based for the required crew; passengers have a higher altitude trigger. Hypoxia sneaks up — use oxygen before you “feel fine.” High density altitude thins air: true airspeed reads higher for the same IAS, and both towplane and glider performance suffer — plan longer rolls and weaker climb.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -6556,7 +6556,7 @@
     },
     {
       "card_id": "commercial_written_037",
-      "summary": "Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Formation requires prior arrangement with each PIC — casual “join up” without a brief is not legal formation flying.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -6570,7 +6570,7 @@
     },
     {
       "card_id": "commercial_written_038",
-      "summary": "Effective traffic scan is short eye movements across sectors with periodic distant focus — not a slow sweep that parks on the panel or the other seat. Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -6588,7 +6588,7 @@
     },
     {
       "card_id": "commercial_written_039",
-      "summary": "Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Formation requires prior arrangement with each PIC — casual “join up” without a brief is not legal formation flying.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -6602,7 +6602,7 @@
     },
     {
       "card_id": "commercial_written_040",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Aim point, energy dump (spoilers/slip), and a planned stop point beat a long float. Commercial tolerances reward precision, not heroic saves.",
+      "summary": "Right-of-way rules prevent midairs when radio fails: head-on both alter right, converging yield to the right, overtaking keep clear of the one ahead — gliders still follow 91.113.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -6620,7 +6620,7 @@
     },
     {
       "card_id": "commercial_written_041",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. In steady flight the force pairs balance; when you change bank, pitch, or speed, lift/drag/weight/thrust (or tow tension) rearrange immediately.",
+      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -6634,7 +6634,7 @@
     },
     {
       "card_id": "commercial_written_042",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. Airspace answers usually need class + altitude + visibility/cloud clearance together. Chart depictions change when the tower closes.",
+      "summary": "Airspace answers usually need class + altitude + visibility/cloud clearance together. Chart depictions change when the tower closes.",
       "links": [
         {
           "label": "Aeronautical Information Manual (AIM)",
@@ -6652,7 +6652,7 @@
     },
     {
       "card_id": "commercial_written_043",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. Airspace answers usually need class + altitude + visibility/cloud clearance together. Chart depictions change when the tower closes.",
+      "summary": "Airspace answers usually need class + altitude + visibility/cloud clearance together. Chart depictions change when the tower closes.",
       "links": [
         {
           "label": "Aeronautical Information Manual (AIM)",
@@ -6670,7 +6670,7 @@
     },
     {
       "card_id": "commercial_written_044",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. Airspace answers usually need class + altitude + visibility/cloud clearance together. Chart depictions change when the tower closes.",
+      "summary": "Airspace answers usually need class + altitude + visibility/cloud clearance together. Chart depictions change when the tower closes.",
       "links": [
         {
           "label": "Aeronautical Information Manual (AIM)",
@@ -6684,7 +6684,7 @@
     },
     {
       "card_id": "commercial_written_045",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. Airspace answers usually need class + altitude + visibility/cloud clearance together. Chart depictions change when the tower closes.",
+      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band.",
       "links": [
         {
           "label": "Aeronautical Information Manual (AIM)",
@@ -6698,7 +6698,7 @@
     },
     {
       "card_id": "commercial_written_046",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. Airspace answers usually need class + altitude + visibility/cloud clearance together. Chart depictions change when the tower closes.",
+      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band.",
       "links": [
         {
           "label": "Aeronautical Information Manual (AIM)",
@@ -6726,7 +6726,7 @@
     },
     {
       "card_id": "commercial_written_048",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. Airspace answers usually need class + altitude + visibility/cloud clearance together. Chart depictions change when the tower closes.",
+      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band.",
       "links": [
         {
           "label": "Aeronautical Information Manual (AIM)",
@@ -6744,7 +6744,7 @@
     },
     {
       "card_id": "commercial_written_049",
-      "summary": "Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -6776,7 +6776,7 @@
     },
     {
       "card_id": "commercial_written_051",
-      "summary": "Annual is always on the calendar; 100-hour is driven by for-hire use (instruction or paid rides). One does not replace the other. The approved Flight Manual / POH is the controlling document for limitations, loading, and required equipment for that serial-number aircraft.",
+      "summary": "Annual is always on the calendar; 100-hour is driven by for-hire use (instruction or paid rides). One does not replace the other.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -6790,7 +6790,7 @@
     },
     {
       "card_id": "commercial_written_052",
-      "summary": "Annual is always on the calendar; 100-hour is driven by for-hire use (instruction or paid rides). One does not replace the other. Airworthiness is continuous after the annual — ADs, 100-hour (when for hire), and required equipment status all matter before launch.",
+      "summary": "Airworthiness is continuous after the annual — ADs, 100-hour (when for hire), and required equipment status all matter before launch.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -6808,7 +6808,7 @@
     },
     {
       "card_id": "commercial_written_053",
-      "summary": "Commercial operator / privilege questions turn on whether persons or property are carried for compensation or hire — and in which category the certificate authorizes that work. Commercial privileges are category-specific: a glider rating does not borrow airplane commercial privileges, and Part 61 tables control add-on vs initial paths.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 61 — Certification",
@@ -6822,7 +6822,7 @@
     },
     {
       "card_id": "commercial_written_054",
-      "summary": "The approved Flight Manual / POH is the controlling document for limitations, loading, and required equipment for that serial-number aircraft. Treat assembly, positive control checks, and document review as launch-critical — most glider accidents start on the ground.",
+      "summary": "Treat assembly, positive control checks, and document review as launch-critical — most glider accidents start on the ground.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -6836,7 +6836,7 @@
     },
     {
       "card_id": "commercial_written_055",
-      "summary": "Annual is always on the calendar; 100-hour is driven by for-hire use (instruction or paid rides). One does not replace the other. Airworthiness is continuous after the annual — ADs, 100-hour (when for hire), and required equipment status all matter before launch.",
+      "summary": "Airworthiness is continuous after the annual — ADs, 100-hour (when for hire), and required equipment status all matter before launch.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -6850,7 +6850,7 @@
     },
     {
       "card_id": "commercial_written_056",
-      "summary": "Annual is always on the calendar; 100-hour is driven by for-hire use (instruction or paid rides). One does not replace the other. Airworthiness is continuous after the annual — ADs, 100-hour (when for hire), and required equipment status all matter before launch.",
+      "summary": "Airworthiness is continuous after the annual — ADs, 100-hour (when for hire), and required equipment status all matter before launch.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -6878,7 +6878,7 @@
     },
     {
       "card_id": "commercial_written_058",
-      "summary": "ADs are legally binding under Part 39. Compliance is an owner/operator duty before further flight unless an AMOC is approved. In steady flight the force pairs balance; when you change bank, pitch, or speed, lift/drag/weight/thrust (or tow tension) rearrange immediately.",
+      "summary": "ADs are legally binding under Part 39. Compliance is an owner/operator duty before further flight unless an AMOC is approved.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -6896,7 +6896,7 @@
     },
     {
       "card_id": "commercial_written_059",
-      "summary": "Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -6910,7 +6910,7 @@
     },
     {
       "card_id": "commercial_written_060",
-      "summary": "Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries. Aim point, energy dump (spoilers/slip), and a planned stop point beat a long float. Commercial tolerances reward precision, not heroic saves.",
+      "summary": "Aim point, energy dump (spoilers/slip), and a planned stop point beat a long float. Commercial tolerances reward precision, not heroic saves.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -6928,7 +6928,7 @@
     },
     {
       "card_id": "commercial_written_061",
-      "summary": "Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries. Aim point, energy dump (spoilers/slip), and a planned stop point beat a long float. Commercial tolerances reward precision, not heroic saves.",
+      "summary": "Aim point, energy dump (spoilers/slip), and a planned stop point beat a long float. Commercial tolerances reward precision, not heroic saves.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -6946,7 +6946,7 @@
     },
     {
       "card_id": "commercial_written_062",
-      "summary": "Holding-position markings, runway signs, and right-of-way on the gliderport keep towplanes, gliders, and cars from occupying the same asphalt.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Aeronautical Information Manual (AIM)",
@@ -6964,7 +6964,7 @@
     },
     {
       "card_id": "commercial_written_063",
-      "summary": "Aviate, navigate, communicate: fly a landable speed toward a field before troubleshooting releases, radios, or instruments.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -6996,7 +6996,7 @@
     },
     {
       "card_id": "commercial_written_065",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. When a part-time Class D tower closes, the airspace typically reverts to Class E (or G) as charted — weather minimums and radio requirements change with it.",
+      "summary": "Airspace answers usually need class + altitude + visibility/cloud clearance together. Chart depictions change when the tower closes.",
       "links": [
         {
           "label": "Aeronautical Information Manual (AIM)",
@@ -7010,7 +7010,7 @@
     },
     {
       "card_id": "commercial_written_066",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. Airspace answers usually need class + altitude + visibility/cloud clearance together. Chart depictions change when the tower closes.",
+      "summary": "Airspace answers usually need class + altitude + visibility/cloud clearance together. Chart depictions change when the tower closes.",
       "links": [
         {
           "label": "Aeronautical Information Manual (AIM)",
@@ -7028,7 +7028,7 @@
     },
     {
       "card_id": "commercial_written_067",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. Airspace answers usually need class + altitude + visibility/cloud clearance together. Chart depictions change when the tower closes.",
+      "summary": "Airspace answers usually need class + altitude + visibility/cloud clearance together. Chart depictions change when the tower closes.",
       "links": [
         {
           "label": "Aeronautical Information Manual (AIM)",
@@ -7060,7 +7060,7 @@
     },
     {
       "card_id": "commercial_written_069",
-      "summary": "Commercial operator / privilege questions turn on whether persons or property are carried for compensation or hire — and in which category the certificate authorizes that work. Commercial privileges are category-specific: a glider rating does not borrow airplane commercial privileges, and Part 61 tables control add-on vs initial paths.",
+      "summary": "Commercial operator / privilege questions turn on whether persons or property are carried for compensation or hire — and in which category the certificate authorizes that work.",
       "links": [
         {
           "label": "14 CFR Part 61 — Certification",
@@ -7074,7 +7074,7 @@
     },
     {
       "card_id": "commercial_written_070",
-      "summary": "Brief rope-break altitudes and signals before takeoff. Weak-link placement protects the glider; boxing/wake work stays high enough to recover.",
+      "summary": "Self-launch privileges need the right certificate/endorsement path — do not assume aerotow or airplane experience automatically covers powered-glider launches.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -7110,7 +7110,7 @@
     },
     {
       "card_id": "commercial_written_072",
-      "summary": "Glider commercial ops still need a medical path that matches the operation. Impairments (alcohol, meds, fatigue) are judgment failures before they are regulatory ones. Commercial judgment includes fitness to fly: hypoxia, fatigue, dehydration, and hazardous attitudes show up before the weather does.",
+      "summary": "Glider commercial ops still need a medical path that matches the operation. Impairments (alcohol, meds, fatigue) are judgment failures before they are regulatory ones.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -7128,7 +7128,7 @@
     },
     {
       "card_id": "commercial_written_073",
-      "summary": "Glider commercial ops still need a medical path that matches the operation. Impairments (alcohol, meds, fatigue) are judgment failures before they are regulatory ones. Commercial judgment includes fitness to fly: hypoxia, fatigue, dehydration, and hazardous attitudes show up before the weather does.",
+      "summary": "Glider commercial ops still need a medical path that matches the operation. Impairments (alcohol, meds, fatigue) are judgment failures before they are regulatory ones.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -7142,7 +7142,7 @@
     },
     {
       "card_id": "commercial_written_074",
-      "summary": "Glider commercial ops still need a medical path that matches the operation. Impairments (alcohol, meds, fatigue) are judgment failures before they are regulatory ones. Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Glider commercial ops still need a medical path that matches the operation. Impairments (alcohol, meds, fatigue) are judgment failures before they are regulatory ones.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -7160,7 +7160,7 @@
     },
     {
       "card_id": "commercial_written_075",
-      "summary": "Glider commercial ops still need a medical path that matches the operation. Impairments (alcohol, meds, fatigue) are judgment failures before they are regulatory ones. Commercial judgment includes fitness to fly: hypoxia, fatigue, dehydration, and hazardous attitudes show up before the weather does.",
+      "summary": "Glider commercial ops still need a medical path that matches the operation. Impairments (alcohol, meds, fatigue) are judgment failures before they are regulatory ones.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -7178,7 +7178,7 @@
     },
     {
       "card_id": "commercial_written_076",
-      "summary": "Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries. Critical AOA is the stall, not a particular airspeed. Recover by reducing AOA first; altitude is the margin you buy with entry height.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -7196,7 +7196,7 @@
     },
     {
       "card_id": "commercial_written_077",
-      "summary": "Empty weight and empty CG come from this glider’s records; seat arms and ballast stations come from the Flight Manual. Both must be current.",
+      "summary": "In a level turn, load factor rises with bank (≈2 G at 60°). Stall speed rises with the square root of load factor — steep banks need more AoA/airspeed margin.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -7210,7 +7210,7 @@
     },
     {
       "card_id": "commercial_written_078",
-      "summary": "Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries. Critical AOA is the stall, not a particular airspeed. Recover by reducing AOA first; altitude is the margin you buy with entry height.",
+      "summary": "In a level turn, load factor rises with bank (≈2 G at 60°). Stall speed rises with the square root of load factor — steep banks need more AoA/airspeed margin.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -7228,7 +7228,7 @@
     },
     {
       "card_id": "commercial_written_079",
-      "summary": "Empty weight and empty CG come from this glider’s records; seat arms and ballast stations come from the Flight Manual. Both must be current.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -7242,7 +7242,7 @@
     },
     {
       "card_id": "commercial_written_080",
-      "summary": "Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries. Critical AOA is the stall, not a particular airspeed. Recover by reducing AOA first; altitude is the margin you buy with entry height.",
+      "summary": "Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries. In a level turn, load factor rises with bank (≈2 G at 60°). Stall speed rises with the square root of load factor — steep banks need more AoA/airspeed margin.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -7274,7 +7274,7 @@
     },
     {
       "card_id": "commercial_written_082",
-      "summary": "Set altitude/airspeed/bank references before entry, clear the area, then fly to published commercial tolerances — not “about right.”",
+      "summary": "In a level turn, load factor rises with bank (≈2 G at 60°). Stall speed rises with the square root of load factor — steep banks need more AoA/airspeed margin.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -7302,7 +7302,7 @@
     },
     {
       "card_id": "commercial_written_084",
-      "summary": "Set altitude/airspeed/bank references before entry, clear the area, then fly to published commercial tolerances — not “about right.”",
+      "summary": "In a level turn, load factor rises with bank (≈2 G at 60°). Stall speed rises with the square root of load factor — steep banks need more AoA/airspeed margin.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -7320,7 +7320,7 @@
     },
     {
       "card_id": "commercial_written_085",
-      "summary": "Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries. High density altitude thins air: true airspeed reads higher for the same IAS, and both towplane and glider performance suffer — plan longer rolls and weaker climb.",
+      "summary": "V-speeds are defined terms. Match the symbol (VS, VA, VNE, VNO, …) to the Part 1 / POH definition — do not swap approach, min-sink, or structural limits.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -7366,7 +7366,7 @@
     },
     {
       "card_id": "commercial_written_088",
-      "summary": "Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries. V-speeds are defined terms. VS is stall / minimum steady flight speed in a defined configuration — do not confuse it with approach or min-sink speeds.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -7380,7 +7380,7 @@
     },
     {
       "card_id": "commercial_written_089",
-      "summary": "Glider XC is energy and landability: plan conservative glide ratios and always know the next landable field, not just the destination.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -7412,7 +7412,7 @@
     },
     {
       "card_id": "commercial_written_091",
-      "summary": "Set altitude/airspeed/bank references before entry, clear the area, then fly to published commercial tolerances — not “about right.”",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -7426,7 +7426,7 @@
     },
     {
       "card_id": "commercial_written_092",
-      "summary": "Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries. Critical AOA is the stall, not a particular airspeed. Recover by reducing AOA first; altitude is the margin you buy with entry height.",
+      "summary": "Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -7444,7 +7444,7 @@
     },
     {
       "card_id": "commercial_written_093",
-      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope. Empty weight and empty CG come from this glider’s records; seat arms and ballast stations come from the Flight Manual. Both must be current.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -7514,7 +7514,7 @@
     },
     {
       "card_id": "commercial_written_098",
-      "summary": "Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries. Set altitude/airspeed/bank references before entry, clear the area, then fly to published commercial tolerances — not “about right.”",
+      "summary": "Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -7532,7 +7532,7 @@
     },
     {
       "card_id": "commercial_written_099",
-      "summary": "Glider XC is energy and landability: plan conservative glide ratios and always know the next landable field, not just the destination.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -7574,7 +7574,7 @@
     },
     {
       "card_id": "commercial_written_102",
-      "summary": "Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries. Critical AOA is the stall, not a particular airspeed. Recover by reducing AOA first; altitude is the margin you buy with entry height.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -7592,7 +7592,7 @@
     },
     {
       "card_id": "commercial_written_103",
-      "summary": "In steady flight the force pairs balance; when you change bank, pitch, or speed, lift/drag/weight/thrust (or tow tension) rearrange immediately.",
+      "summary": "In a level turn, load factor rises with bank (≈2 G at 60°). Stall speed rises with the square root of load factor — steep banks need more AoA/airspeed margin.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -7606,7 +7606,7 @@
     },
     {
       "card_id": "commercial_written_104",
-      "summary": "In steady flight the force pairs balance; when you change bank, pitch, or speed, lift/drag/weight/thrust (or tow tension) rearrange immediately.",
+      "summary": "In a level turn, load factor rises with bank (≈2 G at 60°). Stall speed rises with the square root of load factor — steep banks need more AoA/airspeed margin.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -7620,7 +7620,7 @@
     },
     {
       "card_id": "commercial_written_105",
-      "summary": "Winch launches punish over-rotation: ease back-pressure and shallow the climb if the glider starts porpoising; a cable break on a steep winch climb needs an immediate nose-down. Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -7638,7 +7638,7 @@
     },
     {
       "card_id": "commercial_written_106",
-      "summary": "In steady flight the force pairs balance; when you change bank, pitch, or speed, lift/drag/weight/thrust (or tow tension) rearrange immediately.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -7652,7 +7652,7 @@
     },
     {
       "card_id": "commercial_written_107",
-      "summary": "Know normal and failure modes for release, spoilers, instruments, and oxygen — and what the POH says you must have working.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -7666,7 +7666,7 @@
     },
     {
       "card_id": "commercial_written_108",
-      "summary": "Know normal and failure modes for release, spoilers, instruments, and oxygen — and what the POH says you must have working.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -7694,7 +7694,7 @@
     },
     {
       "card_id": "commercial_written_110",
-      "summary": "Effective traffic scan is short eye movements across sectors with periodic distant focus — not a slow sweep that parks on the panel or the other seat. In steady flight the force pairs balance; when you change bank, pitch, or speed, lift/drag/weight/thrust (or tow tension) rearrange immediately.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -7708,7 +7708,7 @@
     },
     {
       "card_id": "commercial_written_111",
-      "summary": "In steady flight the force pairs balance; when you change bank, pitch, or speed, lift/drag/weight/thrust (or tow tension) rearrange immediately.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -7736,7 +7736,7 @@
     },
     {
       "card_id": "commercial_written_113",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Know normal and failure modes for release, spoilers, instruments, and oxygen — and what the POH says you must have working.",
+      "summary": "Know normal and failure modes for release, spoilers, instruments, and oxygen — and what the POH says you must have working.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -7750,7 +7750,7 @@
     },
     {
       "card_id": "commercial_written_114",
-      "summary": "Aim point, energy dump (spoilers/slip), and a planned stop point beat a long float. Commercial tolerances reward precision, not heroic saves.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -7782,7 +7782,7 @@
     },
     {
       "card_id": "commercial_written_116",
-      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind. Min sink maximizes time; best L/D maximizes distance in still air; speed-to-fly trades glide ratio against wind and sink. Pick the job first.",
+      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -7796,7 +7796,7 @@
     },
     {
       "card_id": "commercial_written_117",
-      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind. Min sink maximizes time; best L/D maximizes distance in still air; speed-to-fly trades glide ratio against wind and sink. Pick the job first.",
+      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -7894,7 +7894,7 @@
     },
     {
       "card_id": "commercial_written_124",
-      "summary": "Set altitude/airspeed/bank references before entry, clear the area, then fly to published commercial tolerances — not “about right.”",
+      "summary": "In a level turn, load factor rises with bank (≈2 G at 60°). Stall speed rises with the square root of load factor — steep banks need more AoA/airspeed margin.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -7926,7 +7926,7 @@
     },
     {
       "card_id": "commercial_written_126",
-      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope. Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
+      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -7944,7 +7944,7 @@
     },
     {
       "card_id": "commercial_written_127",
-      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope. Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
+      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -7962,7 +7962,7 @@
     },
     {
       "card_id": "commercial_written_128",
-      "summary": "Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries. Critical AOA is the stall, not a particular airspeed. Recover by reducing AOA first; altitude is the margin you buy with entry height.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -7976,7 +7976,7 @@
     },
     {
       "card_id": "commercial_written_129",
-      "summary": "Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries. Critical AOA is the stall, not a particular airspeed. Recover by reducing AOA first; altitude is the margin you buy with entry height.",
+      "summary": "Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -7994,7 +7994,7 @@
     },
     {
       "card_id": "commercial_written_130",
-      "summary": "Primary effects first, then secondary (adverse yaw, pitch with spoiler). Spoilers dump lift and add drag — they are not “flaps in reverse.”",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -8008,7 +8008,7 @@
     },
     {
       "card_id": "commercial_written_131",
-      "summary": "Min sink maximizes time; best L/D maximizes distance in still air; speed-to-fly trades glide ratio against wind and sink. Pick the job first.",
+      "summary": "Aspect ratio = span² / wing area (or span / average chord). Higher AR usually means better L/D and less induced drag for a given lift.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -8022,7 +8022,7 @@
     },
     {
       "card_id": "commercial_written_132",
-      "summary": "Min sink maximizes time; best L/D maximizes distance in still air; speed-to-fly trades glide ratio against wind and sink. Pick the job first.",
+      "summary": "Aspect ratio = span² / wing area (or span / average chord). Higher AR usually means better L/D and less induced drag for a given lift.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -8036,7 +8036,7 @@
     },
     {
       "card_id": "commercial_written_133",
-      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind. Min sink maximizes time; best L/D maximizes distance in still air; speed-to-fly trades glide ratio against wind and sink. Pick the job first.",
+      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -8050,7 +8050,7 @@
     },
     {
       "card_id": "commercial_written_134",
-      "summary": "Min sink maximizes time; best L/D maximizes distance in still air; speed-to-fly trades glide ratio against wind and sink. Pick the job first.",
+      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -8064,7 +8064,7 @@
     },
     {
       "card_id": "commercial_written_135",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Know normal and failure modes for release, spoilers, instruments, and oxygen — and what the POH says you must have working.",
+      "summary": "Know normal and failure modes for release, spoilers, instruments, and oxygen — and what the POH says you must have working.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -8092,7 +8092,7 @@
     },
     {
       "card_id": "commercial_written_137",
-      "summary": "Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -8106,7 +8106,7 @@
     },
     {
       "card_id": "commercial_written_138",
-      "summary": "Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -8120,7 +8120,7 @@
     },
     {
       "card_id": "commercial_written_139",
-      "summary": "Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8134,7 +8134,7 @@
     },
     {
       "card_id": "commercial_written_140",
-      "summary": "Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8162,7 +8162,7 @@
     },
     {
       "card_id": "commercial_written_142",
-      "summary": "In steady flight the force pairs balance; when you change bank, pitch, or speed, lift/drag/weight/thrust (or tow tension) rearrange immediately.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -8218,7 +8218,7 @@
     },
     {
       "card_id": "commercial_written_146",
-      "summary": "Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8232,7 +8232,7 @@
     },
     {
       "card_id": "commercial_written_147",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8250,7 +8250,7 @@
     },
     {
       "card_id": "commercial_written_148",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8278,7 +8278,7 @@
     },
     {
       "card_id": "commercial_written_150",
-      "summary": "Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8292,7 +8292,7 @@
     },
     {
       "card_id": "commercial_written_151",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8306,7 +8306,7 @@
     },
     {
       "card_id": "commercial_written_152",
-      "summary": "Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -8320,7 +8320,7 @@
     },
     {
       "card_id": "commercial_written_153",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Stable air tends toward smooth flight, stratiform clouds, and steadier precip; unstable air brings turbulence, cumuliform clouds, good surface visibility, and showery weather.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8348,7 +8348,7 @@
     },
     {
       "card_id": "commercial_written_155",
-      "summary": "Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8362,7 +8362,7 @@
     },
     {
       "card_id": "commercial_written_156",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8394,7 +8394,7 @@
     },
     {
       "card_id": "commercial_written_158",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Stable air tends toward smooth flight, stratiform clouds, and steadier precip; unstable air brings turbulence, cumuliform clouds, good surface visibility, and showery weather.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8408,7 +8408,7 @@
     },
     {
       "card_id": "commercial_written_159",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8422,7 +8422,7 @@
     },
     {
       "card_id": "commercial_written_160",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8436,7 +8436,7 @@
     },
     {
       "card_id": "commercial_written_161",
-      "summary": "Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Stable air tends toward smooth flight, stratiform clouds, and steadier precip; unstable air brings turbulence, cumuliform clouds, good surface visibility, and showery weather.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8450,7 +8450,7 @@
     },
     {
       "card_id": "commercial_written_162",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8464,7 +8464,7 @@
     },
     {
       "card_id": "commercial_written_163",
-      "summary": "Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8482,7 +8482,7 @@
     },
     {
       "card_id": "commercial_written_164",
-      "summary": "Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8500,7 +8500,7 @@
     },
     {
       "card_id": "commercial_written_165",
-      "summary": "Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8514,7 +8514,7 @@
     },
     {
       "card_id": "commercial_written_166",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8532,7 +8532,7 @@
     },
     {
       "card_id": "commercial_written_167",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. Lift type drives tactics: thermals need centering, ridge needs terrain clearance and wind, wave needs rotor awareness and oxygen planning.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -8550,7 +8550,7 @@
     },
     {
       "card_id": "commercial_written_168",
-      "summary": "Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Stable air tends toward smooth flight, stratiform clouds, and steadier precip; unstable air brings turbulence, cumuliform clouds, good surface visibility, and showery weather.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8564,7 +8564,7 @@
     },
     {
       "card_id": "commercial_written_169",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Stable air tends toward smooth flight, stratiform clouds, and steadier precip; unstable air brings turbulence, cumuliform clouds, good surface visibility, and showery weather.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8578,7 +8578,7 @@
     },
     {
       "card_id": "commercial_written_170",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8592,7 +8592,7 @@
     },
     {
       "card_id": "commercial_written_171",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Stable air tends toward smooth flight, stratiform clouds, and steadier precip; unstable air brings turbulence, cumuliform clouds, good surface visibility, and showery weather.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8606,7 +8606,7 @@
     },
     {
       "card_id": "commercial_written_172",
-      "summary": "Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Stable air tends toward smooth flight, stratiform clouds, and steadier precip; unstable air brings turbulence, cumuliform clouds, good surface visibility, and showery weather.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8620,7 +8620,7 @@
     },
     {
       "card_id": "commercial_written_173",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8634,7 +8634,7 @@
     },
     {
       "card_id": "commercial_written_174",
-      "summary": "Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8652,7 +8652,7 @@
     },
     {
       "card_id": "commercial_written_175",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8680,7 +8680,7 @@
     },
     {
       "card_id": "commercial_written_177",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8726,7 +8726,7 @@
     },
     {
       "card_id": "commercial_written_180",
-      "summary": "Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries. Aim point, energy dump (spoilers/slip), and a planned stop point beat a long float. Commercial tolerances reward precision, not heroic saves.",
+      "summary": "Aim point, energy dump (spoilers/slip), and a planned stop point beat a long float. Commercial tolerances reward precision, not heroic saves.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -8744,7 +8744,7 @@
     },
     {
       "card_id": "commercial_written_181",
-      "summary": "Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -8758,7 +8758,7 @@
     },
     {
       "card_id": "commercial_written_182",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -8776,7 +8776,7 @@
     },
     {
       "card_id": "commercial_written_183",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8790,7 +8790,7 @@
     },
     {
       "card_id": "commercial_written_184",
-      "summary": "Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8804,7 +8804,7 @@
     },
     {
       "card_id": "commercial_written_185",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8818,7 +8818,7 @@
     },
     {
       "card_id": "commercial_written_186",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8832,7 +8832,7 @@
     },
     {
       "card_id": "commercial_written_187",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8846,7 +8846,7 @@
     },
     {
       "card_id": "commercial_written_188",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8860,7 +8860,7 @@
     },
     {
       "card_id": "commercial_written_189",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8874,7 +8874,7 @@
     },
     {
       "card_id": "commercial_written_190",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
+      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8888,7 +8888,7 @@
     },
     {
       "card_id": "commercial_written_191",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8902,7 +8902,7 @@
     },
     {
       "card_id": "commercial_written_192",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8916,7 +8916,7 @@
     },
     {
       "card_id": "commercial_written_193",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -8962,7 +8962,7 @@
     },
     {
       "card_id": "commercial_written_196",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Lift type drives tactics: thermals need centering, ridge needs terrain clearance and wind, wave needs rotor awareness and oxygen planning.",
+      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -8976,7 +8976,7 @@
     },
     {
       "card_id": "commercial_written_197",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Lift type drives tactics: thermals need centering, ridge needs terrain clearance and wind, wave needs rotor awareness and oxygen planning.",
+      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -8990,7 +8990,7 @@
     },
     {
       "card_id": "commercial_written_198",
-      "summary": "In steady flight the force pairs balance; when you change bank, pitch, or speed, lift/drag/weight/thrust (or tow tension) rearrange immediately.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -9004,7 +9004,7 @@
     },
     {
       "card_id": "commercial_written_199",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -9022,7 +9022,7 @@
     },
     {
       "card_id": "commercial_written_200",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Lift type drives tactics: thermals need centering, ridge needs terrain clearance and wind, wave needs rotor awareness and oxygen planning.",
+      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -9036,7 +9036,7 @@
     },
     {
       "card_id": "commercial_written_201",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Lift type drives tactics: thermals need centering, ridge needs terrain clearance and wind, wave needs rotor awareness and oxygen planning.",
+      "summary": "Lift type drives tactics: thermals need centering, ridge needs terrain clearance and wind, wave needs rotor awareness and oxygen planning.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -9050,7 +9050,7 @@
     },
     {
       "card_id": "commercial_written_202",
-      "summary": "Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -9064,7 +9064,7 @@
     },
     {
       "card_id": "commercial_written_203",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -9096,7 +9096,7 @@
     },
     {
       "card_id": "commercial_written_205",
-      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind. Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
+      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -9110,7 +9110,7 @@
     },
     {
       "card_id": "commercial_written_206",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -9128,7 +9128,7 @@
     },
     {
       "card_id": "commercial_written_207",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -9164,7 +9164,7 @@
     },
     {
       "card_id": "commercial_written_210",
-      "summary": "Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -9182,7 +9182,7 @@
     },
     {
       "card_id": "commercial_written_211",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -9200,7 +9200,7 @@
     },
     {
       "card_id": "commercial_written_212",
-      "summary": "Preflight data is layered: sectional for structure, Chart Supplement for local procedures, NOTAMs/TFRs for what changed today — skip one layer and you miss a closure. Glider XC is energy and landability: plan conservative glide ratios and always know the next landable field, not just the destination.",
+      "summary": "Glider XC is energy and landability: plan conservative glide ratios and always know the next landable field, not just the destination.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -9214,7 +9214,7 @@
     },
     {
       "card_id": "commercial_written_213",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. When a part-time Class D tower closes, the airspace typically reverts to Class E (or G) as charted — weather minimums and radio requirements change with it.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Aeronautical Information Manual (AIM)",
@@ -9300,7 +9300,7 @@
     },
     {
       "card_id": "commercial_written_218",
-      "summary": "Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -9314,7 +9314,7 @@
     },
     {
       "card_id": "commercial_written_219",
-      "summary": "Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -9328,7 +9328,7 @@
     },
     {
       "card_id": "commercial_written_220",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. When a part-time Class D tower closes, the airspace typically reverts to Class E (or G) as charted — weather minimums and radio requirements change with it.",
+      "summary": "Airspace answers usually need class + altitude + visibility/cloud clearance together. Chart depictions change when the tower closes.",
       "links": [
         {
           "label": "Aeronautical Information Manual (AIM)",
@@ -9356,7 +9356,7 @@
     },
     {
       "card_id": "commercial_written_222",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. When a part-time Class D tower closes, the airspace typically reverts to Class E (or G) as charted — weather minimums and radio requirements change with it.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Aeronautical Information Manual (AIM)",
@@ -9370,7 +9370,7 @@
     },
     {
       "card_id": "commercial_written_223",
-      "summary": "Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries. Know normal and failure modes for release, spoilers, instruments, and oxygen — and what the POH says you must have working.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -9384,7 +9384,7 @@
     },
     {
       "card_id": "commercial_written_224",
-      "summary": "Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries. Know normal and failure modes for release, spoilers, instruments, and oxygen — and what the POH says you must have working.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -9398,7 +9398,7 @@
     },
     {
       "card_id": "commercial_written_225",
-      "summary": "In steady flight the force pairs balance; when you change bank, pitch, or speed, lift/drag/weight/thrust (or tow tension) rearrange immediately.",
+      "summary": "V-speeds are defined terms. Match the symbol (VS, VA, VNE, VNO, …) to the Part 1 / POH definition — do not swap approach, min-sink, or structural limits.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -9412,7 +9412,7 @@
     },
     {
       "card_id": "commercial_written_226",
-      "summary": "In steady flight the force pairs balance; when you change bank, pitch, or speed, lift/drag/weight/thrust (or tow tension) rearrange immediately.",
+      "summary": "V-speeds are defined terms. Match the symbol (VS, VA, VNE, VNO, …) to the Part 1 / POH definition — do not swap approach, min-sink, or structural limits.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -9426,7 +9426,7 @@
     },
     {
       "card_id": "commercial_written_227",
-      "summary": "Glider XC is energy and landability: plan conservative glide ratios and always know the next landable field, not just the destination.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -9440,7 +9440,7 @@
     },
     {
       "card_id": "commercial_written_228",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Lift type drives tactics: thermals need centering, ridge needs terrain clearance and wind, wave needs rotor awareness and oxygen planning.",
+      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -9454,7 +9454,7 @@
     },
     {
       "card_id": "commercial_written_229",
-      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope. Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
+      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -9472,7 +9472,7 @@
     },
     {
       "card_id": "commercial_written_230",
-      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope. Empty weight and empty CG come from this glider’s records; seat arms and ballast stations come from the Flight Manual. Both must be current.",
+      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -9486,7 +9486,7 @@
     },
     {
       "card_id": "commercial_written_231",
-      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope. Empty weight and empty CG come from this glider’s records; seat arms and ballast stations come from the Flight Manual. Both must be current.",
+      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -9500,7 +9500,7 @@
     },
     {
       "card_id": "commercial_written_232",
-      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope. Empty weight and empty CG come from this glider’s records; seat arms and ballast stations come from the Flight Manual. Both must be current.",
+      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -9514,7 +9514,7 @@
     },
     {
       "card_id": "commercial_written_233",
-      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope. Empty weight and empty CG come from this glider’s records; seat arms and ballast stations come from the Flight Manual. Both must be current.",
+      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -9528,7 +9528,7 @@
     },
     {
       "card_id": "commercial_written_234",
-      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope. Empty weight and empty CG come from this glider’s records; seat arms and ballast stations come from the Flight Manual. Both must be current.",
+      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -9542,7 +9542,7 @@
     },
     {
       "card_id": "commercial_written_235",
-      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope. Empty weight and empty CG come from this glider’s records; seat arms and ballast stations come from the Flight Manual. Both must be current.",
+      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -9556,7 +9556,7 @@
     },
     {
       "card_id": "commercial_written_236",
-      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope. Empty weight and empty CG come from this glider’s records; seat arms and ballast stations come from the Flight Manual. Both must be current.",
+      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -9570,7 +9570,7 @@
     },
     {
       "card_id": "commercial_written_237",
-      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope. Empty weight and empty CG come from this glider’s records; seat arms and ballast stations come from the Flight Manual. Both must be current.",
+      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -9584,7 +9584,7 @@
     },
     {
       "card_id": "commercial_written_238",
-      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope. V-speeds are defined terms. VS is stall / minimum steady flight speed in a defined configuration — do not confuse it with approach or min-sink speeds.",
+      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -9598,7 +9598,7 @@
     },
     {
       "card_id": "commercial_written_239",
-      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope. Empty weight and empty CG come from this glider’s records; seat arms and ballast stations come from the Flight Manual. Both must be current.",
+      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -9612,7 +9612,7 @@
     },
     {
       "card_id": "commercial_written_240",
-      "summary": "Min sink maximizes time; best L/D maximizes distance in still air; speed-to-fly trades glide ratio against wind and sink. Pick the job first.",
+      "summary": "High density altitude thins air: true airspeed reads higher for the same IAS, and both towplane and glider performance suffer — plan longer rolls and weaker climb.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -9626,7 +9626,7 @@
     },
     {
       "card_id": "commercial_written_241",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -9644,7 +9644,7 @@
     },
     {
       "card_id": "commercial_written_242",
-      "summary": "Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -9658,7 +9658,7 @@
     },
     {
       "card_id": "commercial_written_243",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Lift type drives tactics: thermals need centering, ridge needs terrain clearance and wind, wave needs rotor awareness and oxygen planning.",
+      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -9672,7 +9672,7 @@
     },
     {
       "card_id": "commercial_written_244",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Lift type drives tactics: thermals need centering, ridge needs terrain clearance and wind, wave needs rotor awareness and oxygen planning.",
+      "summary": "Lift type drives tactics: thermals need centering, ridge needs terrain clearance and wind, wave needs rotor awareness and oxygen planning.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -9686,7 +9686,7 @@
     },
     {
       "card_id": "commercial_written_245",
-      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind. Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
+      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -9700,7 +9700,7 @@
     },
     {
       "card_id": "commercial_written_246",
-      "summary": "Stay outside the towplane’s wake when boxing; give yourself altitude to recover if you get spit out. Jet/heavy wake is a separate landing/takeoff hazard. Collision avoidance is a scan pattern plus clearing turns — not a quick peek. Time-share near/far and left/right instead of fixating.",
+      "summary": "Jet/heavy wake sinks and drifts with the wind — rotate past the large aircraft’s path, land beyond its touchdown point, and allow a few minutes after a heavy landing before your takeoff.",
       "links": [
         {
           "label": "AC 90-48 — Pilots’ Role in Collision Avoidance",
@@ -9714,7 +9714,7 @@
     },
     {
       "card_id": "commercial_written_247",
-      "summary": "Collision avoidance is a scan pattern plus clearing turns — not a quick peek. Time-share near/far and left/right instead of fixating.",
+      "summary": "Jet/heavy wake sinks and drifts with the wind — rotate past the large aircraft’s path, land beyond its touchdown point, and allow a few minutes after a heavy landing before your takeoff.",
       "links": [
         {
           "label": "AC 90-48 — Pilots’ Role in Collision Avoidance",
@@ -9728,7 +9728,7 @@
     },
     {
       "card_id": "commercial_written_248",
-      "summary": "Stay outside the towplane’s wake when boxing; give yourself altitude to recover if you get spit out. Jet/heavy wake is a separate landing/takeoff hazard. Collision avoidance is a scan pattern plus clearing turns — not a quick peek. Time-share near/far and left/right instead of fixating.",
+      "summary": "Jet/heavy wake sinks and drifts with the wind — rotate past the large aircraft’s path, land beyond its touchdown point, and allow a few minutes after a heavy landing before your takeoff.",
       "links": [
         {
           "label": "AC 90-48 — Pilots’ Role in Collision Avoidance",
@@ -9742,7 +9742,7 @@
     },
     {
       "card_id": "commercial_written_249",
-      "summary": "Stay outside the towplane’s wake when boxing; give yourself altitude to recover if you get spit out. Jet/heavy wake is a separate landing/takeoff hazard. Collision avoidance is a scan pattern plus clearing turns — not a quick peek. Time-share near/far and left/right instead of fixating.",
+      "summary": "Jet/heavy wake sinks and drifts with the wind — rotate past the large aircraft’s path, land beyond its touchdown point, and allow a few minutes after a heavy landing before your takeoff.",
       "links": [
         {
           "label": "AC 90-48 — Pilots’ Role in Collision Avoidance",
@@ -9756,7 +9756,7 @@
     },
     {
       "card_id": "commercial_written_250",
-      "summary": "Collision avoidance is a scan pattern plus clearing turns — not a quick peek. Time-share near/far and left/right instead of fixating.",
+      "summary": "Jet/heavy wake sinks and drifts with the wind — rotate past the large aircraft’s path, land beyond its touchdown point, and allow a few minutes after a heavy landing before your takeoff.",
       "links": [
         {
           "label": "AC 90-48 — Pilots’ Role in Collision Avoidance",
@@ -9770,7 +9770,7 @@
     },
     {
       "card_id": "commercial_written_251",
-      "summary": "Commercial judgment includes fitness to fly: hypoxia, fatigue, dehydration, and hazardous attitudes show up before the weather does.",
+      "summary": "Hyperventilation is often confused with hypoxia — slow the breathing rate / talk aloud; do not reach for oxygen as the first fix when the cause is over-breathing.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -9784,7 +9784,7 @@
     },
     {
       "card_id": "commercial_written_252",
-      "summary": "Effective traffic scan is short eye movements across sectors with periodic distant focus — not a slow sweep that parks on the panel or the other seat. Collision avoidance is a scan pattern plus clearing turns — not a quick peek. Time-share near/far and left/right instead of fixating.",
+      "summary": "Collision avoidance is a scan pattern plus clearing turns — not a quick peek. Time-share near/far and left/right instead of fixating.",
       "links": [
         {
           "label": "AC 90-48 — Pilots’ Role in Collision Avoidance",
@@ -9798,7 +9798,7 @@
     },
     {
       "card_id": "commercial_written_253",
-      "summary": "Commercial judgment includes fitness to fly: hypoxia, fatigue, dehydration, and hazardous attitudes show up before the weather does.",
+      "summary": "Hyperventilation is often confused with hypoxia — slow the breathing rate / talk aloud; do not reach for oxygen as the first fix when the cause is over-breathing.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -9812,7 +9812,7 @@
     },
     {
       "card_id": "commercial_written_254",
-      "summary": "Supplemental oxygen rules are time-and-altitude based for the required crew; passengers have a higher altitude trigger. Hypoxia sneaks up — use oxygen before you “feel fine.” Commercial judgment includes fitness to fly: hypoxia, fatigue, dehydration, and hazardous attitudes show up before the weather does.",
+      "summary": "Hyperventilation is often confused with hypoxia — slow the breathing rate / talk aloud; do not reach for oxygen as the first fix when the cause is over-breathing.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -9826,7 +9826,7 @@
     },
     {
       "card_id": "commercial_written_255",
-      "summary": "Supplemental oxygen rules are time-and-altitude based for the required crew; passengers have a higher altitude trigger. Hypoxia sneaks up — use oxygen before you “feel fine.” Commercial judgment includes fitness to fly: hypoxia, fatigue, dehydration, and hazardous attitudes show up before the weather does.",
+      "summary": "Supplemental oxygen rules are time-and-altitude based for the required crew; passengers have a higher altitude trigger. Hypoxia sneaks up — use oxygen before you “feel fine.”",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -9844,7 +9844,7 @@
     },
     {
       "card_id": "commercial_written_256",
-      "summary": "Commercial judgment includes fitness to fly: hypoxia, fatigue, dehydration, and hazardous attitudes show up before the weather does.",
+      "summary": "Hyperventilation is often confused with hypoxia — slow the breathing rate / talk aloud; do not reach for oxygen as the first fix when the cause is over-breathing.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -9858,7 +9858,7 @@
     },
     {
       "card_id": "commercial_written_257",
-      "summary": "Glider commercial ops still need a medical path that matches the operation. Impairments (alcohol, meds, fatigue) are judgment failures before they are regulatory ones. Commercial judgment includes fitness to fly: hypoxia, fatigue, dehydration, and hazardous attitudes show up before the weather does.",
+      "summary": "Glider commercial ops still need a medical path that matches the operation. Impairments (alcohol, meds, fatigue) are judgment failures before they are regulatory ones.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -9872,7 +9872,7 @@
     },
     {
       "card_id": "commercial_written_258",
-      "summary": "Commercial judgment includes fitness to fly: hypoxia, fatigue, dehydration, and hazardous attitudes show up before the weather does.",
+      "summary": "Trust the instruments over seat-of-the-pants when visual references are poor — spatial disorientation recovers with a stable instrument cross-check, not by “feeling” level.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -9900,7 +9900,7 @@
     },
     {
       "card_id": "commercial_written_260",
-      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong. Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind.",
+      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -9914,7 +9914,7 @@
     },
     {
       "card_id": "commercial_written_261",
-      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong. Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -9946,7 +9946,7 @@
     },
     {
       "card_id": "commercial_written_263",
-      "summary": "Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -9960,7 +9960,7 @@
     },
     {
       "card_id": "commercial_written_264",
-      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind. Min sink maximizes time; best L/D maximizes distance in still air; speed-to-fly trades glide ratio against wind and sink. Pick the job first.",
+      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -9974,7 +9974,7 @@
     },
     {
       "card_id": "commercial_written_265",
-      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind. Min sink maximizes time; best L/D maximizes distance in still air; speed-to-fly trades glide ratio against wind and sink. Pick the job first.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -9988,7 +9988,7 @@
     },
     {
       "card_id": "commercial_written_266",
-      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind. Min sink maximizes time; best L/D maximizes distance in still air; speed-to-fly trades glide ratio against wind and sink. Pick the job first.",
+      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10002,7 +10002,7 @@
     },
     {
       "card_id": "commercial_written_267",
-      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind. Min sink maximizes time; best L/D maximizes distance in still air; speed-to-fly trades glide ratio against wind and sink. Pick the job first.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10016,7 +10016,7 @@
     },
     {
       "card_id": "commercial_written_268",
-      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind. Min sink maximizes time; best L/D maximizes distance in still air; speed-to-fly trades glide ratio against wind and sink. Pick the job first.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10030,7 +10030,7 @@
     },
     {
       "card_id": "commercial_written_269",
-      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind. Min sink maximizes time; best L/D maximizes distance in still air; speed-to-fly trades glide ratio against wind and sink. Pick the job first.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10044,7 +10044,7 @@
     },
     {
       "card_id": "commercial_written_270",
-      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind. Lift type drives tactics: thermals need centering, ridge needs terrain clearance and wind, wave needs rotor awareness and oxygen planning.",
+      "summary": "Lift type drives tactics: thermals need centering, ridge needs terrain clearance and wind, wave needs rotor awareness and oxygen planning.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10058,7 +10058,7 @@
     },
     {
       "card_id": "commercial_written_271",
-      "summary": "V-speeds are defined terms. VS is stall / minimum steady flight speed in a defined configuration — do not confuse it with approach or min-sink speeds. Min sink maximizes time; best L/D maximizes distance in still air; speed-to-fly trades glide ratio against wind and sink. Pick the job first.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10072,7 +10072,7 @@
     },
     {
       "card_id": "commercial_written_272",
-      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind. Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10086,7 +10086,7 @@
     },
     {
       "card_id": "commercial_written_273",
-      "summary": "V-speeds are defined terms. VS is stall / minimum steady flight speed in a defined configuration — do not confuse it with approach or min-sink speeds. Min sink maximizes time; best L/D maximizes distance in still air; speed-to-fly trades glide ratio against wind and sink. Pick the job first.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10100,7 +10100,7 @@
     },
     {
       "card_id": "commercial_written_274",
-      "summary": "Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries. Critical AOA is the stall, not a particular airspeed. Recover by reducing AOA first; altitude is the margin you buy with entry height.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10118,7 +10118,7 @@
     },
     {
       "card_id": "commercial_written_275",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Empty weight and empty CG come from this glider’s records; seat arms and ballast stations come from the Flight Manual. Both must be current.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -10132,7 +10132,7 @@
     },
     {
       "card_id": "commercial_written_276",
-      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind. Min sink maximizes time; best L/D maximizes distance in still air; speed-to-fly trades glide ratio against wind and sink. Pick the job first.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10146,7 +10146,7 @@
     },
     {
       "card_id": "commercial_written_277",
-      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope. Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10174,7 +10174,7 @@
     },
     {
       "card_id": "commercial_written_279",
-      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind. Min sink maximizes time; best L/D maximizes distance in still air; speed-to-fly trades glide ratio against wind and sink. Pick the job first.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10192,7 +10192,7 @@
     },
     {
       "card_id": "commercial_written_280",
-      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope. Empty weight and empty CG come from this glider’s records; seat arms and ballast stations come from the Flight Manual. Both must be current.",
+      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -10206,7 +10206,7 @@
     },
     {
       "card_id": "commercial_written_281",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Lift type drives tactics: thermals need centering, ridge needs terrain clearance and wind, wave needs rotor awareness and oxygen planning.",
+      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10220,7 +10220,7 @@
     },
     {
       "card_id": "commercial_written_282",
-      "summary": "Supplemental oxygen rules are time-and-altitude based for the required crew; passengers have a higher altitude trigger. Hypoxia sneaks up — use oxygen before you “feel fine.” Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries.",
+      "summary": "Supplemental oxygen rules are time-and-altitude based for the required crew; passengers have a higher altitude trigger. Hypoxia sneaks up — use oxygen before you “feel fine.”",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10238,7 +10238,7 @@
     },
     {
       "card_id": "commercial_written_283",
-      "summary": "Aim point, energy dump (spoilers/slip), and a planned stop point beat a long float. Commercial tolerances reward precision, not heroic saves.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10270,7 +10270,7 @@
     },
     {
       "card_id": "commercial_written_285",
-      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong. Brief rope-break altitudes and signals before takeoff. Weak-link placement protects the glider; boxing/wake work stays high enough to recover.",
+      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10284,7 +10284,7 @@
     },
     {
       "card_id": "commercial_written_286",
-      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong. Brief rope-break altitudes and signals before takeoff. Weak-link placement protects the glider; boxing/wake work stays high enough to recover.",
+      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10298,7 +10298,7 @@
     },
     {
       "card_id": "commercial_written_287",
-      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong. Brief rope-break altitudes and signals before takeoff. Weak-link placement protects the glider; boxing/wake work stays high enough to recover.",
+      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10312,7 +10312,7 @@
     },
     {
       "card_id": "commercial_written_288",
-      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong. Brief rope-break altitudes and signals before takeoff. Weak-link placement protects the glider; boxing/wake work stays high enough to recover.",
+      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10330,7 +10330,7 @@
     },
     {
       "card_id": "commercial_written_289",
-      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong. Brief rope-break altitudes and signals before takeoff. Weak-link placement protects the glider; boxing/wake work stays high enough to recover.",
+      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10344,7 +10344,7 @@
     },
     {
       "card_id": "commercial_written_290",
-      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong. Brief rope-break altitudes and signals before takeoff. Weak-link placement protects the glider; boxing/wake work stays high enough to recover.",
+      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10362,7 +10362,7 @@
     },
     {
       "card_id": "commercial_written_291",
-      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong. Brief rope-break altitudes and signals before takeoff. Weak-link placement protects the glider; boxing/wake work stays high enough to recover.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10376,7 +10376,7 @@
     },
     {
       "card_id": "commercial_written_292",
-      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong. Collision avoidance is a scan pattern plus clearing turns — not a quick peek. Time-share near/far and left/right instead of fixating.",
+      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong.",
       "links": [
         {
           "label": "AC 90-48 — Pilots’ Role in Collision Avoidance",
@@ -10394,7 +10394,7 @@
     },
     {
       "card_id": "commercial_written_293",
-      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong. Brief rope-break altitudes and signals before takeoff. Weak-link placement protects the glider; boxing/wake work stays high enough to recover.",
+      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10408,7 +10408,7 @@
     },
     {
       "card_id": "commercial_written_294",
-      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong. Brief rope-break altitudes and signals before takeoff. Weak-link placement protects the glider; boxing/wake work stays high enough to recover.",
+      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10422,7 +10422,7 @@
     },
     {
       "card_id": "commercial_written_295",
-      "summary": "Winch launches punish over-rotation: ease back-pressure and shallow the climb if the glider starts porpoising; a cable break on a steep winch climb needs an immediate nose-down. Brief rope-break altitudes and signals before takeoff. Weak-link placement protects the glider; boxing/wake work stays high enough to recover.",
+      "summary": "Winch launches punish over-rotation: ease back-pressure and shallow the climb if the glider starts porpoising; a cable break on a steep winch climb needs an immediate nose-down.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10436,7 +10436,7 @@
     },
     {
       "card_id": "commercial_written_296",
-      "summary": "Winch launches punish over-rotation: ease back-pressure and shallow the climb if the glider starts porpoising; a cable break on a steep winch climb needs an immediate nose-down. Brief rope-break altitudes and signals before takeoff. Weak-link placement protects the glider; boxing/wake work stays high enough to recover.",
+      "summary": "Winch launches punish over-rotation: ease back-pressure and shallow the climb if the glider starts porpoising; a cable break on a steep winch climb needs an immediate nose-down.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10450,7 +10450,7 @@
     },
     {
       "card_id": "commercial_written_297",
-      "summary": "Winch launches punish over-rotation: ease back-pressure and shallow the climb if the glider starts porpoising; a cable break on a steep winch climb needs an immediate nose-down. Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope.",
+      "summary": "Brief rope-break altitudes and signals before takeoff. Weak-link placement protects the glider; boxing/wake work stays high enough to recover.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10468,7 +10468,7 @@
     },
     {
       "card_id": "commercial_written_298",
-      "summary": "Winch launches punish over-rotation: ease back-pressure and shallow the climb if the glider starts porpoising; a cable break on a steep winch climb needs an immediate nose-down. Brief rope-break altitudes and signals before takeoff. Weak-link placement protects the glider; boxing/wake work stays high enough to recover.",
+      "summary": "Winch launches punish over-rotation: ease back-pressure and shallow the climb if the glider starts porpoising; a cable break on a steep winch climb needs an immediate nose-down.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10482,7 +10482,7 @@
     },
     {
       "card_id": "commercial_written_299",
-      "summary": "Winch launches punish over-rotation: ease back-pressure and shallow the climb if the glider starts porpoising; a cable break on a steep winch climb needs an immediate nose-down. Brief rope-break altitudes and signals before takeoff. Weak-link placement protects the glider; boxing/wake work stays high enough to recover.",
+      "summary": "Winch launches punish over-rotation: ease back-pressure and shallow the climb if the glider starts porpoising; a cable break on a steep winch climb needs an immediate nose-down.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10496,7 +10496,7 @@
     },
     {
       "card_id": "commercial_written_300",
-      "summary": "Winch launches punish over-rotation: ease back-pressure and shallow the climb if the glider starts porpoising; a cable break on a steep winch climb needs an immediate nose-down. 91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong.",
+      "summary": "Winch launches punish over-rotation: ease back-pressure and shallow the climb if the glider starts porpoising; a cable break on a steep winch climb needs an immediate nose-down.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10510,7 +10510,7 @@
     },
     {
       "card_id": "commercial_written_301",
-      "summary": "Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -10528,7 +10528,7 @@
     },
     {
       "card_id": "commercial_written_302",
-      "summary": "Winch launches punish over-rotation: ease back-pressure and shallow the climb if the glider starts porpoising; a cable break on a steep winch climb needs an immediate nose-down. Brief rope-break altitudes and signals before takeoff. Weak-link placement protects the glider; boxing/wake work stays high enough to recover.",
+      "summary": "Winch launches punish over-rotation: ease back-pressure and shallow the climb if the glider starts porpoising; a cable break on a steep winch climb needs an immediate nose-down.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10556,7 +10556,7 @@
     },
     {
       "card_id": "commercial_written_304",
-      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind. Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
+      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10570,7 +10570,7 @@
     },
     {
       "card_id": "commercial_written_305",
-      "summary": "Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries. Critical AOA is the stall, not a particular airspeed. Recover by reducing AOA first; altitude is the margin you buy with entry height.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10588,7 +10588,7 @@
     },
     {
       "card_id": "commercial_written_306",
-      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope. Aim point, energy dump (spoilers/slip), and a planned stop point beat a long float. Commercial tolerances reward precision, not heroic saves.",
+      "summary": "Aim point, energy dump (spoilers/slip), and a planned stop point beat a long float. Commercial tolerances reward precision, not heroic saves.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10602,7 +10602,7 @@
     },
     {
       "card_id": "commercial_written_307",
-      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong. Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries.",
+      "summary": "Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10620,7 +10620,7 @@
     },
     {
       "card_id": "commercial_written_308",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Lift type drives tactics: thermals need centering, ridge needs terrain clearance and wind, wave needs rotor awareness and oxygen planning.",
+      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10648,7 +10648,7 @@
     },
     {
       "card_id": "commercial_written_310",
-      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind. Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
+      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10676,7 +10676,7 @@
     },
     {
       "card_id": "commercial_written_312",
-      "summary": "Aim point, energy dump (spoilers/slip), and a planned stop point beat a long float. Commercial tolerances reward precision, not heroic saves.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10690,7 +10690,7 @@
     },
     {
       "card_id": "commercial_written_313",
-      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind. Min sink maximizes time; best L/D maximizes distance in still air; speed-to-fly trades glide ratio against wind and sink. Pick the job first.",
+      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10704,7 +10704,7 @@
     },
     {
       "card_id": "commercial_written_314",
-      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind. Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
+      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -10718,7 +10718,7 @@
     },
     {
       "card_id": "commercial_written_315",
-      "summary": "Part 830 separates accidents from listed incidents; when notification is required, do it immediately by the fastest means, then follow up with the written report as specified. Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Part 830 separates accidents from listed incidents; when notification is required, do it immediately by the fastest means, then follow up with the written report as specified.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -10746,7 +10746,7 @@
     },
     {
       "card_id": "commercial_written_318",
-      "summary": "Glider XC is energy and landability: plan conservative glide ratios and always know the next landable field, not just the destination.",
+      "summary": "VOR checks have published error limits (±4° airborne / ±6° ground on an FAA checkpoint, depending on the check type) — match the question to the check method.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -10760,7 +10760,7 @@
     },
     {
       "card_id": "commercial_written_319",
-      "summary": "Glider XC is energy and landability: plan conservative glide ratios and always know the next landable field, not just the destination.",
+      "summary": "VOR checks have published error limits (±4° airborne / ±6° ground on an FAA checkpoint, depending on the check type) — match the question to the check method.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -10774,7 +10774,7 @@
     },
     {
       "card_id": "commercial_written_320",
-      "summary": "Commercial judgment includes fitness to fly: hypoxia, fatigue, dehydration, and hazardous attitudes show up before the weather does.",
+      "summary": "ADM frameworks (DECIDE, 3P, hazardous attitudes) are decision process tools — name the step or attitude the question is probing before picking a look-alike option.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -10788,7 +10788,7 @@
     },
     {
       "card_id": "commercial_written_321",
-      "summary": "The approved Flight Manual / POH is the controlling document for limitations, loading, and required equipment for that serial-number aircraft. Commercial judgment includes fitness to fly: hypoxia, fatigue, dehydration, and hazardous attitudes show up before the weather does.",
+      "summary": "ADM frameworks (DECIDE, 3P, hazardous attitudes) are decision process tools — name the step or attitude the question is probing before picking a look-alike option.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -10806,7 +10806,7 @@
     },
     {
       "card_id": "commercial_written_322",
-      "summary": "Commercial judgment includes fitness to fly: hypoxia, fatigue, dehydration, and hazardous attitudes show up before the weather does.",
+      "summary": "ADM frameworks (DECIDE, 3P, hazardous attitudes) are decision process tools — name the step or attitude the question is probing before picking a look-alike option.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -10820,7 +10820,7 @@
     },
     {
       "card_id": "commercial_written_323",
-      "summary": "Commercial judgment includes fitness to fly: hypoxia, fatigue, dehydration, and hazardous attitudes show up before the weather does.",
+      "summary": "ADM frameworks (DECIDE, 3P, hazardous attitudes) are decision process tools — name the step or attitude the question is probing before picking a look-alike option.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -10834,7 +10834,7 @@
     },
     {
       "card_id": "commercial_written_324",
-      "summary": "Commercial judgment includes fitness to fly: hypoxia, fatigue, dehydration, and hazardous attitudes show up before the weather does.",
+      "summary": "ADM frameworks (DECIDE, 3P, hazardous attitudes) are decision process tools — name the step or attitude the question is probing before picking a look-alike option.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -10848,7 +10848,7 @@
     },
     {
       "card_id": "commercial_written_325",
-      "summary": "In steady flight the force pairs balance; when you change bank, pitch, or speed, lift/drag/weight/thrust (or tow tension) rearrange immediately.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -10880,7 +10880,7 @@
     },
     {
       "card_id": "commercial_written_327",
-      "summary": "Effective traffic scan is short eye movements across sectors with periodic distant focus — not a slow sweep that parks on the panel or the other seat. Airspace answers usually need class + altitude + visibility/cloud clearance together. Chart depictions change when the tower closes.",
+      "summary": "Airspace answers usually need class + altitude + visibility/cloud clearance together. Chart depictions change when the tower closes.",
       "links": [
         {
           "label": "Aeronautical Information Manual (AIM)",
@@ -10912,7 +10912,7 @@
     },
     {
       "card_id": "commercial_written_329",
-      "summary": "Glider XC is energy and landability: plan conservative glide ratios and always know the next landable field, not just the destination.",
+      "summary": "VOR checks have published error limits (±4° airborne / ±6° ground on an FAA checkpoint, depending on the check type) — match the question to the check method.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -10926,7 +10926,7 @@
     },
     {
       "card_id": "commercial_written_330",
-      "summary": "Glider XC is energy and landability: plan conservative glide ratios and always know the next landable field, not just the destination.",
+      "summary": "VOR checks have published error limits (±4° airborne / ±6° ground on an FAA checkpoint, depending on the check type) — match the question to the check method.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -10940,7 +10940,7 @@
     },
     {
       "card_id": "commercial_written_333",
-      "summary": "Glider XC is energy and landability: plan conservative glide ratios and always know the next landable field, not just the destination.",
+      "summary": "VOR checks have published error limits (±4° airborne / ±6° ground on an FAA checkpoint, depending on the check type) — match the question to the check method.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -10954,7 +10954,7 @@
     },
     {
       "card_id": "commercial_written_335",
-      "summary": "Glider XC is energy and landability: plan conservative glide ratios and always know the next landable field, not just the destination.",
+      "summary": "VOR checks have published error limits (±4° airborne / ±6° ground on an FAA checkpoint, depending on the check type) — match the question to the check method.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -10972,7 +10972,7 @@
     },
     {
       "card_id": "commercial_written_338",
-      "summary": "Holding-position markings, runway signs, and right-of-way on the gliderport keep towplanes, gliders, and cars from occupying the same asphalt.",
+      "summary": "VOR checks have published error limits (±4° airborne / ±6° ground on an FAA checkpoint, depending on the check type) — match the question to the check method.",
       "links": [
         {
           "label": "Aeronautical Information Manual (AIM)",
@@ -10986,7 +10986,7 @@
     },
     {
       "card_id": "commercial_written_339",
-      "summary": "Preflight data is layered: sectional for structure, Chart Supplement for local procedures, NOTAMs/TFRs for what changed today — skip one layer and you miss a closure. Glider XC is energy and landability: plan conservative glide ratios and always know the next landable field, not just the destination.",
+      "summary": "Glider XC is energy and landability: plan conservative glide ratios and always know the next landable field, not just the destination.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -11000,7 +11000,7 @@
     },
     {
       "card_id": "commercial_written_340",
-      "summary": "Glider XC is energy and landability: plan conservative glide ratios and always know the next landable field, not just the destination.",
+      "summary": "VOR checks have published error limits (±4° airborne / ±6° ground on an FAA checkpoint, depending on the check type) — match the question to the check method.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -11018,7 +11018,7 @@
     },
     {
       "card_id": "commercial_written_341",
-      "summary": "Glider XC is energy and landability: plan conservative glide ratios and always know the next landable field, not just the destination.",
+      "summary": "VOR checks have published error limits (±4° airborne / ±6° ground on an FAA checkpoint, depending on the check type) — match the question to the check method.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -11032,7 +11032,7 @@
     },
     {
       "card_id": "commercial_written_344",
-      "summary": "Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope. Empty weight and empty CG come from this glider’s records; seat arms and ballast stations come from the Flight Manual. Both must be current.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -11046,7 +11046,7 @@
     },
     {
       "card_id": "commercial_written_345",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. When a part-time Class D tower closes, the airspace typically reverts to Class E (or G) as charted — weather minimums and radio requirements change with it.",
+      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band.",
       "links": [
         {
           "label": "Aeronautical Information Manual (AIM)",
@@ -11074,7 +11074,7 @@
     },
     {
       "card_id": "commercial_written_347",
-      "summary": "Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind. Min sink maximizes time; best L/D maximizes distance in still air; speed-to-fly trades glide ratio against wind and sink. Pick the job first.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -11102,7 +11102,7 @@
     },
     {
       "card_id": "commercial_written_349",
-      "summary": "Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -11130,7 +11130,7 @@
     },
     {
       "card_id": "commercial_written_351",
-      "summary": "Glider XC is energy and landability: plan conservative glide ratios and always know the next landable field, not just the destination.",
+      "summary": "VOR checks have published error limits (±4° airborne / ±6° ground on an FAA checkpoint, depending on the check type) — match the question to the check method.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -11158,7 +11158,7 @@
     },
     {
       "card_id": "commercial_written_353",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. Airspace answers usually need class + altitude + visibility/cloud clearance together. Chart depictions change when the tower closes.",
+      "summary": "Airspace answers usually need class + altitude + visibility/cloud clearance together. Chart depictions change when the tower closes.",
       "links": [
         {
           "label": "Aeronautical Information Manual (AIM)",
@@ -11172,7 +11172,7 @@
     },
     {
       "card_id": "commercial_written_354",
-      "summary": "Airworthiness is continuous after the annual — ADs, 100-hour (when for hire), and required equipment status all matter before launch.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -11190,7 +11190,7 @@
     },
     {
       "card_id": "commercial_written_355",
-      "summary": "Glider commercial ops still need a medical path that matches the operation. Impairments (alcohol, meds, fatigue) are judgment failures before they are regulatory ones. Commercial judgment includes fitness to fly: hypoxia, fatigue, dehydration, and hazardous attitudes show up before the weather does.",
+      "summary": "Glider commercial ops still need a medical path that matches the operation. Impairments (alcohol, meds, fatigue) are judgment failures before they are regulatory ones.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -11204,7 +11204,7 @@
     },
     {
       "card_id": "commercial_written_356",
-      "summary": "Surface painted holding-position markings and red/white runway signs are hard stops without clearance — chart supplement and AIM figures are worth a quick review. Holding-position markings, runway signs, and right-of-way on the gliderport keep towplanes, gliders, and cars from occupying the same asphalt.",
+      "summary": "Surface painted holding-position markings and red/white runway signs are hard stops without clearance — chart supplement and AIM figures are worth a quick review.",
       "links": [
         {
           "label": "Aeronautical Information Manual (AIM)",
@@ -11218,7 +11218,7 @@
     },
     {
       "card_id": "commercial_written_357",
-      "summary": "High density altitude thins air: true airspeed reads higher for the same IAS, and both towplane and glider performance suffer — plan longer rolls and weaker climb. Min sink maximizes time; best L/D maximizes distance in still air; speed-to-fly trades glide ratio against wind and sink. Pick the job first.",
+      "summary": "High density altitude thins air: true airspeed reads higher for the same IAS, and both towplane and glider performance suffer — plan longer rolls and weaker climb.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -11246,7 +11246,7 @@
     },
     {
       "card_id": "commercial_written_359",
-      "summary": "Commercial judgment includes fitness to fly: hypoxia, fatigue, dehydration, and hazardous attitudes show up before the weather does.",
+      "summary": "Trust the instruments over seat-of-the-pants when visual references are poor — spatial disorientation recovers with a stable instrument cross-check, not by “feeling” level.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -11260,7 +11260,7 @@
     },
     {
       "card_id": "commercial_written_360",
-      "summary": "Surface painted holding-position markings and red/white runway signs are hard stops without clearance — chart supplement and AIM figures are worth a quick review. Holding-position markings, runway signs, and right-of-way on the gliderport keep towplanes, gliders, and cars from occupying the same asphalt.",
+      "summary": "Surface painted holding-position markings and red/white runway signs are hard stops without clearance — chart supplement and AIM figures are worth a quick review.",
       "links": [
         {
           "label": "Aeronautical Information Manual (AIM)",
@@ -11274,7 +11274,7 @@
     },
     {
       "card_id": "commercial_written_361",
-      "summary": "Surface painted holding-position markings and red/white runway signs are hard stops without clearance — chart supplement and AIM figures are worth a quick review. Aim point, energy dump (spoilers/slip), and a planned stop point beat a long float. Commercial tolerances reward precision, not heroic saves.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -11302,7 +11302,7 @@
     },
     {
       "card_id": "commercial_written_363",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Brief rope-break altitudes and signals before takeoff. Weak-link placement protects the glider; boxing/wake work stays high enough to recover.",
+      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -11320,7 +11320,7 @@
     },
     {
       "card_id": "commercial_written_364",
-      "summary": "Lift type drives tactics: thermals need centering, ridge needs terrain clearance and wind, wave needs rotor awareness and oxygen planning.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -11334,7 +11334,7 @@
     },
     {
       "card_id": "commercial_written_365",
-      "summary": "In steady flight the force pairs balance; when you change bank, pitch, or speed, lift/drag/weight/thrust (or tow tension) rearrange immediately.",
+      "summary": "In a level turn, load factor rises with bank (≈2 G at 60°). Stall speed rises with the square root of load factor — steep banks need more AoA/airspeed margin.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -11348,7 +11348,7 @@
     },
     {
       "card_id": "commercial_written_366",
-      "summary": "V-speeds are defined terms. VS is stall / minimum steady flight speed in a defined configuration — do not confuse it with approach or min-sink speeds. Min sink maximizes time; best L/D maximizes distance in still air; speed-to-fly trades glide ratio against wind and sink. Pick the job first.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -11380,7 +11380,7 @@
     },
     {
       "card_id": "commercial_written_368",
-      "summary": "ADs are legally binding under Part 39. Compliance is an owner/operator duty before further flight unless an AMOC is approved. Airworthiness is continuous after the annual — ADs, 100-hour (when for hire), and required equipment status all matter before launch.",
+      "summary": "ADs are legally binding under Part 39. Compliance is an owner/operator duty before further flight unless an AMOC is approved.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -11394,7 +11394,7 @@
     },
     {
       "card_id": "commercial_written_369",
-      "summary": "Part 830 separates accidents from listed incidents; when notification is required, do it immediately by the fastest means, then follow up with the written report as specified. Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Part 830 separates accidents from listed incidents; when notification is required, do it immediately by the fastest means, then follow up with the written report as specified.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -11450,7 +11450,7 @@
     },
     {
       "card_id": "commercial_written_373",
-      "summary": "In steady flight the force pairs balance; when you change bank, pitch, or speed, lift/drag/weight/thrust (or tow tension) rearrange immediately.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -11468,7 +11468,7 @@
     },
     {
       "card_id": "commercial_written_374",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. Airspace answers usually need class + altitude + visibility/cloud clearance together. Chart depictions change when the tower closes.",
+      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band.",
       "links": [
         {
           "label": "Aeronautical Information Manual (AIM)",
@@ -11482,7 +11482,7 @@
     },
     {
       "card_id": "commercial_written_375",
-      "summary": "Soaring forecasts hinge on stability, moisture, and wind shear aloft. Virga, fronts, and convective cloud are clues to lift and to hazards.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Aviation Weather Handbook",
@@ -11496,7 +11496,7 @@
     },
     {
       "card_id": "commercial_written_376",
-      "summary": "High density altitude thins air: true airspeed reads higher for the same IAS, and both towplane and glider performance suffer — plan longer rolls and weaker climb. Min sink maximizes time; best L/D maximizes distance in still air; speed-to-fly trades glide ratio against wind and sink. Pick the job first.",
+      "summary": "High density altitude thins air: true airspeed reads higher for the same IAS, and both towplane and glider performance suffer — plan longer rolls and weaker climb.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -11538,7 +11538,7 @@
     },
     {
       "card_id": "commercial_written_379",
-      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong. In steady flight the force pairs balance; when you change bank, pitch, or speed, lift/drag/weight/thrust (or tow tension) rearrange immediately.",
+      "summary": "91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -11566,7 +11566,7 @@
     },
     {
       "card_id": "commercial_written_381",
-      "summary": "Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline. Lift type drives tactics: thermals need centering, ridge needs terrain clearance and wind, wave needs rotor awareness and oxygen planning.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -11580,7 +11580,7 @@
     },
     {
       "card_id": "commercial_written_382",
-      "summary": "Effective traffic scan is short eye movements across sectors with periodic distant focus — not a slow sweep that parks on the panel or the other seat. Written traps mix adjacent rules (NTSB vs Part 91, privilege vs limitation, required vs optional equipment). Name the part before you pick.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "14 CFR Part 91 — General Operating Rules",
@@ -11594,7 +11594,7 @@
     },
     {
       "card_id": "commercial_written_383",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. Airspace answers usually need class + altitude + visibility/cloud clearance together. Chart depictions change when the tower closes.",
+      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band.",
       "links": [
         {
           "label": "Aeronautical Information Manual (AIM)",
@@ -11608,7 +11608,7 @@
     },
     {
       "card_id": "commercial_written_384",
-      "summary": "Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band. Airspace answers usually need class + altitude + visibility/cloud clearance together. Chart depictions change when the tower closes.",
+      "summary": "Use the linked references to deepen the “why,” not just memorize the letter. Commercial written items often turn on a nearby rule or a look-alike definition.",
       "links": [
         {
           "label": "Aeronautical Information Manual (AIM)",

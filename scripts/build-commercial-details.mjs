@@ -141,8 +141,8 @@ const TOPIC_CONTEXT = {
 };
 
 /**
- * Keyword → extra teaching note. Matched against question+answer+choices for relevance,
- * but the note itself must add context (regs, traps, related numbers) — never restate the key.
+ * Keyword → extra teaching note. Matched against question+choices for relevance.
+ * Keep regexes tight — bare tokens like "front", "vs", "limitations", or "scan" false-trigger.
  */
 const KEYWORD_NOTES = [
   {
@@ -150,11 +150,11 @@ const KEYWORD_NOTES = [
     note: '“Substantial damage” is about structural strength, performance, or flight characteristics needing major repair — paint scratches and tire changes do not qualify.',
   },
   {
-    re: /ntsb|part 830|immediate notification/,
+    re: /\bntsb\b|part 830|(?:accident|incident).{0,40}notification|notification.{0,40}(?:accident|incident|ntsb)/,
     note: 'Part 830 separates accidents from listed incidents; when notification is required, do it immediately by the fastest means, then follow up with the written report as specified.',
   },
   {
-    re: /airworthiness directive|\bads?\b/,
+    re: /airworthiness directives?/,
     note: 'ADs are legally binding under Part 39. Compliance is an owner/operator duty before further flight unless an AMOC is approved.',
   },
   {
@@ -162,7 +162,7 @@ const KEYWORD_NOTES = [
     note: 'Annual is always on the calendar; 100-hour is driven by for-hire use (instruction or paid rides). One does not replace the other.',
   },
   {
-    re: /inoperative|mel\b|91\.213/,
+    re: /inoperative|\bmel\b|91\.213/,
     note: 'Without an MEL, 91.213(d) means deactivate or remove, placard, and confirm the airplane/glider is still safe. Required instruments listed in the POH cannot be deferred.',
   },
   {
@@ -170,15 +170,15 @@ const KEYWORD_NOTES = [
     note: 'Commercial operator / privilege questions turn on whether persons or property are carried for compensation or hire — and in which category the certificate authorizes that work.',
   },
   {
-    re: /class [bcd]|basic vfr|cloud clearance|visibility/,
+    re: /basic vfr|cloud clearance|flight visibility|weather minimum|\d+\s*(?:sm|statute miles?).{0,30}visibility|visibility.{0,30}\d+\s*(?:sm|statute)/,
     note: 'Below 10,000 MSL in C/D/E the classic memory aid is 3-152: 3 SM visibility, 1,000 above, 500 below, 2,000 horizontal — then adjust for class and altitude band.',
   },
   {
-    re: /class d|tower.*closed|part-time tower/,
+    re: /class d.{0,60}(?:tower|closed)|tower.{0,40}closed|part-time tower/,
     note: 'When a part-time Class D tower closes, the airspace typically reverts to Class E (or G) as charted — weather minimums and radio requirements change with it.',
   },
   {
-    re: /\bwinch\b|\bauto-?tow\b|pitch oscillation/,
+    re: /\bwinch\b|\bauto-?tow\b/,
     note: 'Winch launches punish over-rotation: ease back-pressure and shallow the climb if the glider starts porpoising; a cable break on a steep winch climb needs an immediate nose-down.',
   },
   {
@@ -186,47 +186,55 @@ const KEYWORD_NOTES = [
     note: '91.309 cares about towline length, breaking strength vs glider MGW, and which end gets the weaker safety link when the rope is too strong.',
   },
   {
-    re: /oxygen|91\.211|hypoxia/,
+    re: /(?:supplemental )?oxygen|91\.211|hypoxia/,
     note: 'Supplemental oxygen rules are time-and-altitude based for the required crew; passengers have a higher altitude trigger. Hypoxia sneaks up — use oxygen before you “feel fine.”',
   },
   {
-    re: /\bcg\b|center of gravity|weight and balance|ballast/,
+    re: /\bcg\b|center of gravity|weight and balance|ballast|\bdatum\b|\bmoment\b/,
     note: 'Aft CG reduces pitch stability and can worsen stall/spin recovery; forward CG raises stall speed and makes the flare heavier. Stay inside the published envelope.',
   },
   {
-    re: /stall|critical angle|spin|autorotation/,
+    re: /\bstall(?:s|ed|ing)?\b|critical angle|autorotation|\bspin(?:s|ning)?\b/,
     note: 'Stall is AOA, not airspeed. A spin needs stall plus yaw; a steep spiral is not stalled and builds speed/G quickly — different recoveries.',
   },
   {
-    re: /min(?:imum)? sink|best l\/d|l\/d|speed to fly|maccready|mac cready/,
+    re: /min(?:imum)? sink|best l\/d|speed to fly|maccready|mac cready|glide ratio/,
     note: 'Min sink ≠ best L/D ≠ MacCready speed-to-fly. Using the wrong one wastes either altitude or distance, especially in sink or headwind.',
   },
   {
-    re: /virga|thunderstorm|front|stability|thermal|wave|ridge/,
+    re: /stable air|unstable air|air mass is characterized/,
+    note: 'Stable air tends toward smooth flight, stratiform clouds, and steadier precip; unstable air brings turbulence, cumuliform clouds, good surface visibility, and showery weather.',
+  },
+  {
+    re: /virga|thunderstorm|(?:cold|warm|occluded|stationary)\s+fronts?|frontal|atmospheric stability|\bthermals?\b|standing wave|mountain wave|ridge (?:lift|soaring)|soaring forecast|k index/,
     note: 'Lift and hazards travel together: virga hints at evaporative cooling/outflow, fronts change stability, and wave/rotor demand terrain and oxygen discipline.',
   },
   {
-    re: /scan|collision|see and avoid|traffic/,
+    re: /traffic scan|collision avoidance|see and avoid|clearing turns?/,
     note: 'Effective traffic scan is short eye movements across sectors with periodic distant focus — not a slow sweep that parks on the panel or the other seat.',
   },
   {
-    re: /wake turbulence|boxing the wake/,
-    note: 'Stay outside the towplane’s wake when boxing; give yourself altitude to recover if you get spit out. Jet/heavy wake is a separate landing/takeoff hazard.',
+    re: /boxing the wake/,
+    note: 'Stay slightly outside the towplane’s wake when boxing; give yourself altitude to recover if you get spit out. Practice high enough (about 1,000 ft AGL+) to recover.',
   },
   {
-    re: /density altitude|\bhigh da\b|pressure altitude.*temperature|takeoff distance|performance chart/,
+    re: /wake turbulence|wingtip vort|\bvortices\b|vortex avoidance/,
+    note: 'Jet/heavy wake sinks and drifts with the wind — rotate past the large aircraft’s path, land beyond its touchdown point, and allow a few minutes after a heavy landing before your takeoff.',
+  },
+  {
+    re: /density altitude|\bhigh da\b|pressure altitude|takeoff distance/,
     note: 'High density altitude thins air: true airspeed reads higher for the same IAS, and both towplane and glider performance suffer — plan longer rolls and weaker climb.',
   },
   {
-    re: /v-?speed|\bvs\b|\bvne\b|\bva\b|maneuvering/,
-    note: 'V-speeds are defined terms. VS is stall / minimum steady flight speed in a defined configuration — do not confuse it with approach or min-sink speeds.',
+    re: /v-?speeds?|\bv\([a-z]+\)|never-exceed|\bvne\b|maneuvering speed|stalling speed|maximum structural cruising|design maneuvering/,
+    note: 'V-speeds are defined terms. Match the symbol (VS, VA, VNE, VNO, …) to the Part 1 / POH definition — do not swap approach, min-sink, or structural limits.',
   },
   {
-    re: /flight manual|afm|poh|limitations/,
+    re: /flight manual|\bafm\b|\bpoh\b|operating limitations/,
     note: 'The approved Flight Manual / POH is the controlling document for limitations, loading, and required equipment for that serial-number aircraft.',
   },
   {
-    re: /right of way|converging|head-on|overtaking/,
+    re: /right[- ]of[- ]way|converging|head-on|overtaking/,
     note: 'Right-of-way rules prevent midairs when radio fails: head-on both alter right, converging yield to the right, overtaking keep clear of the one ahead — gliders still follow 91.113.',
   },
   {
@@ -234,18 +242,77 @@ const KEYWORD_NOTES = [
     note: 'Surface painted holding-position markings and red/white runway signs are hard stops without clearance — chart supplement and AIM figures are worth a quick review.',
   },
   {
-    re: /slip|forward slip|side slip/,
+    re: /forward slip|side slip|sideslip|slipping turn/,
     note: 'Slips trade altitude for track without adding much airspeed when spoilers are already out or unavailable — recover to coordinated flight with enough height left to flare.',
   },
   {
-    re: /medical|basicmed|fitness|alcohol|drug/,
+    re: /medical certificate|basicmed|\balcohol\b|narcotic|controlled substance/,
     note: 'Glider commercial ops still need a medical path that matches the operation. Impairments (alcohol, meds, fatigue) are judgment failures before they are regulatory ones.',
   },
   {
-    re: /notam|chart supplement|sectional|tf?r\b/,
+    re: /\bnotam\b|chart supplement|sectional chart|\btfr\b/,
     note: 'Preflight data is layered: sectional for structure, Chart Supplement for local procedures, NOTAMs/TFRs for what changed today — skip one layer and you miss a closure.',
   },
+  {
+    re: /hyperventilation/,
+    note: 'Hyperventilation is often confused with hypoxia — slow the breathing rate / talk aloud; do not reach for oxygen as the first fix when the cause is over-breathing.',
+  },
+  {
+    re: /spatial disorientation/,
+    note: 'Trust the instruments over seat-of-the-pants when visual references are poor — spatial disorientation recovers with a stable instrument cross-check, not by “feeling” level.',
+  },
+  {
+    re: /decide model|aeronautical decision|hazardous attitude|dangerous tendencies|get-there-itis|macho|impulsiv|invulnerab|resignation/,
+    note: 'ADM frameworks (DECIDE, 3P, hazardous attitudes) are decision process tools — name the step or attitude the question is probing before picking a look-alike option.',
+  },
+  {
+    re: /aspect ratio/,
+    note: 'Aspect ratio = span² / wing area (or span / average chord). Higher AR usually means better L/D and less induced drag for a given lift.',
+  },
+  {
+    re: /\bvor\b|omni bearing|cdi needle|vhf\/df/,
+    note: 'VOR checks have published error limits (±4° airborne / ±6° ground on an FAA checkpoint, depending on the check type) — match the question to the check method.',
+  },
+  {
+    re: /load factor|angle of bank/,
+    note: 'In a level turn, load factor rises with bank (≈2 G at 60°). Stall speed rises with the square root of load factor — steep banks need more AoA/airspeed margin.',
+  },
+  {
+    re: /self-?\s*launch|powered glider/,
+    note: 'Self-launch privileges need the right certificate/endorsement path — do not assume aerotow or airplane experience automatically covers powered-glider launches.',
+  },
+  {
+    re: /formation flight/,
+    note: 'Formation requires prior arrangement with each PIC — casual “join up” without a brief is not legal formation flying.',
+  },
 ];
+
+/** Only append TOPIC_CONTEXT when the stem/choices actually support that topic. */
+const TOPIC_EVIDENCE = {
+  comm_certs: /certificate|privilege|rating|commercial pilot|61\.|towing a glider|self-?\s*launch/,
+  comm_airworthy: /airworth|inspection|airworthiness directive|maintenance|inoperative|annual|100-?hour/,
+  comm_aeromedical:
+    /hypoxia|hyperventilation|medical|fatigue|alcohol|hazardous attitude|dangerous tendencies|imsafe|spatial disorientation|decide model|aeronautical decision|stress/,
+  comm_scan: /scan|collision|traffic|see and avoid|clearing|wake turbulence|wingtip vort|vortex/,
+  comm_aero: /lift|drag|airfoil|force|load factor|angle of (?:attack|bank)|stability|pressure|wing|aspect ratio/,
+  comm_controls: /aileron|rudder|elevator|spoiler|trim|adverse yaw|flight controls/,
+  comm_wb: /\bcg\b|weight|balance|ballast|moment|arm|datum|empty weight/,
+  comm_nav: /navigat|pilotage|dead reckoning|course|heading|\bvor\b|cross-country|\bxc\b|cdi|omni/,
+  comm_regs: /\bcfr\b|regulation|\bntsb\b|part \d+|91\.|61\.|required|may not|shall not|formation/,
+  comm_airspace: /class [a-g]|airspace|tower|tfr|moa|restricted|alert area|warning area/,
+  comm_preflight: /preflight|assembly|preventive maintenance|checklist|document/,
+  comm_airport: /runway|taxi|airport|holding|sign|marking|traffic pattern/,
+  comm_tow: /\btow\b|rope|release|weak link|aerotow|winch|self-?\s*launch/,
+  comm_landings: /landing|touch|aim point|flare|approach|stop short/,
+  comm_perf:
+    /min(?:imum)? sink|best l\/d|speed to fly|maccready|glide ratio|density altitude|v-?speed|\bv\([a-z]+\)|never-exceed|maneuvering speed|stalling speed/,
+  comm_soaring: /thermal|ridge|wave|soar|virga|cloud street|k index|lift/,
+  comm_maneuvers: /steep turn|maneuver|bank|720/,
+  comm_stalls: /\bstall|\bspin|buffet|critical angle/,
+  comm_emergency: /emergency|rope break|off-field|failure|abnormal/,
+  comm_weather: /weather|metar|taf|front|thunderstorm|icing|fog|dewpoint|pressure system|virga|stability|wind/,
+  comm_systems: /pitot|static|compass|instrument|asi|altimeter|total energy|variometer|oxygen system/,
+};
 
 /** Seed commercial practical cards (short IDs) — hand-tuned teaching notes. */
 const SEED_DETAILS = [
@@ -372,10 +439,19 @@ const SEED_DETAILS = [
 ];
 
 function corpus(card) {
-  // Match on stem/choices only. Omit the answer (so Details never echoes the key)
-  // and omit topic titles/ids (e.g. “Aerotow & abnormals”) that false-trigger tips.
-  const parts = [card.question, ...(Array.isArray(card.choices) ? card.choices : [])];
-  return parts.filter(Boolean).join(' ').toLowerCase();
+  // Match on the stem only. Omit answer (so Details never echoes the key),
+  // omit choices (wrong options inject distractor terms like “load factor” / “V(A)”),
+  // and omit topic titles/ids that false-trigger tips.
+  return String(card.question || '')
+    .toLowerCase()
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function topicFits(card, text) {
+  const evidence = TOPIC_EVIDENCE[card.topic_id];
+  if (!evidence) return false;
+  return evidence.test(text);
 }
 
 /**
@@ -391,8 +467,12 @@ function buildSummary(card) {
     if (notes.length >= 2) break;
   }
 
+  // Topic backdrop only when NO keyword tip matched AND the stem supports that topic.
+  // Never pad a good keyword note with unrelated topic boilerplate (e.g. min-sink on VNE).
   const topicNote = TOPIC_CONTEXT[card.topic_id];
-  if (topicNote && notes.length < 2) notes.push(topicNote);
+  if (!notes.length && topicNote && topicFits(card, text)) {
+    notes.push(topicNote);
+  }
 
   if (!notes.length) {
     notes.push(
