@@ -1148,6 +1148,13 @@
       padding: 4px 0;
       cursor: pointer;
     }
+    .card-toolbar .linkish:disabled { opacity: 0.55; cursor: default; }
+    .card-toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
     .edit-card label {
       display: block;
       margin-top: 8px;
@@ -1378,16 +1385,6 @@
       color: var(--muted);
       font-weight: 600;
     }
-    .flag-pill {
-      border: 1px solid #E2B4B4;
-      background: #FFF5F5;
-      color: #9B2C2C;
-      border-radius: 999px;
-      padding: 8px 12px;
-      font-size: 0.82rem;
-      font-weight: 700;
-    }
-    .flag-pill:disabled { opacity: 0.55; }
     .admin-flag-list .flag-row {
       padding: 10px 0;
       border-bottom: 1px solid #E6EEF3;
@@ -2220,7 +2217,10 @@
                 <span class="meta-remaining">${remaining} remaining in session</span>
                 <span class="topic-pill" title="${escapeHtml(card.topic_id || '')}">${escapeHtml(topicTitle)}</span>
               </div>
-              ${isAdminUser() ? `<button type="button" class="linkish" id="toggleEditBtn">${state.study.editing ? 'Editing…' : 'Edit'}</button>` : ''}
+              <div class="card-toolbar-actions">
+                ${isAdminUser() ? `<button type="button" class="linkish" id="toggleEditBtn">${state.study.editing ? 'Editing…' : 'Edit'}</button>` : ''}
+                <button type="button" class="linkish" id="flagCardBtn" data-card-id="${escapeHtml(card.id)}">Flag error</button>
+              </div>
             </div>
             ${state.study.editing ? renderEditCard(card) : `
               <div class="q">${formatRichText(card.question)}</div>
@@ -2244,7 +2244,6 @@
                   <button type="button" class="figure-pill has-figure" id="cardFigureBtn" data-card-id="${escapeHtml(card.id)}">Figure ${escapeHtml(String(card.figure.number))}</button>
                 ` : ''}
                 <button type="button" class="calc-pill" id="cardCalcBtn">Calculator</button>
-                <button type="button" class="flag-pill" id="flagCardBtn" data-card-id="${escapeHtml(card.id)}">Flag error</button>
               </div>
               ${state.study.revealed ? `
                 ${!(Array.isArray(card.choices) && card.choices.length) ? `<div class="a">${escapeHtml(card.answer)}</div>` : ''}
