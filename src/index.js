@@ -1,4 +1,5 @@
 import express from 'express';
+import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { requireAuth } from './auth/middleware.js';
@@ -21,11 +22,64 @@ import { createStore } from './store.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC_DIR = path.join(__dirname, '..', 'public');
+const INDEX_PATH = path.join(PUBLIC_DIR, 'index.html');
 const SERVICE_STARTED_AT = new Date().toISOString();
+
+function assetVersionToken() {
+  const instance = readInstanceBuildMeta();
+  return (
+    instance.deployment_id ||
+    instance.git_commit ||
+    getAppBuildMeta().version ||
+    String(SERVICE_STARTED_AT)
+  );
+}
+
+function loadIndexHtml() {
+  const raw = fs.readFileSync(INDEX_PATH, 'utf8');
+  const v = encodeURIComponent(assetVersionToken());
+  // Cache-bust relative app assets so Refresh after deploy cannot keep stale JS/CSS.
+  return raw.replace(
+    /(src|href)=["'](\/(?:aircraft\/)?[^"']+\.(?:js|css))["']/g,
+    (_m, attr, url) => `${attr}="${url}?v=${v}"`
+  );
+}
+
+function setStaticCacheHeaders(res, filePath) {
+  const lower = String(filePath || '').toLowerCase();
+  if (lower.endsWith('.html') || lower.endsWith('.js') || lower.endsWith('.css') || lower.endsWith('.json')) {
+    res.setHeader('Cache-Control', 'no-store');
+    return;
+  }
+  // Images/fonts can be cached briefly; query-bust still works when HTML changes.
+  res.setHeader('Cache-Control', 'public, max-age=300, must-revalidate');
+}
+
+function logSeedSummary(seeded) {
+  console.log(
+    `[glider-training] seed tracks=${seeded.tracks} topics=${seeded.topics} new_cards=${seeded.cards}` +
+      (seeded.foi_cards != null ? ` foi_cards=${seeded.foi_cards}` : '') +
+      (seeded.private_cards != null ? ` private_cards=${seeded.private_cards}` : '') +
+      (seeded.answers_aligned != null ? ` answers_aligned=${seeded.answers_aligned}` : '') +
+      (seeded.answer_selection_flags != null
+        ? ` answer_flags=${seeded.answer_selection_flags}`
+        : '') +
+      (seeded.cfi_g_topic_remaps != null ? ` cfi_g_topic_remaps=${seeded.cfi_g_topic_remaps}` : '') +
+      (seeded.card_details_upserted != null
+        ? ` card_details=${seeded.card_details_upserted}`
+        : '') +
+      (seeded.card_figures_upserted != null
+        ? ` card_figures=${seeded.card_figures_upserted}`
+        : '')
+  );
+}
 
 async function main() {
   const config = loadGliderTrainingConfig();
   const pool = await createGliderPool(config);
+  let seeding = false;
+  let seedError = null;
+
   if (pool) {
     await ensureGliderSchema(pool);
     const adminBoot = await bootstrapGliderAdmins(pool, config.adminBootstrapEmails);
@@ -33,28 +87,12 @@ async function main() {
       `[glider-training] admins=${adminBoot.admins}` +
         (adminBoot.bootstrapped ? ' (bootstrap applied)' : '')
     );
-    const seeded = await seedGliderContent(pool);
-    console.log(
-      `[glider-training] seed tracks=${seeded.tracks} topics=${seeded.topics} new_cards=${seeded.cards}` +
-        (seeded.foi_cards != null ? ` foi_cards=${seeded.foi_cards}` : '') +
-        (seeded.private_cards != null ? ` private_cards=${seeded.private_cards}` : '') +
-        (seeded.answers_aligned != null ? ` answers_aligned=${seeded.answers_aligned}` : '') +
-        (seeded.answer_selection_flags != null
-          ? ` answer_flags=${seeded.answer_selection_flags}`
-          : '') +
-        (seeded.cfi_g_topic_remaps != null ? ` cfi_g_topic_remaps=${seeded.cfi_g_topic_remaps}` : '') +
-        (seeded.card_details_upserted != null
-          ? ` card_details=${seeded.card_details_upserted}`
-          : '') +
-        (seeded.card_figures_upserted != null
-          ? ` card_figures=${seeded.card_figures_upserted}`
-          : '')
-    );
   }
 
   const store = await createStore(pool);
   const app = express();
   app.set('trust proxy', 1);
+  const indexHtml = loadIndexHtml();
 
   if (config.auth.enabled) {
     app.use(createSessionMiddleware(config.auth));
@@ -74,6 +112,8 @@ async function main() {
       deployment_id: instance.deployment_id,
       environment: instance.environment,
       started_at: SERVICE_STARTED_AT,
+      seeding,
+      seed_error: seedError,
       database_configured: Boolean(config.database.url),
       import_password_required: Boolean(config.importPassword),
       auth_enabled: Boolean(config.auth.enabled)
@@ -81,15 +121,22 @@ async function main() {
   });
 
   app.get('/api/v1/app/meta', (_req, res) => {
-    res.json(getAppBuildMeta('glider-training'));
+    res.json({
+      ...getAppBuildMeta('glider-training'),
+      seeding,
+      seed_error: seedError
+    });
   });
 
   app.get('/api/deploy-status', (req, res) => {
-    res.json(
-      getDeployStatusPayload({
-        pageLoadDeploymentId: req.query.page_load_deployment_id ?? null
-      })
-    );
+    const payload = getDeployStatusPayload({
+      pageLoadDeploymentId: req.query.page_load_deployment_id ?? null
+    });
+    res.json({
+      ...payload,
+      seeding,
+      seed_error: seedError
+    });
   });
 
   registerAuthRoutes(app, {
@@ -101,23 +148,21 @@ async function main() {
   // Gate SPA + APIs when Google auth is on (public auth/health routes already registered)
   app.use(requireAuth(config.auth));
 
-  // Avoid caching the SPA shell so version bumps show after Refresh
   app.use(
     express.static(PUBLIC_DIR, {
       index: false,
+      etag: false,
+      lastModified: false,
       maxAge: 0,
-      setHeaders(res, filePath) {
-        if (filePath.endsWith('.html')) {
-          res.setHeader('Cache-Control', 'no-store');
-        }
-      }
+      setHeaders: setStaticCacheHeaders
     })
   );
 
   registerGliderApi(app, { store, config });
 
   app.get('*', (_req, res) => {
-    res.sendFile(path.join(PUBLIC_DIR, 'index.html'));
+    res.setHeader('Cache-Control', 'no-store');
+    res.type('html').send(indexHtml);
   });
 
   const server = app.listen(config.port, () => {
@@ -125,6 +170,23 @@ async function main() {
       `[glider-training] listening on port ${config.port} auth=${config.auth.enabled ? 'on' : 'off'}`
     );
   });
+
+  // Seed after listen so Railway health / browser reconnect while content syncs.
+  if (pool) {
+    seeding = true;
+    console.log('[glider-training] seeding content in background…');
+    seedGliderContent(pool)
+      .then((seeded) => {
+        seeding = false;
+        seedError = null;
+        logSeedSummary(seeded);
+      })
+      .catch((error) => {
+        seeding = false;
+        seedError = error?.message || String(error);
+        console.error('[glider-training] background seed failed:', error);
+      });
+  }
 
   const shutdown = async (signal) => {
     console.log(`[glider-training] ${signal}; shutting down`);

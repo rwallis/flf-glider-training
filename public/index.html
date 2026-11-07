@@ -1606,18 +1606,41 @@
       return 'v' + (meta.version || '?') + commit + env;
     }
 
-    function setDeployPill(ui, gitCommit) {
+    function hardReloadApp() {
+      // Bypass cached shell/assets after a deploy (query token changes server-side too).
+      const url = new URL(window.location.href);
+      url.searchParams.set('_refresh', String(Date.now()));
+      window.location.replace(url.toString());
+    }
+
+    function setDeployPill(ui, gitCommit, extra) {
       const el = document.getElementById('header-deploy');
       if (!el || !ui) return;
       el.className = 'deploy-pill ' + (ui.tone || 'muted');
       if (ui.refresh_recommended) {
         el.innerHTML = '<span>' + (ui.label || 'New version ready') + '</span> <button type="button" data-deploy-refresh>Refresh</button>';
         const btn = el.querySelector('[data-deploy-refresh]');
-        if (btn) btn.addEventListener('click', function () { window.location.reload(); });
+        if (btn) btn.addEventListener('click', hardReloadApp);
+        return;
+      }
+      if (extra && extra.seeding) {
+        el.className = 'deploy-pill muted';
+        el.textContent = 'Seeding content…';
         return;
       }
       const commit = gitCommit ? (' · ' + gitCommit) : '';
       el.textContent = (ui.label || 'Deploy') + commit;
+    }
+
+    let deployPollDelayMs = 15000;
+    let deployPollTimer = null;
+
+    function scheduleDeployPoll() {
+      if (deployPollTimer) clearTimeout(deployPollTimer);
+      deployPollTimer = window.setTimeout(async () => {
+        await pollDeployStatus();
+        scheduleDeployPoll();
+      }, deployPollDelayMs);
     }
 
     async function pollDeployStatus() {
@@ -1631,10 +1654,14 @@
         if (!pageLoadDeploymentId && deploy.instance?.deployment_id) {
           pageLoadDeploymentId = deploy.instance.deployment_id;
         }
-        setDeployPill(deploy.ui || {}, deploy.instance?.git_commit || null);
+        setDeployPill(deploy.ui || {}, deploy.instance?.git_commit || null, {
+          seeding: Boolean(deploy.seeding)
+        });
+        deployPollDelayMs = deploy.seeding || (deploy.ui && deploy.ui.refresh_recommended) ? 4000 : 15000;
       } catch {
         el.className = 'deploy-pill active';
         el.textContent = 'Reconnecting…';
+        deployPollDelayMs = 2500;
       }
     }
 
@@ -1649,15 +1676,18 @@
         if (!pageLoadDeploymentId && deploy.instance?.deployment_id) {
           pageLoadDeploymentId = deploy.instance.deployment_id;
         }
-        setDeployPill(deploy.ui || {}, deploy.instance?.git_commit || meta.git_commit || null);
+        setDeployPill(deploy.ui || {}, deploy.instance?.git_commit || meta.git_commit || null, {
+          seeding: Boolean(deploy.seeding || meta.seeding)
+        });
+        deployPollDelayMs = deploy.seeding || meta.seeding ? 4000 : 15000;
       } catch {
         const versionEl = document.getElementById('header-version');
         if (versionEl) versionEl.textContent = 'app';
+        deployPollDelayMs = 2500;
       }
     }
 
-    loadHeaderMeta();
-    window.setInterval(pollDeployStatus, 15000);
+    loadHeaderMeta().finally(scheduleDeployPoll);
 
     function trackLabel(id) {
       return ({
