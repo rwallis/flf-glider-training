@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T19:36:11.496Z",
+  "generated_at": "2026-11-07T19:43:16.554Z",
   "count": 45,
   "details": [
     {
@@ -536,7 +536,7 @@
     },
     {
       "card_id": "foi_written_137",
-      "summary": "Matching cuts guessing among selection-type (choose-from-options items such as multiple-choice or true/false) items: each prompt must pair correctly across the set, so random luck helps far less than on a single multiple-choice pick. Essay is supply-type (write-in / short-answer items the student must produce), not selection-type.",
+      "summary": "Matching is a selection-type (choose-from-options items such as multiple-choice or true/false) item: the student pairs each premise (left) with one response (right) from a shared list. Guessing is harder than on a single multiple-choice question because a wrong pair “uses up” a response and can spoil later pairs — random luck does not stay independent item-to-item. True/false is ~50% per item; one MC item is often 25–33% if you guess; a matching set compounds those odds downward. Essay is supply-type (write-in), so it is not in the selection-type family this stem asks about.",
       "links": [
         {
           "label": "AIH — Assessment / Critique & Evaluation",

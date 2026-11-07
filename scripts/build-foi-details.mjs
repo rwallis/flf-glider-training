@@ -149,7 +149,7 @@ const CARD_OVERRIDES = {
   foi_written_136:
     'Keep MC alternatives about equal length so students cannot “guess the longest.” Equal length is a classic effective-item rule.',
   foi_written_137:
-    'Matching cuts guessing among selection-type items: each prompt must pair correctly across the set, so random luck helps far less than on a single multiple-choice pick. Essay is supply-type, not selection-type.',
+    'Matching is a selection-type item: the student pairs each premise (left) with one response (right) from a shared list. Guessing is harder than on a single multiple-choice question because a wrong pair “uses up” a response and can spoil later pairs — random luck does not stay independent item-to-item. True/false is ~50% per item; one MC item is often 25–33% if you guess; a matching set compounds those odds downward. Essay is supply-type (write-in), so it is not in the selection-type family this stem asks about.',
   foi_written_148:
     'A pretest of entry knowledge/skills is a criterion-referenced check against the start standard — can they begin the course?',
   foi_written_156:
