@@ -1,8 +1,10 @@
 /**
- * Build Details (summary + reference links) for FOI / Fundamentals of Instructing questions.
- * Merges into content/card-details.json; regenerates foi_written_* entries only.
+ * Build Details (summary + reference links) for FOI / Fundamentals of Instructing.
+ * Regenerates foi_written_* entries in content/card-details.json.
  *
- * Summaries add teaching context / traps — they never restate the question or keyed answer.
+ * Rules:
+ * - Match primarily on the question STEM (choices false-trigger too easily).
+ * - Summaries teach the trap / nearby FOI distinctions — never restate the keyed answer.
  *
  * Run: node scripts/build-foi-details.mjs
  */
@@ -19,8 +21,6 @@ const AIH_URL =
   'https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/aviation_instructors_handbook';
 const AIH_PDF =
   'https://www.faa.gov/sites/faa.gov/files/regulations_policies/handbooks_manuals/aviation/aviation_instructors_handbook/aviation_instructors_handbook.pdf';
-const PTS_URL = 'https://www.faa.gov/training_testing/testing/test_standards';
-const PART61_URL = 'https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61';
 
 const LINKS = {
   aih: {
@@ -57,11 +57,11 @@ const LINKS = {
   },
   pts: {
     label: 'FAA Practical Test Standards / ACS',
-    url: PTS_URL,
+    url: 'https://www.faa.gov/training_testing/testing/test_standards',
   },
   part61: {
     label: '14 CFR Part 61 — Certification: Instructors',
-    url: PART61_URL,
+    url: 'https://www.ecfr.gov/current/title-14/chapter-I/subchapter-D/part-61',
   },
   ac6165: {
     label: 'AC 61-65 — Certification: Endorsements',
@@ -81,344 +81,919 @@ const TOPIC_LINKS = {
 
 const TOPIC_CONTEXT = {
   foi_learning:
-    'FOI learning items turn on definitions (behavior change, principles, levels, domains, memory, transfer). Match the stem to the exact AIH term — look-alike principles are the usual trap.',
+    'Map the stem to the exact AIH learning term (principle, level, domain, memory, transfer). Nearby look-alikes are the usual trap.',
   foi_human:
-    'Human-behavior questions mix Maslow needs, motivation type, and defense mechanisms. Name the mechanism or need layer before picking the look-alike option.',
+    'Name the need layer, motivation type, or defense mechanism the stem describes before comparing choices.',
   foi_teaching:
-    'Teaching-process answers hinge on method fit: lecture for ideas, demo/performance for skills, guided discussion for shared reasoning — not “whatever feels interactive.”',
+    'Pick the method that fits the job: lecture for ideas, demo/performance for skills, guided discussion for shared reasoning.',
   foi_critique:
-    'A useful critique is constructive, objective, and forward-looking. Oral quizzes check understanding during the lesson; practical tests measure certification standards.',
+    'Critique and test items turn on purpose: improve performance, measure a standard, or write items that actually discriminate.',
   foi_planning:
-    'Syllabus, lesson plan, and introduction sequence set readiness and objectives before presentation. Plateaus and threat kill progress faster than weak content.',
+    'Objectives and blocks of learning come first; syllabus and lesson plans only work when the student can see the path.',
   foi_instructor:
-    'Professional instructors communicate so receivers change behavior with understanding — abstractions, common experience, and sincerity decide whether instruction actually happened.',
+    'Professional instruction is measured by receiver understanding and behavior change — not by how much was transmitted.',
   foi_misc:
-    'FOI miscellaneous items usually retest a nearby AIH definition (levels, domains, organization of material, group learning). Use the handbook wording, not a casual synonym.',
+    'FOI misc items usually retest a nearby AIH definition. Prefer handbook wording over a casual synonym.',
 };
 
 /**
- * Keyword → extra teaching note. Matched against question+choices for relevance.
- * Keep regexes tight so neighboring FOI terms do not false-trigger.
+ * Stem-specific tips. Order matters: first match wins (then optional second).
+ * Keep patterns tight to the question wording.
  */
-const KEYWORD_NOTES = [
+const STEM_NOTES = [
+  // ── Principles of learning ─────────────────────────────────────────────
   {
-    re: /\bchange in behavior\b|\bdefined as\b.*\blearning\b|learning can be defined/,
-    note: 'Learning, in FOI terms, is a change in behavior from experience — knowing a fact without a usable change does not meet the definition.',
+    re: /change in behavior as a result of experience/,
+    note: 'FOI defines learning as a change in behavior from experience — mere exposure without usable change does not qualify.',
   },
   {
-    re: /verbal, conceptual|elements such as verbal|problem solving/,
-    note: 'Learning includes multiple elements (verbal, conceptual, perceptual, motor, problem solving, emotional). Do not collapse “learning” into memorizing words alone.',
+    re: /verbal, conceptual/,
+    note: 'Learning has several elements (verbal, conceptual, perceptual, motor, problem solving, emotional). Do not shrink it to “memorizing words.”',
   },
   {
-    re: /\bincidental\b|additional learning|learning other things as well/,
-    note: 'Incidental learning is the side learning that happens while the planned objective is taught — attitudes and habits often form here.',
+    re: /additional learning is called|learning other things as well/,
+    note: 'Side learning that happens while the planned objective is taught is incidental — attitudes and habits often form there.',
   },
   {
-    re: /best way to prepare a student|step-by-step example|clear, step-by-step/,
-    note: 'Prepare a student for a task with a clear step-by-step example — purpose alone or a bare outline leaves the how-to fuzzy.',
+    re: /clear objective.*principle|principle of readiness/,
+    note: 'Principles map: clear objective/prepared learner → readiness; practice toward a goal → exercise; emotional result → effect; first-learned → primacy; vivid/real → intensity; last-practiced → recency.',
   },
   {
-    re: /proper habits and correct techniques|ensure proper habits/,
-    note: 'Correct habits form early: insist on right technique from the start (primacy). Tolerating sloppy practice trains the wrong habit.',
+    re: /opportunities for a student to practice|principle of exercise/,
+    note: 'Practice directed toward a goal is exercise. Undirected repetition is not the same principle.',
   },
   {
-    re: /\bprinciple of readiness\b|\breadiness\b/,
-    note: 'Readiness: learners advance faster when they have a clear objective and are prepared (physically, mentally, emotionally) for the lesson.',
+    re: /emotional reaction of the learner|principle of effect/,
+    note: 'Effect ties learning to the learner’s emotional result — satisfying outcomes stick; threat and frustration work against retention.',
   },
   {
-    re: /\bprinciple of exercise\b|\bopportunities for a student to practice\b/,
-    note: 'Exercise: things practiced toward a goal are learned and retained; undirected repetition is not the same principle.',
+    re: /things most often repeated|often repeated are best remembered/,
+    note: '“Most often repeated → best remembered” is exercise (use it or lose it), not recency or intensity.',
   },
   {
-    re: /\bprinciple of effect\b|emotional reaction of the learner/,
-    note: 'Effect: learning sticks when it produces a satisfying emotional result; frustration and threat work against retention.',
+    re: /real thing than from a substitute|principle of intensity/,
+    note: 'Intensity: vivid, realistic, or striking experiences beat dull substitutes. “Real thing vs substitute” is the intensity clue.',
   },
   {
-    re: /\bprinciple of primacy\b|\bprimacy\b/,
-    note: 'Primacy: what is learned first creates a strong, lasting impression — teach it right the first time; unlearning bad habits is expensive.',
+    re: /sequence of lectures within a course|principle of recency/,
+    note: 'Recency often drives course/lecture order — put what must be remembered last, and review critical items at the end.',
   },
   {
-    re: /\bprinciple of intensity\b|\bstrong impression\b|real thing than from a substitute/,
-    note: 'Intensity: vivid, realistic, or emotionally striking experiences teach better than dull or abstract substitutes.',
+    re: /often creates a strong impression/,
+    note: 'A “strong first impression” clue points to primacy: teach it correctly the first time; unlearning is expensive.',
   },
   {
-    re: /\bprinciple of recency\b|\brecency\b|sequence of lectures/,
-    note: 'Recency: things most recently practiced are best remembered — end lessons with the critical skill or review you need retained.',
+    re: /basis of all learning/,
+    note: 'Perception is the starting gate — all higher learning builds on how the student senses and interprets the situation.',
+  },
+
+  // ── Perception / insight ───────────────────────────────────────────────
+  {
+    re: /basic need that affects all of a person's perceptions|need to maintain|self.?image|self.?concept/,
+    note: 'Self-concept filters perception: people protect a favorable picture of themselves, which can block new training.',
   },
   {
-    re: /\bperceptions?\b|perceptual process|mental grouping|insights?\b/,
-    note: 'Perceptions are meanings given to sensations; insights group those perceptions into understanding. Self-concept, goals, and threat filter what the student “sees.”',
+    re: /properly planned training syllabus/,
+    note: 'Time and opportunity (via a planned syllabus) is a perception factor — unscheduled or cramped training never “clicks.”',
   },
   {
-    re: /\bself-?concept\b|remain receptive|reject additional training/,
-    note: 'A negative self-concept is the biggest barrier to staying open to new experience — instructors protect receptivity by building a fair, achievable self-image.',
+    re: /factor affecting perception has a great influence|total perceptual process/,
+    note: 'Self-concept has outsized influence on the whole perceptual process — more than a single lesson gadget.',
   },
   {
-    re: /\bmotivations?\b/,
-    note: 'Positive, tangible motivations (students believe effort will be rewarded in a definite way) outperform fear, reproof, and vague appeals — except rarely with the overconfident/impulsive student.',
+    re: /perceptions result when a person/,
+    note: 'Perceptions are meanings given to sensations from experience — not raw sensory data alone.',
   },
   {
-    re: /\blevels? of (?:learning|knowledge)\b|\brote\b.*\bunderstanding\b|\bcorrelation\b|stop teaching\b|maneuvering speed of the aircraft listed/,
-    note: 'Levels of learning ascend rote → understanding → application → correlation. Most instructors stop too early at understanding; teach toward correlation.',
+    re: /failure to remain receptive|reject additional training/,
+    note: 'Negative self-concept is the big receptivity killer; threatened ego rejects more training.',
   },
   {
-    re: /\bcognitive domain\b|\baffective domain\b|\bpsychomotor domain\b|\bdomain of learning\b|\btaxonomy\b|hierarchy of objectives|educational objective/,
-    note: 'Bloom-style domains: cognitive = knowledge, affective = attitudes/values, psychomotor = physical skill. A taxonomy ranks objectives from simple to complex inside a domain.',
+    re: /mental grouping of affiliated perceptions/,
+    note: 'Insights are grouped perceptions that suddenly “fit” — help students assemble the pieces, do not just pile facts.',
   },
   {
-    re: /\btransfer of learning\b|\bpositive transfer\b|\bnegative transfer\b|interferes with the learning|rectangular patterns helps/,
-    note: 'Positive transfer helps a related task; negative transfer interferes. Design practice so early skills support, not fight, later maneuvers.',
+    re: /foster the development of insights|help develop student insights|insights, as applied/,
+    note: 'Build insight by keeping a favorable self-concept and pointing out relationships — fear and threat shrink insight.',
   },
   {
-    re: /\bmemory system\b|\bencoding\b|\bsensory\b|\bshort-?term\b|\blong-?term\b|mnemonics|rhymes|forgetting|repression|disuse|interference/,
-    note: 'Memory moves sensory → short-term → long-term via encoding. Forgetting theories include disuse, interference, and repression of unpleasant experience.',
+    re: /fear or the element of threat will/,
+    note: 'Threat narrows perception and blocks learning; keep standards clear without intimidation.',
+  },
+
+  // ── Motivation ─────────────────────────────────────────────────────────
+  {
+    re: /statement is true concerning motivations/,
+    note: 'Motivations may be subtle and hard to spot; negative fear-based pushes are poor tools compared with positive, tangible ones.',
   },
   {
-    re: /\blearning plateau\b|\bplateau\b/,
-    note: 'A learning plateau is a normal temporary leveling of progress — not permanent failure. Vary practice, clarify goals, and reduce threat to restart the curve.',
+    re: /motivations that cause a student to react with fear/,
+    note: 'Fear/anxiety motivations are negative — avoid them except in rare, carefully judged cases.',
   },
   {
-    re: /\bdefense mechanisms?\b|\brationalization\b|\brepression\b|\bdenial\b|\bfantasy\b|\bcompensation\b|\bprojection\b|\bdisplacement\b|\baggression\b|\bflight\b.*defense|daydreaming|reaction formation/,
-    note: 'Defense mechanisms protect ego under stress (rationalization, repression, denial, fantasy, compensation, projection, displacement, aggression, flight). They can help briefly but block learning if they become habitual.',
+    re: /efforts will be rewarded in a definite manner|type of motivation is/,
+    note: 'When students must believe effort brings a definite reward, that motivation is tangible (positive and concrete).',
   },
   {
-    re: /unable to see the benefits|purpose of a lesson|acceptance of further instruction|keeps the student informed/,
-    note: 'Show benefits and keep objectives/standards visible. Students who cannot see purpose disengage; informed students accept further instruction more readily.',
+    re: /more effective way for an instructor to properly motivate/,
+    note: 'Positive motivation beats reproof (harsh criticism or scolding). Make the reward/outcome visible and believable.',
   },
   {
-    re: /primary consideration in planning for student performance|student performance is the/,
-    note: 'Plan performance around the student’s current ability and progress — objectives must be reachable from where the learner actually is.',
+    re: /reproof and threats should be avoided with all but/,
+    note: 'Reproof (harsh criticism/scolding) and threats are almost always wrong; the rare exception is the overconfident, impulsive student — still use carefully.',
+  },
+
+  // ── Levels of learning ─────────────────────────────────────────────────
+  {
+    re: /maneuvering speed of the aircraft listed|level of knowledge is being tested if asked/,
+    note: '“What is the book number?” is rote. Explaining relationships is understanding; using knowledge in a problem is application; connecting across domains is correlation.',
   },
   {
-    re: /\bhuman needs\b|\bmaslow\b|physically comfortable|greatest challenge to an instructor|safety.*need|belonging/,
-    note: 'Lower Maslow needs (physiological, security) must be met before belonging, esteem, and self-actualization. Esteem / self-actualization usually challenge the instructor most in training.',
+    re: /simulated engine fail|practical test.*level|level of learning is being tested/,
+    note: 'Performing a skill under test conditions probes application (or higher) — not mere rote recall of a fact.',
   },
   {
-    re: /\banxiety\b|\bfear\b|\belement of threat\b|frustrated|confidence tends to be destroyed/,
-    note: 'Threat and unexplained standards raise anxiety and shrink perception. Keep objectives and completion standards visible; avoid ridicule and moving goalposts.',
+    re: /explain how gross weight affects/,
+    note: '“Explain how/why” probes understanding. Naming a handbook number is rote; flying the scenario is application.',
   },
   {
-    re: /\bcommunication\b|\bbarrier\b|\babstraction|\babstract words\b|\bcommon experience\b|effective communication has taken place|communicate effectively|communicator's words|background of/,
-    note: 'Communication succeeds only when receivers understand and change behavior. The biggest teaching barrier is lack of common experience; abstractions rarely evoke the intended concrete meaning.',
+    re: /level of learning do most instructors stop/,
+    note: 'Many instructors stop at understanding. Push through application toward correlation so knowledge transfers to new situations.',
+  },
+
+  // ── Memory / forgetting / transfer ─────────────────────────────────────
+  {
+    re: /best way to prepare a student to perform a task/,
+    note: 'Show a clear step-by-step example before the student tries — purpose talks and bare outlines leave the how-to fuzzy.',
   },
   {
-    re: /\binstruction taken place\b|when has instruction/,
-    note: 'Instruction has taken place when the procedure is explained and the desired student response occurs — transmission alone is not instruction.',
+    re: /primary consideration in planning for student performance/,
+    note: 'Plan from the student’s present ability. Objectives must be reachable from where the learner actually is.',
   },
   {
-    re: /\bteaching process\b|preparation, presentation|preparation, demonstration/,
-    note: 'Classic teaching process: preparation → presentation → application → review and evaluation. Skip application/evaluation and you only “covered” material.',
+    re: /learning plateau may be defined|regarding learning plateaus/,
+    note: 'A plateau is a normal temporary leveling of the learning curve — not permanent failure. Vary practice and refresh goals.',
   },
   {
-    re: /\blectures?\b|informal lecture|active student participation/,
-    note: 'Lecture is efficient for new ideas, summaries, and theory-to-practice links. Informal lectures invite participation; dignity and respect still matter — sarcasm destroys both.',
+    re: /submerging an unpleasant experience/,
+    note: 'Forcing unpleasant experience into the subconscious is repression (a forgetting theory), not ordinary disuse.',
   },
   {
-    re: /\bguided discussion\b|\bleadoff question\b|question directed to an entire group|overhead question|relay question/,
-    note: 'Guided discussion builds learning through student interchange under instructor control. Strong leadoff questions are open (why/how/what) and aimed at the whole group.',
+    re: /learning of similar things overshadows|interference/,
+    note: 'When similar learning crowds out other learning, that forgetting path is interference.',
   },
   {
-    re: /\binstructional aids?\b/,
-    note: 'Instructional aids support — they do not replace — the instructor. Use them to clarify relationships and hold attention; never let the aid become the whole lesson.',
+    re: /difficulty recalling facts after several years|disuse/,
+    note: 'Fading after long unused time is disuse — different from repression or interference.',
   },
   {
-    re: /\bdemonstration\/performance\b|\bdemonstration.performance\b|essential steps in the demonstration/,
-    note: 'Demo/performance steps: explanation → instructor demo → student performance → instructor supervision → evaluation. Explanation and demo often run together; evaluation closes the loop.',
+    re: /responses that produce a pleasurable return/,
+    note: 'Pleasurable returns reinforce the behavior (effect / positive feedback). Make praise specific and timely.',
   },
   {
-    re: /\bcomputer-?based training\b|\bcbt\b/,
-    note: 'CBT’s main advantage is interactivity and self-paced branching — it supplements, not replaces, instructor judgment on skill and judgment items.',
+    re: /transfer of learning occurs when.*interferes|negative transfer/,
+    note: 'When one maneuver hurts learning another, that is negative transfer — redesign practice so skills support each other.',
   },
   {
-    re: /\bcooperative learning\b|\bheterogeneous groups\b|group learning|small groups so that they can work together/,
-    note: 'Cooperative groups maximize shared learning: heterogeneous mix often raises peer teaching; the goal is mutual success, not competition for a single grade.',
+    re: /rectangular patterns helps a student fly traffic|positive transfer/,
+    note: 'When early practice helps a later skill, that is positive transfer — design rectangular patterns → traffic patterns on purpose.',
   },
   {
-    re: /\bcritiques?\b/,
-    note: 'Critiques should be constructive, objective, and flexible — give direction to improve, not praise-for-praise or a laundry list of every flaw. Acceptance of the instructor precedes acceptance of the critique.',
+    re: /memory system processes input from the environment/,
+    note: 'Sensory memory is the first gate that takes environmental input before short-term encoding.',
   },
   {
-    re: /\borai?\s*quizzing\b|\boral quiz|\bquizzing\b/,
-    note: 'Oral quizzing during a lesson reveals misunderstandings early, keeps students alert, and reviews without waiting for a formal test. Good questions are clear, brief, and aimed at one idea.',
+    re: /rhymes or mnemonics|association, such as/,
+    note: 'Mnemonics/associations help short-term encoding into longer retention — they are tools for the working-memory stage.',
   },
   {
-    re: /answer a student's question|student's question/,
-    note: 'Answer the question that was asked — clearly and at the student’s level. Bluffing or burying the point in a speech kills trust.',
+    re: /how can encoding be described/,
+    note: 'Encoding is the transform from short-term processing into a storeable long-term form.',
   },
   {
-    re: /\bpractical test\b|\bpts\b|practical test standards|completion standards/,
-    note: 'Practical tests are criterion-referenced to published standards (PTS/ACS), not curved against other applicants. Lesson evaluation should use the same idea: objectives and standards, not “better than yesterday.”',
+    re: /information for future use stored/,
+    note: 'Long-term memory is the store for future use; short-term only holds briefly while you work with it.',
+  },
+
+  // ── Domains / taxonomy ─────────────────────────────────────────────────
+  {
+    re: /when has instruction taken place/,
+    note: 'Instruction happened only when explanation plus the desired student response occurred — talking at someone is not enough.',
   },
   {
-    re: /\bwritten test\b|supply-?type|selection-?type|multiple-?choice test|test item|discrimination|comprehensive when|probability of guessing/,
-    note: 'Test design: comprehensive coverage, discrimination between masters and non-masters, clear stems, and plausible distractors. Selection items grade fast; supply items cut guessing but cost scoring time.',
+    re: /ensure proper habits and correct techniques/,
+    note: 'Correct habits early (primacy). Tolerating sloppy practice trains the wrong habit permanently.',
   },
   {
-    re: /student evaluation|evaluation of student|evaluating training|evaluation of demonstrated ability|adequate standard of performance/,
-    note: 'Evaluate against lesson objectives and published standards — established criteria, not personality or comparison to another student. Performance in context beats isolated “gotcha” questions.',
+    re: /domain of learning deals with knowledge/,
+    note: 'Cognitive domain = knowledge. Affective = attitudes/values. Psychomotor = physical skill.',
   },
   {
-    re: /overconfidence|correction of errors is unimportant|faulty performance|positive approach|first flight lesson/,
-    note: 'Correct overconfidence and “errors don’t matter” early with facts and standards. A positive first-lesson approach emphasizes what the student can do safely, not a catalog of disasters.',
+    re: /affective domain/,
+    note: 'Affective domain is attitudes, beliefs, and values — not stick-and-rudder skill.',
   },
   {
-    re: /\bsolo\b|before endorsing|endorsing a student/,
-    note: 'Before solo endorsement, require demonstrated ability to handle realistic problems (pattern, traffic, judgment) — not just a fair-weather circuit.',
+    re: /educational objective levels for the cognitive domain/,
+    note: 'Cognitive levels climb from knowledge/recall up through increasingly complex intellectual skills — know the ladder order.',
   },
   {
-    re: /confusion, disinterest|improve the services|true performance as a professional|based on study/,
-    note: 'Professionals keep studying and refining service. Unclear objectives produce student confusion and disinterest; sincerity plus preparation prevent that slide.',
+    re: /hierarchy of objectives is often referred/,
+    note: 'A ranked hierarchy of educational objectives is a taxonomy.',
   },
   {
-    re: /\blesson plans?\b|\bintroduction\b|organize lesson|known to the unknown|simple to complex|past to present|sets the stage/,
-    note: 'Organize from known→unknown, simple→complex, past→present. The introduction (attention, motivation, overview) sets the stage; a written lesson plan is a living tool for this student and hour — not a rigid script.',
+    re: /most complex outcome in the affective domain/,
+    note: 'Affective outcomes climb to characterization/internalizing a value system — far above simple awareness.',
   },
   {
-    re: /\bsyllabus\b|training syllabus|course of training|blocks of learning|first consideration should be to|planning any instructional activity/,
-    note: 'Plan instructional activity around clear objectives first, then assemble related blocks of learning. The syllabus is the course roadmap the lesson plan executes day to day.',
+    re: /least complex outcome in the psychomotor domain/,
+    note: 'Psychomotor starts at simple perception/imitation and climbs to skilled, automatic performance.',
+  },
+
+  // ── Human needs / defense mechanisms ───────────────────────────────────
+  {
+    re: /before a student can concentrate on learning, which human needs/,
+    note: 'Physiological and security needs come first. Hungry, cold, or scared students do not learn well.',
   },
   {
-    re: /\bprofessionalism\b|sincere performance|code of ethics/,
-    note: 'Professionalism is sincere, consistent performance — anything less undercuts instructor effectiveness. No single slogan covers every duty; ethics and preparation show up in every lesson.',
+    re: /physically comfortable and have no fear for their safety/,
+    note: 'After comfort and safety, belonging / social needs take the lead in Maslow’s stack.',
   },
   {
-    re: /\bpositive feedback\b|\breward\b|\breinforcement\b|pleasurable return/,
-    note: 'Responses that produce a pleasurable return reinforce the behavior (effect/reward). Timely, specific positive feedback beats vague “good job.”',
+    re: /human needs offer the greatest challenge to an instructor/,
+    note: 'Esteem and self-actualization usually challenge instructors most once basics are met.',
   },
   {
-    re: /\bvalidity\b|\breliability\b|\bnorm[- ]referenced\b|\bcriterion[- ]referenced\b|\bdistractor\b|\bstem\b/,
-    note: 'Good tests: valid (measure the objective), reliable (consistent), with clear stems and plausible distractors. Criterion-referenced checks a standard; norm-referenced ranks against peers.',
+    re: /excuses to justify inadequate performance/,
+    note: 'That excuse-making pattern is rationalization (making weak performance sound reasonable to protect ego).',
   },
   {
-    re: /\bstress\b|abnormal reaction|react abnormally|normal individuals usually react/,
-    note: 'Under stress, normal students usually respond with faster thinking and automatic habits; abnormal reactions include extreme over-cooperation, anger, inappropriate laughter, or marked change in mood.',
+    re: /defense mechanisms can serve a useful purpose/,
+    note: 'Defenses can blunt stress briefly, but they also distort reality and block learning if they become habitual.',
   },
   {
-    re: /\bfatigue\b|acute fatigue|chronic fatigue/,
-    note: 'Fatigue is acute (short-term, from a long day) or chronic (accumulated). Watch for inattention, irritability, and slowing standards — rest beats “push through.”',
+    re: /irrelevant questions or refuses to participate/,
+    note: 'Irrelevant questions / refusal to join in often signals repression or related avoidance — ego protecting itself.',
   },
   {
-    re: /\bintegrated flight instruction\b|\bintegrated method\b/,
-    note: 'Integrated flight instruction builds habit patterns of dividing attention outside/inside from early lessons — habit formation, not an add-on instrument rating syllabus.',
+    re: /physical or mental flight is a defense/,
+    note: 'Flight (physical or mental escape) appears when the student cannot face the threatening situation.',
   },
   {
-    re: /length and frequency of flight|apathetic when they/,
-    note: 'Lesson length and frequency must match fatigue and attention. Students go apathetic when work feels pointless, endless, or disconnected from a clear objective.',
+    re: /defense mechanism called rationalization/,
+    note: 'Rationalization: subconscious excuses that make inadequate performance sound reasonable.',
   },
   {
-    re: /refer to figure|section [a-e] is tit|common endorsements|ac 61-65|advisory circular/,
-    note: 'FOI figures and endorsement items track AIH / AC 61-65 layout. Read the section title asked for; endorsement examples live in the current AC 61-65.',
+    re: /defense mechanism called aggression/,
+    note: 'Aggression as defense: blame, anger, or attacking others when ego is threatened.',
   },
   {
-    re: /\boverlearning\b/,
-    note: 'Overlearning is practice beyond initial proficiency so the skill holds under stress and delay — useful for emergency and habit items, not busywork forever.',
+    re: /daydreaming, it is a defense mechanism/,
+    note: 'Daydreaming as escape is fantasy — mental flight into a safer imagined world.',
   },
   {
-    re: /promotes guessing|type of test promotes/,
-    note: 'True/false items maximize guessing (50%). Prefer items that demand recognition or recall of the objective, not coin-flip odds.',
+    re: /bewildered and lost in the advanced phase|without grasping the fundamentals/,
+    note: 'Skipping fundamentals then collapsing later is often repression/denial of earlier gaps — go back and rebuild the base.',
   },
   {
-    re: /stage of skill acquisition|cognitive stage|associative stage|automatic stage|distractions? during what|type of practice|deliberate practice|blocked practice|random practice/,
-    note: 'Skill stages run cognitive → associative → automatic. Early (cognitive) practice needs focus and few distractions; later stages tolerate varied/random practice for transfer.',
+    re: /students becoming frustrated/,
+    note: 'Frustration spikes when goals are unclear, unfair, or unreachable — or when progress is invisible.',
   },
   {
-    re: /evaluating student demonstrations|piloting ability, it is important/,
-    note: 'When judging demonstrated ability, weigh the whole performance against standards and safety — not a single memorable error or a personality impression.',
+    re: /unable to see the benefits or purpose of a lesson/,
+    note: 'No visible purpose → apathy or rejection. Always tie the lesson to a benefit the student accepts.',
   },
   {
-    re: /organize explanations and demonstrations/,
-    note: 'Build explanations and demos so the student sees relationships — connect new material to what they already know instead of a disconnected dump of facts.',
+    re: /keeps the student informed of lesson objectives|minimizes the student's feelings/,
+    note: 'Clear objectives and completion standards reduce insecurity and insecurity-driven defenses.',
   },
   {
-    re: /lesson objective is not clearly stated|inadequately prepared|recognize that the instructor/,
-    note: 'Unclear objectives and an unprepared instructor produce apathy, confusion, and lost respect. State the objective; show up ready.',
+    re: /student confidence tends to be destroyed/,
+    note: 'Ridicule, moving goalposts, and unfair standards destroy confidence fast.',
+  },
+
+  // ── Communication ──────────────────────────────────────────────────────
+  {
+    re: /effectiveness of communication between instructor and student is measured/,
+    note: 'Communication is measured by understanding and the resulting behavior change — not by volume transmitted.',
   },
   {
-    re: /electronic-?based learning|computer-assisted learning|\bcal\b|commercially (?:produced|developed)|test preparation material|training aids are interactive/,
-    note: 'E-learning / CAL and commercial prep materials can individualize pace and interactivity, but they do not replace instructor judgment — and commercial banks may not match your course objectives.',
+    re: /speak or write from a background of/,
+    note: 'Speak from shared experience the student can hook onto; jargon without common ground fails.',
   },
   {
-    re: /most common means of assessment|type of assessment|performance-based objectives|real-world skills|critical thinking|assessment of student learning|demonstrates a specific flight maneuver correctly/,
-    note: 'Assessment should match the objective: knowledge checks for facts, performance/authentic assessment for real-world and critical-thinking skills. Correct stick-and-rudder without understanding still needs teaching.',
+    re: /to communicate effectively, instructors must/,
+    note: 'Reveal meaning in terms the student can experience — reveal, do not merely announce.',
   },
   {
-    re: /\badm\b|\bpave\b|risk element|mitigate risk|fundamental risk|mental process|best course of action|decide model/,
-    note: 'ADM is a systematic decision process (e.g., DECIDE). PAVE risk elements are Pilot, Aircraft, enVironment, External pressures — experience in a condition is pilot-related risk data, not a free pass.',
+    re: /effective communication has taken place when, and only when/,
+    note: 'Success = receivers understand and change behavior accordingly. “I said it” is not enough.',
   },
   {
-    re: /student impatience|correcting student impatience|assignment of goals|goals the student considers difficult/,
-    note: 'Impatience often means goals feel too distant or too hard. Assign intermediate, achievable goals and explain why the current step matters.',
+    re: /gaining and retaining the receiver's attention/,
+    note: 'Vary the communicative approach to gain and hold attention — sameness loses the room.',
   },
   {
-    re: /learning plateaus?\b/,
-    note: 'Learning plateaus are normal temporary leveling — vary the practice, refresh motivation, and confirm the student still sees progress markers.',
+    re: /using abstractions in the communication process/,
+    note: 'Abstractions rarely evoke the concrete experience you intend — listeners fill in the wrong picture.',
+  },
+  {
+    re: /danger in using abstract words/,
+    note: 'Abstract words let each listener invent a different meaning — prefer concrete, shared examples.',
+  },
+  {
+    re: /greatest single barrier to effective communication/,
+    note: 'The biggest teaching communication barrier is lack of common experience between instructor and student.',
+  },
+  {
+    re: /words cannot communicate the desired meaning.*unless/,
+    note: 'Words work only when they tie to the listener’s experience — otherwise they are empty sounds.',
+  },
+
+  // ── Teaching process / methods ─────────────────────────────────────────
+  {
+    re: /teaching process can be divided into which steps/,
+    note: 'Teaching process: preparation → presentation → application → review/evaluation. Skipping application/evaluation only “covers” material.',
+  },
+  {
+    re: /desirable for teaching a skill such as ground school lesson on the flight computer/,
+    note: 'Skills (E6B, procedures) fit demonstration/performance better than pure lecture.',
+  },
+  {
+    re: /statement is true regarding student evaluation/,
+    note: 'Evaluate against the lesson’s stated objectives and standards — not personality or “better than yesterday.”',
+  },
+  {
+    re: /suitable for presenting new material.*summarizing ideas|showing relationships between theo/,
+    note: 'Lecture fits new ideas, summaries, and theory↔practice links when you need efficient one-to-many delivery.',
+  },
+  {
+    re: /evaluation of student performance and accomplishment during a lesson should be based/,
+    note: 'Base in-lesson evaluation on objectives and completion standards established for that lesson.',
+  },
+  {
+    re: /acceptance of further instruction/,
+    note: 'Keep the student informed of progress and standards — informed students accept the next lesson more readily.',
+  },
+  {
+    re: /proper sequence for the subparts of an introduction/,
+    note: 'Introduction order: attention → motivation → overview. That sequence sets readiness before content.',
+  },
+  {
+    re: /organizing lesson material, which step sets the stage/,
+    note: 'The introduction sets the stage for everything that follows.',
+  },
+  {
+    re: /simple to complex, past to present, and known to unknown/,
+    note: 'Simple→complex, past→present, known→unknown is the classic organization that matches how people build understanding.',
+  },
+  {
+    re: /teaching from the known to the unknown/,
+    note: 'Known→unknown uses the student’s existing experience as the hook for new material.',
+  },
+  {
+    re: /organize explanations and demonstrations to help the student/,
+    note: 'Organize demos/explanations so the student sees relationships — connect new ideas to what they already know.',
+  },
+  {
+    re: /first step in preparing a lecture/,
+    note: 'Start lecture prep by establishing the objective and what the listener should leave knowing/doing.',
+  },
+  {
+    re: /true statement regarding the teaching lecture/,
+    note: 'Formal lectures are instructor-centered and efficient for coverage; they need support for application afterward.',
+  },
+  {
+    re: /detract from an instructor's dignity/,
+    note: 'Sarcasm and talking down destroy dignity and student respect — never “clever” in a lecture.',
+  },
+  {
+    re: /one advantage of a lecture/,
+    note: 'Lecture’s big advantage is time economy — lots of material to many people quickly.',
+  },
+  {
+    re: /active student participation during informal lectures/,
+    note: 'Informal lectures invite participation with questions — that is their distinguishing feature.',
+  },
+  {
+    re: /distinguishing characteristic of an informal lecture/,
+    note: 'Informal lecture = student participation / questions welcomed, unlike a pure formal lecture.',
+  },
+  {
+    re: /most economical in terms of the time required/,
+    note: 'Lecture is the most time-economical method for presenting a given amount of material.',
+  },
+  {
+    re: /most significant characteristic of group learning/,
+    note: 'Group learning’s key trait is students learning with and from each other, not only from the instructor.',
+  },
+  {
+    re: /advantage\(s\) with heterogeneous groups/,
+    note: 'Mixed-ability groups often raise peer teaching and expose students to more viewpoints.',
+  },
+  {
+    re: /cooperative learning groups is so they|maximize their own and each other's learning/,
+    note: 'Cooperative learning aims for mutual success — students help themselves and each other, not compete for one grade.',
+  },
+  {
+    re: /question directed to an entire group to stimulate thought/,
+    note: 'A question aimed at the whole group to spark thought is an overhead (or leadoff) question.',
+  },
+  {
+    re: /guided discussion method of teaching is true|guided discussion, learning is achieved/,
+    note: 'Guided discussion builds learning through controlled student interchange — instructor steers, students reason aloud.',
+  },
+  {
+    re: /leadoff question for a guided discussion|leadoff questions should usually begin/,
+    note: 'Leadoff questions are open (why/how/what) and aimed to start discussion, not yes/no closed ends.',
+  },
+  {
+    re: /students have adequately discussed the ideas|guided discussion/,
+    note: 'When discussion has run its course, summarize and tie ideas back to the objective before moving on.',
+  },
+  {
+    re: /essential steps in the demonstration\/performance|demonstration\/performance method/,
+    note: 'Demo/performance: explanation → instructor demo → student performance → supervision → evaluation. Explanation and demo often run together.',
+  },
+  {
+    re: /computer-based training \(cbt\)|major advantage of computer-based/,
+    note: 'CBT’s edge is interactivity and self-paced branching — it supplements instructor judgment, it does not replace it.',
+  },
+  {
+    re: /instructional aids used in the teaching|use of instructional aids/,
+    note: 'Aids support the instructor; they must not become the whole lesson or replace explanation and practice.',
+  },
+  {
+    re: /integrated flight instruction/,
+    note: 'Integrated flight instruction builds outside/inside attention habits from early lessons — habit pattern training, not an add-on IFR course.',
+  },
+
+  // ── Critique / tests / assessment ──────────────────────────────────────
+  {
+    re: /major difficulties encountered in the construction of multiple-choice/,
+    note: 'The classic MC construction headache is inventing distractors (plausible wrong answers) that attract students who lack knowledge — not length-matching or stats work.',
+  },
+  {
+    re: /instructor's critique of a student's performance|instructors' critiques|when an instructor critiques/,
+    note: 'A critique must be constructive, objective, and forward-looking. Acceptance of the instructor usually comes before acceptance of the critique.',
+  },
+  {
+    re: /to be effective, a critique should/,
+    note: 'Effective critiques are flexible, well organized, and aimed at improvement — not praise-for-praise or a laundry list of every flaw.',
+  },
+  {
+    re: /practical tests for pilot certification are/,
+    note: 'Practical tests are criterion-referenced to published standards — not graded on a curve against other applicants.',
+  },
+  {
+    re: /objective of the practical test standards|pts\) is to ensure/,
+    note: 'PTS/ACS exist to hold certification to a published standard of performance, consistently applied.',
+  },
+  {
+    re: /proper oral quizzing|oral quizzing by the instructor|orai quizzing/,
+    note: 'Oral quizzing during the lesson reveals misunderstandings early, keeps students alert, and reviews without waiting for a formal test.',
+  },
+  {
+    re: /answer a student's question/,
+    note: 'Answer the question asked, clearly, at the student’s level. Bluffing or burying the point kills trust.',
+  },
+  {
+    re: /written test having the characteristic of discrimination/,
+    note: 'Discrimination means the item separates those who mastered the objective from those who did not.',
+  },
+  {
+    re: /written test is said to be comprehensive/,
+    note: 'Comprehensive = samples the whole objective set appropriately — not one pet topic.',
+  },
+  {
+    re: /greatest probability of guessing|type of test promotes guessing|promotes guessing/,
+    note: 'True/false maximizes guessing (50%). Prefer items that demand real recognition or recall of the objective.',
+  },
+  {
+    re: /main disadvantage of supply-type|characteristic of supply-type|advantages of selection-type/,
+    note: 'Supply items cut guessing but cost scoring time/consistency; selection items grade fast but need strong distractors.',
+  },
+  {
+    re: /effective multiple-choice test items|selection-type test items reduces the probability/,
+    note: 'Strong MC items: clear stem, one best answer, plausible distractors, no giveaways from length or grammar.',
+  },
+  {
+    re: /desirable for evaluating training that involves an operation, procedure/,
+    note: 'Operations/procedures fit performance tests — watch the skill, do not only ask about it on paper.',
+  },
+  {
+    re: /faulty performance due to student overconfidence/,
+    note: 'Overconfidence needs factual correction against standards — not more empty praise.',
+  },
+  {
+    re: /student who assumes that correction of errors is unimportant/,
+    note: 'Treat “errors don’t matter” as a dangerous attitude; require recognition and correction to standard.',
+  },
+  {
+    re: /achievement of an adequate standard of performance/,
+    note: 'Standards must be established and held — “trying hard” is not the same as meeting the objective.',
+  },
+  {
+    re: /positive approach in the first flight lesson/,
+    note: 'First-lesson tone should emphasize what the student can do safely — not a catalog of disasters.',
+  },
+  {
+    re: /evaluation of demonstrated ability during flight instruction/,
+    note: 'Judge demonstrated ability against established standards and the whole performance — not one memorable error.',
+  },
+  {
+    re: /evaluating student demonstrations of piloting ability/,
+    note: 'Weigh the complete performance for safety and standards; avoid personality impressions and single-mistake tunnel vision.',
+  },
+  {
+    re: /most common means of assessment/,
+    note: 'Written tests remain the most common assessment means for knowledge — still match the item type to the objective.',
+  },
+  {
+    re: /performance-based objectives consist/,
+    note: 'Performance-based objectives name the performance, the conditions, and the criteria — all three.',
+  },
+  {
+    re: /type of assessment focuses on real-world skills|critical thinking sk/,
+    note: 'Authentic / performance assessment fits real-world and critical-thinking skills better than isolated recall items.',
+  },
+  {
+    re: /electronic-based learning|how is learning enhanced by electronic/,
+    note: 'E-learning can individualize pace and interaction — still needs instructor oversight for skill and judgment.',
+  },
+  {
+    re: /training aids are interactive|computer-assisted learning|\bcal\b|commercially (?:produced|developed)|test preparation material/,
+    note: 'Interactive/CAL and commercial prep tools help practice, but they may not match your course objectives — instructor judgment still rules.',
+  },
+  {
+    re: /demonstrates a specific flight maneuver correctly; however/,
+    note: 'Correct stick-and-rudder without understanding still needs teaching — performance alone is not mastery of the knowledge objective.',
+  },
+  {
+    re: /assessment of student learning/,
+    note: 'Assessment should mirror the objective: knowledge checks for facts, performance checks for skills, and both when both matter.',
+  },
+
+  // ── Planning / professionalism / ADM ───────────────────────────────────
+  {
+    re: /before endorsing a student for solo|endorsing a student/,
+    note: 'Before solo endorsement, require demonstrated ability to handle realistic problems — not just a fair-weather circuit.',
+  },
+  {
+    re: /examples of .*common endorsements|common endorsements can be found/,
+    note: 'Current endorsement examples live in AC 61-65 — use the current issue, not memory or an old photocopy.',
+  },
+  {
+    re: /refer to figure|section [a-e] is tit/,
+    note: 'Read the figure/section title the stem asks for. FOI figure items track AIH lesson-plan / syllabus layout.',
+  },
+  {
+    re: /length and frequency of flight instruction periods/,
+    note: 'Lesson length/frequency must match fatigue and attention — overlong blocks create apathy, not mastery.',
+  },
+  {
+    re: /students quickly become apathetic when/,
+    note: 'Apathy follows pointless, endless, or disconnected work. Keep objectives visible and progress tangible.',
+  },
+  {
+    re: /planning any instructional activity, the first consideration/,
+    note: 'First: determine objectives. Blocks, syllabus, and lesson plans come after you know the destination.',
+  },
+  {
+    re: /development and assembly of blocks of learning/,
+    note: 'Assembled blocks of learning in proper relationship become a practical training syllabus.',
+  },
+  {
+    re: /statement is true regarding lesson plans|true about lesson plans/,
+    note: 'Lesson plans are living tools for this student and this hour — not rigid scripts that ignore progress.',
+  },
+  {
+    re: /overlearning knowledge/,
+    note: 'Overlearning = practice past first proficiency so the skill holds under stress and delay — useful for emergencies, not endless busywork.',
+  },
+  {
+    re: /under stress, normal individuals usually react|abnormal reaction to stress|reacting abnormally to stress/,
+    note: 'Normal stress response: faster automatic habits. Abnormal: extreme over-cooperation, anger, inappropriate laughter, or sharp mood change.',
+  },
+  {
+    re: /\bfatigue can be either\b|detect fatigue|chronic fatigue can be defined|acute fatigue is characterized/,
+    note: 'Fatigue is acute (short-term) or chronic (accumulated). Watch inattention and irritability — rest beats “push through.”',
+  },
+  {
+    re: /stage of skill acquisition/,
+    note: 'Skill stages: cognitive → associative → automatic. Early stages need focus and few distractions; later stages tolerate varied practice.',
+  },
+  {
+    re: /distractions are avoided during what|type of practice includes repeating the same drill/,
+    note: 'Early cognitive practice needs focus; blocked/repeated drills build the first groove before random/varied practice for transfer.',
+  },
+  {
+    re: /true performance as a professional|improve the services they provide|sincere performance/,
+    note: 'Professionals keep studying and refining service. Anything less than sincere performance undercuts instructor effectiveness.',
+  },
+  {
+    re: /confusion, disinterest, and uneasiness|lesson objective is not clearly stated|instructor is inadequately prepared/,
+    note: 'Unclear objectives and an unprepared instructor produce confusion, disinterest, and lost respect.',
+  },
+  {
+    re: /student impatience|goals the student considers difficult/,
+    note: 'Impatience often means goals feel too distant or too hard — assign intermediate, achievable steps and show why they matter.',
+  },
+  {
+    re: /\badm\b|risk element of adm|mitigate risk|fundamental risk|pave acronym|decide model|mental process does the pilot/,
+    note: 'ADM is a systematic decision process (e.g., DECIDE). PAVE elements are Pilot, Aircraft, enVironment, External pressures.',
+  },
+  {
+    re: /capable of handling problems that might occur.*traffic pattern/,
+    note: 'Before releasing more responsibility, confirm the student can handle realistic pattern problems, not only ideal circuits.',
+  },
+  {
+    re: /during oral quizzing.*effective questions should|desirable results of oral quizzing/,
+    note: 'Effective oral questions are clear, brief, and aimed at one idea — they reveal gaps and keep students thinking during the lesson.',
+  },
+  {
+    re: /oral quizzes, what kind of question would be answered based on memory|rote question is not represented|example of a rote question/,
+    note: 'Memory/recall items are rote. Higher-level items ask explain, apply, or relate — not just “what is the number.”',
+  },
+  {
+    re: /written test has validity|test that has reliability|measures small differences in achievement|discrimination/,
+    note: 'Validity = measures the objective. Reliability = consistent results. Discrimination = separates masters from non-masters.',
+  },
+  {
+    re: /multiple-choice test items that are intended to measure achievement at a higher level/,
+    note: 'Higher-level MC items must force application or analysis — not a trivial fact lookup dressed up as a scenario.',
+  },
+  {
+    re: /instructiona. aids should be based|first step in determining if and/,
+    note: 'Pick aids only after the lesson objective is clear — the aid must support a specific point, not decorate the hour.',
+  },
+  {
+    re: /true professionalism as an instructor/,
+    note: 'Professionalism is sincere, consistent performance. Anything less undercuts effectiveness; no single slogan covers every duty.',
+  },
+  {
+    re: /maintain a high level of student motivation/,
+    note: 'Keep motivation high with attainable goals, visible progress, and positive, tangible reasons to keep working.',
+  },
+  {
+    re: /pretest constructed to measure knowledge and skills necessary to begin/,
+    note: 'An entry / diagnostic pretest checks prerequisites before the course — different from a final achievement test.',
+  },
+  {
+    re: /positive or negative approaches in aviation instructional/,
+    note: 'Positive approaches emphasize what to do and why it works; negative scare catalogs of disasters rarely build skill.',
+  },
+  {
+    re: /counteract anxiety in a student|counteract anxiety in students|help a student cope with fear or anxiety|anxiety wi.l affect a student/,
+    note: 'Treat anxiety with clear objectives, honest reassurance, and achievable steps — ridicule and surprise standards make it worse.',
+  },
+  {
+    re: /acceptable procedure when using the integrated method|integrated method of flight instruction to be fully effective/,
+    note: 'Integrated instruction starts outside/inside reference early and keeps both in the habit pattern — do not postpone instruments to “later.”',
+  },
+  {
+    re: /grow impatient when .earning the basic elements|obstacle to learning is a greater deterrent/,
+    note: 'Impatience and unrecognized attitudes are big learning obstacles. Students who want to skip basics need intermediate goals and a clear “why.”',
+  },
+  {
+    re: /extraneous blocks of instruction/,
+    note: 'Drop extraneous blocks — every block should support an objective. Extra side trips dilute the syllabus.',
+  },
+  {
+    re: /planning instructional activity, the second step/,
+    note: 'After objectives, the next planning step is identifying and organizing blocks of learning that lead there.',
+  },
+  {
+    re: /each lesson of a training syllabus includes/,
+    note: 'Syllabus lessons carry objectives, content, and completion standards — enough structure to teach and to check.',
+  },
+  {
+    re: /impossible to conduct a scheduled lesson/,
+    note: 'If a lesson cannot fly as scheduled, teach a productive alternate that still advances an objective — do not waste the slot.',
+  },
+  {
+    re: /four steps of the teaching process|main concern in developing a lesson plan|well-planned lesson, each lesson should contain|lesson plan, if constructed properly/,
+    note: 'A solid lesson plan supports the four teaching steps and stays flexible for this student — outline the objective, content, and standards.',
+  },
+  {
+    re: /perceptions increase in number, the student develops insight/,
+    note: 'Insight grows as perceptions group into meaningful relationships — help students assemble the pieces.',
+  },
+  {
+    re: /regarding the overlearning of knowledge|regarding long term memory/,
+    note: 'Overlearning and long-term store protect knowledge under delay and stress; short-term alone will not hold it.',
+  },
+  {
+    re: /example of psychomotor domain|skill involving the psychomotor domain|skill involves the cognitive domain|skill involving the cognitive domain|domain of learning requires remembering specific facts|bloom's taxonomy of the cognitive domain/,
+    note: 'Cognitive = knowledge/facts and intellectual skills (Bloom’s ladder). Psychomotor = physical performance. Match the domain to the objective.',
+  },
+  {
+    re: /help students through a learning plateau/,
+    note: 'Through a plateau: vary practice, refresh motivation, and show progress markers — do not just pile more of the same.',
+  },
+  {
+    re: /practice mixes up the skills|random practice|drill and practice method.*principle/,
+    note: 'Random/mixed practice aids transfer later; drill/practice leans on the exercise principle for early grooves.',
+  },
+  {
+    re: /chronic fatigue$|chronic fatigue may be evidenced|acute fatigue may be evidenced/,
+    note: 'Acute fatigue shows after a hard day; chronic fatigue accumulates and shows as lasting inattention/irritability. Rest is the fix.',
+  },
+  {
+    re: /beliefs opposite to what they truly believe|reaction formation/,
+    note: 'Presenting the opposite of true belief is reaction formation — a defense that masks the real attitude.',
+  },
+  {
+    re: /blames the failure of a practical exam|unfair evaluation by the examiner/,
+    note: 'Blaming the examiner for a failed checkride is classic projection (blaming others) — ego protection, not analysis.',
+  },
+  {
+    re: /psychologically counterbalancing perceived weaknesses|emphasizing strength in other areas|disguise a weak or undesirable quality by emphasizing/,
+    note: 'Emphasizing a strength to offset a perceived weakness is compensation.',
+  },
+  {
+    re: /defense mechanism called repression|hidden fear of flying that inhibits learning/,
+    note: 'Repression pushes threatening feelings out of awareness — including a hidden fear of flying that quietly blocks learning.',
+  },
+  {
+    re: /defense mechanism of denial/,
+    note: 'Denial refuses to accept an obvious truth about performance or risk — confront gently with facts and standards.',
+  },
+  {
+    re: /in the teaching lecture,/,
+    note: 'Teaching lectures stay instructor-led; keep dignity, structure, and a path to application afterward.',
+  },
+  {
+    re: /practical test standards is to be used|practical test standards are an example|faa practical test standards$|introduce the practical test standards|acceptable standards for passing the practical test/,
+    note: 'Introduce PTS/ACS early and use them as the criterion standard throughout — not a surprise on checkride day.',
+  },
+  {
+    re: /as a professional pilot, you know that/,
+    note: 'Professionals keep learning and hold themselves to standards — certificate level does not freeze skill or judgment.',
+  },
+  {
+    re: /criterion-referenced tests/,
+    note: 'Criterion-referenced tests check a published standard, not a curve against classmates.',
+  },
+  {
+    re: /responding abnormally react to stress|reacting normally to stress/,
+    note: 'Normal stress: sharper automatic habits. Abnormal: inappropriate laughter, extreme anger, or over-cooperation that looks “off.”',
+  },
+  {
+    re: /memory system can be enhanced by practice and repetition|association such as rhymes or word patterns|describe .?encoding|short-term memory \(stm\)/,
+    note: 'Practice/repetition and mnemonic association help move material through short-term encoding toward longer retention. STM is brief and capacity-limited.',
+  },
+  {
+    re: /new events displace something that had been previously learned/,
+    note: 'New learning crowding out old learning is interference (a forgetting path).',
+  },
+  {
+    re: /instructor's assessment of a student's performance/,
+    note: 'Assess against lesson objectives and standards — constructive, specific, and aimed at the next improvement.',
+  },
+  {
+    re: /airplane performance, airspace and regulations/,
+    note: 'Knowledge areas (performance, airspace, regs) fit oral/written knowledge checks; match the test type to what you need to verify.',
   },
 ];
 
-function corpus(card) {
-  const choices = Array.isArray(card.choices)
-    ? card.choices
-        .map((c) => (typeof c === 'string' ? c : c?.text || c?.label || ''))
-        .join(' ')
-    : '';
-  return `${card.question || ''} ${card.answer || ''} ${choices}`.toLowerCase();
+/**
+ * Uncommon FOI / AIH terms → plain-English gloss.
+ * Longer phrases first so they match before shorter fragments.
+ * Applied once per term on first use when not already defined inline.
+ */
+const GLOSSARY = [
+  { re: /\breaction formation\b/i, term: 'reaction formation', def: 'acting the opposite of what you truly feel' },
+  { re: /\bcriterion-referenced\b/i, term: 'criterion-referenced', def: 'scored against a fixed published standard, not a curve' },
+  { re: /\bnorm-referenced\b/i, term: 'norm-referenced', def: 'ranked against other students rather than a fixed standard' },
+  { re: /\bselection-type\b/i, term: 'selection-type', def: 'choose-from-options items such as multiple-choice or true/false' },
+  { re: /\bsupply-type\b/i, term: 'supply-type', def: 'write-in / short-answer items the student must produce' },
+  { re: /\bincidental learning\b/i, term: 'incidental learning', def: 'side learning that happens while the planned objective is taught' },
+  { re: /\boverhead question\b/i, term: 'overhead question', def: 'a question aimed at the whole group, not one person' },
+  { re: /\bleadoff questions?\b/i, term: 'leadoff question', def: 'open starter question that kicks off a guided discussion' },
+  { re: /\bblocks of learning\b/i, term: 'blocks of learning', def: 'related chunks of training content that build toward objectives' },
+  { re: /\bcompletion standards\b/i, term: 'completion standards', def: 'how well the student must perform to finish the lesson' },
+  { re: /\bnegative transfer\b/i, term: 'negative transfer', def: 'prior learning that interferes with a new skill' },
+  { re: /\bpositive transfer\b/i, term: 'positive transfer', def: 'prior learning that helps a new skill' },
+  { re: /\bshort-term memory\b|\bSTM\b/, term: 'short-term memory', def: 'brief working store with limited capacity' },
+  { re: /\blong-term memory\b/i, term: 'long-term memory', def: 'durable store for later use' },
+  { re: /\bsensory memory\b/i, term: 'sensory memory', def: 'first brief register of sights/sounds from the environment' },
+  { re: /\breproof\b/i, term: 'reproof', def: 'harsh criticism or scolding' },
+  { re: /\bprimacy\b/i, term: 'primacy', def: 'what is learned first sticks hardest' },
+  { re: /\brecency\b/i, term: 'recency', def: 'what was practiced most recently is remembered best' },
+  { re: /\breadiness\b/i, term: 'readiness', def: 'learner is prepared and has a clear objective' },
+  { re: /\boverlearning\b/i, term: 'overlearning', def: 'practice past first proficiency so the skill holds under stress' },
+  { re: /\brepression\b/i, term: 'repression', def: 'pushing unpleasant feelings or memories out of awareness' },
+  { re: /\brationalization\b/i, term: 'rationalization', def: 'making excuses that sound reasonable for weak performance' },
+  { re: /\bcompensation\b/i, term: 'compensation', def: 'covering a weakness by stressing a strength elsewhere' },
+  { re: /\bprojection\b/i, term: 'projection', def: 'blaming others or attributing your own feelings to them' },
+  { re: /\bdisplacement\b/i, term: 'displacement', def: 'shifting emotion onto a safer person or object' },
+  { re: /\bdenial\b/i, term: 'denial', def: 'refusing to accept an obvious truth' },
+  { re: /\bfantasy\b/i, term: 'fantasy', def: 'daydreaming escape from a threatening situation' },
+  { re: /\bdistractors?\b/i, term: 'distractors', def: 'wrong answer choices written to look plausible' },
+  { re: /\btaxonomy\b/i, term: 'taxonomy', def: 'ranked classification of educational objectives' },
+  { re: /\bencoding\b/i, term: 'encoding', def: 'converting information so it can move into longer-term memory' },
+  { re: /\binterference\b/i, term: 'interference', def: 'similar learning crowding out other learning' },
+  { re: /\bdisuse\b/i, term: 'disuse', def: 'forgetting from lack of practice over time' },
+  { re: /\binsight\b/i, term: 'insight', def: 'perceptions suddenly grouping into understanding' },
+  { re: /\bpsychomotor\b/i, term: 'psychomotor', def: 'physical-skill domain of learning' },
+  { re: /\baffective\b/i, term: 'affective', def: 'attitudes, beliefs, and values domain' },
+  { re: /\bcognitive\b/i, term: 'cognitive', def: 'knowledge / intellectual domain' },
+  { re: /\bcorrelation\b/i, term: 'correlation', def: 'highest learning level — connecting knowledge across new situations' },
+  { re: /\brote\b/i, term: 'rote', def: 'memorizing facts without real understanding' },
+  { re: /\btangible\b/i, term: 'tangible', def: 'concrete and definite — student can see the reward' },
+  { re: /\bheterogeneous\b/i, term: 'heterogeneous', def: 'mixed-ability' },
+  { re: /\bapathy\b/i, term: 'apathy', def: 'not caring; disengagement' },
+  { re: /\bmnemonics?\b/i, term: 'mnemonic', def: 'memory aid such as a rhyme or pattern' },
+  { re: /\bsyllabus\b/i, term: 'syllabus', def: 'course roadmap sequencing lessons and objectives' },
+  { re: /\bauthentic assessment\b/i, term: 'authentic assessment', def: 'evaluation using real-world tasks, not only paper quizzes' },
+  { re: /\bBloom'?s?\b/i, term: "Bloom’s", def: 'classic ladder of thinking skills from recall up to create/evaluate' },
+  { re: /\bPAVE\b/, term: 'PAVE', def: 'Pilot, Aircraft, enVironment, External pressures' },
+  { re: /\bDECIDE\b/, term: 'DECIDE', def: 'Detect, Estimate, Choose, Identify, Do, Evaluate' },
+  { re: /\bADM\b/, term: 'ADM', def: 'Aeronautical Decision Making' },
+  { re: /\bPTS\b/, term: 'PTS', def: 'Practical Test Standards' },
+  { re: /\bACS\b/, term: 'ACS', def: 'Airman Certification Standards' },
+  { re: /\bCBT\b/, term: 'CBT', def: 'computer-based training' },
+  { re: /\bCAL\b/, term: 'CAL', def: 'computer-assisted learning' },
+];
+
+function alreadyGlossed(text, term, def) {
+  const esc = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  // Already has a parenthetical right after the term.
+  if (new RegExp(`${esc}\\s*\\(`, 'i').test(text)) return true;
+  // Gloss idea already appears in the sentence (e.g. PAVE spelled out).
+  const tip = String(def)
+    .split(/[—,(]/)[0]
+    .trim()
+    .slice(0, 28)
+    .toLowerCase();
+  if (tip.length >= 10 && text.toLowerCase().includes(tip)) return true;
+  return false;
+}
+
+/** Insert plain-English parentheticals for uncommon FOI terms on first use. */
+function withInlineDefs(text) {
+  let out = String(text || '');
+  for (const { re, term, def } of GLOSSARY) {
+    if (!re.test(out)) continue;
+    if (alreadyGlossed(out, term, def)) continue;
+    out = out.replace(re, (match) => `${match} (${def})`);
+  }
+  return out;
+}
+
+function stemText(card) {
+  return String(card.question || '').toLowerCase();
 }
 
 function buildSummary(card) {
-  const text = corpus(card);
+  const stem = stemText(card);
   const notes = [];
-
-  for (const row of KEYWORD_NOTES) {
-    if (row.re.test(text)) notes.push(row.note);
-    if (notes.length >= 2) break;
+  for (const row of STEM_NOTES) {
+    if (row.re.test(stem)) {
+      notes.push(row.note);
+      if (notes.length >= 2) break;
+    }
   }
-
-  const topicNote = TOPIC_CONTEXT[card.topic_id];
-  if (!notes.length && topicNote) notes.push(topicNote);
-
+  if (!notes.length) {
+    const topicNote = TOPIC_CONTEXT[card.topic_id];
+    if (topicNote) notes.push(topicNote);
+  }
   if (!notes.length) {
     notes.push(
-      'Use the Aviation Instructor’s Handbook wording for the “why,” not a casual synonym. FOI written items often turn on a nearby definition or a look-alike principle.'
+      'Use the Aviation Instructor’s Handbook wording for the “why.” FOI items often turn on a nearby definition or look-alike principle.'
     );
   }
-
-  return notes.slice(0, 2).join(' ');
+  return withInlineDefs(notes.slice(0, 2).join(' '));
 }
 
 function linksFor(card) {
   const topicLinks = TOPIC_LINKS[card.topic_id] || [LINKS.aih, LINKS.aihPdf];
-  const q = corpus(card);
+  const stem = stemText(card);
   const extra = [];
 
-  if (/\bpractical test\b|\bpts\b|acs\b|completion standards|certification of pilots/.test(q)) {
+  if (/practical test|\bpts\b|completion standards|certification of pilots/.test(stem)) {
     extra.push(LINKS.pts);
   }
-  if (/\binstructor certificate\b|\bendorsement\b|part 61|flight instructor/.test(q)) {
+  if (/endorsement|solo|part 61|flight instructor/.test(stem)) {
     extra.push(LINKS.part61);
-  }
-  if (/common endorsements|ac 61-65|endorsing a student|\bsolo\b/.test(q)) {
     extra.push(LINKS.ac6165);
   }
-  if (/\bcritique\b|\bevaluation\b|\boral quizz|\btest\b|\bassessment\b/.test(q)) {
+  if (/critique|evaluation|oral quiz|written test|multiple-choice|assessment|test item/.test(stem)) {
     extra.push(LINKS.aihAssessment);
   }
-  if (/\blesson plan\b|\bsyllabus\b|introduction|organize lesson/.test(q)) {
+  if (/lesson plan|syllabus|introduction|blocks of learning|instructional activity/.test(stem)) {
     extra.push(LINKS.aihPlanning);
   }
-  if (/\blecture\b|\bguided discussion\b|\bdemonstration|\bcbt\b|\bcooperative/.test(q)) {
+  if (/lecture|guided discussion|demonstration|cbt|cooperative|instructional aid|integrated flight/.test(stem)) {
     extra.push(LINKS.aihTeaching);
   }
-  if (/\bdefense mechanism\b|\bmotivation\b|\bhuman needs\b|\banxiety\b|\bfear\b/.test(q)) {
+  if (/defense mechanism|motivation|human needs|anxiety|fear|fatigue|stress|self-concept/.test(stem)) {
     extra.push(LINKS.aihHuman);
   }
-  if (
-    /\bprinciple of\b|\blevels? of learning\b|\btransfer\b|\bmemory\b|\bdomain\b|\bperception/.test(q)
-  ) {
+  if (/principle of|levels? of learning|transfer|memory|domain|perception|insight|overlearning|skill acquisition/.test(stem)) {
     extra.push(LINKS.aihLearning);
   }
 
-  // Allow multiple handbook section labels that share the AIH landing URL,
-  // but never duplicate the exact same label+url pair.
   const seen = new Set();
   const out = [];
   for (const link of [...topicLinks, ...extra, LINKS.aih]) {
@@ -439,7 +1014,6 @@ function loadJson(filePath) {
 function main() {
   const detailsDoc = loadJson(detailsPath);
   const existingAll = Array.isArray(detailsDoc.details) ? [...detailsDoc.details] : [];
-  // Regenerate FOI written details; keep every other track untouched.
   const existing = existingAll.filter((d) => !String(d.card_id || '').startsWith('foi_written_'));
   const have = new Set(existing.map((d) => String(d.card_id || '').trim()).filter(Boolean));
 
@@ -447,12 +1021,18 @@ function main() {
   const importCards = Array.isArray(foiImport.cards) ? foiImport.cards : [];
 
   const generated = [];
+  let stemHit = 0;
   for (const card of importCards) {
     if (!card?.id || have.has(card.id)) continue;
     if (!String(card.id).startsWith('foi_written_')) continue;
+    const summary = buildSummary(card);
+    if (!Object.values(TOPIC_CONTEXT).some((t) => summary.startsWith(t.slice(0, 40))) &&
+        !summary.startsWith('Use the Aviation Instructor')) {
+      stemHit += 1;
+    }
     generated.push({
       card_id: card.id,
-      summary: buildSummary(card),
+      summary,
       links: linksFor(card),
     });
     have.add(card.id);
@@ -462,23 +1042,14 @@ function main() {
   merged.sort((a, b) => String(a.card_id).localeCompare(String(b.card_id)));
   fs.writeFileSync(detailsPath, `${JSON.stringify({ details: merged }, null, 2)}\n`, 'utf8');
 
-  const foiCount = merged.filter((d) => String(d.card_id || '').startsWith('foi_')).length;
-  const keywordHit = generated.filter((d) => {
-    const topicFallback = Object.values(TOPIC_CONTEXT).some((t) => d.summary.startsWith(t.slice(0, 40)));
-    const generic = d.summary.startsWith('Use the Aviation Instructor');
-    return !topicFallback && !generic;
-  }).length;
-
   console.log(
     JSON.stringify(
       {
         kept_non_foi_written: existing.length,
         generated: generated.length,
         total: merged.length,
-        foi_details: foiCount,
-        import_cards: importCards.length,
-        keyword_primary_summaries: keywordHit,
-        topic_or_generic_fallbacks: generated.length - keywordHit,
+        stem_specific: stemHit,
+        topic_or_generic: generated.length - stemHit,
       },
       null,
       2
