@@ -4,7 +4,8 @@
  *
  * Rules:
  * - Match primarily on the question STEM (choices false-trigger too easily).
- * - Summaries teach the trap / nearby FOI distinctions — never restate the keyed answer.
+ * - Prefer CARD_OVERRIDES when a stem pattern would teach the wrong concept.
+ * - Explain why the correct idea wins — do not paste the answer choice verbatim.
  *
  * Run: node scripts/build-foi-details.mjs
  */
@@ -94,6 +95,87 @@ const TOPIC_CONTEXT = {
     'Professional instruction is measured by receiver understanding and behavior change — not by how much was transmitted.',
   foi_misc:
     'FOI misc items usually retest a nearby AIH definition. Prefer handbook wording over a casual synonym.',
+};
+
+/**
+ * Per-card tips when stem keywords alone would teach the wrong concept.
+ * Explain why the correct idea wins — avoid pasting the answer choice verbatim.
+ */
+const CARD_OVERRIDES = {
+  foi_written_028:
+    'An emergency scenario that forces the applicant to combine skills and adapt is probing correlation (highest learning level — connecting knowledge across new situations) — beyond single-procedure application.',
+  foi_written_032:
+    'Practice-session length is a primary planning constraint: too long breeds fatigue and sloppy habits; too short never reaches the objective.',
+  foi_written_045:
+    'Build habits with the building-block technique — each correct foundation before the next skill — so primacy (what is learned first sticks hardest) works for you, not against you.',
+  foi_written_057:
+    'Irrelevant questions and refusing to participate are aggression as a defense — acting out against the lesson when ego is threatened (not quiet repression).',
+  foi_written_060:
+    'Aggression often shows as refusing to participate, arguing, or attacking the activity when the student feels threatened.',
+  foi_written_062:
+    'When early gaps surface in advanced training, resignation (giving up / quitting effort) is the defense — the student stops trying rather than rebuild fundamentals.',
+  foi_written_066:
+    'Bluffing when unsure destroys student confidence — admit limits and look it up; students copy the honesty standard you model.',
+  foi_written_089:
+    'Poor grammar and vulgar language undercut instructor dignity and insult student intelligence — lecture language must stay clean and correct.',
+  foi_written_100:
+    'Guided-discussion learning rides on skillful questioning — the instructor’s questions steer the interchange toward the objective.',
+  foi_written_112:
+    'Critique while the performance is fresh — immediately after — so details are accurate and the student can still connect feedback to what just happened.',
+  foi_written_113:
+    'A critique’s job is direction and guidance to improve the next try — not a score dump or a personality review.',
+  foi_written_118:
+    'PTS/ACS exist to certificate pilots at a high level of safety — the published standards are the safety bar, not a maneuver shopping list.',
+  foi_written_119:
+    'Oral quizzing’s payoff is spotting what needs more emphasis before the lesson ends — so you can reteach while it still matters.',
+  foi_written_120:
+    'Good oral quizzes also mirror back how well your training procedures are working — weak answers flag the teaching, not only the student.',
+  foi_written_121:
+    'Effective oral questions are brief and concise — one clear idea — so the student answers the point you meant to check.',
+  foi_written_122:
+    'Memory/recall checks are fact questions (rote). “Explain how/why” and scenario items climb to understanding and above.',
+  foi_written_123:
+    'Oral questions must match that stage’s difficulty — too hard breeds guessing and threat; too easy teaches nothing.',
+  foi_written_128:
+    'Discrimination means the test separates low from high achievers on the objective — masters score up, non-masters score down.',
+  foi_written_131:
+    'Supply-type (write-in) items’ main drawback is uneven grading — different instructors often score the same answer differently.',
+  foi_written_132:
+    'Supply-type answers are hard to grade uniformly: the same paper can get different marks from different instructors.',
+  foi_written_133:
+    'Selection-type items grade objectively — same key for every student and grader — which supply-type write-ins rarely match.',
+  foi_written_135:
+    'Higher-level MC items need several acceptable-looking options with only one clearly best — that forces judgment, not trivia lookup.',
+  foi_written_136:
+    'Keep MC alternatives about equal length so students cannot “guess the longest.” Equal length is a classic effective-item rule.',
+  foi_written_137:
+    'Matching cuts guessing among selection-type items: each prompt must pair correctly across the set, so random luck helps far less than on a single multiple-choice pick. Essay is supply-type, not selection-type.',
+  foi_written_148:
+    'A pretest of entry knowledge/skills is a criterion-referenced check against the start standard — can they begin the course?',
+  foi_written_156:
+    'While evaluating, keep the student informed of progress — feedback during/after the demo is part of teaching, not only scoring.',
+  foi_written_181:
+    'The four teaching steps are preparation, presentation, application, and review/evaluation — a complete lesson plan covers all four.',
+  foi_written_195:
+    'Rote items are selection-style recall (T/F, MC). Supply-type write-ins are a different animal — do not treat them as the rote example.',
+  foi_written_196:
+    'True/false is a classic rote (memorizing facts without real understanding) item — it checks recall, not explanation or application.',
+  foi_written_198:
+    'Selection-type items promote guessing because the options are listed; supply-type write-ins force the student to produce the answer.',
+  foi_written_232:
+    'Introduce PTS/ACS early in training — waiting until the last practical-test prep hour leaves no time to train to the standard.',
+  foi_written_233:
+    'The most common assessment is oral questioning (direct or indirect) by the instructor — quick, flexible checks during the lesson.',
+  foi_written_235:
+    'Oral quizzing’s desirable result is identifying points that need more emphasis so you can fix them in the same lesson block.',
+  foi_written_236:
+    'Effective oral questions stay brief and concise — one idea per question — during the lesson.',
+  foi_written_239:
+    'Commercial test-prep material often over-weights rote recall versus higher learning levels — use it as a supplement, not the syllabus.',
+  foi_written_266:
+    'Bring students to the practical-test standards early in the course — not only in the final few hours before the checkride.',
+  foi_written_276:
+    'Performance, airspace, and regs knowledge before solo belongs on a pre-solo knowledge test — confirm the book knowledge before release.',
 };
 
 /**
@@ -209,8 +291,12 @@ const STEM_NOTES = [
     note: '“What is the book number?” is rote. Explaining relationships is understanding; using knowledge in a problem is application; connecting across domains is correlation.',
   },
   {
-    re: /simulated engine fail|practical test.*level|level of learning is being tested/,
-    note: 'Performing a skill under test conditions probes application (or higher) — not mere rote recall of a fact.',
+    re: /simulated engine fail|complete .ss of engine power/,
+    note: 'An emergency scenario that forces combining skills and adapting probes correlation — beyond single-procedure application or rote recall.',
+  },
+  {
+    re: /level of learning is being tested/,
+    note: 'Match the verb in the stem to the level: name/list → rote; explain → understanding; use in a problem → application; adapt across situations → correlation.',
   },
   {
     re: /explain how gross weight affects/,
@@ -332,7 +418,7 @@ const STEM_NOTES = [
   },
   {
     re: /irrelevant questions or refuses to participate/,
-    note: 'Irrelevant questions / refusal to join in often signals repression or related avoidance — ego protecting itself.',
+    note: 'Irrelevant questions and refusing to participate are aggression as a defense — acting out when ego is threatened.',
   },
   {
     re: /physical or mental flight is a defense/,
@@ -352,7 +438,7 @@ const STEM_NOTES = [
   },
   {
     re: /bewildered and lost in the advanced phase|without grasping the fundamentals/,
-    note: 'Skipping fundamentals then collapsing later is often repression/denial of earlier gaps — go back and rebuild the base.',
+    note: 'When early gaps surface in advanced work, resignation (giving up) is common — rebuild fundamentals instead of pushing ahead.',
   },
   {
     re: /students becoming frustrated/,
@@ -464,7 +550,7 @@ const STEM_NOTES = [
   },
   {
     re: /detract from an instructor's dignity/,
-    note: 'Sarcasm and talking down destroy dignity and student respect — never “clever” in a lecture.',
+    note: 'Poor grammar and vulgar language undercut instructor dignity and insult student intelligence — keep lecture language clean and correct.',
   },
   {
     re: /one advantage of a lecture/,
@@ -546,11 +632,19 @@ const STEM_NOTES = [
   },
   {
     re: /objective of the practical test standards|pts\) is to ensure/,
-    note: 'PTS/ACS exist to hold certification to a published standard of performance, consistently applied.',
+    note: 'PTS/ACS exist so certificated pilots meet a high level of safety — published standards are the safety bar.',
   },
   {
-    re: /proper oral quizzing|oral quizzing by the instructor|orai quizzing/,
-    note: 'Oral quizzing during the lesson reveals misunderstandings early, keeps students alert, and reviews without waiting for a formal test.',
+    re: /proper oral quizzing by the instructor during a lesson can have which result/,
+    note: 'Oral quizzing’s payoff is spotting what needs more emphasis before the lesson ends.',
+  },
+  {
+    re: /desirable result of proper oral quizzing/,
+    note: 'Oral quizzes also show whether your training procedures are working — weak answers flag the teaching as well as the student.',
+  },
+  {
+    re: /proper oral quizzing|oral quizzing by the instructor|orai quizzing|during oral quizzing/,
+    note: 'Oral quizzing during the lesson reveals misunderstandings early; keep questions brief, concise, and matched to that stage’s difficulty.',
   },
   {
     re: /answer a student's question/,
@@ -565,16 +659,32 @@ const STEM_NOTES = [
     note: 'Comprehensive = samples the whole objective set appropriately — not one pet topic.',
   },
   {
-    re: /greatest probability of guessing|type of test promotes guessing|promotes guessing/,
-    note: 'True/false maximizes guessing (50%). Prefer items that demand real recognition or recall of the objective.',
+    re: /selection-type test items reduces the probability of guessing/,
+    note: 'Matching cuts guessing among selection-type items: each prompt must pair correctly across the set, so random luck helps far less than on a single multiple-choice pick. Essay is supply-type, not selection-type.',
   },
   {
-    re: /main disadvantage of supply-type|characteristic of supply-type|advantages of selection-type/,
-    note: 'Supply items cut guessing but cost scoring time/consistency; selection items grade fast but need strong distractors.',
+    re: /greatest probability of guessing/,
+    note: 'True/false maximizes guessing (50% per item). Prefer items that demand real recognition or recall of the objective.',
   },
   {
-    re: /effective multiple-choice test items|selection-type test items reduces the probability/,
-    note: 'Strong MC items: clear stem, one best answer, plausible distractors, no giveaways from length or grammar.',
+    re: /type of test promotes guessing|what type of test promotes guessing/,
+    note: 'Selection-type items (choose from listed options) promote guessing; supply-type items force the student to produce the answer.',
+  },
+  {
+    re: /main disadvantage of supply-type/,
+    note: 'Supply-type (write-in) items’ main drawback is uneven grading — different instructors often score the same answer differently.',
+  },
+  {
+    re: /characteristic of supply-type test items/,
+    note: 'Supply-type answers are hard to grade uniformly: the same paper can get different marks from different instructors.',
+  },
+  {
+    re: /advantages of selection-type test items over supply-type/,
+    note: 'Selection-type items grade objectively — same key for every student and grader — which supply-type write-ins rarely match.',
+  },
+  {
+    re: /effective multiple-choice test items/,
+    note: 'Strong MC items: clear stem, one best answer, plausible distractors (wrong answer choices written to look plausible), alternatives of similar length, no grammar giveaways.',
   },
   {
     re: /desirable for evaluating training that involves an operation, procedure/,
@@ -582,7 +692,7 @@ const STEM_NOTES = [
   },
   {
     re: /faulty performance due to student overconfidence/,
-    note: 'Overconfidence needs factual correction against standards — not more empty praise.',
+    note: 'Correct overconfidence by raising the performance standard for each lesson — demand the next level, not more empty praise.',
   },
   {
     re: /student who assumes that correction of errors is unimportant/,
@@ -606,7 +716,7 @@ const STEM_NOTES = [
   },
   {
     re: /most common means of assessment/,
-    note: 'Written tests remain the most common assessment means for knowledge — still match the item type to the objective.',
+    note: 'The most common assessment is oral questioning (direct or indirect) by the instructor — quick, flexible checks during the lesson.',
   },
   {
     re: /performance-based objectives consist/,
@@ -946,6 +1056,10 @@ function stemText(card) {
 }
 
 function buildSummary(card) {
+  if (CARD_OVERRIDES[card.id]) {
+    return withInlineDefs(CARD_OVERRIDES[card.id]);
+  }
+
   const stem = stemText(card);
   const notes = [];
   for (const row of STEM_NOTES) {
@@ -963,7 +1077,8 @@ function buildSummary(card) {
       'Use the Aviation Instructor’s Handbook wording for the “why.” FOI items often turn on a nearby definition or look-alike principle.'
     );
   }
-  return withInlineDefs(notes.slice(0, 2).join(' '));
+  // One focused tip beats two that may pull in an unrelated second match.
+  return withInlineDefs(notes.slice(0, 1).join(' '));
 }
 
 function linksFor(card) {
