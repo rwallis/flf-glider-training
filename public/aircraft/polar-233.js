@@ -14,25 +14,40 @@
   const KT_TO_FPS = 6076.12 / 3600;
 
   /**
-   * POH sink-vs-IAS anchors (mph, sink ft/sec) from the original performance graph.
-   * L/D is derived as V(fps)/sink(fps). Chart Y uses knots (sink_fps / KT_TO_FPS).
+   * POH L/D-vs-IAS anchors from the left scale of the calculated performance graph.
+   * Sink is derived as V(fps)/L/D so the polar stays physically consistent
+   * (independent Vs digitization on the right scale disagrees slightly and
+   * would understate peak L/D as ~21.1 instead of the chart’s ~22+).
+   * Stall floors: solo 34 mph, dual 38 mph.
    */
-  const SINK_TABLES = {
+  const LD_TABLES = {
     solo: {
       label: 'Solo',
       weight_lb: 790,
       wing_loading_psf: 3.6,
       stall_mph: 34,
-      // [IAS mph, sink ft/sec]
-      sink_fps_mph: [
-        [34, 3.0],
-        [36, 2.9],
-        [42, 2.95],
-        [48, 3.6],
-        [54, 4.25],
-        [60, 5.25],
-        [66, 6.0],
-        [72, 7.25]
+      // [IAS mph, L/D]
+      ld_mph: [
+        [34, 16.6],
+        [36, 16.8],
+        [39, 19.8],
+        [42, 21.5],
+        [45, 22.2],
+        [48, 22.3],
+        [51, 22.0],
+        [54, 21.5],
+        [57, 20.5],
+        [60, 19.4],
+        [63, 18.4],
+        [66, 17.4],
+        [69, 16.5],
+        [72, 15.7],
+        [75, 14.9],
+        [78, 14.1],
+        [81, 13.4],
+        [84, 12.7],
+        [87, 12.0],
+        [90, 11.3]
       ]
     },
     dual: {
@@ -40,17 +55,25 @@
       weight_lb: 1040,
       wing_loading_psf: 4.74,
       stall_mph: 38,
-      sink_fps_mph: [
-        [38, 3.5],
-        [42, 3.35],
-        [48, 3.4],
-        [54, 3.75],
-        [60, 4.25],
-        [66, 5.0],
-        [72, 6.0],
-        [78, 7.5],
-        [84, 9.0],
-        [87, 10.0]
+      ld_mph: [
+        [38, 15.9],
+        [42, 17.0],
+        [45, 19.8],
+        [48, 21.4],
+        [51, 21.9],
+        [54, 22.2],
+        [57, 21.6],
+        [60, 20.8],
+        [63, 19.8],
+        [66, 18.8],
+        [69, 17.7],
+        [72, 16.6],
+        [75, 15.7],
+        [78, 14.8],
+        [81, 14.0],
+        [84, 13.2],
+        [87, 12.5],
+        [90, 11.9]
       ]
     }
   };
@@ -71,19 +94,18 @@
     );
   }
 
-  function sinkTableToAnchors(sinkFpsMph) {
-    return sinkFpsMph.map(([mph, sinkFps]) => {
+  function ldTableToAnchors(ldMph) {
+    return ldMph.map(([mph, ld]) => {
       const ias_kt = mph * MPH_TO_KT;
-      const sink_fps = Number(sinkFps);
-      const vs_kt = -(sink_fps / KT_TO_FPS);
-      const vFps = mph * MPH_TO_FPS;
-      const ld = vFps / Math.max(1e-6, sink_fps);
-      return { ias_kt, vs_kt, mph, ld, sink_fps };
+      const ldN = Number(ld);
+      const vs_kt = -(ias_kt / Math.max(0.05, ldN));
+      const sink_fps = Math.abs(vs_kt) * KT_TO_FPS;
+      return { ias_kt, vs_kt, mph, ld: ldN, sink_fps };
     });
   }
 
   /**
-   * Continuous polar sample via Catmull–Rom on sink vs IAS (exact at POH anchors).
+   * Continuous polar sample via Catmull–Rom on VS (from L/D anchors).
    * Smooth curve so MacCready touch IAS moves continuously with MC/wind.
    */
   function samplePolarAtMph(anchors, mph) {
@@ -104,15 +126,10 @@
     const p3 = pts[Math.min(n - 1, i + 2)];
     const span = p2.mph - p1.mph;
     const t = span > 0 ? (mph - p1.mph) / span : 0;
-    // Interpolate sink_fps (positive) then convert — keeps POH units stable.
-    const sink_fps = Math.max(
-      0.05,
-      catmullRom(p0.sink_fps, p1.sink_fps, p2.sink_fps, p3.sink_fps, t)
-    );
-    const vs = -(sink_fps / KT_TO_FPS);
+    const ld = Math.max(0.05, catmullRom(p0.ld, p1.ld, p2.ld, p3.ld, t));
     const ias = mph * MPH_TO_KT;
-    const vFps = mph * MPH_TO_FPS;
-    const ld = vFps / Math.max(1e-6, sink_fps);
+    const vs = -(ias / ld);
+    const sink_fps = Math.abs(vs) * KT_TO_FPS;
     return { mph, ias_kt: ias, vs_kt: vs, ld, sink_fps };
   }
 
@@ -180,11 +197,11 @@
   }
 
   const CONFIGS = {};
-  for (const key of Object.keys(SINK_TABLES)) {
-    const meta = SINK_TABLES[key];
-    const anchors = sinkTableToAnchors(meta.sink_fps_mph);
+  for (const key of Object.keys(LD_TABLES)) {
+    const meta = LD_TABLES[key];
+    const anchors = ldTableToAnchors(meta.ld_mph);
     const smooth = buildSmoothPolar(anchors, 0.05);
-    // Peak L/D from sink anchors (V/sink), not a separate L/D digitization.
+    // Peak L/D from POH L/D anchors (avoid reporting Catmull–Rom overshoot).
     let best = anchors[0];
     for (const p of anchors) {
       if (p.ld > best.ld) best = p;
@@ -337,19 +354,19 @@
     return `${Math.abs(w)} mph headwind`;
   }
 
-  // Legacy evaluate API (mph / derived L/D from sink table)
+  // Legacy evaluate API (mph / L/D; sink derived)
   const POLAR = {
     aircraft: 'SGS 2-33A',
-    source: 'POH sink-vs-IAS performance graph (digitized)',
+    source: 'POH L/D performance graph (digitized); sink = V/L/D',
     configs: Object.fromEntries(
-      Object.entries(SINK_TABLES).map(([key, meta]) => [
+      Object.entries(LD_TABLES).map(([key, meta]) => [
         key,
         {
           label: meta.label,
           weight_lb: meta.weight_lb,
           wing_loading_psf: meta.wing_loading_psf,
           stall_mph: meta.stall_mph,
-          points: sinkTableToAnchors(meta.sink_fps_mph).map((p) => ({
+          points: ldTableToAnchors(meta.ld_mph).map((p) => ({
             mph: p.mph,
             ld: p.ld,
             sink_fps: p.sink_fps
@@ -361,9 +378,9 @@
 
   function enrich(points) {
     return points.map((p) => {
+      const ld = p.ld;
       const sink_fps =
-        p.sink_fps != null ? p.sink_fps : (p.mph * MPH_TO_FPS) / Math.max(1e-6, p.ld);
-      const ld = p.ld != null ? p.ld : (p.mph * MPH_TO_FPS) / Math.max(1e-6, sink_fps);
+        p.sink_fps != null ? p.sink_fps : (p.mph * MPH_TO_FPS) / Math.max(1e-6, ld);
       return { mph: p.mph, ld, sink_fps };
     });
   }

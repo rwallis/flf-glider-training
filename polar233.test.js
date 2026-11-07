@@ -106,36 +106,16 @@ test('L/D probe clamps to stall for solo and dual', () => {
   assert.equal(atStall.at_stall, true);
 });
 
-test('polar sink matches POH sink-graph anchors', () => {
+test('polar peak L/D matches POH L/D curve (~22+)', () => {
   const polar = loadPolar();
-  const dualRef = [
-    [38, 3.5],
-    [42, 3.35],
-    [48, 3.4],
-    [54, 3.75],
-    [60, 4.25],
-    [66, 5.0],
-    [72, 6.0],
-    [78, 7.5],
-    [84, 9.0],
-    [87, 10.0]
-  ];
-  const soloRef = [
-    [34, 3.0],
-    [36, 2.9],
-    [42, 2.95],
-    [48, 3.6],
-    [54, 4.25],
-    [60, 5.25],
-    [66, 6.0],
-    [72, 7.25]
-  ];
-  for (const [mph, fps] of dualRef) {
-    const p = polar.probeAtAirspeed({ config: 'dual', airspeedMph: mph });
-    assert.ok(Math.abs(p.sink_fps - fps) < 0.02, `dual ${mph}: ${p.sink_fps} vs ${fps}`);
-  }
-  for (const [mph, fps] of soloRef) {
-    const p = polar.probeAtAirspeed({ config: 'solo', airspeedMph: mph });
-    assert.ok(Math.abs(p.sink_fps - fps) < 0.02, `solo ${mph}: ${p.sink_fps} vs ${fps}`);
-  }
+  const dual = polar.getConfig('dual');
+  const solo = polar.getConfig('solo');
+  assert.ok(dual.best_ld.ld >= 22.0 && dual.best_ld.ld < 23.0, `dual best L/D ${dual.best_ld.ld}`);
+  assert.ok(solo.best_ld.ld >= 22.0 && solo.best_ld.ld < 23.0, `solo best L/D ${solo.best_ld.ld}`);
+  assert.equal(Math.round(dual.best_ld.mph), 54);
+  assert.equal(Math.round(solo.best_ld.mph), 48);
+  const atPeak = polar.probeAtAirspeed({ config: 'dual', airspeedMph: 54 });
+  assert.ok(Math.abs(atPeak.ld - 22.2) < 0.05, `dual@54 L/D ${atPeak.ld}`);
+  // Sink must be V/L/D (not the inconsistent Vs-scale digitization ~3.75).
+  assert.ok(Math.abs(atPeak.sink_fps - (54 * polar.MPH_TO_FPS) / 22.2) < 0.05);
 });
