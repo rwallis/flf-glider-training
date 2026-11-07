@@ -27,9 +27,10 @@
       wing_loading_psf: 3.6,
       stall_mph: 34,
       // [IAS mph, L/D]
+      // Early L/D raised enough that sink falls stall→min-sink (no post-stall “dip”).
       ld_mph: [
-        [34, 16.6],
-        [36, 16.8],
+        [34, 16.2],
+        [36, 18.2],
         [39, 19.8],
         [42, 21.5],
         [45, 22.2],
@@ -57,7 +58,7 @@
       stall_mph: 38,
       ld_mph: [
         [38, 15.9],
-        [42, 17.0],
+        [42, 18.3],
         [45, 19.8],
         [48, 21.4],
         [51, 21.9],
@@ -126,7 +127,12 @@
     const p3 = pts[Math.min(n - 1, i + 2)];
     const span = p2.mph - p1.mph;
     const t = span > 0 ? (mph - p1.mph) / span : 0;
-    const ld = Math.max(0.05, catmullRom(p0.ld, p1.ld, p2.ld, p3.ld, t));
+    // Catmull–Rom for smoothness, clamped to the segment’s L/D range so the
+    // low-speed nose cannot overshoot into an artificial “dip/hump”.
+    const ldRaw = catmullRom(p0.ld, p1.ld, p2.ld, p3.ld, t);
+    const ldLo = Math.min(p1.ld, p2.ld);
+    const ldHi = Math.max(p1.ld, p2.ld);
+    const ld = Math.max(0.05, Math.min(ldHi, Math.max(ldLo, ldRaw)));
     const ias = mph * MPH_TO_KT;
     const vs = -(ias / ld);
     const sink_fps = Math.abs(vs) * KT_TO_FPS;

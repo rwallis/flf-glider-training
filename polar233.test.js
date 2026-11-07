@@ -119,3 +119,22 @@ test('polar peak L/D matches POH L/D curve (~22+)', () => {
   // Sink must be V/L/D (not the inconsistent Vs-scale digitization ~3.75).
   assert.ok(Math.abs(atPeak.sink_fps - (54 * polar.MPH_TO_FPS) / 22.2) < 0.05);
 });
+
+test('low-speed polar has no post-stall sink dip (solo and dual)', () => {
+  const polar = loadPolar();
+  for (const cfg of ['solo', 'dual']) {
+    const c = polar.getConfig(cfg);
+    const minSinkMph = c.min_sink.mph;
+    let prev = null;
+    for (let mph = c.stall_mph; mph <= minSinkMph + 1e-6; mph += 0.25) {
+      const sink = polar.probeAtAirspeed({ config: cfg, airspeedMph: mph }).sink_kt;
+      if (prev != null) {
+        assert.ok(
+          sink <= prev + 0.02,
+          `${cfg} sink rises after stall at ${mph}: ${prev.toFixed(3)} -> ${sink.toFixed(3)}`
+        );
+      }
+      prev = sink;
+    }
+  }
+});
