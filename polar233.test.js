@@ -73,7 +73,8 @@ test('STF IAS moves continuously as MacCready increases (no 3 mph snaps)', () =>
     assert.ok(mph + 1e-6 >= prev, `STF should not fall as MC rises (${prev} -> ${mph} at MC=${mc})`);
     prev = mph;
   }
-  assert.ok(maxStep < 1.25, `max step ${maxStep} mph too large — still snapping`);
+  // Sink-graph anchors are ~6 mph apart; allow modest continuous steps, not table snaps.
+  assert.ok(maxStep < 1.6, `max step ${maxStep} mph too large — still snapping`);
 });
 
 test('wind label uses mph', () => {
@@ -94,13 +95,47 @@ test('L/D probe clamps to stall for solo and dual', () => {
   const polar = loadPolar();
   const solo = polar.getConfig('solo');
   const dual = polar.getConfig('dual');
-  assert.equal(solo.stall_mph, 36);
-  assert.equal(dual.stall_mph, 42);
-  assert.equal(polar.clampProbeMph('solo', 20), 36);
-  assert.equal(polar.clampProbeMph('dual', 20), 42);
+  assert.equal(solo.stall_mph, 34);
+  assert.equal(dual.stall_mph, 38);
+  assert.equal(polar.clampProbeMph('solo', 20), 34);
+  assert.equal(polar.clampProbeMph('dual', 20), 38);
   const atStall = polar.probeAtAirspeed({ config: 'dual', airspeedMph: 10 });
-  assert.equal(atStall.mph, 42);
+  assert.equal(atStall.mph, 38);
   assert.ok(atStall.ld > 0);
   assert.ok(atStall.sink_kt > 0);
   assert.equal(atStall.at_stall, true);
+});
+
+test('polar sink matches POH sink-graph anchors', () => {
+  const polar = loadPolar();
+  const dualRef = [
+    [38, 3.5],
+    [42, 3.35],
+    [48, 3.4],
+    [54, 3.75],
+    [60, 4.25],
+    [66, 5.0],
+    [72, 6.0],
+    [78, 7.5],
+    [84, 9.0],
+    [87, 10.0]
+  ];
+  const soloRef = [
+    [34, 3.0],
+    [36, 2.9],
+    [42, 2.95],
+    [48, 3.6],
+    [54, 4.25],
+    [60, 5.25],
+    [66, 6.0],
+    [72, 7.25]
+  ];
+  for (const [mph, fps] of dualRef) {
+    const p = polar.probeAtAirspeed({ config: 'dual', airspeedMph: mph });
+    assert.ok(Math.abs(p.sink_fps - fps) < 0.02, `dual ${mph}: ${p.sink_fps} vs ${fps}`);
+  }
+  for (const [mph, fps] of soloRef) {
+    const p = polar.probeAtAirspeed({ config: 'solo', airspeedMph: mph });
+    assert.ok(Math.abs(p.sink_fps - fps) < 0.02, `solo ${mph}: ${p.sink_fps} vs ${fps}`);
+  }
 });

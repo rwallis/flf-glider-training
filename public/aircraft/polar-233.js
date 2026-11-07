@@ -14,60 +14,43 @@
   const KT_TO_FPS = 6076.12 / 3600;
 
   /**
-   * POH L/D anchors (mph) — densified, then converted to IAS/VS knots.
-   * Extra midpoints keep Catmull–Rom / Bezier output smooth on screen.
+   * POH sink-vs-IAS anchors (mph, sink ft/sec) from the original performance graph.
+   * L/D is derived as V(fps)/sink(fps). Chart Y uses knots (sink_fps / KT_TO_FPS).
    */
-  const LD_TABLES = {
+  const SINK_TABLES = {
     solo: {
       label: 'Solo',
       weight_lb: 790,
       wing_loading_psf: 3.6,
-      // Digitized from POH p.1-15; sink derived as V(fps)/L/D.
-      ld_mph: [
-        [36, 16.8],
-        [39, 19.8],
-        [42, 21.5],
-        [45, 22.2],
-        [48, 22.3],
-        [51, 22.0],
-        [54, 21.5],
-        [57, 20.5],
-        [60, 19.4],
-        [63, 18.4],
-        [66, 17.4],
-        [69, 16.5],
-        [72, 15.7],
-        [75, 14.9],
-        [78, 14.1],
-        [81, 13.4],
-        [84, 12.7],
-        [87, 12.0],
-        [90, 11.3]
+      stall_mph: 34,
+      // [IAS mph, sink ft/sec]
+      sink_fps_mph: [
+        [34, 3.0],
+        [36, 2.9],
+        [42, 2.95],
+        [48, 3.6],
+        [54, 4.25],
+        [60, 5.25],
+        [66, 6.0],
+        [72, 7.25]
       ]
     },
     dual: {
       label: 'Dual',
       weight_lb: 1040,
       wing_loading_psf: 4.74,
-      // Peak ~22.2 at 54 mph (POH); was overstated at 23.0. Sink = V(fps)/L/D ≈ 3.57 fps.
-      ld_mph: [
-        [42, 17.0],
-        [45, 19.8],
-        [48, 21.4],
-        [51, 21.9],
-        [54, 22.2],
-        [57, 21.6],
-        [60, 20.8],
-        [63, 19.8],
-        [66, 18.8],
-        [69, 17.7],
-        [72, 16.6],
-        [75, 15.7],
-        [78, 14.8],
-        [81, 14.0],
-        [84, 13.2],
-        [87, 12.5],
-        [90, 11.9]
+      stall_mph: 38,
+      sink_fps_mph: [
+        [38, 3.5],
+        [42, 3.35],
+        [48, 3.4],
+        [54, 3.75],
+        [60, 4.25],
+        [66, 5.0],
+        [72, 6.0],
+        [78, 7.5],
+        [84, 9.0],
+        [87, 10.0]
       ]
     }
   };
@@ -88,18 +71,20 @@
     );
   }
 
-  function ldTableToAnchors(ldMph) {
-    return ldMph.map(([mph, ld]) => {
+  function sinkTableToAnchors(sinkFpsMph) {
+    return sinkFpsMph.map(([mph, sinkFps]) => {
       const ias_kt = mph * MPH_TO_KT;
-      const vs_kt = -(ias_kt / ld);
-      return { ias_kt, vs_kt, mph, ld };
+      const sink_fps = Number(sinkFps);
+      const vs_kt = -(sink_fps / KT_TO_FPS);
+      const vFps = mph * MPH_TO_FPS;
+      const ld = vFps / Math.max(1e-6, sink_fps);
+      return { ias_kt, vs_kt, mph, ld, sink_fps };
     });
   }
 
   /**
-   * Continuous polar sample via Catmull–Rom on sink vs IAS (POH anchors).
-   * Smooth C1 curve so MacCready touch IAS moves continuously with MC/wind
-   * instead of sticking on the 3 mph table vertices.
+   * Continuous polar sample via Catmull–Rom on sink vs IAS (exact at POH anchors).
+   * Smooth curve so MacCready touch IAS moves continuously with MC/wind.
    */
   function samplePolarAtMph(anchors, mph) {
     const pts = anchors;
@@ -119,10 +104,16 @@
     const p3 = pts[Math.min(n - 1, i + 2)];
     const span = p2.mph - p1.mph;
     const t = span > 0 ? (mph - p1.mph) / span : 0;
-    const vs = catmullRom(p0.vs_kt, p1.vs_kt, p2.vs_kt, p3.vs_kt, t);
+    // Interpolate sink_fps (positive) then convert — keeps POH units stable.
+    const sink_fps = Math.max(
+      0.05,
+      catmullRom(p0.sink_fps, p1.sink_fps, p2.sink_fps, p3.sink_fps, t)
+    );
+    const vs = -(sink_fps / KT_TO_FPS);
     const ias = mph * MPH_TO_KT;
-    const ld = ias / Math.max(1e-6, -vs);
-    return { mph, ias_kt: ias, vs_kt: vs, ld };
+    const vFps = mph * MPH_TO_FPS;
+    const ld = vFps / Math.max(1e-6, sink_fps);
+    return { mph, ias_kt: ias, vs_kt: vs, ld, sink_fps };
   }
 
   /** Dense display path (~0.05 mph) from the continuous polar. */
@@ -189,11 +180,11 @@
   }
 
   const CONFIGS = {};
-  for (const key of Object.keys(LD_TABLES)) {
-    const meta = LD_TABLES[key];
-    const anchors = ldTableToAnchors(meta.ld_mph);
+  for (const key of Object.keys(SINK_TABLES)) {
+    const meta = SINK_TABLES[key];
+    const anchors = sinkTableToAnchors(meta.sink_fps_mph);
     const smooth = buildSmoothPolar(anchors, 0.05);
-    // POH-table peak L/D (avoid Catmull–Rom overshoot in the reported best).
+    // Peak L/D from sink anchors (V/sink), not a separate L/D digitization.
     let best = anchors[0];
     for (const p of anchors) {
       if (p.ld > best.ld) best = p;
@@ -207,8 +198,7 @@
       label: meta.label,
       weight_lb: meta.weight_lb,
       wing_loading_psf: meta.wing_loading_psf,
-      // First POH polar point ≈ stall / min usable IAS for that weight.
-      stall_mph: anchors[0].mph,
+      stall_mph: meta.stall_mph,
       vmax_mph: anchors[anchors.length - 1].mph,
       anchors,
       smooth,
@@ -347,18 +337,23 @@
     return `${Math.abs(w)} mph headwind`;
   }
 
-  // Legacy evaluate API (mph / L/D table)
+  // Legacy evaluate API (mph / derived L/D from sink table)
   const POLAR = {
     aircraft: 'SGS 2-33A',
-    source: 'POH calculated performance curves (digitized)',
+    source: 'POH sink-vs-IAS performance graph (digitized)',
     configs: Object.fromEntries(
-      Object.entries(LD_TABLES).map(([key, meta]) => [
+      Object.entries(SINK_TABLES).map(([key, meta]) => [
         key,
         {
           label: meta.label,
           weight_lb: meta.weight_lb,
           wing_loading_psf: meta.wing_loading_psf,
-          points: meta.ld_mph.map(([mph, ld]) => ({ mph, ld }))
+          stall_mph: meta.stall_mph,
+          points: sinkTableToAnchors(meta.sink_fps_mph).map((p) => ({
+            mph: p.mph,
+            ld: p.ld,
+            sink_fps: p.sink_fps
+          }))
         }
       ])
     )
@@ -366,8 +361,10 @@
 
   function enrich(points) {
     return points.map((p) => {
-      const vFps = p.mph * MPH_TO_FPS;
-      return { mph: p.mph, ld: p.ld, sink_fps: vFps / p.ld };
+      const sink_fps =
+        p.sink_fps != null ? p.sink_fps : (p.mph * MPH_TO_FPS) / Math.max(1e-6, p.ld);
+      const ld = p.ld != null ? p.ld : (p.mph * MPH_TO_FPS) / Math.max(1e-6, sink_fps);
+      return { mph: p.mph, ld, sink_fps };
     });
   }
 
