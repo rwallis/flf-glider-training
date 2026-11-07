@@ -773,6 +773,9 @@
       gap: 12px;
       margin: 8px 0 4px;
     }
+    .polar-sliders .polar-slider-wide {
+      grid-column: 1 / -1;
+    }
     .polar-sliders label {
       display: block;
       margin-bottom: 2px;
@@ -1489,7 +1492,8 @@
         page: 'hub', // hub | sgs233
         config: 'dual',
         macCready: 2.0,
-        wind: 0 // mph; +tail / −head
+        wind: 0, // mph; +tail / −head
+        probeMph: 54 // IAS probe for L/D & sink (clamped to stall…Vmax)
       }
     };
 
@@ -2594,7 +2598,7 @@
       `;
     }
 
-    function macCreadySvg(result) {
+    function macCreadySvg(result, probe) {
       const W = 360;
       const H = 312;
       const pad = { l: 42, r: 14, t: 18, b: 68 };
@@ -2624,6 +2628,7 @@
       const colLd = '#16a34a';
       const colSink = '#7c3aed';
       const colWind = '#dc2626';
+      const colProbe = '#0d9488';
 
       let tangentLayer = '';
       const originMph = Number(result.origin_mph || 0);
@@ -2650,13 +2655,28 @@
         tangentLayer = `
           <line x1="${xOf(originMph)}" y1="${yOf(mc)}" x2="${xOf(xEnd)}" y2="${yOf(yEnd)}" stroke="${colTangent}" stroke-width="2.5"/>
           <line x1="${pad.l}" y1="${sinkY}" x2="${pad.l + plotW}" y2="${sinkY}"
-            stroke="${colSink}" stroke-width="1.5" stroke-dasharray="3 3" vector-effect="non-scaling-stroke"/>
-          <text x="${pad.l + 4}" y="${sinkY - 4}" font-size="11" fill="${colSink}" font-weight="700">${sinkNum}</text>
+            stroke="${colSink}" stroke-width="1.5" stroke-dasharray="3 3" vector-effect="non-scaling-stroke" opacity="0.55"/>
+          <text x="${pad.l + 4}" y="${sinkY - 4}" font-size="11" fill="${colSink}" font-weight="700" opacity="0.7">${sinkNum}</text>
           <line x1="${stfX}" y1="${pad.t}" x2="${stfX}" y2="${pad.t + plotH}"
-            stroke="${colLd}" stroke-width="1.5" stroke-dasharray="3 3" vector-effect="non-scaling-stroke"/>
-          <text x="${stfX + 4}" y="${pad.t + 12}" font-size="11" fill="${colLd}" font-weight="700">${ldNum}</text>
+            stroke="${colLd}" stroke-width="1.5" stroke-dasharray="3 3" vector-effect="non-scaling-stroke" opacity="0.55"/>
+          <text x="${stfX + 4}" y="${pad.t + 12}" font-size="11" fill="${colLd}" font-weight="700" opacity="0.7">${ldNum}</text>
           <circle cx="${stfX}" cy="${sinkY}" r="5" fill="${colTangent}" stroke="#1C2A33" stroke-width="1.2"/>
           <text x="${stfX}" y="${zeroY + 14}" text-anchor="middle" font-size="11" fill="#1C2A33" font-weight="700">${fmt(t.mph, 1)}</text>
+        `;
+      }
+
+      let probeLayer = '';
+      if (probe && probe.ok) {
+        const px = xOf(probe.mph);
+        const py = yOf(probe.vs_kt);
+        probeLayer = `
+          <line x1="${px}" y1="${pad.t}" x2="${px}" y2="${pad.t + plotH}"
+            stroke="${colProbe}" stroke-width="1.6" stroke-dasharray="4 3"/>
+          <line x1="${pad.l}" y1="${py}" x2="${pad.l + plotW}" y2="${py}"
+            stroke="${colProbe}" stroke-width="1.6" stroke-dasharray="4 3"/>
+          <circle cx="${px}" cy="${py}" r="5.5" fill="${colProbe}" stroke="#fff" stroke-width="1.5"/>
+          <text x="${px + 6}" y="${py - 8}" font-size="10" fill="${colProbe}" font-weight="700">${fmt(probe.ld, 1)}:1</text>
+          <text x="${pad.l + 4}" y="${py + 12}" font-size="10" fill="${colProbe}" font-weight="700">${fmt(probe.sink_kt, 2)} kt</text>
         `;
       }
 
@@ -2664,10 +2684,9 @@
       const yTicks = [4, 2, 0, -2, -4, -6];
       const legendItems = [
         { label: 'Polar', color: colPolar, dashed: false, x: pad.l },
-        { label: 'Tangent', color: colTangent, dashed: false, x: pad.l + 52 },
-        { label: 'Wind', color: colWind, dashed: true, x: pad.l + 118 },
-        { label: 'L/D', color: colLd, dashed: true, x: pad.l + 172 },
-        { label: 'Sink', color: colSink, dashed: true, x: pad.l + 218 }
+        { label: 'STF', color: colTangent, dashed: false, x: pad.l + 48 },
+        { label: 'Probe', color: colProbe, dashed: true, x: pad.l + 92 },
+        { label: 'Wind', color: colWind, dashed: true, x: pad.l + 148 }
       ];
       const legend = `
         <g font-size="9" fill="#334155" font-weight="600">
@@ -2689,6 +2708,7 @@
           <path d="${polarPath}" fill="none" stroke="${colPolar}" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
           ${pivotLayer}
           ${tangentLayer}
+          ${probeLayer}
           <text x="${W / 2}" y="${axisTitleY}" text-anchor="middle" font-size="11" fill="#334155">Indicated airspeed (mph)</text>
           ${legend}
           <text x="14" y="${pad.t + plotH / 2}" text-anchor="middle" font-size="11" fill="#334155" transform="rotate(-90 14 ${pad.t + plotH / 2})">Vertical speed (knots)</text>
@@ -2760,17 +2780,25 @@
       if (!polar) {
         return `<div class="empty">Polar module failed to load.</div>`;
       }
+      const cfg = polar.getConfig(state.aircraft.config);
+      state.aircraft.probeMph = polar.clampProbeMph(state.aircraft.config, state.aircraft.probeMph);
       const result = polar.findMacCreadyTangent({
         config: state.aircraft.config,
         macCreadyKt: state.aircraft.macCready,
         windMph: state.aircraft.wind
       });
-      const cfg = result.config || polar.getConfig(state.aircraft.config);
+      const probe = polar.probeAtAirspeed({
+        config: state.aircraft.config,
+        airspeedMph: state.aircraft.probeMph
+      });
       const t = result.ok ? result.tangent : null;
       const windPivot = result.origin_mph == null ? 0 : result.origin_mph;
       const status = result.ok
         ? `Wind pivot at <strong>${windPivot >= 0 ? '+' : ''}${fmt(windPivot, 0)} mph</strong> IAS · tangent IAS <strong>${fmt(t.mph, 1)} mph</strong>.`
         : escapeHtml(result.error || 'No tangent');
+      const probeStatus = probe.ok
+        ? `At <strong>${fmt(probe.mph, 1)} mph</strong> IAS: L/D <strong>${fmt(probe.ld, 1)}:1</strong> · sink <strong>${fmt(probe.sink_kt, 2)} kt</strong> (${fmt(probe.sink_fpm, 0)} fpm)${probe.at_stall ? ' · at stall' : ''}.`
+        : '';
       return `
         <div class="btn-row" style="margin-top:0">
           <button type="button" class="secondary" data-aircraft-page="hub">← Aircraft</button>
@@ -2789,13 +2817,17 @@
             <label>Wind: <span id="polarWindLabel">${Sgs233Polar.windLabel(state.aircraft.wind)}</span></label>
             <input id="polarWind" type="range" min="-30" max="30" step="1" value="${state.aircraft.wind}" />
           </div>
+          <div class="polar-slider-wide">
+            <label>L/D probe (IAS): <span id="polarProbeLabel">${fmt(probe.mph, 1)} mph · L/D ${fmt(probe.ld, 1)} · sink ${fmt(probe.sink_kt, 2)} kt</span></label>
+            <input id="polarProbe" type="range" min="${cfg.stall_mph}" max="${cfg.vmax_mph}" step="0.1" value="${probe.mph}" />
+          </div>
         </div>
-        <div id="polarSvgWrap">${macCreadySvg(result)}</div>
-        <div class="polar-status" id="polarStatus">${status}</div>
+        <div id="polarSvgWrap">${macCreadySvg(result, probe)}</div>
+        <div class="polar-status" id="polarStatus">${status}<br>${probeStatus}</div>
         ${polarPillsHtml(result)}
         <p style="font-size:0.78rem;color:var(--muted);margin:0 0 8px">
-          ${escapeHtml(cfg.label)} ${cfg.weight_lb} lb · S=${cfg.wing_loading_psf} psf.
-          Blue = fixed IAS polar; red W = wind pivot on the airspeed axis (headwind right, tailwind left); yellow = MacCready tangent. Read optimum IAS at the touch point.
+          ${escapeHtml(cfg.label)} ${cfg.weight_lb} lb · S=${cfg.wing_loading_psf} psf · stall ${cfg.stall_mph} mph.
+          Blue = fixed IAS polar; teal probe = L/D &amp; sink at the chosen IAS (stops at stall); red W = wind pivot; yellow = MacCready STF tangent.
         </p>
         <div class="polar-docs">
           <details>
@@ -2811,27 +2843,51 @@
 
     function updatePolarLive() {
       if (typeof Sgs233Polar === 'undefined') return;
+      state.aircraft.probeMph = Sgs233Polar.clampProbeMph(
+        state.aircraft.config,
+        state.aircraft.probeMph
+      );
       const result = Sgs233Polar.findMacCreadyTangent({
         config: state.aircraft.config,
         macCreadyKt: state.aircraft.macCready,
         windMph: state.aircraft.wind
       });
+      const probe = Sgs233Polar.probeAtAirspeed({
+        config: state.aircraft.config,
+        airspeedMph: state.aircraft.probeMph
+      });
       const mcLabel = document.getElementById('mcLabel');
       const windLabel = document.getElementById('polarWindLabel');
+      const probeLabel = document.getElementById('polarProbeLabel');
+      const probeInput = document.getElementById('polarProbe');
       if (mcLabel) mcLabel.textContent = fmt(state.aircraft.macCready, 1) + ' kt';
       if (windLabel) windLabel.textContent = Sgs233Polar.windLabel(state.aircraft.wind);
+      if (probeLabel && probe.ok) {
+        probeLabel.textContent =
+          `${fmt(probe.mph, 1)} mph · L/D ${fmt(probe.ld, 1)} · sink ${fmt(probe.sink_kt, 2)} kt`;
+      }
+      if (probeInput && probe.ok) {
+        probeInput.min = String(probe.stall_mph);
+        probeInput.max = String(probe.vmax_mph);
+        probeInput.value = String(probe.mph);
+      }
       const status = document.getElementById('polarStatus');
       if (status) {
         if (result.ok) {
           const t = result.tangent;
           const windPivot = result.origin_mph == null ? 0 : result.origin_mph;
-          status.innerHTML = `Wind pivot at <strong>${windPivot >= 0 ? '+' : ''}${fmt(windPivot, 0)} mph</strong> IAS · tangent IAS <strong>${fmt(t.mph, 1)} mph</strong>.`;
+          const probeLine = probe.ok
+            ? `<br>At <strong>${fmt(probe.mph, 1)} mph</strong> IAS: L/D <strong>${fmt(probe.ld, 1)}:1</strong> · sink <strong>${fmt(probe.sink_kt, 2)} kt</strong> (${fmt(probe.sink_fpm, 0)} fpm)${probe.at_stall ? ' · at stall' : ''}.`
+            : '';
+          status.innerHTML =
+            `Wind pivot at <strong>${windPivot >= 0 ? '+' : ''}${fmt(windPivot, 0)} mph</strong> IAS · tangent IAS <strong>${fmt(t.mph, 1)} mph</strong>.` +
+            probeLine;
         } else {
           status.textContent = result.error || 'No tangent';
         }
       }
       const wrap = document.getElementById('polarSvgWrap');
-      if (wrap) wrap.innerHTML = macCreadySvg(result);
+      if (wrap) wrap.innerHTML = macCreadySvg(result, probe);
       updatePolarPills(result);
     }
 
@@ -3458,6 +3514,12 @@
       app.querySelectorAll('[data-polar-config]').forEach((btn) => {
         btn.addEventListener('click', () => {
           state.aircraft.config = btn.dataset.polarConfig;
+          if (typeof Sgs233Polar !== 'undefined') {
+            state.aircraft.probeMph = Sgs233Polar.clampProbeMph(
+              state.aircraft.config,
+              state.aircraft.probeMph
+            );
+          }
           render();
         });
       });
@@ -3472,6 +3534,13 @@
       if (polarWind) {
         polarWind.addEventListener('input', () => {
           state.aircraft.wind = Number(polarWind.value);
+          updatePolarLive();
+        });
+      }
+      const polarProbe = app.querySelector('#polarProbe');
+      if (polarProbe) {
+        polarProbe.addEventListener('input', () => {
+          state.aircraft.probeMph = Number(polarProbe.value);
           updatePolarLive();
         });
       }

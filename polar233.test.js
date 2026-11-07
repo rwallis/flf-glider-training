@@ -89,3 +89,18 @@ test('bezier path starts with M and contains C', () => {
   assert.match(d, /^M /);
   assert.match(d, / C /);
 });
+
+test('L/D probe clamps to stall for solo and dual', () => {
+  const polar = loadPolar();
+  const solo = polar.getConfig('solo');
+  const dual = polar.getConfig('dual');
+  assert.equal(solo.stall_mph, 36);
+  assert.equal(dual.stall_mph, 42);
+  assert.equal(polar.clampProbeMph('solo', 20), 36);
+  assert.equal(polar.clampProbeMph('dual', 20), 42);
+  const atStall = polar.probeAtAirspeed({ config: 'dual', airspeedMph: 10 });
+  assert.equal(atStall.mph, 42);
+  assert.ok(atStall.ld > 0);
+  assert.ok(atStall.sink_kt > 0);
+  assert.equal(atStall.at_stall, true);
+});

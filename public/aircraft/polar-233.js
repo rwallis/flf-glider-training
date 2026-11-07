@@ -207,6 +207,9 @@
       label: meta.label,
       weight_lb: meta.weight_lb,
       wing_loading_psf: meta.wing_loading_psf,
+      // First POH polar point ≈ stall / min usable IAS for that weight.
+      stall_mph: anchors[0].mph,
+      vmax_mph: anchors[anchors.length - 1].mph,
       anchors,
       smooth,
       best_ld: best,
@@ -217,6 +220,36 @@
 
   function getConfig(key) {
     return CONFIGS[key] || CONFIGS.dual;
+  }
+
+  function clampProbeMph(config, mph) {
+    const cfg = getConfig(config);
+    const v = Number(mph);
+    if (!Number.isFinite(v)) return cfg.best_ld.mph;
+    return Math.min(cfg.vmax_mph, Math.max(cfg.stall_mph, v));
+  }
+
+  /** L/D and sink at a chosen IAS (clamped to stall…Vmax for the config). */
+  function probeAtAirspeed({ config = 'dual', airspeedMph } = {}) {
+    const cfg = getConfig(config);
+    const mph = clampProbeMph(config, airspeedMph);
+    const p = samplePolarAtMph(cfg.anchors, mph);
+    const sinkKt = Math.abs(p.vs_kt);
+    const sinkFps = sinkKt * KT_TO_FPS;
+    return {
+      ok: true,
+      config: cfg,
+      mph: p.mph,
+      ias_kt: p.ias_kt,
+      vs_kt: p.vs_kt,
+      ld: p.ld,
+      sink_kt: sinkKt,
+      sink_fps: sinkFps,
+      sink_fpm: sinkFps * 60,
+      stall_mph: cfg.stall_mph,
+      vmax_mph: cfg.vmax_mph,
+      at_stall: Math.abs(p.mph - cfg.stall_mph) < 0.05
+    };
   }
 
   function findMacCreadyTangent({ config = 'dual', macCreadyKt = 2, windMph = 0 } = {}) {
@@ -413,6 +446,8 @@
     evaluate,
     sampleGroundLdCurve,
     findMacCreadyTangent,
+    probeAtAirspeed,
+    clampProbeMph,
     windLabel,
     polarToBezierPath,
     buildSmoothPolar
