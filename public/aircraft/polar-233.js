@@ -1,8 +1,11 @@
 /**
  * SGS 2-33 polar + MacCready tangent construction (browser).
- * Chart: IAS / groundspeed in mph (X), vertical speed in knots (Y, + climb / − sink).
+ * Chart: IAS in mph (X), vertical speed in knots (Y, + climb / − sink).
+ * Polar is fixed in airspeed — wind does not shift the curve.
  * MacCready ring setting is in knots (same as vertical speed).
  * Wind: positive = tailwind mph, negative = headwind mph.
+ * Tangent pivot on X: headwind → +|wind|, tailwind → −|wind|, calm → 0
+ * (with MC on Y). Touch point’s X is optimum IAS.
  */
 (function (global) {
   const KT_TO_MPH = 1.1507794;
@@ -174,18 +177,20 @@
     const mc = Number(macCreadyKt);
     const windMphN = Number(windMph);
     const windKt = windMphN * MPH_TO_KT;
+    // Pivot on IAS axis: headwind → +|W|, tailwind → −|W| (windMph: +tail / −head).
+    const originMph = -windMphN;
     let best = null;
     for (const p of cfg.smooth) {
-      const gsMph = p.mph + windMphN;
-      if (gsMph <= 1) continue;
-      const gsKt = gsMph * MPH_TO_KT;
-      // Optimize in knot-consistent GS so L/D geometry stays physical; plot X in mph.
-      const slope = (p.vs_kt - mc) / gsKt;
+      const dxMph = p.mph - originMph;
+      // Touch point must sit to the right of the wind pivot on the IAS axis.
+      if (dxMph <= 1) continue;
+      const slope = (p.vs_kt - mc) / dxMph;
       if (!best || slope > best.slope) {
+        const gsMph = p.mph + windMphN;
         best = {
           ias_kt: p.ias_kt,
           vs_kt: p.vs_kt,
-          gs_kt: gsKt,
+          gs_kt: gsMph * MPH_TO_KT,
           gs_mph: gsMph,
           slope,
           mph: p.mph,
@@ -194,19 +199,31 @@
       }
     }
     if (!best) {
-      return { ok: false, error: 'No tangent (wind too strong vs polar)', config: cfg };
+      return {
+        ok: false,
+        error: 'No tangent (wind pivot leaves no polar points to the right)',
+        config: cfg,
+        origin_mph: originMph,
+        polar_gs: cfg.smooth.map((p) => ({
+          x_mph: p.mph,
+          mph: p.mph,
+          ias_kt: p.ias_kt,
+          vs_kt: p.vs_kt,
+          ld: p.ld
+        }))
+      };
     }
 
     const sinkKt = Math.abs(best.vs_kt);
     const sinkFps = sinkKt * KT_TO_FPS;
     const airLd = best.ld;
-    const groundLd = best.gs_kt / sinkKt;
+    const groundLd = best.gs_mph > 0 ? best.gs_kt / sinkKt : null;
     const bestLd = cfg.best_ld.ld;
     const calmTangent = (() => {
       let b = null;
       for (const p of cfg.smooth) {
-        if (p.ias_kt <= 1) continue;
-        const slope = (p.vs_kt - mc) / p.ias_kt;
+        if (p.mph <= 1) continue;
+        const slope = (p.vs_kt - mc) / p.mph;
         if (!b || slope > b.slope) {
           b = { ...p, slope, gs_kt: p.ias_kt, gs_mph: p.mph };
         }
@@ -220,15 +237,17 @@
       mac_cready_kt: mc,
       wind_mph: windMphN,
       wind_kt: windKt,
+      origin_mph: originMph,
       tangent: best,
-      line: { x0: 0, y0: mc, x1: best.gs_mph, y1: best.vs_kt },
+      line: { x0: originMph, y0: mc, x1: best.mph, y1: best.vs_kt },
+      // Polar stays in IAS; x_mph is indicated airspeed (legacy key polar_gs kept for UI).
       polar_gs: cfg.smooth.map((p) => ({
-        x_mph: p.mph + windMphN,
+        x_mph: p.mph,
         mph: p.mph,
         ias_kt: p.ias_kt,
         vs_kt: p.vs_kt,
         ld: p.ld
-      })).filter((p) => p.x_mph > 0),
+      })),
       metrics: {
         sink_kt: sinkKt,
         sink_fps: sinkFps,
@@ -237,7 +256,7 @@
         ground_ld: groundLd,
         best_ld: bestLd,
         air_ld_vs_best_pct: (airLd / bestLd) * 100,
-        ground_ld_vs_best_pct: (groundLd / bestLd) * 100,
+        ground_ld_vs_best_pct: groundLd != null ? (groundLd / bestLd) * 100 : null,
         sink_vs_min_pct: (sinkKt / Math.abs(cfg.min_sink.vs_kt)) * 100,
         calm_stf_mph: calmTangent ? calmTangent.mph : null,
         delta_stf_mph: calmTangent ? best.mph - calmTangent.mph : 0

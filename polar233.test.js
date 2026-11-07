@@ -42,7 +42,25 @@ test('headwind increases dual speed to fly', () => {
   const polar = loadPolar();
   const calm = polar.findMacCreadyTangent({ config: 'dual', macCreadyKt: 2, windMph: 0 });
   const head = polar.findMacCreadyTangent({ config: 'dual', macCreadyKt: 2, windMph: -10 });
+  assert.equal(head.origin_mph, 10);
   assert.ok(head.tangent.mph >= calm.tangent.mph);
+});
+
+test('tailwind decreases dual speed to fly and pivots left of zero', () => {
+  const polar = loadPolar();
+  const calm = polar.findMacCreadyTangent({ config: 'dual', macCreadyKt: 2, windMph: 0 });
+  const tail = polar.findMacCreadyTangent({ config: 'dual', macCreadyKt: 2, windMph: 10 });
+  assert.equal(tail.origin_mph, -10);
+  assert.ok(tail.tangent.mph <= calm.tangent.mph);
+});
+
+test('polar x stays in IAS (does not shift with wind)', () => {
+  const polar = loadPolar();
+  const calm = polar.findMacCreadyTangent({ config: 'dual', macCreadyKt: 0, windMph: 0 });
+  const head = polar.findMacCreadyTangent({ config: 'dual', macCreadyKt: 0, windMph: -15 });
+  assert.equal(calm.polar_gs[0].x_mph, calm.polar_gs[0].mph);
+  assert.equal(head.polar_gs[0].x_mph, head.polar_gs[0].mph);
+  assert.equal(calm.polar_gs[0].x_mph, head.polar_gs[0].x_mph);
 });
 
 test('wind label uses mph', () => {

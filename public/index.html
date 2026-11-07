@@ -2600,7 +2600,8 @@
       const pad = { l: 42, r: 14, t: 18, b: 68 };
       const plotW = W - pad.l - pad.r;
       const plotH = H - pad.t - pad.b;
-      const xMin = 0;
+      // Negative X shows the tailwind pivot (left of 0 on the IAS axis).
+      const xMin = -30;
       const xMax = 90;
       const yMin = -6;
       const yMax = 4;
@@ -2622,23 +2623,32 @@
       const colTangent = '#E6B800';
       const colLd = '#16a34a';
       const colSink = '#7c3aed';
+      const colWind = '#dc2626';
 
       let tangentLayer = '';
+      const originMph = Number(result.origin_mph || 0);
+      const mc = Number(result.mac_cready_kt || 0);
+      // Wind pivot marker (IAS-axis offset): headwind +W, tailwind −W.
+      const pivotLayer = `
+        <line x1="${xOf(originMph)}" y1="${pad.t}" x2="${xOf(originMph)}" y2="${pad.t + plotH}"
+          stroke="${colWind}" stroke-width="1.2" stroke-dasharray="2 3" opacity="0.85"/>
+        <circle cx="${xOf(originMph)}" cy="${yOf(mc)}" r="4" fill="${colWind}" stroke="#1C2A33" stroke-width="1"/>
+        <text x="${xOf(originMph)}" y="${pad.t + 11}" text-anchor="middle" font-size="9" fill="${colWind}" font-weight="700">W</text>
+      `;
       if (result.ok && result.tangent) {
         const t = result.tangent;
-        const mc = result.mac_cready_kt;
-        // Extend tangent in chart space: Y knots vs X mph (display geometry)
-        const xTouch = t.gs_mph;
+        const xTouch = t.mph;
         const yTouch = t.vs_kt;
-        const slopeChart = (yTouch - mc) / Math.max(0.1, xTouch);
+        const dx = Math.max(0.1, xTouch - originMph);
+        const slopeChart = (yTouch - mc) / dx;
         const xEnd = xMax;
-        const yEnd = mc + slopeChart * xEnd;
+        const yEnd = mc + slopeChart * (xEnd - originMph);
         const sinkY = yOf(t.vs_kt);
         const stfX = xOf(xTouch);
         const ldNum = fmt(t.ld, 1);
         const sinkNum = fmt(Math.abs(t.vs_kt), 2);
         tangentLayer = `
-          <line x1="${xOf(0)}" y1="${yOf(mc)}" x2="${xOf(xEnd)}" y2="${yOf(yEnd)}" stroke="${colTangent}" stroke-width="2.5"/>
+          <line x1="${xOf(originMph)}" y1="${yOf(mc)}" x2="${xOf(xEnd)}" y2="${yOf(yEnd)}" stroke="${colTangent}" stroke-width="2.5"/>
           <line x1="${pad.l}" y1="${sinkY}" x2="${pad.l + plotW}" y2="${sinkY}"
             stroke="${colSink}" stroke-width="1.5" stroke-dasharray="3 3" vector-effect="non-scaling-stroke"/>
           <text x="${pad.l + 4}" y="${sinkY - 4}" font-size="11" fill="${colSink}" font-weight="700">${sinkNum}</text>
@@ -2650,13 +2660,14 @@
         `;
       }
 
-      const xTicks = [0, 30, 42, 54, 66, 78, 90];
+      const xTicks = [-30, -15, 0, 30, 42, 54, 66, 78, 90];
       const yTicks = [4, 2, 0, -2, -4, -6];
       const legendItems = [
         { label: 'Polar', color: colPolar, dashed: false, x: pad.l },
-        { label: 'Tangent', color: colTangent, dashed: false, x: pad.l + 62 },
-        { label: 'L/D', color: colLd, dashed: true, x: pad.l + 136 },
-        { label: 'Sink', color: colSink, dashed: true, x: pad.l + 188 }
+        { label: 'Tangent', color: colTangent, dashed: false, x: pad.l + 52 },
+        { label: 'Wind', color: colWind, dashed: true, x: pad.l + 118 },
+        { label: 'L/D', color: colLd, dashed: true, x: pad.l + 172 },
+        { label: 'Sink', color: colSink, dashed: true, x: pad.l + 218 }
       ];
       const legend = `
         <g font-size="9" fill="#334155" font-weight="600">
@@ -2673,9 +2684,10 @@
         <svg class="polar-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="2-33 MacCready tangent construction">
           <rect x="0" y="0" width="${W}" height="${H}" fill="#fafbfc"/>
           <rect x="${pad.l}" y="${pad.t}" width="${plotW}" height="${plotH}" fill="#fff" stroke="#cbd5e1"/>
-          ${xTicks.map((v) => `<line x1="${xOf(v)}" y1="${pad.t}" x2="${xOf(v)}" y2="${pad.t + plotH}" stroke="#eef2f6"/><text x="${xOf(v)}" y="${tickY}" text-anchor="middle" font-size="10" fill="#64748b">${v}</text>`).join('')}
+          ${xTicks.map((v) => `<line x1="${xOf(v)}" y1="${pad.t}" x2="${xOf(v)}" y2="${pad.t + plotH}" stroke="${v === 0 ? '#94a3b8' : '#eef2f6'}" stroke-width="${v === 0 ? 1.4 : 1}"/><text x="${xOf(v)}" y="${tickY}" text-anchor="middle" font-size="10" fill="#64748b">${v}</text>`).join('')}
           ${yTicks.map((v) => `<line x1="${pad.l}" y1="${yOf(v)}" x2="${pad.l + plotW}" y2="${yOf(v)}" stroke="${v === 0 ? '#94a3b8' : '#eef2f6'}" stroke-width="${v === 0 ? 1.4 : 1}"/><text x="${pad.l - 6}" y="${yOf(v) + 3}" text-anchor="end" font-size="10" fill="#64748b">${v}</text>`).join('')}
           <path d="${polarPath}" fill="none" stroke="${colPolar}" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+          ${pivotLayer}
           ${tangentLayer}
           <text x="${W / 2}" y="${axisTitleY}" text-anchor="middle" font-size="11" fill="#334155">Indicated airspeed (mph)</text>
           ${legend}
@@ -2755,8 +2767,9 @@
       });
       const cfg = result.config || polar.getConfig(state.aircraft.config);
       const t = result.ok ? result.tangent : null;
+      const windPivot = result.origin_mph == null ? 0 : result.origin_mph;
       const status = result.ok
-        ? `Tangent touches at <strong>${Math.round(t.mph)} mph</strong>: approximate still-air speed to fly.`
+        ? `Wind pivot at <strong>${windPivot >= 0 ? '+' : ''}${Math.round(windPivot)} mph</strong> IAS · tangent IAS <strong>${Math.round(t.mph)} mph</strong>.`
         : escapeHtml(result.error || 'No tangent');
       return `
         <div class="btn-row" style="margin-top:0">
@@ -2782,7 +2795,7 @@
         ${polarPillsHtml(result)}
         <p style="font-size:0.78rem;color:var(--muted);margin:0 0 8px">
           ${escapeHtml(cfg.label)} ${cfg.weight_lb} lb · S=${cfg.wing_loading_psf} psf.
-          Blue = smooth POH polar; yellow = MacCready tangent. Wind shifts polar on groundspeed axis.
+          Blue = fixed IAS polar; red W = wind pivot on the airspeed axis (headwind right, tailwind left); yellow = MacCready tangent. Read optimum IAS at the touch point.
         </p>
         <div class="polar-docs">
           <details>
@@ -2811,7 +2824,8 @@
       if (status) {
         if (result.ok) {
           const t = result.tangent;
-          status.innerHTML = `Tangent touches at <strong>${Math.round(t.mph)} mph</strong>: approximate still-air speed to fly.`;
+          const windPivot = result.origin_mph == null ? 0 : result.origin_mph;
+          status.innerHTML = `Wind pivot at <strong>${windPivot >= 0 ? '+' : ''}${Math.round(windPivot)} mph</strong> IAS · tangent IAS <strong>${Math.round(t.mph)} mph</strong>.`;
         } else {
           status.textContent = result.error || 'No tangent';
         }
