@@ -96,32 +96,75 @@
     });
   }
 
-  /** Dense resample (~0.2 kt). Interpolate L/D (no overshoot), derive sink from V/L/D. */
-  function buildSmoothPolar(anchors, stepKt = 0.2) {
+  /**
+   * Continuous polar sample via Catmull–Rom on sink vs IAS (POH anchors).
+   * Smooth C1 curve so MacCready touch IAS moves continuously with MC/wind
+   * instead of sticking on the 3 mph table vertices.
+   */
+  function samplePolarAtMph(anchors, mph) {
     const pts = anchors;
+    const n = pts.length;
+    if (n === 0) return null;
+    if (mph <= pts[0].mph) {
+      return { ...pts[0] };
+    }
+    if (mph >= pts[n - 1].mph) {
+      return { ...pts[n - 1] };
+    }
+    let i = 0;
+    while (i < n - 2 && pts[i + 1].mph < mph) i += 1;
+    const p0 = pts[Math.max(0, i - 1)];
+    const p1 = pts[i];
+    const p2 = pts[i + 1];
+    const p3 = pts[Math.min(n - 1, i + 2)];
+    const span = p2.mph - p1.mph;
+    const t = span > 0 ? (mph - p1.mph) / span : 0;
+    const vs = catmullRom(p0.vs_kt, p1.vs_kt, p2.vs_kt, p3.vs_kt, t);
+    const ias = mph * MPH_TO_KT;
+    const ld = ias / Math.max(1e-6, -vs);
+    return { mph, ias_kt: ias, vs_kt: vs, ld };
+  }
+
+  /** Dense display path (~0.05 mph) from the continuous polar. */
+  function buildSmoothPolar(anchors, stepMph = 0.05) {
     const out = [];
-    for (let i = 0; i < pts.length - 1; i += 1) {
-      const p1 = pts[i];
-      const p2 = pts[i + 1];
-      const segLen = Math.max(2, Math.round((p2.ias_kt - p1.ias_kt) / stepKt));
-      for (let s = 0; s < segLen; s += 1) {
-        const t = s / segLen;
-        // Linear L/D between POH anchors — Catmull–Rom on VS was overshooting the dual peak (23 vs 22.2).
-        const ias = lerp(p1.ias_kt, p2.ias_kt, t);
-        const ld = lerp(p1.ld, p2.ld, t);
-        const vs = -(ias / Math.max(0.05, ld));
-        const mph = ias * KT_TO_MPH;
-        out.push({ ias_kt: ias, vs_kt: vs, mph, ld });
+    const lo = anchors[0].mph;
+    const hi = anchors[anchors.length - 1].mph;
+    for (let mph = lo; mph <= hi + 1e-9; mph += stepMph) {
+      out.push(samplePolarAtMph(anchors, mph));
+    }
+    const last = anchors[anchors.length - 1];
+    if (!out.length || Math.abs(out[out.length - 1].mph - last.mph) > 1e-6) {
+      out.push({ ...last });
+    }
+    return out;
+  }
+
+  /** Golden-section maximize f on [lo, hi] (unimodal). */
+  function maximizeUnimodal(f, lo, hi, iters = 48) {
+    const resphi = 2 - (1 + Math.sqrt(5)) / 2;
+    let a = lo;
+    let b = hi;
+    let c = a + resphi * (b - a);
+    let d = b - resphi * (b - a);
+    let fc = f(c);
+    let fd = f(d);
+    for (let i = 0; i < iters; i += 1) {
+      if (fc > fd) {
+        b = d;
+        d = c;
+        fd = fc;
+        c = a + resphi * (b - a);
+        fc = f(c);
+      } else {
+        a = c;
+        c = d;
+        fc = fd;
+        d = b - resphi * (b - a);
+        fd = f(d);
       }
     }
-    const last = pts[pts.length - 1];
-    out.push({
-      ias_kt: last.ias_kt,
-      vs_kt: last.vs_kt,
-      mph: last.mph,
-      ld: last.ld
-    });
-    return out;
+    return fc > fd ? c : d;
   }
 
   /** Catmull–Rom → cubic Bezier segments for SVG path (visually smooth). */
@@ -149,11 +192,14 @@
   for (const key of Object.keys(LD_TABLES)) {
     const meta = LD_TABLES[key];
     const anchors = ldTableToAnchors(meta.ld_mph);
-    const smooth = buildSmoothPolar(anchors, 0.2);
-    let best = smooth[0];
+    const smooth = buildSmoothPolar(anchors, 0.05);
+    // POH-table peak L/D (avoid Catmull–Rom overshoot in the reported best).
+    let best = anchors[0];
+    for (const p of anchors) {
+      if (p.ld > best.ld) best = p;
+    }
     let minSink = smooth[0];
     for (const p of smooth) {
-      if (p.ld > best.ld) best = p;
       if (Math.abs(p.vs_kt) < Math.abs(minSink.vs_kt)) minSink = p;
     }
     CONFIGS[key] = {
@@ -164,7 +210,8 @@
       anchors,
       smooth,
       best_ld: best,
-      min_sink: minSink
+      min_sink: minSink,
+      sampleAtMph: (mph) => samplePolarAtMph(anchors, mph)
     };
   }
 
@@ -179,57 +226,59 @@
     const windKt = windMphN * MPH_TO_KT;
     // Pivot on IAS axis: headwind → +|W|, tailwind → −|W| (windMph: +tail / −head).
     const originMph = -windMphN;
-    let best = null;
-    for (const p of cfg.smooth) {
-      const dxMph = p.mph - originMph;
-      // Touch point must sit to the right of the wind pivot on the IAS axis.
-      if (dxMph <= 1) continue;
-      const slope = (p.vs_kt - mc) / dxMph;
-      if (!best || slope > best.slope) {
-        const gsMph = p.mph + windMphN;
-        best = {
-          ias_kt: p.ias_kt,
-          vs_kt: p.vs_kt,
-          gs_kt: gsMph * MPH_TO_KT,
-          gs_mph: gsMph,
-          slope,
-          mph: p.mph,
-          ld: p.ld
-        };
-      }
-    }
-    if (!best) {
+    const mphMin = cfg.anchors[0].mph;
+    const mphMax = cfg.anchors[cfg.anchors.length - 1].mph;
+    const lo = Math.max(mphMin, originMph + 1.5);
+    const polarPayload = () =>
+      cfg.smooth.map((p) => ({
+        x_mph: p.mph,
+        mph: p.mph,
+        ias_kt: p.ias_kt,
+        vs_kt: p.vs_kt,
+        ld: p.ld
+      }));
+
+    if (lo >= mphMax - 0.25) {
       return {
         ok: false,
         error: 'No tangent (wind pivot leaves no polar points to the right)',
         config: cfg,
         origin_mph: originMph,
-        polar_gs: cfg.smooth.map((p) => ({
-          x_mph: p.mph,
-          mph: p.mph,
-          ias_kt: p.ias_kt,
-          vs_kt: p.vs_kt,
-          ld: p.ld
-        }))
+        polar_gs: polarPayload()
       };
     }
+
+    const slopeAt = (mph) => {
+      const p = samplePolarAtMph(cfg.anchors, mph);
+      return (p.vs_kt - mc) / (mph - originMph);
+    };
+    const mphStar = maximizeUnimodal(slopeAt, lo, mphMax);
+    const touch = samplePolarAtMph(cfg.anchors, mphStar);
+    const gsMph = touch.mph + windMphN;
+    const best = {
+      ias_kt: touch.ias_kt,
+      vs_kt: touch.vs_kt,
+      gs_kt: gsMph * MPH_TO_KT,
+      gs_mph: gsMph,
+      slope: slopeAt(touch.mph),
+      mph: touch.mph,
+      ld: touch.ld
+    };
 
     const sinkKt = Math.abs(best.vs_kt);
     const sinkFps = sinkKt * KT_TO_FPS;
     const airLd = best.ld;
     const groundLd = best.gs_mph > 0 ? best.gs_kt / sinkKt : null;
     const bestLd = cfg.best_ld.ld;
-    const calmTangent = (() => {
-      let b = null;
-      for (const p of cfg.smooth) {
-        if (p.mph <= 1) continue;
-        const slope = (p.vs_kt - mc) / p.mph;
-        if (!b || slope > b.slope) {
-          b = { ...p, slope, gs_kt: p.ias_kt, gs_mph: p.mph };
-        }
-      }
-      return b;
-    })();
+    const calmMph = maximizeUnimodal(
+      (mph) => {
+        const p = samplePolarAtMph(cfg.anchors, mph);
+        return (p.vs_kt - mc) / mph;
+      },
+      Math.max(mphMin, 1.5),
+      mphMax
+    );
+    const calmTouch = samplePolarAtMph(cfg.anchors, calmMph);
 
     return {
       ok: true,
@@ -241,13 +290,7 @@
       tangent: best,
       line: { x0: originMph, y0: mc, x1: best.mph, y1: best.vs_kt },
       // Polar stays in IAS; x_mph is indicated airspeed (legacy key polar_gs kept for UI).
-      polar_gs: cfg.smooth.map((p) => ({
-        x_mph: p.mph,
-        mph: p.mph,
-        ias_kt: p.ias_kt,
-        vs_kt: p.vs_kt,
-        ld: p.ld
-      })),
+      polar_gs: polarPayload(),
       metrics: {
         sink_kt: sinkKt,
         sink_fps: sinkFps,
@@ -258,8 +301,8 @@
         air_ld_vs_best_pct: (airLd / bestLd) * 100,
         ground_ld_vs_best_pct: groundLd != null ? (groundLd / bestLd) * 100 : null,
         sink_vs_min_pct: (sinkKt / Math.abs(cfg.min_sink.vs_kt)) * 100,
-        calm_stf_mph: calmTangent ? calmTangent.mph : null,
-        delta_stf_mph: calmTangent ? best.mph - calmTangent.mph : 0
+        calm_stf_mph: calmTouch.mph,
+        delta_stf_mph: best.mph - calmTouch.mph
       }
     };
   }

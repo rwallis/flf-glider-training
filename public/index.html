@@ -2656,7 +2656,7 @@
             stroke="${colLd}" stroke-width="1.5" stroke-dasharray="3 3" vector-effect="non-scaling-stroke"/>
           <text x="${stfX + 4}" y="${pad.t + 12}" font-size="11" fill="${colLd}" font-weight="700">${ldNum}</text>
           <circle cx="${stfX}" cy="${sinkY}" r="5" fill="${colTangent}" stroke="#1C2A33" stroke-width="1.2"/>
-          <text x="${stfX}" y="${zeroY + 14}" text-anchor="middle" font-size="11" fill="#1C2A33" font-weight="700">${Math.round(t.mph)}</text>
+          <text x="${stfX}" y="${zeroY + 14}" text-anchor="middle" font-size="11" fill="#1C2A33" font-weight="700">${fmt(t.mph, 1)}</text>
         `;
       }
 
@@ -2742,7 +2742,7 @@
           </div>
           <div class="polar-pill">
             <span class="k">Speed to fly</span>
-            <span class="v" id="pillStf">${Math.round(result.tangent.mph)} mph</span>
+            <span class="v" id="pillStf">${fmt(result.tangent.mph, 1)} mph</span>
             <span class="r" id="pillStfRel">${stfRel}</span>
           </div>
         </div>
@@ -2769,7 +2769,7 @@
       const t = result.ok ? result.tangent : null;
       const windPivot = result.origin_mph == null ? 0 : result.origin_mph;
       const status = result.ok
-        ? `Wind pivot at <strong>${windPivot >= 0 ? '+' : ''}${Math.round(windPivot)} mph</strong> IAS · tangent IAS <strong>${Math.round(t.mph)} mph</strong>.`
+        ? `Wind pivot at <strong>${windPivot >= 0 ? '+' : ''}${fmt(windPivot, 0)} mph</strong> IAS · tangent IAS <strong>${fmt(t.mph, 1)} mph</strong>.`
         : escapeHtml(result.error || 'No tangent');
       return `
         <div class="btn-row" style="margin-top:0">
@@ -2783,7 +2783,7 @@
         <div class="polar-sliders">
           <div>
             <label>MacCready setting: <span id="mcLabel">${fmt(state.aircraft.macCready, 1)} kt</span></label>
-            <input id="polarMc" type="range" min="0" max="6" step="0.1" value="${state.aircraft.macCready}" />
+            <input id="polarMc" type="range" min="0" max="6" step="0.05" value="${state.aircraft.macCready}" />
           </div>
           <div>
             <label>Wind: <span id="polarWindLabel">${Sgs233Polar.windLabel(state.aircraft.wind)}</span></label>
@@ -2825,7 +2825,7 @@
         if (result.ok) {
           const t = result.tangent;
           const windPivot = result.origin_mph == null ? 0 : result.origin_mph;
-          status.innerHTML = `Wind pivot at <strong>${windPivot >= 0 ? '+' : ''}${Math.round(windPivot)} mph</strong> IAS · tangent IAS <strong>${Math.round(t.mph)} mph</strong>.`;
+          status.innerHTML = `Wind pivot at <strong>${windPivot >= 0 ? '+' : ''}${fmt(windPivot, 0)} mph</strong> IAS · tangent IAS <strong>${fmt(t.mph, 1)} mph</strong>.`;
         } else {
           status.textContent = result.error || 'No tangent';
         }

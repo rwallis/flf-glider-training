@@ -63,6 +63,19 @@ test('polar x stays in IAS (does not shift with wind)', () => {
   assert.equal(calm.polar_gs[0].x_mph, head.polar_gs[0].x_mph);
 });
 
+test('STF IAS moves continuously as MacCready increases (no 3 mph snaps)', () => {
+  const polar = loadPolar();
+  let prev = polar.findMacCreadyTangent({ config: 'dual', macCreadyKt: 0, windMph: 0 }).tangent.mph;
+  let maxStep = 0;
+  for (let mc = 0.05; mc <= 3.0001; mc += 0.05) {
+    const mph = polar.findMacCreadyTangent({ config: 'dual', macCreadyKt: mc, windMph: 0 }).tangent.mph;
+    maxStep = Math.max(maxStep, Math.abs(mph - prev));
+    assert.ok(mph + 1e-6 >= prev, `STF should not fall as MC rises (${prev} -> ${mph} at MC=${mc})`);
+    prev = mph;
+  }
+  assert.ok(maxStep < 1.25, `max step ${maxStep} mph too large — still snapping`);
+});
+
 test('wind label uses mph', () => {
   const polar = loadPolar();
   assert.match(polar.windLabel(0), /mph/);
