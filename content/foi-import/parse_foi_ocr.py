@@ -684,6 +684,8 @@ def parse_column_text(text: str, page: int, side: str) -> list[dict]:
             continue
         q["question"] = clean_text(q["question"])
         q["question"] = re.sub(r"\s+[ABC]\s*[-.].*$", "", q["question"]).strip()
+        # OCR drops the r in "precoding".
+        q["question"] = re.sub(r"(?i)^describe\s+pencoding$", "Describe precoding", q["question"])
         for k, v in list(q["choices"].items()):
             q["choices"][k] = clean_text(v)
 
