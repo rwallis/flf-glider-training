@@ -87,6 +87,11 @@ test('flagCard stores open flags for review', async () => {
   assert.equal(flag.note, 'wrong answer');
   const flags = await store.listCardFlags({ status: 'open' });
   assert.equal(flags.length, 1);
+  const dismissed = await store.unflagCard(flag.id);
+  assert.equal(dismissed.status, 'dismissed');
+  const stillOpen = await store.listCardFlags({ status: 'open' });
+  assert.equal(stillOpen.length, 0);
+  assert.equal(await store.unflagCard(flag.id), null);
 });
 
 test('parseImportPayload accepts csv', () => {

@@ -652,6 +652,13 @@ export function createMemoryStore(seed) {
       state.flags.unshift(row);
       return row;
     },
+    async unflagCard(flagId) {
+      const id = String(flagId ?? '').trim();
+      const row = state.flags.find((f) => String(f.id) === id && f.status === 'open');
+      if (!row) return null;
+      row.status = 'dismissed';
+      return { ...row };
+    },
     async listCardFlags({ status = 'open', limit = 100 } = {}) {
       const lim = Math.max(1, Math.min(500, Number(limit) || 100));
       return state.flags
@@ -1213,6 +1220,18 @@ export function createPgStore(db) {
         question: card.question,
         track_id: card.track_id
       };
+    },
+    async unflagCard(flagId) {
+      const id = String(flagId ?? '').trim();
+      if (!/^\d+$/.test(id)) return null;
+      const { rows } = await db.query(
+        `UPDATE glider_card_flags
+         SET status = 'dismissed'
+         WHERE id = $1 AND status = 'open'
+         RETURNING id, card_id, user_key, note, status, created_at`,
+        [id]
+      );
+      return rows[0] || null;
     },
     async listCardFlags({ status = 'open', limit = 100 } = {}) {
       const lim = Math.max(1, Math.min(500, Number(limit) || 100));

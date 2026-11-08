@@ -288,6 +288,16 @@ export function registerGliderApi(app, { store, config }) {
     res.json({ flags });
   });
 
+  app.post('/api/admin/flags/:flagId/unflag', async (req, res) => {
+    if (!requireAdmin(req, res, config)) return;
+    const flag = await store.unflagCard(req.params.flagId);
+    if (!flag) {
+      res.status(404).json({ error: 'Open flag not found' });
+      return;
+    }
+    res.json({ ok: true, flag });
+  });
+
   app.get('/api/admin/users', async (req, res) => {
     if (!requireAdmin(req, res, config)) return;
     const users = await store.listUsers();

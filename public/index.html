@@ -964,6 +964,11 @@
       background: #FEF3C7;
       color: #92400E;
     }
+    .admin-pill.ref {
+      background: #F3F4F6;
+      color: #374151;
+      font-variant-numeric: tabular-nums;
+    }
     .admin-q {
       margin: 0 0 4px;
       font-size: 0.92rem;
@@ -3104,6 +3109,12 @@
       return String(card.topic_id).replace(/^[^_]+_/, '').replace(/_/g, ' ');
     }
 
+    function sourceRefLabel(card) {
+      const source = String(card?.source || '').trim();
+      const match = source.match(/#\s*(\d+)/);
+      return match ? `#${match[1]}` : '';
+    }
+
     function renderAdminSearchResults() {
       const a = state.admin;
       if (!a.searched) {
@@ -3113,19 +3124,24 @@
       if (!rows.length) {
         return `<div class="empty">${escapeHtml(a.status || 'No matching questions.')}</div>`;
       }
-      return rows.map((card) => `
+      return rows.map((card) => {
+        const ref = sourceRefLabel(card);
+        const sourceTip = String(card.source || '').trim();
+        return `
         <button type="button" class="admin-result" data-open-card="${escapeHtml(card.id)}" title="Open in Study">
           <div class="badge" style="background:${courseColor(card.track_id)}">${trackLabel(card.track_id)}</div>
           <div style="flex:1;min-width:0">
             <div class="admin-result-meta">
               <span class="admin-pill">${escapeHtml(adminTopicTitle(card))}</span>
+              ${ref ? `<span class="admin-pill ref" title="${escapeHtml(sourceTip)}">Ref ${escapeHtml(ref)}</span>` : ''}
               ${card.figure ? '<span class="admin-pill fig">Figure</span>' : ''}
             </div>
             <p class="admin-q">${formatRichText(card.question || '')}</p>
             <p class="admin-a">${escapeHtml(card.answer || '')}</p>
           </div>
         </button>
-      `).join('');
+      `;
+      }).join('');
     }
 
     function formatAdminWhen(value) {
@@ -3188,7 +3204,7 @@
 
         <section class="admin-section">
           <h2>Flagged questions</h2>
-          <p class="hint">Learners can tap <strong>Flag error</strong> on a study card when something looks wrong.</p>
+          <p class="hint">Learners can tap <strong>Flag error</strong> on a study card when something looks wrong. Unflag removes a report that was a mistake. Only admins can do that.</p>
           <div class="admin-flag-list">
             ${(state.flags || []).length
               ? state.flags.map((f) => `
@@ -3199,6 +3215,7 @@
                   <div class="flag-meta">${escapeHtml(f.user_key || '')} · ${escapeHtml(f.created_at || '')}</div>
                   <div class="btn-row" style="margin-top:8px">
                     <button type="button" class="secondary" data-open-flagged-card="${escapeHtml(f.card_id || '')}">Open in Study</button>
+                    <button type="button" class="secondary" data-unflag-id="${escapeHtml(String(f.id ?? ''))}">Unflag</button>
                   </div>
                 </div>`).join('')
               : '<div class="empty">No open flags</div>'}
@@ -3207,7 +3224,7 @@
 
         <section class="admin-section">
           <h2>Question search</h2>
-          <p class="hint">Enter filters, then tap Search. Results stay hidden until you search. Tap a result to open it in Study.</p>
+          <p class="hint">Enter filters, then tap Search. Results stay hidden until you search. Each result shows the source reference number (for example Ref #175). Tap a result to open it in Study.</p>
           <div class="admin-filters">
             <label for="adminSearchQ">Question contains</label>
             <input id="adminSearchQ" type="search" value="${escapeHtml(a.q)}" placeholder="e.g. stall, METAR, aspect ratio" autocomplete="off" />
@@ -3464,6 +3481,23 @@
           }
         });
       }
+      app.querySelectorAll('[data-unflag-id]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const flagId = btn.dataset.unflagId;
+          if (!flagId) return;
+          if (!window.confirm('Unflag this question? Use this when the report was a mistake.')) return;
+          btn.disabled = true;
+          try {
+            await api('/api/admin/flags/' + encodeURIComponent(flagId) + '/unflag', { method: 'POST' });
+            state.flags = (state.flags || []).filter((f) => String(f.id) !== String(flagId));
+            toast('Flag removed');
+            render();
+          } catch (err) {
+            toast(err.message || 'Could not unflag');
+            btn.disabled = false;
+          }
+        });
+      });
       app.querySelectorAll('[data-open-flagged-card]').forEach((btn) => {
         btn.addEventListener('click', async () => {
           const id = btn.dataset.openFlaggedCard;
