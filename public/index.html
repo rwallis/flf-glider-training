@@ -2976,7 +2976,7 @@
       }
       if (r.ready) {
         return {
-          headline: 'Ready for checkride study',
+          headline: 'Ready for written exam study',
           tip: 'Full deck seen and score is at least 80%.'
         };
       }
@@ -3024,7 +3024,7 @@
             <text x="44" y="56" text-anchor="middle" font-size="8" font-weight="800" letter-spacing="0.06em" fill="${r.ready ? '#2F7D32' : '#777'}">${r.ready ? 'READY' : 'TO GO'}</text>
           </svg>
           <div class="readiness-body">
-            <div class="readiness-label">Checkride readiness</div>
+            <div class="readiness-label">Written exam readiness</div>
             <p class="readiness-status">${escapeHtml(copy.headline)}</p>
             <div class="readiness-chips">
               <div class="readiness-chip ${coverTone}" title="Unique cards answered at least once">

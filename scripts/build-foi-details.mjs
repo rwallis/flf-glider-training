@@ -116,6 +116,8 @@ const CARD_OVERRIDES = {
     'When early gaps surface in advanced training, resignation (giving up / quitting effort) is the defense — the student stops trying rather than rebuild fundamentals.',
   foi_written_066:
     'Bluffing when unsure destroys student confidence — admit limits and look it up; students copy the honesty standard you model.',
+  foi_written_082:
+    'An introduction has three subparts, and the order is attention, then motivation, then overview. Attention comes first: a question, a short story, or a surprising fact that gets the learner listening. Until that happens, the rest of the opening is wasted. Motivation is next, and it has to be specific to this person — safer flying, the knowledge test, or the maneuver they are about to fly — so they have a reason to stay with the lesson. Overview is last in the opening. It names the objective and what will be covered. It is a roadmap, not the lesson itself. Development is the body of the lesson and starts only after the introduction is finished, so it is not an introduction subpart. Conclusion comes after development: it retraces the important points and ties them back to the objective, and it is the wrong place to open. Starting with the overview skips both the grab for attention and the reason to care.',
   foi_written_089:
     'Poor grammar and vulgar language undercut instructor dignity and insult student intelligence — lecture language must stay clean and correct.',
   foi_written_100:
@@ -566,7 +568,7 @@ const STEM_NOTES = [
   },
   {
     re: /proper sequence for the subparts of an introduction/,
-    note: 'Introduction order: attention → motivation → overview. That sequence sets readiness before content.',
+    note: 'Introduction subparts run attention, then motivation, then overview. Attention gets them listening, motivation gives a specific reason this lesson matters, and the overview is only the roadmap. Development is the body after the introduction. Conclusion closes the lesson after development.',
   },
   {
     re: /organizing lesson material, which step sets the stage/,
