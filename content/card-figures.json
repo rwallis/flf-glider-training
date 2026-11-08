@@ -1,9 +1,9 @@
 {
-  "note": "Official FAA Computer Testing Supplement figures for CFI-G, Commercial, and Private. Private bank figure numbers follow GPGS stems; some map to a different FAA figure number when the current Sport/Rec/Private AKTS renumbered plates. Apply on seed.",
+  "note": "Official FAA Computer Testing Supplement figures for CFI-G, Commercial, Private, and FOI. Private bank figure numbers follow GPGS stems; some map to a different FAA figure number when the current Sport/Rec/Private AKTS renumbered plates. Apply on seed.",
   "source_urls": [
+    "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf",
     "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/sport_rec_private_akts.pdf",
-    "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/commercial_akts.pdf",
-    "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
+    "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/commercial_akts.pdf"
   ],
   "figures": [
     {
@@ -275,6 +275,15 @@
       "track": "commercial",
       "source": "FAA Computer Testing Supplement \u2014 Commercial Pilot",
       "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/commercial_akts.pdf"
+    },
+    {
+      "number": 1,
+      "title": "Lesson Plan",
+      "url": "/figures/foi/figure-01.jpg",
+      "source_page": 9,
+      "track": "foi",
+      "source": "FAA Computer Testing Supplement \u2014 Flight and Ground Instructor",
+      "source_url": "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/supplements/flight_ground_instructor_akts.pdf"
     },
     {
       "number": 1,
@@ -1092,6 +1101,55 @@
       "title": "Sectional Chart Excerpt",
       "url": "/figures/commercial/figure-54.jpg",
       "track": "commercial"
+    },
+    {
+      "card_id": "foi_written_186",
+      "figure": 1,
+      "title": "Lesson Plan",
+      "url": "/figures/foi/figure-01.jpg",
+      "track": "foi"
+    },
+    {
+      "card_id": "foi_written_187",
+      "figure": 1,
+      "title": "Lesson Plan",
+      "url": "/figures/foi/figure-01.jpg",
+      "track": "foi"
+    },
+    {
+      "card_id": "foi_written_188",
+      "figure": 1,
+      "title": "Lesson Plan",
+      "url": "/figures/foi/figure-01.jpg",
+      "track": "foi"
+    },
+    {
+      "card_id": "foi_written_189",
+      "figure": 1,
+      "title": "Lesson Plan",
+      "url": "/figures/foi/figure-01.jpg",
+      "track": "foi"
+    },
+    {
+      "card_id": "foi_written_190",
+      "figure": 1,
+      "title": "Lesson Plan",
+      "url": "/figures/foi/figure-01.jpg",
+      "track": "foi"
+    },
+    {
+      "card_id": "foi_written_191",
+      "figure": 1,
+      "title": "Lesson Plan",
+      "url": "/figures/foi/figure-01.jpg",
+      "track": "foi"
+    },
+    {
+      "card_id": "foi_written_192",
+      "figure": 1,
+      "title": "Lesson Plan",
+      "url": "/figures/foi/figure-01.jpg",
+      "track": "foi"
     },
     {
       "card_id": "private_written_135",

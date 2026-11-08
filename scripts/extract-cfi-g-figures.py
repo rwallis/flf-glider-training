@@ -10,6 +10,7 @@ Writes:
   public/figures/cfi-g/figure-NN.jpg
   public/figures/commercial/figure-NN.jpg
   public/figures/private/figure-NN.jpg
+  public/figures/foi/figure-NN.jpg
   content/card-figures.json
 """
 
@@ -74,6 +75,18 @@ SUPPLEMENTS = {
         ),
         "needed": None,  # derive from import bank stems
     },
+    "foi": {
+        "pdf": SUPPLEMENTS_DIR / "flight_ground_instructor_akts.pdf",
+        "out_dir": ROOT / "public" / "figures" / "foi",
+        "url_prefix": "/figures/foi",
+        "import_json": ROOT / "content" / "foi-import" / "foi-import.json",
+        "source_name": "FAA Computer Testing Supplement — Flight and Ground Instructor",
+        "source_url": (
+            "https://www.faa.gov/sites/faa.gov/files/training_testing/testing/"
+            "supplements/flight_ground_instructor_akts.pdf"
+        ),
+        "needed": None,  # derive from FOI stems; currently Figure 1, Lesson Plan
+    },
 }
 
 
@@ -84,6 +97,29 @@ def page_content_clip(page: pymupdf.Page) -> pymupdf.Rect:
         page.rect.x1 - 10,
         page.rect.y1 - 28,
     )
+
+
+def content_clip(page: pymupdf.Page) -> pymupdf.Rect:
+    """Crop to the plate when it sits in the top of a mostly blank page."""
+    rects = []
+    for drawing in page.get_drawings():
+        rect = drawing.get("rect")
+        if rect and rect.width > 20 and rect.height > 20:
+            rects.append(rect)
+    for block in page.get_text("blocks"):
+        x0, y0, x1, y1, text, *_rest = block
+        if "Figure" in text and y1 < page.rect.y1 - 40:
+            rects.append(pymupdf.Rect(x0, y0, x1, y1))
+    if not rects:
+        return page_content_clip(page)
+    union = rects[0]
+    for rect in rects[1:]:
+        union |= rect
+    clip = pymupdf.Rect(union.x0 - 14, union.y0 - 12, union.x1 + 14, union.y1 + 10)
+    clip &= page.rect
+    if clip.height > page.rect.height * 0.85:
+        return page_content_clip(page)
+    return clip
 
 
 def render_clip(page: pymupdf.Page, clip: pymupdf.Rect, out_path: Path, zoom: float = 2.0) -> None:
@@ -100,6 +136,9 @@ def find_figure_pages(doc: pymupdf.Document) -> dict[int, tuple[int, str]]:
         for m in FIGURE_LABEL_RE.finditer(text):
             num = int(m.group(1))
             title = re.sub(r"\s+", " ", m.group(2)).strip(" .")
+            # Contents pages repeat captions with dot leaders. Keep the plate itself.
+            if title.count(".") >= 4:
+                continue
             found[num] = (i + 1, title)
     return found
 
@@ -144,7 +183,7 @@ def extract_supplement(track_key: str, cfg: dict) -> tuple[dict[int, dict], list
         page_no, title = page_map[num]
         page = doc.load_page(page_no - 1)
         out = out_dir / f"figure-{num:02d}.jpg"
-        render_clip(page, page_content_clip(page), out)
+        render_clip(page, content_clip(page), out)
         catalog[num] = {
             "number": num,
             "title": title or f"Figure {num}",
@@ -214,11 +253,23 @@ def main() -> None:
     all_figures.sort(key=lambda f: (f.get("track") or "", f.get("number") or 0))
     all_cards.sort(key=lambda r: r["card_id"])
 
+    note = (
+        "Official FAA Computer Testing Supplement figures for CFI-G, Commercial, Private, and FOI. "
+        "Private bank figure numbers follow GPGS stems; some map to a different FAA figure number "
+        "when the current Sport/Rec/Private AKTS renumbered plates. Apply on seed."
+    )
+    if only and CARD_FIGURES_JSON.exists():
+        prev_note = json.loads(CARD_FIGURES_JSON.read_text(encoding="utf-8")).get("note")
+        if prev_note:
+            note = prev_note
+            if "FOI" not in note:
+                note = note.replace(
+                    "CFI-G, Commercial, and Private.",
+                    "CFI-G, Commercial, Private, and FOI.",
+                )
+
     payload = {
-        "note": (
-            "Official FAA Computer Testing Supplement figures for CFI-G, Commercial, and Private. "
-            "Linked from bank stems that say (Refer to Figure N.). Apply on seed."
-        ),
+        "note": note,
         "source_urls": source_urls,
         "figures": all_figures,
         "cards": all_cards,
