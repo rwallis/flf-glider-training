@@ -136,8 +136,6 @@ const CARD_OVERRIDES = {
     'Memory/recall checks are fact questions (rote). “Explain how/why” and scenario items climb to understanding and above.',
   foi_written_123:
     'Oral questions must match that stage’s difficulty — too hard breeds guessing and threat; too easy teaches nothing.',
-  foi_written_128:
-    'Discrimination means the test separates low from high achievers on the objective — masters score up, non-masters score down.',
   foi_written_131:
     'Supply-type (write-in) items’ main drawback is uneven grading — different instructors often score the same answer differently.',
   foi_written_132:
@@ -148,10 +146,54 @@ const CARD_OVERRIDES = {
     'Higher-level MC items need several acceptable-looking options with only one clearly best — that forces judgment, not trivia lookup.',
   foi_written_136:
     'Keep MC alternatives about equal length so students cannot “guess the longest.” Equal length is a classic effective-item rule.',
+  foi_written_077:
+    'A skill such as the flight computer is taught by demonstration/performance: you explain the procedure, show it, then the student performs it while you supervise, and you evaluate that performance against the standard. “Performance” means the student does the skill — not that the lesson went well. Lecture/application mostly tells the idea and leaves the doing for later. Presentation/practice is not the handbook method for a hands-on procedure.',
+  foi_written_104:
+    'Demonstration/performance has five steps, in order. Explanation: what to do and what “done” looks like. Demonstration: you show the skill. Student performance: they do it. Instructor supervision: you coach while they do it. Evaluation: they perform it on their own and you judge that performance against the standard. The short lists drop explanation or supervision. Those steps are required, not optional.',
+  foi_written_105:
+    'In demonstration/performance, the two actions that happen at the same time are student performance and instructor supervision: the student does the skill while you watch and coach. Explanation comes first, then your demonstration. Those are earlier, separate steps, not the concurrent pair. The student does not demonstrate while you are still explaining.',
+  foi_written_106:
+    'The last step of demonstration/performance is evaluation. The student performs the skill independently, and you judge that performance against the way it was taught. A summary belongs to a discussion, not to the close of this method. Student performance comes before the judgment; it is not the last step.',
+  foi_written_110:
+    'A critique of performance should be constructive and objective. Constructive means you show how to do the next try better — praise for its own sake does not count. Objective means you judge the performance that happened, not the student’s personality. It should not treat every aspect in detail; a comprehensive critique still picks the points worth improving.',
+  foi_written_111:
+    'Students accept a critique of their performance only after they accept the instructor — confidence in competence and sincerity comes first. Charm or personality does not substitute for that. A critique that only emphasizes the positive is still not what makes the criticism acceptable.',
+  foi_written_114:
+    'A critique of performance should be constructive and objective. Constructive means you show how to do the next try better — praise for its own sake does not count. Objective means you judge the performance that happened, not the student’s personality. It should not treat every aspect in detail; a comprehensive critique still picks the points worth improving.',
+  foi_written_117:
+    'A practical test is criterion-referenced (scored against a fixed published standard, not a curve): every applicant is scored against the practical test standards, not ranked against the other people who tested that day. Norm-referenced (ranked against other students rather than a fixed standard) testing is a curve, and that is the wrong model for a certificate. “Evaluation-referenced” is not a test type. The practical exists so every successful pilot meets the same safety standard.',
+  foi_written_125:
+    'Validity means the test measures what it is supposed to measure. A stall-recovery quiz that actually checks stall recovery is valid; a trivia sheet that happens to mention airplanes is not, even if every instructor would score it the same way. “Yields consistent results” is reliability — the same score again, even if you measured the wrong thing. “Samples liberally” is comprehensiveness — broad coverage — not whether the items measure the objective.',
+  foi_written_126:
+    'Reliability means the test yields consistent results: repeat the measurement and the same student gets about the same score. Consistency is not the same as measuring the right thing. “Actually measures what it is supposed to measure” is validity. “Measures small differences in the achievement of students” is discrimination — separating high achievement from low — not reliability.',
+  foi_written_127:
+    'Discrimination is the characteristic that measures small differences in achievement between students. Masters score up, non-masters score down, and you can tell them apart. Validity only asks whether the test measures the objective at all. Reliability only asks whether it gives consistent results. A test can be perfectly consistent and still fail to separate high achievement from low.',
+  foi_written_128:
+    'A test with discrimination distinguishes students who are low in achievement from those who are high: scores spread out instead of everyone landing in the same pile. “Easy to give and easily graded” is usability — convenient to administer, not a measure of who mastered the objective. “A representative and comprehensive sampling of the course objectives” is comprehensiveness — breadth of coverage — not discrimination.',
+  foi_written_129:
+    'A written test is comprehensive when it samples liberally whatever is being measured: a wide cut across the objectives, not one favorite topic asked over and over. “Includes all levels of difficulty” describes how hard the items are, not how broadly they sample. “Measures knowledge of the same topic in many different ways” is still one topic. Liberal sampling means breadth.',
   foi_written_137:
     'Matching is a selection-type item: the student pairs each premise (left) with one response (right) from a shared list. Guessing is harder than on a single multiple-choice question because a wrong pair “uses up” a response and can spoil later pairs — random luck does not stay independent item-to-item. True/false is ~50% per item; one MC item is often 25–33% if you guess; a matching set compounds those odds downward. Essay is supply-type (write-in), so it is not in the selection-type family this stem asks about.',
+  foi_written_138:
+    'A performance test is the learner doing the operation, procedure, or process while you watch and score that doing against a standard — a stall recovery, a preflight, a weight-and-balance they actually complete. An oral test only asks them to explain the steps. Someone can describe a slip perfectly and still fly it wrong, so talk does not evaluate the operation. Proficiency is not a test type in this list: it is how well they can do the skill, or a later proficiency check. The handbook’s name for the test that evaluates an operation, procedure, or process is performance.',
   foi_written_148:
-    'A pretest of entry knowledge/skills is a criterion-referenced check against the start standard — can they begin the course?',
+    'A pretest of the knowledge and skills needed to begin a course is a criterion-referenced (scored against a fixed published standard, not a curve) check: each student is scored against the start standard, “ready to begin,” not ranked against the other people in the room. A norm-referenced (ranked against other students rather than a fixed standard) pretest would only tell you who is ahead of whom. Virtual reality is a training device, not this test type.',
+  foi_written_151:
+    'An adequate standard of performance means an important item is learned, not half-learned. Letting a student move on with a partial grasp of a critical knowledge item or skill is a failure to instruct. Raising the relationship by refusing to enforce standards does the opposite. Continuous evaluation matters, but this item’s point is the standard itself: partial learning of something important is not competent instruction.',
+  foi_written_154:
+    'Judge demonstrated piloting ability against established standards of performance, then suit those standards to this student’s experience and to the conditions of the flight. The instructor’s own background is not the scale. Hours logged since the first lesson are not the scale either. “Performance” here is the flying you just watched, measured against the standard — not a general impression of progress.',
+  foi_written_155:
+    'Judge demonstrated piloting ability against established standards of performance. “How much progress” and “what the instructor thinks of the maneuver” are not the scale. The standard says what the performance had to look like; experience may change how you apply it, but opinion does not replace it.',
+  foi_written_164:
+    'Flight instruction’s telling-and-doing form of demonstration/performance runs in four steps. Instructor tells — instructor does: you narrate while you fly it. Student tells — instructor does: they talk the steps while you still fly. Student tells — student does: they narrate their own performance while they fly. Student does — instructor evaluates: they perform it and you judge that performance. The traps skip a step. You do not start with the student doing it, and you do not skip the rehearsal where they tell and do before you only watch.',
+  foi_written_234:
+    'Criterion-referenced (scored against a fixed published standard, not a curve) tests are built from performance-based objectives: a description of the skill or behavior the student must show, the conditions they do it under, and the criteria that say the performance met the standard. That is not a norm-based objective, which would compare students to each other. It is also not subjective — the criteria are written so any competent reader can tell whether the performance passed. “Performance” here means the observable skill, not a vague sense that the lesson went well.',
+  foi_written_241:
+    'Authentic assessment (evaluation using real-world tasks, not only paper quizzes) asks the student to use critical thinking on a real task and generate the solution — a scenario they have to decide or fly, with the standard known ahead of time. It checks application and correlation (highest learning level — connecting knowledge across new situations), not only recall. Traditional assessment is a written item with one memorized answer. “Practical assessment” sounds like a checkride, but it is not the handbook name for evaluating critical thinking on real-world tasks.',
+  foi_written_251:
+    'A performance-based objective has three parts, and all three are required. Description of the skill or behavior: the observable outcome, such as “plan and fly from A to B,” not an unmeasurable “awareness of navigation.” Conditions: the rules and tools, such as “using a sectional, a flight computer, and this glider.” Criteria: the standard that decides whether the performance passed, such as “arrive within five minutes and hold altitude within 200 feet.” Cognitive (knowledge / intellectual domain), affective (attitudes, beliefs, and values domain), and psychomotor (physical-skill domain of learning) are the learning domains, a different list. Scenarios and judgment checks are training tools, not the three parts of the objective.',
+  foi_written_269:
+    'Authentic assessment (evaluation using real-world tasks, not only paper quizzes) focuses on real-world skills: the learner performs a realistic task and is judged on that performance, not on picking a memorized answer. Traditional assessment is the written test with one correct answer. Collaborative grading is a way of scoring with the learner; it is not the assessment type that targets real-world skills.',
   foi_written_156:
     'While evaluating, keep the student informed of progress — feedback during/after the demo is part of teaching, not only scoring.',
   foi_written_181:
@@ -162,6 +204,8 @@ const CARD_OVERRIDES = {
     'True/false is a classic rote (memorizing facts without real understanding) item — it checks recall, not explanation or application.',
   foi_written_198:
     'Selection-type items promote guessing because the options are listed; supply-type write-ins force the student to produce the answer.',
+  foi_written_226:
+    'E-learning enhances learning because less time can be spent on instruction than in a traditional classroom: a well-designed program lets the learner move through what they already know and spend the time on what they do not. The learner controls the pace, not the instructor. Limited peer interaction and personal feedback is a drawback of some e-learning, not the reason it works. The software also does not replace the instructor when the objective is a hands-on skill.',
   foi_written_232:
     'Introduce PTS/ACS early in training — waiting until the last practical-test prep hour leaves no time to train to the standard.',
   foi_written_233:
@@ -502,7 +546,7 @@ const STEM_NOTES = [
   },
   {
     re: /desirable for teaching a skill such as ground school lesson on the flight computer/,
-    note: 'Skills (E6B, procedures) fit demonstration/performance better than pure lecture.',
+    note: 'A skill such as the flight computer is taught by demonstration/performance: explain it, show it, then the student performs it while you supervise and you evaluate that performance. “Performance” means the student does the skill.',
   },
   {
     re: /statement is true regarding student evaluation/,
@@ -597,8 +641,8 @@ const STEM_NOTES = [
     note: 'When discussion has run its course, summarize and tie ideas back to the objective before moving on.',
   },
   {
-    re: /essential steps in the demonstration\/performance|demonstration\/performance method/,
-    note: 'Demo/performance: explanation → instructor demo → student performance → supervision → evaluation. Explanation and demo often run together.',
+    re: /essential steps in the demonstration\/performance/,
+    note: 'Demonstration/performance has five steps: explanation, demonstration, student performance, instructor supervision, and evaluation. The short lists drop a required step.',
   },
   {
     re: /computer-based training \(cbt\)|major advantage of computer-based/,
@@ -628,7 +672,7 @@ const STEM_NOTES = [
   },
   {
     re: /practical tests for pilot certification are/,
-    note: 'Practical tests are criterion-referenced to published standards — not graded on a curve against other applicants.',
+    note: 'A practical test is criterion-referenced: every applicant is scored against a fixed published standard, not ranked against the other people who tested that day.',
   },
   {
     re: /objective of the practical test standards|pts\) is to ensure/,
@@ -652,11 +696,11 @@ const STEM_NOTES = [
   },
   {
     re: /written test having the characteristic of discrimination/,
-    note: 'Discrimination means the item separates those who mastered the objective from those who did not.',
+    note: 'Discrimination distinguishes low achievement from high: scores spread out. Easy-to-grade is usability. A broad sample of objectives is comprehensiveness.',
   },
   {
     re: /written test is said to be comprehensive/,
-    note: 'Comprehensive = samples the whole objective set appropriately — not one pet topic.',
+    note: 'Comprehensive means the test samples liberally whatever is being measured: a wide cut across the objectives, not one topic repeated and not “every difficulty level.”',
   },
   {
     re: /selection-type test items reduces the probability of guessing/,
@@ -688,7 +732,7 @@ const STEM_NOTES = [
   },
   {
     re: /desirable for evaluating training that involves an operation, procedure/,
-    note: 'Operations/procedures fit performance tests — watch the skill, do not only ask about it on paper.',
+    note: 'A performance test is the learner doing the operation, procedure, or process while you score that doing against a standard. An oral test only checks whether they can explain it. Proficiency is how well they can do it, not the test type.',
   },
   {
     re: /faulty performance due to student overconfidence/,
@@ -700,7 +744,7 @@ const STEM_NOTES = [
   },
   {
     re: /achievement of an adequate standard of performance/,
-    note: 'Standards must be established and held — “trying hard” is not the same as meeting the objective.',
+    note: 'An adequate standard of performance means the important item is learned. Letting a student move on with a partial grasp of a critical skill is a failure to instruct.',
   },
   {
     re: /positive approach in the first flight lesson/,
@@ -708,7 +752,7 @@ const STEM_NOTES = [
   },
   {
     re: /evaluation of demonstrated ability during flight instruction/,
-    note: 'Judge demonstrated ability against established standards and the whole performance — not one memorable error.',
+    note: 'Judge demonstrated ability against established standards of performance, suited to the student’s experience. Hours logged and the instructor’s opinion are not the scale.',
   },
   {
     re: /evaluating student demonstrations of piloting ability/,
@@ -720,15 +764,15 @@ const STEM_NOTES = [
   },
   {
     re: /performance-based objectives consist/,
-    note: 'Performance-based objectives name the performance, the conditions, and the criteria — all three.',
+    note: 'A performance-based objective needs all three parts: the observable skill or behavior, the conditions, and the criteria that say the performance passed.',
   },
   {
     re: /type of assessment focuses on real-world skills|critical thinking sk/,
-    note: 'Authentic / performance assessment fits real-world and critical-thinking skills better than isolated recall items.',
+    note: 'Authentic assessment asks the learner to perform a real-world task and generate the solution. Traditional assessment is a written item with one memorized answer.',
   },
   {
     re: /electronic-based learning|how is learning enhanced by electronic/,
-    note: 'E-learning can individualize pace and interaction — still needs instructor oversight for skill and judgment.',
+    note: 'E-learning’s enhancement is less instruction time than a traditional classroom: the learner moves past what they already know. Limited peer feedback is a drawback, not the benefit. The instructor still owns hands-on skills.',
   },
   {
     re: /training aids are interactive|computer-assisted learning|\bcal\b|commercially (?:produced|developed)|test preparation material/,
@@ -826,7 +870,7 @@ const STEM_NOTES = [
   },
   {
     re: /written test has validity|test that has reliability|measures small differences in achievement|discrimination/,
-    note: 'Validity = measures the objective. Reliability = consistent results. Discrimination = separates masters from non-masters.',
+    note: 'Validity measures the objective. Reliability yields consistent results. Discrimination separates small differences in achievement. Do not swap the three.',
   },
   {
     re: /multiple-choice test items that are intended to measure achievement at a higher level/,
@@ -942,7 +986,7 @@ const STEM_NOTES = [
   },
   {
     re: /criterion-referenced tests/,
-    note: 'Criterion-referenced tests check a published standard, not a curve against classmates.',
+    note: 'Criterion-referenced tests are built from performance-based objectives and scored against a fixed published standard, not against other students.',
   },
   {
     re: /responding abnormally react to stress|reacting normally to stress/,

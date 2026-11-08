@@ -12946,7 +12946,7 @@
     },
     {
       "card_id": "foi_written_077",
-      "summary": "Skills (E6B, procedures) fit demonstration/performance better than pure lecture.",
+      "summary": "A skill such as the flight computer is taught by demonstration/performance: you explain the procedure, show it, then the student performs it while you supervise, and you evaluate that performance against the standard. “Performance” means the student does the skill — not that the lesson went well. Lecture/application mostly tells the idea and leaves the doing for later. Presentation/practice is not the handbook method for a hands-on procedure.",
       "links": [
         {
           "label": "AIH — The Teaching Process / Methods of Instruction",
@@ -13408,7 +13408,7 @@
     },
     {
       "card_id": "foi_written_104",
-      "summary": "Demo/performance: explanation → instructor demo → student performance → supervision → evaluation. Explanation and demo often run together.",
+      "summary": "Demonstration/performance has five steps, in order. Explanation: what to do and what “done” looks like. Demonstration: you show the skill. Student performance: they do it. Instructor supervision: you coach while they do it. Evaluation: they perform it on their own and you judge that performance against the standard. The short lists drop explanation or supervision. Those steps are required, not optional.",
       "links": [
         {
           "label": "AIH — The Teaching Process / Methods of Instruction",
@@ -13426,7 +13426,7 @@
     },
     {
       "card_id": "foi_written_105",
-      "summary": "Demo/performance: explanation → instructor demo → student performance → supervision → evaluation. Explanation and demo often run together.",
+      "summary": "In demonstration/performance, the two actions that happen at the same time are student performance and instructor supervision: the student does the skill while you watch and coach. Explanation comes first, then your demonstration. Those are earlier, separate steps, not the concurrent pair. The student does not demonstrate while you are still explaining.",
       "links": [
         {
           "label": "AIH — The Teaching Process / Methods of Instruction",
@@ -13444,7 +13444,7 @@
     },
     {
       "card_id": "foi_written_106",
-      "summary": "Demo/performance: explanation → instructor demo → student performance → supervision → evaluation. Explanation and demo often run together.",
+      "summary": "The last step of demonstration/performance is evaluation. The student performs the skill independently, and you judge that performance against the way it was taught. A summary belongs to a discussion, not to the close of this method. Student performance comes before the judgment; it is not the last step.",
       "links": [
         {
           "label": "AIH — The Teaching Process / Methods of Instruction",
@@ -13516,7 +13516,7 @@
     },
     {
       "card_id": "foi_written_110",
-      "summary": "A critique must be constructive, objective, and forward-looking. Acceptance of the instructor usually comes before acceptance of the critique.",
+      "summary": "A critique of performance should be constructive and objective. Constructive means you show how to do the next try better — praise for its own sake does not count. Objective means you judge the performance that happened, not the student’s personality. It should not treat every aspect in detail; a comprehensive critique still picks the points worth improving.",
       "links": [
         {
           "label": "AIH — Assessment / Critique & Evaluation",
@@ -13534,7 +13534,7 @@
     },
     {
       "card_id": "foi_written_111",
-      "summary": "A critique must be constructive, objective, and forward-looking. Acceptance of the instructor usually comes before acceptance of the critique.",
+      "summary": "Students accept a critique of their performance only after they accept the instructor — confidence in competence and sincerity comes first. Charm or personality does not substitute for that. A critique that only emphasizes the positive is still not what makes the criticism acceptable.",
       "links": [
         {
           "label": "AIH — Assessment / Critique & Evaluation",
@@ -13588,7 +13588,7 @@
     },
     {
       "card_id": "foi_written_114",
-      "summary": "A critique must be constructive, objective, and forward-looking. Acceptance of the instructor usually comes before acceptance of the critique.",
+      "summary": "A critique of performance should be constructive and objective. Constructive means you show how to do the next try better — praise for its own sake does not count. Objective means you judge the performance that happened, not the student’s personality. It should not treat every aspect in detail; a comprehensive critique still picks the points worth improving.",
       "links": [
         {
           "label": "AIH — Assessment / Critique & Evaluation",
@@ -13642,7 +13642,7 @@
     },
     {
       "card_id": "foi_written_117",
-      "summary": "Practical tests are criterion-referenced (scored against a fixed published standard, not a curve) to published standards — not graded on a curve against other applicants.",
+      "summary": "A practical test is criterion-referenced (scored against a fixed published standard, not a curve): every applicant is scored against the practical test standards, not ranked against the other people who tested that day. Norm-referenced (ranked against other students rather than a fixed standard) testing is a curve, and that is the wrong model for a certificate. “Evaluation-referenced” is not a test type. The practical exists so every successful pilot meets the same safety standard.",
       "links": [
         {
           "label": "AIH — Assessment / Critique & Evaluation",
@@ -13778,7 +13778,7 @@
     },
     {
       "card_id": "foi_written_125",
-      "summary": "Validity = measures the objective. Reliability = consistent results. Discrimination = separates masters from non-masters.",
+      "summary": "Validity means the test measures what it is supposed to measure. A stall-recovery quiz that actually checks stall recovery is valid; a trivia sheet that happens to mention airplanes is not, even if every instructor would score it the same way. “Yields consistent results” is reliability — the same score again, even if you measured the wrong thing. “Samples liberally” is comprehensiveness — broad coverage — not whether the items measure the objective.",
       "links": [
         {
           "label": "AIH — Assessment / Critique & Evaluation",
@@ -13796,7 +13796,7 @@
     },
     {
       "card_id": "foi_written_126",
-      "summary": "Validity = measures the objective. Reliability = consistent results. Discrimination = separates masters from non-masters.",
+      "summary": "Reliability means the test yields consistent results: repeat the measurement and the same student gets about the same score. Consistency is not the same as measuring the right thing. “Actually measures what it is supposed to measure” is validity. “Measures small differences in the achievement of students” is discrimination — separating high achievement from low — not reliability.",
       "links": [
         {
           "label": "AIH — Assessment / Critique & Evaluation",
@@ -13814,7 +13814,7 @@
     },
     {
       "card_id": "foi_written_127",
-      "summary": "Validity = measures the objective. Reliability = consistent results. Discrimination = separates masters from non-masters.",
+      "summary": "Discrimination is the characteristic that measures small differences in achievement between students. Masters score up, non-masters score down, and you can tell them apart. Validity only asks whether the test measures the objective at all. Reliability only asks whether it gives consistent results. A test can be perfectly consistent and still fail to separate high achievement from low.",
       "links": [
         {
           "label": "AIH — Assessment / Critique & Evaluation",
@@ -13832,7 +13832,7 @@
     },
     {
       "card_id": "foi_written_128",
-      "summary": "Discrimination means the test separates low from high achievers on the objective — masters score up, non-masters score down.",
+      "summary": "A test with discrimination distinguishes students who are low in achievement from those who are high: scores spread out instead of everyone landing in the same pile. “Easy to give and easily graded” is usability — convenient to administer, not a measure of who mastered the objective. “A representative and comprehensive sampling of the course objectives” is comprehensiveness — breadth of coverage — not discrimination.",
       "links": [
         {
           "label": "AIH — Assessment / Critique & Evaluation",
@@ -13850,7 +13850,7 @@
     },
     {
       "card_id": "foi_written_129",
-      "summary": "Comprehensive = samples the whole objective set appropriately — not one pet topic.",
+      "summary": "A written test is comprehensive when it samples liberally whatever is being measured: a wide cut across the objectives, not one favorite topic asked over and over. “Includes all levels of difficulty” describes how hard the items are, not how broadly they sample. “Measures knowledge of the same topic in many different ways” is still one topic. Liberal sampling means breadth.",
       "links": [
         {
           "label": "AIH — Assessment / Critique & Evaluation",
@@ -14012,7 +14012,7 @@
     },
     {
       "card_id": "foi_written_138",
-      "summary": "Operations/procedures fit performance tests — watch the skill, do not only ask about it on paper.",
+      "summary": "A performance test is the learner doing the operation, procedure, or process while you watch and score that doing against a standard — a stall recovery, a preflight, a weight-and-balance they actually complete. An oral test only asks them to explain the steps. Someone can describe a slip perfectly and still fly it wrong, so talk does not evaluate the operation. Proficiency is not a test type in this list: it is how well they can do the skill, or a later proficiency check. The handbook’s name for the test that evaluates an operation, procedure, or process is performance.",
       "links": [
         {
           "label": "AIH — Assessment / Critique & Evaluation",
@@ -14184,7 +14184,7 @@
     },
     {
       "card_id": "foi_written_148",
-      "summary": "A pretest of entry knowledge/skills is a criterion-referenced (scored against a fixed published standard, not a curve) check against the start standard — can they begin the course?",
+      "summary": "A pretest of the knowledge and skills needed to begin a course is a criterion-referenced (scored against a fixed published standard, not a curve) check: each student is scored against the start standard, “ready to begin,” not ranked against the other people in the room. A norm-referenced (ranked against other students rather than a fixed standard) pretest would only tell you who is ahead of whom. Virtual reality is a training device, not this test type.",
       "links": [
         {
           "label": "AIH — Assessment / Critique & Evaluation",
@@ -14234,7 +14234,7 @@
     },
     {
       "card_id": "foi_written_151",
-      "summary": "Standards must be established and held — “trying hard” is not the same as meeting the objective.",
+      "summary": "An adequate standard of performance means an important item is learned, not half-learned. Letting a student move on with a partial grasp of a critical knowledge item or skill is a failure to instruct. Raising the relationship by refusing to enforce standards does the opposite. Continuous evaluation matters, but this item’s point is the standard itself: partial learning of something important is not competent instruction.",
       "links": [
         {
           "label": "AIH — Assessment / Critique & Evaluation",
@@ -14280,7 +14280,7 @@
     },
     {
       "card_id": "foi_written_154",
-      "summary": "Judge demonstrated ability against established standards and the whole performance — not one memorable error.",
+      "summary": "Judge demonstrated piloting ability against established standards of performance, then suit those standards to this student’s experience and to the conditions of the flight. The instructor’s own background is not the scale. Hours logged since the first lesson are not the scale either. “Performance” here is the flying you just watched, measured against the standard — not a general impression of progress.",
       "links": [
         {
           "label": "AIH — Assessment / Critique & Evaluation",
@@ -14298,7 +14298,7 @@
     },
     {
       "card_id": "foi_written_155",
-      "summary": "Judge demonstrated ability against established standards and the whole performance — not one memorable error.",
+      "summary": "Judge demonstrated piloting ability against established standards of performance. “How much progress” and “what the instructor thinks of the maneuver” are not the scale. The standard says what the performance had to look like; experience may change how you apply it, but opinion does not replace it.",
       "links": [
         {
           "label": "AIH — Assessment / Critique & Evaluation",
@@ -14456,7 +14456,7 @@
     },
     {
       "card_id": "foi_written_164",
-      "summary": "Demo/performance: explanation → instructor demo → student performance → supervision → evaluation. Explanation and demo often run together.",
+      "summary": "Flight instruction’s telling-and-doing form of demonstration/performance runs in four steps. Instructor tells — instructor does: you narrate while you fly it. Student tells — instructor does: they talk the steps while you still fly. Student tells — student does: they narrate their own performance while they fly. Student does — instructor evaluates: they perform it and you judge that performance. The traps skip a step. You do not start with the student doing it, and you do not skip the rehearsal where they tell and do before you only watch.",
       "links": [
         {
           "label": "AIH — The Teaching Process / Methods of Instruction",
@@ -15544,7 +15544,7 @@
     },
     {
       "card_id": "foi_written_226",
-      "summary": "E-learning can individualize pace and interaction — still needs instructor oversight for skill and judgment.",
+      "summary": "E-learning enhances learning because less time can be spent on instruction than in a traditional classroom: a well-designed program lets the learner move through what they already know and spend the time on what they do not. The learner controls the pace, not the instructor. Limited peer interaction and personal feedback is a drawback of some e-learning, not the reason it works. The software also does not replace the instructor when the objective is a hands-on skill.",
       "links": [
         {
           "label": "AIH — Assessment / Critique & Evaluation",
@@ -15688,7 +15688,7 @@
     },
     {
       "card_id": "foi_written_234",
-      "summary": "Criterion-referenced (scored against a fixed published standard, not a curve) tests check a published standard, not a curve against classmates.",
+      "summary": "Criterion-referenced (scored against a fixed published standard, not a curve) tests are built from performance-based objectives: a description of the skill or behavior the student must show, the conditions they do it under, and the criteria that say the performance met the standard. That is not a norm-based objective, which would compare students to each other. It is also not subjective — the criteria are written so any competent reader can tell whether the performance passed. “Performance” here means the observable skill, not a vague sense that the lesson went well.",
       "links": [
         {
           "label": "AIH — Assessment / Critique & Evaluation",
@@ -15802,7 +15802,7 @@
     },
     {
       "card_id": "foi_written_241",
-      "summary": "Authentic / performance assessment fits real-world and critical-thinking skills better than isolated recall items.",
+      "summary": "Authentic assessment (evaluation using real-world tasks, not only paper quizzes) asks the student to use critical thinking on a real task and generate the solution — a scenario they have to decide or fly, with the standard known ahead of time. It checks application and correlation (highest learning level — connecting knowledge across new situations), not only recall. Traditional assessment is a written item with one memorized answer. “Practical assessment” sounds like a checkride, but it is not the handbook name for evaluating critical thinking on real-world tasks.",
       "links": [
         {
           "label": "AIH — Assessment / Critique & Evaluation",
@@ -15974,7 +15974,7 @@
     },
     {
       "card_id": "foi_written_251",
-      "summary": "Performance-based objectives name the performance, the conditions, and the criteria — all three.",
+      "summary": "A performance-based objective has three parts, and all three are required. Description of the skill or behavior: the observable outcome, such as “plan and fly from A to B,” not an unmeasurable “awareness of navigation.” Conditions: the rules and tools, such as “using a sectional, a flight computer, and this glider.” Criteria: the standard that decides whether the performance passed, such as “arrive within five minutes and hold altitude within 200 feet.” Cognitive (knowledge / intellectual domain), affective (attitudes, beliefs, and values domain), and psychomotor (physical-skill domain of learning) are the learning domains, a different list. Scenarios and judgment checks are training tools, not the three parts of the objective.",
       "links": [
         {
           "label": "AIH — Assessment / Critique & Evaluation",
@@ -16290,7 +16290,7 @@
     },
     {
       "card_id": "foi_written_269",
-      "summary": "Authentic / performance assessment fits real-world and critical-thinking skills better than isolated recall items.",
+      "summary": "Authentic assessment (evaluation using real-world tasks, not only paper quizzes) focuses on real-world skills: the learner performs a realistic task and is judged on that performance, not on picking a memorized answer. Traditional assessment is the written test with one correct answer. Collaborative grading is a way of scoring with the learner; it is not the assessment type that targets real-world skills.",
       "links": [
         {
           "label": "AIH — Assessment / Critique & Evaluation",
