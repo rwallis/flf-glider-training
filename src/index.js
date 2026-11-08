@@ -70,7 +70,11 @@ function logSeedSummary(seeded) {
         : '') +
       (seeded.card_figures_upserted != null
         ? ` card_figures=${seeded.card_figures_upserted}`
-        : '')
+        : '') +
+      (seeded.corrections_applied != null
+        ? ` corrections=${seeded.corrections_applied}`
+        : '') +
+      (seeded.flags_resolved != null ? ` flags_resolved=${seeded.flags_resolved}` : '')
   );
 }
 

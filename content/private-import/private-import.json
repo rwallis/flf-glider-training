@@ -483,26 +483,6 @@
       "topic_title": "Airworthiness"
     },
     {
-      "id": "private_written_016",
-      "question": "Which operation would be described as preventive maintenance?",
-      "answer": "Replenishing hydraulic Muid",
-      "choices": [
-        "Replenishing hydraulic Muid",
-        "Repair portions of skin sheets by making additional seams",
-        "Repair of landing gear brace struts"
-      ],
-      "source": "Private written · #16 · IMG_0003.pdf",
-      "tags": [
-        "imported",
-        "private_written",
-        "multiple_choice",
-        "private",
-        "priv_airworthy"
-      ],
-      "topic_id": "priv_airworthy",
-      "topic_title": "Airworthiness"
-    },
-    {
       "id": "private_written_017",
       "question": "Which operation would be described as preventive maintenance?",
       "answer": "Replenishing hydraulic fluid",
@@ -3464,12 +3444,12 @@
     },
     {
       "id": "private_written_174",
-      "question": "If the outside air temperature (OAT) at a given",
-      "answer": "titude is warmer than standard. the density altitude is",
+      "question": "If the outside air temperature (OAT) at a given altitude is warmer than standard, the density altitude is",
+      "answer": "higher than pressure altitude.",
       "choices": [
-        "titude is warmer than standard. the density altitude is",
-        "lower than pressure altitude",
-        "higher than pressure altitude"
+        "lower than pressure altitude.",
+        "the same as pressure altitude.",
+        "higher than pressure altitude."
       ],
       "source": "Private written · #174 · IMG_0003.pdf",
       "tags": [
@@ -3484,12 +3464,12 @@
     },
     {
       "id": "private_written_175",
-      "question": "What force makes an airplane turn'?",
-      "answer": "Centritugal force",
+      "question": "What force makes an airplane turn?",
+      "answer": "The horizontal component of lift.",
       "choices": [
-        "The horizontal component of lift",
-        "The vertical component of lift",
-        "Centritugal force"
+        "The horizontal component of lift.",
+        "The vertical component of lift.",
+        "Centrifugal force."
       ],
       "source": "Private written · #175 · IMG_0003.pdf",
       "tags": [
@@ -3505,11 +3485,11 @@
     {
       "id": "private_written_176",
       "question": "In what flight condition must an aircraft be placed in order to spin?",
-      "answer": "Partially stalled with one wing low",
+      "answer": "Stalled.",
       "choices": [
-        "Partially stalled with one wing low",
-        "Ina steep diving spiral",
-        "Stalled. 176; During a spin to the left. which wingts) is'are stalled?"
+        "Partially stalled with one wing low.",
+        "In a steep diving spiral.",
+        "Stalled."
       ],
       "source": "Private written · #176 · IMG_0003.pdf",
       "tags": [
@@ -4203,26 +4183,6 @@
       "topic_title": "Weather"
     },
     {
-      "id": "private_written_211",
-      "question": "What is meant by the term \"dewpoint'?",
-      "answer": "The temperature at which dew will always form,",
-      "choices": [
-        "The temperature at which condensation and evaporation are equal",
-        "The temperature at which dew will always form,",
-        "The temperature to which air must be cooled to become saturated"
-      ],
-      "source": "Private written · #211 · IMG_0003.pdf",
-      "tags": [
-        "imported",
-        "private_written",
-        "multiple_choice",
-        "private",
-        "priv_weather"
-      ],
-      "topic_id": "priv_weather",
-      "topic_title": "Weather"
-    },
-    {
       "id": "private_written_212",
       "question": "The amount of water vapor which air can hold depends on the",
       "answer": "dewpoint",
@@ -4663,26 +4623,6 @@
       "topic_title": "Private miscellaneous"
     },
     {
-      "id": "private_written_234",
-      "question": "What clouds have the greatest turbulence?",
-      "answer": "Lowering cumulus",
-      "choices": [
-        "Lowering cumulus",
-        "Cumulonimbus",
-        "Nimbostratus"
-      ],
-      "source": "Private written · #234 · IMG_0003.pdf",
-      "tags": [
-        "imported",
-        "private_written",
-        "multiple_choice",
-        "private",
-        "priv_weather"
-      ],
-      "topic_id": "priv_weather",
-      "topic_title": "Weather"
-    },
-    {
       "id": "private_written_235",
       "question": "One of the most easily recognized discontinuities across a front is Ava change in temperature,",
       "answer": "wind direction",
@@ -4945,11 +4885,11 @@
     {
       "id": "private_written_248",
       "question": "Thunderstorms reach their greatest intensity during the",
-      "answer": "mature stage",
+      "answer": "mature stage.",
       "choices": [
-        "mature stage",
-        "downdraft stage",
-        "cumulus stage. Cypgs 011726"
+        "mature stage.",
+        "downdraft stage.",
+        "cumulus stage."
       ],
       "source": "Private written · #248 · IMG_0003.pdf",
       "tags": [
@@ -5104,12 +5044,12 @@
     },
     {
       "id": "private_written_256",
-      "question": "The development of thermals depends upon Aza counterclockwise circulation af air",
-      "answer": "solar heating 287; Which is considered to be the most hazardous",
+      "question": "The development of thermals depends upon",
+      "answer": "solar heating.",
       "choices": [
-        "Static electricity",
-        "temperature inversions",
-        "solar heating 287; Which is considered to be the most hazardous"
+        "a counterclockwise circulation of air.",
+        "temperature inversions.",
+        "solar heating."
       ],
       "source": "Private written · #256 · IMG_0003.pdf",
       "tags": [
@@ -5232,26 +5172,6 @@
         "ATIS frequencies."
       ],
       "source": "Private written · #262 · IMG_0003.pdf",
-      "tags": [
-        "imported",
-        "private_written",
-        "multiple_choice",
-        "private",
-        "priv_weather"
-      ],
-      "topic_id": "priv_weather",
-      "topic_title": "Weather"
-    },
-    {
-      "id": "private_written_263",
-      "question": "When telephoning a weather briefing facility for preflight weather information, pilots should state",
-      "answer": "whether they intend to fly VFR only.",
-      "choices": [
-        "whether they intend to fly VFR only.",
-        "that they possess a current pilot certificate.",
-        "the full name and address of the formation commander."
-      ],
-      "source": "Private written · #263 · IMG_0003.pdf",
       "tags": [
         "imported",
         "private_written",
@@ -5463,26 +5383,6 @@
       "topic_title": "Weather"
     },
     {
-      "id": "private_written_274",
-      "question": "FAA advisory circulars (some free. others at cost) are available to all pilots and are obtained by",
-      "answer": "downloading online. t",
-      "choices": [
-        "downloading online. t",
-        "subscribing to the Federal Register",
-        "distribution from the nearest FAA district office"
-      ],
-      "source": "Private written · #274 · IMG_0003.pdf",
-      "tags": [
-        "imported",
-        "private_written",
-        "multiple_choice",
-        "private",
-        "priv_misc"
-      ],
-      "topic_id": "priv_misc",
-      "topic_title": "Private miscellaneous"
-    },
-    {
       "id": "private_written_276",
       "question": "In addition to the standard briefing. what additional information should be asked of the weather bricter in order to evaluate soaring conditions?",
       "answer": "The upper soundings to determine the thermal index at",
@@ -5604,12 +5504,12 @@
     },
     {
       "id": "private_written_284",
-      "question": "(Refer to Figure 26, area 2.) What is the approximate",
-      "answer": "itude and longitude of Cooperstown Airport?",
+      "question": "(Refer to Figure 26, area 2.) What is the approximate latitude and longitude of Cooperstown Airport?",
+      "answer": "47°25'N - 98°06'W.",
       "choices": [
-        "itude and longitude of Cooperstown Airport?",
-        "47°25'N - 99°S54'W",
-        "AT>SS'N - 98°06'W"
+        "47°25'N - 98°06'W.",
+        "47°25'N - 99°54'W.",
+        "47°55'N - 98°06'W."
       ],
       "source": "Private written · #284 · IMG_0003.pdf",
       "tags": [
@@ -5685,11 +5585,11 @@
     {
       "id": "private_written_288",
       "question": "(Refer to Figure 26, area 2.) What hazards to aircraft may exist in areas such as Devils Lake East MOA?",
-      "answer": "Military training activities that necessitate acrobatic or abrupt flight maneuvers. Ceypys 011726",
+      "answer": "Military training activities that necessitate acrobatic or abrupt flight maneuvers.",
       "choices": [
-        "Unusual. often invisible. hazards to aircraft such as artillery tiring. aerial guonery. or guided missiles",
-        "High volume of pilot training or an unusual type of. aerial activity",
-        "Military training activities that necessitate acrobatic or abrupt flight maneuvers. Ceypys 011726"
+        "Unusual, often invisible, hazards to aircraft such as artillery firing, aerial gunnery, or guided missiles.",
+        "High volume of pilot training or an unusual type of aerial activity.",
+        "Military training activities that necessitate acrobatic or abrupt flight maneuvers."
       ],
       "source": "Private written · #288 · IMG_0003.pdf",
       "tags": [
@@ -5744,12 +5644,12 @@
     },
     {
       "id": "private_written_293",
-      "question": "(Refer to Figure 22. area 1.) The visibility and cloud clearance requirements to operate VFR during daylight hours over Sandpoint Airport at 1.200 feet AGL are",
-      "answer": "3 miles and 1.000 teet above. $00 feet below. and 2.000 feet horizontally from each cloud",
+      "question": "(Refer to Figure 22, area 1.) The visibility and cloud clearance requirements to operate VFR during daylight hours over Sandpoint Airport at 1,200 feet AGL are",
+      "answer": "3 miles and 1,000 feet above, 500 feet below, and 2,000 feet horizontally from each cloud.",
       "choices": [
-        "mile and 1.000 feet above. S00 feet below. and 2.000 fect horizontally from each cloud",
-        "mile and clear of clouds,",
-        "3 miles and 1.000 teet above. $00 feet below. and 2.000 feet horizontally from each cloud"
+        "1 mile and 1,000 feet above, 500 feet below, and 2,000 feet horizontally from each cloud.",
+        "1 mile and clear of clouds.",
+        "3 miles and 1,000 feet above, 500 feet below, and 2,000 feet horizontally from each cloud."
       ],
       "source": "Private written · #293 · IMG_0003.pdf",
       "tags": [
@@ -5804,12 +5704,12 @@
     },
     {
       "id": "private_written_298",
-      "question": "(Refer to Figure 26. area 5.) The airspace overly ing and within 5 miles of Barnes County Airport is",
-      "answer": "Class G airspace from the surface to 700 feet AGE. 299; (Refer to figure 25. area 7.) The airspace overly ing McKinney (TKI) is controlled from the surface to",
+      "question": "(Refer to Figure 26, area 5.) The airspace overlying and within 5 miles of Barnes County Airport is",
+      "answer": "Class G airspace from the surface to 700 feet AGL.",
       "choices": [
-        "Class D airspace trom the surface to the floor of the overly ing Class F airspace",
-        "Class F airspace from the surface to 1.200 feet MSL",
-        "Class G airspace from the surface to 700 feet AGE. 299; (Refer to figure 25. area 7.) The airspace overly ing McKinney (TKI) is controlled from the surface to"
+        "Class D airspace from the surface to the floor of the overlying Class E airspace.",
+        "Class E airspace from the surface to 1,200 feet MSL.",
+        "Class G airspace from the surface to 700 feet AGL."
       ],
       "source": "Private written · #298 · IMG_0003.pdf",
       "tags": [
@@ -5864,12 +5764,12 @@
     },
     {
       "id": "private_written_301",
-      "question": "(Reler to Figure 23. area 3.) What is the floor of the Savannah Class C airspace at the shelf area (outer circle)? Az 1.300 feet AGL. 1B: 1.300 feet MSE",
-      "answer": "Unmarked balloon on cable to 3.008 feet AGL",
+      "question": "(Refer to Figure 23, area 3.) What is the floor of the Savannah Class C airspace at the shelf area (outer circle)?",
+      "answer": "1,300 feet MSL.",
       "choices": [
-        "compulsory reporting point for Norfolk Class C airspace",
-        "Unmarked balloon on cable to 3.008 feet AGL",
-        "1.700 feet MSE. S02) (refer to Figure 22. area 3.) The vertical limits of that portion of Class E airspace designated as a Pederal Airway over Magee Airport are"
+        "1,300 feet AGL.",
+        "1,300 feet MSL.",
+        "1,700 feet MSL."
       ],
       "source": "Private written · #301 · IMG_0003.pdf",
       "tags": [
@@ -6025,11 +5925,11 @@
     {
       "id": "private_written_310",
       "question": "(Refer to Figure 23, area 3.) The top of the group obstruction approximately 11 nautical miles from the Savannah VORTAC on the 330° radial is",
-      "answer": "432 feet MSL. C epgs 011726 Se Me",
+      "answer": "432 feet MSL.",
       "choices": [
-        "400 feet AGL",
-        "454 feet MSI",
-        "432 feet MSL. C epgs 011726 Se Me"
+        "400 feet AGL.",
+        "454 feet MSL.",
+        "432 feet MSL."
       ],
       "source": "Private written · #310 · IMG_0003.pdf",
       "tags": [
@@ -6405,11 +6305,11 @@
     {
       "id": "private_written_331",
       "question": "Where may the most favorable type thermals for cross-country soaring be found?",
-      "answer": "Along thermal streets",
+      "answer": "Along thermal streets.",
       "choices": [
-        "Justahead of a warm front",
-        "Along thermal streets",
-        "Under mountain waves. Cepys 011726"
+        "Just ahead of a warm front.",
+        "Along thermal streets.",
+        "Under mountain waves."
       ],
       "source": "Private written · #331 · IMG_0003.pdf",
       "tags": [
@@ -6424,12 +6324,12 @@
     },
     {
       "id": "private_written_332",
-      "question": "Where and under what condition can enough lift",
-      "answer": "On the upwind side of hills or ridges with moderate winds present",
+      "question": "Where and under what condition can enough lift be found to soar a ridge?",
+      "answer": "On the upwind side of hills or ridges with moderate winds present.",
       "choices": [
-        "On the upwind side of hills or ridges with moderate winds present",
-        "In mountain waves that form on the upwind side of the mountains",
-        "Over isolated peaks when strong winds are present"
+        "On the upwind side of hills or ridges with moderate winds present.",
+        "In mountain waves that form on the upwind side of the mountains.",
+        "Over isolated peaks when strong winds are present."
       ],
       "source": "Private written · #332 · IMG_0003.pdf",
       "tags": [
@@ -6464,12 +6364,12 @@
     },
     {
       "id": "private_written_334",
-      "question": "(Refer to Figure 49.) Area C on the airport depicted is classified as a",
-      "answer": "closed runway.",
+      "question": "(Refer to Figure 49.) Which runways on the airport diagram are closed?",
+      "answer": "Runways 4 and 22.",
       "choices": [
-        "stabilized area.",
-        "multiple heliport.",
-        "closed runway."
+        "Runways 18 and 36.",
+        "Runways 4 and 22.",
+        "Runway 36 only."
       ],
       "source": "Private written · #334 · IMG_0003.pdf",
       "tags": [
@@ -6564,12 +6464,12 @@
     },
     {
       "id": "private_written_339",
-      "question": "Under what condition may an aircraft operate from a satellite airport within Class C airspace? Az The pilot must tile a flight plan prior to departure",
-      "answer": "The pilot must contact ALC as soon as practicable after takeolt. 340; Under what condition. any. may pilots fly through a restricted area?",
+      "question": "Under what condition may an aircraft operate from a satellite airport within Class C airspace?",
+      "answer": "The pilot must contact ATC as soon as practicable after takeoff.",
       "choices": [
-        "When flying on airways with an ATC clearance",
-        "The pilot must monitor ATC until clear of the Class C airspace",
-        "The pilot must contact ALC as soon as practicable after takeolt. 340; Under what condition. any. may pilots fly through a restricted area?"
+        "The pilot must file a flight plan prior to departure.",
+        "The pilot must monitor ATC until clear of the Class C airspace.",
+        "The pilot must contact ATC as soon as practicable after takeoff."
       ],
       "source": "Private written · #339 · IMG_0003.pdf",
       "tags": [
@@ -6764,12 +6664,12 @@
     },
     {
       "id": "private_written_349",
-      "question": "(Reler to Figure SL.) The segmented circle indicates that the airport traffic is",
-      "answer": "left-hand for Runway 36 and right-hand for Runway 18",
+      "question": "(Refer to Figure 51.) The segmented circle indicates that the airport traffic is",
+      "answer": "left-hand for Runway 36 and right-hand for Runway 18.",
       "choices": [
-        "left-hand for Runway 36 and right-hand for Runway 18",
-        "lefi-hand tor Runway 18 and right-hand for Runway 36",
-        "right-hand for Runway 9 and left-hand for Runway 27"
+        "left-hand for Runway 36 and right-hand for Runway 18.",
+        "left-hand for Runway 18 and right-hand for Runway 36.",
+        "right-hand for Runway 9 and left-hand for Runway 27."
       ],
       "source": "Private written · #349 · IMG_0003.pdf",
       "tags": [
@@ -6784,12 +6684,12 @@
     },
     {
       "id": "private_written_350",
-      "question": "(Refer to Figure 51.) The traftic patterns indicated in the segmented circle have been arranged to avoid flights over an area to the",
-      "answer": "southeast of the airport Cepgs 011726",
+      "question": "(Refer to Figure 51.) The traffic patterns indicated in the segmented circle have been arranged to avoid flights over an area to the",
+      "answer": "southeast of the airport.",
       "choices": [
-        "south of the airport",
-        "north of the airport",
-        "southeast of the airport Cepgs 011726"
+        "south of the airport.",
+        "north of the airport.",
+        "southeast of the airport."
       ],
       "source": "Private written · #350 · IMG_0003.pdf",
       "tags": [
@@ -6824,12 +6724,12 @@
     },
     {
       "id": "private_written_352",
-      "question": "(Refer to Figure 31.) Which runway and trattic pattern should be used as indicated by the wind cone in the segmented circle?",
-      "answer": "Lefichand traffic on Runway 36",
+      "question": "(Refer to Figure 31.) Which runway and traffic pattern should be used as indicated by the wind cone in the segmented circle?",
+      "answer": "Left-hand traffic on Runway 36.",
       "choices": [
-        "Right-hand traffic on Runway 9",
-        "Right-hand traffic on Runway 18",
-        "Lefichand traffic on Runway 36"
+        "Right-hand traffic on Runway 9.",
+        "Right-hand traffic on Runway 18.",
+        "Left-hand traffic on Runway 36."
       ],
       "source": "Private written · #352 · IMG_0003.pdf",
       "tags": [
@@ -6943,33 +6843,13 @@
       "topic_title": "Scanning & collision avoidance"
     },
     {
-      "id": "private_written_359",
-      "question": "The wind condition that requires maximum caution when avoiding wake turbulence on landing is a",
-      "answer": "light. quartering headwind",
-      "choices": [
-        "light. quartering headwind",
-        "light. quartering tail ind",
-        "strong headwind"
-      ],
-      "source": "Private written · #359 · IMG_0003.pdf",
-      "tags": [
-        "imported",
-        "private_written",
-        "multiple_choice",
-        "private",
-        "priv_scan"
-      ],
-      "topic_id": "priv_scan",
-      "topic_title": "Scanning & collision avoidance"
-    },
-    {
       "id": "private_written_360",
-      "question": "When landing behind a large aireratt, the pilot should avoid wake turbulence by staying",
-      "answer": "below the large aircraft's final approach path and anding before the large aircraft's touchdown point",
+      "question": "When landing behind a large aircraft, the pilot should avoid wake turbulence by staying",
+      "answer": "above the large aircraft's final approach path and landing beyond the large aircraft's touchdown point.",
       "choices": [
-        "above the large aircrali's final approach path and anding beyond the large aircraft's touchdown point",
-        "below the large aircraft's final approach path and anding before the large aircraft's touchdown point",
-        "above the large aircraft's final approach path and anding before the large aircraft's touchdown point. 360; When departing behind a heavy aircraft, the pilot should avoid wake turbulence by maneuvering the aircraft"
+        "above the large aircraft's final approach path and landing beyond the large aircraft's touchdown point.",
+        "below the large aircraft's final approach path and landing before the large aircraft's touchdown point.",
+        "above the large aircraft's final approach path and landing before the large aircraft's touchdown point."
       ],
       "source": "Private written · #360 · IMG_0003.pdf",
       "tags": [
@@ -7125,11 +7005,11 @@
     {
       "id": "private_written_368",
       "question": "Rapid or extra deep breathing while using oxygen can cause a condition known as",
-      "answer": "hyperventilation",
+      "answer": "hyperventilation.",
       "choices": [
-        "hyperventilation",
-        "aerosinusitis",
-        "aerotitis Cgpys 011726"
+        "hyperventilation.",
+        "aerosinusitis.",
+        "aerotitis."
       ],
       "source": "Private written · #368 · IMG_0003.pdf",
       "tags": [
@@ -7203,33 +7083,13 @@
       "topic_title": "Aeromedical & human factors"
     },
     {
-      "id": "private_written_372",
-      "question": "The danger of spatial disorientation during flight in poor visual conditions may be reduced by",
-      "answer": "shifting the eves quickly between the exterior visual field and the instrument panel",
-      "choices": [
-        "shifting the eves quickly between the exterior visual field and the instrument panel",
-        "having faith in the instruments rather than taking a chance on the sensory organs,",
-        "leaning the body in the opposite direction of the motion of the aircraft,"
-      ],
-      "source": "Private written · #372 · IMG_0003.pdf",
-      "tags": [
-        "imported",
-        "private_written",
-        "multiple_choice",
-        "private",
-        "priv_aeromedical"
-      ],
-      "topic_id": "priv_aeromedical",
-      "topic_title": "Aeromedical & human factors"
-    },
-    {
       "id": "private_written_373",
-      "question": "A state of temporary confusion resulting trom misleading information being sent to the brain by various sensory organs is defined as",
-      "answer": "hyperventilation,",
+      "question": "A state of temporary confusion resulting from misleading information being sent to the brain by various sensory organs is defined as",
+      "answer": "spatial disorientation.",
       "choices": [
-        "spatial disorientation",
-        "hyperventilation,",
-        "hypoxia"
+        "spatial disorientation.",
+        "hyperventilation.",
+        "hypoxia."
       ],
       "source": "Private written · #373 · IMG_0003.pdf",
       "tags": [
@@ -7244,12 +7104,12 @@
     },
     {
       "id": "private_written_374",
-      "question": "Pilots are more subject Lo spatial disorientation it",
-      "answer": "they ignore the sensations of muscles and inner ear",
+      "question": "Pilots are more subject to spatial disorientation if",
+      "answer": "body signals are used to interpret flight attitude.",
       "choices": [
-        "they ignore the sensations of muscles and inner ear",
-        "body signals are used to interpret flight attitude",
-        "eyes are moved often in the process of cross-checking the flight instruments"
+        "they ignore the sensations of muscles and inner ear.",
+        "body signals are used to interpret flight attitude.",
+        "eyes are moved often in the process of cross-checking the flight instruments."
       ],
       "source": "Private written · #374 · IMG_0003.pdf",
       "tags": [
@@ -7425,11 +7285,11 @@
     {
       "id": "private_written_384",
       "question": "(Refer to Figure 54.) What is the CG of the glider if the pilot and passenger each weigh 215 pounds?",
-      "answer": "81.08 inches att of datum - within limits",
+      "answer": "81.08 inches aft of datum - within limits.",
       "choices": [
-        "74.69 inches alt of datum - out of Limits forward,",
-        "81.08 inches att of datum - within limits",
-        "81.08 inches aft of datum - over maximum gross weight. C gpys 011726"
+        "74.69 inches aft of datum - out of limits forward.",
+        "81.08 inches aft of datum - within limits.",
+        "81.08 inches aft of datum - over maximum gross weight."
       ],
       "source": "Private written · #384 · IMG_0003.pdf",
       "tags": [
@@ -7825,11 +7685,11 @@
     {
       "id": "private_written_404",
       "question": "A sailplane pilot can differentiate between a spin and a spiral dive because in a spiral dive",
-      "answer": "the G loads increase",
+      "answer": "the G loads increase.",
       "choices": [
-        "the speed remains constant",
-        "the G loads increase",
-        "there is a small loss of altitude in each rotation. Cepes 011726 tet oe"
+        "the speed remains constant.",
+        "the G loads increase.",
+        "there is a small loss of altitude in each rotation."
       ],
       "source": "Private written · #404 · IMG_0003.pdf",
       "tags": [
@@ -7904,12 +7764,12 @@
     },
     {
       "id": "private_written_408",
-      "question": "What antidotal phrase can help reverse the hazardous",
-      "answer": "Follow the rules",
+      "question": "What antidotal phrase can help reverse the hazardous attitude of invulnerability?",
+      "answer": "Follow the rules.",
       "choices": [
-        "Rules do not apply in this situation,",
-        "[know what | am doing",
-        "Follow the rules"
+        "Rules do not apply in this situation.",
+        "I know what I am doing.",
+        "Follow the rules."
       ],
       "source": "Private written · #408 · IMG_0003.pdf",
       "tags": [
@@ -7924,12 +7784,12 @@
     },
     {
       "id": "private_written_409",
-      "question": "What antidotal phrase can help reverse the hazardous",
-      "answer": "Not so fast. think first. 409; What antidotal phrase can help reverse the hazardous",
+      "question": "What antidotal phrase can help reverse the hazardous attitude of impulsivity?",
+      "answer": "Not so fast. Think first.",
       "choices": [
-        "titude of Invulnerability\"?",
-        "Do it quickly to get it over with",
-        "Not so fast. think first. 409; What antidotal phrase can help reverse the hazardous"
+        "It could happen to me.",
+        "Do it quickly to get it over with.",
+        "Not so fast. Think first."
       ],
       "source": "Private written · #409 · IMG_0003.pdf",
       "tags": [
@@ -7944,12 +7804,12 @@
     },
     {
       "id": "private_written_410",
-      "question": "What antidotal phrase can help reverse the hazardous",
-      "answer": "Taking chances is foolish",
+      "question": "What antidotal phrase can help reverse the hazardous attitude of macho?",
+      "answer": "Taking chances is foolish.",
       "choices": [
-        "titude of Macho?",
-        "Taking chances is foolish",
-        "Nothing will happen"
+        "Taking chances is foolish.",
+        "Nothing will happen.",
+        "I can do it."
       ],
       "source": "Private written · #410 · IMG_0003.pdf",
       "tags": [
@@ -7964,12 +7824,12 @@
     },
     {
       "id": "private_written_411",
-      "question": "What antidotal phrase can help reverse the hazardous",
-      "answer": "bam not helpless",
+      "question": "What antidotal phrase can help reverse the hazardous attitude of resignation?",
+      "answer": "I am not helpless.",
       "choices": [
-        "titude of Resignation?",
-        "Someone else is responsible",
-        "bam not helpless"
+        "Someone else is responsible.",
+        "I am not helpless.",
+        "What's the use."
       ],
       "source": "Private written · #411 · IMG_0003.pdf",
       "tags": [

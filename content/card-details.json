@@ -1298,7 +1298,7 @@
     },
     {
       "card_id": "cfi_g_bank_135",
-      "summary": "Bank answer looks swapped. As CG moves aft, the aircraft becomes less stable (more sensitive in pitch, easier to stall/spin). Forward CG increases stability but raises stall speed and can make flare harder.",
+      "summary": "Moving the center of gravity aft shortens the tail’s restoring arm, so the aircraft becomes less stable in pitch and easier to stall or spin. A forward center of gravity increases stability.",
       "links": [
         {
           "label": "PHAK — CG Position Effects",
@@ -1368,7 +1368,7 @@
     },
     {
       "card_id": "cfi_g_bank_141",
-      "summary": "Bank answer looks wrong: most weather occurs in the troposphere, not the tropopause. The tropopause is the lid; the weather layer is the troposphere beneath it. Study the troposphere for fronts, clouds, and turbulence.",
+      "summary": "Most weather occurs in the troposphere, the layer from the surface up to the tropopause. The tropopause is the lid on that layer. The stratosphere is above it and is not where fronts, clouds, and most turbulence live.",
       "links": [
         {
           "label": "PHAK — Atmosphere",
@@ -3332,7 +3332,7 @@
     },
     {
       "card_id": "cfi_g_bank_443",
-      "summary": "Bank answer “24 hours” does not match the stem. Rule: under 14 CFR 91.17, you may not allow a person who appears to be intoxicated / under the influence to be carried in a civil aircraft — except a medical patient under proper care. Teach the passenger alcohol rule separately from the crew 8-hour / 0.04% rules.",
+      "summary": "Under 14 CFR 91.17, a pilot may not carry a person who appears to be intoxicated, except a medical patient under proper care. The 8-hour rule is for the crew, not for whether a passenger may be carried.",
       "links": [
         {
           "label": "14 CFR § 91.17 — Alcohol or drugs",
@@ -5212,7 +5212,7 @@
     },
     {
       "card_id": "cfi_g_bank_658",
-      "summary": "Bank answer text looks swapped. True altitude is actual height above mean sea level (calibrated for nonstandard temperature/pressure). Indicated altitude is what you read on the altimeter with local setting.",
+      "summary": "True altitude is the actual height above mean sea level. Indicated altitude is the number you read on the altimeter. Absolute altitude is height above the surface under the aircraft. Pressure altitude is height above the standard datum plane.",
       "links": [
         {
           "label": "PHAK — Types of Altitude",
@@ -19076,7 +19076,7 @@
     },
     {
       "card_id": "private_written_175",
-      "summary": "In a coordinated turn, the horizontal component of lift provides the centripetal force that changes the flight path — that is what makes the airplane turn. Centrifugal force is the equal-and-opposite inertial reaction felt in the turn, not the aerodynamic cause; vertical lift mainly opposes weight.",
+      "summary": "In a coordinated turn, the horizontal component of lift is the force that pulls the airplane onto the curved path. The vertical component of lift mainly opposes weight. Centrifugal force is the inertial reaction you feel in the turn, not the aerodynamic force that changes the flight path.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -19318,7 +19318,7 @@
     },
     {
       "card_id": "private_written_192",
-      "summary": "Altitude lost = distance in feet ÷ L/D: 15 NM × ~6,076 ≈ 91,100 ft ÷ 22 ≈ 4,100 ft. Using 5,280 ft/NM or flipping the ratio produces the lower distractors.",
+      "summary": "Fifteen nautical miles is about 15 × 6,076 = 91,140 feet. 91,140 ÷ 22 is about 4,140 feet, and the nearest choice is 4,100. Choosing 3,600 uses 5,280 feet per mile (statute miles) instead of nautical miles. Choosing 2,700 puts the ratio on the wrong side of the division.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -19332,7 +19332,7 @@
     },
     {
       "card_id": "private_written_193",
-      "summary": "Same method: 10 NM × ~6,076 ≈ 60,800 ft ÷ 23 ≈ 2,600 ft of sink. 2,400 usually comes from a flat 6,000 ft/NM shortcut; 4,300 from misplacing the ratio.",
+      "summary": "Sink in feet is distance in feet divided by the lift-to-drag ratio. Ten nautical miles is about 10 × 6,076 = 60,760 feet. 60,760 ÷ 23 is about 2,640 feet, and the nearest choice is 2,600. Choosing 2,400 uses a flat 6,000 feet per nautical mile. Choosing 4,300 divides by the wrong number.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -20788,7 +20788,7 @@
     },
     {
       "card_id": "private_written_284",
-      "summary": "Cooperstown Airport’s charted position is about 47°25'N, 98°06'W—match both latitude and longitude ticks carefully. Distractors usually keep one coordinate right and nudge the other by ~30'.",
+      "summary": "Cooperstown Airport, Figure 26 area 2, is about 47°25'N, 98°06'W. One distractor keeps that latitude and moves the longitude to 99°54'W. The other keeps 98°06'W and moves the latitude to 47°55'N.",
       "links": [
         {
           "label": "FAA VFR sectional / chart users guide",
@@ -21526,7 +21526,7 @@
     },
     {
       "card_id": "private_written_332",
-      "summary": "Ridge/slope lift forms on the upwind face of hills or ridges when moderate wind is forced upward. Mountain waves form downwind; strong wind over isolated peaks is often turbulent deflection, not reliable slope lift.",
+      "summary": "This question is about ridge soaring. Enough lift to soar a ridge is on the upwind face when a moderate wind is forced up the slope. A mountain wave forms on the downwind side. Strong wind over an isolated peak is turbulence, not reliable slope lift.",
       "links": [
         {
           "label": "Glider Flying Handbook",
@@ -21562,7 +21562,7 @@
     },
     {
       "card_id": "private_written_334",
-      "summary": "A runway painted with a large “X” (or shown that way on the airport diagram) is closed—do not use it. That marking is not a heliport or stabilized overrun symbol.",
+      "summary": "On this airport diagram, runways 4 and 22 are marked with an X, so they are closed. Runway 18/36 is open. An X painted on a runway means do not land or take off on it.",
       "links": [
         {
           "label": "AIM — Airport Marking Aids and Signs",
@@ -21850,7 +21850,7 @@
     },
     {
       "card_id": "private_written_350",
-      "summary": "When both pattern directions bend the same way, traffic is kept off one quadrant—here the arrangement keeps flights away from the southeast side. Match which side has no downwind/base path rather than guessing “south” or “north.”",
+      "summary": "Both pattern indicators keep the traffic off the southeast side of the field. The plate is captioned FAA Figure 50; this question calls it Figure 51. It is the same segmented circle.",
       "links": [
         {
           "label": "AIM — Airport Marking Aids and Signs",
@@ -21886,7 +21886,7 @@
     },
     {
       "card_id": "private_written_352",
-      "summary": "Use the wind cone for which runway is into the wind, then the L-bar for left vs right traffic on that runway—here left traffic on Runway 36. Picking a crosswind runway or the reciprocal pattern direction is the usual error.",
+      "summary": "The wind cone points southeast, so the wind is from the northwest and the into-wind runway is 36. The pattern indicators show left traffic for that runway. The plate is captioned FAA Figure 50; this question calls it Figure 31. It is the same segmented circle.",
       "links": [
         {
           "label": "AIM — Airport Marking Aids and Signs",
@@ -22246,7 +22246,7 @@
     },
     {
       "card_id": "private_written_373",
-      "summary": "Temporary confusion from conflicting sensory inputs to the brain is spatial disorientation—not hyperventilation or hypoxia. Those other terms are separate aeromedical states with different causes and fixes.",
+      "summary": "That definition is spatial disorientation: the brain is getting misleading signals from the eyes, inner ear, or body. Hyperventilation is breathing off too much carbon dioxide. Hypoxia is not enough oxygen. They are separate problems with different fixes.",
       "links": [
         {
           "label": "Pilot’s Handbook of Aeronautical Knowledge (PHAK)",
@@ -23368,7 +23368,7 @@
     },
     {
       "card_id": "private_written_442",
-      "summary": "An inbound destination sign (black background, yellow legend) points arriving traffic toward a destination on the field—terminal, cargo, military, etc. It is not a runway exit sign or a runway location sign.",
+      "summary": "An inbound destination sign has a yellow background, black lettering, and an arrow. It points arriving aircraft toward a place on the field, such as the terminal or a ramp. A black background with yellow lettering is a location sign, not this sign. It is not a runway exit sign and not a runway location sign.",
       "links": [
         {
           "label": "AIM — Airport Marking Aids and Signs",

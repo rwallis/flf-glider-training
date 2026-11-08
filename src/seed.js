@@ -519,6 +519,129 @@ export async function seedGliderContent(db, { force = false } = {}) {
      WHERE description LIKE '%SFM%'`
   );
 
+  // Push reviewed question fixes into cards that were inserted on an earlier boot
+  // (import banks skip existing rows unless force is set).
+  const correctedIds = [
+    'private_written_174',
+    'private_written_175',
+    'private_written_176',
+    'private_written_248',
+    'private_written_256',
+    'private_written_284',
+    'private_written_288',
+    'private_written_293',
+    'private_written_298',
+    'private_written_301',
+    'private_written_310',
+    'private_written_331',
+    'private_written_332',
+    'private_written_334',
+    'private_written_339',
+    'private_written_349',
+    'private_written_350',
+    'private_written_352',
+    'private_written_360',
+    'private_written_368',
+    'private_written_373',
+    'private_written_374',
+    'private_written_384',
+    'private_written_404',
+    'private_written_408',
+    'private_written_409',
+    'private_written_410',
+    'private_written_411',
+    'cfi_g_bank_135',
+    'cfi_g_bank_141',
+    'cfi_g_bank_156',
+    'cfi_g_bank_178',
+    'cfi_g_bank_188',
+    'cfi_g_bank_190',
+    'cfi_g_bank_209',
+    'cfi_g_bank_213',
+    'cfi_g_bank_216',
+    'cfi_g_bank_356',
+    'cfi_g_bank_443',
+    'cfi_g_bank_658',
+    'cfi_g_bank_677'
+  ];
+  const retiredCorrectionIds = [
+    'private_written_016',
+    'private_written_211',
+    'private_written_234',
+    'private_written_263',
+    'private_written_274',
+    'private_written_359',
+    'private_written_372',
+    'cfi_g_bank_533',
+    'cfi_g_bank_A moist air mass',
+    'foi_written_154'
+  ];
+  const flaggedIds = [
+    'private_written_136',
+    'private_written_175',
+    'private_written_192',
+    'private_written_193',
+    'private_written_284',
+    'private_written_293',
+    'private_written_332',
+    'private_written_334',
+    'private_written_349',
+    'private_written_350',
+    'private_written_352',
+    'private_written_368',
+    'private_written_372',
+    'private_written_373',
+    'private_written_442'
+  ];
+  const cfiBank = await loadImportBank(CFI_G_IMPORT_PATH);
+  const correctedById = new Map();
+  for (const card of [...privateBank.cards, ...cfiBank.cards, ...foiBank.cards]) {
+    if (card?.id) correctedById.set(String(card.id), card);
+  }
+  let correctionsApplied = 0;
+  for (const id of correctedIds) {
+    const card = correctedById.get(id);
+    if (!card?.question || !card?.answer) continue;
+    const result = await db.query(
+      `UPDATE glider_cards
+       SET question = $2, answer = $3, choices = $4::jsonb, updated_at = NOW()
+       WHERE id = $1
+         AND (
+           question IS DISTINCT FROM $2
+           OR answer IS DISTINCT FROM $3
+           OR choices IS DISTINCT FROM $4::jsonb
+         )`,
+      [
+        id,
+        String(card.question),
+        String(card.answer),
+        card.choices ? JSON.stringify(card.choices) : null
+      ]
+    );
+    correctionsApplied += result.rowCount || 0;
+  }
+  const retiredCorrections = await db.query(
+    `DELETE FROM glider_cards WHERE id = ANY($1::text[])`,
+    [retiredCorrectionIds]
+  );
+  const flagKey = 'question_corrections_flags_v1';
+  const flagSetting = await db.query('SELECT 1 FROM glider_settings WHERE key = $1', [flagKey]);
+  let flagsResolved = 0;
+  if (!flagSetting.rowCount) {
+    const resolved = await db.query(
+      `UPDATE glider_card_flags
+       SET status = 'resolved'
+       WHERE status = 'open' AND card_id = ANY($1::text[])`,
+      [[...new Set([...flaggedIds, ...correctedIds, ...retiredCorrectionIds])]]
+    );
+    flagsResolved = resolved.rowCount || 0;
+    await db.query(
+      `INSERT INTO glider_settings (key, value) VALUES ($1, 'true'::jsonb)
+       ON CONFLICT (key) DO NOTHING`,
+      [flagKey]
+    );
+  }
+
   return {
     tracks,
     topics,
@@ -532,6 +655,9 @@ export async function seedGliderContent(db, { force = false } = {}) {
     card_figures_upserted: figuresUpserted,
     answers_aligned: answersAligned,
     answer_selection_flags: answerFlags,
-    renamed_sfm_to_poh: renamed.rowCount || 0
+    renamed_sfm_to_poh: renamed.rowCount || 0,
+    corrections_applied: correctionsApplied,
+    correction_cards_retired: retiredCorrections.rowCount || 0,
+    flags_resolved: flagsResolved
   };
 }

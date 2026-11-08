@@ -3123,26 +3123,6 @@
       "topic_title": "FOI miscellaneous"
     },
     {
-      "id": "foi_written_154",
-      "question": "Evaluation of demonstrated ability during flight instruction must be based upon",
-      "answer": "established standards of performance, suitably modified to apply to the student's experience",
-      "choices": [
-        "the instructor's background and experience relating to student pilots at this stage of training",
-        "the progress of the student, considering the time and experience attained since beginning training",
-        "established standards of performance, suitably modified to apply to the student's experience"
-      ],
-      "source": "FOI written · #154 · IMG_0002.pdf",
-      "tags": [
-        "imported",
-        "foi_written",
-        "multiple_choice",
-        "foi",
-        "foi_critique"
-      ],
-      "topic_id": "foi_critique",
-      "topic_title": "Critique & evaluation"
-    },
-    {
       "id": "foi_written_155",
       "question": "Evaluation of demonstrated ability during flight instruction must be based upon",
       "answer": "established standards of performance",

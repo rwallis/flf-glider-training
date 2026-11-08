@@ -1774,11 +1774,11 @@
     {
       "id": "cfi_g_bank_135",
       "question": "As the CG moves aft, an aircraft becomes",
-      "answer": "On takeoff.",
+      "answer": "less stable.",
       "choices": [
-        "On takeoff.",
-        "On landing.",
-        "then in an unusual aftitude."
+        "less stable.",
+        "more stable.",
+        "more controllable."
       ],
       "source": "CFI-G bank #135 · IMG_0001.pdf",
       "tags": [
@@ -1869,7 +1869,7 @@
     {
       "id": "cfi_g_bank_141",
       "question": "In what part of the atmosphere does most weather occur?",
-      "answer": "Tropopause.",
+      "answer": "Troposphere.",
       "choices": [
         "Tropopause.",
         "Troposphere.",
@@ -2039,12 +2039,12 @@
     },
     {
       "id": "cfi_g_bank_156",
-      "question": "Winds at 5,000 feet Act on a particular flight are southwesterly while most of the surface winds are southerly. This difference in direction is primarily due to",
-      "answer": "outward, upward, axrd counterclockwise.",
+      "question": "Winds at 5,000 feet AGL on a particular flight are southwesterly while most of the surface winds are southerly. This difference in direction is primarily due to",
+      "answer": "friction between the wind and the surface.",
       "choices": [
-        "inward, upward, and clockwise.",
-        "outward, downward, and clockwise.",
-        "outward, upward, axrd counterclockwise."
+        "a stronger pressure gradient at higher altitudes.",
+        "friction between the wind and the surface.",
+        "stronger Coriolis force at the surface."
       ],
       "source": "CFI-G bank #156 · IMG_0001.pdf",
       "tags": [
@@ -2266,25 +2266,6 @@
       "topic_title": "Weather"
     },
     {
-      "id": "cfi_g_bank_A moist air mass",
-      "question": "frequently has which of the above characteristics?,1",
-      "answer": "4",
-      "choices": [
-        "3",
-        "and 6.,3",
-        "4"
-      ],
-      "source": "CFI-G bank #A moist air mass · and 5.,A,1",
-      "tags": [
-        "imported",
-        "cfi_g",
-        "multiple_choice",
-        "cfi_regs"
-      ],
-      "topic_id": "cfi_regs",
-      "topic_title": "Regulations & publications"
-    },
-    {
       "id": "cfi_g_bank_175",
       "question": "The weather condition normally associated with unstable air is",
       "answer": "good visibility, except in blowing sand or snow.",
@@ -2344,7 +2325,7 @@
     {
       "id": "cfi_g_bank_178",
       "question": "A moist, cold air mass that is being warmed from below is characterized in part, by",
-      "answer": "Restricted visibility.",
+      "answer": "Showery-type precipitation.",
       "choices": [
         "Excellent visibility.",
         "Restricted visibility.",
@@ -2495,11 +2476,11 @@
     },
     {
       "id": "cfi_g_bank_188",
-      "question": "When flying low over hilly terrain, ridges, or",
-      "answer": "leeward side when flying into the wind",
+      "question": "When flying low over hilly terrain, ridges, or mountains, the greatest danger from turbulent air currents will usually be encountered on the",
+      "answer": "leeward side when flying into the wind.",
       "choices": [
         "leeward side when flying with the wind.",
-        "leeward side when flying into the wind",
+        "leeward side when flying into the wind.",
         "windward side when flying into the wind."
       ],
       "source": "CFI-G bank #188 · IMG_0001.pdf",
@@ -2533,11 +2514,11 @@
     },
     {
       "id": "cfi_g_bank_190",
-      "question": "Which condition could be expected ifa strong",
-      "answer": "A wind shear with the possibility ofa sudden loss of airspeed.",
+      "question": "Which condition could be expected if a strong wind blows across the top of a temperature inversion?",
+      "answer": "A wind shear with the possibility of a sudden loss of airspeed.",
       "choices": [
         "Strong, steady downdrafts and an increase in OAT.",
-        "A wind shear with the possibility ofa sudden loss of airspeed.",
+        "A wind shear with the possibility of a sudden loss of airspeed.",
         "Continuous precipitation."
       ],
       "source": "CFI-G bank #190 · IMG_0001.pdf",
@@ -2818,12 +2799,12 @@
     },
     {
       "id": "cfi_g_bank_209",
-      "question": "Fog associated with a warm front is a result of sahration due to",
-      "answer": "Excellent soaring conditions usually exist in the cold air ahead ofa warm front.",
+      "question": "Fog associated with a warm front is a result of saturation due to",
+      "answer": "evaporation of precipitation.",
       "choices": [
-        "A slow-moving front provides the strongest lift.",
-        "Excellent soaring conditions usually exist in the cold air ahead ofa warm front.",
-        "Frequently the air behind a cold front provides excellent soaring for several days."
+        "evaporation of precipitation.",
+        "an increase in temperature with no change in dew point.",
+        "nocturnal cooling."
       ],
       "source": "CFI-G bank #209 · IMG_0001.pdf",
       "tags": [
@@ -2875,12 +2856,12 @@
     },
     {
       "id": "cfi_g_bank_213",
-      "question": "When soaring in the vicinity of mountain ranges, the greatest potential danger fiom vertical and rotor-type currents will usually be encountered on the",
-      "answer": "Thermals will not develop unless the Sun's rays strike the Earth at a vertical angle.",
+      "question": "When soaring in the vicinity of mountain ranges, the greatest potential danger from vertical and rotor-type currents will usually be encountered on the",
+      "answer": "downwind side.",
       "choices": [
-        "Sfrong thermals have proportionately increased sink in the air between them.",
-        "Thermals will not develop unless the Sun's rays strike the Earth at a vertical angle.",
-        "A thermal invariably remains directly above the surface area from which it developed."
+        "downwind side.",
+        "upwind side.",
+        "windward side."
       ],
       "source": "CFI-G bank #213 · IMG_0001.pdf",
       "tags": [
@@ -2913,12 +2894,12 @@
     },
     {
       "id": "cfi_g_bank_216",
-      "question": "Which thermal indices would predict the best probability of good soaring conditions?",
-      "answer": "avoid the clear area at the outside edge of the dust because of severe dovmdraft s.",
+      "question": "To avoid the hazards of a dust devil, a pilot should",
+      "answer": "avoid the clear area at the outside edge of the dust because of severe downdrafts.",
       "choices": [
-        "avoid the eye of the vortex because ofextreme turbulence.",
+        "avoid the eye of the vortex because of extreme turbulence.",
         "avoid steep turns on the upwind side to prevent being blown into the vortex.",
-        "avoid the clear area at the outside edge of the dust because of severe dovmdraft s."
+        "avoid the clear area at the outside edge of the dust because of severe downdrafts."
       ],
       "source": "CFI-G bank #216 · IMG_0001.pdf",
       "tags": [
@@ -3825,12 +3806,12 @@
     },
     {
       "id": "cfi_g_bank_356",
-      "question": "What effect would a crosswind of5 knots or less have on the wingip vortices generated by a large aircraft that had just aken ofl",
-      "answer": "extending the takeoffroll and not rotating until well beyond the jefs rotation point.",
+      "question": "What effect would a light crosswind of 5 knots or less have on the wingtip vortices generated by a large aircraft that had just taken off?",
+      "answer": "Hold the upwind vortex over the runway.",
       "choices": [
-        "remaining below the jet's flightpath until able to turn clear of its wake.",
-        "extending the takeoffroll and not rotating until well beyond the jefs rotation point.",
-        "being airbome prior to reaching the jet's flightpath until able to turn clefi of its wake."
+        "Hold the upwind vortex over the runway.",
+        "Move both vortices off the runway quickly.",
+        "Hold the downwind vortex over the runway."
       ],
       "source": "CFI-G bank #356 · IMG_0001.pdf",
       "tags": [
@@ -4852,11 +4833,11 @@
     {
       "id": "cfi_g_bank_443",
       "question": "Under what condition, if any, may a pilot allow a person who is obviously under the influence of intoxicating liquors or drugs to be carried aboard an aircraft?",
-      "answer": "24 hours.",
+      "answer": "Only if the person is a medical patient under proper care.",
       "choices": [
-        "8 hours.",
-        "12 hours.",
-        "24 hours."
+        "Only if the person is a medical patient under proper care.",
+        "Under no circumstances.",
+        "If less than 8 hours have passed since the person was drinking."
       ],
       "source": "CFI-G bank #443 · IMG_0001.pdf",
       "tags": [
@@ -5733,25 +5714,6 @@
         "Poor directional control."
       ],
       "source": "CFI-G bank #532 · IMG_0001.pdf",
-      "tags": [
-        "imported",
-        "cfi_g",
-        "multiple_choice",
-        "cfi_launch"
-      ],
-      "topic_id": "cfi_launch",
-      "topic_title": "Launches & landings"
-    },
-    {
-      "id": "cfi_g_bank_533",
-      "question": "Which statement is true regarding the use of seatbelts and shoulder hamesses?",
-      "answer": "Hold a constant landing attitude.",
-      "choices": [
-        "Decrease power.",
-        "Decrease angle of attack.",
-        "Hold a constant landing attitude."
-      ],
-      "source": "CFI-G bank #533 · IMG_0001.pdf",
       "tags": [
         "imported",
         "cfi_g",
@@ -7588,11 +7550,11 @@
     {
       "id": "cfi_g_bank_658",
       "question": "What is true altitude?",
-      "answer": "The altitudc read directly fi'om the altimeter.",
+      "answer": "The actual height above mean sea level.",
       "choices": [
-        "The altitudc read directly fi'om the altimeter.",
-        "The venical distance of the aircraff above the surface.",
-        "The height above the standard datum plane."
+        "The altitude read directly from the altimeter.",
+        "The vertical distance of the aircraft above the surface.",
+        "The actual height above mean sea level."
       ],
       "source": "CFI-G bank #658 · IMG_0001.pdf",
       "tags": [
@@ -7949,11 +7911,11 @@
     {
       "id": "cfi_g_bank_677",
       "question": "When turning onto a taxiway from another taxiway, what is the purpose of the taxiway directional sign?",
-      "answer": "Vertical-speed indicator.",
+      "answer": "Indicates the designation and direction of taxiways leading out of the intersection.",
       "choices": [
-        "Altimeter.",
-        "Vertical-speed indicator.",
-        "Airspeed indicator."
+        "Indicates the designation and direction of taxiways leading out of the intersection.",
+        "Indicates the direction to a destination on the airport.",
+        "Identifies the runway on which the aircraft is located."
       ],
       "source": "CFI-G bank #677 · IMG_0001.pdf",
       "tags": [
