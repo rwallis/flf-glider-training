@@ -222,6 +222,14 @@ const CARD_OVERRIDES = {
     'The affective domain is what the student feels, believes, and is willing to act on. Knowing the go-around procedure is knowledge, the cognitive domain. Flying the go-around with hands and feet is a physical skill, the psychomotor domain. Choosing to go around on an unstable approach, because the student values the standard more than saving the landing, is affective. Attitudes, beliefs, and values are that third piece: motivation, respect for the checklist, and whether safety is something they actually hold. The domain runs from merely hearing the instructor, up through responding and valuing, to the point where the value is part of who the pilot is. A student can recite the rule and fly the maneuver and still treat the standard as optional. That gap is affective, and more practice of the stick does not close it.',
   foi_written_050:
     'The affective ladder runs from simply hearing the instructor, to responding, to valuing, to organization, and finally to characterization. These three choices are the top of that ladder, and characterization is the highest. Valuing means the student attaches worth to the idea: a go-around matters, and they can say so and mean it, then still try to save the landing. Organization is the next step up. The student is building a value system and settling the conflict, ranking the stable approach above the saved landing. The ranking is still a decision they are working out. Characterization is the value in control of behavior. The go-around happens because that is the kind of pilot they are, with no fresh debate on short final. The outcome is more complex because the value is no longer a statement or a sorting exercise. It is consistent character.',
+  foi_written_051:
+    'The psychomotor ladder, from least complex to most, is perception, set, guided response, mechanism, complex overt response, adaptation, and origination. These three choices are the bottom, the middle habit, and a near-top change. Perception is the least complex because nothing skillful has been performed yet. The student notices the yaw string off to the side, the sound of the slip, or the sight picture. That sensory cue is what will later guide the hands, and noticing it is the whole outcome. Mechanism is several steps up. The coordinated turn has become a habit, and the student can roll in and hold it without talking through every input. Adaptation is near the top. A new problem shows up, a strong crosswind or a rope break that is not the one they drilled, and they change the learned movement to fit it. Sensing the cue is simpler than owning the habit, and owning the habit is simpler than rewriting it for a new situation.',
+  foi_written_088:
+    'In a teaching lecture the instructor is talking, so the students do not hand back clear answers the way they do in a discussion. What comes back is subtle: a puzzled look, a pen that stops, shifting in the seat, a nod that does not mean they understood. Those cues are easy to miss and easy to misread. The true statement is that the instructor must develop a keen perception for those subtle responses and be able to interpret what they mean, then adjust the lecture. Direct feedback that is easy to interpret is the opposite of a lecture. That is a guided discussion or an oral question, where the student actually answers. Extemporaneous delivery is recommended for the teaching lecture: speak from a prepared outline, not a script read word for word and not a memorized speech. “Extemporaneous is not recommended” reverses the handbook.',
+  foi_written_099:
+    'A guided discussion reaches the outcome only by students exchanging knowledge they already have. The instructor steers with questions, and the learning is what the students say to each other. If they have nothing to contribute, there is nothing to exchange, and they cannot reach the desired outcome. That is why a student with no background in the subject does not belong in this method. Use a lecture or a demonstration to introduce a subject they do not know yet. The lesson objective does not wait to appear at the application level. The instructor states the objective and uses the questions to steer the group toward it. Application is a level of learning, using what they know, not the moment the objective shows up.',
+  foi_written_197:
+    'Overlearning a skill, such as a rope-break recovery, is practice past first proficiency so the response stays automatic under stress. That is desirable, and it is a different question. This item is overlearning knowledge. A fact that is repeated until it is automatic starts to behave like a skill. The student stops judging and fires the memorized response even when the situation does not fit. That automatic response can be undesirable: the memorized radio call, the memorized “always slip,” the answer they no longer check. “Helpful to increase proficiency of a subject” is the skill benefit pasted onto knowledge. More automatic facts do not mean the student understands the subject better. They mean the fact comes out without thought. Higher-order thinking is application, analysis, and correlation: using the knowledge in a new situation. An automatic response skips that thinking. Overlearning knowledge pushes it down toward habit, not up the ladder.',
   foi_written_262:
     'Denial refuses a fact that threatens the student’s picture of themselves, and the way that refusal shows up is minimizing the situation. The approach was unstable, and they say it was only a little fast. The glider was low on tow, and they say everyone does that. The event is still there. They have made it small enough that nothing has to change. That shrink is the defense. Becoming visibly angry, upset, or childish is the outburst people expect from aggression. Denial is usually quiet and dismissive, not a blow-up. Justifying the action by asking numerous questions is building a case. That is rationalization: an excuse that sounds reasonable so the real reason never has to be faced. Denial does not argue the case. It makes the problem too small to need one. Put the fact back at full size, gently, with the standard and what you both saw.',
   foi_written_226:
@@ -456,7 +464,7 @@ const STEM_NOTES = [
   },
   {
     re: /least complex outcome in the psychomotor domain/,
-    note: 'Psychomotor starts at simple perception/imitation and climbs to skilled, automatic performance.',
+    note: 'Psychomotor runs perception, set, guided response, mechanism, complex overt response, adaptation, origination. Perception is only noticing the cue. Mechanism is the habit. Adaptation is changing that habit for a new problem. Least complex is perception.',
   },
 
   // ── Human needs / defense mechanisms ───────────────────────────────────
@@ -610,7 +618,7 @@ const STEM_NOTES = [
   },
   {
     re: /true statement regarding the teaching lecture/,
-    note: 'Formal lectures are instructor-centered and efficient for coverage; they need support for application afterward.',
+    note: 'A teaching lecture gives subtle cues, not direct easy feedback. The instructor has to perceive and interpret those reactions. Extemporaneous delivery from an outline is recommended.',
   },
   {
     re: /detract from an instructor's dignity/,
@@ -842,7 +850,7 @@ const STEM_NOTES = [
   },
   {
     re: /overlearning knowledge/,
-    note: 'Overlearning = practice past first proficiency so the skill holds under stress and delay — useful for emergencies, not endless busywork.',
+    note: 'Overlearning knowledge makes a fact automatic, and that response can be undesirable because the student stops judging. The “increases proficiency” and “higher-order thinking” choices describe a skill practiced past proficiency, or real thinking, not this.',
   },
   {
     re: /under stress, normal individuals usually react|abnormal reaction to stress|reacting abnormally to stress/,
