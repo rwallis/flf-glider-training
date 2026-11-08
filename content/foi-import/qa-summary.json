@@ -759,7 +759,7 @@
   "notes": [
     "276/276 cards numbered foi_written_001..276",
     "Answer letters from user-provided key mapped to choice text; 0 mismatches",
-    "Q276 choices B/C truncated on source scan page 17 (only A visible); answer A still mapped",
+    "Q276 choices B/C were missing on source scan page 17 (only A printed); restored as aeronautical knowledge test and practical test; answer A (pre-solo test) kept",
     "Manual visual OCR fixes for late pages / glued choices (manual_override_numbers)",
     "Column OCR: rotate(90)+left/right split+tesseract --psm 6; script parse_foi_ocr.py (--parse-only to rebuild)"
   ]

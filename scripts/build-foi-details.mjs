@@ -219,7 +219,7 @@ const CARD_OVERRIDES = {
   foi_written_266:
     'Bring students to the practical-test standards early in the course — not only in the final few hours before the checkride.',
   foi_written_276:
-    'Performance, airspace, and regs knowledge before solo belongs on a pre-solo knowledge test — confirm the book knowledge before release.',
+    'Airplane performance, local airspace, and the regulations belong on the pre-solo knowledge test the instructor gives and reviews before first solo (§ 61.87(b)). The aeronautical knowledge test is the later FAA written, and the practical test is the checkride.',
 };
 
 /**
@@ -1006,7 +1006,7 @@ const STEM_NOTES = [
   },
   {
     re: /airplane performance, airspace and regulations/,
-    note: 'Knowledge areas (performance, airspace, regs) fit oral/written knowledge checks; match the test type to what you need to verify.',
+    note: 'Those topics are the pre-solo knowledge test (§ 61.87(b)), which the instructor gives and reviews before first solo. The FAA written and the practical test come later.',
   },
 ];
 

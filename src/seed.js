@@ -562,7 +562,8 @@ export async function seedGliderContent(db, { force = false } = {}) {
     'cfi_g_bank_356',
     'cfi_g_bank_443',
     'cfi_g_bank_658',
-    'cfi_g_bank_677'
+    'cfi_g_bank_677',
+    'foi_written_276'
   ];
   const retiredCorrectionIds = [
     'private_written_016',

@@ -414,8 +414,10 @@ MANUAL_OVERRIDES: dict[int, dict] = {
         "question": "What kind of test should the instructor give the student regarding airplane performance, airspace and regulations?",
         "choices": {
             "A": "Pre-solo test.",
-            "B": "[truncated on source scan — choice B]",
-            "C": "[truncated on source scan — choice C]",
+            # Page 28 ends after A. B and C restored from the tests a student
+            # actually faces; key remains A (pre-solo, § 61.87(b)).
+            "B": "Aeronautical knowledge test.",
+            "C": "Practical test.",
         },
     },
 }
