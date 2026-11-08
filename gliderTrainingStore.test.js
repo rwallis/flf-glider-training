@@ -14,7 +14,7 @@ import {
   computeCourseReadiness,
   DEFAULT_STUDY_SCHEDULE
 } from './src/store.js';
-import { normalizeCardDetails } from './src/seed.js';
+import { loadCardDetails, normalizeCardDetails, planCardSeedWrites } from './src/seed.js';
 
 test('nextProgress again schedules soon and lowers ease', () => {
   const prev = { ease: 2.5, interval_days: 5, reps: 3, lapses: 0 };
@@ -359,4 +359,151 @@ test('progressByTrack topic percent uses last answer; hover keeps history', asyn
   assert.equal(rows[0].readiness.coverage_pct, 100);
   assert.equal(rows[0].readiness.accuracy_pct, 67);
   assert.equal(rows[0].readiness.ready, false);
+});
+
+function storedCard(overrides) {
+  return {
+    id: 'card',
+    track_id: 'foi',
+    topic_id: 'foi_learning',
+    question: 'Q',
+    answer: 'A',
+    choices: ['A', 'B'],
+    source: '',
+    tags: [],
+    details: null,
+    figure: null,
+    ...overrides
+  };
+}
+
+test('planCardSeedWrites leaves matching details and topics unread for update', async () => {
+  const rows = await loadCardDetails();
+  const sample = rows.filter((row) => String(row.summary || '').trim());
+  const existing = sample.map((row) =>
+    storedCard({
+      id: row.card_id,
+      details: normalizeCardDetails(row)
+    })
+  );
+  const plan = planCardSeedWrites({
+    existing,
+    detailRows: sample,
+    topicRemaps: [
+      { id: sample[0].card_id, trackId: 'foi', topicId: 'foi_learning' },
+      { id: sample[1].card_id, trackId: 'foi', topicId: 'foi_other' }
+    ]
+  });
+  assert.equal(plan.detailUpdates.length, 0);
+  assert.deepEqual(plan.topicUpdates, [{ id: sample[1].card_id, topic_id: 'foi_other' }]);
+
+  existing[0] = storedCard({
+    id: sample[0].card_id,
+    details: { summary: 'Different note', links: [] }
+  });
+  const changed = planCardSeedWrites({ existing, detailRows: sample });
+  assert.deepEqual(
+    changed.detailUpdates.map((row) => row.id),
+    [sample[0].card_id]
+  );
+});
+
+test('planCardSeedWrites keeps manual details and skips unchanged cards', () => {
+  const manual = planCardSeedWrites({
+    existing: [
+      storedCard({
+        id: 'edited',
+        details: { summary: 'Instructor edit', links: [], source: 'manual' }
+      })
+    ],
+    detailRows: [{ card_id: 'edited', summary: 'File version' }]
+  });
+  assert.equal(manual.detailUpdates.length, 0);
+
+  const same = planCardSeedWrites({
+    existing: [
+      storedCard({
+        id: 'foi_written_1',
+        question: 'Q',
+        answer: 'A',
+        choices: ['A'],
+        source: 'FOI written · IMG_0002.pdf',
+        tags: ['imported', 'foi_written', 'multiple_choice', 'foi']
+      }),
+      storedCard({
+        id: 'a233_vs',
+        track_id: 'common',
+        topic_id: 'speeds',
+        question: 'Vs',
+        answer: '40',
+        choices: ['40', '45'],
+        source: '',
+        tags: ['examiner']
+      })
+    ],
+    foiCards: [
+      {
+        id: 'foi_written_1',
+        topic_id: 'foi_learning',
+        question: 'Q',
+        answer: 'A',
+        choices: ['A'],
+        source: 'FOI written · IMG_0002.pdf',
+        tags: ['imported', 'foi_written', 'multiple_choice', 'foi']
+      },
+      {
+        id: 'foi_written_2',
+        topic_id: 'foi_learning',
+        question: 'Q2',
+        answer: 'B',
+        choices: ['B']
+      }
+    ],
+    seedCards: [
+      {
+        id: 'a233_vs',
+        track_id: 'common',
+        topic_id: 'speeds',
+        question: 'Vs',
+        answer: '40',
+        choices: ['40', '45'],
+        source: '',
+        tags: ['examiner']
+      }
+    ]
+  });
+  assert.deepEqual(
+    same.inserts.map((row) => row.id),
+    ['foi_written_2']
+  );
+  assert.equal(same.refreshes.length, 0);
+
+  const refreshed = planCardSeedWrites({
+    existing: [
+      storedCard({
+        id: 'a233_vs',
+        track_id: 'common',
+        topic_id: 'speeds',
+        question: 'Vs',
+        answer: '39',
+        choices: ['40', '45'],
+        source: '',
+        tags: ['examiner']
+      })
+    ],
+    seedCards: [
+      {
+        id: 'a233_vs',
+        track_id: 'common',
+        topic_id: 'speeds',
+        question: 'Vs',
+        answer: '40',
+        choices: ['40', '45'],
+        source: '',
+        tags: ['examiner']
+      }
+    ]
+  });
+  assert.equal(refreshed.refreshes.length, 1);
+  assert.equal(refreshed.inserts.length, 0);
 });

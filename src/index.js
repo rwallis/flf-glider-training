@@ -74,7 +74,8 @@ function logSeedSummary(seeded) {
       (seeded.corrections_applied != null
         ? ` corrections=${seeded.corrections_applied}`
         : '') +
-      (seeded.flags_resolved != null ? ` flags_resolved=${seeded.flags_resolved}` : '')
+      (seeded.flags_resolved != null ? ` flags_resolved=${seeded.flags_resolved}` : '') +
+      (seeded.content_unchanged ? ' content_unchanged=1' : '')
   );
 }
 
