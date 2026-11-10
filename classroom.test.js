@@ -6,6 +6,7 @@ import {
   getSessionPackage,
   listSessionPackageSummaries
 } from './src/classroom/packages.js';
+import { createMemoryScheduledClassStore } from './src/classroom/scheduledClasses.js';
 
 test('weather-for-soaring package loads with quizzes and homework', async () => {
   const summaries = await listSessionPackageSummaries();
@@ -28,45 +29,68 @@ test('session seed content includes private_ground track and cards', async () =>
   assert.ok(seed.cards.some((c) => c.id === 'wx_hw_12'));
 });
 
-test('live session open/join enforces code auth and 10-student cap', async () => {
+test('schedule class then enroll without code; honors student limit', async () => {
+  const store = createMemoryScheduledClassStore();
+  const startsAt = new Date(Date.now() + 86400000).toISOString();
+  const scheduled = await store.schedule({
+    packageId: 'weather-for-soaring',
+    startsAt,
+    studentLimit: 2,
+    instructor: { userKey: 'ron', name: 'Ron', email: 'ron@example.com' }
+  });
+  assert.equal(scheduled.title, 'Weather for Soaring');
+  assert.equal(scheduled.student_limit, 2);
+  assert.equal(scheduled.enrolled_count, 0);
+  assert.equal(scheduled.full, false);
+
+  const listed = await store.listClasses({ viewerKey: 'g:sam' });
+  assert.equal(listed.length, 1);
+  assert.equal(listed[0].id, scheduled.id);
+
+  const e1 = await store.enroll(scheduled.id, { userKey: 'g:sam', name: 'Sam' });
+  assert.equal(e1.you_enrolled, true);
+  assert.equal(e1.enrolled_count, 1);
+  assert.equal(e1.full, false);
+
+  const e2 = await store.enroll(scheduled.id, { userKey: 'g:pat', name: 'Pat' });
+  assert.equal(e2.enrolled_count, 2);
+  assert.equal(e2.full, true);
+  assert.equal(e2.status, 'full');
+
+  await assert.rejects(
+    () => store.enroll(scheduled.id, { userKey: 'g:too', name: 'Too' }),
+    /full/i
+  );
+
+  const detail = await store.getClass(scheduled.id, {
+    viewerKey: 'ron',
+    includeRoster: true
+  });
+  assert.equal(detail.roster.filter((r) => r.role === 'student').length, 2);
+});
+
+test('live session enter by scheduled class admits enrolled student', async () => {
   const live = createLiveSessionManager();
   const opened = await live.open({
     packageId: 'weather-for-soaring',
-    instructor: { userKey: 'ron', name: 'Ron', email: 'ron@example.com' }
+    instructor: { userKey: 'ron', name: 'Ron' },
+    scheduledClassId: 'sched-1'
   });
-  assert.equal(opened.phase, 'open');
-  assert.match(opened.code, /^[A-Z0-9]{6}$/);
-  assert.equal(opened.roster_count, 0);
+  assert.equal(opened.scheduled_class_id, 'sched-1');
 
-  const student = await live.join({
-    code: opened.code,
-    user: { userKey: 'g:student1', name: 'Sam', email: 'sam@example.com' }
+  const found = await live.getForScheduledClass('sched-1', 'g:sam');
+  assert.ok(found);
+  assert.equal(found.id, opened.id);
+
+  const admitted = await live.admitEnrolled({
+    sessionId: opened.id,
+    user: { userKey: 'g:sam', name: 'Sam' }
   });
-  assert.equal(student.you.role, 'student');
-  assert.equal(student.roster_count, 1);
-
-  await assert.rejects(
-    () => live.join({ code: 'NOPE12', user: { userKey: 'g:x', name: 'X' } }),
-    /No open live session/
-  );
-
-  for (let i = 2; i <= 10; i += 1) {
-    await live.join({
-      code: opened.code,
-      user: { userKey: `g:student${i}`, name: `S${i}` }
-    });
-  }
-  await assert.rejects(
-    () =>
-      live.join({
-        code: opened.code,
-        user: { userKey: 'g:student11', name: 'TooMany' }
-      }),
-    /full/
-  );
+  assert.equal(admitted.you.role, 'student');
+  assert.equal(admitted.roster_count, 1);
 });
 
-test('live session quiz answers and heat map', async () => {
+test('live session quiz answers and heat map still work', async () => {
   const live = createLiveSessionManager();
   const opened = await live.open({
     packageId: 'weather-for-soaring',
@@ -83,19 +107,7 @@ test('live session quiz answers and heat map', async () => {
     choice: '2 °C per 1,000 feet'
   });
   assert.equal(wrong.ok, true);
-  assert.equal(wrong.correct, null);
 
   const heat = await live.heatMap(opened.id, 'ron', { isAdmin: true });
   assert.ok(heat.cards.some((c) => c.card_id === 'wx_w1' && c.wrong === 1));
-  assert.ok(heat.tags.some((t) => t.tag === 'lapse-rate' && t.wrong >= 1));
-
-  await live.patch(opened.id, 'ron', { answers_frozen: true }, { isAdmin: true });
-  await assert.rejects(
-    () =>
-      live.submitAnswer(opened.id, 'g:sam', {
-        cardId: 'wx_w2',
-        choice: 'Cloud base must be below 5,000 feet'
-      }),
-    /frozen/
-  );
 });

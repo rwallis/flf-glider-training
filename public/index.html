@@ -1525,9 +1525,10 @@
   <nav class="nav" id="nav">
     <button type="button" data-view="home"><span>⌂</span>Home</button>
     <button type="button" data-view="study"><span>✎</span>Study</button>
-    <button type="button" data-view="class"><span>☰</span>Class</button>
+    <button type="button" data-view="classes"><span>☰</span>Classes</button>
     <button type="button" data-view="aircraft"><span>✈</span>Aircraft</button>
     <button type="button" data-view="progress"><span>★</span>League</button>
+    <button type="button" data-view="adminClass" id="navAdminClassBtn" class="nav-admin-hidden"><span>▦</span>Admin Class</button>
     <button type="button" data-view="admin" id="navAdminBtn" class="nav-admin-hidden"><span>⚙</span>Admin</button>
   </nav>
   <div class="toast" id="toast"></div>
@@ -1604,13 +1605,20 @@
       },
       class: {
         packages: [],
+        schedule: [],
+        selectedId: null,
+        selected: null,
         session: null,
         heatmap: null,
-        joinCode: '',
         remote: false,
         quizIndex: 0,
         status: '',
-        pollTimer: null
+        pollTimer: null,
+        scheduleForm: {
+          packageId: 'weather-for-soaring',
+          startsAtLocal: '',
+          studentLimit: 10
+        }
       }
     };
 
@@ -1700,7 +1708,7 @@
         if (logoutEl) logoutEl.classList.remove('hidden');
         state.user = u;
         state.isAdmin = Boolean(u.isAdmin);
-        if (!state.isAdmin && state.view === 'admin') state.view = 'home';
+        if (!state.isAdmin && (state.view === 'admin' || state.view === 'adminClass')) state.view = 'home';
         setNav();
       } catch {
         el.classList.add('hidden');
@@ -1962,6 +1970,10 @@
       const adminBtn = document.getElementById('navAdminBtn');
       if (adminBtn) {
         adminBtn.classList.toggle('nav-admin-hidden', !isAdminUser());
+      }
+      const adminClassBtn = document.getElementById('navAdminClassBtn');
+      if (adminClassBtn) {
+        adminClassBtn.classList.toggle('nav-admin-hidden', !isAdminUser());
       }
       document.querySelectorAll('#nav button').forEach((btn) => {
         btn.classList.toggle('active', btn.dataset.view === state.view);
@@ -2272,9 +2284,10 @@
 
     function startClassPoll() {
       stopClassPoll();
-      if (state.view !== 'class' || !state.class.session?.id) return;
+      const liveViews = state.view === 'classes' || state.view === 'adminClass';
+      if (!liveViews || !state.class.session?.id) return;
       state.class.pollTimer = setInterval(() => {
-        if (state.view !== 'class' || !state.class.session?.id) {
+        if ((state.view !== 'classes' && state.view !== 'adminClass') || !state.class.session?.id) {
           stopClassPoll();
           return;
         }
@@ -2282,24 +2295,60 @@
       }, 4000);
     }
 
+    function formatClassWhen(iso) {
+      try {
+        return new Intl.DateTimeFormat('en-US', {
+          timeZone: 'America/Chicago',
+          weekday: 'short',
+          month: 'short',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: '2-digit'
+        }).format(new Date(iso)) + ' CT';
+      } catch {
+        return String(iso || '');
+      }
+    }
+
+    function enrollmentLabel(cls) {
+      if (!cls) return '';
+      if (cls.status === 'cancelled') return 'Cancelled';
+      if (cls.full) return `Full · ${cls.enrolled_count}/${cls.student_limit}`;
+      return `${cls.enrolled_count}/${cls.student_limit} enrolled`;
+    }
+
     async function loadClassPackages() {
       try {
         const data = await api('/api/sessions/packages');
         state.class.packages = data.packages || [];
+        if (!state.class.scheduleForm.packageId && state.class.packages[0]) {
+          state.class.scheduleForm.packageId = state.class.packages[0].id;
+          state.class.scheduleForm.studentLimit = state.class.packages[0].max_students || 10;
+        }
       } catch (err) {
         state.class.packages = [];
-        state.class.status = err.message || 'Could not load session packages';
+        state.class.status = err.message || 'Could not load class catalog';
       }
     }
 
-    async function refreshClassSession({ quiet = false } = {}) {
-      if (!state.class.session?.id) {
-        const cur = await api('/api/live-sessions/current');
-        state.class.session = cur.session || null;
-      } else {
-        const data = await api('/api/live-sessions/' + encodeURIComponent(state.class.session.id));
-        state.class.session = data.session || null;
+    async function loadClassSchedule() {
+      const data = await api('/api/classes');
+      state.class.schedule = data.classes || [];
+    }
+
+    async function refreshSelectedClass() {
+      if (!state.class.selectedId) {
+        state.class.selected = null;
+        return;
       }
+      const data = await api('/api/classes/' + encodeURIComponent(state.class.selectedId));
+      state.class.selected = data.class || null;
+    }
+
+    async function refreshClassSession({ quiet = false } = {}) {
+      if (!state.class.session?.id) return;
+      const data = await api('/api/live-sessions/' + encodeURIComponent(state.class.session.id));
+      state.class.session = data.session || null;
       if (state.class.session?.you?.role === 'instructor' || isAdminUser()) {
         try {
           const heat = await api(
@@ -2312,59 +2361,140 @@
       } else {
         state.class.heatmap = null;
       }
-      if (!quiet && state.view === 'class') render();
-      else if (quiet && state.view === 'class') {
-        // Soft refresh without resetting quiz index unless phase/quiz length changed.
+      if (quiet) {
         const quizLen = state.class.session?.quiz?.cards?.length || 0;
         if (state.class.quizIndex >= quizLen) state.class.quizIndex = Math.max(0, quizLen - 1);
-        render();
       }
+      if (state.view === 'classes' || state.view === 'adminClass') render();
     }
 
-    async function openClassView() {
-      state.view = 'class';
+    async function openClassesView() {
+      state.view = 'classes';
       state.class.status = '';
-      await loadClassPackages();
+      state.class.session = null;
       try {
-        await refreshClassSession({ quiet: true });
-      } catch {
-        state.class.session = null;
+        await loadClassSchedule();
+        if (state.class.selectedId) await refreshSelectedClass();
+      } catch (err) {
+        state.class.status = err.message || 'Could not load schedule';
       }
-      startClassPoll();
       render();
     }
 
-    function renderClassLobby() {
-      const pkg = (state.class.packages || [])[0];
+    async function openAdminClassView() {
+      state.view = 'adminClass';
+      state.class.status = '';
+      state.class.session = null;
+      await loadClassPackages();
+      try {
+        await loadClassSchedule();
+      } catch (err) {
+        state.class.status = err.message || 'Could not load schedule';
+      }
+      if (!state.class.scheduleForm.startsAtLocal) {
+        const d = new Date();
+        d.setMinutes(0, 0, 0);
+        d.setHours(d.getHours() + 1);
+        const pad = (n) => String(n).padStart(2, '0');
+        state.class.scheduleForm.startsAtLocal =
+          `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+      }
+      render();
+    }
+
+    function renderClassesSchedule() {
+      const rows = (state.class.schedule || []).filter((c) => c.status !== 'cancelled');
+      if (!rows.length) {
+        return `<div class="empty">No classes scheduled yet.${isAdminUser() ? ' Use Admin Class to schedule one.' : ' Check back when your instructor posts a session.'}</div>`;
+      }
+      return rows.map((cls) => {
+        const selected = state.class.selectedId === cls.id;
+        return `
+          <article class="course ${cls.full ? 'upload' : ''}" style="--course-color:${courseColor('private_ground')}">
+            <div class="badge">${cls.full ? 'Full' : 'Open'}</div>
+            <div style="flex:1">
+              <h2>${escapeHtml(cls.title)}</h2>
+              <p>${escapeHtml(cls.objective || '')}</p>
+              <div class="meta">${escapeHtml(formatClassWhen(cls.starts_at))} · ${escapeHtml(enrollmentLabel(cls))}${cls.instructor_name ? ` · ${escapeHtml(cls.instructor_name)}` : ''}</div>
+              <div class="btn-row">
+                <button type="button" class="secondary" data-select-class="${escapeHtml(cls.id)}">${selected ? 'Selected' : 'Details'}</button>
+                ${cls.you_enrolled
+                  ? `<button type="button" data-enter-class="${escapeHtml(cls.id)}">Enter class</button>`
+                  : `<button type="button" data-enroll-class="${escapeHtml(cls.id)}" ${cls.full ? 'disabled' : ''}>${cls.full ? 'Full' : 'Enroll'}</button>`}
+              </div>
+            </div>
+          </article>`;
+      }).join('');
+    }
+
+    function renderSelectedClassDetail() {
+      const cls = state.class.selected;
+      if (!cls) return '';
+      const isOwner = isAdminUser() || cls.created_by === state.user?.userKey || cls.your_role === 'instructor';
       return `
-        <h2 class="section-title">Live class</h2>
-        <p class="hint">Join today’s instructor-led session with the session code. Cap is 10 students. Local demo works without Google OAuth (auth off).</p>
-        ${pkg ? `
+        <h2 class="section-title">Class detail</h2>
+        <article class="course" style="--course-color:${courseColor('private_ground')}">
+          <div class="badge">${cls.full ? 'Full' : 'Open'}</div>
+          <div style="flex:1">
+            <h2>${escapeHtml(cls.title)}</h2>
+            <p>${escapeHtml(cls.objective || '')}</p>
+            <div class="meta">${escapeHtml(formatClassWhen(cls.starts_at))} · ${cls.length_minutes || 90} min</div>
+            <div class="stats" style="margin-top:10px">
+              <div class="stat"><b>${cls.enrolled_count}</b><span>Enrolled</span></div>
+              <div class="stat"><b>${cls.student_limit}</b><span>Limit</span></div>
+              <div class="stat"><b>${cls.full ? 'Full' : cls.seats_remaining}</b><span>${cls.full ? 'Status' : 'Seats left'}</span></div>
+            </div>
+            ${isOwner && cls.roster?.length ? `
+              <h3 style="margin:12px 0 6px;font-size:0.95rem">Roster</h3>
+              <div class="class-roster">
+                ${cls.roster.map((s) => `
+                  <span class="seat ${s.role === 'instructor' ? 'instructor' : ''}">${escapeHtml(s.display_name)}${s.remote ? ' · remote' : ''}</span>
+                `).join('')}
+              </div>
+            ` : ''}
+            <div class="btn-row" style="margin-top:10px">
+              ${cls.you_enrolled || isOwner
+                ? `<button type="button" data-enter-class="${escapeHtml(cls.id)}">${isOwner ? 'Start / enter live' : 'Enter class'}</button>`
+                : `<button type="button" data-enroll-class="${escapeHtml(cls.id)}" ${cls.full ? 'disabled' : ''}>Enroll</button>`}
+              ${isOwner ? `<button type="button" class="secondary" data-cancel-class="${escapeHtml(cls.id)}">Cancel class</button>` : ''}
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderAdminClassCatalog() {
+      const pkgs = state.class.packages || [];
+      const form = state.class.scheduleForm;
+      return `
+        <h2 class="section-title">Available classes</h2>
+        <p class="hint">Pick a ground-school package, set the start time and student limit, then schedule it. It appears on the Classes tab for enrollment (no join code).</p>
+        ${pkgs.map((pkg) => `
           <article class="course" style="--course-color:${courseColor('private_ground')}">
-            <div class="badge">Session</div>
+            <div class="badge">Package</div>
             <div style="flex:1">
               <h2>${escapeHtml(pkg.title)}</h2>
               <p>${escapeHtml(pkg.objective || '')}</p>
-              <div class="meta">${pkg.length_minutes || 90} min · ≤${pkg.max_students || 10} students</div>
+              <div class="meta">${pkg.length_minutes || 90} min · default cap ${pkg.max_students || 10}</div>
             </div>
           </article>
-        ` : `<div class="empty">No session packages loaded.</div>`}
-        <h2 class="section-title">Join with code</h2>
-        <div class="join-row">
-          <input id="joinCodeInput" maxlength="12" placeholder="CODE" value="${escapeHtml(state.class.joinCode || '')}" autocomplete="off" />
-          <label style="display:flex;align-items:center;gap:6px;font-size:0.85rem;white-space:nowrap">
-            <input type="checkbox" id="joinRemote" ${state.class.remote ? 'checked' : ''} /> Remote
-          </label>
-          <button type="button" id="joinSessionBtn">Join</button>
+        `).join('') || '<div class="empty">No class packages in catalog.</div>'}
+        <h2 class="section-title">Schedule a class</h2>
+        <label>Package</label>
+        <select id="schedulePackage">
+          ${pkgs.map((pkg) => `
+            <option value="${escapeHtml(pkg.id)}" ${form.packageId === pkg.id ? 'selected' : ''}>${escapeHtml(pkg.title)}</option>
+          `).join('')}
+        </select>
+        <label>Starts (your local time)</label>
+        <input type="datetime-local" id="scheduleStartsAt" value="${escapeHtml(form.startsAtLocal || '')}" />
+        <label>Student limit</label>
+        <input type="number" id="scheduleStudentLimit" min="1" max="50" value="${escapeHtml(String(form.studentLimit || 10))}" />
+        <div class="btn-row" style="margin-top:12px">
+          <button type="button" id="scheduleClassBtn">Schedule class</button>
         </div>
-        ${isAdminUser() ? `
-          <h2 class="section-title">Instructor</h2>
-          <p class="hint">Open Weather for Soaring and share the code. Students must use that code to join this live session.</p>
-          <div class="btn-row">
-            <button type="button" id="openLiveSessionBtn">Open live session</button>
-          </div>
-        ` : ''}
-        ${state.class.status ? `<p class="hint">${escapeHtml(state.class.status)}</p>` : ''}
+        <h2 class="section-title">Already on the schedule</h2>
+        ${renderClassesSchedule()}
       `;
     }
 
@@ -2471,9 +2601,9 @@
       const studentCount = session.roster_count || 0;
       return `
         <div class="stats">
-          <div class="stat"><b class="class-code" style="font-size:1.1rem;letter-spacing:0.12em">${escapeHtml(session.code)}</b><span>Join code</span></div>
-          <div class="stat"><b>${studentCount}/${session.max_students || 10}</b><span>Students</span></div>
+          <div class="stat"><b>${studentCount}</b><span>In live room</span></div>
           <div class="stat"><b>${escapeHtml(session.phase_title || session.phase)}</b><span>Phase</span></div>
+          <div class="stat"><b>${session.answers_frozen ? 'Frozen' : 'Open'}</b><span>Answers</span></div>
         </div>
         <h2 class="section-title">${escapeHtml(session.title || 'Live session')}</h2>
         <div class="class-roster">
@@ -2489,25 +2619,42 @@
             `).join('')}
           </div>
           <div class="btn-row">
-            <button type="button" class="secondary" id="closeLiveSessionBtn">End session</button>
+            <button type="button" class="secondary" id="closeLiveSessionBtn">End live session</button>
           </div>
-        ` : `<p class="hint">You are authorized for this live session via join code <strong>${escapeHtml(session.code)}</strong>.</p>`}
+        ` : `<p class="hint">You are in this live class because you enrolled on the schedule.</p>`}
         ${session.phase === 'warmup' || session.phase === 'check' ? renderClassQuiz(session, isInstructor) : ''}
         ${session.phase === 'teach' || session.phase === 'debrief' || (isInstructor && session.phase === 'open') ? renderClassTeach(session, isInstructor) : ''}
         ${session.phase === 'close' ? `${renderClassHomework(session)}${renderClassTeach(session, isInstructor)}` : ''}
         ${session.phase === 'open' && !isInstructor ? `<div class="empty">Session open — waiting for warm-up.</div>` : ''}
         ${session.phase === 'debrief' && session.quiz ? renderClassQuiz(session, isInstructor) : ''}
         <div class="btn-row" style="margin-top:16px">
-          <button type="button" class="secondary" id="leaveClassLobbyBtn">Back to join</button>
+          <button type="button" class="secondary" id="leaveClassLobbyBtn">Back to schedule</button>
         </div>
       `;
     }
 
-    function renderClass() {
+    function renderClasses() {
       if (state.class.session?.id && state.class.session.status !== 'closed') {
         return renderClassSession();
       }
-      return renderClassLobby();
+      return `
+        <h2 class="section-title">Class schedule</h2>
+        <p class="hint">Enroll in an upcoming ground school class — no join code. Seats show as enrolled count or Full when the limit is reached.</p>
+        ${renderClassesSchedule()}
+        ${renderSelectedClassDetail()}
+        ${state.class.status ? `<p class="hint">${escapeHtml(state.class.status)}</p>` : ''}
+      `;
+    }
+
+    function renderAdminClass() {
+      if (state.class.session?.id && state.class.session.status !== 'closed') {
+        return renderClassSession();
+      }
+      return `
+        ${renderAdminClassCatalog()}
+        ${state.class.selectedId ? renderSelectedClassDetail() : ''}
+        ${state.class.status ? `<p class="hint">${escapeHtml(state.class.status)}</p>` : ''}
+      `;
     }
 
     function renderHome() {
@@ -2519,10 +2666,10 @@
           <div class="stat"><b>${s.studied}</b><span>Studied</span></div>
           <div class="stat"><b>${s.due}</b><span>Due</span></div>
         </div>
-        <h2 class="section-title">Live class</h2>
-        <p class="hint">Weather for Soaring session package is ready. Join with the instructor’s session code (≤10 students).</p>
+        <h2 class="section-title">Ground school classes</h2>
+        <p class="hint">See the schedule and enroll in upcoming sessions. Instructors schedule from Admin Class.</p>
         <div class="btn-row" style="margin-bottom:12px">
-          <button type="button" data-view-jump="class">Open Class</button>
+          <button type="button" data-view-jump="classes">Open Classes</button>
         </div>
         <h2 class="section-title">Daily league</h2>
         ${renderLeagueSummary(state.league, { compact: true })}
@@ -3808,10 +3955,13 @@
       const sub = document.getElementById('subtitle');
       if (state.view === 'home') sub.textContent = 'Courses · daily league';
       if (state.view === 'study') sub.textContent = `Course ${trackLabel(state.study.track)} · ${state.study.cards.length} in session`;
-      if (state.view === 'class') {
+      if (state.view === 'classes') {
         sub.textContent = state.class.session?.title
-          ? `Class · ${state.class.session.title}`
-          : 'Class · join live session';
+          ? `Classes · ${state.class.session.title}`
+          : 'Classes · schedule & enroll';
+      }
+      if (state.view === 'adminClass') {
+        sub.textContent = 'Admin Class · schedule packages';
       }
       if (state.view === 'aircraft') {
         sub.textContent = state.aircraft.page === 'sgs233'
@@ -3821,11 +3971,12 @@
       if (state.view === 'progress') sub.textContent = 'League · questions answered by day';
       if (state.view === 'admin') sub.textContent = 'Admin · search & import';
 
-      if (state.view !== 'class') stopClassPoll();
+      if (state.view !== 'classes' && state.view !== 'adminClass') stopClassPoll();
 
       if (state.view === 'home') app.innerHTML = renderHome();
       else if (state.view === 'study') app.innerHTML = renderStudy();
-      else if (state.view === 'class') app.innerHTML = renderClass();
+      else if (state.view === 'classes') app.innerHTML = renderClasses();
+      else if (state.view === 'adminClass') app.innerHTML = renderAdminClass();
       else if (state.view === 'aircraft') {
         app.innerHTML = state.aircraft.page === 'sgs233' ? renderAircraft233() : renderAircraftHub();
       }
@@ -3833,7 +3984,9 @@
       else if (state.view === 'admin') app.innerHTML = renderAdmin();
 
       bind();
-      if (state.view === 'class' && state.class.session?.id) startClassPoll();
+      if ((state.view === 'classes' || state.view === 'adminClass') && state.class.session?.id) {
+        startClassPoll();
+      }
     }
 
     function bind() {
@@ -3941,75 +4094,137 @@
       app.querySelectorAll('[data-view-jump]').forEach((btn) => {
         btn.addEventListener('click', async () => {
           const next = btn.dataset.viewJump;
-          if (next === 'class') {
-            await openClassView();
+          if (next === 'classes') {
+            await openClassesView();
+            return;
+          }
+          if (next === 'adminClass') {
+            if (!isAdminUser()) {
+              toast('Admin access required');
+              return;
+            }
+            await openAdminClassView();
             return;
           }
           state.view = next;
           render();
         });
       });
-      const joinCodeInput = app.querySelector('#joinCodeInput');
-      if (joinCodeInput) {
-        joinCodeInput.addEventListener('input', () => {
-          state.class.joinCode = joinCodeInput.value.toUpperCase();
-        });
-      }
-      const joinRemote = app.querySelector('#joinRemote');
-      if (joinRemote) {
-        joinRemote.addEventListener('change', () => {
-          state.class.remote = joinRemote.checked;
-        });
-      }
-      const joinSessionBtn = app.querySelector('#joinSessionBtn');
-      if (joinSessionBtn) {
-        joinSessionBtn.addEventListener('click', async () => {
-          joinSessionBtn.disabled = true;
+      app.querySelectorAll('[data-select-class]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          state.class.selectedId = btn.dataset.selectClass;
           try {
-            const data = await api('/api/live-sessions/join', {
-              method: 'POST',
-              body: JSON.stringify({
-                code: state.class.joinCode || joinCodeInput?.value || '',
-                remote: state.class.remote
-              })
-            });
-            state.class.session = data.session;
-            state.class.quizIndex = 0;
-            state.class.status = '';
-            toast('Joined ' + (data.session.title || 'session'));
-            startClassPoll();
+            await refreshSelectedClass();
             render();
           } catch (err) {
-            state.class.status = err.message || 'Could not join';
             toast(err.message);
-            render();
-          } finally {
-            joinSessionBtn.disabled = false;
           }
         });
-      }
-      const openLiveSessionBtn = app.querySelector('#openLiveSessionBtn');
-      if (openLiveSessionBtn) {
-        openLiveSessionBtn.addEventListener('click', async () => {
-          openLiveSessionBtn.disabled = true;
+      });
+      app.querySelectorAll('[data-enroll-class]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          btn.disabled = true;
           try {
-            const data = await api('/api/live-sessions', {
+            const data = await api('/api/classes/' + encodeURIComponent(btn.dataset.enrollClass) + '/enroll', {
               method: 'POST',
-              body: JSON.stringify({
-                package_id: 'weather-for-soaring',
-                remote: false
-              })
+              body: JSON.stringify({ remote: state.class.remote })
+            });
+            state.class.selectedId = data.class.id;
+            state.class.selected = data.class;
+            await loadClassSchedule();
+            toast('Enrolled in ' + (data.class.title || 'class'));
+            render();
+          } catch (err) {
+            toast(err.message);
+            btn.disabled = false;
+          }
+        });
+      });
+      app.querySelectorAll('[data-enter-class]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          btn.disabled = true;
+          try {
+            const data = await api('/api/live-sessions/enter', {
+              method: 'POST',
+              body: JSON.stringify({ class_id: btn.dataset.enterClass, remote: state.class.remote })
             });
             state.class.session = data.session;
             state.class.quizIndex = 0;
             state.class.status = '';
-            toast('Live session code ' + data.session.code);
+            toast('Entered live class');
             startClassPoll();
             render();
           } catch (err) {
             toast(err.message);
+            btn.disabled = false;
+          }
+        });
+      });
+      app.querySelectorAll('[data-cancel-class]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          if (!window.confirm('Cancel this scheduled class?')) return;
+          try {
+            await api('/api/classes/' + encodeURIComponent(btn.dataset.cancelClass) + '/cancel', {
+              method: 'POST',
+              body: JSON.stringify({})
+            });
+            if (state.class.selectedId === btn.dataset.cancelClass) {
+              state.class.selectedId = null;
+              state.class.selected = null;
+            }
+            await loadClassSchedule();
+            toast('Class cancelled');
+            render();
+          } catch (err) {
+            toast(err.message);
+          }
+        });
+      });
+      const schedulePackage = app.querySelector('#schedulePackage');
+      if (schedulePackage) {
+        schedulePackage.addEventListener('change', () => {
+          state.class.scheduleForm.packageId = schedulePackage.value;
+          const pkg = (state.class.packages || []).find((p) => p.id === schedulePackage.value);
+          if (pkg?.max_students) state.class.scheduleForm.studentLimit = pkg.max_students;
+        });
+      }
+      const scheduleStartsAt = app.querySelector('#scheduleStartsAt');
+      if (scheduleStartsAt) {
+        scheduleStartsAt.addEventListener('change', () => {
+          state.class.scheduleForm.startsAtLocal = scheduleStartsAt.value;
+        });
+      }
+      const scheduleStudentLimit = app.querySelector('#scheduleStudentLimit');
+      if (scheduleStudentLimit) {
+        scheduleStudentLimit.addEventListener('change', () => {
+          state.class.scheduleForm.studentLimit = Number(scheduleStudentLimit.value) || 10;
+        });
+      }
+      const scheduleClassBtn = app.querySelector('#scheduleClassBtn');
+      if (scheduleClassBtn) {
+        scheduleClassBtn.addEventListener('click', async () => {
+          scheduleClassBtn.disabled = true;
+          try {
+            const local = state.class.scheduleForm.startsAtLocal || scheduleStartsAt?.value;
+            if (!local) throw new Error('Pick a start date/time');
+            const startsAt = new Date(local).toISOString();
+            const data = await api('/api/classes', {
+              method: 'POST',
+              body: JSON.stringify({
+                package_id: state.class.scheduleForm.packageId || schedulePackage?.value,
+                starts_at: startsAt,
+                student_limit: Number(state.class.scheduleForm.studentLimit || scheduleStudentLimit?.value || 10)
+              })
+            });
+            state.class.selectedId = data.class.id;
+            state.class.selected = data.class;
+            await loadClassSchedule();
+            toast('Scheduled ' + data.class.title);
+            render();
+          } catch (err) {
+            toast(err.message);
           } finally {
-            openLiveSessionBtn.disabled = false;
+            scheduleClassBtn.disabled = false;
           }
         });
       }
@@ -4068,10 +4283,16 @@
       }
       const leaveClassLobbyBtn = app.querySelector('#leaveClassLobbyBtn');
       if (leaveClassLobbyBtn) {
-        leaveClassLobbyBtn.addEventListener('click', () => {
+        leaveClassLobbyBtn.addEventListener('click', async () => {
           state.class.session = null;
           state.class.heatmap = null;
           stopClassPoll();
+          try {
+            await loadClassSchedule();
+            if (state.class.selectedId) await refreshSelectedClass();
+          } catch {
+            /* ignore */
+          }
           render();
         });
       }
@@ -4504,7 +4725,7 @@
       const btn = e.target.closest('button[data-view]');
       if (!btn) return;
       const nextView = btn.dataset.view;
-      if (nextView === 'admin' && !isAdminUser()) {
+      if ((nextView === 'admin' || nextView === 'adminClass') && !isAdminUser()) {
         toast('Admin access required');
         return;
       }
@@ -4527,8 +4748,12 @@
         render();
         return;
       }
-      if (state.view === 'class') {
-        await openClassView();
+      if (state.view === 'classes') {
+        await openClassesView();
+        return;
+      }
+      if (state.view === 'adminClass') {
+        await openAdminClassView();
         return;
       }
       if (state.view === 'admin') {

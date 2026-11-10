@@ -18,7 +18,6 @@ function identityFromRequest(req, config) {
       picture: sessionUser.picture || null
     };
   }
-  // Auth off / local mock identity
   return {
     userKey,
     name: userKey === (config.defaultUserKey || 'ron') ? 'Ron (local)' : userKey,
@@ -32,7 +31,7 @@ function sendError(res, error) {
   res.status(status).json({ error: error?.message || String(error) });
 }
 
-export function registerClassroomApi(app, { liveSessions, config }) {
+export function registerClassroomApi(app, { liveSessions, scheduledClasses, config }) {
   app.get('/api/sessions/packages', async (_req, res) => {
     try {
       const packages = await listSessionPackageSummaries();
@@ -93,6 +92,116 @@ export function registerClassroomApi(app, { liveSessions, config }) {
     }
   });
 
+  // --- Scheduled classes (Classes tab + Admin Class) ---
+
+  app.get('/api/classes', async (req, res) => {
+    try {
+      const identity = identityFromRequest(req, config);
+      if (!identity) {
+        res.status(401).json({ error: 'Authentication required' });
+        return;
+      }
+      const includeCancelled =
+        resolveIsAdmin(req, config) &&
+        ['1', 'true', 'yes'].includes(String(req.query.include_cancelled || '').toLowerCase());
+      const classes = await scheduledClasses.listClasses({
+        viewerKey: identity.userKey,
+        includeCancelled
+      });
+      res.json({ classes });
+    } catch (error) {
+      sendError(res, error);
+    }
+  });
+
+  app.get('/api/classes/:id', async (req, res) => {
+    try {
+      const identity = identityFromRequest(req, config);
+      if (!identity) {
+        res.status(401).json({ error: 'Authentication required' });
+        return;
+      }
+      const isAdmin = resolveIsAdmin(req, config);
+      const cls = await scheduledClasses.getClass(req.params.id, {
+        viewerKey: identity.userKey,
+        includeRoster: isAdmin
+      });
+      if (!cls) {
+        res.status(404).json({ error: 'Scheduled class not found' });
+        return;
+      }
+      // Instructors who scheduled it also get roster
+      if (!isAdmin && cls.created_by === identity.userKey) {
+        const withRoster = await scheduledClasses.getClass(req.params.id, {
+          viewerKey: identity.userKey,
+          includeRoster: true
+        });
+        res.json({ class: withRoster });
+        return;
+      }
+      res.json({ class: cls });
+    } catch (error) {
+      sendError(res, error);
+    }
+  });
+
+  app.post('/api/classes', async (req, res) => {
+    try {
+      if (!resolveIsAdmin(req, config)) {
+        res.status(403).json({ error: 'Instructor/admin access required to schedule a class' });
+        return;
+      }
+      const identity = identityFromRequest(req, config);
+      if (!identity) {
+        res.status(401).json({ error: 'Authentication required' });
+        return;
+      }
+      const scheduled = await scheduledClasses.schedule({
+        packageId: req.body?.package_id || req.body?.packageId,
+        startsAt: req.body?.starts_at || req.body?.startsAt,
+        studentLimit: req.body?.student_limit ?? req.body?.studentLimit,
+        instructor: identity
+      });
+      res.status(201).json({ ok: true, class: scheduled });
+    } catch (error) {
+      sendError(res, error);
+    }
+  });
+
+  app.post('/api/classes/:id/enroll', async (req, res) => {
+    try {
+      const identity = identityFromRequest(req, config);
+      if (!identity) {
+        res.status(401).json({ error: 'Sign in required to enroll' });
+        return;
+      }
+      const enrolled = await scheduledClasses.enroll(req.params.id, identity, {
+        remote: Boolean(req.body?.remote)
+      });
+      res.json({ ok: true, class: enrolled });
+    } catch (error) {
+      sendError(res, error);
+    }
+  });
+
+  app.post('/api/classes/:id/cancel', async (req, res) => {
+    try {
+      const identity = identityFromRequest(req, config);
+      if (!identity) {
+        res.status(401).json({ error: 'Authentication required' });
+        return;
+      }
+      const cancelled = await scheduledClasses.cancel(req.params.id, identity.userKey, {
+        isAdmin: resolveIsAdmin(req, config)
+      });
+      res.json({ ok: true, class: cancelled });
+    } catch (error) {
+      sendError(res, error);
+    }
+  });
+
+  // --- Live session runner (enrolled / instructor; no join code required) ---
+
   app.get('/api/live-sessions/current', async (req, res) => {
     try {
       const identity = identityFromRequest(req, config);
@@ -120,12 +229,80 @@ export function registerClassroomApi(app, { liveSessions, config }) {
         res.status(401).json({ error: 'Authentication required' });
         return;
       }
+      const classId = req.body?.class_id || req.body?.classId || null;
+      let packageId = req.body?.package_id || req.body?.packageId || 'weather-for-soaring';
+      if (classId) {
+        const cls = await scheduledClasses.getClass(classId, {
+          viewerKey: identity.userKey,
+          includeRoster: true
+        });
+        if (!cls) {
+          res.status(404).json({ error: 'Scheduled class not found' });
+          return;
+        }
+        packageId = cls.package_id;
+      }
       const session = await liveSessions.open({
-        packageId: req.body?.package_id || req.body?.packageId || 'weather-for-soaring',
+        packageId,
         instructor: identity,
-        remote: Boolean(req.body?.remote)
+        remote: Boolean(req.body?.remote),
+        scheduledClassId: classId
       });
       res.status(201).json({ ok: true, session });
+    } catch (error) {
+      sendError(res, error);
+    }
+  });
+
+  app.post('/api/live-sessions/enter', async (req, res) => {
+    try {
+      const identity = identityFromRequest(req, config);
+      if (!identity) {
+        res.status(401).json({ error: 'Sign in required' });
+        return;
+      }
+      const classId = req.body?.class_id || req.body?.classId;
+      if (!classId) {
+        res.status(400).json({ error: 'class_id required' });
+        return;
+      }
+      const cls = await scheduledClasses.getClass(classId, {
+        viewerKey: identity.userKey,
+        includeRoster: true
+      });
+      if (!cls) {
+        res.status(404).json({ error: 'Scheduled class not found' });
+        return;
+      }
+      const isAdmin = resolveIsAdmin(req, config);
+      const isInstructor = isAdmin || cls.created_by === identity.userKey;
+      if (!cls.you_enrolled && !isInstructor) {
+        res.status(403).json({ error: 'Enroll in this class before entering the live session' });
+        return;
+      }
+      // Prefer an existing open live session for this scheduled class
+      let session = await liveSessions.getForScheduledClass?.(classId, identity.userKey, {
+        isAdmin: isInstructor
+      });
+      if (!session && isInstructor) {
+        session = await liveSessions.open({
+          packageId: cls.package_id,
+          instructor: identity,
+          remote: Boolean(req.body?.remote),
+          scheduledClassId: classId
+        });
+      } else if (!session) {
+        res.status(404).json({ error: 'Instructor has not started the live session yet' });
+        return;
+      } else if (!session.you) {
+        // Auto-admit enrolled student into live roster
+        session = await liveSessions.admitEnrolled({
+          sessionId: session.id,
+          user: identity,
+          remote: Boolean(req.body?.remote)
+        });
+      }
+      res.json({ ok: true, session });
     } catch (error) {
       sendError(res, error);
     }
@@ -135,9 +312,10 @@ export function registerClassroomApi(app, { liveSessions, config }) {
     try {
       const identity = identityFromRequest(req, config);
       if (!identity) {
-        res.status(401).json({ error: 'Sign in (or local mock user) required to join' });
+        res.status(401).json({ error: 'Sign in required to join' });
         return;
       }
+      // Legacy code join kept for compatibility; prefer enroll + enter
       const session = await liveSessions.join({
         code: req.body?.code,
         user: identity,

@@ -136,6 +136,39 @@ CREATE INDEX IF NOT EXISTS glider_card_flags_card_idx
   ON glider_card_flags (card_id);
 `;
 
+const SCHEDULED_CLASSES_SQL = `
+CREATE TABLE IF NOT EXISTS glider_scheduled_classes (
+  id TEXT PRIMARY KEY,
+  package_id TEXT NOT NULL,
+  title TEXT NOT NULL,
+  objective TEXT NOT NULL DEFAULT '',
+  length_minutes INT,
+  starts_at TIMESTAMPTZ NOT NULL,
+  student_limit INT NOT NULL DEFAULT 10,
+  status TEXT NOT NULL DEFAULT 'open',
+  created_by TEXT NOT NULL,
+  instructor_name TEXT NOT NULL DEFAULT '',
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS glider_scheduled_classes_starts_idx
+  ON glider_scheduled_classes (starts_at ASC);
+
+CREATE TABLE IF NOT EXISTS glider_class_enrollments (
+  class_id TEXT NOT NULL REFERENCES glider_scheduled_classes(id) ON DELETE CASCADE,
+  user_key TEXT NOT NULL,
+  display_name TEXT NOT NULL DEFAULT '',
+  role TEXT NOT NULL DEFAULT 'student',
+  remote BOOLEAN NOT NULL DEFAULT FALSE,
+  enrolled_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  PRIMARY KEY (class_id, user_key)
+);
+
+CREATE INDEX IF NOT EXISTS glider_class_enrollments_user_idx
+  ON glider_class_enrollments (user_key);
+`;
+
 /**
  * Grant admin to bootstrap emails. On first run, demote everyone else so only
  * the bootstrap account(s) are admins. Later runs only ensure bootstrap emails
@@ -201,6 +234,7 @@ export async function ensureGliderSchema(db) {
   await db.query(CARD_FIGURE_SQL);
   await db.query(USER_ADMIN_SQL);
   await db.query(CARD_FLAGS_SQL);
+  await db.query(SCHEDULED_CLASSES_SQL);
   return true;
 }
 
