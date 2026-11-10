@@ -19,7 +19,7 @@ Without `AUTH_ENABLED`, local mock user (`GLIDER_DEFAULT_USER`, default `ron`) c
 
 ### Ground school classes (Weather for Soaring)
 
-1. **Admin Class** (instructors): pick a package, set start time + student limit → **Schedule class**.
+1. **Classes Admin** (instructors): course → session (Private Pilot Glider weeks 1–8), set start time + student limit → **Schedule class**.
 2. **Classes** tab: schedule of upcoming sessions. Students **Enroll** (no join code). Shows enrolled count or **Full**.
 3. Instructor opens the class → **Start / enter live**; enrolled students **Enter class**.
 4. Phases: Open → Warm-up → Teach → Check → Debrief → Close/homework.

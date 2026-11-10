@@ -4,8 +4,10 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SESSIONS_DIR = path.join(__dirname, '..', '..', 'content', 'sessions');
+const COURSES_DIR = path.join(__dirname, '..', '..', 'content', 'courses');
 
-let cache = null;
+let packageCache = null;
+let courseCache = null;
 
 function packageSummary(pkg) {
   return {
@@ -13,10 +15,12 @@ function packageSummary(pkg) {
     slug: pkg.slug || pkg.id,
     title: pkg.title,
     course: pkg.course || '',
+    course_id: pkg.course_id || '',
     week: pkg.week ?? null,
     length_minutes: pkg.length_minutes ?? null,
     max_students: pkg.max_students ?? 10,
     objective: pkg.objective || '',
+    content_status: pkg.content_status || (pkg.quizzes?.check?.cards?.length ? 'ready' : 'outline'),
     phases: Array.isArray(pkg.phases) ? pkg.phases : [],
     tags: Array.isArray(pkg.tags) ? pkg.tags : []
   };
@@ -32,13 +36,13 @@ function allCardsFromPackage(pkg) {
 }
 
 export async function loadSessionPackages({ force = false } = {}) {
-  if (cache && !force) return cache;
+  if (packageCache && !force) return packageCache;
   let names = [];
   try {
     names = await readdir(SESSIONS_DIR);
   } catch {
-    cache = [];
-    return cache;
+    packageCache = [];
+    return packageCache;
   }
   const packages = [];
   for (const name of names.filter((n) => n.endsWith('.json')).sort()) {
@@ -50,13 +54,98 @@ export async function loadSessionPackages({ force = false } = {}) {
       console.warn(`[classroom] skip session package ${name}:`, error.message || error);
     }
   }
-  cache = packages;
-  return cache;
+  packages.sort((a, b) => {
+    const wa = Number(a.week) || 999;
+    const wb = Number(b.week) || 999;
+    if (wa !== wb) return wa - wb;
+    return String(a.title).localeCompare(String(b.title));
+  });
+  packageCache = packages;
+  return packageCache;
+}
+
+export async function loadCourses({ force = false } = {}) {
+  if (courseCache && !force) return courseCache;
+  let names = [];
+  try {
+    names = await readdir(COURSES_DIR);
+  } catch {
+    courseCache = [];
+    return courseCache;
+  }
+  const courses = [];
+  for (const name of names.filter((n) => n.endsWith('.json')).sort()) {
+    try {
+      const raw = await readFile(path.join(COURSES_DIR, name), 'utf8');
+      const course = JSON.parse(raw);
+      if (course?.id && course?.title) courses.push(course);
+    } catch (error) {
+      console.warn(`[classroom] skip course ${name}:`, error.message || error);
+    }
+  }
+  courseCache = courses;
+  return courseCache;
 }
 
 export async function listSessionPackageSummaries() {
   const packages = await loadSessionPackages();
   return packages.map(packageSummary);
+}
+
+export async function listCourseCatalog() {
+  const [courses, packages] = await Promise.all([loadCourses(), loadSessionPackages()]);
+  const byId = new Map(packages.map((p) => [p.id, packageSummary(p)]));
+
+  const catalog = courses.map((course) => {
+    const sessionIds = Array.isArray(course.session_ids) ? course.session_ids : [];
+    const sessions = sessionIds
+      .map((id) => byId.get(id))
+      .filter(Boolean)
+      .sort((a, b) => (Number(a.week) || 999) - (Number(b.week) || 999));
+    // Also include any packages tagged to this course_id but missing from session_ids
+    for (const pkg of packages) {
+      if (pkg.course_id === course.id && !sessions.some((s) => s.id === pkg.id)) {
+        sessions.push(packageSummary(pkg));
+      }
+    }
+    sessions.sort((a, b) => (Number(a.week) || 999) - (Number(b.week) || 999));
+    return {
+      id: course.id,
+      title: course.title,
+      description: course.description || '',
+      length_minutes: course.length_minutes ?? 90,
+      weeks: course.weeks ?? sessions.length,
+      max_students_default: course.max_students_default ?? 10,
+      sessions
+    };
+  });
+
+  // Orphan packages (no course file) grouped under their course title string
+  const knownIds = new Set(catalog.flatMap((c) => c.sessions.map((s) => s.id)));
+  const orphans = packages.filter((p) => !knownIds.has(p.id));
+  if (orphans.length) {
+    const byCourseTitle = new Map();
+    for (const pkg of orphans) {
+      const key = pkg.course_id || pkg.course || 'other';
+      if (!byCourseTitle.has(key)) byCourseTitle.set(key, []);
+      byCourseTitle.get(key).push(packageSummary(pkg));
+    }
+    for (const [key, sessions] of byCourseTitle) {
+      if (catalog.some((c) => c.id === key)) continue;
+      sessions.sort((a, b) => (Number(a.week) || 999) - (Number(b.week) || 999));
+      catalog.push({
+        id: key,
+        title: sessions[0]?.course || 'Other courses',
+        description: '',
+        length_minutes: 90,
+        weeks: sessions.length,
+        max_students_default: 10,
+        sessions
+      });
+    }
+  }
+
+  return catalog;
 }
 
 export async function getSessionPackage(id) {

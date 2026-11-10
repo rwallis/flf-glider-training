@@ -46,7 +46,16 @@ async function loadIsAdmin(db, profile) {
   return Boolean(rows[0]?.is_admin);
 }
 
-export function registerAuthRoutes(app, { authConfig, db, defaultReturnPath = '/', bootstrapEmails = [] } = {}) {
+export function registerAuthRoutes(
+  app,
+  {
+    authConfig,
+    db,
+    defaultReturnPath = '/',
+    bootstrapEmails = [],
+    classesVisibleEmails = ['ron.wallis@gmail.com']
+  } = {}
+) {
   if (!authConfig?.enabled) return;
 
   function safeReturnPath(value) {
@@ -124,6 +133,11 @@ export function registerAuthRoutes(app, { authConfig, db, defaultReturnPath = '/
     } catch {
       /* keep session flag */
     }
+    const email = String(user.email || '').trim().toLowerCase();
+    const allowedClasses = (classesVisibleEmails || [])
+      .map((e) => String(e || '').trim().toLowerCase())
+      .filter(Boolean);
+    const canSeeClasses = Boolean(email && allowedClasses.includes(email));
     response.json({
       ok: true,
       authenticated: true,
@@ -134,6 +148,7 @@ export function registerAuthRoutes(app, { authConfig, db, defaultReturnPath = '/
         userKey: user.userKey,
         sub: user.sub,
         isAdmin,
+        canSeeClasses,
         loginAt: user.loginAt
       }
     });

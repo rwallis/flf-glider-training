@@ -1,6 +1,11 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { isPublicPath, resolveIsAdmin, resolveUserKey } from './src/auth/middleware.js';
+import {
+  isPublicPath,
+  resolveCanSeeClasses,
+  resolveIsAdmin,
+  resolveUserKey
+} from './src/auth/middleware.js';
 import { attachSessionUser, userKeyFromProfile } from './src/auth/session.js';
 import { renderLoginPage } from './src/auth/loginPage.js';
 
@@ -47,4 +52,23 @@ test('resolveIsAdmin reads session isAdmin flag', () => {
   assert.equal(resolveIsAdmin(req, { auth: { enabled: true } }), true);
   attachSessionUser(req, { sub: '2', email: 'b@c.com', name: 'B' }, { isAdmin: false });
   assert.equal(resolveIsAdmin(req, { auth: { enabled: true } }), false);
+});
+
+test('resolveCanSeeClasses is Ron-only when auth is on', () => {
+  const cfg = {
+    auth: { enabled: true },
+    classesVisibleEmails: ['ron.wallis@gmail.com']
+  };
+  const req = { session: {} };
+  attachSessionUser(req, { sub: '1', email: 'ron.wallis@gmail.com', name: 'Ron' });
+  assert.equal(resolveCanSeeClasses(req, cfg), true);
+  attachSessionUser(req, { sub: '2', email: 'other@example.com', name: 'Other' }, { isAdmin: true });
+  assert.equal(resolveCanSeeClasses(req, cfg), false);
+});
+
+test('resolveCanSeeClasses is true when auth is off', () => {
+  assert.equal(
+    resolveCanSeeClasses({ session: {} }, { auth: { enabled: false }, classesVisibleEmails: [] }),
+    true
+  );
 });

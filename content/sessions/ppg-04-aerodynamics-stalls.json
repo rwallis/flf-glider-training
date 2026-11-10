@@ -1,0 +1,125 @@
+{
+  "id": "ppg-04-aerodynamics-stalls",
+  "slug": "ppg-04-aerodynamics-stalls",
+  "title": "Aerodynamics, stalls/spins & performance intro",
+  "course": "Private Pilot Glider",
+  "course_id": "private-pilot-glider",
+  "week": 4,
+  "prototype_order": 4,
+  "length_minutes": 90,
+  "max_students": 10,
+  "audience": "Private glider students, class ≤10",
+  "objective": "Student can explain gliding performance (min sink, best L/D, polar idea) and stall/spin awareness for gliders.",
+  "content_status": "outline",
+  "elements": [],
+  "schedule": [
+    {
+      "block": "Join / roster / session open",
+      "time": "0–3",
+      "mode": "Instructor"
+    },
+    {
+      "block": "Warm-up diagnostic",
+      "time": "3–12",
+      "mode": "App"
+    },
+    {
+      "block": "Teach",
+      "time": "12–62",
+      "mode": "Guided discussion"
+    },
+    {
+      "block": "Check quiz",
+      "time": "62–75",
+      "mode": "App"
+    },
+    {
+      "block": "Debrief / homework",
+      "time": "75–90",
+      "mode": "Instructor"
+    }
+  ],
+  "phases": [
+    {
+      "id": "open",
+      "title": "Open",
+      "minutes": "0–3"
+    },
+    {
+      "id": "warmup",
+      "title": "Warm-up",
+      "minutes": "3–12",
+      "quiz": "warmup"
+    },
+    {
+      "id": "teach",
+      "title": "Teach",
+      "minutes": "12–62"
+    },
+    {
+      "id": "check",
+      "title": "Check quiz",
+      "minutes": "62–75",
+      "quiz": "check"
+    },
+    {
+      "id": "debrief",
+      "title": "Debrief",
+      "minutes": "75–85"
+    },
+    {
+      "id": "close",
+      "title": "Close / homework",
+      "minutes": "85–90",
+      "homework": true
+    }
+  ],
+  "completion_standards": [
+    "Student can explain gliding performance (min sink, best L/D, polar idea) and stall/spin awareness for gliders."
+  ],
+  "tags": [
+    "61.105(b)(10)",
+    "61.105(b)(11)",
+    "61.105(b)(8)"
+  ],
+  "outline": [
+    {
+      "id": "overview",
+      "title": "Session overview",
+      "bullets": [
+        "Student can explain gliding performance (min sink, best L/D, polar idea) and stall/spin awareness for gliders.",
+        "Full teaching package forthcoming — scheduleable now for enrollment."
+      ]
+    }
+  ],
+  "risk_pauses": [],
+  "track": {
+    "id": "private_ground",
+    "title": "Private Ground Sessions",
+    "description": "App-guided private glider ground sessions.",
+    "sort_order": 15,
+    "status": "ready"
+  },
+  "topics": [],
+  "quizzes": {
+    "warmup": {
+      "id": "warmup",
+      "title": "Warm-up diagnostic",
+      "pass_pct": null,
+      "cards": []
+    },
+    "check": {
+      "id": "check",
+      "title": "Check quiz",
+      "pass_pct": 70,
+      "cards": []
+    }
+  },
+  "homework": {
+    "title": "Homework until next session",
+    "tasks": [
+      "Review this week’s objective and related FLF Study cards."
+    ],
+    "cards": []
+  }
+}

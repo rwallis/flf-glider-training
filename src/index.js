@@ -150,7 +150,8 @@ async function main() {
   registerAuthRoutes(app, {
     authConfig: config.auth,
     db: pool,
-    bootstrapEmails: config.adminBootstrapEmails
+    bootstrapEmails: config.adminBootstrapEmails,
+    classesVisibleEmails: config.classesVisibleEmails
   });
 
   // Gate SPA + APIs when Google auth is on (public auth/health routes already registered)
