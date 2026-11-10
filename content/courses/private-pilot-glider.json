@@ -1,0 +1,18 @@
+{
+  "id": "private-pilot-glider",
+  "title": "Private Pilot Glider",
+  "description": "Eight-week, 90-minute private glider ground school mapped to 14 CFR 61.105.",
+  "length_minutes": 90,
+  "weeks": 8,
+  "max_students_default": 10,
+  "session_ids": [
+    "ppg-01-certificates-documents",
+    "ppg-02-gliderport-ops-radio",
+    "weather-for-soaring",
+    "ppg-04-aerodynamics-stalls",
+    "ppg-05-weight-balance-233",
+    "ppg-06-aerotow-emergencies",
+    "ppg-07-pattern-landing-adm",
+    "ppg-08-regs-knowledge-test"
+  ]
+}

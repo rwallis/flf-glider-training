@@ -2,6 +2,7 @@ import { resolveIsAdmin, resolveUserKey } from '../auth/middleware.js';
 import { getSessionUser } from '../auth/session.js';
 import {
   getSessionPackage,
+  listCourseCatalog,
   listSessionPackageSummaries,
   publicCard
 } from './packages.js';
@@ -36,6 +37,15 @@ export function registerClassroomApi(app, { liveSessions, scheduledClasses, conf
     try {
       const packages = await listSessionPackageSummaries();
       res.json({ packages });
+    } catch (error) {
+      sendError(res, error);
+    }
+  });
+
+  app.get('/api/sessions/catalog', async (_req, res) => {
+    try {
+      const courses = await listCourseCatalog();
+      res.json({ courses });
     } catch (error) {
       sendError(res, error);
     }

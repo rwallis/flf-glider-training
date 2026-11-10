@@ -4,6 +4,7 @@ import { createLiveSessionManager } from './src/classroom/liveSessions.js';
 import {
   collectSessionSeedContent,
   getSessionPackage,
+  listCourseCatalog,
   listSessionPackageSummaries
 } from './src/classroom/packages.js';
 import { createMemoryScheduledClassStore } from './src/classroom/scheduledClasses.js';
@@ -18,6 +19,17 @@ test('weather-for-soaring package loads with quizzes and homework', async () => 
   assert.equal(pkg.homework.cards.length, 12);
   assert.ok(pkg.outline.length >= 7);
   assert.equal(pkg.max_students, 10);
+});
+
+test('course catalog groups Private Pilot Glider with 8 sessions', async () => {
+  const courses = await listCourseCatalog();
+  const ppg = courses.find((c) => c.id === 'private-pilot-glider');
+  assert.ok(ppg);
+  assert.equal(ppg.title, 'Private Pilot Glider');
+  assert.equal(ppg.sessions.length, 8);
+  assert.equal(ppg.sessions[0].week, 1);
+  assert.equal(ppg.sessions[2].id, 'weather-for-soaring');
+  assert.equal(ppg.sessions[7].week, 8);
 });
 
 test('session seed content includes private_ground track and cards', async () => {

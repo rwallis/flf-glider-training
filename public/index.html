@@ -1504,6 +1504,52 @@
       letter-spacing: 0.12em;
       font-weight: 700;
     }
+    .course-group {
+      margin: 0 0 18px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: linear-gradient(180deg, #F7FBFD 0%, #FFFFFF 60%);
+    }
+    .course-group > h2 {
+      margin: 0 0 4px;
+      font-size: 1.15rem;
+    }
+    .course-group > .hint {
+      margin: 0 0 10px;
+    }
+    .session-pick {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-top: 1px solid var(--line);
+    }
+    .session-pick:first-of-type { border-top: 0; }
+    .session-pick .week {
+      flex: 0 0 52px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--sky-deep);
+      padding-top: 2px;
+    }
+    .session-pick .body { flex: 1; min-width: 0; }
+    .session-pick .body h3 {
+      margin: 0 0 4px;
+      font-size: 0.98rem;
+    }
+    .session-pick .body p {
+      margin: 0;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+    .session-pick.selected {
+      background: #E8F2F8;
+      margin: 0 -8px;
+      padding-left: 8px;
+      padding-right: 8px;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
@@ -1528,7 +1574,7 @@
     <button type="button" data-view="classes"><span>☰</span>Classes</button>
     <button type="button" data-view="aircraft"><span>✈</span>Aircraft</button>
     <button type="button" data-view="progress"><span>★</span>League</button>
-    <button type="button" data-view="adminClass" id="navAdminClassBtn" class="nav-admin-hidden"><span>▦</span>Admin Class</button>
+    <button type="button" data-view="adminClass" id="navAdminClassBtn" class="nav-admin-hidden"><span>▦</span>Classes Admin</button>
     <button type="button" data-view="admin" id="navAdminBtn" class="nav-admin-hidden"><span>⚙</span>Admin</button>
   </nav>
   <div class="toast" id="toast"></div>
@@ -1605,6 +1651,7 @@
       },
       class: {
         packages: [],
+        courses: [],
         schedule: [],
         selectedId: null,
         selected: null,
@@ -1615,6 +1662,7 @@
         status: '',
         pollTimer: null,
         scheduleForm: {
+          courseId: 'private-pilot-glider',
           packageId: 'weather-for-soaring',
           startsAtLocal: '',
           studentLimit: 10
@@ -2319,13 +2367,29 @@
 
     async function loadClassPackages() {
       try {
-        const data = await api('/api/sessions/packages');
-        state.class.packages = data.packages || [];
-        if (!state.class.scheduleForm.packageId && state.class.packages[0]) {
-          state.class.scheduleForm.packageId = state.class.packages[0].id;
-          state.class.scheduleForm.studentLimit = state.class.packages[0].max_students || 10;
+        const [catalog, flat] = await Promise.all([
+          api('/api/sessions/catalog'),
+          api('/api/sessions/packages')
+        ]);
+        state.class.courses = catalog.courses || [];
+        state.class.packages = flat.packages || [];
+        const form = state.class.scheduleForm;
+        if (!form.courseId && state.class.courses[0]) {
+          form.courseId = state.class.courses[0].id;
+        }
+        const course =
+          state.class.courses.find((c) => c.id === form.courseId) || state.class.courses[0];
+        if (course) {
+          form.courseId = course.id;
+          const sessions = course.sessions || [];
+          if (!sessions.some((s) => s.id === form.packageId)) {
+            form.packageId = sessions[0]?.id || form.packageId;
+          }
+          const selected = sessions.find((s) => s.id === form.packageId) || sessions[0];
+          if (selected?.max_students) form.studentLimit = selected.max_students;
         }
       } catch (err) {
+        state.class.courses = [];
         state.class.packages = [];
         state.class.status = err.message || 'Could not load class catalog';
       }
@@ -2405,7 +2469,7 @@
     function renderClassesSchedule() {
       const rows = (state.class.schedule || []).filter((c) => c.status !== 'cancelled');
       if (!rows.length) {
-        return `<div class="empty">No classes scheduled yet.${isAdminUser() ? ' Use Admin Class to schedule one.' : ' Check back when your instructor posts a session.'}</div>`;
+        return `<div class="empty">No classes scheduled yet.${isAdminUser() ? ' Use Classes Admin to schedule one.' : ' Check back when your instructor posts a session.'}</div>`;
       }
       return rows.map((cls) => {
         const selected = state.class.selectedId === cls.id;
@@ -2464,34 +2528,46 @@
     }
 
     function renderAdminClassCatalog() {
-      const pkgs = state.class.packages || [];
+      const courses = state.class.courses || [];
       const form = state.class.scheduleForm;
+      const activeCourse =
+        courses.find((c) => c.id === form.courseId) || courses[0] || null;
+      const sessions = activeCourse?.sessions || [];
       return `
-        <h2 class="section-title">Available classes</h2>
-        <p class="hint">Pick a ground-school package, set the start time and student limit, then schedule it. It appears on the Classes tab for enrollment (no join code).</p>
-        ${pkgs.map((pkg) => `
-          <article class="course" style="--course-color:${courseColor('private_ground')}">
-            <div class="badge">Package</div>
-            <div style="flex:1">
-              <h2>${escapeHtml(pkg.title)}</h2>
-              <p>${escapeHtml(pkg.objective || '')}</p>
-              <div class="meta">${pkg.length_minutes || 90} min · default cap ${pkg.max_students || 10}</div>
-            </div>
-          </article>
-        `).join('') || '<div class="empty">No class packages in catalog.</div>'}
-        <h2 class="section-title">Schedule a class</h2>
-        <label>Package</label>
-        <select id="schedulePackage">
-          ${pkgs.map((pkg) => `
-            <option value="${escapeHtml(pkg.id)}" ${form.packageId === pkg.id ? 'selected' : ''}>${escapeHtml(pkg.title)}</option>
-          `).join('')}
-        </select>
+        <h2 class="section-title">Classes Admin</h2>
+        <p class="hint">Choose a course, then a class session from the 8-week spine. Set start time and student limit to put it on the Classes schedule.</p>
+        ${!courses.length ? `<div class="empty">No courses in catalog.</div>` : ''}
+        ${courses.map((course) => `
+          <section class="course-group">
+            <h2>${escapeHtml(course.title)}</h2>
+            <p class="hint">${escapeHtml(course.description || `${course.weeks || (course.sessions || []).length} sessions · ${course.length_minutes || 90} min`)}</p>
+            ${(course.sessions || []).map((session) => {
+              const selected = form.packageId === session.id && form.courseId === course.id;
+              return `
+                <div class="session-pick ${selected ? 'selected' : ''}">
+                  <div class="week">Week ${escapeHtml(String(session.week ?? '—'))}</div>
+                  <div class="body">
+                    <h3>${escapeHtml(session.title)}</h3>
+                    <p>${escapeHtml(session.objective || '')}</p>
+                    <div class="meta" style="margin-top:4px">${session.length_minutes || 90} min · cap ${session.max_students || 10}${session.content_status === 'ready' ? ' · content ready' : ' · outline'}</div>
+                    <div class="btn-row" style="margin-top:8px">
+                      <button type="button" class="${selected ? '' : 'secondary'}" data-pick-session="${escapeHtml(session.id)}" data-pick-course="${escapeHtml(course.id)}">${selected ? 'Selected' : 'Select to schedule'}</button>
+                    </div>
+                  </div>
+                </div>`;
+            }).join('') || '<div class="empty">No sessions in this course.</div>'}
+          </section>
+        `).join('')}
+        <h2 class="section-title">Schedule selected class</h2>
+        <p class="hint">${activeCourse && form.packageId
+          ? `Course: <strong>${escapeHtml(activeCourse.title)}</strong> · Class: <strong>${escapeHtml((sessions.find((s) => s.id === form.packageId) || {}).title || form.packageId)}</strong>`
+          : 'Select a class above first.'}</p>
         <label>Starts (your local time)</label>
         <input type="datetime-local" id="scheduleStartsAt" value="${escapeHtml(form.startsAtLocal || '')}" />
         <label>Student limit</label>
         <input type="number" id="scheduleStudentLimit" min="1" max="50" value="${escapeHtml(String(form.studentLimit || 10))}" />
         <div class="btn-row" style="margin-top:12px">
-          <button type="button" id="scheduleClassBtn">Schedule class</button>
+          <button type="button" id="scheduleClassBtn" ${form.packageId ? '' : 'disabled'}>Schedule class</button>
         </div>
         <h2 class="section-title">Already on the schedule</h2>
         ${renderClassesSchedule()}
@@ -2667,7 +2743,7 @@
           <div class="stat"><b>${s.due}</b><span>Due</span></div>
         </div>
         <h2 class="section-title">Ground school classes</h2>
-        <p class="hint">See the schedule and enroll in upcoming sessions. Instructors schedule from Admin Class.</p>
+        <p class="hint">See the schedule and enroll in upcoming Private Pilot Glider sessions. Instructors schedule from Classes Admin.</p>
         <div class="btn-row" style="margin-bottom:12px">
           <button type="button" data-view-jump="classes">Open Classes</button>
         </div>
@@ -3961,7 +4037,7 @@
           : 'Classes · schedule & enroll';
       }
       if (state.view === 'adminClass') {
-        sub.textContent = 'Admin Class · schedule packages';
+        sub.textContent = 'Classes Admin · course catalog';
       }
       if (state.view === 'aircraft') {
         sub.textContent = state.aircraft.page === 'sgs233'
@@ -4180,14 +4256,20 @@
           }
         });
       });
-      const schedulePackage = app.querySelector('#schedulePackage');
-      if (schedulePackage) {
-        schedulePackage.addEventListener('change', () => {
-          state.class.scheduleForm.packageId = schedulePackage.value;
-          const pkg = (state.class.packages || []).find((p) => p.id === schedulePackage.value);
-          if (pkg?.max_students) state.class.scheduleForm.studentLimit = pkg.max_students;
+      app.querySelectorAll('[data-pick-session]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const courseId = btn.dataset.pickCourse || '';
+          const sessionId = btn.dataset.pickSession || '';
+          state.class.scheduleForm.courseId = courseId;
+          state.class.scheduleForm.packageId = sessionId;
+          const course = (state.class.courses || []).find((c) => c.id === courseId);
+          const session = (course?.sessions || []).find((s) => s.id === sessionId);
+          if (session?.max_students) {
+            state.class.scheduleForm.studentLimit = session.max_students;
+          }
+          render();
         });
-      }
+      });
       const scheduleStartsAt = app.querySelector('#scheduleStartsAt');
       if (scheduleStartsAt) {
         scheduleStartsAt.addEventListener('change', () => {
@@ -4207,11 +4289,12 @@
           try {
             const local = state.class.scheduleForm.startsAtLocal || scheduleStartsAt?.value;
             if (!local) throw new Error('Pick a start date/time');
+            if (!state.class.scheduleForm.packageId) throw new Error('Select a class session first');
             const startsAt = new Date(local).toISOString();
             const data = await api('/api/classes', {
               method: 'POST',
               body: JSON.stringify({
-                package_id: state.class.scheduleForm.packageId || schedulePackage?.value,
+                package_id: state.class.scheduleForm.packageId,
                 starts_at: startsAt,
                 student_limit: Number(state.class.scheduleForm.studentLimit || scheduleStudentLimit?.value || 10)
               })

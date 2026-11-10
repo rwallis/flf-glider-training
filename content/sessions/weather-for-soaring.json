@@ -2,9 +2,9 @@
   "id": "weather-for-soaring",
   "slug": "weather-for-soaring",
   "title": "Weather for Soaring",
-  "course": "Private Pilot Glider Ground (FLF app-guided)",
+  "course": "Private Pilot Glider",
   "week": 3,
-  "prototype_order": 1,
+  "prototype_order": 3,
   "length_minutes": 90,
   "max_students": 10,
   "audience": "Private glider students, class ≤10, in-person or remote",
@@ -29,22 +29,81 @@
     "Local go/no-go framework tied to ship, launch method, and landable outs."
   ],
   "schedule": [
-    { "block": "Join / roster / session open", "time": "0–3", "mode": "Instructor" },
-    { "block": "Warm-up diagnostic (5 MC)", "time": "3–12", "mode": "App + instructor heat map" },
-    { "block": "Teach — stability & thermals", "time": "12–30", "mode": "Guided discussion" },
-    { "block": "Teach — clouds, winds, fronts, TS", "time": "30–48", "mode": "Guided discussion + risk pauses" },
-    { "block": "Teach — METAR/TAF + soaring products + go/no-go", "time": "48–62", "mode": "Demo + student practice" },
-    { "block": "Check quiz (10 MC)", "time": "62–75", "mode": "App (freeze optional)" },
-    { "block": "Debrief misconceptions", "time": "75–85", "mode": "Instructional details, no answer keys as labels" },
-    { "block": "Close / homework / attendance", "time": "85–90", "mode": "Personalized study plan" }
+    {
+      "block": "Join / roster / session open",
+      "time": "0–3",
+      "mode": "Instructor"
+    },
+    {
+      "block": "Warm-up diagnostic (5 MC)",
+      "time": "3–12",
+      "mode": "App + instructor heat map"
+    },
+    {
+      "block": "Teach — stability & thermals",
+      "time": "12–30",
+      "mode": "Guided discussion"
+    },
+    {
+      "block": "Teach — clouds, winds, fronts, TS",
+      "time": "30–48",
+      "mode": "Guided discussion + risk pauses"
+    },
+    {
+      "block": "Teach — METAR/TAF + soaring products + go/no-go",
+      "time": "48–62",
+      "mode": "Demo + student practice"
+    },
+    {
+      "block": "Check quiz (10 MC)",
+      "time": "62–75",
+      "mode": "App (freeze optional)"
+    },
+    {
+      "block": "Debrief misconceptions",
+      "time": "75–85",
+      "mode": "Instructional details, no answer keys as labels"
+    },
+    {
+      "block": "Close / homework / attendance",
+      "time": "85–90",
+      "mode": "Personalized study plan"
+    }
   ],
   "phases": [
-    { "id": "open", "title": "Open", "minutes": "0–3" },
-    { "id": "warmup", "title": "Warm-up", "minutes": "3–12", "quiz": "warmup" },
-    { "id": "teach", "title": "Teach", "minutes": "12–62" },
-    { "id": "check", "title": "Check quiz", "minutes": "62–75", "quiz": "check" },
-    { "id": "debrief", "title": "Debrief", "minutes": "75–85" },
-    { "id": "close", "title": "Close / homework", "minutes": "85–90", "homework": true }
+    {
+      "id": "open",
+      "title": "Open",
+      "minutes": "0–3"
+    },
+    {
+      "id": "warmup",
+      "title": "Warm-up",
+      "minutes": "3–12",
+      "quiz": "warmup"
+    },
+    {
+      "id": "teach",
+      "title": "Teach",
+      "minutes": "12–62"
+    },
+    {
+      "id": "check",
+      "title": "Check quiz",
+      "minutes": "62–75",
+      "quiz": "check"
+    },
+    {
+      "id": "debrief",
+      "title": "Debrief",
+      "minutes": "75–85"
+    },
+    {
+      "id": "close",
+      "title": "Close / homework",
+      "minutes": "85–90",
+      "homework": true
+    }
   ],
   "completion_standards": [
     "State how environmental vs. dry/moist adiabatic lapse rates relate to absolute instability, absolute stability, and conditional instability for soaring.",
@@ -56,9 +115,16 @@
     "Score ≥70% on the check quiz or remediate weak items via assigned homework before the instructor marks the weather block assessed."
   ],
   "signoff": {
-    "primary": ["61.105(b)(6)", "61.105(b)(13)"],
-    "supporting": ["61.105(b)(12)"],
-    "pts": ["PPG-PTS I.B Weather Information"],
+    "primary": [
+      "61.105(b)(6)",
+      "61.105(b)(13)"
+    ],
+    "supporting": [
+      "61.105(b)(12)"
+    ],
+    "pts": [
+      "PPG-PTS I.B Weather Information"
+    ],
     "note": "Instructor judgment governs sign-off readiness; the app records evidence, it does not auto-endorse."
   },
   "tags": [
@@ -250,7 +316,12 @@
             "5 °C per 1,000 feet"
           ],
           "source": "Session: Weather for Soaring",
-          "tags": ["warmup", "lapse-rate", "stability", "session:weather-for-soaring"],
+          "tags": [
+            "warmup",
+            "lapse-rate",
+            "stability",
+            "session:weather-for-soaring"
+          ],
           "details": {
             "summary": "An unsaturated parcel expands as pressure falls and cools near the dry adiabatic lapse rate, about 3 °C per 1,000 feet. The roughly 2 °C per 1,000 feet figure is the standard atmosphere environmental lapse rate used for planning temperatures aloft—not the parcel’s dry rate. After the parcel reaches dewpoint and condenses, it cools more slowly (moist/saturated rate).",
             "links": []
@@ -269,7 +340,11 @@
             "Wave lift is guaranteed at 5,000 feet"
           ],
           "source": "Session: Weather for Soaring",
-          "tags": ["warmup", "thermal-index", "session:weather-for-soaring"],
+          "tags": [
+            "warmup",
+            "thermal-index",
+            "session:weather-for-soaring"
+          ],
           "details": {
             "summary": "TI compares the lifted surface parcel’s temperature with the real temperature at that height. When the parcel arrives warmer than its surroundings, buoyancy still favors climb—reported as a negative TI. Cloud base and wave are separate problems (moisture and mountain/wind structure).",
             "links": []
@@ -288,7 +363,11 @@
             "That a thunderstorm has already matured"
           ],
           "source": "Session: Weather for Soaring",
-          "tags": ["warmup", "cumulus", "session:weather-for-soaring"],
+          "tags": [
+            "warmup",
+            "cumulus",
+            "session:weather-for-soaring"
+          ],
           "details": {
             "summary": "When a thermal climbs to the altitude where the parcel’s moisture condenses, a cumulus can form. Firm bases are the visual marker that those thermals made it to the condensation level. An inversion from the surface would suppress those thermals; ridge and thunderstorms are different lift/hazard stories.",
             "links": []
@@ -307,7 +386,12 @@
             "Temperature is 21 °C and dewpoint 15 °C"
           ],
           "source": "Session: Weather for Soaring",
-          "tags": ["warmup", "METAR", "winds", "session:weather-for-soaring"],
+          "tags": [
+            "warmup",
+            "METAR",
+            "winds",
+            "session:weather-for-soaring"
+          ],
           "details": {
             "summary": "The wind group is direction in tens of degrees true (here 210°) then speed in knots, with G marking gusts. Temperature/dewpoint appear later as TT/DD; visibility and weather have their own groups.",
             "links": []
@@ -326,7 +410,11 @@
             "Immediate fog as the only hazard"
           ],
           "source": "Session: Weather for Soaring",
-          "tags": ["warmup", "fronts", "session:weather-for-soaring"],
+          "tags": [
+            "warmup",
+            "fronts",
+            "session:weather-for-soaring"
+          ],
           "details": {
             "summary": "Cooler air aloft steepens the environmental lapse rate once the sun reheats the ground—classic post-frontal thermal setup—provided clouds from the next system are not already cutting the heating. Wave still needs the right wind and stability aloft; fog is a separate moisture/cooling problem.",
             "links": []
@@ -352,7 +440,12 @@
             "Neutrally buoyant only at night"
           ],
           "source": "Session: Weather for Soaring",
-          "tags": ["check", "stability", "lapse-rate", "session:weather-for-soaring"],
+          "tags": [
+            "check",
+            "stability",
+            "lapse-rate",
+            "session:weather-for-soaring"
+          ],
           "details": {
             "summary": "Stability compares the environmental lapse rate to the dry and moist adiabatic rates. When the environment cools slower than the moist rate, even a saturated parcel is cooler than its surroundings if displaced upward—absolute stability. Absolute instability needs cooling faster than the dry rate; the in-between band is conditional instability.",
             "links": []
@@ -371,7 +464,12 @@
             "The dewpoint required for wave"
           ],
           "source": "Session: Weather for Soaring",
-          "tags": ["check", "trigger-temp", "soaring-forecast", "session:weather-for-soaring"],
+          "tags": [
+            "check",
+            "trigger-temp",
+            "soaring-forecast",
+            "session:weather-for-soaring"
+          ],
           "details": {
             "summary": "Forecasts publish a convection / trigger temperature—the surface reading that, given today’s sounding, lets parcels rise dry-adiabatically through the layer you care about. Pilots watch the thermometer (and time of trigger) to know when the day turns on, not as an airframe limit.",
             "links": []
@@ -390,7 +488,12 @@
             "Move into the rain shaft for cool air"
           ],
           "source": "Session: Weather for Soaring",
-          "tags": ["check", "overdevelopment", "thunderstorms", "session:weather-for-soaring"],
+          "tags": [
+            "check",
+            "overdevelopment",
+            "thunderstorms",
+            "session:weather-for-soaring"
+          ],
           "details": {
             "summary": "Overdevelopment toward Cb brings extreme turbulence, hail, lightning, gust fronts, and microbursts. A glider does not thread storm gaps for training. The safe pattern is leave the lift early, protect glide to a landable field, and land—before the gust front arrives.",
             "links": []
@@ -409,7 +512,12 @@
             "Always from the east in North America"
           ],
           "source": "Session: Weather for Soaring",
-          "tags": ["check", "ridge", "winds", "session:weather-for-soaring"],
+          "tags": [
+            "check",
+            "ridge",
+            "winds",
+            "session:weather-for-soaring"
+          ],
           "details": {
             "summary": "Slope/ridge lift is mechanical: air is forced up the windward face. Usable lift favors wind into the ridge (often within a few tens of degrees of perpendicular) at speeds the site usually needs (often on the order of 10–15+ kt, site-dependent). Parallel or calm flow does not drive that upslope branch.",
             "links": []
@@ -428,7 +536,11 @@
             "Cold-front rain has already ended"
           ],
           "source": "Session: Weather for Soaring",
-          "tags": ["check", "wave", "session:weather-for-soaring"],
+          "tags": [
+            "check",
+            "wave",
+            "session:weather-for-soaring"
+          ],
           "details": {
             "summary": "Lenticulars mark waves in stable, strong flow over terrain. Wave lift can be smooth at altitude, but the rotor region under the wave is turbulent and hazardous—especially near ridge height and in the lee. Treat the sky as a wave briefing, not a thermal-only day.",
             "links": []
@@ -447,7 +559,12 @@
             "Altimeter 30.15"
           ],
           "source": "Session: Weather for Soaring",
-          "tags": ["check", "thunderstorms", "go-no-go", "session:weather-for-soaring"],
+          "tags": [
+            "check",
+            "thunderstorms",
+            "go-no-go",
+            "session:weather-for-soaring"
+          ],
           "details": {
             "summary": "Model lift maps do not override convective hazard products. Thunderstorms and convective SIGMETs mean extreme weather risk for gliders. Scattered clouds, a modest temperature–dewpoint spread, and a normal altimeter setting are routine briefing items, not automatic stops.",
             "links": []
@@ -466,7 +583,12 @@
             "METAR visibility will be less than 1 mile"
           ],
           "source": "Session: Weather for Soaring",
-          "tags": ["check", "sounding", "stability", "session:weather-for-soaring"],
+          "tags": [
+            "check",
+            "sounding",
+            "stability",
+            "session:weather-for-soaring"
+          ],
           "details": {
             "summary": "An inversion is a lid: rising parcels hit warmer environmental air and lose buoyancy. Morning/early lids often erode as surface heating builds the mixed layer—or they win and you get a blue, low day. Wind and visibility are separate observations.",
             "links": []
@@ -485,7 +607,12 @@
             "Cancel only if the TEMPO also includes freezing rain"
           ],
           "source": "Session: Weather for Soaring",
-          "tags": ["check", "TAF", "thunderstorms", "session:weather-for-soaring"],
+          "tags": [
+            "check",
+            "TAF",
+            "thunderstorms",
+            "session:weather-for-soaring"
+          ],
           "details": {
             "summary": "TEMPO means temporary fluctuations are forecast—here thunderstorms and rain. For glider training, that is operationally meaningful: define a land-by time, delay launch, or no-go rather than hoping to use storm updrafts.",
             "links": []
@@ -504,7 +631,12 @@
             "The length of the runway required"
           ],
           "source": "Session: Weather for Soaring",
-          "tags": ["check", "thermal-index", "soaring-forecast", "session:weather-for-soaring"],
+          "tags": [
+            "check",
+            "thermal-index",
+            "soaring-forecast",
+            "session:weather-for-soaring"
+          ],
           "details": {
             "summary": "Forecasts often highlight the height where TI reaches about −3, a rule-of-thumb level still associated with usable buoyancy. It is a thermal height planning aid from the sounding/forecast method—not an oxygen rule, a universal cloud-base formula, or a runway number.",
             "links": []
@@ -523,7 +655,11 @@
             "Wave index is poor, therefore thermals cannot exist."
           ],
           "source": "Session: Weather for Soaring",
-          "tags": ["check", "go-no-go", "session:weather-for-soaring"],
+          "tags": [
+            "check",
+            "go-no-go",
+            "session:weather-for-soaring"
+          ],
           "details": {
             "summary": "A competent decision ties products to the flight: launch winds, lift timing (trigger), hazards, and outs, plus a time limit if overdevelopment is possible. A single model climb rate does not erase crosswind or landing options; good visibility does not cancel storm risk; wave and thermals are different lift modes.",
             "links": []
@@ -547,7 +683,12 @@
         "answer": "DALR ≈ 3 °C/1000 ft (unsaturated parcel cooling); standard ≈ 2 °C/1000 ft (planning env); SALR slower after condensation. Pilots compare env lapse to these rates for stability and thermal potential.",
         "choices": null,
         "source": "Session: Weather for Soaring homework",
-        "tags": ["homework", "lapse-rate", "stability", "session:weather-for-soaring"],
+        "tags": [
+          "homework",
+          "lapse-rate",
+          "stability",
+          "session:weather-for-soaring"
+        ],
         "details": {
           "summary": "DALR is the dry parcel rate (~3 °C/1,000 ft). The standard atmosphere rate (~2 °C/1,000 ft) is an environmental planning reference. SALR is slower cooling after condensation. Stability and TI thinking compare the real sounding to these parcel rates.",
           "links": []
@@ -561,7 +702,11 @@
         "answer": "Env cooler faster than DALR → absolute instability; between DALR and SALR → conditional; env cooler slower than SALR → absolute stability.",
         "choices": null,
         "source": "Session: Weather for Soaring homework",
-        "tags": ["homework", "stability", "session:weather-for-soaring"],
+        "tags": [
+          "homework",
+          "stability",
+          "session:weather-for-soaring"
+        ],
         "details": {
           "summary": "Compare how fast the environment cools with height to the dry and moist adiabatic rates. Faster than dry → absolute instability. Slower than moist → absolute stability. Between them → conditional instability.",
           "links": []
@@ -575,7 +720,11 @@
         "answer": "TI compares lifted surface-parcel temperature to environment at height H. Negative TI → parcel warmer than environment → climb still favored to that height.",
         "choices": null,
         "source": "Session: Weather for Soaring homework",
-        "tags": ["homework", "thermal-index", "session:weather-for-soaring"],
+        "tags": [
+          "homework",
+          "thermal-index",
+          "session:weather-for-soaring"
+        ],
         "details": {
           "summary": "Lift a surface parcel dry-adiabatically to height H and compare its temperature to the sounding. When the parcel is warmer (negative TI), buoyancy still favors reaching that height.",
           "links": []
@@ -589,7 +738,11 @@
         "answer": "Trigger temp is the surface temperature that allows convection to useful heights given today’s sounding. Use forecast time of trigger to plan when the day turns on for launch/soaring.",
         "choices": null,
         "source": "Session: Weather for Soaring homework",
-        "tags": ["homework", "trigger-temp", "session:weather-for-soaring"],
+        "tags": [
+          "homework",
+          "trigger-temp",
+          "session:weather-for-soaring"
+        ],
         "details": {
           "summary": "Watch surface temperature and the forecast time of trigger to know when parcels can punch through the layer you care about — not as an aircraft temperature limit.",
           "links": []
@@ -603,7 +756,11 @@
         "answer": "Firm cu bases mark thermals that reached condensation level. Ragged dying cu mean lift is fading — expect weaker climbs and earlier landings.",
         "choices": null,
         "source": "Session: Weather for Soaring homework",
-        "tags": ["homework", "cumulus", "session:weather-for-soaring"],
+        "tags": [
+          "homework",
+          "cumulus",
+          "session:weather-for-soaring"
+        ],
         "details": {
           "summary": "Firm bases are the visual cue that thermals made condensation level. Ragged, dissolving cu usually mean the day is winding down.",
           "links": []
@@ -617,7 +774,12 @@
         "answer": "Cu → towering cu → Cb. Leave early, keep a landable field in glide, land before gust front; do not chase storm updrafts for training.",
         "choices": null,
         "source": "Session: Weather for Soaring homework",
-        "tags": ["homework", "overdevelopment", "thunderstorms", "session:weather-for-soaring"],
+        "tags": [
+          "homework",
+          "overdevelopment",
+          "thunderstorms",
+          "session:weather-for-soaring"
+        ],
         "details": {
           "summary": "Overdevelopment toward Cb is a land-soon sky. Protect glide to a landable field and get down before the gust front — do not praise climb rate under building storms.",
           "links": []
@@ -631,7 +793,12 @@
         "answer": "Usable ridge lift favors wind roughly perpendicular to the ridge (often within ~30–40°) at site-dependent speeds (often ≥10–15 kt). Instructor fills local numbers.",
         "choices": null,
         "source": "Session: Weather for Soaring homework",
-        "tags": ["homework", "ridge", "winds", "session:weather-for-soaring"],
+        "tags": [
+          "homework",
+          "ridge",
+          "winds",
+          "session:weather-for-soaring"
+        ],
         "details": {
           "summary": "Ridge lift is mechanical upslope flow. Site SOPs set the exact direction window and minimum wind — write those numbers from your instructor.",
           "links": []
@@ -645,7 +812,11 @@
         "answer": "Lenticulars, strong flow roughly perpendicular to terrain increasing with height, and a stable layer aloft mark wave. Rotor under the wave is turbulent and hazardous.",
         "choices": null,
         "source": "Session: Weather for Soaring homework",
-        "tags": ["homework", "wave", "session:weather-for-soaring"],
+        "tags": [
+          "homework",
+          "wave",
+          "session:weather-for-soaring"
+        ],
         "details": {
           "summary": "Wave needs the right wind and stability structure. Lenticulars are a clue; the rotor region beneath is a hazard, especially near ridge height and in the lee.",
           "links": []
@@ -659,7 +830,11 @@
         "answer": "Cooler drier air aloft after a cold front steepens the lapse rate once sun reheats the surface. The next front or high cloud can cut heating before trigger.",
         "choices": null,
         "source": "Session: Weather for Soaring homework",
-        "tags": ["homework", "fronts", "session:weather-for-soaring"],
+        "tags": [
+          "homework",
+          "fronts",
+          "session:weather-for-soaring"
+        ],
         "details": {
           "summary": "Post-frontal cooler air aloft plus sunshine is a classic thermal setup. Brief timing: if the next system already shades the surface, trigger never arrives.",
           "links": []
@@ -673,7 +848,11 @@
         "answer": "Wind group; visibility/present weather; cloud layers/ceiling; temperature/dewpoint — then ask launchable? soarable? landable if lift dies?",
         "choices": null,
         "source": "Session: Weather for Soaring homework",
-        "tags": ["homework", "METAR", "session:weather-for-soaring"],
+        "tags": [
+          "homework",
+          "METAR",
+          "session:weather-for-soaring"
+        ],
         "details": {
           "summary": "Use the glider decode pattern: wind → visibility/WX → ceiling → temp/dewpoint, then decide launchable, soarable, and outs if lift dies.",
           "links": []
@@ -687,7 +866,11 @@
         "answer": "Examples: trigger temp/time; TI or −3 TI height / max thermal height; max lift rate; surface winds in the window; overdevelopment time / mid-high cloud / wave index.",
         "choices": null,
         "source": "Session: Weather for Soaring homework",
-        "tags": ["homework", "soaring-forecast", "session:weather-for-soaring"],
+        "tags": [
+          "homework",
+          "soaring-forecast",
+          "session:weather-for-soaring"
+        ],
         "details": {
           "summary": "Before unpacking, pull lift timing (trigger), usable height/TI, strength, winds, and overdevelopment or wave cues from the soaring forecast or sounding products.",
           "links": []
@@ -701,12 +884,17 @@
         "answer": "Legal VFR; launchable wind; soarable lift; hazards manageable; outs if lift fails; density altitude/performance; personal/student readiness.",
         "choices": null,
         "source": "Session: Weather for Soaring homework",
-        "tags": ["homework", "go-no-go", "session:weather-for-soaring"],
+        "tags": [
+          "homework",
+          "go-no-go",
+          "session:weather-for-soaring"
+        ],
         "details": {
           "summary": "A competent local checklist ties weather products to legal VFR, launch limits, lift timing, hazards, outs, performance, and personal readiness — weather alone is not enough.",
           "links": []
         }
       }
     ]
-  }
+  },
+  "course_id": "private-pilot-glider"
 }

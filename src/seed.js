@@ -7,6 +7,7 @@ import { collectSessionSeedContent } from './classroom/packages.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SEED_PATH = path.join(__dirname, '..', 'content', 'seed.json');
 const SESSIONS_DIR = path.join(__dirname, '..', 'content', 'sessions');
+const COURSES_DIR = path.join(__dirname, '..', 'content', 'courses');
 const CFI_G_IMPORT_PATH = path.join(
   __dirname,
   '..',
@@ -462,6 +463,19 @@ async function contentFingerprint() {
     }
   } catch {
     hash.update('\0sessions-missing');
+  }
+  try {
+    const courseFiles = (await readdir(COURSES_DIR))
+      .filter((name) => name.endsWith('.json'))
+      .sort();
+    for (const name of courseFiles) {
+      const file = path.join(COURSES_DIR, name);
+      hash.update('\0');
+      hash.update(file);
+      hash.update(await readFile(file));
+    }
+  } catch {
+    hash.update('\0courses-missing');
   }
   return hash.digest('hex');
 }
