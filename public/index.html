@@ -1403,6 +1403,107 @@
       color: var(--muted);
       margin-top: 4px;
     }
+    .class-code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 1.6rem;
+      letter-spacing: 0.18em;
+      font-weight: 800;
+      color: var(--sky-deep);
+    }
+    .class-roster {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 8px 0 12px;
+    }
+    .class-roster .seat {
+      background: #E8F2F8;
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.82rem;
+      font-weight: 650;
+    }
+    .class-roster .seat.instructor {
+      background: #FEF3C7;
+      color: #92400E;
+    }
+    .phase-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 8px 0 12px;
+    }
+    .phase-chip {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+    .phase-chip.active {
+      background: var(--sky-deep);
+      border-color: var(--sky-deep);
+      color: #fff;
+    }
+    .outline-block {
+      margin: 0 0 14px;
+      padding: 0 0 10px;
+      border-bottom: 1px solid var(--line);
+    }
+    .outline-block:last-child { border-bottom: 0; }
+    .outline-block h3 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+    }
+    .outline-block ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: var(--ink);
+    }
+    .outline-block li { margin: 4px 0; }
+    .risk-pause {
+      background: #FFF7ED;
+      border-left: 4px solid var(--copper);
+      padding: 10px 12px;
+      margin: 10px 0;
+      border-radius: 0 10px 10px 0;
+    }
+    .risk-pause strong { display: block; margin-bottom: 4px; }
+    .heat-bar {
+      display: grid;
+      grid-template-columns: 110px 1fr 42px;
+      gap: 8px;
+      align-items: center;
+      margin: 6px 0;
+      font-size: 0.82rem;
+    }
+    .heat-bar .track {
+      height: 10px;
+      background: #E8F2F8;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .heat-bar .fill {
+      height: 100%;
+      background: var(--copper);
+      border-radius: 999px;
+    }
+    .join-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .join-row input {
+      flex: 1;
+      min-width: 140px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+    }
   </style>
 </head>
 <body>
@@ -1424,6 +1525,7 @@
   <nav class="nav" id="nav">
     <button type="button" data-view="home"><span>⌂</span>Home</button>
     <button type="button" data-view="study"><span>✎</span>Study</button>
+    <button type="button" data-view="class"><span>☰</span>Class</button>
     <button type="button" data-view="aircraft"><span>✈</span>Aircraft</button>
     <button type="button" data-view="progress"><span>★</span>League</button>
     <button type="button" data-view="admin" id="navAdminBtn" class="nav-admin-hidden"><span>⚙</span>Admin</button>
@@ -1499,6 +1601,16 @@
         macCready: 2.0,
         wind: 0, // mph; +tail / −head
         probeMph: 54 // IAS probe for L/D & sink (clamped to stall…Vmax)
+      },
+      class: {
+        packages: [],
+        session: null,
+        heatmap: null,
+        joinCode: '',
+        remote: false,
+        quizIndex: 0,
+        status: '',
+        pollTimer: null
       }
     };
 
@@ -1698,6 +1810,7 @@
       return ({
         common: 'Common',
         private: 'Private',
+        private_ground: 'Ground',
         commercial: 'Commercial',
         cfi_g: 'CFI-G',
         foi: 'FOI',
@@ -1712,7 +1825,8 @@
         commercial: '#FF9600',
         cfi_g: '#CE82FF',
         foi: '#2F7D32',
-        private: '#FF4B4B'
+        private: '#FF4B4B',
+        private_ground: '#0D9488'
       })[id] || '#2B8FCC';
     }
 
@@ -2149,6 +2263,253 @@
       `;
     }
 
+    function stopClassPoll() {
+      if (state.class.pollTimer) {
+        clearInterval(state.class.pollTimer);
+        state.class.pollTimer = null;
+      }
+    }
+
+    function startClassPoll() {
+      stopClassPoll();
+      if (state.view !== 'class' || !state.class.session?.id) return;
+      state.class.pollTimer = setInterval(() => {
+        if (state.view !== 'class' || !state.class.session?.id) {
+          stopClassPoll();
+          return;
+        }
+        refreshClassSession({ quiet: true }).catch(() => {});
+      }, 4000);
+    }
+
+    async function loadClassPackages() {
+      try {
+        const data = await api('/api/sessions/packages');
+        state.class.packages = data.packages || [];
+      } catch (err) {
+        state.class.packages = [];
+        state.class.status = err.message || 'Could not load session packages';
+      }
+    }
+
+    async function refreshClassSession({ quiet = false } = {}) {
+      if (!state.class.session?.id) {
+        const cur = await api('/api/live-sessions/current');
+        state.class.session = cur.session || null;
+      } else {
+        const data = await api('/api/live-sessions/' + encodeURIComponent(state.class.session.id));
+        state.class.session = data.session || null;
+      }
+      if (state.class.session?.you?.role === 'instructor' || isAdminUser()) {
+        try {
+          const heat = await api(
+            '/api/live-sessions/' + encodeURIComponent(state.class.session.id) + '/heatmap'
+          );
+          state.class.heatmap = heat.heatmap || null;
+        } catch {
+          state.class.heatmap = null;
+        }
+      } else {
+        state.class.heatmap = null;
+      }
+      if (!quiet && state.view === 'class') render();
+      else if (quiet && state.view === 'class') {
+        // Soft refresh without resetting quiz index unless phase/quiz length changed.
+        const quizLen = state.class.session?.quiz?.cards?.length || 0;
+        if (state.class.quizIndex >= quizLen) state.class.quizIndex = Math.max(0, quizLen - 1);
+        render();
+      }
+    }
+
+    async function openClassView() {
+      state.view = 'class';
+      state.class.status = '';
+      await loadClassPackages();
+      try {
+        await refreshClassSession({ quiet: true });
+      } catch {
+        state.class.session = null;
+      }
+      startClassPoll();
+      render();
+    }
+
+    function renderClassLobby() {
+      const pkg = (state.class.packages || [])[0];
+      return `
+        <h2 class="section-title">Live class</h2>
+        <p class="hint">Join today’s instructor-led session with the session code. Cap is 10 students. Local demo works without Google OAuth (auth off).</p>
+        ${pkg ? `
+          <article class="course" style="--course-color:${courseColor('private_ground')}">
+            <div class="badge">Session</div>
+            <div style="flex:1">
+              <h2>${escapeHtml(pkg.title)}</h2>
+              <p>${escapeHtml(pkg.objective || '')}</p>
+              <div class="meta">${pkg.length_minutes || 90} min · ≤${pkg.max_students || 10} students</div>
+            </div>
+          </article>
+        ` : `<div class="empty">No session packages loaded.</div>`}
+        <h2 class="section-title">Join with code</h2>
+        <div class="join-row">
+          <input id="joinCodeInput" maxlength="12" placeholder="CODE" value="${escapeHtml(state.class.joinCode || '')}" autocomplete="off" />
+          <label style="display:flex;align-items:center;gap:6px;font-size:0.85rem;white-space:nowrap">
+            <input type="checkbox" id="joinRemote" ${state.class.remote ? 'checked' : ''} /> Remote
+          </label>
+          <button type="button" id="joinSessionBtn">Join</button>
+        </div>
+        ${isAdminUser() ? `
+          <h2 class="section-title">Instructor</h2>
+          <p class="hint">Open Weather for Soaring and share the code. Students must use that code to join this live session.</p>
+          <div class="btn-row">
+            <button type="button" id="openLiveSessionBtn">Open live session</button>
+          </div>
+        ` : ''}
+        ${state.class.status ? `<p class="hint">${escapeHtml(state.class.status)}</p>` : ''}
+      `;
+    }
+
+    function renderClassHeatmap(heat) {
+      if (!heat?.tags?.length) {
+        return `<p class="hint">Heat map fills as students answer the warm-up / check quiz.</p>`;
+      }
+      return heat.tags.slice(0, 8).map((row) => `
+        <div class="heat-bar">
+          <span>${escapeHtml(row.tag)}</span>
+          <div class="track"><div class="fill" style="width:${Math.min(100, row.miss_pct)}%"></div></div>
+          <span>${row.miss_pct}%</span>
+        </div>
+      `).join('');
+    }
+
+    function renderClassQuiz(session, isInstructor) {
+      const quiz = session.quiz;
+      if (!quiz?.cards?.length) return '';
+      const idx = Math.min(state.class.quizIndex, quiz.cards.length - 1);
+      const card = quiz.cards[idx];
+      const frozen = Boolean(quiz.frozen || session.answers_frozen);
+      const showDetail = frozen && card.details?.summary;
+      return `
+        <h2 class="section-title">${escapeHtml(quiz.title || 'Quiz')}</h2>
+        ${frozen ? `<p class="hint">Answers frozen — review instructional details.</p>` : `<p class="hint">Answer each item. Instructor can freeze when ready.</p>`}
+        <div class="flash">
+          <div class="q">${formatRichText(card.question)}</div>
+          <div class="choices">
+            ${(card.choices || []).map((choice) => {
+              const selected = card.your_choice === choice;
+              let cls = 'choice';
+              if (selected) cls += ' selected';
+              if (frozen && card.answer && choice === card.answer) cls += ' correct';
+              if (frozen && selected && card.your_correct === false) cls += ' wrong';
+              return `<button type="button" class="${cls}" data-class-choice="${escapeHtml(choice)}" ${frozen ? 'disabled' : ''}>${escapeHtml(choice)}</button>`;
+            }).join('')}
+          </div>
+          ${showDetail ? `<div class="details-summary" style="margin-top:12px">${escapeHtml(card.details.summary)}</div>` : ''}
+          <div class="study-nav-row">
+            <button type="button" class="study-nav-back" id="classQuizBack" ${idx <= 0 ? 'disabled' : ''}>← Back</button>
+            <span class="study-nav-pos">${idx + 1} / ${quiz.cards.length}</span>
+            <button type="button" class="study-nav-next" id="classQuizNext" ${idx >= quiz.cards.length - 1 ? 'disabled' : ''}>Next →</button>
+          </div>
+        </div>
+        ${isInstructor ? `
+          <div class="btn-row" style="margin-top:10px">
+            <button type="button" class="secondary" id="freezeQuizBtn">${frozen ? 'Unfreeze answers' : 'Freeze answers'}</button>
+          </div>
+          <h2 class="section-title">Class heat map</h2>
+          ${renderClassHeatmap(state.class.heatmap)}
+        ` : ''}
+      `;
+    }
+
+    function renderClassTeach(session, isInstructor) {
+      if (!['teach', 'debrief', 'close'].includes(session.phase) && !isInstructor) {
+        return `<p class="hint">Waiting for the instructor to advance to the teach block.</p>`;
+      }
+      const outline = session.outline || [];
+      return `
+        <h2 class="section-title">Lesson outline</h2>
+        <p class="hint">${escapeHtml(session.objective || '')}</p>
+        ${outline.map((block) => `
+          <section class="outline-block">
+            <h3>${escapeHtml(block.title)}</h3>
+            <ul>${(block.bullets || []).map((b) => `<li>${escapeHtml(b)}</li>`).join('')}</ul>
+          </section>
+        `).join('')}
+        ${isInstructor && session.risk_pauses?.length ? `
+          <h2 class="section-title">Risk pauses</h2>
+          ${session.risk_pauses.map((p) => `
+            <div class="risk-pause">
+              <strong>Pause ${escapeHtml(p.id)} — ${escapeHtml(p.title)}</strong>
+              <div>${escapeHtml(p.prompt)}</div>
+              <p class="hint" style="margin:6px 0 0">Target: ${escapeHtml(p.target || '')}</p>
+            </div>
+          `).join('')}
+        ` : ''}
+      `;
+    }
+
+    function renderClassHomework(session) {
+      const hw = session.homework;
+      if (!hw) return '';
+      return `
+        <h2 class="section-title">${escapeHtml(hw.title || 'Homework')}</h2>
+        <p class="hint">Complete these FLF spaced cards before the next weekly session (weak tags first).</p>
+        <ul>${(hw.tasks || []).map((t) => `<li>${escapeHtml(t)}</li>`).join('')}</ul>
+        <div class="btn-row" style="margin-top:12px">
+          <button type="button" data-open-study="private_ground" data-study-topic="wx_homework" data-study-mode="all">Open homework cards</button>
+        </div>
+        <div class="chip-row" style="margin-top:8px">
+          ${(hw.cards || []).slice(0, 12).map((c) => `
+            <span class="chip">${escapeHtml((c.tags || []).filter((t) => !t.startsWith('session:') && t !== 'homework').slice(0, 2).join(' · ') || c.id)}</span>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    function renderClassSession() {
+      const session = state.class.session;
+      const isInstructor = session.you?.role === 'instructor' || isAdminUser();
+      const studentCount = session.roster_count || 0;
+      return `
+        <div class="stats">
+          <div class="stat"><b class="class-code" style="font-size:1.1rem;letter-spacing:0.12em">${escapeHtml(session.code)}</b><span>Join code</span></div>
+          <div class="stat"><b>${studentCount}/${session.max_students || 10}</b><span>Students</span></div>
+          <div class="stat"><b>${escapeHtml(session.phase_title || session.phase)}</b><span>Phase</span></div>
+        </div>
+        <h2 class="section-title">${escapeHtml(session.title || 'Live session')}</h2>
+        <div class="class-roster">
+          ${(session.roster || []).map((s) => `
+            <span class="seat ${s.role === 'instructor' ? 'instructor' : ''}">${escapeHtml(s.display_name)}${s.remote ? ' · remote' : ''}</span>
+          `).join('')}
+        </div>
+        ${isInstructor ? `
+          <h2 class="section-title">Advance phase</h2>
+          <div class="phase-row">
+            ${(session.phases || []).map((p) => `
+              <button type="button" class="phase-chip ${session.phase === p.id ? 'active' : ''}" data-set-phase="${escapeHtml(p.id)}">${escapeHtml(p.title)}</button>
+            `).join('')}
+          </div>
+          <div class="btn-row">
+            <button type="button" class="secondary" id="closeLiveSessionBtn">End session</button>
+          </div>
+        ` : `<p class="hint">You are authorized for this live session via join code <strong>${escapeHtml(session.code)}</strong>.</p>`}
+        ${session.phase === 'warmup' || session.phase === 'check' ? renderClassQuiz(session, isInstructor) : ''}
+        ${session.phase === 'teach' || session.phase === 'debrief' || (isInstructor && session.phase === 'open') ? renderClassTeach(session, isInstructor) : ''}
+        ${session.phase === 'close' ? `${renderClassHomework(session)}${renderClassTeach(session, isInstructor)}` : ''}
+        ${session.phase === 'open' && !isInstructor ? `<div class="empty">Session open — waiting for warm-up.</div>` : ''}
+        ${session.phase === 'debrief' && session.quiz ? renderClassQuiz(session, isInstructor) : ''}
+        <div class="btn-row" style="margin-top:16px">
+          <button type="button" class="secondary" id="leaveClassLobbyBtn">Back to join</button>
+        </div>
+      `;
+    }
+
+    function renderClass() {
+      if (state.class.session?.id && state.class.session.status !== 'closed') {
+        return renderClassSession();
+      }
+      return renderClassLobby();
+    }
+
     function renderHome() {
       const s = state.stats || { cards: 0, studied: 0, due: 0, today_xp: 0 };
       const courses = state.tracks || [];
@@ -2157,6 +2518,11 @@
           <div class="stat"><b>${s.today_xp ?? state.league?.you?.today ?? 0}</b><span>Today XP</span></div>
           <div class="stat"><b>${s.studied}</b><span>Studied</span></div>
           <div class="stat"><b>${s.due}</b><span>Due</span></div>
+        </div>
+        <h2 class="section-title">Live class</h2>
+        <p class="hint">Weather for Soaring session package is ready. Join with the instructor’s session code (≤10 students).</p>
+        <div class="btn-row" style="margin-bottom:12px">
+          <button type="button" data-view-jump="class">Open Class</button>
         </div>
         <h2 class="section-title">Daily league</h2>
         ${renderLeagueSummary(state.league, { compact: true })}
@@ -2200,7 +2566,7 @@
         : '';
       return `
         <div class="chip-row">
-          ${['commercial','common','aircraft_233','foi','cfi_g','private'].map((id) => `
+          ${['commercial','common','aircraft_233','foi','cfi_g','private','private_ground'].map((id) => `
             <button type="button" class="chip ${state.study.track === id ? 'active' : ''}" data-set-track="${id}">${trackLabel(id)}</button>
           `).join('')}
         </div>
@@ -3442,6 +3808,11 @@
       const sub = document.getElementById('subtitle');
       if (state.view === 'home') sub.textContent = 'Courses · daily league';
       if (state.view === 'study') sub.textContent = `Course ${trackLabel(state.study.track)} · ${state.study.cards.length} in session`;
+      if (state.view === 'class') {
+        sub.textContent = state.class.session?.title
+          ? `Class · ${state.class.session.title}`
+          : 'Class · join live session';
+      }
       if (state.view === 'aircraft') {
         sub.textContent = state.aircraft.page === 'sgs233'
           ? 'SGS 2-33 · MacCready + wind'
@@ -3450,8 +3821,11 @@
       if (state.view === 'progress') sub.textContent = 'League · questions answered by day';
       if (state.view === 'admin') sub.textContent = 'Admin · search & import';
 
+      if (state.view !== 'class') stopClassPoll();
+
       if (state.view === 'home') app.innerHTML = renderHome();
       else if (state.view === 'study') app.innerHTML = renderStudy();
+      else if (state.view === 'class') app.innerHTML = renderClass();
       else if (state.view === 'aircraft') {
         app.innerHTML = state.aircraft.page === 'sgs233' ? renderAircraft233() : renderAircraftHub();
       }
@@ -3459,6 +3833,7 @@
       else if (state.view === 'admin') app.innerHTML = renderAdmin();
 
       bind();
+      if (state.view === 'class' && state.class.session?.id) startClassPoll();
     }
 
     function bind() {
@@ -3544,7 +3919,8 @@
           if (isViewingOtherProgress()) return;
           await openStudy({
             track: btn.dataset.openStudy,
-            topic: '',
+            topic: btn.dataset.studyTopic || '',
+            mode: btn.dataset.studyMode || undefined,
             grades: []
           });
         });
@@ -3563,11 +3939,174 @@
         });
       });
       app.querySelectorAll('[data-view-jump]').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          state.view = btn.dataset.viewJump;
+        btn.addEventListener('click', async () => {
+          const next = btn.dataset.viewJump;
+          if (next === 'class') {
+            await openClassView();
+            return;
+          }
+          state.view = next;
           render();
         });
       });
+      const joinCodeInput = app.querySelector('#joinCodeInput');
+      if (joinCodeInput) {
+        joinCodeInput.addEventListener('input', () => {
+          state.class.joinCode = joinCodeInput.value.toUpperCase();
+        });
+      }
+      const joinRemote = app.querySelector('#joinRemote');
+      if (joinRemote) {
+        joinRemote.addEventListener('change', () => {
+          state.class.remote = joinRemote.checked;
+        });
+      }
+      const joinSessionBtn = app.querySelector('#joinSessionBtn');
+      if (joinSessionBtn) {
+        joinSessionBtn.addEventListener('click', async () => {
+          joinSessionBtn.disabled = true;
+          try {
+            const data = await api('/api/live-sessions/join', {
+              method: 'POST',
+              body: JSON.stringify({
+                code: state.class.joinCode || joinCodeInput?.value || '',
+                remote: state.class.remote
+              })
+            });
+            state.class.session = data.session;
+            state.class.quizIndex = 0;
+            state.class.status = '';
+            toast('Joined ' + (data.session.title || 'session'));
+            startClassPoll();
+            render();
+          } catch (err) {
+            state.class.status = err.message || 'Could not join';
+            toast(err.message);
+            render();
+          } finally {
+            joinSessionBtn.disabled = false;
+          }
+        });
+      }
+      const openLiveSessionBtn = app.querySelector('#openLiveSessionBtn');
+      if (openLiveSessionBtn) {
+        openLiveSessionBtn.addEventListener('click', async () => {
+          openLiveSessionBtn.disabled = true;
+          try {
+            const data = await api('/api/live-sessions', {
+              method: 'POST',
+              body: JSON.stringify({
+                package_id: 'weather-for-soaring',
+                remote: false
+              })
+            });
+            state.class.session = data.session;
+            state.class.quizIndex = 0;
+            state.class.status = '';
+            toast('Live session code ' + data.session.code);
+            startClassPoll();
+            render();
+          } catch (err) {
+            toast(err.message);
+          } finally {
+            openLiveSessionBtn.disabled = false;
+          }
+        });
+      }
+      app.querySelectorAll('[data-set-phase]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          if (!state.class.session?.id) return;
+          try {
+            const data = await api('/api/live-sessions/' + encodeURIComponent(state.class.session.id), {
+              method: 'PATCH',
+              body: JSON.stringify({ phase: btn.dataset.setPhase })
+            });
+            state.class.session = data.session;
+            state.class.quizIndex = 0;
+            await refreshClassSession({ quiet: true });
+          } catch (err) {
+            toast(err.message);
+          }
+        });
+      });
+      const freezeQuizBtn = app.querySelector('#freezeQuizBtn');
+      if (freezeQuizBtn) {
+        freezeQuizBtn.addEventListener('click', async () => {
+          if (!state.class.session?.id) return;
+          const next = !state.class.session.answers_frozen;
+          try {
+            const data = await api('/api/live-sessions/' + encodeURIComponent(state.class.session.id), {
+              method: 'PATCH',
+              body: JSON.stringify({ answers_frozen: next })
+            });
+            state.class.session = data.session;
+            await refreshClassSession({ quiet: true });
+          } catch (err) {
+            toast(err.message);
+          }
+        });
+      }
+      const closeLiveSessionBtn = app.querySelector('#closeLiveSessionBtn');
+      if (closeLiveSessionBtn) {
+        closeLiveSessionBtn.addEventListener('click', async () => {
+          if (!state.class.session?.id) return;
+          if (!window.confirm('End this live session for everyone?')) return;
+          try {
+            await api('/api/live-sessions/' + encodeURIComponent(state.class.session.id), {
+              method: 'PATCH',
+              body: JSON.stringify({ status: 'closed' })
+            });
+            state.class.session = null;
+            state.class.heatmap = null;
+            stopClassPoll();
+            toast('Session ended');
+            render();
+          } catch (err) {
+            toast(err.message);
+          }
+        });
+      }
+      const leaveClassLobbyBtn = app.querySelector('#leaveClassLobbyBtn');
+      if (leaveClassLobbyBtn) {
+        leaveClassLobbyBtn.addEventListener('click', () => {
+          state.class.session = null;
+          state.class.heatmap = null;
+          stopClassPoll();
+          render();
+        });
+      }
+      app.querySelectorAll('[data-class-choice]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const session = state.class.session;
+          const card = session?.quiz?.cards?.[state.class.quizIndex];
+          if (!session?.id || !card) return;
+          try {
+            await api('/api/live-sessions/' + encodeURIComponent(session.id) + '/answers', {
+              method: 'POST',
+              body: JSON.stringify({ card_id: card.id, choice: btn.dataset.classChoice })
+            });
+            card.your_choice = btn.dataset.classChoice;
+            await refreshClassSession({ quiet: true });
+          } catch (err) {
+            toast(err.message);
+          }
+        });
+      });
+      const classQuizBack = app.querySelector('#classQuizBack');
+      if (classQuizBack) {
+        classQuizBack.addEventListener('click', () => {
+          state.class.quizIndex = Math.max(0, state.class.quizIndex - 1);
+          render();
+        });
+      }
+      const classQuizNext = app.querySelector('#classQuizNext');
+      if (classQuizNext) {
+        classQuizNext.addEventListener('click', () => {
+          const len = state.class.session?.quiz?.cards?.length || 0;
+          state.class.quizIndex = Math.min(Math.max(0, len - 1), state.class.quizIndex + 1);
+          render();
+        });
+      }
       app.querySelectorAll('[data-aircraft-page]').forEach((btn) => {
         btn.addEventListener('click', () => {
           state.view = 'aircraft';
@@ -3988,10 +4527,15 @@
         render();
         return;
       }
+      if (state.view === 'class') {
+        await openClassView();
+        return;
+      }
       if (state.view === 'admin') {
         await loadAdmin();
         return;
       }
+      render();
     });
 
     loadAuthUser()

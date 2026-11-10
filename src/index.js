@@ -16,6 +16,8 @@ import {
   createGliderPool,
   ensureGliderSchema
 } from './db.js';
+import { createLiveSessionManager } from './classroom/liveSessions.js';
+import { registerClassroomApi } from './classroom/routes.js';
 import { registerGliderApi } from './routes.js';
 import { seedGliderContent } from './seed.js';
 import { createStore } from './store.js';
@@ -164,6 +166,7 @@ async function main() {
   );
 
   registerGliderApi(app, { store, config });
+  registerClassroomApi(app, { liveSessions: createLiveSessionManager(), config });
 
   app.get('*', (_req, res) => {
     res.setHeader('Cache-Control', 'no-store');

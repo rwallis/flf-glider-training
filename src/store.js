@@ -1,4 +1,5 @@
 import { randomUUID } from 'node:crypto';
+import { collectSessionSeedContent } from './classroom/packages.js';
 import {
   loadCardDetails,
   loadCardFigures,
@@ -1313,9 +1314,22 @@ async function loadPrivateBankForMemory() {
 export async function createStore(db) {
   if (db) return createPgStore(db);
   const seed = await loadSeedFile();
+  const sessionSeed = await collectSessionSeedContent();
+  for (const track of sessionSeed.tracks || []) {
+    if (!track?.id) continue;
+    if (!(seed.tracks || []).some((t) => t.id === track.id)) {
+      seed.tracks = seed.tracks || [];
+      seed.tracks.push(track);
+    }
+  }
   const foi = await loadFoiBankForMemory();
   const privateBank = await loadPrivateBankForMemory();
   const topicIds = new Set((seed.topics || []).map((t) => t.id));
+  for (const topic of sessionSeed.topics || []) {
+    if (!topic?.id || topicIds.has(topic.id)) continue;
+    seed.topics.push(topic);
+    topicIds.add(topic.id);
+  }
   for (const topic of foi.topics) {
     if (!topic?.id || topicIds.has(topic.id)) continue;
     seed.topics.push({
@@ -1341,6 +1355,11 @@ export async function createStore(db) {
     topicIds.add(topic.id);
   }
   const cardIds = new Set((seed.cards || []).map((c) => c.id));
+  for (const card of sessionSeed.cards || []) {
+    if (!card?.id || cardIds.has(card.id)) continue;
+    seed.cards.push(card);
+    cardIds.add(card.id);
+  }
   for (const card of foi.cards) {
     if (!card?.id || cardIds.has(card.id)) continue;
     seed.cards.push(card);
