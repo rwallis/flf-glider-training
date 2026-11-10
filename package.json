@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node src/index.js",
-    "test": "node --test gliderTrainingStore.test.js buildMeta.test.js auth.test.js polar233.test.js"
+    "test": "node --test gliderTrainingStore.test.js buildMeta.test.js auth.test.js polar233.test.js classroom.test.js"
   },
   "dependencies": {
     "cookie-session": "^2.1.1",

@@ -1,10 +1,12 @@
 import { createHash } from 'node:crypto';
-import { readFile } from 'node:fs/promises';
+import { readdir, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { collectSessionSeedContent } from './classroom/packages.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SEED_PATH = path.join(__dirname, '..', 'content', 'seed.json');
+const SESSIONS_DIR = path.join(__dirname, '..', 'content', 'sessions');
 const CFI_G_IMPORT_PATH = path.join(
   __dirname,
   '..',
@@ -448,6 +450,19 @@ async function contentFingerprint() {
       hash.update('missing');
     }
   }
+  try {
+    const sessionFiles = (await readdir(SESSIONS_DIR))
+      .filter((name) => name.endsWith('.json'))
+      .sort();
+    for (const name of sessionFiles) {
+      const file = path.join(SESSIONS_DIR, name);
+      hash.update('\0');
+      hash.update(file);
+      hash.update(await readFile(file));
+    }
+  } catch {
+    hash.update('\0sessions-missing');
+  }
   return hash.digest('hex');
 }
 
@@ -637,6 +652,7 @@ export async function seedGliderContent(db, { force = false } = {}) {
   }
 
   const seed = await loadSeedFile();
+  const sessionSeed = await collectSessionSeedContent();
   const foiBank = await loadImportBank(FOI_IMPORT_PATH);
   const privateBank = await loadImportBank(PRIVATE_IMPORT_PATH);
   const cfiBank = await loadImportBank(CFI_G_IMPORT_PATH);
@@ -667,7 +683,7 @@ export async function seedGliderContent(db, { force = false } = {}) {
     topics += 1;
   }
 
-  for (const t of seed.tracks || []) {
+  for (const t of [...(seed.tracks || []), ...(sessionSeed.tracks || [])]) {
     await db.query(
       `INSERT INTO glider_tracks (id, title, description, sort_order, status)
        VALUES ($1, $2, $3, $4, $5)
@@ -692,6 +708,9 @@ export async function seedGliderContent(db, { force = false } = {}) {
       },
       topic.track_id
     );
+  }
+  for (const topic of sessionSeed.topics || []) {
+    await upsertTopic(topic, topic.track_id);
   }
 
   if (foiBank.trackId === 'foi') {
@@ -751,11 +770,16 @@ export async function seedGliderContent(db, { force = false } = {}) {
   const plan = planCardSeedWrites({
     force,
     existing,
-    seedCards: seed.cards || [],
+    seedCards: [...(seed.cards || []), ...(sessionSeed.cards || [])],
     foiCards: foiBank.trackId === 'foi' ? foiBank.cards : [],
     privateCards: privateBank.trackId === 'private' ? privateBank.cards : [],
     topicRemaps: topicRemapList,
-    detailRows: await loadCardDetails(),
+    detailRows: [
+      ...(await loadCardDetails()),
+      ...(sessionSeed.cards || [])
+        .filter((card) => card.details)
+        .map((card) => ({ card_id: card.id, ...card.details }))
+    ],
     figureRows: await loadCardFigures(),
     correctedById
   });

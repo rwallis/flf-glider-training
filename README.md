@@ -2,8 +2,8 @@
 
 Phone-first study app for Fault Line Flyers:
 
-- **Ready now:** Common knowledge, Commercial glider, Schweizer **2-33**
-- **Upload later:** CFI-G Q&A, then Private Pilot glider Q&A
+- **Ready now:** Common knowledge, Commercial glider, Schweizer **2-33**, Private ground **Weather for Soaring** live session
+- **Also:** FOI / CFI-G / Private written banks (seeded or imported)
 
 ## Local
 
@@ -14,7 +14,16 @@ npm start
 
 Open http://localhost:3400  
 
-Without `DATABASE_URL`, uses in-memory seed (progress resets on restart).
+Without `DATABASE_URL`, uses in-memory seed (progress resets on restart).  
+Without `AUTH_ENABLED`, local mock user (`GLIDER_DEFAULT_USER`, default `ron`) can open/join live class sessions.
+
+### Live class (Weather for Soaring)
+
+1. Open the **Class** tab (auth off ⇒ local admin can instruct).
+2. Instructor: **Open live session** → share the 6-character code (cap 10 students).
+3. Students: enter the code → **Join** (code authorizes that specific live session).
+4. Instructor advances phases: Open → Warm-up → Teach → Check → Debrief → Close/homework.
+5. Homework cards also appear under Study → **Ground** (`private_ground`).
 
 ```bash
 cp .env.example .env
