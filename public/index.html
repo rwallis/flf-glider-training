@@ -1571,7 +1571,7 @@
   <nav class="nav" id="nav">
     <button type="button" data-view="home"><span>⌂</span>Home</button>
     <button type="button" data-view="study"><span>✎</span>Study</button>
-    <button type="button" data-view="classes"><span>☰</span>Classes</button>
+    <button type="button" data-view="classes" id="navClassesBtn" class="nav-admin-hidden"><span>☰</span>Classes</button>
     <button type="button" data-view="aircraft"><span>✈</span>Aircraft</button>
     <button type="button" data-view="progress"><span>★</span>League</button>
     <button type="button" data-view="adminClass" id="navAdminClassBtn" class="nav-admin-hidden"><span>▦</span>Classes Admin</button>
@@ -1584,6 +1584,7 @@
       view: 'home',
       user: null,
       isAdmin: false,
+      canSeeClasses: false,
       flags: [],
       tracks: [],
       topics: [],
@@ -1734,6 +1735,10 @@
       return Boolean(state.isAdmin);
     }
 
+    function canSeeClassesFeature() {
+      return Boolean(state.canSeeClasses);
+    }
+
     async function loadAuthUser() {
       const el = document.getElementById('header-user');
       const logoutEl = document.getElementById('header-logout');
@@ -1744,6 +1749,8 @@
           el.classList.add('hidden');
           if (logoutEl) logoutEl.classList.add('hidden');
           state.isAdmin = false;
+          state.canSeeClasses = false;
+          if (state.view === 'classes' || state.view === 'adminClass') state.view = 'home';
           setNav();
           return;
         }
@@ -1756,17 +1763,23 @@
         if (logoutEl) logoutEl.classList.remove('hidden');
         state.user = u;
         state.isAdmin = Boolean(u.isAdmin);
-        if (!state.isAdmin && (state.view === 'admin' || state.view === 'adminClass')) state.view = 'home';
+        state.canSeeClasses = Boolean(u.canSeeClasses);
+        if (!state.isAdmin && state.view === 'admin') state.view = 'home';
+        if (!state.canSeeClasses && (state.view === 'classes' || state.view === 'adminClass')) {
+          state.view = 'home';
+        }
         setNav();
       } catch {
         el.classList.add('hidden');
         if (logoutEl) logoutEl.classList.add('hidden');
-        // Auth disabled locally: treat as admin so the desk remains editable.
+        // Auth disabled locally: treat as admin / classes owner for demo.
         try {
           const health = await fetch('/healthz').then((r) => r.json());
           state.isAdmin = !health.auth_enabled;
+          state.canSeeClasses = !health.auth_enabled;
         } catch {
           state.isAdmin = false;
+          state.canSeeClasses = false;
         }
         setNav();
       }
@@ -2019,9 +2032,14 @@
       if (adminBtn) {
         adminBtn.classList.toggle('nav-admin-hidden', !isAdminUser());
       }
+      const classesBtn = document.getElementById('navClassesBtn');
+      if (classesBtn) {
+        classesBtn.classList.toggle('nav-admin-hidden', !canSeeClassesFeature());
+      }
       const adminClassBtn = document.getElementById('navAdminClassBtn');
       if (adminClassBtn) {
-        adminClassBtn.classList.toggle('nav-admin-hidden', !isAdminUser());
+        // Classes Admin: Ron-only allowlist (same as Classes), not all admins.
+        adminClassBtn.classList.toggle('nav-admin-hidden', !canSeeClassesFeature());
       }
       document.querySelectorAll('#nav button').forEach((btn) => {
         btn.classList.toggle('active', btn.dataset.view === state.view);
@@ -2742,11 +2760,13 @@
           <div class="stat"><b>${s.studied}</b><span>Studied</span></div>
           <div class="stat"><b>${s.due}</b><span>Due</span></div>
         </div>
+        ${canSeeClassesFeature() ? `
         <h2 class="section-title">Ground school classes</h2>
         <p class="hint">See the schedule and enroll in upcoming Private Pilot Glider sessions. Instructors schedule from Classes Admin.</p>
         <div class="btn-row" style="margin-bottom:12px">
           <button type="button" data-view-jump="classes">Open Classes</button>
         </div>
+        ` : ''}
         <h2 class="section-title">Daily league</h2>
         ${renderLeagueSummary(state.league, { compact: true })}
         <h2 class="section-title">Courses</h2>
@@ -4170,13 +4190,13 @@
       app.querySelectorAll('[data-view-jump]').forEach((btn) => {
         btn.addEventListener('click', async () => {
           const next = btn.dataset.viewJump;
-          if (next === 'classes') {
-            await openClassesView();
-            return;
-          }
-          if (next === 'adminClass') {
-            if (!isAdminUser()) {
-              toast('Admin access required');
+          if (next === 'classes' || next === 'adminClass') {
+            if (!canSeeClassesFeature()) {
+              toast('Classes are not available for this account');
+              return;
+            }
+            if (next === 'classes') {
+              await openClassesView();
               return;
             }
             await openAdminClassView();
@@ -4808,8 +4828,12 @@
       const btn = e.target.closest('button[data-view]');
       if (!btn) return;
       const nextView = btn.dataset.view;
-      if ((nextView === 'admin' || nextView === 'adminClass') && !isAdminUser()) {
+      if (nextView === 'admin' && !isAdminUser()) {
         toast('Admin access required');
+        return;
+      }
+      if ((nextView === 'classes' || nextView === 'adminClass') && !canSeeClassesFeature()) {
+        toast('Classes are not available for this account');
         return;
       }
       state.view = nextView;

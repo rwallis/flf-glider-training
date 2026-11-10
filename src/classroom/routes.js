@@ -1,4 +1,4 @@
-import { resolveIsAdmin, resolveUserKey } from '../auth/middleware.js';
+import { resolveCanSeeClasses, resolveIsAdmin, resolveUserKey } from '../auth/middleware.js';
 import { getSessionUser } from '../auth/session.js';
 import {
   getSessionPackage,
@@ -32,7 +32,23 @@ function sendError(res, error) {
   res.status(status).json({ error: error?.message || String(error) });
 }
 
+function requireClassesAccess(req, res, config) {
+  if (!resolveCanSeeClasses(req, config)) {
+    res.status(403).json({ error: 'Classes are not available for this account' });
+    return false;
+  }
+  return true;
+}
+
 export function registerClassroomApi(app, { liveSessions, scheduledClasses, config }) {
+  const gateClasses = (req, res, next) => {
+    if (!requireClassesAccess(req, res, config)) return;
+    next();
+  };
+  app.use('/api/sessions', gateClasses);
+  app.use('/api/classes', gateClasses);
+  app.use('/api/live-sessions', gateClasses);
+
   app.get('/api/sessions/packages', async (_req, res) => {
     try {
       const packages = await listSessionPackageSummaries();

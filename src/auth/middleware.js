@@ -65,3 +65,18 @@ export function resolveIsAdmin(request, config) {
   const user = getSessionUser(request);
   return Boolean(user?.isAdmin);
 }
+
+/**
+ * Classes / Classes Admin are limited to an email allowlist (default: Ron).
+ * When auth is off, local demo can see Classes.
+ */
+export function resolveCanSeeClasses(request, config) {
+  if (!config.auth?.enabled) return true;
+  const allowed = (config.classesVisibleEmails || [])
+    .map((e) => String(e || '').trim().toLowerCase())
+    .filter(Boolean);
+  if (!allowed.length) return false;
+  const user = getSessionUser(request);
+  const email = String(user?.email || '').trim().toLowerCase();
+  return Boolean(email && allowed.includes(email));
+}

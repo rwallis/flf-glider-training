@@ -85,6 +85,14 @@ export function loadGliderTrainingConfig() {
       .split(',')
       .map((e) => e.trim().toLowerCase())
       .filter(Boolean),
+    /**
+     * Who can see Classes / Classes Admin tabs and APIs.
+     * Default: Ron only. Override with CLASSES_VISIBLE_EMAILS.
+     */
+    classesVisibleEmails: (process.env.CLASSES_VISIBLE_EMAILS || 'ron.wallis@gmail.com')
+      .split(',')
+      .map((e) => e.trim().toLowerCase())
+      .filter(Boolean),
     auth: loadAuthConfig()
   };
 }
