@@ -89,6 +89,7 @@ function sessionView(session, { viewerKey = null, isInstructor = false, pkg = nu
   return {
     id: session.id,
     code: session.code,
+    scheduled_class_id: session.scheduledClassId || null,
     package_id: session.packageId,
     title: pkg?.title || session.title,
     objective: pkg?.objective || '',
@@ -209,7 +210,7 @@ export function createLiveSessionManager() {
   }
 
   return {
-    async open({ packageId, instructor, remote = false } = {}) {
+    async open({ packageId, instructor, remote = false, scheduledClassId = null } = {}) {
       const pkg = await requirePackage(packageId || 'weather-for-soaring');
       const userKey = String(instructor?.userKey || '').trim();
       if (!userKey) {
@@ -218,13 +219,14 @@ export function createLiveSessionManager() {
         throw err;
       }
 
-      // One open live session per instructor for this package slice.
+      // One open live session per instructor for this package / scheduled class.
       for (const existing of byId.values()) {
-        if (
-          existing.status === 'open' &&
-          existing.createdBy === userKey &&
-          existing.packageId === pkg.id
-        ) {
+        if (existing.status !== 'open' || existing.createdBy !== userKey) continue;
+        const sameClass =
+          scheduledClassId && existing.scheduledClassId === scheduledClassId;
+        const samePackage =
+          !scheduledClassId && existing.packageId === pkg.id && !existing.scheduledClassId;
+        if (sameClass || samePackage) {
           existing.status = 'closed';
           existing.closedAt = nowIso();
         }
@@ -236,6 +238,7 @@ export function createLiveSessionManager() {
       const session = {
         id,
         code,
+        scheduledClassId: scheduledClassId ? String(scheduledClassId) : null,
         packageId: pkg.id,
         title: pkg.title,
         maxStudents: Math.min(LIVE_SESSION_CAP, Number(pkg.max_students) || LIVE_SESSION_CAP),
@@ -264,6 +267,62 @@ export function createLiveSessionManager() {
       byCode.set(code, id);
       byUser.set(userKey, id);
       return sessionView(session, { viewerKey: userKey, isInstructor: true, pkg });
+    },
+
+    async getForScheduledClass(scheduledClassId, userKey, { isAdmin = false } = {}) {
+      const needle = String(scheduledClassId || '');
+      if (!needle) return null;
+      let session = null;
+      for (const s of byId.values()) {
+        if (s.status === 'open' && s.scheduledClassId === needle) {
+          session = s;
+          break;
+        }
+      }
+      if (!session) return null;
+      const pkg = await requirePackage(session.packageId);
+      const member = session.roster.get(userKey);
+      const isInstructor =
+        Boolean(isAdmin) || member?.role === 'instructor' || session.createdBy === userKey;
+      return sessionView(session, { viewerKey: userKey, isInstructor, pkg });
+    },
+
+    async admitEnrolled({ sessionId, user, remote = false } = {}) {
+      const session = byId.get(String(sessionId || ''));
+      if (!session || session.status !== 'open') {
+        const err = new Error('Live session not found');
+        err.status = 404;
+        throw err;
+      }
+      const pkg = await requirePackage(session.packageId);
+      const userKey = String(user?.userKey || '').trim();
+      if (!userKey) {
+        const err = new Error('Sign in required');
+        err.status = 401;
+        throw err;
+      }
+      const existing = session.roster.get(userKey);
+      if (existing) {
+        existing.remote = Boolean(remote);
+        byUser.set(userKey, session.id);
+        const isInstructor = existing.role === 'instructor' || session.createdBy === userKey;
+        return sessionView(session, { viewerKey: userKey, isInstructor, pkg });
+      }
+      session.roster.set(userKey, {
+        userKey,
+        displayName: displayNameFromUser(user),
+        email: user.email || '',
+        role: session.createdBy === userKey ? 'instructor' : 'student',
+        joinedAt: nowIso(),
+        remote: Boolean(remote),
+        answers: new Map()
+      });
+      byUser.set(userKey, session.id);
+      return sessionView(session, {
+        viewerKey: userKey,
+        isInstructor: session.createdBy === userKey,
+        pkg
+      });
     },
 
     async join({ code, user, remote = false } = {}) {

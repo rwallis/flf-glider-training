@@ -17,13 +17,13 @@ Open http://localhost:3400
 Without `DATABASE_URL`, uses in-memory seed (progress resets on restart).  
 Without `AUTH_ENABLED`, local mock user (`GLIDER_DEFAULT_USER`, default `ron`) can open/join live class sessions.
 
-### Live class (Weather for Soaring)
+### Ground school classes (Weather for Soaring)
 
-1. Open the **Class** tab (auth off ⇒ local admin can instruct).
-2. Instructor: **Open live session** → share the 6-character code (cap 10 students).
-3. Students: enter the code → **Join** (code authorizes that specific live session).
-4. Instructor advances phases: Open → Warm-up → Teach → Check → Debrief → Close/homework.
-5. Homework cards also appear under Study → **Ground** (`private_ground`).
+1. **Admin Class** (instructors): pick a package, set start time + student limit → **Schedule class**.
+2. **Classes** tab: schedule of upcoming sessions. Students **Enroll** (no join code). Shows enrolled count or **Full**.
+3. Instructor opens the class → **Start / enter live**; enrolled students **Enter class**.
+4. Phases: Open → Warm-up → Teach → Check → Debrief → Close/homework.
+5. Homework cards also under Study → **Ground** (`private_ground`).
 
 ```bash
 cp .env.example .env
