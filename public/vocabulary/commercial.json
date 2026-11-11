@@ -1,0 +1,40 @@
+{
+  "course_id": "commercial",
+  "title": "Commercial — Glider",
+  "status": "starter",
+  "source": "Starter Commercial glider vocabulary",
+  "terms": [
+    {
+      "term": "Commercial privileges",
+      "definition": "Allows acting as PIC for compensation/hire within the limits of the certificate and ratings held."
+    },
+    {
+      "term": "Precision landing",
+      "definition": "Landing to a designated spot/zone with controlled energy — a commercial skill standard focus."
+    },
+    {
+      "term": "Steep turns",
+      "definition": "High-bank turns requiring increased back pressure and awareness of load factor and stall speed rise."
+    },
+    {
+      "term": "Slow flight",
+      "definition": "Flight at an airspeed where further pitch-up risks stall; builds feel for the backside of the power curve (drag rise)."
+    },
+    {
+      "term": "LAX / traffic scan",
+      "definition": "Disciplined visual scan using short stops across sectors so conflicting traffic is more likely to be seen."
+    },
+    {
+      "term": "Cross-country planning",
+      "definition": "Route, weather, alternates, and personal minimums for soaring XC — including landout options."
+    },
+    {
+      "term": "Soft / short field",
+      "definition": "Commercial practical elements emphasizing precise energy and touchdown control in constrained fields."
+    },
+    {
+      "term": "Professionalism",
+      "definition": "Consistent SOP use, clear radio/briefings, and conservative go/no-go judgment when carrying passengers for hire."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "course_id": "cfi_g",
+  "title": "CFI-G",
+  "status": "starter",
+  "source": "Starter CFI-G teaching vocabulary",
+  "terms": [
+    {
+      "term": "Lesson plan",
+      "definition": "Organized teaching outline with objective, content, schedule, equipment, and evaluation for a training period."
+    },
+    {
+      "term": "PTS / ACS",
+      "definition": "Practical Test Standards / Airman Certification Standards defining knowledge, risk management, and skill elements for a checkride."
+    },
+    {
+      "term": "Demonstration of transfer",
+      "definition": "Students learn faster when new material connects to prior knowledge or similar skills."
+    },
+    {
+      "term": "Positive / negative transfer",
+      "definition": "Prior learning that helps (positive) or interferes with (negative) learning a new task."
+    },
+    {
+      "term": "Demonstration of primacy",
+      "definition": "First learning sticks; teach correct procedures the first time to avoid hard-to-break habits."
+    },
+    {
+      "term": "Demonstration of exercise",
+      "definition": "Repetition strengthens learning; deliberate practice with feedback beats mindless drills."
+    },
+    {
+      "term": "Critique",
+      "definition": "Constructive post-lesson evaluation that is specific, objective, and focused on improvement."
+    },
+    {
+      "term": "Demonstration of readiness",
+      "definition": "Learning sticks when the student is physically/mentally ready and understands why the lesson matters."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "course_id": "private",
+  "title": "Private Pilot — Glider",
+  "status": "starter",
+  "source": "Starter Private Pilot Glider written vocabulary",
+  "terms": [
+    {
+      "term": "Student pilot certificate",
+      "definition": "Allows training under instructor supervision; required endorsements before solo."
+    },
+    {
+      "term": "Medical / BasicMed",
+      "definition": "Glider pilots generally do not need an FAA medical; know current sport/recreational/private glider medical rules that apply to you."
+    },
+    {
+      "term": "Preflight inspection",
+      "definition": "Systematic check of airframe, controls, instruments, and documents before flight."
+    },
+    {
+      "term": "Assembly checklist",
+      "definition": "Steps to assemble/disassemble a glider correctly and verify secure connections (pins, tape, controls)."
+    },
+    {
+      "term": "Pattern altitude",
+      "definition": "Target height for joining and flying the landing pattern so energy management stays predictable."
+    },
+    {
+      "term": "Aiming point",
+      "definition": "Spot on the runway you fly toward on final; adjust spoilers/slip to control touchdown relative to it."
+    },
+    {
+      "term": "Soft-field technique",
+      "definition": "Landing/takeoff methods that protect the gear on soft or rough surfaces — keep weight off the wheel as appropriate."
+    },
+    {
+      "term": "Spin awareness",
+      "definition": "Recognition of stalled, yawed flight and recovery priorities: reduce AOA, stop rotation, recover smoothly."
+    }
+  ]
+}

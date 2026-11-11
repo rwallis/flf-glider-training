@@ -3,32 +3,32 @@
     {
       "course_id": "aircraft_233",
       "title": "SGS 2-33",
-      "status": "placeholder",
-      "message": "2-33 systems and POH vocabulary will be added here."
+      "status": "starter",
+      "message": "Starter 2-33 systems and POH vocabulary — expand over time."
     },
     {
       "course_id": "common",
       "title": "Common Knowledge",
-      "status": "placeholder",
-      "message": "Aerodynamics, weather, regs, and ADM vocabulary coming soon."
+      "status": "starter",
+      "message": "Starter aerodynamics, weather, regs, and ADM vocabulary — expand over time."
     },
     {
       "course_id": "private",
       "title": "Private Glider",
-      "status": "placeholder",
-      "message": "Private Pilot — Glider written vocabulary coming soon."
+      "status": "starter",
+      "message": "Starter Private Pilot — Glider vocabulary — expand over time."
     },
     {
       "course_id": "commercial",
       "title": "Commercial — Glider",
-      "status": "placeholder",
-      "message": "Commercial glider vocabulary coming soon."
+      "status": "starter",
+      "message": "Starter Commercial glider vocabulary — expand over time."
     },
     {
       "course_id": "cfi_g",
       "title": "CFI-G",
-      "status": "placeholder",
-      "message": "CFI-G practical and written vocabulary coming soon."
+      "status": "starter",
+      "message": "Starter CFI-G teaching vocabulary — expand over time."
     }
   ]
 }

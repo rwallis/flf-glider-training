@@ -968,6 +968,205 @@
       color: #7a4b00;
       font-size: 0.92rem;
     }
+    .vocab-mode-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 8px 0 12px;
+    }
+    .vocab-mode-row button {
+      flex: 1 1 140px;
+    }
+    .flash-stage {
+      position: relative;
+      margin: 8px 0 14px;
+      padding: 18px 12px 22px;
+      border-radius: 22px;
+      background:
+        radial-gradient(120% 80% at 10% 0%, rgba(43, 143, 204, 0.28), transparent 55%),
+        radial-gradient(90% 70% at 90% 20%, rgba(47, 125, 50, 0.18), transparent 50%),
+        linear-gradient(160deg, #E8F4FB 0%, #F7FAFC 45%, #EAF3E8 100%);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      min-height: 320px;
+    }
+    .flash-stage::before {
+      content: '';
+      position: absolute;
+      inset: auto -20% -40% 20%;
+      height: 70%;
+      background: radial-gradient(ellipse at center, rgba(240, 180, 41, 0.18), transparent 65%);
+      pointer-events: none;
+      animation: flash-sun-drift 10s ease-in-out infinite alternate;
+    }
+    @keyframes flash-sun-drift {
+      from { transform: translateX(-6%) translateY(4%); }
+      to { transform: translateX(8%) translateY(-2%); }
+    }
+    .flash-progress {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--sky-deep);
+    }
+    .flash-progress-track {
+      flex: 1;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .flash-progress-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--sky), var(--grass));
+      transition: width 0.35s ease;
+    }
+    .flash-scene {
+      position: relative;
+      z-index: 1;
+      perspective: 1400px;
+      min-height: 230px;
+      display: grid;
+      place-items: center;
+    }
+    /* Div (not <button>) so global button sky/white styles cannot blank the faces. */
+    .flash-card {
+      width: min(100%, 420px);
+      min-height: 220px;
+      position: relative;
+      cursor: pointer;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      color: var(--ink);
+      appearance: none;
+      -webkit-tap-highlight-color: transparent;
+      text-align: left;
+    }
+    .flash-card:focus-visible {
+      outline: 3px solid rgba(43, 143, 204, 0.45);
+      outline-offset: 4px;
+      border-radius: 22px;
+    }
+    .flash-card.is-deal .flash-card-inner {
+      animation: flash-deal-in 0.45s cubic-bezier(0.2, 0.85, 0.25, 1) both;
+    }
+    .flash-card.is-exit-next .flash-card-inner {
+      animation: flash-exit-next 0.28s ease forwards;
+    }
+    .flash-card.is-exit-prev .flash-card-inner {
+      animation: flash-exit-prev 0.28s ease forwards;
+    }
+    .flash-card-inner {
+      position: relative;
+      width: 100%;
+      min-height: 220px;
+      transform-style: preserve-3d;
+      transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .flash-card.is-flipped .flash-card-inner {
+      transform: rotateY(180deg);
+    }
+    @keyframes flash-deal-in {
+      from { opacity: 0; transform: translateY(18px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes flash-exit-next {
+      to { opacity: 0; transform: translateX(-28%) scale(0.96); }
+    }
+    @keyframes flash-exit-prev {
+      to { opacity: 0; transform: translateX(28%) scale(0.96); }
+    }
+    .flash-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      box-shadow: 0 14px 30px rgba(26, 111, 163, 0.14);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+      padding: 22px 20px;
+      text-align: center;
+    }
+    .flash-face.front { transform: rotateY(0deg); }
+    .flash-face.back {
+      transform: rotateY(180deg);
+      background: linear-gradient(165deg, #fff 0%, #F3F9FC 100%);
+    }
+    .flash-kicker {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .flash-term {
+      margin: 0;
+      font-size: clamp(1.35rem, 4.5vw, 1.85rem);
+      font-weight: 800;
+      color: var(--sky-deep);
+      line-height: 1.2;
+    }
+    .flash-definition {
+      margin: 0;
+      font-size: 0.98rem;
+      color: var(--ink);
+      line-height: 1.45;
+      text-align: left;
+    }
+    .flash-hint {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .flash-controls {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .flash-controls .flash-wide {
+      grid-column: 1 / -1;
+    }
+    .flash-stats {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+    .flash-stats b { color: var(--sky-deep); }
+    @media (prefers-reduced-motion: reduce) {
+      .flash-stage::before,
+      .flash-card-inner,
+      .flash-progress-fill { animation: none !important; transition: none !important; }
+      .flash-card.is-flipped .flash-card-inner { transform: none; }
+      .flash-card.is-flipped .flash-face.front { display: none; }
+      .flash-card:not(.is-flipped) .flash-face.back { display: none; }
+      .flash-face.back { transform: none; position: relative; }
+      .flash-face.front { position: relative; }
+    }
     textarea, input, select {
       width: 100%;
       border: 1px solid var(--line);
@@ -1690,7 +1889,16 @@
         filter: '',
         loading: false,
         error: null,
-        cache: {}
+        cache: {},
+        mode: 'list', // list | flash
+        flash: {
+          order: [],
+          index: 0,
+          flipped: false,
+          known: 0,
+          again: 0,
+          anim: null // deal | exit-next | exit-prev
+        }
       },
       imports: [],
       admin: {
@@ -1976,30 +2184,126 @@
     }
 
     const VOCAB_PLACEHOLDERS = {
-      aircraft_233: '2-33 systems and POH vocabulary will be added here.',
-      common: 'Aerodynamics, weather, regs, and ADM vocabulary coming soon.',
-      private: 'Private Pilot — Glider written vocabulary coming soon.',
-      commercial: 'Commercial glider vocabulary coming soon.',
-      cfi_g: 'CFI-G practical and written vocabulary coming soon.'
+      aircraft_233: 'Starter 2-33 systems and POH vocabulary — expand over time.',
+      common: 'Starter aerodynamics, weather, regs, and ADM vocabulary — expand over time.',
+      private: 'Starter Private Pilot — Glider vocabulary — expand over time.',
+      commercial: 'Starter Commercial glider vocabulary — expand over time.',
+      cfi_g: 'Starter CFI-G teaching vocabulary — expand over time.'
     };
 
+    const VOCAB_COURSE_IDS = ['foi', 'aircraft_233', 'common', 'private', 'commercial', 'cfi_g'];
+
     function vocabularyCourseOrder(tracks) {
-      const preferred = ['foi', 'aircraft_233', 'common', 'private', 'commercial', 'cfi_g'];
       const byId = new Map((tracks || []).map((t) => [t.id, t]));
       const ordered = [];
-      for (const id of preferred) {
+      for (const id of VOCAB_COURSE_IDS) {
         if (byId.has(id)) ordered.push(byId.get(id));
+        else {
+          ordered.push({
+            id,
+            title: trackLabel(id),
+            description: id === 'foi'
+              ? 'Fundamentals of Instruction study vocabulary'
+              : (VOCAB_PLACEHOLDERS[id] || 'Course vocabulary')
+          });
+        }
       }
       for (const t of tracks || []) {
-        if (!preferred.includes(t.id)) ordered.push(t);
+        if (!VOCAB_COURSE_IDS.includes(t.id)) ordered.push(t);
       }
       return ordered;
+    }
+
+    function shuffleArray(items) {
+      const arr = items.slice();
+      for (let i = arr.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+      }
+      return arr;
+    }
+
+    function filteredVocabTerms(pack, filterText) {
+      const filter = String(filterText || '').trim().toLowerCase();
+      return (pack?.terms || []).filter((row) => {
+        if (!filter) return true;
+        return `${row.term || ''} ${row.definition || ''}`.toLowerCase().includes(filter);
+      });
+    }
+
+    function resetVocabFlashState() {
+      state.vocabulary.flash = {
+        order: [],
+        index: 0,
+        flipped: false,
+        known: 0,
+        again: 0,
+        anim: null
+      };
+    }
+
+    function startVocabFlashcards({ shuffle = true, fromFilter = true } = {}) {
+      const pack = state.vocabulary.cache[state.vocabulary.courseId];
+      const all = pack?.terms || [];
+      const terms = fromFilter ? filteredVocabTerms(pack, state.vocabulary.filter) : all;
+      if (!terms.length) {
+        toast('No terms available for flashcards yet.');
+        return;
+      }
+      const indices = terms
+        .map((row) => all.indexOf(row))
+        .filter((i) => i >= 0);
+      const order = shuffle ? shuffleArray(indices) : indices.slice();
+      state.vocabulary.mode = 'flash';
+      state.vocabulary.flash = {
+        order,
+        index: 0,
+        flipped: false,
+        known: 0,
+        again: 0,
+        anim: 'deal'
+      };
+      render();
+    }
+
+    function currentFlashTerm() {
+      const pack = state.vocabulary.cache[state.vocabulary.courseId];
+      const flash = state.vocabulary.flash;
+      const termIndex = flash.order[flash.index];
+      if (termIndex == null || !pack?.terms) return null;
+      return pack.terms[termIndex] || null;
+    }
+
+    function advanceFlash(delta, mark) {
+      const flash = state.vocabulary.flash;
+      if (!flash.order.length) return;
+      if (mark === 'known') flash.known += 1;
+      if (mark === 'again') flash.again += 1;
+      const next = flash.index + delta;
+      if (next < 0 || next >= flash.order.length) {
+        flash.flipped = false;
+        flash.anim = null;
+        render();
+        if (next >= flash.order.length) toast('Deck complete — shuffle to go again.');
+        return;
+      }
+      flash.anim = delta > 0 ? 'exit-next' : 'exit-prev';
+      render();
+      window.setTimeout(() => {
+        flash.index = next;
+        flash.flipped = false;
+        flash.anim = 'deal';
+        render();
+      }, 260);
     }
 
     async function loadVocabularyCourse(courseId) {
       if (!courseId) return null;
       if (state.vocabulary.cache[courseId]) return state.vocabulary.cache[courseId];
-      if (courseId !== 'foi') {
+      const res = await fetch('/vocabulary/' + encodeURIComponent(courseId) + '.json', { cache: 'no-store' });
+      if (!res.ok) {
         const placeholder = {
           course_id: courseId,
           title: trackLabel(courseId),
@@ -2010,28 +2314,102 @@
         state.vocabulary.cache[courseId] = placeholder;
         return placeholder;
       }
-      const res = await fetch('/vocabulary/foi.json', { cache: 'no-store' });
-      if (!res.ok) throw new Error('Could not load FOI vocabulary');
       const data = await res.json();
       state.vocabulary.cache[courseId] = data;
       return data;
     }
 
-    async function openVocabularyCourse(courseId) {
+    async function openVocabularyCourse(courseId, { mode = 'list' } = {}) {
       state.vocabulary.courseId = courseId;
       state.vocabulary.filter = '';
       state.vocabulary.error = null;
       state.vocabulary.loading = true;
+      state.vocabulary.mode = 'list';
+      resetVocabFlashState();
       state.view = 'vocabulary';
       render();
       try {
         await loadVocabularyCourse(courseId);
+        if (mode === 'flash') {
+          startVocabFlashcards({ shuffle: true, fromFilter: false });
+          return;
+        }
       } catch (err) {
         state.vocabulary.error = err.message || 'Failed to load vocabulary';
       } finally {
         state.vocabulary.loading = false;
-        render();
+        if (state.vocabulary.mode !== 'flash') render();
       }
+    }
+
+    function renderVocabFlashcards(pack) {
+      const flash = state.vocabulary.flash;
+      const total = flash.order.length;
+      const term = currentFlashTerm();
+      const pos = Math.min(flash.index + 1, total);
+      const pct = total ? Math.round((flash.index / total) * 100) : 0;
+      const animClass = flash.anim === 'exit-next'
+        ? 'is-exit-next'
+        : flash.anim === 'exit-prev'
+          ? 'is-exit-prev'
+          : flash.anim === 'deal'
+            ? 'is-deal'
+            : '';
+      if (!term) {
+        return `
+          <div class="vocab-toolbar">
+            <button type="button" class="vocab-back" data-vocab-back>← Courses</button>
+            <button type="button" class="secondary" data-vocab-mode="list">Term list</button>
+          </div>
+          <div class="empty">No flashcards in this deck yet.</div>
+        `;
+      }
+      return `
+        <div class="vocab-toolbar">
+          <button type="button" class="vocab-back" data-vocab-back>← Courses</button>
+          <button type="button" class="secondary" data-vocab-mode="list">Term list</button>
+        </div>
+        <h2 style="margin:4px 0 2px;font-size:1.1rem">${escapeHtml(pack.title || trackLabel(pack.course_id))}</h2>
+        <p class="vocab-meta">Animated flashcards · ${escapeHtml(pack.source || trackLabel(pack.course_id))}</p>
+        <div class="flash-stage">
+          <div class="flash-progress">
+            <span>${pos} / ${total}</span>
+            <div class="flash-progress-track" aria-hidden="true">
+              <div class="flash-progress-fill" style="width:${pct}%"></div>
+            </div>
+            <span>${pct}%</span>
+          </div>
+          <div class="flash-scene">
+            <div class="flash-card ${flash.flipped ? 'is-flipped' : ''} ${animClass}" id="vocabFlashCard" role="button" tabindex="0" aria-label="Flip flashcard. Showing ${flash.flipped ? 'definition' : 'term'}.">
+              <div class="flash-card-inner">
+                <div class="flash-face front">
+                  <div class="flash-kicker">Term</div>
+                  <p class="flash-term">${escapeHtml(term.term)}</p>
+                  <div class="flash-hint">Tap card to flip</div>
+                </div>
+                <div class="flash-face back">
+                  <div class="flash-kicker">Definition</div>
+                  <p class="flash-definition">${escapeHtml(term.definition)}</p>
+                  <div class="flash-hint">Tap to flip back</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flash-controls">
+            <button type="button" class="secondary" data-flash-prev ${flash.index <= 0 ? 'disabled' : ''}>← Prev</button>
+            <button type="button" data-flash-flip>${flash.flipped ? 'Show term' : 'Flip'}</button>
+            <button type="button" class="secondary" data-flash-next ${flash.index >= total - 1 ? 'disabled' : ''}>Next →</button>
+            <button type="button" class="secondary" data-flash-again>Again</button>
+            <button type="button" data-flash-known>Knew it</button>
+            <button type="button" class="secondary" data-flash-shuffle>Shuffle</button>
+            <button type="button" class="secondary flash-wide" data-flash-restart>Restart deck</button>
+          </div>
+          <div class="flash-stats">
+            <span>Knew <b>${flash.known}</b></span>
+            <span>Again <b>${flash.again}</b></span>
+          </div>
+        </div>
+      `;
     }
 
     function renderVocabulary() {
@@ -2048,20 +2426,21 @@
       if (!courseId) {
         return `
           <h2 style="margin:0 0 6px;font-size:1.1rem">Vocabulary</h2>
-          <p class="hint">Pick a course to review key terms. FOI is ready; other courses show placeholders until content is added.</p>
+          <p class="hint">Pick a course for the term list or animated flashcards. FOI is full; other courses ship with starter decks.</p>
           <div class="vocab-list">
             ${courses.map((t) => {
               const color = courseColor(t.id);
               const ready = t.id === 'foi';
               return `
                 <article class="course" style="--course-color:${color}">
-                  <div class="badge">${ready ? 'Ready' : 'Soon'}</div>
+                  <div class="badge">${ready ? 'Ready' : 'Starter'}</div>
                   <h2>${escapeHtml(t.title || trackLabel(t.id))}</h2>
-                  <p>${escapeHtml(t.description || (ready ? 'FOI study vocabulary' : VOCAB_PLACEHOLDERS[t.id] || 'Coming soon'))}</p>
-                  <div class="meta">${ready ? 'Tap to open terms' : 'Placeholder'}</div>
-                  <button type="button" data-vocab-course="${escapeHtml(t.id)}" style="margin-top:10px;width:100%">
-                    ${ready ? 'Open FOI vocabulary' : 'View placeholder'}
-                  </button>
+                  <p>${escapeHtml(t.description || (ready ? 'FOI study vocabulary' : VOCAB_PLACEHOLDERS[t.id] || 'Course vocabulary'))}</p>
+                  <div class="meta">${ready ? 'Full FOI deck' : 'Starter flashcard deck'}</div>
+                  <div class="btn-row" style="margin-top:10px">
+                    <button type="button" data-vocab-course="${escapeHtml(t.id)}">Open list</button>
+                    <button type="button" class="secondary" data-vocab-flash="${escapeHtml(t.id)}">Flashcards</button>
+                  </div>
                 </article>
               `;
             }).join('') || '<div class="empty">No courses loaded yet.</div>'}
@@ -2071,10 +2450,7 @@
 
       const pack = state.vocabulary.cache[courseId];
       const filter = String(state.vocabulary.filter || '').trim().toLowerCase();
-      const terms = (pack?.terms || []).filter((row) => {
-        if (!filter) return true;
-        return `${row.term || ''} ${row.definition || ''}`.toLowerCase().includes(filter);
-      });
+      const terms = filteredVocabTerms(pack, filter);
 
       if (state.vocabulary.loading && !pack) {
         return `
@@ -2094,26 +2470,38 @@
         `;
       }
 
-      if (pack?.status === 'placeholder' || courseId !== 'foi') {
+      if (state.vocabulary.mode === 'flash') {
+        return renderVocabFlashcards(pack || { title: trackLabel(courseId), course_id: courseId });
+      }
+
+      if (!pack?.terms?.length) {
         return `
           <div class="vocab-toolbar">
             <button type="button" class="vocab-back" data-vocab-back>← Courses</button>
           </div>
           <h2 style="margin:8px 0 4px;font-size:1.1rem">${escapeHtml(pack?.title || trackLabel(courseId))}</h2>
           <div class="vocab-placeholder">
-            <strong>Placeholder</strong>
+            <strong>No terms yet</strong>
             <p style="margin:8px 0 0">${escapeHtml(pack?.message || VOCAB_PLACEHOLDERS[courseId] || 'Coming soon.')}</p>
           </div>
         `;
       }
 
+      const statusNote = pack.status === 'starter'
+        ? 'Starter deck — more terms coming.'
+        : (pack.source || trackLabel(courseId));
+
       return `
         <div class="vocab-toolbar">
           <button type="button" class="vocab-back" data-vocab-back>← Courses</button>
-          <input type="search" id="vocabFilter" placeholder="Search FOI terms" value="${escapeHtml(state.vocabulary.filter || '')}" />
+          <input type="search" id="vocabFilter" placeholder="Search terms" value="${escapeHtml(state.vocabulary.filter || '')}" />
         </div>
-        <h2 style="margin:4px 0 2px;font-size:1.1rem">${escapeHtml(pack.title || 'FOI')}</h2>
-        <p class="vocab-meta">${terms.length} term${terms.length === 1 ? '' : 's'}${filter ? ' matched' : ''} · ${escapeHtml(pack.source || 'FOI')}</p>
+        <h2 style="margin:4px 0 2px;font-size:1.1rem">${escapeHtml(pack.title || trackLabel(courseId))}</h2>
+        <p class="vocab-meta">${terms.length} term${terms.length === 1 ? '' : 's'}${filter ? ' matched' : ''} · ${escapeHtml(statusNote)}</p>
+        <div class="vocab-mode-row">
+          <button type="button" data-vocab-mode="flash" ${terms.length ? '' : 'disabled'}>Animated flashcards</button>
+          <button type="button" class="secondary" data-vocab-mode="list">Term list</button>
+        </div>
         <div class="vocab-list">
           ${terms.map((row) => `
             <article class="vocab-term">
@@ -4289,9 +4677,12 @@
       if (state.view === 'home') sub.textContent = 'Courses · daily league';
       if (state.view === 'study') sub.textContent = `Course ${trackLabel(state.study.track)} · ${state.study.cards.length} in session`;
       if (state.view === 'vocabulary') {
-        sub.textContent = state.vocabulary.courseId
-          ? `Vocabulary · ${trackLabel(state.vocabulary.courseId)}`
-          : 'Vocabulary · by course';
+        if (!state.vocabulary.courseId) sub.textContent = 'Vocabulary · by course';
+        else if (state.vocabulary.mode === 'flash') {
+          sub.textContent = `Flashcards · ${trackLabel(state.vocabulary.courseId)}`;
+        } else {
+          sub.textContent = `Vocabulary · ${trackLabel(state.vocabulary.courseId)}`;
+        }
       }
       if (state.view === 'classes') {
         sub.textContent = state.class.session?.title
@@ -4676,7 +5067,24 @@
       }
       app.querySelectorAll('[data-vocab-course]').forEach((btn) => {
         btn.addEventListener('click', () => {
-          openVocabularyCourse(btn.dataset.vocabCourse);
+          openVocabularyCourse(btn.dataset.vocabCourse, { mode: 'list' });
+        });
+      });
+      app.querySelectorAll('[data-vocab-flash]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          openVocabularyCourse(btn.dataset.vocabFlash, { mode: 'flash' });
+        });
+      });
+      app.querySelectorAll('[data-vocab-mode]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const mode = btn.dataset.vocabMode;
+          if (mode === 'flash') {
+            startVocabFlashcards({ shuffle: true, fromFilter: true });
+            return;
+          }
+          state.vocabulary.mode = 'list';
+          resetVocabFlashState();
+          render();
         });
       });
       const vocabBack = app.querySelector('[data-vocab-back]');
@@ -4685,8 +5093,73 @@
           state.vocabulary.courseId = null;
           state.vocabulary.filter = '';
           state.vocabulary.error = null;
+          state.vocabulary.mode = 'list';
+          resetVocabFlashState();
           state.view = 'vocabulary';
           render();
+        });
+      }
+      const vocabFlashCard = app.querySelector('#vocabFlashCard');
+      if (vocabFlashCard) {
+        const flipCard = () => {
+          state.vocabulary.flash.flipped = !state.vocabulary.flash.flipped;
+          state.vocabulary.flash.anim = null;
+          render();
+        };
+        vocabFlashCard.addEventListener('click', flipCard);
+        vocabFlashCard.addEventListener('keydown', (ev) => {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault();
+            flipCard();
+          }
+        });
+      }
+      const flashFlip = app.querySelector('[data-flash-flip]');
+      if (flashFlip) {
+        flashFlip.addEventListener('click', () => {
+          state.vocabulary.flash.flipped = !state.vocabulary.flash.flipped;
+          state.vocabulary.flash.anim = null;
+          render();
+        });
+      }
+      const flashPrev = app.querySelector('[data-flash-prev]');
+      if (flashPrev) {
+        flashPrev.addEventListener('click', () => advanceFlash(-1));
+      }
+      const flashNext = app.querySelector('[data-flash-next]');
+      if (flashNext) {
+        flashNext.addEventListener('click', () => advanceFlash(1));
+      }
+      const flashKnown = app.querySelector('[data-flash-known]');
+      if (flashKnown) {
+        flashKnown.addEventListener('click', () => advanceFlash(1, 'known'));
+      }
+      const flashAgain = app.querySelector('[data-flash-again]');
+      if (flashAgain) {
+        flashAgain.addEventListener('click', () => {
+          const flash = state.vocabulary.flash;
+          flash.again += 1;
+          // Put current card near the end for another pass.
+          if (flash.order.length > 1) {
+            const [cur] = flash.order.splice(flash.index, 1);
+            const insertAt = Math.min(flash.order.length, flash.index + 2 + Math.floor(Math.random() * 2));
+            flash.order.splice(insertAt, 0, cur);
+          }
+          flash.flipped = false;
+          flash.anim = 'deal';
+          render();
+        });
+      }
+      const flashShuffle = app.querySelector('[data-flash-shuffle]');
+      if (flashShuffle) {
+        flashShuffle.addEventListener('click', () => {
+          startVocabFlashcards({ shuffle: true, fromFilter: true });
+        });
+      }
+      const flashRestart = app.querySelector('[data-flash-restart]');
+      if (flashRestart) {
+        flashRestart.addEventListener('click', () => {
+          startVocabFlashcards({ shuffle: false, fromFilter: true });
         });
       }
       const vocabFilter = app.querySelector('#vocabFilter');
@@ -4694,15 +5167,15 @@
         vocabFilter.addEventListener('input', () => {
           state.vocabulary.filter = vocabFilter.value;
           const pack = state.vocabulary.cache[state.vocabulary.courseId];
+          const terms = filteredVocabTerms(pack, state.vocabulary.filter);
           const filter = String(state.vocabulary.filter || '').trim().toLowerCase();
-          const terms = (pack?.terms || []).filter((row) => {
-            if (!filter) return true;
-            return `${row.term || ''} ${row.definition || ''}`.toLowerCase().includes(filter);
-          });
           const list = app.querySelector('.vocab-list');
           const meta = app.querySelector('.vocab-meta');
           if (meta) {
-            meta.textContent = `${terms.length} term${terms.length === 1 ? '' : 's'}${filter ? ' matched' : ''} · ${pack?.source || 'FOI'}`;
+            const statusNote = pack?.status === 'starter'
+              ? 'Starter deck — more terms coming.'
+              : (pack?.source || trackLabel(state.vocabulary.courseId));
+            meta.textContent = `${terms.length} term${terms.length === 1 ? '' : 's'}${filter ? ' matched' : ''} · ${statusNote}`;
           }
           if (list) {
             list.innerHTML = terms.map((row) => `
