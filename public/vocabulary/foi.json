@@ -1,0 +1,204 @@
+{
+  "course_id": "foi",
+  "title": "Fundamentals of Instruction (FOI)",
+  "status": "ready",
+  "source": "Aviation Instructor's Handbook (FAA-H-8083-9) — study vocabulary",
+  "terms": [
+    {
+      "term": "Learning",
+      "definition": "A change in behavior as a result of experience. In aviation instruction it means the student can perform, decide, or explain something they could not before."
+    },
+    {
+      "term": "Behaviorism",
+      "definition": "Learning theory that emphasizes observable behavior shaped by stimuli and reinforcement (rewards/consequences)."
+    },
+    {
+      "term": "Cognitive theory",
+      "definition": "Learning theory focused on how the mind processes, stores, and retrieves information — thinking, memory, and problem solving."
+    },
+    {
+      "term": "Constructivism",
+      "definition": "View that learners build (construct) knowledge by connecting new information to what they already know and by active experience."
+    },
+    {
+      "term": "Rote",
+      "definition": "Lowest level of learning: ability to repeat back facts or steps without understanding why they matter."
+    },
+    {
+      "term": "Understanding",
+      "definition": "Level of learning where the student comprehends meaning and relationships — can explain ideas in their own words."
+    },
+    {
+      "term": "Application",
+      "definition": "Level of learning where the student can use knowledge or a skill correctly in a practical situation."
+    },
+    {
+      "term": "Correlation",
+      "definition": "Highest level of learning: associating what was learned with other topics or new situations; judgment and transfer."
+    },
+    {
+      "term": "Law of Readiness",
+      "definition": "People learn best when they are ready (physically, mentally, emotionally) and when they see a reason to learn."
+    },
+    {
+      "term": "Law of Exercise",
+      "definition": "Things most often repeated are best remembered; practice strengthens learning, lack of practice weakens it."
+    },
+    {
+      "term": "Law of Effect",
+      "definition": "Learning is strengthened when accompanied by a pleasant or satisfying feeling; weakened by frustration or punishment that is poorly applied."
+    },
+    {
+      "term": "Law of Primacy",
+      "definition": "Things learned first create a strong impression; teaching correctly the first time matters because unlearning bad habits is hard."
+    },
+    {
+      "term": "Law of Intensity",
+      "definition": "A vivid, exciting, or dramatic learning experience is remembered better than a routine or boring one."
+    },
+    {
+      "term": "Law of Recency",
+      "definition": "Things most recently learned are best remembered; frequent review keeps skills sharp."
+    },
+    {
+      "term": "Cognitive domain",
+      "definition": "Knowledge domain of learning — remembering, understanding, applying, analyzing, evaluating, creating (thinking skills)."
+    },
+    {
+      "term": "Affective domain",
+      "definition": "Attitudes, beliefs, values, and feelings — including motivation, professionalism, and safety culture."
+    },
+    {
+      "term": "Psychomotor domain",
+      "definition": "Physical or motor skills — coordination, timing, and hands-on performance (e.g., flight maneuvers)."
+    },
+    {
+      "term": "Sensory memory",
+      "definition": "Very brief storage of raw sensory input (sights/sounds) before attention selects what enters short-term memory."
+    },
+    {
+      "term": "Short-term (working) memory",
+      "definition": "Limited-capacity, temporary holding area for information being used right now; needs rehearsal or encoding to last."
+    },
+    {
+      "term": "Long-term memory",
+      "definition": "Relatively permanent store of knowledge and skills; retrieval depends on how well material was organized and linked."
+    },
+    {
+      "term": "Forgetting",
+      "definition": "Loss of ability to retrieve learned material — often from disuse, interference, or weak original encoding."
+    },
+    {
+      "term": "Transfer of learning",
+      "definition": "Applying knowledge or skill learned in one context to another. Positive transfer helps; negative transfer interferes."
+    },
+    {
+      "term": "Habit formation",
+      "definition": "Through correct practice, responses become automatic so attention can shift to higher-level decisions."
+    },
+    {
+      "term": "Motivation",
+      "definition": "The reason a student engages and persists. Instructors foster motivation with clear goals, relevance, and success experiences."
+    },
+    {
+      "term": "Defense mechanisms",
+      "definition": "Subconscious ways people protect self-image when stressed (e.g., rationalization, denial, projection, resignation)."
+    },
+    {
+      "term": "Anxiety",
+      "definition": "Feeling of worry or unease that can help or hurt learning; mild anxiety may improve focus, excessive anxiety blocks performance."
+    },
+    {
+      "term": "Normal anxiety vs abnormal reactions",
+      "definition": "Instructors watch for reactions to stress that go beyond normal nerves — extreme fear, anger, or withdrawal that impair safety or learning."
+    },
+    {
+      "term": "Lecture method",
+      "definition": "Instructor-centered oral presentation of information; efficient for facts but limited for skill practice without follow-up activity."
+    },
+    {
+      "term": "Guided discussion",
+      "definition": "Instructor leads students through questions so they discover or articulate ideas; builds understanding and involvement."
+    },
+    {
+      "term": "Demonstration–performance",
+      "definition": "Instructor shows the skill, student practices with coaching — core method for psychomotor flight training."
+    },
+    {
+      "term": "Tell / Show / Do / Review",
+      "definition": "Common pattern: explain, demonstrate, student performs, then critique/review to reinforce correct technique."
+    },
+    {
+      "term": "Computer-assisted / e-learning",
+      "definition": "Technology-supported instruction; useful for knowledge, scenario practice, and self-paced review when integrated into a lesson plan."
+    },
+    {
+      "term": "Instructional aid",
+      "definition": "Device or material that supports a teaching point (chart, model, video, mockup). Chosen because it clarifies — not as decoration."
+    },
+    {
+      "term": "Lesson plan",
+      "definition": "Organized outline of objectives, content, schedule, materials, and evaluation for a period of instruction."
+    },
+    {
+      "term": "Course of training",
+      "definition": "Organized program of lessons leading to a certificate, rating, or defined competency."
+    },
+    {
+      "term": "Training syllabus",
+      "definition": "Structured outline of blocks/stages of training, including content sequence and standards."
+    },
+    {
+      "term": "SBT (scenario-based training)",
+      "definition": "Training built around realistic scenarios so students practice decision-making, not only isolated maneuvers."
+    },
+    {
+      "term": "Critique",
+      "definition": "Constructive analysis of student performance after an activity; should be objective, flexible, acceptable, comprehensive, constructive, organized, thoughtful, and specific."
+    },
+    {
+      "term": "Evaluation",
+      "definition": "Measuring student progress against objectives — oral questions, written tests, performance checks, and practical tests."
+    },
+    {
+      "term": "Authentic assessment",
+      "definition": "Evaluation in a realistic context that mirrors how the skill or knowledge will be used (e.g., scenario oral, flight check)."
+    },
+    {
+      "term": "Traditional assessment",
+      "definition": "Typical quizzes/tests that sample knowledge; useful but may not fully capture applied judgment."
+    },
+    {
+      "term": "Characteristics of a good written test",
+      "definition": "Reliability, validity, comprehensiveness, discrimination, objectivity, and usability (practical to give and score)."
+    },
+    {
+      "term": "Professionalism",
+      "definition": "Instructor conduct reflecting sincerity, acceptance of the student, personal appearance, and high standards of safety and ethics."
+    },
+    {
+      "term": "Instructor responsibilities",
+      "definition": "Help students learn; provide adequate instruction; demand standards; emphasize the positive; ensure student ability / end-of-course readiness; minimize barriers."
+    },
+    {
+      "term": "Minimizing student frustrations",
+      "definition": "Motivate, keep students informed, approach as individuals, give credit when due, criticize constructively, be consistent, admit errors."
+    },
+    {
+      "term": "Obstacles to learning",
+      "definition": "Factors that block progress — e.g., worry, lack of interest, physical discomfort, apathy, impatience, or inadequate instruction."
+    },
+    {
+      "term": "Perceptions",
+      "definition": "Meaning given to sensations; basis of all learning. Influenced by self-concept, goals, fear, and past experience."
+    },
+    {
+      "term": "Insight",
+      "definition": "Grouping perceptions into meaningful wholes — the “aha” when relationships suddenly make sense."
+    },
+    {
+      "term": "Dangerous tendencies / unsafe attitudes",
+      "definition": "Patterns instructors must recognize and correct (e.g., anti-authority, impulsivity, invulnerability, macho, resignation)."
+    }
+  ]
+}
