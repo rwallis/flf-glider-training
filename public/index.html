@@ -18,6 +18,8 @@
       --muted: #5A6B76;
       --line: #D5E2EA;
       --safe-bottom: env(safe-area-inset-bottom, 0px);
+      /* Measured from #nav so wrapped / admin tabs never cover content. */
+      --nav-offset: calc(72px + var(--safe-bottom));
     }
     * { box-sizing: border-box; }
     html, body {
@@ -30,7 +32,7 @@
       line-height: 1.4;
       min-height: 100%;
     }
-    body { padding-bottom: calc(72px + var(--safe-bottom)); }
+    body { padding-bottom: var(--nav-offset); }
     header.app-bar {
       position: sticky;
       top: 0;
@@ -752,11 +754,11 @@
       left: 0; right: 0; bottom: 0;
       z-index: 30;
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 0;
+      grid-template-columns: repeat(auto-fit, minmax(4.5rem, 1fr));
+      gap: 2px;
       background: #fff;
       border-top: 1px solid var(--line);
-      padding: 8px 4px calc(8px + var(--safe-bottom));
+      padding: 6px 4px calc(6px + var(--safe-bottom));
     }
     .polar-chart {
       width: 100%;
@@ -893,13 +895,27 @@
     .nav button {
       background: transparent;
       color: var(--muted);
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 700;
-      padding: 8px 4px;
+      padding: 6px 2px;
       border-radius: 10px;
+      line-height: 1.15;
+      min-width: 0;
+      white-space: normal;
+      hyphens: auto;
     }
     .nav button.active { color: var(--sky-deep); background: #E8F2F8; }
-    .nav button span { display: block; font-size: 1.1rem; margin-bottom: 2px; }
+    .nav button span { display: block; font-size: 1.05rem; margin-bottom: 2px; line-height: 1; }
+    @media (min-width: 768px) {
+      .nav {
+        grid-template-columns: repeat(auto-fit, minmax(5.5rem, 1fr));
+        padding: 8px 8px calc(8px + var(--safe-bottom));
+      }
+      .nav button {
+        font-size: 0.72rem;
+        padding: 8px 4px;
+      }
+    }
     textarea, input, select {
       width: 100%;
       border: 1px solid var(--line);
@@ -1111,7 +1127,7 @@
     .toast {
       position: fixed;
       left: 50%;
-      bottom: calc(84px + var(--safe-bottom));
+      bottom: calc(var(--nav-offset) + 12px);
       transform: translateX(-50%);
       background: var(--ink);
       color: #fff;
@@ -2027,6 +2043,15 @@
       render();
     }
 
+    function syncNavOffset() {
+      const nav = document.getElementById('nav');
+      if (!nav) return;
+      const height = Math.ceil(nav.getBoundingClientRect().height);
+      const fallback = 72;
+      const px = Math.max(height || 0, fallback);
+      document.documentElement.style.setProperty('--nav-offset', px + 'px');
+    }
+
     function setNav() {
       const adminBtn = document.getElementById('navAdminBtn');
       if (adminBtn) {
@@ -2044,6 +2069,8 @@
       document.querySelectorAll('#nav button').forEach((btn) => {
         btn.classList.toggle('active', btn.dataset.view === state.view);
       });
+      // Wait a frame so display:none toggles settle before measuring.
+      requestAnimationFrame(syncNavOffset);
     }
 
     async function loadHome() {
@@ -4869,6 +4896,20 @@
       }
       render();
     });
+
+    (function watchNavOffset() {
+      const nav = document.getElementById('nav');
+      if (!nav) return;
+      syncNavOffset();
+      if (typeof ResizeObserver !== 'undefined') {
+        const ro = new ResizeObserver(() => syncNavOffset());
+        ro.observe(nav);
+      }
+      window.addEventListener('resize', syncNavOffset);
+      window.addEventListener('orientationchange', () => {
+        requestAnimationFrame(syncNavOffset);
+      });
+    })();
 
     loadAuthUser()
       .then(() => loadHome())
