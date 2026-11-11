@@ -1,0 +1,40 @@
+{
+  "course_id": "aircraft_233",
+  "title": "SGS 2-33",
+  "status": "starter",
+  "source": "Starter POH / systems vocabulary",
+  "terms": [
+    {
+      "term": "Best L/D speed",
+      "definition": "Airspeed that gives the flattest glide in still air for the current weight and configuration — useful for distance when lift is not expected."
+    },
+    {
+      "term": "Minimum sink speed",
+      "definition": "Airspeed that loses altitude most slowly; used when maximizing time aloft in lift or waiting out a situation."
+    },
+    {
+      "term": "MacCready speed",
+      "definition": "Target cruise speed between thermals based on expected climb rate (and often wind) to optimize cross-country average speed."
+    },
+    {
+      "term": "Spoilers / dive brakes",
+      "definition": "Wing surfaces that increase drag and spoil lift to steepen the descent path for approach and landing control."
+    },
+    {
+      "term": "Solo vs dual polar",
+      "definition": "Performance curves differ with weight: solo (lighter) and dual (heavier) have different best L/D and sink rates."
+    },
+    {
+      "term": "CG envelope",
+      "definition": "Approved forward and aft center-of-gravity limits; loading outside the envelope hurts stability and control."
+    },
+    {
+      "term": "Weak link",
+      "definition": "Towrope fuse designed to break at a known load to protect the glider structure during aerotow."
+    },
+    {
+      "term": "Trim",
+      "definition": "Adjustable control that relieves stick pressure at a chosen airspeed so the glider holds that speed with less effort."
+    }
+  ]
+}

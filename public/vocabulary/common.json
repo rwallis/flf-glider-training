@@ -1,0 +1,40 @@
+{
+  "course_id": "common",
+  "title": "Common Knowledge",
+  "status": "starter",
+  "source": "Starter aerodynamics, weather, regs & ADM vocabulary",
+  "terms": [
+    {
+      "term": "Angle of attack",
+      "definition": "Angle between the chord line and the relative wind; stall depends on AOA, not airspeed alone."
+    },
+    {
+      "term": "Relative wind",
+      "definition": "Airflow opposite the flight path as felt by the wing; changes with climb, descent, and turns."
+    },
+    {
+      "term": "Thermal",
+      "definition": "Rising column of warmer air used for soaring climb; often marked by cumulus or dust/debris."
+    },
+    {
+      "term": "Wind gradient",
+      "definition": "Change of wind speed with height; important in the pattern because groundspeed and sink change near the surface."
+    },
+    {
+      "term": "ADM",
+      "definition": "Aeronautical Decision Making — systematic process to identify hazards and choose a safe course of action."
+    },
+    {
+      "term": "PAVE checklist",
+      "definition": "ADM hazard areas: Pilot, Aircraft, enVironment, External pressures."
+    },
+    {
+      "term": "Right-of-way (soar)",
+      "definition": "In soaring traffic, lower aircraft and those on final generally have priority; join thermals considerately and predictably."
+    },
+    {
+      "term": "Density altitude",
+      "definition": "Pressure altitude corrected for nonstandard temperature — high DA means thinner air and reduced performance."
+    }
+  ]
+}

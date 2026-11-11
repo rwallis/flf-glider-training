@@ -109,8 +109,12 @@
       "definition": "Feeling of worry or unease that can help or hurt learning; mild anxiety may improve focus, excessive anxiety blocks performance."
     },
     {
-      "term": "Normal anxiety vs abnormal reactions",
-      "definition": "Instructors watch for reactions to stress that go beyond normal nerves — extreme fear, anger, or withdrawal that impair safety or learning."
+      "term": "Normal reaction",
+      "definition": "A typical response to stress in training — e.g., nervousness, mild anxiety, or heightened alertness that still lets the student listen, learn, and perform safely."
+    },
+    {
+      "term": "Abnormal reaction",
+      "definition": "A stress response that goes beyond normal nerves and impairs learning or safety — e.g., extreme fear, anger, or withdrawal. Instructors must recognize and manage these carefully."
     },
     {
       "term": "Lecture method",
@@ -127,6 +131,10 @@
     {
       "term": "Tell / Show / Do / Review",
       "definition": "Common pattern: explain, demonstrate, student performs, then critique/review to reinforce correct technique."
+    },
+    {
+      "term": "Integrated flight instruction",
+      "definition": "Teaching the student from early on to use outside visual references and flight instruments together, so instrument habits support (not replace) see-and-avoid flying."
     },
     {
       "term": "Computer-assisted / e-learning",
@@ -187,6 +195,10 @@
     {
       "term": "Obstacles to learning",
       "definition": "Factors that block progress — e.g., worry, lack of interest, physical discomfort, apathy, impatience, or inadequate instruction."
+    },
+    {
+      "term": "Self-concept",
+      "definition": "How a person sees themselves — abilities, worth, and identity. It filters perceptions: a confident self-concept helps a student accept instruction; a threatened one can block learning."
     },
     {
       "term": "Perceptions",
