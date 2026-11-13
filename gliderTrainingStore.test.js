@@ -9,6 +9,7 @@ import {
   activityDateKey,
   displayNameFromProfile,
   resolveStudyCorrect,
+  progressLooksMissed,
   xpForCorrectness,
   correctPercent,
   computeCourseReadiness,
@@ -274,6 +275,36 @@ test('resolveStudyCorrect uses choice match then grade fallback', () => {
   assert.equal(resolveStudyCorrect({ card, choice: 'controllability' }), false);
   assert.equal(resolveStudyCorrect({ card, grade: 'again' }), false);
   assert.equal(resolveStudyCorrect({ card, grade: 'good' }), true);
+});
+
+test('progressLooksMissed uses last_correct then legacy Again', () => {
+  assert.equal(progressLooksMissed(null), false);
+  assert.equal(progressLooksMissed({}), false);
+  assert.equal(progressLooksMissed({ last_correct: false }), true);
+  assert.equal(progressLooksMissed({ last_correct: true }), false);
+  assert.equal(progressLooksMissed({ last_correct: true, last_result: 'again' }), false);
+  assert.equal(progressLooksMissed({ last_result: 'again' }), true);
+  assert.equal(progressLooksMissed({ last_result: 'good' }), false);
+});
+
+test('memory store Missed deck is last wrong answers only', async () => {
+  const store = createMemoryStore({
+    tracks: [{ id: 'foi', title: 'FOI' }],
+    topics: [{ id: 'foi_1', track_id: 'foi', title: 'Learning' }],
+    cards: [
+      { id: 'c1', track_id: 'foi', topic_id: 'foi_1', question: 'Q1', answer: 'A', choices: ['A', 'B'] },
+      { id: 'c2', track_id: 'foi', topic_id: 'foi_1', question: 'Q2', answer: 'A', choices: ['A', 'B'] },
+      { id: 'c3', track_id: 'foi', topic_id: 'foi_1', question: 'Q3', answer: 'A', choices: ['A', 'B'] }
+    ]
+  });
+  await store.upsertProgress('u1', 'c1', nextProgress(null, 'again'), { correct: false });
+  await store.upsertProgress('u1', 'c2', nextProgress(null, 'good'), { correct: true });
+  // unanswered c3
+  const progress = await store.getProgress('u1');
+  const byCard = new Map(progress.map((p) => [p.card_id, p]));
+  const cards = await store.listCards({ trackId: 'foi' });
+  const missed = cards.filter((c) => progressLooksMissed(byCard.get(c.id)));
+  assert.deepEqual(missed.map((c) => c.id), ['c1']);
 });
 
 test('correctPercent rounds answer accuracy', () => {

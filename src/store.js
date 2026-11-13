@@ -100,6 +100,13 @@ function progressLooksCorrect(p) {
   return g === 'hard' || g === 'good' || g === 'easy';
 }
 
+/** Last selected answer was wrong (or legacy Again with no last_correct flag). */
+export function progressLooksMissed(p) {
+  if (!p) return false;
+  if (typeof p.last_correct === 'boolean') return p.last_correct === false;
+  return String(p.last_result || '').toLowerCase() === 'again';
+}
+
 function topicAccuracyRows(topics, cards, progressByCard) {
   return topics.map((topic) => {
     const topicCards = cards.filter((c) => c.topic_id === topic.id);
