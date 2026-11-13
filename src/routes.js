@@ -3,6 +3,7 @@ import { getSessionUser } from './auth/session.js';
 import {
   nextProgress,
   parseImportPayload,
+  progressLooksMissed,
   resolveStudyCorrect,
   xpForCorrectness
 } from './store.js';
@@ -118,7 +119,7 @@ export function registerGliderApi(app, { store, config }) {
     if (!uk) return;
     const trackId = req.query.track || undefined;
     const topicId = req.query.topic || undefined;
-    const mode = req.query.mode || 'due'; // due | new | all | weak
+    const mode = req.query.mode || 'due'; // due | new | all | weak | missed
     const limitRaw = Number(req.query.limit);
     const limit = Number.isFinite(limitRaw)
       ? Math.min(200, Math.max(1, Math.floor(limitRaw)))
@@ -147,6 +148,8 @@ export function registerGliderApi(app, { store, config }) {
       deck = deck.filter((c) => !c.progress);
     } else if (mode === 'weak') {
       deck = deck.filter((c) => c.progress && (c.progress.lapses > 0 || c.progress.ease < 2.2));
+    } else if (mode === 'missed') {
+      deck = deck.filter((c) => progressLooksMissed(c.progress));
     }
 
     if (grades.length) {

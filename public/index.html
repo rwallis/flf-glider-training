@@ -3443,6 +3443,7 @@
           <button type="button" class="chip ${state.study.mode === 'new' ? 'active' : ''}" data-set-mode="new">New</button>
           <button type="button" class="chip ${state.study.mode === 'all' ? 'active' : ''}" data-set-mode="all">All cards</button>
           <button type="button" class="chip ${state.study.mode === 'weak' ? 'active' : ''}" data-set-mode="weak">Weak cards</button>
+          <button type="button" class="chip ${state.study.mode === 'missed' ? 'active' : ''}" data-set-mode="missed">Missed</button>
         </div>
         <div class="chip-row">
           <span class="filter-label">Session</span>
@@ -3463,19 +3464,25 @@
               ? 'New: cards you have never graded yet.'
               : state.study.mode === 'weak'
                 ? 'Weak cards: ones you marked Again often or that have a low ease score.'
-                : 'All cards: every card in this category, ignoring review schedule.'
+                : state.study.mode === 'missed'
+                  ? 'Missed: cards where your last selected answer was wrong.'
+                  : 'All cards: every card in this category, ignoring review schedule.'
         }${gradeHint} Showing ${state.study.cards.length} of ${state.study.matched || state.study.cards.length} matched.</p>
         <label>Topic</label>
         <select id="topicSelect">
           <option value="">All topics</option>
           ${topics.map((t) => `<option value="${t.id}" ${state.study.topic === t.id ? 'selected' : ''}>${escapeHtml(t.title)}</option>`).join('')}
         </select>
-        ${!card ? `<div class="empty">No cards in this deck filter. Try All, clear grade filters, or another course.</div>`
+        ${!card ? `<div class="empty">${
+          state.study.mode === 'missed'
+            ? 'No missed cards here — nice work. Wrong answers will show up in Missed until you get them right.'
+            : 'No cards in this deck filter. Try All, clear grade filters, or another course.'
+        }</div>`
           : (state.study.sessionComplete && remaining === 0) ? `
           <div class="flash">
             <div class="empty" style="padding:28px 16px">
               <p style="margin:0 0 8px;font-size:1.05rem;font-weight:800">No more questions left in this session.</p>
-              <p class="hint" style="margin:0">You finished all ${state.study.cards.length} card${state.study.cards.length === 1 ? '' : 's'}. Change Due / New / All, topic, or session size to continue.</p>
+              <p class="hint" style="margin:0">You finished all ${state.study.cards.length} card${state.study.cards.length === 1 ? '' : 's'}. Change Due / New / All / Missed, topic, or session size to continue.</p>
             </div>
             <div class="study-nav-row">
               <button type="button" class="study-nav-back" id="studyBackBtn">← Review last card</button>
