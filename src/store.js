@@ -336,6 +336,22 @@ export function intervalDaysFromSchedule(grade, schedule) {
   return rule.value;
 }
 
+/**
+ * Patch to make an Easy-graded card Due now without changing last_result.
+ * Reversible in practice: grading Easy again re-applies the Easy schedule.
+ */
+export function easyProgressDuePatch(now = new Date()) {
+  const when = now instanceof Date ? now : new Date(now);
+  return {
+    due_at: when.toISOString(),
+    interval_days: 0
+  };
+}
+
+export function isEasyLastProgress(row) {
+  return String(row?.last_result || '').toLowerCase() === 'easy';
+}
+
 /** Update progress after a grade using the Admin study schedule. */
 export function nextProgress(prev, grade, schedule = DEFAULT_STUDY_SCHEDULE) {
   // grade: again | hard | good | easy
@@ -388,6 +404,34 @@ export function createMemoryStore(seed) {
       const next = normalizeStudySchedule(schedule);
       state.settings.set(STUDY_SCHEDULE_KEY, next);
       return next;
+    },
+    /**
+     * Set due_at=now for progress rows whose last grade was Easy.
+     * @param {{ userKey?: string|null, now?: Date }} [opts]
+     *   userKey omitted/null → all users.
+     */
+    async resetEasyLastCardsToDue({ userKey = null, now = new Date() } = {}) {
+      const patch = easyProgressDuePatch(now);
+      const updated = [];
+      for (const [key, row] of state.progress.entries()) {
+        if (userKey && row.user_key !== userKey) continue;
+        if (!isEasyLastProgress(row)) continue;
+        const next = { ...row, ...patch };
+        state.progress.set(key, next);
+        updated.push({
+          user_key: next.user_key,
+          card_id: next.card_id,
+          last_result: next.last_result,
+          due_at: next.due_at
+        });
+      }
+      return {
+        ok: true,
+        scope: userKey ? 'user' : 'all_users',
+        user_key: userKey || null,
+        updated: updated.length,
+        rows: updated
+      };
     },
     async listTracks() {
       return state.tracks.sort((a, b) => a.sort_order - b.sort_order);
@@ -719,6 +763,35 @@ export function createPgStore(db) {
         [STUDY_SCHEDULE_KEY, JSON.stringify(next)]
       );
       return next;
+    },
+    async resetEasyLastCardsToDue({ userKey = null, now = new Date() } = {}) {
+      const patch = easyProgressDuePatch(now);
+      const params = [patch.due_at, patch.interval_days];
+      let userFilter = '';
+      if (userKey) {
+        params.push(String(userKey));
+        userFilter = ` AND user_key = $${params.length}`;
+      }
+      const { rows } = await db.query(
+        `UPDATE glider_progress
+         SET due_at = $1::timestamptz,
+             interval_days = $2
+         WHERE lower(coalesce(last_result, '')) = 'easy'${userFilter}
+         RETURNING user_key, card_id, last_result, due_at`,
+        params
+      );
+      return {
+        ok: true,
+        scope: userKey ? 'user' : 'all_users',
+        user_key: userKey || null,
+        updated: rows.length,
+        rows: rows.map((r) => ({
+          user_key: r.user_key,
+          card_id: r.card_id,
+          last_result: r.last_result,
+          due_at: r.due_at?.toISOString?.() || String(r.due_at)
+        }))
+      };
     },
     async listTracks() {
       const { rows } = await db.query(

@@ -238,6 +238,28 @@ export function registerGliderApi(app, { store, config }) {
     }
   });
 
+  /**
+   * One-shot admin tool: cards whose last grade was Easy become Due now
+   * (due_at = now). Does not change last_result. Default scope = all users.
+   */
+  app.post('/api/admin/progress/reset-easy-to-due', async (req, res) => {
+    if (!requireAdmin(req, res, config)) return;
+    try {
+      const rawKey = req.body?.user_key ?? req.body?.userKey ?? null;
+      const userKey =
+        rawKey == null || String(rawKey).trim() === '' ? null : String(rawKey).trim();
+      const result = await store.resetEasyLastCardsToDue({ userKey });
+      res.json({
+        ok: true,
+        ...result,
+        note:
+          'Updated progress rows with last_result=easy so they appear in Study → Due. last_result stays easy; grading Easy again will re-apply the Easy schedule.'
+      });
+    } catch (error) {
+      res.status(400).json({ error: error.message || String(error) });
+    }
+  });
+
   function assertImportMutationAccess(req, res) {
     if (!requireAdmin(req, res, config)) return false;
     if (config.importPassword) {
