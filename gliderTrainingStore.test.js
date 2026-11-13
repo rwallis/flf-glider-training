@@ -10,6 +10,8 @@ import {
   displayNameFromProfile,
   resolveStudyCorrect,
   progressLooksMissed,
+  easyProgressDuePatch,
+  isEasyLastProgress,
   xpForCorrectness,
   correctPercent,
   computeCourseReadiness,
@@ -285,6 +287,40 @@ test('progressLooksMissed uses last_correct then legacy Again', () => {
   assert.equal(progressLooksMissed({ last_correct: true, last_result: 'again' }), false);
   assert.equal(progressLooksMissed({ last_result: 'again' }), true);
   assert.equal(progressLooksMissed({ last_result: 'good' }), false);
+});
+
+test('resetEasyLastCardsToDue makes Easy-last cards Due for all users', async () => {
+  const far = '9999-12-31T00:00:00.000Z';
+  const store = createMemoryStore({
+    tracks: [{ id: 'foi', title: 'FOI' }],
+    topics: [{ id: 'foi_1', track_id: 'foi', title: 'Learning' }],
+    cards: [
+      { id: 'c1', track_id: 'foi', topic_id: 'foi_1', question: 'Q1', answer: 'A' },
+      { id: 'c2', track_id: 'foi', topic_id: 'foi_1', question: 'Q2', answer: 'A' },
+      { id: 'c3', track_id: 'foi', topic_id: 'foi_1', question: 'Q3', answer: 'A' }
+    ]
+  });
+  const now = new Date('2026-11-13T17:00:00.000Z');
+  await store.upsertProgress('u1', 'c1', { ...nextProgress(null, 'easy'), due_at: far }, { correct: true });
+  await store.upsertProgress('u2', 'c2', { ...nextProgress(null, 'easy'), due_at: far }, { correct: true });
+  await store.upsertProgress('u1', 'c3', nextProgress(null, 'good'), { correct: true });
+
+  assert.equal(isEasyLastProgress(await store.getProgressOne('u1', 'c1')), true);
+  assert.equal(isEasyLastProgress(await store.getProgressOne('u1', 'c3')), false);
+
+  const result = await store.resetEasyLastCardsToDue({ now });
+  assert.equal(result.scope, 'all_users');
+  assert.equal(result.updated, 2);
+  assert.equal(easyProgressDuePatch(now).due_at, now.toISOString());
+
+  const p1 = await store.getProgressOne('u1', 'c1');
+  const p2 = await store.getProgressOne('u2', 'c2');
+  const p3 = await store.getProgressOne('u1', 'c3');
+  assert.equal(p1.last_result, 'easy');
+  assert.equal(p1.due_at, now.toISOString());
+  assert.equal(p2.due_at, now.toISOString());
+  assert.notEqual(p3.due_at, now.toISOString());
+  assert.ok(new Date(p1.due_at).getTime() <= now.getTime());
 });
 
 test('memory store Missed deck is last wrong answers only', async () => {

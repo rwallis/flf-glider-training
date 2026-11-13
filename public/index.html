@@ -1918,7 +1918,8 @@
           hard: { value: 1, unit: 'days' },
           good: { value: 7, unit: 'days' },
           easy: { value: 0, unit: 'never' }
-        }
+        },
+        easyResetStatus: ''
       },
       progressTracks: [],
       leagueFocus: {
@@ -4521,6 +4522,16 @@
             <button type="button" class="secondary" id="resetScheduleBtn">Reset defaults</button>
             <button type="button" id="saveScheduleBtn">Save schedule</button>
           </div>
+          <h2 class="section-title" style="margin-top:18px">Reset Easy → Due</h2>
+          <p class="hint">
+            One-shot: set <strong>due now</strong> for every progress row whose last grade was Easy
+            (all signed-in users). Keeps last grade as Easy; does not change ease/reps.
+            After deploy, tap once — or run <code>node scripts/reset-easy-to-due.mjs</code> with DATABASE_URL.
+          </p>
+          <div class="btn-row">
+            <button type="button" class="secondary" id="resetEasyToDueBtn">Make all Easy cards Due</button>
+          </div>
+          ${a.easyResetStatus ? `<p class="admin-search-status">${escapeHtml(a.easyResetStatus)}</p>` : ''}
         </section>
 
         <section class="admin-section">
@@ -5556,6 +5567,30 @@
             render();
           } catch (err) {
             toast(err.message || 'Save failed');
+          }
+        });
+      }
+      const resetEasyToDueBtn = app.querySelector('#resetEasyToDueBtn');
+      if (resetEasyToDueBtn) {
+        resetEasyToDueBtn.addEventListener('click', async () => {
+          const ok = window.confirm(
+            'Make every Easy-graded card Due now for all users?\n\nThis only sets due_at to now; last grade stays Easy.'
+          );
+          if (!ok) return;
+          resetEasyToDueBtn.disabled = true;
+          try {
+            const result = await api('/api/admin/progress/reset-easy-to-due', {
+              method: 'POST',
+              body: JSON.stringify({})
+            });
+            state.admin.easyResetStatus =
+              `Updated ${result.updated || 0} Easy card${(result.updated || 0) === 1 ? '' : 's'} → Due (${result.scope || 'all_users'}).`;
+            toast(state.admin.easyResetStatus);
+          } catch (err) {
+            state.admin.easyResetStatus = err.message || 'Reset failed';
+            toast(state.admin.easyResetStatus);
+          } finally {
+            render();
           }
         });
       }
