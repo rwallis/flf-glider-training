@@ -555,7 +555,21 @@
       display: block;
       width: 100%;
       height: auto;
+      margin: 0 auto;
+      transform-origin: center center;
+      transition: transform 0.18s ease;
     }
+    /* Layout box stays upright; rotate paint only so overflow scroll still works. */
+    .figure-image-wrap img.figure-rot-90,
+    .figure-image-wrap img.figure-rot-270 {
+      width: auto;
+      max-width: none;
+      height: min(88vw, 420px);
+      max-height: none;
+    }
+    .figure-image-wrap img.figure-rot-90 { transform: rotate(90deg); }
+    .figure-image-wrap img.figure-rot-180 { transform: rotate(180deg); }
+    .figure-image-wrap img.figure-rot-270 { transform: rotate(270deg); }
     .figure-caption {
       margin: 10px 0 0;
       font-size: 0.85rem;
@@ -597,6 +611,13 @@
         max-height: min(78vh, 780px);
         height: auto;
         object-fit: contain;
+      }
+      .figure-image-wrap img.figure-rot-90,
+      .figure-image-wrap img.figure-rot-270 {
+        width: auto;
+        max-width: none;
+        height: min(72vh, 720px);
+        max-height: none;
       }
     }
     .details-sheet {
@@ -1876,6 +1897,7 @@
         detailsEditing: false,
         detailsDraft: null,
         figureOpen: false,
+        figureRotation: 0,
         calcOpen: false,
         calc: {
           display: '0',
@@ -2702,6 +2724,8 @@
       state.study.quizChoice = null;
       state.study.editing = false;
       state.study.editDraft = null;
+      state.study.figureOpen = false;
+      state.study.figureRotation = 0;
       render();
     }
 
@@ -2731,6 +2755,7 @@
       state.study.detailsEditing = false;
       state.study.detailsDraft = null;
       state.study.figureOpen = false;
+      state.study.figureRotation = 0;
       state.topics = (await api('/api/topics?track=' + encodeURIComponent(card.track_id))).topics;
       const q = new URLSearchParams({
         track: card.track_id,
@@ -2795,6 +2820,7 @@
       state.study.detailsEditing = false;
       state.study.detailsDraft = null;
       state.study.figureOpen = false;
+      state.study.figureRotation = 0;
       const nextIncomplete = findNextIncomplete(state.study.index + 1);
       if (nextIncomplete >= 0) {
         state.study.index = nextIncomplete;
@@ -2839,6 +2865,7 @@
       state.study.detailsEditing = false;
       state.study.detailsDraft = null;
       state.study.figureOpen = false;
+      state.study.figureRotation = 0;
     }
 
     function moveStudy(delta) {
@@ -3694,7 +3721,9 @@
             <div class="details-panel figure-panel">
               <header>
                 <h3>Figure</h3>
-                <button type="button" class="close-details" id="closeFigureBtn" aria-label="Close">×</button>
+                <div class="details-header-actions">
+                  <button type="button" class="close-details" id="closeFigureBtn" aria-label="Close">×</button>
+                </div>
               </header>
               <p class="details-empty">No figure is linked to this question.</p>
             </div>
@@ -3704,17 +3733,25 @@
       const title = figure.title
         ? `Figure ${figure.number} — ${figure.title}`
         : `Figure ${figure.number}`;
+      const rotation = [0, 90, 180, 270].includes(state.study.figureRotation)
+        ? state.study.figureRotation
+        : 0;
+      const rotClass = rotation ? `figure-rot-${rotation}` : '';
+      const rotateLabel = rotation ? `Rotate (${rotation}°)` : 'Rotate';
       return `
         <div class="details-sheet figure-sheet" id="figureSheet" role="dialog" aria-modal="true" aria-label="${escapeHtml(title)}">
           <div class="details-panel figure-panel">
             <header>
               <h3>${escapeHtml(title)}</h3>
-              <button type="button" class="close-details" id="closeFigureBtn" aria-label="Close">×</button>
+              <div class="details-header-actions">
+                <button type="button" class="details-edit-btn" id="rotateFigureBtn" aria-label="Rotate figure 90 degrees clockwise">${escapeHtml(rotateLabel)}</button>
+                <button type="button" class="close-details" id="closeFigureBtn" aria-label="Close">×</button>
+              </div>
             </header>
             <div class="figure-image-wrap">
-              <img src="${escapeHtml(figure.url)}" alt="${escapeHtml(title)}" loading="lazy" />
+              <img${rotClass ? ` class="${rotClass}"` : ''} src="${escapeHtml(figure.url)}" alt="${escapeHtml(title)}" loading="lazy" />
             </div>
-            <p class="figure-caption">From the FAA Computer Testing Supplement. Pinch/scroll to zoom on phone.</p>
+            <p class="figure-caption">From the FAA Computer Testing Supplement. Pinch/scroll to zoom on phone. Tap Rotate for landscape charts.</p>
           </div>
         </div>
       `;
@@ -5313,6 +5350,7 @@
       if (figureBtn) {
         figureBtn.addEventListener('click', () => {
           state.study.figureOpen = true;
+          state.study.figureRotation = 0;
           state.study.detailsOpen = false;
           state.study.detailsEditing = false;
           state.study.detailsDraft = null;
@@ -5371,10 +5409,21 @@
           render();
         });
       });
+      const rotateFigure = app.querySelector('#rotateFigureBtn');
+      if (rotateFigure) {
+        rotateFigure.addEventListener('click', () => {
+          const cur = [0, 90, 180, 270].includes(state.study.figureRotation)
+            ? state.study.figureRotation
+            : 0;
+          state.study.figureRotation = (cur + 90) % 360;
+          render();
+        });
+      }
       const closeFigure = app.querySelector('#closeFigureBtn');
       if (closeFigure) {
         closeFigure.addEventListener('click', () => {
           state.study.figureOpen = false;
+          state.study.figureRotation = 0;
           render();
         });
       }
@@ -5389,6 +5438,7 @@
         figureSheet.addEventListener('click', (e) => {
           if (e.target === figureSheet) {
             state.study.figureOpen = false;
+            state.study.figureRotation = 0;
             render();
           }
         });
