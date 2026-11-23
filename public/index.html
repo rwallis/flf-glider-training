@@ -1882,6 +1882,7 @@
         track: 'commercial',
         topic: '',
         mode: 'due',
+        sort: 'schedule',
         limit: 20,
         grades: [],
         matched: 0,
@@ -2707,9 +2708,12 @@
     }
 
     async function loadStudyDeck() {
+      const sort = isAdminUser() && state.study.sort === 'number' ? 'number' : 'schedule';
+      state.study.sort = sort;
       const q = new URLSearchParams({
         track: state.study.track,
         mode: state.study.mode,
+        sort,
         limit: String(state.study.limit || 20)
       });
       if (state.study.topic) q.set('topic', state.study.topic);
@@ -2717,6 +2721,7 @@
       const data = await api('/api/study?' + q.toString());
       state.study.cards = data.cards;
       state.study.matched = data.matched ?? data.cards.length;
+      if (data.sort) state.study.sort = data.sort;
       state.study.index = 0;
       state.study.doneIds = new Set();
       state.study.sessionComplete = false;
@@ -3473,9 +3478,16 @@
           <button type="button" class="chip ${state.study.mode === 'weak' ? 'active' : ''}" data-set-mode="weak">Weak cards</button>
           <button type="button" class="chip ${state.study.mode === 'missed' ? 'active' : ''}" data-set-mode="missed">Missed</button>
         </div>
+        ${isAdminUser() ? `
+        <div class="chip-row">
+          <span class="filter-label">Order</span>
+          <button type="button" class="chip ${state.study.sort !== 'number' ? 'active' : ''}" data-set-sort="schedule">Schedule</button>
+          <button type="button" class="chip ${state.study.sort === 'number' ? 'active' : ''}" data-set-sort="number">By #</button>
+        </div>
+        ` : ''}
         <div class="chip-row">
           <span class="filter-label">Session</span>
-          ${[10, 20, 40, 80].map((n) => `
+          ${(isAdminUser() ? [10, 20, 40, 80, 200, 500] : [10, 20, 40, 80]).map((n) => `
             <button type="button" class="chip ${state.study.limit === n ? 'active' : ''}" data-set-limit="${n}">${n}</button>
           `).join('')}
         </div>
@@ -3495,6 +3507,10 @@
                 : state.study.mode === 'missed'
                   ? 'Missed: cards where your last selected answer was wrong.'
                   : 'All cards: every card in this category, ignoring review schedule.'
+        }${
+          isAdminUser() && state.study.sort === 'number'
+            ? ' Order: by question number (admin QA vs printed bank). Pair with All cards and a large session size.'
+            : ''
         }${gradeHint} Showing ${state.study.cards.length} of ${state.study.matched || state.study.cards.length} matched.</p>
         <label>Topic</label>
         <select id="topicSelect">
@@ -3523,6 +3539,7 @@
             <div class="card-toolbar">
               <div class="meta">
                 <span class="meta-remaining">${remaining} remaining in session</span>
+                ${isAdminUser() && sourceRefLabel(card) ? `<span class="topic-pill" title="${escapeHtml(String(card.source || ''))}">${escapeHtml(sourceRefLabel(card))}</span>` : ''}
                 <span class="topic-pill" title="${escapeHtml(card.topic_id || '')}">${escapeHtml(topicTitle)}</span>
               </div>
               <div class="card-toolbar-actions">
@@ -5293,6 +5310,18 @@
       app.querySelectorAll('[data-set-mode]').forEach((btn) => {
         btn.addEventListener('click', async () => {
           state.study.mode = btn.dataset.setMode;
+          await loadStudyDeck();
+        });
+      });
+      app.querySelectorAll('[data-set-sort]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          if (!isAdminUser()) return;
+          const next = btn.dataset.setSort === 'number' ? 'number' : 'schedule';
+          state.study.sort = next;
+          if (next === 'number') {
+            state.study.mode = 'all';
+            if ((state.study.limit || 0) < 200) state.study.limit = 200;
+          }
           await loadStudyDeck();
         });
       });

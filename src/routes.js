@@ -26,6 +26,17 @@ function requireAdmin(req, res, config) {
   return true;
 }
 
+/** Bank / source question number for QA ordering (commercial_written_042 → 42). */
+export function cardQuestionNumber(card) {
+  const id = String(card?.id || '');
+  const idMatch = id.match(/_(\d+)$/);
+  if (idMatch) return Number(idMatch[1]);
+  const source = String(card?.source || '');
+  const srcMatch = source.match(/#\s*(\d+)/);
+  if (srcMatch) return Number(srcMatch[1]);
+  return Number.POSITIVE_INFINITY;
+}
+
 export function registerGliderApi(app, { store, config }) {
   async function listCoursesWithCounts() {
     const tracks = await store.listTracks();
@@ -120,9 +131,14 @@ export function registerGliderApi(app, { store, config }) {
     const trackId = req.query.track || undefined;
     const topicId = req.query.topic || undefined;
     const mode = req.query.mode || 'due'; // due | new | all | weak | missed
+    const sortRaw = String(req.query.sort || 'schedule').toLowerCase();
+    const sort = sortRaw === 'number' ? 'number' : 'schedule';
+    if (sort === 'number' && !resolveIsAdmin(req, config)) {
+      return res.status(403).json({ error: 'Admin access required for sort=number' });
+    }
     const limitRaw = Number(req.query.limit);
     const limit = Number.isFinite(limitRaw)
-      ? Math.min(200, Math.max(1, Math.floor(limitRaw)))
+      ? Math.min(500, Math.max(1, Math.floor(limitRaw)))
       : 20;
     const grades = String(req.query.grades || '')
       .split(',')
@@ -157,17 +173,28 @@ export function registerGliderApi(app, { store, config }) {
       deck = deck.filter((c) => want.has(String(c.progress?.last_result || '').toLowerCase()));
     }
 
-    // Prefer never-seen, then earliest due
-    deck.sort((a, b) => {
-      const ap = a.progress ? new Date(a.progress.due_at).getTime() : 0;
-      const bp = b.progress ? new Date(b.progress.due_at).getTime() : 0;
-      if (!a.progress && b.progress) return -1;
-      if (a.progress && !b.progress) return 1;
-      return ap - bp;
-    });
+    if (sort === 'number') {
+      // Admin QA: walk the bank in source/question-number order.
+      deck.sort((a, b) => {
+        const an = cardQuestionNumber(a);
+        const bn = cardQuestionNumber(b);
+        if (an !== bn) return an - bn;
+        return String(a.id || '').localeCompare(String(b.id || ''));
+      });
+    } else {
+      // Prefer never-seen, then earliest due
+      deck.sort((a, b) => {
+        const ap = a.progress ? new Date(a.progress.due_at).getTime() : 0;
+        const bp = b.progress ? new Date(b.progress.due_at).getTime() : 0;
+        if (!a.progress && b.progress) return -1;
+        if (a.progress && !b.progress) return 1;
+        return ap - bp;
+      });
+    }
 
     res.json({
       mode,
+      sort,
       track: trackId || null,
       topic: topicId || null,
       grades,
