@@ -163,6 +163,33 @@ test('memory store updateCard edits question answer and choices', async () => {
   assert.equal(got.question, 'New Q');
 });
 
+test('memory store updateCard can move course and topic', async () => {
+  const store = createMemoryStore({
+    tracks: [
+      { id: 'cfi_g', title: 'CFI-G', sort_order: 1, status: 'ready' },
+      { id: 'foi', title: 'FOI', sort_order: 2, status: 'ready' }
+    ],
+    topics: [
+      { id: 'cfi_t1', track_id: 'cfi_g', title: 'Old topic' },
+      { id: 'foi_1', track_id: 'foi', title: 'Learning' }
+    ],
+    cards: [{
+      id: 'c1',
+      track_id: 'cfi_g',
+      topic_id: 'cfi_t1',
+      question: 'Q',
+      answer: 'A'
+    }]
+  });
+  const updated = await store.updateCard('c1', { track_id: 'foi', topic_id: 'foi_1' });
+  assert.equal(updated.track_id, 'foi');
+  assert.equal(updated.topic_id, 'foi_1');
+  await assert.rejects(
+    () => store.updateCard('c1', { track_id: 'foi', topic_id: 'cfi_t1' }),
+    /not in course/
+  );
+});
+
 test('normalizeCardPatch and updateCard persist manual details', async () => {
   const patch = normalizeCardPatch({
     details: {

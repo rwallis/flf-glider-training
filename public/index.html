@@ -2897,17 +2897,32 @@
       render();
     }
 
-    function beginEditCard() {
+    async function beginEditCard() {
       if (!isAdminUser()) return;
       const card = currentCard();
       if (!card) return;
       const choices = Array.isArray(card.choices) ? card.choices.slice() : [];
+      const trackId = card.track_id || state.study.track || '';
+      let editTopics = (state.topics || []).filter((t) => t.track_id === trackId);
+      try {
+        if (!(state.tracks || []).length) {
+          const tracks = await api('/api/courses').catch(() => api('/api/tracks'));
+          state.tracks = tracks.courses || tracks.tracks || [];
+        }
+        const topicRes = await api('/api/topics?track=' + encodeURIComponent(trackId));
+        editTopics = topicRes.topics || [];
+      } catch (err) {
+        toast(err.message || 'Could not load topics');
+      }
       state.study.editing = true;
       state.study.editDraft = {
         question: card.question || '',
         answer: card.answer || '',
         choices,
-        correctIndex: choices.findIndex((c) => c === card.answer)
+        correctIndex: choices.findIndex((c) => c === card.answer),
+        track_id: trackId,
+        topic_id: card.topic_id || '',
+        topics: editTopics
       };
       render();
     }
@@ -2932,11 +2947,15 @@
       if (choices.length && correctIndex >= 0 && choices[correctIndex]?.trim()) {
         answer = choices[correctIndex].trim();
       }
+      const track_id = String(app.querySelector('#editTrack')?.value ?? draft.track_id ?? '').trim();
+      const topic_id = String(app.querySelector('#editTopic')?.value ?? draft.topic_id ?? '').trim();
       return {
         question: String(question || '').trim(),
         answer,
         choices: choices.map((c) => String(c || '').trim()).filter(Boolean),
-        correctIndex
+        correctIndex,
+        track_id,
+        topic_id
       };
     }
 
@@ -2947,6 +2966,14 @@
       if (!draft) return;
       if (!draft.question) {
         toast('Question is required');
+        return;
+      }
+      if (!draft.track_id) {
+        toast('Course is required');
+        return;
+      }
+      if (!draft.topic_id) {
+        toast('Category/topic is required');
         return;
       }
       if (draft.choices.length && draft.correctIndex < 0) {
@@ -2961,17 +2988,32 @@
         const body = {
           question: draft.question,
           answer: draft.answer,
-          choices: draft.choices.length ? draft.choices : null
+          choices: draft.choices.length ? draft.choices : null,
+          track_id: draft.track_id,
+          topic_id: draft.topic_id
         };
         const result = await api('/api/cards/' + encodeURIComponent(card.id), {
           method: 'PATCH',
           body: JSON.stringify(body)
         });
         Object.assign(card, result.card);
+        const trackChanged = draft.track_id !== state.study.track;
+        const topicFilter = state.study.topic;
         state.study.editing = false;
         state.study.editDraft = null;
         state.study.revealed = false;
         state.study.quizChoice = null;
+        if (trackChanged || (topicFilter && draft.topic_id !== topicFilter)) {
+          // Card no longer belongs in this filtered session — drop it from the deck.
+          const idx = state.study.index;
+          state.study.cards = state.study.cards.filter((c) => c.id !== card.id);
+          if (!state.study.cards.length) {
+            state.study.index = 0;
+            state.study.sessionComplete = true;
+          } else {
+            state.study.index = Math.min(idx, state.study.cards.length - 1);
+          }
+        }
         toast('Card saved');
         render();
       } catch (err) {
@@ -2984,11 +3026,29 @@
         question: card.question || '',
         answer: card.answer || '',
         choices: Array.isArray(card.choices) ? card.choices.slice() : [],
-        correctIndex: -1
+        correctIndex: -1,
+        track_id: card.track_id || '',
+        topic_id: card.topic_id || '',
+        topics: (state.topics || []).filter((t) => t.track_id === (card.track_id || ''))
       };
       const hasChoices = draft.choices.length > 0;
+      const courseOpts = (state.tracks || []).map((t) => [t.id, t.title || trackLabel(t.id)]);
+      const topicOpts = (draft.topics || []).map((t) => [t.id, t.title || t.id]);
       return `
         <div class="edit-card">
+          <label for="editTrack">Course</label>
+          <select id="editTrack">
+            ${courseOpts.map(([id, label]) =>
+              `<option value="${escapeHtml(id)}" ${draft.track_id === id ? 'selected' : ''}>${escapeHtml(label)}</option>`
+            ).join('')}
+          </select>
+          <label for="editTopic">Category / topic</label>
+          <select id="editTopic">
+            <option value="">Select topic</option>
+            ${topicOpts.map(([id, label]) =>
+              `<option value="${escapeHtml(id)}" ${draft.topic_id === id ? 'selected' : ''}>${escapeHtml(label)}</option>`
+            ).join('')}
+          </select>
           <label for="editQuestion">Question</label>
           <textarea id="editQuestion">${escapeHtml(draft.question)}</textarea>
           <p class="edit-hint">Underline a word with <code>&lt;u&gt;250&lt;/u&gt;</code> (shows as <u>250</u>).</p>
@@ -5557,6 +5617,32 @@
       if (cancelEdit) cancelEdit.addEventListener('click', () => cancelEditCard());
       const saveEdit = app.querySelector('#saveEditBtn');
       if (saveEdit) saveEdit.addEventListener('click', () => saveEditCard());
+      const editTrack = app.querySelector('#editTrack');
+      if (editTrack) {
+        editTrack.addEventListener('change', async () => {
+          const draft = readEditDraftFromDom();
+          if (!draft || !state.study.editDraft) return;
+          const trackId = draft.track_id;
+          Object.assign(state.study.editDraft, draft, { track_id: trackId, topic_id: '' });
+          try {
+            const topicRes = await api('/api/topics?track=' + encodeURIComponent(trackId));
+            state.study.editDraft.topics = topicRes.topics || [];
+            if (state.study.editDraft.topics.length) {
+              state.study.editDraft.topic_id = state.study.editDraft.topics[0].id;
+            }
+            render();
+          } catch (err) {
+            toast(err.message || 'Could not load topics');
+          }
+        });
+      }
+      const editTopic = app.querySelector('#editTopic');
+      if (editTopic) {
+        editTopic.addEventListener('change', () => {
+          if (!state.study.editDraft) return;
+          state.study.editDraft.topic_id = editTopic.value;
+        });
+      }
       const hideCardBtn = app.querySelector('#hideCardBtn');
       if (hideCardBtn) {
         hideCardBtn.addEventListener('click', () => {

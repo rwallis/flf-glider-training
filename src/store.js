@@ -249,6 +249,11 @@ export function normalizeCardPatch(body = {}) {
   if (body.source !== undefined) {
     patch.source = String(body.source ?? '').trim();
   }
+  if (body.track_id !== undefined || body.track !== undefined) {
+    const trackId = String(body.track_id ?? body.track ?? '').trim();
+    if (!trackId) throw new Error('track_id is required when provided');
+    patch.track_id = trackId;
+  }
   if (body.topic_id !== undefined) {
     const topicId = String(body.topic_id ?? '').trim();
     if (!topicId) throw new Error('topic_id is required when provided');
@@ -514,6 +519,19 @@ export function createMemoryStore(seed) {
       const card = state.cards.find((c) => c.id === id);
       if (!card) return null;
       const patch = normalizeCardPatch(body);
+      const nextTrack = patch.track_id ?? card.track_id;
+      const nextTopic = patch.topic_id ?? card.topic_id;
+      if (patch.track_id !== undefined || patch.topic_id !== undefined) {
+        if (!state.tracks.some((t) => t.id === nextTrack)) {
+          throw new Error(`unknown track_id: ${nextTrack}`);
+        }
+        if (!state.topics.some((t) => t.id === nextTopic && t.track_id === nextTrack)) {
+          throw new Error(`topic_id ${nextTopic} is not in course ${nextTrack}`);
+        }
+        // Keep track/topic pair consistent when only one side is patched.
+        patch.track_id = nextTrack;
+        patch.topic_id = nextTopic;
+      }
       Object.assign(card, patch, { updated_at: new Date().toISOString() });
       return { ...card };
     },
@@ -947,10 +965,28 @@ export function createPgStore(db) {
       };
     },
     async updateCard(id, body) {
+      const existing = await this.getCard(id);
+      if (!existing) return null;
       const patch = normalizeCardPatch(body);
+      const nextTrack = patch.track_id ?? existing.track_id;
+      const nextTopic = patch.topic_id ?? existing.topic_id;
+      if (patch.track_id !== undefined || patch.topic_id !== undefined) {
+        const track = await db.query('SELECT id FROM glider_tracks WHERE id = $1', [nextTrack]);
+        if (!track.rows[0]) throw new Error(`unknown track_id: ${nextTrack}`);
+        const topic = await db.query(
+          'SELECT id FROM glider_topics WHERE id = $1 AND track_id = $2',
+          [nextTopic, nextTrack]
+        );
+        if (!topic.rows[0]) {
+          throw new Error(`topic_id ${nextTopic} is not in course ${nextTrack}`);
+        }
+        // Keep track/topic pair consistent when only one side is patched.
+        patch.track_id = nextTrack;
+        patch.topic_id = nextTopic;
+      }
       const fields = [];
       const params = [];
-      for (const key of ['question', 'answer', 'source', 'topic_id']) {
+      for (const key of ['question', 'answer', 'source', 'topic_id', 'track_id']) {
         if (patch[key] !== undefined) {
           params.push(patch[key]);
           fields.push(`${key} = $${params.length}`);
