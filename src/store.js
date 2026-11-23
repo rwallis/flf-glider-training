@@ -277,8 +277,44 @@ export function normalizeCardPatch(body = {}) {
       patch.details = details;
     }
   }
+  if (body.hidden !== undefined) {
+    patch.hidden = Boolean(body.hidden);
+  }
   if (!Object.keys(patch).length) throw new Error('no fields to update');
   return patch;
+}
+
+function normalizeNewCard(body = {}) {
+  const trackId = String(body.track_id || body.track || '').trim();
+  const topicId = String(body.topic_id || body.topic || '').trim();
+  const question = String(body.question || '').trim();
+  const answer = String(body.answer || '').trim();
+  if (!trackId) throw new Error('track_id is required');
+  if (!topicId) throw new Error('topic_id is required');
+  if (!question) throw new Error('question is required');
+  if (!answer) throw new Error('answer is required');
+  let choices = null;
+  if (Array.isArray(body.choices)) {
+    const cleaned = body.choices.map((c) => String(c ?? '').trim()).filter(Boolean);
+    choices = cleaned.length ? cleaned : null;
+  }
+  if (choices && !choices.includes(answer)) {
+    throw new Error('answer must match one of the choices');
+  }
+  const id = String(body.id || '').trim() || `manual_${trackId}_${randomUUID().slice(0, 8)}`;
+  return {
+    id,
+    track_id: trackId,
+    topic_id: topicId,
+    question,
+    answer,
+    choices,
+    source: String(body.source || 'manual').trim() || 'manual',
+    tags: Array.isArray(body.tags) ? body.tags.map(String) : ['manual'],
+    details: null,
+    figure: null,
+    hidden: false
+  };
 }
 
 export const STUDY_SCHEDULE_KEY = 'study_schedule';
@@ -441,9 +477,10 @@ export function createMemoryStore(seed) {
         .filter((t) => !trackId || t.track_id === trackId)
         .sort((a, b) => a.sort_order - b.sort_order);
     },
-    async listCards({ trackId, topicId, q, hasFigure, limit } = {}) {
+    async listCards({ trackId, topicId, q, hasFigure, limit, includeHidden } = {}) {
       const needle = String(q || '').trim().toLowerCase();
       let rows = state.cards.filter((c) => {
+        if (!includeHidden && c.hidden) return false;
         if (trackId && c.track_id !== trackId) return false;
         if (topicId && c.topic_id !== topicId) return false;
         if (needle && !String(c.question || '').toLowerCase().includes(needle)) return false;
@@ -457,6 +494,21 @@ export function createMemoryStore(seed) {
     },
     async getCard(id) {
       return state.cards.find((c) => c.id === id) || null;
+    },
+    async createCard(body) {
+      const card = normalizeNewCard(body);
+      if (!state.tracks.some((t) => t.id === card.track_id)) {
+        throw new Error(`unknown track_id: ${card.track_id}`);
+      }
+      if (!state.topics.some((t) => t.id === card.topic_id && t.track_id === card.track_id)) {
+        throw new Error(`unknown topic_id for track: ${card.topic_id}`);
+      }
+      if (state.cards.some((c) => c.id === card.id)) {
+        throw new Error(`card id already exists: ${card.id}`);
+      }
+      const row = { ...card, created_at: new Date().toISOString(), updated_at: new Date().toISOString() };
+      state.cards.push(row);
+      return { ...row };
     },
     async updateCard(id, body) {
       const card = state.cards.find((c) => c.id === id);
@@ -567,7 +619,8 @@ export function createMemoryStore(seed) {
           answer: row.answer,
           choices: row.choices || null,
           source: row.source || filename || 'import',
-          tags: row.tags || ['imported']
+          tags: row.tags || ['imported'],
+          hidden: false
         };
         if (row.topic_title && row.topic_id && !state.topics.some((t) => t.id === row.topic_id)) {
           state.topics.push({
@@ -600,7 +653,7 @@ export function createMemoryStore(seed) {
       return [...state.imports].reverse();
     },
     async stats(userKey) {
-      const cards = state.cards.length;
+      const cards = state.cards.filter((c) => !c.hidden).length;
       const prog = await this.getProgress(userKey);
       const due = prog.filter((p) => new Date(p.due_at) <= new Date()).length;
       const todayKey = activityDateKey();
@@ -622,7 +675,7 @@ export function createMemoryStore(seed) {
         .slice()
         .sort((a, b) => a.sort_order - b.sort_order)
         .map((t) => {
-          const cards = state.cards.filter((c) => c.track_id === t.id);
+          const cards = state.cards.filter((c) => c.track_id === t.id && !c.hidden);
           const topics = state.topics
             .filter((topic) => topic.track_id === t.id)
             .slice()
@@ -808,9 +861,12 @@ export function createPgStore(db) {
         : await db.query('SELECT * FROM glider_topics ORDER BY sort_order, title');
       return rows;
     },
-    async listCards({ trackId, topicId, q, hasFigure, limit } = {}) {
+    async listCards({ trackId, topicId, q, hasFigure, limit, includeHidden } = {}) {
       const clauses = [];
       const params = [];
+      if (!includeHidden) {
+        clauses.push(`COALESCE(hidden, FALSE) = FALSE`);
+      }
       if (trackId) {
         params.push(trackId);
         clauses.push(`track_id = $${params.length}`);
@@ -842,7 +898,8 @@ export function createPgStore(db) {
         ...r,
         choices: r.choices || null,
         details: r.details || null,
-        figure: r.figure || null
+        figure: r.figure || null,
+        hidden: Boolean(r.hidden)
       }));
     },
     async getCard(id) {
@@ -852,7 +909,41 @@ export function createPgStore(db) {
         ...rows[0],
         choices: rows[0].choices || null,
         details: rows[0].details || null,
-        figure: rows[0].figure || null
+        figure: rows[0].figure || null,
+        hidden: Boolean(rows[0].hidden)
+      };
+    },
+    async createCard(body) {
+      const card = normalizeNewCard(body);
+      const track = await db.query('SELECT id FROM glider_tracks WHERE id = $1', [card.track_id]);
+      if (!track.rows[0]) throw new Error(`unknown track_id: ${card.track_id}`);
+      const topic = await db.query(
+        'SELECT id FROM glider_topics WHERE id = $1 AND track_id = $2',
+        [card.topic_id, card.track_id]
+      );
+      if (!topic.rows[0]) throw new Error(`unknown topic_id for track: ${card.topic_id}`);
+      const { rows } = await db.query(
+        `INSERT INTO glider_cards
+          (id, track_id, topic_id, question, answer, choices, source, tags, hidden, updated_at)
+         VALUES ($1,$2,$3,$4,$5,$6::jsonb,$7,$8,FALSE,NOW())
+         RETURNING *`,
+        [
+          card.id,
+          card.track_id,
+          card.topic_id,
+          card.question,
+          card.answer,
+          card.choices ? JSON.stringify(card.choices) : null,
+          card.source,
+          card.tags
+        ]
+      );
+      return {
+        ...rows[0],
+        choices: rows[0].choices || null,
+        details: rows[0].details || null,
+        figure: rows[0].figure || null,
+        hidden: Boolean(rows[0].hidden)
       };
     },
     async updateCard(id, body) {
@@ -873,6 +964,10 @@ export function createPgStore(db) {
         params.push(patch.details ? JSON.stringify(patch.details) : null);
         fields.push(`details = $${params.length}::jsonb`);
       }
+      if (patch.hidden !== undefined) {
+        params.push(Boolean(patch.hidden));
+        fields.push(`hidden = $${params.length}`);
+      }
       if (!fields.length) throw new Error('no fields to update');
       params.push(id);
       const { rows } = await db.query(
@@ -886,7 +981,8 @@ export function createPgStore(db) {
         ...rows[0],
         choices: rows[0].choices || null,
         details: rows[0].details || null,
-        figure: rows[0].figure || null
+        figure: rows[0].figure || null,
+        hidden: Boolean(rows[0].hidden)
       };
     },
     async getProgress(userKey) {
@@ -1083,7 +1179,9 @@ export function createPgStore(db) {
       return rows;
     },
     async stats(userKey) {
-      const cards = await db.query('SELECT COUNT(*)::int AS n FROM glider_cards');
+      const cards = await db.query(
+        'SELECT COUNT(*)::int AS n FROM glider_cards WHERE COALESCE(hidden, FALSE) = FALSE'
+      );
       const studied = await db.query(
         'SELECT COUNT(*)::int AS n FROM glider_progress WHERE user_key = $1',
         [userKey]
@@ -1131,7 +1229,7 @@ export function createPgStore(db) {
              )
            )::int AS cards_correct
          FROM glider_tracks t
-         LEFT JOIN glider_cards c ON c.track_id = t.id
+         LEFT JOIN glider_cards c ON c.track_id = t.id AND COALESCE(c.hidden, FALSE) = FALSE
          LEFT JOIN glider_progress p ON p.card_id = c.id AND p.user_key = $1
          GROUP BY t.id, t.title, t.status, t.sort_order
          ORDER BY t.sort_order, t.title`,
@@ -1166,7 +1264,7 @@ export function createPgStore(db) {
              END
            ), 0)::int AS answers_correct
          FROM glider_topics tp
-         LEFT JOIN glider_cards c ON c.topic_id = tp.id
+         LEFT JOIN glider_cards c ON c.topic_id = tp.id AND COALESCE(c.hidden, FALSE) = FALSE
          LEFT JOIN glider_progress p ON p.card_id = c.id AND p.user_key = $1
          GROUP BY tp.track_id, tp.id, tp.title, tp.sort_order
          ORDER BY tp.sort_order, tp.title`,

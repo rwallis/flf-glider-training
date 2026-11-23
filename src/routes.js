@@ -68,15 +68,34 @@ export function registerGliderApi(app, { store, config }) {
     let hasFigure;
     if (['1', 'true', 'yes', 'only'].includes(hasFigureRaw)) hasFigure = true;
     else if (['0', 'false', 'no', 'none'].includes(hasFigureRaw)) hasFigure = false;
+    const includeHiddenRaw = String(req.query.include_hidden || '').trim().toLowerCase();
+    const wantHidden = ['1', 'true', 'yes'].includes(includeHiddenRaw);
+    if (wantHidden && !resolveIsAdmin(req, config)) {
+      return res.status(403).json({ error: 'Admin access required to include hidden cards' });
+    }
     const limitRaw = Number(req.query.limit);
     const cards = await store.listCards({
       trackId: req.query.track || undefined,
       topicId: req.query.topic || undefined,
       q: req.query.q || undefined,
       hasFigure,
+      includeHidden: wantHidden,
       limit: Number.isFinite(limitRaw) ? limitRaw : undefined
     });
     res.json({ cards });
+  });
+
+  app.post('/api/cards', async (req, res) => {
+    if (!requireAdmin(req, res, config)) return;
+    try {
+      if (typeof store.createCard !== 'function') {
+        return res.status(501).json({ error: 'createCard not available' });
+      }
+      const card = await store.createCard(req.body || {});
+      res.status(201).json({ ok: true, card });
+    } catch (error) {
+      res.status(400).json({ error: error.message || String(error) });
+    }
   });
 
   app.get('/api/stats', async (req, res) => {
@@ -242,6 +261,29 @@ export function registerGliderApi(app, { store, config }) {
     if (!requireAdmin(req, res, config)) return;
     try {
       const card = await store.updateCard(req.params.cardId, req.body || {});
+      if (!card) return res.status(404).json({ error: 'card not found' });
+      res.json({ ok: true, card });
+    } catch (error) {
+      res.status(400).json({ error: error.message || String(error) });
+    }
+  });
+
+  /** Soft-delete: hide from study decks without removing the row. */
+  app.post('/api/cards/:cardId/hide', async (req, res) => {
+    if (!requireAdmin(req, res, config)) return;
+    try {
+      const card = await store.updateCard(req.params.cardId, { hidden: true });
+      if (!card) return res.status(404).json({ error: 'card not found' });
+      res.json({ ok: true, card });
+    } catch (error) {
+      res.status(400).json({ error: error.message || String(error) });
+    }
+  });
+
+  app.post('/api/cards/:cardId/unhide', async (req, res) => {
+    if (!requireAdmin(req, res, config)) return;
+    try {
+      const card = await store.updateCard(req.params.cardId, { hidden: false });
       if (!card) return res.status(404).json({ error: 'card not found' });
       res.json({ ok: true, card });
     } catch (error) {

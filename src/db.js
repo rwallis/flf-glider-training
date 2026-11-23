@@ -114,6 +114,15 @@ ALTER TABLE glider_cards
   ADD COLUMN IF NOT EXISTS figure JSONB;
 `;
 
+const CARD_HIDDEN_SQL = `
+ALTER TABLE glider_cards
+  ADD COLUMN IF NOT EXISTS hidden BOOLEAN NOT NULL DEFAULT FALSE;
+
+CREATE INDEX IF NOT EXISTS glider_cards_hidden_idx
+  ON glider_cards (hidden)
+  WHERE hidden = FALSE;
+`;
+
 const USER_ADMIN_SQL = `
 ALTER TABLE glider_users
   ADD COLUMN IF NOT EXISTS is_admin BOOLEAN NOT NULL DEFAULT FALSE;
@@ -232,6 +241,7 @@ export async function ensureGliderSchema(db) {
   await db.query(PROGRESS_ACCURACY_SQL);
   await db.query(CARD_DETAILS_SQL);
   await db.query(CARD_FIGURE_SQL);
+  await db.query(CARD_HIDDEN_SQL);
   await db.query(USER_ADMIN_SQL);
   await db.query(CARD_FLAGS_SQL);
   await db.query(SCHEDULED_CLASSES_SQL);

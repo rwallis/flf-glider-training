@@ -1364,7 +1364,6 @@
     .admin-result {
       width: 100%;
       text-align: left;
-      cursor: pointer;
       border: 1px solid var(--line);
       background: var(--card);
       color: inherit;
@@ -1373,14 +1372,17 @@
       margin-bottom: 10px;
       border-radius: 16px;
       display: flex;
-      gap: 12px;
-      align-items: flex-start;
+      flex-direction: column;
+      gap: 4px;
     }
-    .admin-result:hover,
-    .admin-result:focus-visible {
+    .admin-result:hover {
       border-color: var(--sky);
       background: #F3F9FC;
-      outline: none;
+    }
+    .admin-result-open:focus-visible {
+      outline: 2px solid var(--sky);
+      outline-offset: 2px;
+      border-radius: 8px;
     }
     .admin-result .badge {
       flex: 0 0 auto;
@@ -1929,6 +1931,7 @@
         track: '',
         topic: '',
         hasFigure: false,
+        includeHidden: false,
         topics: [],
         results: [],
         searched: false,
@@ -1942,7 +1945,19 @@
           good: { value: 7, unit: 'days' },
           easy: { value: 0, unit: 'never' }
         },
-        easyResetStatus: ''
+        easyResetStatus: '',
+        add: {
+          track: 'commercial',
+          topic: '',
+          topics: [],
+          question: '',
+          choiceA: '',
+          choiceB: '',
+          choiceC: '',
+          correct: 'A',
+          source: '',
+          status: ''
+        }
       },
       progressTracks: [],
       leagueFocus: {
@@ -2994,9 +3009,42 @@
           <div class="edit-actions">
             <button type="button" class="secondary" id="cancelEditBtn">Cancel</button>
             <button type="button" id="saveEditBtn">Save</button>
+            <button type="button" class="secondary" id="hideCardBtn" style="margin-left:auto;color:#9B2C2C">Hide question</button>
           </div>
+          <p class="edit-hint">Hide removes it from Study decks without deleting the database row. Admins can unhide it from Question search.</p>
         </div>
       `;
+    }
+
+    async function hideCurrentStudyCard() {
+      const card = currentCard();
+      if (!card || !isAdminUser()) return;
+      if (!window.confirm('Hide this question from Study? It will stay in the database and can be unhidden from Admin search.')) {
+        return;
+      }
+      try {
+        await api('/api/cards/' + encodeURIComponent(card.id) + '/hide', {
+          method: 'POST',
+          body: '{}'
+        });
+        const idx = state.study.index;
+        state.study.cards = state.study.cards.filter((c) => c.id !== card.id);
+        state.study.doneIds.delete(card.id);
+        state.study.editing = false;
+        state.study.editDraft = null;
+        state.study.revealed = false;
+        state.study.quizChoice = null;
+        if (!state.study.cards.length) {
+          state.study.index = 0;
+          state.study.sessionComplete = true;
+        } else {
+          state.study.index = Math.min(idx, state.study.cards.length - 1);
+        }
+        toast('Question hidden');
+        render();
+      } catch (err) {
+        toast(err.message || 'Could not hide question');
+      }
     }
 
     function stopClassPoll() {
@@ -4423,21 +4471,75 @@
       return rows.map((card) => {
         const ref = sourceRefLabel(card);
         const sourceTip = String(card.source || '').trim();
+        const hidden = Boolean(card.hidden);
         return `
-        <button type="button" class="admin-result" data-open-card="${escapeHtml(card.id)}" title="Open in Study">
-          <div class="badge" style="background:${courseColor(card.track_id)}">${trackLabel(card.track_id)}</div>
-          <div style="flex:1;min-width:0">
-            <div class="admin-result-meta">
-              <span class="admin-pill">${escapeHtml(adminTopicTitle(card))}</span>
-              ${ref ? `<span class="admin-pill ref" title="${escapeHtml(sourceTip)}">Ref ${escapeHtml(ref)}</span>` : ''}
-              ${card.figure ? '<span class="admin-pill fig">Figure</span>' : ''}
+        <div class="admin-result" style="${hidden ? 'opacity:0.72;border-style:dashed' : ''}">
+          <button type="button" class="admin-result-open" data-open-card="${escapeHtml(card.id)}" title="Open in Study" style="appearance:none;border:0;background:transparent;padding:0;margin:0;display:flex;gap:10px;flex:1;min-width:0;text-align:left;cursor:pointer;font:inherit;color:inherit">
+            <div class="badge" style="background:${courseColor(card.track_id)}">${trackLabel(card.track_id)}</div>
+            <div style="flex:1;min-width:0">
+              <div class="admin-result-meta">
+                <span class="admin-pill">${escapeHtml(adminTopicTitle(card))}</span>
+                ${ref ? `<span class="admin-pill ref" title="${escapeHtml(sourceTip)}">Ref ${escapeHtml(ref)}</span>` : ''}
+                ${card.figure ? '<span class="admin-pill fig">Figure</span>' : ''}
+                ${hidden ? '<span class="admin-pill" style="background:#FEE2E2;color:#9B2C2C">Hidden</span>' : ''}
+              </div>
+              <p class="admin-q">${formatRichText(card.question || '')}</p>
+              <p class="admin-a">${escapeHtml(card.answer || '')}</p>
             </div>
-            <p class="admin-q">${formatRichText(card.question || '')}</p>
-            <p class="admin-a">${escapeHtml(card.answer || '')}</p>
+          </button>
+          <div class="btn-row" style="margin-top:8px">
+            ${hidden
+              ? `<button type="button" class="secondary" data-unhide-card="${escapeHtml(card.id)}">Unhide</button>`
+              : `<button type="button" class="secondary" data-hide-card="${escapeHtml(card.id)}">Hide</button>`}
           </div>
-        </button>
+        </div>
       `;
       }).join('');
+    }
+
+    function renderAdminAddQuestion() {
+      const add = state.admin.add || {};
+      const courseOpts = (state.tracks || []).map((t) => [t.id, t.title || trackLabel(t.id)]);
+      const topicOpts = (add.topics || []).map((t) => [t.id, t.title || t.id]);
+      return `
+        <section class="admin-section">
+          <h2>Add question</h2>
+          <p class="hint">Creates a new multiple-choice card in the selected course/topic. It appears in Study immediately.</p>
+          <label for="adminAddTrack">Course</label>
+          <select id="adminAddTrack">
+            ${courseOpts.map(([id, label]) =>
+              `<option value="${escapeHtml(id)}" ${add.track === id ? 'selected' : ''}>${escapeHtml(label)}</option>`
+            ).join('')}
+          </select>
+          <label for="adminAddTopic">Topic</label>
+          <select id="adminAddTopic" ${add.track ? '' : 'disabled'}>
+            <option value="">Select topic</option>
+            ${topicOpts.map(([id, label]) =>
+              `<option value="${escapeHtml(id)}" ${add.topic === id ? 'selected' : ''}>${escapeHtml(label)}</option>`
+            ).join('')}
+          </select>
+          <label for="adminAddQuestion">Question</label>
+          <textarea id="adminAddQuestion" rows="3" placeholder="Question stem">${escapeHtml(add.question || '')}</textarea>
+          <label for="adminAddA">Choice A</label>
+          <input id="adminAddA" value="${escapeHtml(add.choiceA || '')}" />
+          <label for="adminAddB">Choice B</label>
+          <input id="adminAddB" value="${escapeHtml(add.choiceB || '')}" />
+          <label for="adminAddC">Choice C</label>
+          <input id="adminAddC" value="${escapeHtml(add.choiceC || '')}" />
+          <label for="adminAddCorrect">Correct choice</label>
+          <select id="adminAddCorrect">
+            ${['A', 'B', 'C'].map((k) =>
+              `<option value="${k}" ${(add.correct || 'A') === k ? 'selected' : ''}>${k}</option>`
+            ).join('')}
+          </select>
+          <label for="adminAddSource">Source (optional)</label>
+          <input id="adminAddSource" value="${escapeHtml(add.source || '')}" placeholder="e.g. Manual · #401" />
+          <div class="btn-row">
+            <button type="button" id="adminAddBtn">Add question</button>
+          </div>
+          ${add.status ? `<p class="admin-search-status">${escapeHtml(add.status)}</p>` : ''}
+        </section>
+      `;
     }
 
     function formatAdminWhen(value) {
@@ -4518,9 +4620,11 @@
           </div>
         </section>
 
+        ${renderAdminAddQuestion()}
+
         <section class="admin-section">
           <h2>Question search</h2>
-          <p class="hint">Enter filters, then tap Search. Results stay hidden until you search. Each result shows the source reference number (for example Ref #175). Tap a result to open it in Study.</p>
+          <p class="hint">Enter filters, then tap Search. Results stay empty until you search. Each result shows the source reference number (for example Ref #175). Tap a result to open it in Study. Hide soft-deletes a question from Study decks.</p>
           <div class="admin-filters">
             <label for="adminSearchQ">Question contains</label>
             <input id="adminSearchQ" type="search" value="${escapeHtml(a.q)}" placeholder="e.g. stall, METAR, aspect ratio" autocomplete="off" />
@@ -4539,6 +4643,10 @@
             <label class="admin-check">
               <input id="adminHasFigure" type="checkbox" ${a.hasFigure ? 'checked' : ''} />
               Only questions with figures
+            </label>
+            <label class="admin-check">
+              <input id="adminIncludeHidden" type="checkbox" ${a.includeHidden ? 'checked' : ''} />
+              Include hidden questions
             </label>
             <div class="btn-row">
               <button type="button" id="adminSearchBtn">Search</button>
@@ -4642,6 +4750,7 @@
       if (state.admin.track) q.set('track', state.admin.track);
       if (state.admin.topic) q.set('topic', state.admin.topic);
       if (state.admin.hasFigure) q.set('has_figure', '1');
+      if (state.admin.includeHidden) q.set('include_hidden', '1');
       state.admin.searched = true;
       state.admin.status = 'Searching…';
       if (state.view === 'admin') render();
@@ -4649,14 +4758,99 @@
         const data = await api('/api/cards?' + q.toString());
         state.admin.results = data.cards || [];
         const n = state.admin.results.length;
+        const hiddenN = state.admin.results.filter((c) => c.hidden).length;
         state.admin.status = n
-          ? `${n} question${n === 1 ? '' : 's'}${n >= 150 ? ' (showing first 150)' : ''}`
+          ? `${n} question${n === 1 ? '' : 's'}${hiddenN ? ` (${hiddenN} hidden)` : ''}${n >= 150 ? ' (showing first 150)' : ''}`
           : 'No matching questions.';
       } catch (err) {
         state.admin.results = [];
         state.admin.status = err.message || 'Search failed';
       }
       if (state.view === 'admin') render();
+    }
+
+    async function loadAdminAddTopics() {
+      const add = state.admin.add;
+      if (!add.track) {
+        add.topics = [];
+        add.topic = '';
+        return;
+      }
+      const data = await api('/api/topics?track=' + encodeURIComponent(add.track));
+      add.topics = data.topics || [];
+      if (add.topic && !add.topics.some((t) => t.id === add.topic)) add.topic = '';
+      if (!add.topic && add.topics.length) add.topic = add.topics[0].id;
+    }
+
+    async function submitAdminAddQuestion() {
+      const add = state.admin.add;
+      const question = String(add.question || '').trim();
+      const choices = [add.choiceA, add.choiceB, add.choiceC].map((c) => String(c || '').trim());
+      if (!add.track) {
+        add.status = 'Select a course';
+        render();
+        return;
+      }
+      if (!add.topic) {
+        add.status = 'Select a topic';
+        render();
+        return;
+      }
+      if (!question) {
+        add.status = 'Question is required';
+        render();
+        return;
+      }
+      if (choices.some((c) => !c)) {
+        add.status = 'All three choices are required';
+        render();
+        return;
+      }
+      const correctIdx = { A: 0, B: 1, C: 2 }[String(add.correct || 'A').toUpperCase()] ?? 0;
+      add.status = 'Saving…';
+      render();
+      try {
+        const result = await api('/api/cards', {
+          method: 'POST',
+          body: JSON.stringify({
+            track_id: add.track,
+            topic_id: add.topic,
+            question,
+            choices,
+            answer: choices[correctIdx],
+            source: String(add.source || '').trim() || 'manual'
+          })
+        });
+        add.question = '';
+        add.choiceA = '';
+        add.choiceB = '';
+        add.choiceC = '';
+        add.correct = 'A';
+        add.source = '';
+        add.status = `Added ${result.card?.id || 'question'}`;
+        toast('Question added');
+        if (state.admin.searched) await runAdminSearch();
+        else render();
+      } catch (err) {
+        add.status = err.message || 'Could not add question';
+        render();
+      }
+    }
+
+    async function setCardHidden(cardId, hidden) {
+      if (!cardId || !isAdminUser()) return;
+      const path = hidden ? '/hide' : '/unhide';
+      try {
+        await api('/api/cards/' + encodeURIComponent(cardId) + path, {
+          method: 'POST',
+          body: '{}'
+        });
+        toast(hidden ? 'Question hidden' : 'Question restored');
+        if (state.admin.searched) await runAdminSearch();
+        else render();
+      } catch (err) {
+        toast(err.message || 'Update failed');
+      }
     }
 
     async function loadAdminUsers() {
@@ -4719,6 +4913,10 @@
         state.tracks = tracks.courses || tracks.tracks || [];
       }
       await loadAdminTopics();
+      if (!state.admin.add.track && (state.tracks || []).length) {
+        state.admin.add.track = state.tracks[0].id;
+      }
+      await loadAdminAddTopics();
       await loadAdminUsers();
       try {
         const sched = await api('/api/study-schedule');
@@ -5359,6 +5557,12 @@
       if (cancelEdit) cancelEdit.addEventListener('click', () => cancelEditCard());
       const saveEdit = app.querySelector('#saveEditBtn');
       if (saveEdit) saveEdit.addEventListener('click', () => saveEditCard());
+      const hideCardBtn = app.querySelector('#hideCardBtn');
+      if (hideCardBtn) {
+        hideCardBtn.addEventListener('click', () => {
+          hideCurrentStudyCard().catch((err) => toast(err.message));
+        });
+      }
       const reveal = app.querySelector('#revealBtn');
       if (reveal) reveal.addEventListener('click', () => {
         state.study.revealed = true;
@@ -5574,12 +5778,74 @@
           state.admin.hasFigure = adminHasFigure.checked;
         });
       }
+      const adminIncludeHidden = app.querySelector('#adminIncludeHidden');
+      if (adminIncludeHidden) {
+        adminIncludeHidden.addEventListener('change', () => {
+          state.admin.includeHidden = adminIncludeHidden.checked;
+        });
+      }
       const adminSearchBtn = app.querySelector('#adminSearchBtn');
       if (adminSearchBtn) {
         adminSearchBtn.addEventListener('click', () => {
           runAdminSearch().catch((err) => toast(err.message));
         });
       }
+      const adminAddTrack = app.querySelector('#adminAddTrack');
+      if (adminAddTrack) {
+        adminAddTrack.addEventListener('change', async () => {
+          state.admin.add.track = adminAddTrack.value;
+          state.admin.add.topic = '';
+          try {
+            await loadAdminAddTopics();
+            render();
+          } catch (err) {
+            toast(err.message);
+          }
+        });
+      }
+      const adminAddTopic = app.querySelector('#adminAddTopic');
+      if (adminAddTopic) {
+        adminAddTopic.addEventListener('change', () => {
+          state.admin.add.topic = adminAddTopic.value;
+        });
+      }
+      const bindAddField = (id, key) => {
+        const el = app.querySelector(id);
+        if (!el) return;
+        el.addEventListener('input', () => {
+          state.admin.add[key] = el.value;
+        });
+        el.addEventListener('change', () => {
+          state.admin.add[key] = el.value;
+        });
+      };
+      bindAddField('#adminAddQuestion', 'question');
+      bindAddField('#adminAddA', 'choiceA');
+      bindAddField('#adminAddB', 'choiceB');
+      bindAddField('#adminAddC', 'choiceC');
+      bindAddField('#adminAddCorrect', 'correct');
+      bindAddField('#adminAddSource', 'source');
+      const adminAddBtn = app.querySelector('#adminAddBtn');
+      if (adminAddBtn) {
+        adminAddBtn.addEventListener('click', () => {
+          submitAdminAddQuestion().catch((err) => toast(err.message));
+        });
+      }
+      app.querySelectorAll('[data-hide-card]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.hideCard;
+          if (!id) return;
+          if (!window.confirm('Hide this question from Study?')) return;
+          setCardHidden(id, true).catch((err) => toast(err.message));
+        });
+      });
+      app.querySelectorAll('[data-unhide-card]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.unhideCard;
+          if (!id) return;
+          setCardHidden(id, false).catch((err) => toast(err.message));
+        });
+      });
       app.querySelectorAll('[data-admin-user]').forEach((input) => {
         input.addEventListener('change', async () => {
           const googleSub = input.dataset.adminUser;
