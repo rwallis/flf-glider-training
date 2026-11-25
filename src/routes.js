@@ -208,6 +208,35 @@ export function registerGliderApi(app, { store, config }) {
     res.json(summary);
   });
 
+  app.get('/api/weekly-quiz', async (req, res) => {
+    const uk = requireUserKey(req, res, config);
+    if (!uk) return;
+    try {
+      const week = String(req.query.week || '').trim() || undefined;
+      const quiz = await store.getWeeklyQuizForUser(uk, week);
+      res.json(quiz);
+    } catch (error) {
+      res.status(400).json({ error: error.message || String(error) });
+    }
+  });
+
+  app.post('/api/weekly-quiz/answer', async (req, res) => {
+    const uk = requireUserKey(req, res, config);
+    if (!uk) return;
+    try {
+      const result = await store.submitWeeklyQuizAnswer(uk, {
+        cardId: req.body?.card_id || req.body?.cardId,
+        choice: req.body?.choice,
+        correct: req.body?.correct
+      });
+      res.json({ ok: true, ...result });
+    } catch (error) {
+      const msg = error.message || String(error);
+      const status = msg === 'already answered' ? 409 : msg.includes('not in this week') ? 400 : 400;
+      res.status(status).json({ error: msg });
+    }
+  });
+
   app.patch('/api/cards/:cardId', async (req, res) => {
     if (!requireAdmin(req, res, config)) return;
     try {

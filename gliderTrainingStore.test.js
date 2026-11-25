@@ -12,6 +12,10 @@ import {
   xpForCorrectness,
   correctPercent,
   computeCourseReadiness,
+  weekStartMonday,
+  weekDateKeys,
+  pickWeeklyQuizCardIds,
+  WEEKLY_QUIZ_TRACKS,
   DEFAULT_STUDY_SCHEDULE
 } from './src/store.js';
 import { normalizeCardDetails } from './src/seed.js';
@@ -381,4 +385,93 @@ test('progressByTrack topic percent uses last answer; hover keeps history', asyn
   assert.equal(rows[0].readiness.coverage_pct, 100);
   assert.equal(rows[0].readiness.accuracy_pct, 67);
   assert.equal(rows[0].readiness.ready, false);
+});
+
+test('weekStartMonday and weekDateKeys cover Mon–Sun in Chicago', () => {
+  // Wednesday Nov 25, 2026 CT → week starts Monday Nov 23
+  const week = weekStartMonday(new Date('2026-11-25T18:00:00Z'));
+  assert.equal(week, '2026-11-23');
+  const days = weekDateKeys(week);
+  assert.deepEqual(days, [
+    '2026-11-23',
+    '2026-11-24',
+    '2026-11-25',
+    '2026-11-26',
+    '2026-11-27',
+    '2026-11-28',
+    '2026-11-29'
+  ]);
+});
+
+test('pickWeeklyQuizCardIds spreads across topics and only uses commercial/cfi_g', () => {
+  const cards = [
+    { id: 'p1', track_id: 'private', topic_id: 'priv_a' },
+    { id: 'c1', track_id: 'commercial', topic_id: 'comm_a' },
+    { id: 'c2', track_id: 'commercial', topic_id: 'comm_a' },
+    { id: 'c3', track_id: 'commercial', topic_id: 'comm_b' },
+    { id: 'f1', track_id: 'cfi_g', topic_id: 'cfi_a' },
+    { id: 'f2', track_id: 'cfi_g', topic_id: 'cfi_b' },
+    { id: 'foi1', track_id: 'foi', topic_id: 'foi_a' }
+  ];
+  let i = 0;
+  const seq = [0.1, 0.9, 0.2, 0.8, 0.3, 0.7, 0.4, 0.6, 0.15, 0.85];
+  const random = () => seq[i++ % seq.length];
+  const picked = pickWeeklyQuizCardIds(cards, { count: 4, random });
+  assert.equal(picked.length, 4);
+  assert.ok(picked.every((id) => !['p1', 'foi1'].includes(id)));
+  const byId = new Map(cards.map((c) => [c.id, c]));
+  const topics = new Set(picked.map((id) => byId.get(id).topic_id));
+  assert.ok(topics.size >= 3);
+  assert.deepEqual(WEEKLY_QUIZ_TRACKS, ['commercial', 'cfi_g']);
+});
+
+test('memory weekly quiz locks cards for the week and tracks quiz-only XP', async () => {
+  const store = createMemoryStore({
+    tracks: [
+      { id: 'commercial', title: 'Commercial', sort_order: 1, status: 'ready' },
+      { id: 'cfi_g', title: 'CFI-G', sort_order: 2, status: 'ready' },
+      { id: 'private', title: 'Private', sort_order: 3, status: 'ready' }
+    ],
+    topics: [
+      { id: 'comm_a', track_id: 'commercial', title: 'Weather' },
+      { id: 'comm_b', track_id: 'commercial', title: 'Aero' },
+      { id: 'cfi_a', track_id: 'cfi_g', title: 'FOI basics' },
+      { id: 'priv_a', track_id: 'private', title: 'Private topic' }
+    ],
+    cards: [
+      { id: 'c1', track_id: 'commercial', topic_id: 'comm_a', question: 'Q1', answer: 'A', choices: ['A', 'B'] },
+      { id: 'c2', track_id: 'commercial', topic_id: 'comm_b', question: 'Q2', answer: 'B', choices: ['A', 'B'] },
+      { id: 'c3', track_id: 'cfi_g', topic_id: 'cfi_a', question: 'Q3', answer: 'A', choices: ['A', 'B'] },
+      { id: 'p1', track_id: 'private', topic_id: 'priv_a', question: 'QP', answer: 'A', choices: ['A', 'B'] }
+    ]
+  });
+  const quiz1 = await store.getWeeklyQuizForUser('u1');
+  assert.equal(quiz1.question_count, 3);
+  assert.ok(quiz1.cards.every((c) => c.track_id === 'commercial' || c.track_id === 'cfi_g'));
+  assert.equal(quiz1.answered_count, 0);
+  const quiz2 = await store.getWeeklyQuizForUser('u2');
+  assert.deepEqual(
+    quiz2.cards.map((c) => c.id),
+    quiz1.cards.map((c) => c.id)
+  );
+  const first = quiz1.cards[0];
+  const result = await store.submitWeeklyQuizAnswer('u1', {
+    cardId: first.id,
+    choice: first.choices[0]
+  });
+  assert.equal(typeof result.correct, 'boolean');
+  assert.ok(result.xp === 1 || result.xp === 2);
+  assert.equal(result.answered_count, 1);
+  const again = await store.getWeeklyQuizForUser('u1');
+  assert.equal(again.your_xp, result.xp);
+  assert.ok(again.cards[0].answered);
+  assert.equal(again.league.you.week_total, result.xp);
+  await assert.rejects(
+    () => store.submitWeeklyQuizAnswer('u1', { cardId: first.id, choice: 'A' }),
+    /already answered/
+  );
+  // Study XP path must not feed weekly quiz league.
+  await store.recordAnswer('u1', 50);
+  const league = await store.weeklyQuizLeagueSummary('u1');
+  assert.equal(league.you.week_total, result.xp);
 });
