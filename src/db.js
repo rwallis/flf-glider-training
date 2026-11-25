@@ -209,6 +209,22 @@ CREATE TABLE IF NOT EXISTS glider_weekly_quiz_activity (
 
 CREATE INDEX IF NOT EXISTS glider_weekly_quiz_activity_week_idx
   ON glider_weekly_quiz_activity (week_start, activity_date);
+
+CREATE TABLE IF NOT EXISTS glider_weekly_quiz_feedback (
+  id BIGSERIAL PRIMARY KEY,
+  week_start DATE NOT NULL,
+  card_id TEXT NOT NULL REFERENCES glider_cards(id) ON DELETE CASCADE,
+  user_key TEXT NOT NULL,
+  note TEXT NOT NULL DEFAULT '',
+  status TEXT NOT NULL DEFAULT 'open',
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS glider_weekly_quiz_feedback_status_idx
+  ON glider_weekly_quiz_feedback (status, created_at DESC);
+
+CREATE INDEX IF NOT EXISTS glider_weekly_quiz_feedback_week_idx
+  ON glider_weekly_quiz_feedback (week_start, created_at DESC);
 `;
 
 /**

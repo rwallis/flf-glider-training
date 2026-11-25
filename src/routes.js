@@ -325,6 +325,33 @@ export function registerGliderApi(app, { store, config }) {
     }
   });
 
+  app.post('/api/weekly-quiz/feedback', async (req, res) => {
+    const uk = requireUserKey(req, res, config);
+    if (!uk) return;
+    try {
+      const feedback = await store.submitWeeklyQuizFeedback(uk, {
+        cardId: req.body?.card_id || req.body?.cardId,
+        note: req.body?.note,
+        weekStart: String(req.body?.week || req.body?.week_start || '').trim() || undefined
+      });
+      res.json({ ok: true, feedback });
+    } catch (error) {
+      const msg = error.message || String(error);
+      const status = msg.includes('before sending') ? 400 : msg.includes('not in this week') ? 400 : 400;
+      res.status(status).json({ error: msg });
+    }
+  });
+
+  app.get('/api/admin/weekly-quiz-feedback', async (req, res) => {
+    if (!requireAdmin(req, res, config)) return;
+    const status = String(req.query.status || 'open').trim() || 'open';
+    const feedback = await store.listWeeklyQuizFeedback({
+      status,
+      limit: Number(req.query.limit) || 100
+    });
+    res.json({ feedback });
+  });
+
   app.patch('/api/cards/:cardId', async (req, res) => {
     if (!requireAdmin(req, res, config)) return;
     try {

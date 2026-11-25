@@ -504,6 +504,38 @@
       color: var(--muted);
       font-weight: 600;
     }
+    .feedback-link {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 10px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      cursor: pointer;
+    }
+    .feedback-link:disabled {
+      opacity: 0.55;
+      cursor: default;
+      text-decoration: none;
+    }
+    .beta-note {
+      max-width: 720px;
+      margin: 0 auto 12px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: #FFF8E6;
+      border: 1px solid #F0D58A;
+      color: #7A5A00;
+      font-size: 0.84rem;
+      font-weight: 650;
+      line-height: 1.4;
+    }
     .q-toolbar {
       display: flex;
       flex-wrap: wrap;
@@ -687,6 +719,9 @@
       figureOpen: false,
       figureRotation: 0,
       detailsOpen: false,
+      feedbackOpen: false,
+      feedbackNote: '',
+      feedbackSending: false,
       reviewing: false
     };
 
@@ -905,6 +940,29 @@
       `;
     }
 
+    function renderFeedbackSheet(card) {
+      if (!card) return '';
+      return `
+        <div class="details-sheet" id="feedbackSheet" role="dialog" aria-modal="true" aria-label="Send quiz feedback">
+          <div class="details-panel">
+            <header>
+              <h3>Send feedback</h3>
+              <button type="button" class="close-details" id="closeFeedbackBtn" aria-label="Close">×</button>
+            </header>
+            <p class="details-empty" style="margin-bottom:10px">
+              Thanks for helping beta-test the weekly quiz. Note a typo, wrong answer, unclear wording, figure issue, or idea.
+            </p>
+            <label for="feedbackNote" style="display:block;font-size:0.78rem;font-weight:800;color:var(--muted);margin-bottom:6px">Your note</label>
+            <textarea id="feedbackNote" rows="5" placeholder="What’s off or what would help?" style="width:100%;border:2px solid var(--line);border-radius:12px;padding:12px;font:inherit;resize:vertical">${escapeHtml(state.feedbackNote || '')}</textarea>
+            <div class="actions" style="margin-top:12px">
+              <button type="button" class="secondary" id="cancelFeedbackBtn">Cancel</button>
+              <button type="button" class="primary" id="sendFeedbackBtn" ${state.feedbackSending ? 'disabled' : ''}>${state.feedbackSending ? 'Sending…' : 'Send feedback'}</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
     function renderFigureSheet(card) {
       const figure = card?.figure || null;
       if (!figure?.url) {
@@ -1007,6 +1065,7 @@
           <div class="question">${escapeHtml(card.question)}</div>
           ${choicesHtml}
           ${resultPill}
+          ${showAnswer ? `<button type="button" class="feedback-link" id="quizFeedbackBtn">Send feedback on this question</button>` : ''}
           <div class="actions">
             ${canSubmit
               ? `<button type="button" class="primary" id="submitBtn" ${choices && !state.selectedChoice ? 'disabled' : ''}>Submit</button>`
@@ -1015,6 +1074,7 @@
         </div>
         ${state.detailsOpen ? renderDetailsSheet(card) : ''}
         ${state.figureOpen ? renderFigureSheet(card) : ''}
+        ${state.feedbackOpen ? renderFeedbackSheet(card) : ''}
       `;
     }
 
@@ -1035,6 +1095,7 @@
         `Week of ${formatWeekRange(quiz)} · Commercial & CFI-G`;
 
       app.innerHTML = `
+        <p class="beta-note">Prototype / beta: you’re helping us test the weekly quiz. After you answer a question, use <strong>Send feedback</strong> if something looks off.</p>
         <div class="stats">
           <div class="stat"><b>${answered}/${total}</b><span>Answered</span></div>
           <div class="stat"><b>${quiz.your_xp || 0}</b><span>Your quiz XP</span></div>
@@ -1082,6 +1143,7 @@
         detailsBtn.addEventListener('click', () => {
           state.detailsOpen = true;
           state.figureOpen = false;
+          state.feedbackOpen = false;
           render();
         });
       }
@@ -1107,6 +1169,7 @@
           state.figureOpen = true;
           state.figureRotation = 0;
           state.detailsOpen = false;
+          state.feedbackOpen = false;
           render();
         });
       }
@@ -1150,11 +1213,76 @@
           state.figureOpen = false;
           state.figureRotation = 0;
           state.detailsOpen = false;
+          state.feedbackOpen = false;
+          state.feedbackNote = '';
           const cards = state.quiz?.cards || [];
           const nextUnanswered = cards.findIndex((c, i) => i > state.index && !c.answered);
           if (nextUnanswered >= 0) state.index = nextUnanswered;
           else state.index = firstUnansweredIndex(cards);
           render();
+        });
+      }
+      const quizFeedbackBtn = document.getElementById('quizFeedbackBtn');
+      if (quizFeedbackBtn) {
+        quizFeedbackBtn.addEventListener('click', () => {
+          state.feedbackOpen = true;
+          state.detailsOpen = false;
+          state.figureOpen = false;
+          render();
+        });
+      }
+      const closeFeedback = document.getElementById('closeFeedbackBtn');
+      const cancelFeedback = document.getElementById('cancelFeedbackBtn');
+      const closeFeedbackFn = () => {
+        state.feedbackOpen = false;
+        state.feedbackNote = '';
+        render();
+      };
+      if (closeFeedback) closeFeedback.addEventListener('click', closeFeedbackFn);
+      if (cancelFeedback) cancelFeedback.addEventListener('click', closeFeedbackFn);
+      const feedbackSheet = document.getElementById('feedbackSheet');
+      if (feedbackSheet) {
+        feedbackSheet.addEventListener('click', (e) => {
+          if (e.target === feedbackSheet) closeFeedbackFn();
+        });
+      }
+      const feedbackNote = document.getElementById('feedbackNote');
+      if (feedbackNote) {
+        feedbackNote.addEventListener('input', () => {
+          state.feedbackNote = feedbackNote.value;
+        });
+      }
+      const sendFeedbackBtn = document.getElementById('sendFeedbackBtn');
+      if (sendFeedbackBtn) {
+        sendFeedbackBtn.addEventListener('click', async () => {
+          const card = currentCard();
+          if (!card) return;
+          const note = String(state.feedbackNote || '').trim();
+          if (!note) {
+            toast('Add a short note so we know what to fix');
+            return;
+          }
+          state.feedbackSending = true;
+          render();
+          try {
+            await api('/api/weekly-quiz/feedback', {
+              method: 'POST',
+              body: JSON.stringify({
+                card_id: card.id,
+                note,
+                week_start: state.quiz?.week_start
+              })
+            });
+            state.feedbackSending = false;
+            state.feedbackOpen = false;
+            state.feedbackNote = '';
+            toast('Thanks — feedback sent');
+            render();
+          } catch (err) {
+            state.feedbackSending = false;
+            render();
+            toast(err.message || 'Could not send feedback');
+          }
         });
       }
       document.querySelectorAll('[data-jump]').forEach((btn) => {
@@ -1165,6 +1293,8 @@
           state.figureOpen = false;
           state.figureRotation = 0;
           state.detailsOpen = false;
+          state.feedbackOpen = false;
+          state.feedbackNote = '';
           state.reviewing = true;
           render();
         });
@@ -1176,6 +1306,8 @@
           state.figureOpen = false;
           state.figureRotation = 0;
           state.detailsOpen = false;
+          state.feedbackOpen = false;
+          state.feedbackNote = '';
           state.reviewing = false;
           render();
         });

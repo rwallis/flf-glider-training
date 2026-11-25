@@ -1986,6 +1986,7 @@
       isAdmin: false,
       canSeeClasses: false,
       flags: [],
+      quizFeedback: [],
       tracks: [],
       topics: [],
       stats: null,
@@ -5036,6 +5037,28 @@
         ${renderAdminAddQuestion()}
 
         <section class="admin-section">
+          <h2>Quiz feedback</h2>
+          <p class="hint">
+            Feedback from the <strong>weekly quiz</strong> after a member answers a question.
+            Use this while the quiz is in beta to catch typos, answer issues, and unclear wording.
+          </p>
+          <div class="admin-flag-list">
+            ${(state.quizFeedback || []).length
+              ? state.quizFeedback.map((f) => `
+                <div class="flag-row">
+                  <div><strong>${escapeHtml(trackLabel(f.track_id))}</strong> · week ${escapeHtml(String(f.week_start || ''))} · ${escapeHtml(String(f.card_id || ''))}</div>
+                  <div>${escapeHtml((f.question || '').slice(0, 160))}${(f.question || '').length > 160 ? '…' : ''}</div>
+                  ${f.note ? `<div class="flag-meta">Feedback: ${escapeHtml(f.note)}</div>` : ''}
+                  <div class="flag-meta">${escapeHtml(f.user_key || '')} · ${escapeHtml(formatAdminWhen(f.created_at) || f.created_at || '')}</div>
+                  <div class="btn-row" style="margin-top:8px">
+                    <button type="button" class="secondary" data-open-quiz-feedback-card="${escapeHtml(f.card_id || '')}">Open in Study</button>
+                  </div>
+                </div>`).join('')
+              : '<div class="empty">No open quiz feedback</div>'}
+          </div>
+        </section>
+
+        <section class="admin-section">
           <h2>Question search</h2>
           <p class="hint">Enter filters, then tap Search. Results stay empty until you search. Each result shows the source reference number (for example Ref #175). Tap a result to open it in Study. Hide soft-deletes a question from Study decks.</p>
           <div class="admin-filters">
@@ -5402,6 +5425,11 @@
       } catch {
         state.flags = [];
       }
+      try {
+        state.quizFeedback = (await api('/api/admin/weekly-quiz-feedback?status=open')).feedback || [];
+      } catch {
+        state.quizFeedback = [];
+      }
       if (!state.admin.searched) {
         state.admin.results = [];
         state.admin.status = 'Enter filters and tap Search.';
@@ -5491,6 +5519,26 @@
           } catch (err) {
             toast(err.message || 'Could not unflag');
             btn.disabled = false;
+          }
+        });
+      });
+      app.querySelectorAll('[data-open-quiz-feedback-card]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const id = btn.dataset.openQuizFeedbackCard;
+          if (!id) return;
+          const row = (state.quizFeedback || []).find((f) => f.card_id === id);
+          try {
+            const res = await api(
+              '/api/cards?track=' + encodeURIComponent(row?.track_id || '') + '&limit=500'
+            );
+            const card = (res.cards || []).find((c) => c.id === id);
+            if (!card) {
+              toast('Card not found');
+              return;
+            }
+            await openStudyCard(card);
+          } catch (err) {
+            toast(err.message);
           }
         });
       });
