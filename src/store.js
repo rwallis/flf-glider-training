@@ -73,6 +73,56 @@ export function weekDateKeys(weekStart) {
   return out;
 }
 
+/** Monday of the week before `weekStart` (also a Monday YYYY-MM-DD). */
+export function previousWeekStartMonday(weekStart) {
+  const start = String(weekStart || weekStartMonday());
+  const [y, m, d] = start.split('-').map(Number);
+  const prev = new Date(Date.UTC(y, m - 1, d - 7, 17, 0, 0));
+  return activityDateKey(prev);
+}
+
+const PODIUM_MEDALS = Object.freeze([
+  { place: 1, medal: 'gold', label: '1st Place' },
+  { place: 2, medal: 'silver', label: '2nd Place' },
+  { place: 3, medal: 'bronze', label: '3rd Place' }
+]);
+
+/**
+ * Rank quiz XP totals into gold/silver/bronze podium entries.
+ * @param {Array<{ user_key: string, week_total: number }>} rows
+ */
+export function rankWeeklyQuizPodium(rows, { profilesByKey = new Map(), viewerKey = null, limit = 3 } = {}) {
+  const sorted = (rows || [])
+    .map((r) => ({
+      user_key: String(r.user_key || ''),
+      week_total: Math.max(0, Number(r.week_total) || 0)
+    }))
+    .filter((r) => r.user_key && r.week_total > 0)
+    .sort((a, b) => {
+      if (b.week_total !== a.week_total) return b.week_total - a.week_total;
+      const an = displayNameFromProfile(profilesByKey.get(a.user_key) || { userKey: a.user_key });
+      const bn = displayNameFromProfile(profilesByKey.get(b.user_key) || { userKey: b.user_key });
+      return an.localeCompare(bn);
+    })
+    .slice(0, Math.max(0, Math.min(3, Number(limit) || 3)));
+
+  return sorted.map((row, i) => {
+    const medal = PODIUM_MEDALS[i];
+    const profile = profilesByKey.get(row.user_key) || { userKey: row.user_key };
+    const isYou = Boolean(viewerKey) && row.user_key === viewerKey;
+    return {
+      place: medal.place,
+      medal: medal.medal,
+      label: medal.label,
+      user_key: row.user_key,
+      display_name: isYou ? 'You' : displayNameFromProfile(profile),
+      picture: profile.picture || null,
+      is_you: isYou,
+      week_total: row.week_total
+    };
+  });
+}
+
 function shuffleInPlace(arr, random = Math.random) {
   for (let i = arr.length - 1; i > 0; i -= 1) {
     const j = Math.floor(random() * (i + 1));
@@ -581,6 +631,14 @@ export function nextProgress(prev, grade, schedule = DEFAULT_STUDY_SCHEDULE) {
 }
 
 export function createMemoryStore(seed) {
+  const profiles = new Map(); // userKey -> { name, email, picture, userKey }
+  for (const [key, profile] of Object.entries(seed?.profiles || {})) {
+    profiles.set(key, { userKey: key, ...(profile || {}) });
+  }
+  const weeklyQuizActivity = new Map(); // `${user}::${week}::${date}` -> xp
+  for (const [key, xp] of Object.entries(seed?.weeklyQuizActivity || {})) {
+    weeklyQuizActivity.set(key, Number(xp) || 0);
+  }
   const state = {
     tracks: [...(seed.tracks || [])],
     topics: [...(seed.topics || [])],
@@ -588,11 +646,11 @@ export function createMemoryStore(seed) {
     progress: new Map(),
     imports: [],
     dailyActivity: new Map(), // `${userKey}::YYYY-MM-DD` -> answers
-    profiles: new Map(), // userKey -> { name, email, picture, userKey }
+    profiles,
     flags: [],
     weeklyQuizzes: new Map(), // week_start -> { week_start, card_ids, created_at }
     weeklyQuizAnswers: new Map(), // `${week}::${user}::${card}` -> row
-    weeklyQuizActivity: new Map(), // `${user}::${week}::${date}` -> xp
+    weeklyQuizActivity,
     settings: new Map([
       [STUDY_SCHEDULE_KEY, normalizeStudySchedule(seed.studySchedule || DEFAULT_STUDY_SCHEDULE)],
       [WEEKLY_QUIZ_SIZE_KEY, normalizeWeeklyQuizSize(seed.weeklyQuizSize ?? WEEKLY_QUIZ_SIZE)]
@@ -1055,6 +1113,7 @@ export function createMemoryStore(seed) {
         });
       const yourXp = answers.reduce((sum, a) => sum + (Number(a.xp) || 0), 0);
       const league = await this.weeklyQuizLeagueSummary(userKey, week);
+      const previous_winners = await this.listWeeklyQuizWinners(previousWeekStartMonday(week), userKey);
       return {
         week_start: week,
         week_end: weekDateKeys(week)[6],
@@ -1063,7 +1122,29 @@ export function createMemoryStore(seed) {
         your_xp: yourXp,
         tracks: WEEKLY_QUIZ_TRACKS.slice(),
         cards,
-        league
+        league,
+        previous_winners
+      };
+    },
+    async listWeeklyQuizWinners(weekStart = previousWeekStartMonday(weekStartMonday()), viewerKey = null) {
+      const week = String(weekStart || previousWeekStartMonday(weekStartMonday()));
+      const totals = new Map();
+      for (const [key, xp] of state.weeklyQuizActivity.entries()) {
+        const [uk, wk] = key.split('::');
+        if (wk !== week) continue;
+        totals.set(uk, (totals.get(uk) || 0) + (Number(xp) || 0));
+      }
+      const rows = [...totals.entries()].map(([user_key, week_total]) => ({ user_key, week_total }));
+      const podium = rankWeeklyQuizPodium(rows, {
+        profilesByKey: state.profiles,
+        viewerKey,
+        limit: 3
+      });
+      const dates = weekDateKeys(week);
+      return {
+        week_start: week,
+        week_end: dates[6],
+        podium
       };
     },
     async submitWeeklyQuizAnswer(userKey, { cardId, choice, correct } = {}) {
@@ -1145,11 +1226,15 @@ export function createMemoryStore(seed) {
         state.weeklyQuizActivity.delete(key);
         activityRowsCleared += 1;
       }
+      state.weeklyQuizzes.delete(week);
+      const quiz = await this.ensureWeeklyQuiz(week);
       return {
         week_start: week,
         answers_cleared: answersCleared,
         members_cleared: users.size,
-        activity_rows_cleared: activityRowsCleared
+        activity_rows_cleared: activityRowsCleared,
+        question_count: quiz.card_ids.length,
+        regenerated: true
       };
     }
   };
@@ -1897,6 +1982,10 @@ export function createPgStore(db) {
       const week = quiz.week_start;
       if (!quiz.card_ids.length) {
         const league = await this.weeklyQuizLeagueSummary(userKey, week);
+        const previous_winners = await this.listWeeklyQuizWinners(
+          previousWeekStartMonday(week),
+          userKey
+        );
         return {
           week_start: week,
           week_end: weekDateKeys(week)[6],
@@ -1905,7 +1994,8 @@ export function createPgStore(db) {
           your_xp: 0,
           tracks: WEEKLY_QUIZ_TRACKS.slice(),
           cards: [],
-          league
+          league,
+          previous_winners
         };
       }
       const { rows: cardRows } = await db.query(
@@ -1963,6 +2053,10 @@ export function createPgStore(db) {
         });
       const yourXp = answerRows.reduce((sum, a) => sum + (Number(a.xp) || 0), 0);
       const league = await this.weeklyQuizLeagueSummary(userKey, week);
+      const previous_winners = await this.listWeeklyQuizWinners(
+        previousWeekStartMonday(week),
+        userKey
+      );
       return {
         week_start: week,
         week_end: weekDateKeys(week)[6],
@@ -1971,7 +2065,51 @@ export function createPgStore(db) {
         your_xp: yourXp,
         tracks: WEEKLY_QUIZ_TRACKS.slice(),
         cards,
-        league
+        league,
+        previous_winners
+      };
+    },
+    async listWeeklyQuizWinners(weekStart = previousWeekStartMonday(weekStartMonday()), viewerKey = null) {
+      const week = String(weekStart || previousWeekStartMonday(weekStartMonday()));
+      const { rows } = await db.query(
+        `SELECT user_key, COALESCE(SUM(xp), 0)::int AS week_total
+         FROM glider_weekly_quiz_activity
+         WHERE week_start = $1::date
+         GROUP BY user_key
+         HAVING COALESCE(SUM(xp), 0) > 0
+         ORDER BY week_total DESC, user_key ASC
+         LIMIT 12`,
+        [week]
+      );
+      const userKeys = rows.map((r) => r.user_key);
+      const profilesByKey = new Map();
+      const subs = userKeys.filter((k) => k.startsWith('g:')).map((k) => k.slice(2));
+      if (subs.length) {
+        const { rows: users } = await db.query(
+          `SELECT google_sub, email, name, picture
+           FROM glider_users
+           WHERE google_sub = ANY($1::text[])`,
+          [subs]
+        );
+        for (const u of users) {
+          profilesByKey.set(`g:${u.google_sub}`, {
+            userKey: `g:${u.google_sub}`,
+            name: u.name,
+            email: u.email,
+            picture: u.picture
+          });
+        }
+      }
+      const podium = rankWeeklyQuizPodium(rows, {
+        profilesByKey,
+        viewerKey,
+        limit: 3
+      });
+      const dates = weekDateKeys(week);
+      return {
+        week_start: week,
+        week_end: dates[6],
+        podium
       };
     },
     async submitWeeklyQuizAnswer(userKey, { cardId, choice, correct } = {}) {
@@ -2055,11 +2193,18 @@ export function createPgStore(db) {
          SELECT COUNT(*)::int AS activity_rows_cleared FROM deleted`,
         [week]
       );
+      await db.query(
+        `DELETE FROM glider_weekly_quizzes WHERE week_start = $1::date`,
+        [week]
+      );
+      const quiz = await this.ensureWeeklyQuiz(week);
       return {
         week_start: week,
         answers_cleared: answers.rows[0]?.answers_cleared || 0,
         members_cleared: answers.rows[0]?.members_cleared || 0,
-        activity_rows_cleared: activity.rows[0]?.activity_rows_cleared || 0
+        activity_rows_cleared: activity.rows[0]?.activity_rows_cleared || 0,
+        question_count: quiz.card_ids.length,
+        regenerated: true
       };
     },
     async weeklyQuizLeagueSummary(userKey, weekStart = weekStartMonday()) {

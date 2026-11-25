@@ -17,6 +17,8 @@ import {
   computeCourseReadiness,
   weekStartMonday,
   weekDateKeys,
+  previousWeekStartMonday,
+  rankWeeklyQuizPodium,
   pickWeeklyQuizCardIds,
   normalizeWeeklyQuizSize,
   WEEKLY_QUIZ_TRACKS,
@@ -615,7 +617,7 @@ test('normalizeWeeklyQuizSize clamps to 1–100', () => {
   assert.equal(normalizeWeeklyQuizSize('nope'), 20);
 });
 
-test('memory store resetWeeklyQuizScores clears answers and XP for the week', async () => {
+test('memory store resetWeeklyQuizScores clears scores and regenerates questions', async () => {
   const store = createMemoryStore({
     tracks: [
       { id: 'commercial', title: 'Commercial', sort_order: 1, status: 'ready' },
@@ -625,23 +627,34 @@ test('memory store resetWeeklyQuizScores clears answers and XP for the week', as
       { id: 'comm_a', track_id: 'commercial', title: 'Weather' },
       { id: 'cfi_a', track_id: 'cfi_g', title: 'FOI' }
     ],
-    cards: [
-      { id: 'c1', track_id: 'commercial', topic_id: 'comm_a', question: 'Q1', answer: 'A', choices: ['A', 'B'] },
-      { id: 'c2', track_id: 'cfi_g', topic_id: 'cfi_a', question: 'Q2', answer: 'A', choices: ['A', 'B'] }
-    ]
+    cards: Array.from({ length: 8 }, (_, i) => ({
+      id: `c${i}`,
+      track_id: i % 2 === 0 ? 'commercial' : 'cfi_g',
+      topic_id: i % 2 === 0 ? 'comm_a' : 'cfi_a',
+      question: `Q${i}`,
+      answer: 'A',
+      choices: ['A', 'B']
+    }))
   });
-  await store.setWeeklyQuizSize(2);
+  await store.setWeeklyQuizSize(4);
   const quiz = await store.getWeeklyQuizForUser('u1');
+  assert.equal(quiz.question_count, 4);
+  const beforeIds = quiz.cards.map((c) => c.id).join(',');
   await store.submitWeeklyQuizAnswer('u1', { cardId: quiz.cards[0].id, choice: 'A' });
   await store.submitWeeklyQuizAnswer('u2', { cardId: quiz.cards[0].id, choice: 'B' });
   assert.equal((await store.getWeeklyQuizForUser('u1')).answered_count, 1);
   assert.ok((await store.weeklyQuizLeagueSummary('u1')).you.week_total > 0);
+  await store.setWeeklyQuizSize(2);
   const reset = await store.resetWeeklyQuizScores();
   assert.equal(reset.answers_cleared, 2);
   assert.equal(reset.members_cleared, 2);
-  assert.equal((await store.getWeeklyQuizForUser('u1')).answered_count, 0);
+  assert.equal(reset.question_count, 2);
+  assert.equal(reset.regenerated, true);
+  const after = await store.getWeeklyQuizForUser('u1');
+  assert.equal(after.answered_count, 0);
   assert.equal((await store.weeklyQuizLeagueSummary('u1')).you.week_total, 0);
-  assert.equal((await store.getWeeklyQuizForUser('u1')).question_count, 2);
+  assert.equal(after.question_count, 2);
+  assert.notEqual(after.cards.map((c) => c.id).join(','), beforeIds);
 });
 
 test('memory store weekly quiz size setting drives newly generated quizzes', async () => {
@@ -683,6 +696,72 @@ test('weekStartMonday and weekDateKeys cover Mon–Sun in Chicago', () => {
     '2026-11-28',
     '2026-11-29'
   ]);
+  assert.equal(previousWeekStartMonday(week), '2026-11-16');
+});
+
+test('rankWeeklyQuizPodium assigns gold silver bronze medals', () => {
+  const profiles = new Map([
+    ['u1', { userKey: 'u1', name: 'Alex Pilot' }],
+    ['u2', { userKey: 'u2', name: 'Blake Soar' }],
+    ['u3', { userKey: 'u3', name: 'Casey Lift' }]
+  ]);
+  const podium = rankWeeklyQuizPodium(
+    [
+      { user_key: 'u2', week_total: 8 },
+      { user_key: 'u1', week_total: 12 },
+      { user_key: 'u3', week_total: 5 },
+      { user_key: 'u4', week_total: 1 }
+    ],
+    { profilesByKey: profiles, viewerKey: 'u1' }
+  );
+  assert.equal(podium.length, 3);
+  assert.deepEqual(
+    podium.map((p) => [p.place, p.medal, p.label, p.user_key, p.display_name]),
+    [
+      [1, 'gold', '1st Place', 'u1', 'You'],
+      [2, 'silver', '2nd Place', 'u2', 'Blake'],
+      [3, 'bronze', '3rd Place', 'u3', 'Casey']
+    ]
+  );
+});
+
+test('getWeeklyQuizForUser includes previous_winners from prior week XP', async () => {
+  const thisWeek = weekStartMonday();
+  const prevWeek = previousWeekStartMonday(thisWeek);
+  const store = createMemoryStore({
+    tracks: [
+      { id: 'commercial', title: 'Commercial', sort_order: 1, status: 'ready' },
+      { id: 'cfi_g', title: 'CFI-G', sort_order: 2, status: 'ready' }
+    ],
+    topics: [
+      { id: 'comm_a', track_id: 'commercial', title: 'Weather' },
+      { id: 'cfi_a', track_id: 'cfi_g', title: 'FOI' }
+    ],
+    cards: [
+      { id: 'c1', track_id: 'commercial', topic_id: 'comm_a', question: 'Q1', answer: 'A', choices: ['A', 'B'] },
+      { id: 'c2', track_id: 'cfi_g', topic_id: 'cfi_a', question: 'Q2', answer: 'A', choices: ['A', 'B'] }
+    ],
+    profiles: {
+      gold: { name: 'Gold Flyer' },
+      silver: { name: 'Silver Wing' },
+      bronze: { name: 'Bronze Lift' }
+    },
+    weeklyQuizActivity: {
+      [`gold::${prevWeek}::${prevWeek}`]: 10,
+      [`silver::${prevWeek}::${prevWeek}`]: 6,
+      [`bronze::${prevWeek}::${prevWeek}`]: 4
+    }
+  });
+  const quiz = await store.getWeeklyQuizForUser('gold');
+  assert.equal(quiz.previous_winners.week_start, prevWeek);
+  assert.deepEqual(
+    quiz.previous_winners.podium.map((p) => [p.medal, p.display_name, p.week_total, p.is_you]),
+    [
+      ['gold', 'You', 10, true],
+      ['silver', 'Silver', 6, false],
+      ['bronze', 'Bronze', 4, false]
+    ]
+  );
 });
 
 test('pickWeeklyQuizCardIds spreads across topics and only uses commercial/cfi_g', () => {
