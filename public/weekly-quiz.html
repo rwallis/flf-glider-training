@@ -1066,11 +1066,13 @@
           ${choicesHtml}
           ${resultPill}
           ${showAnswer ? `<button type="button" class="feedback-link" id="quizFeedbackBtn">Send feedback on this question</button>` : ''}
+          ${canSubmit || moreLeft ? `
           <div class="actions">
             ${canSubmit
               ? `<button type="button" class="primary" id="submitBtn" ${choices && !state.selectedChoice ? 'disabled' : ''}>Submit</button>`
-              : `<button type="button" class="primary" id="nextBtn">${moreLeft ? 'Next question' : 'See results'}</button>`}
+              : `<button type="button" class="primary" id="nextBtn">Next question</button>`}
           </div>
+          ` : ''}
         </div>
         ${state.detailsOpen ? renderDetailsSheet(card) : ''}
         ${state.figureOpen ? renderFigureSheet(card) : ''}
@@ -1089,7 +1091,8 @@
       const total = quiz.question_count || 0;
       const allAnswered = total > 0 && answered >= total;
       const showingFeedback = Boolean(state.lastResult);
-      const done = allAnswered && !showingFeedback && !state.reviewing;
+      const weekComplete = allAnswered && !state.reviewing;
+      const showQuestion = state.reviewing || showingFeedback || !weekComplete;
       const card = currentCard();
       document.getElementById('subtitle').textContent =
         `Week of ${formatWeekRange(quiz)}`;
@@ -1104,19 +1107,19 @@
         ${renderPreviousWinners(quiz.previous_winners)}
         <div class="section-title">Weekly quiz league</div>
         ${renderLeague(quiz.league)}
-        ${done ? `
+        ${weekComplete ? `
           <div class="done-banner">
             <h2>Week complete</h2>
             <p>You earned ${quiz.your_xp || 0} XP across ${total} questions. Chart above is quiz-only.</p>
           </div>
         ` : `<div class="section-title">${state.reviewing ? 'Review question' : 'Question'} ${Math.min(state.index + 1, total)} of ${total}</div>`}
-        ${done ? '' : renderQuestion(card)}
+        ${showQuestion ? renderQuestion(card) : ''}
         ${state.reviewing ? `
           <div class="actions" style="max-width:720px;margin:0 auto 12px">
             <button type="button" class="secondary" id="backDone">Back to summary</button>
           </div>
         ` : ''}
-        ${done ? `
+        ${weekComplete ? `
           <div class="card">
             <p class="meta-line">Review</p>
             ${(quiz.cards || []).map((c, i) => `
