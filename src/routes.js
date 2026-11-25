@@ -275,6 +275,17 @@ export function registerGliderApi(app, { store, config }) {
     res.json({ question_count });
   });
 
+  app.get('/api/admin/weekly-quiz', async (req, res) => {
+    if (!requireAdmin(req, res, config)) return;
+    try {
+      const week = String(req.query.week || '').trim() || undefined;
+      const quiz = await store.listWeeklyQuizAdmin(week);
+      res.json(quiz);
+    } catch (error) {
+      res.status(400).json({ error: error.message || String(error) });
+    }
+  });
+
   app.put('/api/weekly-quiz-settings', async (req, res) => {
     if (!requireAdmin(req, res, config)) return;
     try {

@@ -725,6 +725,43 @@ test('rankWeeklyQuizPodium assigns gold silver bronze medals', () => {
   );
 });
 
+test('listWeeklyQuizAdmin returns this week’s cards with details for editing', async () => {
+  const store = createMemoryStore({
+    tracks: [
+      { id: 'commercial', title: 'Commercial', sort_order: 1, status: 'ready' },
+      { id: 'cfi_g', title: 'CFI-G', sort_order: 2, status: 'ready' }
+    ],
+    topics: [
+      { id: 'comm_a', track_id: 'commercial', title: 'Weather' },
+      { id: 'cfi_a', track_id: 'cfi_g', title: 'FOI' }
+    ],
+    cards: [
+      {
+        id: 'c1',
+        track_id: 'commercial',
+        topic_id: 'comm_a',
+        question: 'Q1',
+        answer: 'A',
+        choices: ['A', 'B'],
+        details: { summary: 'Teach weather mins.', links: [] }
+      },
+      { id: 'c2', track_id: 'cfi_g', topic_id: 'cfi_a', question: 'Q2', answer: 'A', choices: ['A', 'B'] }
+    ]
+  });
+  await store.setWeeklyQuizSize(2);
+  const adminQuiz = await store.listWeeklyQuizAdmin();
+  assert.equal(adminQuiz.question_count, 2);
+  assert.equal(adminQuiz.cards.length, 2);
+  assert.equal(adminQuiz.cards[0].quiz_index, 1);
+  const withDetails = adminQuiz.cards.find((c) => c.id === 'c1');
+  assert.equal(withDetails.has_details, true);
+  assert.equal(withDetails.details.summary, 'Teach weather mins.');
+  assert.equal(withDetails.answer, 'A');
+  const bare = adminQuiz.cards.find((c) => c.id === 'c2');
+  assert.equal(bare.has_details, false);
+  assert.equal(bare.details, null);
+});
+
 test('getWeeklyQuizForUser includes previous_winners from prior week XP', async () => {
   const thisWeek = weekStartMonday();
   const prevWeek = previousWeekStartMonday(thisWeek);
