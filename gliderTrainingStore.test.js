@@ -439,7 +439,15 @@ test('memory weekly quiz locks cards for the week and tracks quiz-only XP', asyn
       { id: 'priv_a', track_id: 'private', title: 'Private topic' }
     ],
     cards: [
-      { id: 'c1', track_id: 'commercial', topic_id: 'comm_a', question: 'Q1', answer: 'A', choices: ['A', 'B'] },
+      {
+        id: 'c1',
+        track_id: 'commercial',
+        topic_id: 'comm_a',
+        question: 'Q1',
+        answer: 'A',
+        choices: ['A', 'B'],
+        figure: { number: 21, title: 'Sectional', url: 'https://example.com/fig21.png' }
+      },
       { id: 'c2', track_id: 'commercial', topic_id: 'comm_b', question: 'Q2', answer: 'B', choices: ['A', 'B'] },
       { id: 'c3', track_id: 'cfi_g', topic_id: 'cfi_a', question: 'Q3', answer: 'A', choices: ['A', 'B'] },
       { id: 'p1', track_id: 'private', topic_id: 'priv_a', question: 'QP', answer: 'A', choices: ['A', 'B'] }
@@ -449,6 +457,10 @@ test('memory weekly quiz locks cards for the week and tracks quiz-only XP', asyn
   assert.equal(quiz1.question_count, 3);
   assert.ok(quiz1.cards.every((c) => c.track_id === 'commercial' || c.track_id === 'cfi_g'));
   assert.equal(quiz1.answered_count, 0);
+  const figured = quiz1.cards.find((c) => c.id === 'c1');
+  assert.equal(figured?.figure?.number, 21);
+  assert.equal(figured?.figure?.url, 'https://example.com/fig21.png');
+  assert.equal(quiz1.cards.find((c) => c.id === 'c2')?.figure ?? null, null);
   const quiz2 = await store.getWeeklyQuizForUser('u2');
   assert.deepEqual(
     quiz2.cards.map((c) => c.id),

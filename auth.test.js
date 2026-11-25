@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { isPublicPath, resolveIsAdmin, resolveUserKey } from './src/auth/middleware.js';
 import { attachSessionUser, userKeyFromProfile } from './src/auth/session.js';
-import { renderLoginPage } from './src/auth/loginPage.js';
+import { isWeeklyQuizReturn, renderLoginPage } from './src/auth/loginPage.js';
 
 test('userKeyFromProfile prefers google sub', () => {
   assert.equal(userKeyFromProfile({ sub: 'abc123', email: 'a@b.com' }), 'g:abc123');
@@ -34,6 +34,25 @@ test('login page includes new-user instructions and Google CTA', () => {
   assert.match(html, /New here/);
   assert.match(html, /your account/i);
   assert.match(html, /Commercial/);
+  assert.doesNotMatch(html, /Club weekly quiz/);
+});
+
+test('isWeeklyQuizReturn detects quiz return paths', () => {
+  assert.equal(isWeeklyQuizReturn('/weekly-quiz'), true);
+  assert.equal(isWeeklyQuizReturn('/weekly-quiz/'), true);
+  assert.equal(isWeeklyQuizReturn('/weekly-quiz?x=1'), true);
+  assert.equal(isWeeklyQuizReturn('/'), false);
+  assert.equal(isWeeklyQuizReturn('/study'), false);
+});
+
+test('login page shows weekly quiz instructions for quiz return', () => {
+  const html = renderLoginPage({ returnUrl: '/weekly-quiz' });
+  assert.match(html, /Sign in with Google/);
+  assert.match(html, /Club weekly quiz/);
+  assert.match(html, /quiz XP only/i);
+  assert.match(html, /Figure/);
+  assert.match(html, /return=%2Fweekly-quiz/);
+  assert.doesNotMatch(html, /New here\? Start with this/);
 });
 
 test('resolveIsAdmin is true when auth is off', () => {

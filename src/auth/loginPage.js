@@ -6,9 +6,59 @@ function escapeHtml(value) {
     .replace(/"/g, '&quot;');
 }
 
+/** True when OAuth return targets the standalone weekly quiz page. */
+export function isWeeklyQuizReturn(returnUrl = '/') {
+  try {
+    const path = String(returnUrl || '/').split('?')[0].split('#')[0];
+    return path === '/weekly-quiz' || path === '/weekly-quiz/' || path === '/weekly-quiz.html';
+  } catch {
+    return false;
+  }
+}
+
+function studyInstructionsHtml() {
+  return `
+      <h2>New here? Start with this</h2>
+      <ol>
+        <li><strong>Sign in with Google</strong> — any Google account works. No club invite code required.</li>
+        <li>Your <strong>study progress is saved to your account</strong> (Due / Again / Hard / Good / Easy). Other pilots have their own decks.</li>
+        <li>On Home, open a track:
+          <ul>
+            <li><strong>Commercial</strong> — written / ACS-style multiple choice</li>
+            <li><strong>Common Knowledge</strong> — regs, weather, aerodynamics</li>
+            <li><strong>SGS 2-33</strong> — club trainer numbers & ops</li>
+          </ul>
+        </li>
+        <li>Study filter <strong>Due</strong> = cards ready for review (including brand-new ones). Grade honestly so spaced repetition works.</li>
+        <li>Club admins manage decks from the Admin tab (search + import).</li>
+      </ol>`;
+}
+
+function weeklyQuizInstructionsHtml() {
+  return `
+      <h2>Club weekly quiz</h2>
+      <ol>
+        <li><strong>Sign in with Google</strong> — use the same Google account you use for FLF Glider Study so your XP is tied to you.</li>
+        <li>After sign-in you go straight to this week’s <strong>Weekly Quiz</strong> (Commercial &amp; CFI-G questions only).</li>
+        <li>The club gets <strong>one shared set of questions each week</strong> (Mon–Sun, America/Chicago). Everyone answers the same deck.</li>
+        <li>Pick an answer, then <strong>Submit</strong>. Correct = <strong>2 XP</strong>, wrong = <strong>1 XP</strong>. You can’t re-answer a question once submitted.</li>
+        <li>If a question references a figure, tap the <strong>Figure</strong> pill to open it.</li>
+        <li>The chart and leaderboard on the quiz page show <strong>quiz XP only</strong> — not your regular Study league points.</li>
+      </ol>
+      <p class="note" style="margin-top:12px">This page is separate from the main study app. After you finish, bookmark the quiz link to come back next week.</p>`;
+}
+
 export function renderLoginPage({ error = '', returnUrl = '/' } = {}) {
   const safeError = error ? `<p class="error">${escapeHtml(error)}</p>` : '';
   const href = `/auth/google?return=${encodeURIComponent(returnUrl || '/')}`;
+  const quizLogin = isWeeklyQuizReturn(returnUrl);
+  const title = quizLogin ? 'Sign in · FLF Weekly Quiz' : 'Sign in · FLF Glider Study';
+  const brandTitle = quizLogin ? 'FLF Weekly Quiz' : 'FLF Glider Study';
+  const brandBlurb = quizLogin
+    ? 'Fault Line Flyers club quiz — Commercial & CFI-G questions for the week, scored by XP.'
+    : 'Fault Line Flyers training cards for Common, Commercial, and the Schweizer 2-33 — on your phone.';
+  const instructions = quizLogin ? weeklyQuizInstructionsHtml() : studyInstructionsHtml();
+  const footer = quizLogin ? 'Fault Line Flyers · weekly quiz' : 'Fault Line Flyers · glider training';
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -16,7 +66,7 @@ export function renderLoginPage({ error = '', returnUrl = '/' } = {}) {
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#1A6FA3" />
-  <title>Sign in · FLF Glider Study</title>
+  <title>${escapeHtml(title)}</title>
   <style>
     :root {
       --sky: #2B8FCC;
@@ -101,31 +151,18 @@ export function renderLoginPage({ error = '', returnUrl = '/' } = {}) {
 <body>
   <div class="wrap">
     <div class="brand">
-      <h1>FLF Glider Study</h1>
-      <p>Fault Line Flyers training cards for Common, Commercial, and the Schweizer 2-33 — on your phone.</p>
+      <h1>${escapeHtml(brandTitle)}</h1>
+      <p>${escapeHtml(brandBlurb)}</p>
     </div>
     <div class="card">
-      <h2>New here? Start with this</h2>
-      <ol>
-        <li><strong>Sign in with Google</strong> — any Google account works. No club invite code required.</li>
-        <li>Your <strong>study progress is saved to your account</strong> (Due / Again / Hard / Good / Easy). Other pilots have their own decks.</li>
-        <li>On Home, open a track:
-          <ul>
-            <li><strong>Commercial</strong> — written / ACS-style multiple choice</li>
-            <li><strong>Common Knowledge</strong> — regs, weather, aerodynamics</li>
-            <li><strong>SGS 2-33</strong> — club trainer numbers & ops</li>
-          </ul>
-        </li>
-        <li>Study filter <strong>Due</strong> = cards ready for review (including brand-new ones). Grade honestly so spaced repetition works.</li>
-        <li>Club admins manage decks from the Admin tab (search + import).</li>
-      </ol>
+      ${instructions}
       ${safeError}
       <div class="cta">
         <a class="btn" href="${href}">Sign in with Google</a>
         <p class="note">We only use Google for sign-in (name, email, profile photo). Progress stays in the FLF study database — not shared to Google Classroom or Drive.</p>
       </div>
     </div>
-    <p class="footer">Fault Line Flyers · glider training</p>
+    <p class="footer">${escapeHtml(footer)}</p>
   </div>
 </body>
 </html>`;
