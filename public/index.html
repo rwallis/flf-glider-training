@@ -971,9 +971,105 @@
     }
     .admin-weekly-quiz-list {
       display: grid;
-      gap: 8px;
+      gap: 12px;
       margin-top: 10px;
     }
+    .admin-wq-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      padding: 12px;
+    }
+    .admin-wq-card header {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .admin-wq-card header .badge {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+    .admin-wq-card .admin-q {
+      margin: 0 0 10px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+    .admin-wq-field {
+      margin: 0 0 12px;
+    }
+    .admin-wq-field > label,
+    .admin-wq-field .field-label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .admin-wq-choice {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      margin-bottom: 6px;
+      background: #F8FBFD;
+    }
+    .admin-wq-choice input {
+      width: auto;
+      margin: 3px 0 0;
+      flex-shrink: 0;
+    }
+    .admin-wq-choice span {
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+    .admin-wq-choice.is-correct {
+      border-color: #58CC02;
+      background: #F3FCE8;
+    }
+    .admin-wq-figure-preview {
+      margin-top: 8px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #F3F6F8;
+    }
+    .admin-wq-figure-preview img {
+      display: block;
+      width: 100%;
+      max-height: 360px;
+      object-fit: contain;
+      background: #fff;
+    }
+    .admin-wq-figure-preview .fig-cap {
+      margin: 0;
+      padding: 8px 10px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .admin-wq-card .details-link-edit {
+      margin-bottom: 8px;
+    }
+    .admin-wq-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .admin-wq-actions button { flex: 1; min-width: 120px; }
     .admin-q {
       margin: 0 0 4px;
       font-size: 0.92rem;
@@ -1492,7 +1588,8 @@
         },
         weeklyQuizSize: 20,
         weeklyQuiz: null,
-        weeklyQuizStatus: ''
+        weeklyQuizStatus: '',
+        weeklyQuizDrafts: {}
       },
       progressTracks: [],
       leagueFocus: {
@@ -3131,6 +3228,133 @@
       }
     }
 
+    function defaultWeeklyQuizDraft(card) {
+      const choices = Array.isArray(card?.choices) ? card.choices.slice() : [];
+      const details = card?.details || null;
+      const links = Array.isArray(details?.links) && details.links.length
+        ? details.links.map((l) => ({ label: l.label || '', url: l.url || '' }))
+        : [{ label: '', url: '' }];
+      let correctIndex = choices.findIndex((c) => c === card?.answer);
+      if (correctIndex < 0 && choices.length) correctIndex = 0;
+      return {
+        answer: String(card?.answer || ''),
+        correctIndex,
+        summary: String(details?.summary || ''),
+        links,
+        figureOpen: false
+      };
+    }
+
+    function weeklyQuizDraftFor(card) {
+      const existing = state.admin.weeklyQuizDrafts?.[card.id];
+      if (existing) return existing;
+      return defaultWeeklyQuizDraft(card);
+    }
+
+    function captureWeeklyQuizDraft(cardId) {
+      const root = app.querySelector(`[data-wq-card="${String(cardId).replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"]`);
+      if (!root) return null;
+      const card = (state.admin.weeklyQuiz?.cards || []).find((c) => c.id === cardId);
+      const prev = weeklyQuizDraftFor(card || { id: cardId });
+      const choices = Array.isArray(card?.choices) ? card.choices : [];
+      const checked = root.querySelector('input[type="radio"][data-wq-correct]:checked');
+      let correctIndex = checked ? Number(checked.value) : prev.correctIndex;
+      if (!Number.isFinite(correctIndex)) correctIndex = prev.correctIndex;
+      let answer = String(root.querySelector('[data-wq-answer]')?.value ?? prev.answer ?? '').trim();
+      if (choices.length && correctIndex >= 0 && choices[correctIndex] != null) {
+        answer = String(choices[correctIndex]).trim();
+      }
+      const summary = root.querySelector('[data-wq-summary]')?.value ?? prev.summary;
+      const rows = [...root.querySelectorAll('[data-wq-link]')];
+      const links = rows.length
+        ? rows.map((row) => ({
+            label: row.querySelector('[data-link-label]')?.value || '',
+            url: row.querySelector('[data-link-url]')?.value || ''
+          }))
+        : (prev.links || [{ label: '', url: '' }]);
+      const draft = {
+        answer,
+        correctIndex,
+        summary: String(summary || ''),
+        links,
+        figureOpen: Boolean(prev.figureOpen)
+      };
+      state.admin.weeklyQuizDrafts[cardId] = draft;
+      return draft;
+    }
+
+    function captureAllWeeklyQuizDrafts() {
+      for (const card of state.admin.weeklyQuiz?.cards || []) {
+        captureWeeklyQuizDraft(card.id);
+      }
+    }
+
+    async function saveWeeklyQuizCard(cardId) {
+      const card = (state.admin.weeklyQuiz?.cards || []).find((c) => c.id === cardId);
+      if (!card) return;
+      const draft = captureWeeklyQuizDraft(cardId) || weeklyQuizDraftFor(card);
+      const choices = Array.isArray(card.choices) ? card.choices : [];
+      let answer = String(draft.answer || '').trim();
+      if (choices.length) {
+        const idx = Number(draft.correctIndex);
+        if (!Number.isFinite(idx) || idx < 0 || idx >= choices.length) {
+          toast('Select the correct choice');
+          return;
+        }
+        answer = String(choices[idx] || '').trim();
+      }
+      if (!answer) {
+        toast('Correct answer is required');
+        return;
+      }
+      const links = (draft.links || [])
+        .map((l) => ({
+          label: String(l.label || '').trim(),
+          url: String(l.url || '').trim()
+        }))
+        .filter((l) => l.label || l.url);
+      for (const link of links) {
+        if (!link.label || !/^https?:\/\//i.test(link.url)) {
+          toast('Each link needs a label and an http(s) URL');
+          return;
+        }
+      }
+      const summary = String(draft.summary || '').trim();
+      const body = { answer };
+      if (summary || links.length) {
+        body.details = { summary, links };
+      } else if (card.details) {
+        // Clearing details when both empty — only if card already had details.
+        body.details = null;
+      }
+      try {
+        const result = await api('/api/cards/' + encodeURIComponent(cardId), {
+          method: 'PATCH',
+          body: JSON.stringify(body)
+        });
+        const updated = result.card || {};
+        Object.assign(card, {
+          answer: updated.answer ?? answer,
+          details: updated.details ?? (body.details === null ? null : card.details),
+          has_details: Boolean(
+            updated.details &&
+              (String(updated.details.summary || '').trim() ||
+                (Array.isArray(updated.details.links) && updated.details.links.length))
+          )
+        });
+        const adminHit = (state.admin.results || []).find((c) => c.id === cardId);
+        if (adminHit) Object.assign(adminHit, updated);
+        state.admin.weeklyQuizDrafts[cardId] = {
+          ...defaultWeeklyQuizDraft(card),
+          figureOpen: Boolean(draft.figureOpen)
+        };
+        toast(`Saved Q${card.quiz_index || ''}`);
+        render();
+      } catch (err) {
+        toast(err.message || 'Save failed');
+      }
+    }
+
     function renderAdminWeeklyQuizCards() {
       const quiz = state.admin.weeklyQuiz;
       const status = state.admin.weeklyQuizStatus || '';
@@ -3145,24 +3369,85 @@
       return `
         <p class="admin-search-status" style="margin-top:4px">
           ${cards.length} question${cards.length === 1 ? '' : 's'}${range ? ` · week of ${escapeHtml(range)}` : ''}.
-          Tap a question to open it in Study and edit Details.
+          Set the correct answer, check figures, and edit details inline — Save each question when done.
         </p>
         <div class="admin-weekly-quiz-list">
-          ${cards.map((card) => `
-            <button type="button" class="admin-result" data-open-weekly-card="${escapeHtml(card.id)}" title="Open in Study to edit Details">
-              <div class="badge" style="background:${courseColor(card.track_id)}">${escapeHtml(String(card.quiz_index || ''))}</div>
-              <div style="flex:1;min-width:0">
-                <div class="admin-result-meta">
-                  <span class="admin-pill">${escapeHtml(trackLabel(card.track_id))}</span>
-                  <span class="admin-pill">${escapeHtml(card.topic_title || adminTopicTitle(card))}</span>
-                  ${card.figure ? '<span class="admin-pill fig">Figure</span>' : ''}
-                  <span class="admin-pill ${card.has_details ? 'details-ok' : 'details-missing'}">${card.has_details ? 'Has details' : 'No details'}</span>
-                </div>
+          ${cards.map((card) => {
+            const draft = weeklyQuizDraftFor(card);
+            const choices = Array.isArray(card.choices) ? card.choices : [];
+            const figure = card.figure || null;
+            const figTitle = figure
+              ? (figure.title ? `Figure ${figure.number} — ${figure.title}` : `Figure ${figure.number}`)
+              : '';
+            return `
+              <article class="admin-wq-card" data-wq-card="${escapeHtml(card.id)}">
+                <header>
+                  <div class="badge" style="background:${courseColor(card.track_id)}">${escapeHtml(String(card.quiz_index || ''))}</div>
+                  <div style="flex:1;min-width:0">
+                    <div class="admin-result-meta">
+                      <span class="admin-pill">${escapeHtml(trackLabel(card.track_id))}</span>
+                      <span class="admin-pill">${escapeHtml(card.topic_title || adminTopicTitle(card))}</span>
+                      ${figure ? '<span class="admin-pill fig">Figure</span>' : ''}
+                      <span class="admin-pill ${card.has_details ? 'details-ok' : 'details-missing'}">${card.has_details ? 'Has details' : 'No details'}</span>
+                    </div>
+                  </div>
+                </header>
                 <p class="admin-q">${formatRichText(card.question || '')}</p>
-                <p class="admin-a">${escapeHtml(card.answer || '')}</p>
-              </div>
-            </button>
-          `).join('')}
+
+                <div class="admin-wq-field">
+                  <div class="field-label">Correct answer</div>
+                  ${choices.length ? choices.map((choice, i) => `
+                    <label class="admin-wq-choice ${Number(draft.correctIndex) === i ? 'is-correct' : ''}">
+                      <input type="radio" name="wq-correct-${escapeHtml(card.id)}" value="${i}"
+                        ${Number(draft.correctIndex) === i ? 'checked' : ''} data-wq-correct="${escapeHtml(card.id)}" />
+                      <span>${escapeHtml(choice)}</span>
+                    </label>
+                  `).join('') : `
+                    <input data-wq-answer type="text" value="${escapeHtml(draft.answer || '')}" placeholder="Correct answer" />
+                  `}
+                </div>
+
+                <div class="admin-wq-field">
+                  <div class="field-label">Figure</div>
+                  ${figure?.url ? `
+                    <div class="btn-row" style="margin:0 0 8px">
+                      <button type="button" class="secondary" data-wq-toggle-figure="${escapeHtml(card.id)}">
+                        ${draft.figureOpen ? 'Hide figure' : 'Show figure'}
+                      </button>
+                    </div>
+                    ${draft.figureOpen ? `
+                      <div class="admin-wq-figure-preview">
+                        <img src="${escapeHtml(figure.url)}" alt="${escapeHtml(figTitle)}" loading="lazy" />
+                        <p class="fig-cap">${escapeHtml(figTitle)}</p>
+                      </div>
+                    ` : ''}
+                  ` : `<p class="details-empty" style="margin:0">No figure linked.</p>`}
+                </div>
+
+                <div class="admin-wq-field">
+                  <label class="field-label" for="wq-summary-${escapeHtml(card.id)}">Details notes</label>
+                  <textarea id="wq-summary-${escapeHtml(card.id)}" data-wq-summary rows="5" placeholder="Teaching notes for this question…">${escapeHtml(draft.summary || '')}</textarea>
+                  <div class="field-label" style="margin-top:8px">Reference links</div>
+                  ${(draft.links || [{ label: '', url: '' }]).map((link, i) => `
+                    <div class="details-link-edit" data-wq-link="${i}">
+                      <input data-link-label type="text" placeholder="Label (e.g. PHAK — Stalls)" value="${escapeHtml(link.label || '')}" />
+                      <input data-link-url type="url" placeholder="https://…" value="${escapeHtml(link.url || '')}" />
+                      <div class="link-edit-actions">
+                        <button type="button" data-wq-remove-link="${escapeHtml(card.id)}" data-link-index="${i}">Remove</button>
+                      </div>
+                    </div>
+                  `).join('')}
+                  <div class="btn-row" style="margin:0 0 8px">
+                    <button type="button" class="secondary" data-wq-add-link="${escapeHtml(card.id)}">Add link</button>
+                  </div>
+                </div>
+
+                <div class="admin-wq-actions">
+                  <button type="button" data-wq-save="${escapeHtml(card.id)}">Save question ${escapeHtml(String(card.quiz_index || ''))}</button>
+                </div>
+              </article>
+            `;
+          }).join('')}
         </div>
       `;
     }
@@ -3314,7 +3599,7 @@
           </div>
           <h3 style="margin:18px 0 6px;font-size:0.95rem;font-weight:800">This week’s questions</h3>
           <p class="hint" style="margin-bottom:0">
-            Review the locked quiz set and open any card in Study to add or edit Details.
+            Review each locked question here: set the correct answer, check the figure, and edit details — then Save that question.
           </p>
           ${state.admin.weeklyQuizStatus && !(state.admin.weeklyQuiz?.cards || []).length
             ? `<p class="admin-search-status">${escapeHtml(state.admin.weeklyQuizStatus)}</p>`
@@ -3447,12 +3732,14 @@
       try {
         const quiz = await api('/api/admin/weekly-quiz');
         state.admin.weeklyQuiz = quiz;
+        state.admin.weeklyQuizDrafts = {};
         const n = (quiz.cards || []).length;
         state.admin.weeklyQuizStatus = n
           ? `${n} question${n === 1 ? '' : 's'} this week`
           : 'No questions locked for this week yet.';
       } catch (err) {
         state.admin.weeklyQuiz = null;
+        state.admin.weeklyQuizDrafts = {};
         state.admin.weeklyQuizStatus = err.message || 'Failed to load weekly quiz';
       }
     }
@@ -3953,16 +4240,49 @@
           }
         });
       });
-      app.querySelectorAll('[data-open-weekly-card]').forEach((btn) => {
-        btn.addEventListener('click', async () => {
-          const id = btn.dataset.openWeeklyCard;
-          const card = (state.admin.weeklyQuiz?.cards || []).find((c) => c.id === id);
-          if (!card) return;
-          try {
-            await openStudyCard(card);
-          } catch (err) {
-            toast(err.message);
-          }
+      app.querySelectorAll('[data-wq-correct]').forEach((input) => {
+        input.addEventListener('change', () => {
+          captureAllWeeklyQuizDrafts();
+          render();
+        });
+      });
+      app.querySelectorAll('[data-wq-toggle-figure]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.wqToggleFigure;
+          captureAllWeeklyQuizDrafts();
+          const draft = state.admin.weeklyQuizDrafts[id] || weeklyQuizDraftFor({ id });
+          draft.figureOpen = !draft.figureOpen;
+          state.admin.weeklyQuizDrafts[id] = draft;
+          render();
+        });
+      });
+      app.querySelectorAll('[data-wq-add-link]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.wqAddLink;
+          captureAllWeeklyQuizDrafts();
+          const draft = state.admin.weeklyQuizDrafts[id] || weeklyQuizDraftFor({ id });
+          draft.links = [...(draft.links || []), { label: '', url: '' }];
+          state.admin.weeklyQuizDrafts[id] = draft;
+          render();
+        });
+      });
+      app.querySelectorAll('[data-wq-remove-link]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.wqRemoveLink;
+          const index = Number(btn.dataset.linkIndex);
+          captureAllWeeklyQuizDrafts();
+          const draft = state.admin.weeklyQuizDrafts[id] || weeklyQuizDraftFor({ id });
+          const links = [...(draft.links || [])];
+          if (Number.isFinite(index) && index >= 0 && index < links.length) links.splice(index, 1);
+          draft.links = links.length ? links : [{ label: '', url: '' }];
+          state.admin.weeklyQuizDrafts[id] = draft;
+          render();
+        });
+      });
+      app.querySelectorAll('[data-wq-save]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          captureAllWeeklyQuizDrafts();
+          saveWeeklyQuizCard(btn.dataset.wqSave).catch((err) => toast(err.message || 'Save failed'));
         });
       });
       app.querySelectorAll('[data-schedule-unit]').forEach((sel) => {
