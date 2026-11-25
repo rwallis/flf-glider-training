@@ -3535,6 +3535,7 @@
                   <div class="flag-meta">${escapeHtml(f.user_key || '')} · ${escapeHtml(formatAdminWhen(f.created_at) || f.created_at || '')}</div>
                   <div class="btn-row" style="margin-top:8px">
                     <button type="button" class="secondary" data-open-quiz-feedback-card="${escapeHtml(f.card_id || '')}">Open in Study</button>
+                    <button type="button" class="secondary" data-resolve-quiz-feedback="${escapeHtml(String(f.id || ''))}" style="color:#9B2C2C">Remove</button>
                   </div>
                 </div>`).join('')
               : '<div class="empty">No open quiz feedback</div>'}
@@ -3877,6 +3878,27 @@
             await openStudyCard(card);
           } catch (err) {
             toast(err.message);
+          }
+        });
+      });
+      app.querySelectorAll('[data-resolve-quiz-feedback]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const feedbackId = btn.dataset.resolveQuizFeedback;
+          if (!feedbackId) return;
+          if (!window.confirm('Remove this quiz feedback from the list?')) return;
+          btn.disabled = true;
+          try {
+            await api('/api/admin/weekly-quiz-feedback/' + encodeURIComponent(feedbackId) + '/resolve', {
+              method: 'POST'
+            });
+            state.quizFeedback = (state.quizFeedback || []).filter(
+              (f) => String(f.id) !== String(feedbackId)
+            );
+            toast('Feedback removed');
+            render();
+          } catch (err) {
+            toast(err.message || 'Could not remove feedback');
+            btn.disabled = false;
           }
         });
       });

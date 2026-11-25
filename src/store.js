@@ -1116,6 +1116,14 @@ export function createMemoryStore(seed) {
         .filter((f) => !status || f.status === status)
         .slice(0, lim);
     },
+    async resolveWeeklyQuizFeedback(feedbackId) {
+      const id = Number(feedbackId);
+      if (!Number.isFinite(id) || id <= 0) return null;
+      const row = state.weeklyQuizFeedback.find((f) => Number(f.id) === id);
+      if (!row) return null;
+      row.status = 'resolved';
+      return { ...row };
+    },
     async submitWeeklyQuizAnswer(userKey, { cardId, choice, correct } = {}) {
       const quiz = await this.ensureWeeklyQuiz();
       const week = quiz.week_start;
@@ -2102,6 +2110,25 @@ export function createPgStore(db) {
         params
       );
       return rows;
+    },
+    async resolveWeeklyQuizFeedback(feedbackId) {
+      const id = Number(feedbackId);
+      if (!Number.isFinite(id) || id <= 0) return null;
+      const { rows } = await db.query(
+        `UPDATE glider_weekly_quiz_feedback
+         SET status = 'resolved'
+         WHERE id = $1
+         RETURNING id, week_start::text AS week_start, card_id, user_key, note, status, created_at`,
+        [id]
+      );
+      if (!rows[0]) return null;
+      const card = await this.getCard(rows[0].card_id);
+      return {
+        ...rows[0],
+        question: card?.question || null,
+        track_id: card?.track_id || null,
+        topic_id: card?.topic_id || null
+      };
     },
     async submitWeeklyQuizAnswer(userKey, { cardId, choice, correct } = {}) {
       const quiz = await this.ensureWeeklyQuiz();

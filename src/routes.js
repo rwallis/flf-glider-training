@@ -303,6 +303,17 @@ export function registerGliderApi(app, { store, config }) {
     res.json({ feedback });
   });
 
+  app.post('/api/admin/weekly-quiz-feedback/:id/resolve', async (req, res) => {
+    if (!requireAdmin(req, res, config)) return;
+    try {
+      const feedback = await store.resolveWeeklyQuizFeedback(req.params.id);
+      if (!feedback) return res.status(404).json({ error: 'feedback not found' });
+      res.json({ ok: true, feedback });
+    } catch (error) {
+      res.status(400).json({ error: error.message || String(error) });
+    }
+  });
+
   app.patch('/api/cards/:cardId', async (req, res) => {
     if (!requireAdmin(req, res, config)) return;
     try {

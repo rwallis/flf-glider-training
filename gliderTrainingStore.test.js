@@ -539,6 +539,9 @@ test('weekly quiz feedback requires an answered question and lists for admin', a
   const listed = await store.listWeeklyQuizFeedback({ status: 'open' });
   assert.equal(listed.length, 1);
   assert.equal(listed[0].question, quiz.cards[0].question);
+  const resolved = await store.resolveWeeklyQuizFeedback(row.id);
+  assert.equal(resolved.status, 'resolved');
+  assert.equal((await store.listWeeklyQuizFeedback({ status: 'open' })).length, 0);
 });
 
 test('listWeeklyQuizAdmin returns this week’s cards with details for editing', async () => {
