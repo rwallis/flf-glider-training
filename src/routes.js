@@ -269,6 +269,34 @@ export function registerGliderApi(app, { store, config }) {
     }
   });
 
+  app.get('/api/weekly-quiz-settings', async (req, res) => {
+    if (!requireAdmin(req, res, config)) return;
+    const question_count = await store.getWeeklyQuizSize();
+    res.json({ question_count });
+  });
+
+  app.put('/api/weekly-quiz-settings', async (req, res) => {
+    if (!requireAdmin(req, res, config)) return;
+    try {
+      const raw = req.body?.question_count ?? req.body?.size ?? req.body?.count;
+      const question_count = await store.setWeeklyQuizSize(raw);
+      res.json({ ok: true, question_count });
+    } catch (error) {
+      res.status(400).json({ error: error.message || String(error) });
+    }
+  });
+
+  app.post('/api/weekly-quiz/reset-scores', async (req, res) => {
+    if (!requireAdmin(req, res, config)) return;
+    try {
+      const week = String(req.body?.week || req.query?.week || '').trim() || undefined;
+      const result = await store.resetWeeklyQuizScores(week);
+      res.json({ ok: true, ...result });
+    } catch (error) {
+      res.status(400).json({ error: error.message || String(error) });
+    }
+  });
+
   app.post('/api/weekly-quiz/answer', async (req, res) => {
     const uk = requireUserKey(req, res, config);
     if (!uk) return;

@@ -1946,6 +1946,7 @@
           easy: { value: 0, unit: 'never' }
         },
         easyResetStatus: '',
+        weeklyQuizSize: 20,
         add: {
           track: 'commercial',
           topic: '',
@@ -4757,6 +4758,27 @@
         </section>
 
         <section class="admin-section">
+          <h2>Weekly quiz</h2>
+          <p class="hint">
+            How many Commercial &amp; CFI-G questions to lock in when a new Mon–Sun quiz is generated.
+            Changing this does <strong>not</strong> rebuild the quiz already started this week — it applies next week (or the first time this week’s quiz is created).
+          </p>
+          <label for="weeklyQuizSize">Questions per week</label>
+          <input id="weeklyQuizSize" type="number" min="1" max="100" step="1"
+            value="${escapeHtml(String(a.weeklyQuizSize ?? 20))}" />
+          <div class="btn-row">
+            <button type="button" id="saveWeeklyQuizSizeBtn">Save weekly quiz size</button>
+          </div>
+          <p class="hint" style="margin-top:14px">
+            Reset clears every member’s answers and quiz XP for the <strong>current week</strong>.
+            The locked question set stays the same so people can retake it.
+          </p>
+          <div class="btn-row">
+            <button type="button" class="secondary" id="resetWeeklyQuizScoresBtn" style="color:#9B2C2C">Reset this week’s quiz scores</button>
+          </div>
+        </section>
+
+        <section class="admin-section">
           <h2>Import deck</h2>
           <p class="hint">
             Upload CSV (<code>question,answer</code> or <code>topic,question,answer</code>) or paste JSON cards.
@@ -4983,6 +5005,14 @@
         if (sched?.schedule) state.admin.schedule = sched.schedule;
       } catch {
         /* keep defaults */
+      }
+      try {
+        const quizSettings = await api('/api/weekly-quiz-settings');
+        if (quizSettings?.question_count != null) {
+          state.admin.weeklyQuizSize = Number(quizSettings.question_count) || 20;
+        }
+      } catch {
+        /* keep default */
       }
       try {
         state.imports = (await api('/api/imports')).imports;
@@ -6022,6 +6052,48 @@
             toast(state.admin.easyResetStatus);
           } finally {
             render();
+          }
+        });
+      }
+      const weeklyQuizSizeInput = app.querySelector('#weeklyQuizSize');
+      if (weeklyQuizSizeInput) {
+        weeklyQuizSizeInput.addEventListener('change', () => {
+          state.admin.weeklyQuizSize = Number(weeklyQuizSizeInput.value) || 20;
+        });
+      }
+      const saveWeeklyQuizSizeBtn = app.querySelector('#saveWeeklyQuizSizeBtn');
+      if (saveWeeklyQuizSizeBtn) {
+        saveWeeklyQuizSizeBtn.addEventListener('click', async () => {
+          try {
+            const raw = Number(app.querySelector('#weeklyQuizSize')?.value);
+            const result = await api('/api/weekly-quiz-settings', {
+              method: 'PUT',
+              body: JSON.stringify({ question_count: raw })
+            });
+            state.admin.weeklyQuizSize = result.question_count;
+            toast(`Weekly quiz set to ${result.question_count} questions`);
+            render();
+          } catch (err) {
+            toast(err.message || 'Save failed');
+          }
+        });
+      }
+      const resetWeeklyQuizScoresBtn = app.querySelector('#resetWeeklyQuizScoresBtn');
+      if (resetWeeklyQuizScoresBtn) {
+        resetWeeklyQuizScoresBtn.addEventListener('click', async () => {
+          if (!window.confirm(
+            'Reset this week’s weekly quiz scores for ALL members?\n\nThis clears answers and quiz XP for the current week. The question set stays the same.'
+          )) return;
+          try {
+            const result = await api('/api/weekly-quiz/reset-scores', {
+              method: 'POST',
+              body: JSON.stringify({})
+            });
+            toast(
+              `Reset week ${result.week_start}: ${result.members_cleared || 0} members, ${result.answers_cleared || 0} answers`
+            );
+          } catch (err) {
+            toast(err.message || 'Reset failed');
           }
         });
       }

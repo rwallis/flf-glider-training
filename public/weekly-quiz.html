@@ -271,6 +271,76 @@
     }
     .feedback.ok { background: #EAF7EA; color: #276749; }
     .feedback.bad { background: #FEECEC; color: #9B2C2C; }
+    .result-details-pill {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 12px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      border: 2px solid transparent;
+      font: inherit;
+      font-weight: 800;
+      font-size: 1.02rem;
+      text-align: left;
+      cursor: pointer;
+      line-height: 1.3;
+    }
+    .result-details-pill:active { transform: scale(0.99); }
+    .result-details-pill.ok {
+      background: #EAF7EA;
+      border-color: #B7DFA3;
+      color: #276749;
+    }
+    .result-details-pill.bad {
+      background: #FEECEC;
+      border-color: #F5C2C0;
+      color: #9B2C2C;
+    }
+    .result-details-pill .pill-main {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+    .result-details-pill .pill-sub {
+      font-size: 0.82rem;
+      font-weight: 700;
+      opacity: 0.85;
+    }
+    .result-details-pill .pill-cta {
+      flex: 0 0 auto;
+      font-size: 0.88rem;
+      font-weight: 800;
+      white-space: nowrap;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .details-summary {
+      margin: 0 0 12px;
+      white-space: pre-wrap;
+      line-height: 1.45;
+    }
+    .details-links {
+      display: grid;
+      gap: 8px;
+    }
+    .details-links a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: #E8F2F8;
+      color: var(--sky-deep);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .details-empty {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 600;
+    }
     .actions {
       display: flex;
       gap: 8px;
@@ -520,6 +590,7 @@
       submitting: false,
       figureOpen: false,
       figureRotation: 0,
+      detailsOpen: false,
       reviewing: false
     };
 
@@ -674,6 +745,30 @@
       return idx >= 0 ? idx : Math.max(0, (cards || []).length - 1);
     }
 
+    function renderDetailsSheet(card) {
+      const details = card?.details || null;
+      const links = Array.isArray(details?.links) ? details.links : [];
+      const summary = String(details?.summary || '').trim();
+      return `
+        <div class="details-sheet" id="detailsSheet" role="dialog" aria-modal="true" aria-label="Question details">
+          <div class="details-panel">
+            <header>
+              <h3>Question details</h3>
+              <button type="button" class="close-details" id="closeDetailsBtn" aria-label="Close">×</button>
+            </header>
+            ${summary ? `<p class="details-summary">${escapeHtml(summary)}</p>` : `<p class="details-empty">No written notes for this question yet.</p>`}
+            ${links.length ? `
+              <div class="details-links">
+                ${links.map((link) => `
+                  <a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.label || link.url)}</a>
+                `).join('')}
+              </div>
+            ` : (summary ? '<p class="details-empty">No reference links yet.</p>' : '')}
+          </div>
+        </div>
+      `;
+    }
+
     function renderFigureSheet(card) {
       const figure = card?.figure || null;
       if (!figure?.url) {
@@ -750,12 +845,19 @@
              <input id="openAnswer" style="width:100%;padding:12px;border:2px solid var(--line);border-radius:12px;font:inherit" value="${escapeHtml(selected || '')}" ${showAnswer ? 'disabled' : ''} />`;
       }
 
-      let feedback = '';
+      let resultPill = '';
       if (showAnswer) {
         const xp = result?.xp ?? answered?.xp ?? 0;
-        feedback = `<div class="feedback ${isCorrect ? 'ok' : 'bad'}">${isCorrect ? 'Correct' : 'Not quite'} · +${xp} XP${
-          !isCorrect && correctAnswer ? `<br>Correct: ${escapeHtml(correctAnswer)}` : ''
-        }</div>`;
+        const outcome = isCorrect ? 'Correct' : 'Not quite';
+        resultPill = `
+          <button type="button" class="result-details-pill ${isCorrect ? 'ok' : 'bad'}" id="cardDetailsBtn">
+            <span class="pill-main">
+              <span>${escapeHtml(outcome)} · +${xp} XP</span>
+              ${!isCorrect && correctAnswer ? `<span class="pill-sub">Correct: ${escapeHtml(correctAnswer)}</span>` : ''}
+            </span>
+            <span class="pill-cta">More details</span>
+          </button>
+        `;
       }
 
       const canSubmit = !showAnswer && !state.submitting;
@@ -768,13 +870,14 @@
           </div>
           <div class="question">${escapeHtml(card.question)}</div>
           ${choicesHtml}
-          ${feedback}
+          ${resultPill}
           <div class="actions">
             ${canSubmit
               ? `<button type="button" class="primary" id="submitBtn" ${choices && !state.selectedChoice ? 'disabled' : ''}>Submit</button>`
               : `<button type="button" class="primary" id="nextBtn">${moreLeft ? 'Next question' : 'See results'}</button>`}
           </div>
         </div>
+        ${state.detailsOpen ? renderDetailsSheet(card) : ''}
         ${state.figureOpen ? renderFigureSheet(card) : ''}
       `;
     }
@@ -837,11 +940,36 @@
           render();
         });
       });
+      const detailsBtn = document.getElementById('cardDetailsBtn');
+      if (detailsBtn) {
+        detailsBtn.addEventListener('click', () => {
+          state.detailsOpen = true;
+          state.figureOpen = false;
+          render();
+        });
+      }
+      const closeDetails = document.getElementById('closeDetailsBtn');
+      if (closeDetails) {
+        closeDetails.addEventListener('click', () => {
+          state.detailsOpen = false;
+          render();
+        });
+      }
+      const detailsSheet = document.getElementById('detailsSheet');
+      if (detailsSheet) {
+        detailsSheet.addEventListener('click', (e) => {
+          if (e.target === detailsSheet) {
+            state.detailsOpen = false;
+            render();
+          }
+        });
+      }
       const figureBtn = document.getElementById('cardFigureBtn');
       if (figureBtn) {
         figureBtn.addEventListener('click', () => {
           state.figureOpen = true;
           state.figureRotation = 0;
+          state.detailsOpen = false;
           render();
         });
       }
@@ -884,6 +1012,7 @@
           state.selectedChoice = null;
           state.figureOpen = false;
           state.figureRotation = 0;
+          state.detailsOpen = false;
           const cards = state.quiz?.cards || [];
           const nextUnanswered = cards.findIndex((c, i) => i > state.index && !c.answered);
           if (nextUnanswered >= 0) state.index = nextUnanswered;
@@ -898,6 +1027,7 @@
           state.selectedChoice = null;
           state.figureOpen = false;
           state.figureRotation = 0;
+          state.detailsOpen = false;
           state.reviewing = true;
           render();
         });
@@ -908,6 +1038,7 @@
           state.lastResult = null;
           state.figureOpen = false;
           state.figureRotation = 0;
+          state.detailsOpen = false;
           state.reviewing = false;
           render();
         });

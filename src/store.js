@@ -34,6 +34,15 @@ export const WEEKLY_QUIZ_TRACKS = Object.freeze(['commercial', 'cfi_g']);
 /** Default number of questions locked in for a week. */
 export const WEEKLY_QUIZ_SIZE = 20;
 
+export const WEEKLY_QUIZ_SIZE_KEY = 'weekly_quiz_size';
+
+/** Clamp admin-configured weekly quiz length (1–100). */
+export function normalizeWeeklyQuizSize(raw) {
+  const n = Number(raw);
+  if (!Number.isFinite(n)) return WEEKLY_QUIZ_SIZE;
+  return Math.max(1, Math.min(100, Math.floor(n)));
+}
+
 /**
  * Monday (YYYY-MM-DD) of the America/Chicago week containing `when`.
  * Weeks run Monday–Sunday.
@@ -585,7 +594,8 @@ export function createMemoryStore(seed) {
     weeklyQuizAnswers: new Map(), // `${week}::${user}::${card}` -> row
     weeklyQuizActivity: new Map(), // `${user}::${week}::${date}` -> xp
     settings: new Map([
-      [STUDY_SCHEDULE_KEY, normalizeStudySchedule(seed.studySchedule || DEFAULT_STUDY_SCHEDULE)]
+      [STUDY_SCHEDULE_KEY, normalizeStudySchedule(seed.studySchedule || DEFAULT_STUDY_SCHEDULE)],
+      [WEEKLY_QUIZ_SIZE_KEY, normalizeWeeklyQuizSize(seed.weeklyQuizSize ?? WEEKLY_QUIZ_SIZE)]
     ])
   };
 
@@ -625,6 +635,14 @@ export function createMemoryStore(seed) {
         updated: updated.length,
         rows: updated
       };
+    },
+    async getWeeklyQuizSize() {
+      return normalizeWeeklyQuizSize(state.settings.get(WEEKLY_QUIZ_SIZE_KEY));
+    },
+    async setWeeklyQuizSize(size) {
+      const next = normalizeWeeklyQuizSize(size);
+      state.settings.set(WEEKLY_QUIZ_SIZE_KEY, next);
+      return next;
     },
     async listTracks() {
       return state.tracks.sort((a, b) => a.sort_order - b.sort_order);
@@ -975,8 +993,9 @@ export function createMemoryStore(seed) {
           created_at: existing.created_at
         };
       }
+      const count = await this.getWeeklyQuizSize();
       const cardIds = pickWeeklyQuizCardIds(state.cards, {
-        count: WEEKLY_QUIZ_SIZE,
+        count,
         tracks: WEEKLY_QUIZ_TRACKS
       });
       const row = {
@@ -1014,6 +1033,11 @@ export function createMemoryStore(seed) {
             question: card.question,
             choices: Array.isArray(card.choices) ? card.choices : null,
             figure: card.figure || null,
+            has_details: Boolean(
+              card.details &&
+                (String(card.details.summary || '').trim() ||
+                  (Array.isArray(card.details.links) && card.details.links.length))
+            ),
             answered: answered
               ? {
                   correct: Boolean(answered.correct),
@@ -1023,7 +1047,10 @@ export function createMemoryStore(seed) {
                 }
               : null
           };
-          if (answered) base.answer = card.answer;
+          if (answered) {
+            base.answer = card.answer;
+            base.details = card.details || null;
+          }
           return base;
         });
       const yourXp = answers.reduce((sum, a) => sum + (Number(a.xp) || 0), 0);
@@ -1099,6 +1126,31 @@ export function createMemoryStore(seed) {
         profilesByKey: state.profiles,
         countsByUserDate
       });
+    },
+    async resetWeeklyQuizScores(weekStart = weekStartMonday()) {
+      const week = String(weekStart || weekStartMonday());
+      let answersCleared = 0;
+      const users = new Set();
+      for (const key of [...state.weeklyQuizAnswers.keys()]) {
+        if (!key.startsWith(`${week}::`)) continue;
+        const [, uk] = key.split('::');
+        users.add(uk);
+        state.weeklyQuizAnswers.delete(key);
+        answersCleared += 1;
+      }
+      let activityRowsCleared = 0;
+      for (const key of [...state.weeklyQuizActivity.keys()]) {
+        const parts = key.split('::');
+        if (parts[1] !== week) continue;
+        state.weeklyQuizActivity.delete(key);
+        activityRowsCleared += 1;
+      }
+      return {
+        week_start: week,
+        answers_cleared: answersCleared,
+        members_cleared: users.size,
+        activity_rows_cleared: activityRowsCleared
+      };
     }
   };
 }
@@ -1150,6 +1202,25 @@ export function createPgStore(db) {
           due_at: r.due_at?.toISOString?.() || String(r.due_at)
         }))
       };
+    },
+    async getWeeklyQuizSize() {
+      const { rows } = await db.query(
+        'SELECT value FROM glider_settings WHERE key = $1',
+        [WEEKLY_QUIZ_SIZE_KEY]
+      );
+      const raw = rows[0]?.value;
+      const n = raw && typeof raw === 'object' && raw.size != null ? raw.size : raw;
+      return normalizeWeeklyQuizSize(n);
+    },
+    async setWeeklyQuizSize(size) {
+      const next = normalizeWeeklyQuizSize(size);
+      await db.query(
+        `INSERT INTO glider_settings (key, value, updated_at)
+         VALUES ($1, $2::jsonb, NOW())
+         ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value, updated_at = NOW()`,
+        [WEEKLY_QUIZ_SIZE_KEY, JSON.stringify(next)]
+      );
+      return next;
     },
     async listTracks() {
       const { rows } = await db.query(
@@ -1779,8 +1850,9 @@ export function createPgStore(db) {
            AND COALESCE(hidden, FALSE) = FALSE`,
         [WEEKLY_QUIZ_TRACKS.slice()]
       );
+      const count = await this.getWeeklyQuizSize();
       const cardIds = pickWeeklyQuizCardIds(cardRows, {
-        count: WEEKLY_QUIZ_SIZE,
+        count,
         tracks: WEEKLY_QUIZ_TRACKS
       });
       try {
@@ -1837,7 +1909,7 @@ export function createPgStore(db) {
         };
       }
       const { rows: cardRows } = await db.query(
-        `SELECT c.id, c.track_id, c.topic_id, c.question, c.answer, c.choices, c.figure,
+        `SELECT c.id, c.track_id, c.topic_id, c.question, c.answer, c.choices, c.figure, c.details,
                 t.title AS track_title, tp.title AS topic_title
          FROM glider_cards c
          LEFT JOIN glider_tracks t ON t.id = c.track_id
@@ -1858,6 +1930,12 @@ export function createPgStore(db) {
         .filter(Boolean)
         .map((card) => {
           const answered = answerByCard.get(card.id) || null;
+          const details = card.details || null;
+          const hasDetails = Boolean(
+            details &&
+              (String(details.summary || '').trim() ||
+                (Array.isArray(details.links) && details.links.length))
+          );
           const base = {
             id: card.id,
             track_id: card.track_id,
@@ -1867,6 +1945,7 @@ export function createPgStore(db) {
             question: card.question,
             choices: card.choices || null,
             figure: card.figure || null,
+            has_details: hasDetails,
             answered: answered
               ? {
                   correct: Boolean(answered.correct),
@@ -1876,7 +1955,10 @@ export function createPgStore(db) {
                 }
               : null
           };
-          if (answered) base.answer = card.answer;
+          if (answered) {
+            base.answer = card.answer;
+            base.details = details;
+          }
           return base;
         });
       const yourXp = answerRows.reduce((sum, a) => sum + (Number(a.xp) || 0), 0);
@@ -1949,6 +2031,35 @@ export function createPgStore(db) {
         answered_count: payload.answered_count,
         question_count: payload.question_count,
         league: payload.league
+      };
+    },
+    async resetWeeklyQuizScores(weekStart = weekStartMonday()) {
+      const week = String(weekStart || weekStartMonday());
+      const answers = await db.query(
+        `WITH deleted AS (
+           DELETE FROM glider_weekly_quiz_answers
+           WHERE week_start = $1::date
+           RETURNING user_key
+         )
+         SELECT COUNT(*)::int AS answers_cleared,
+                COUNT(DISTINCT user_key)::int AS members_cleared
+         FROM deleted`,
+        [week]
+      );
+      const activity = await db.query(
+        `WITH deleted AS (
+           DELETE FROM glider_weekly_quiz_activity
+           WHERE week_start = $1::date
+           RETURNING 1
+         )
+         SELECT COUNT(*)::int AS activity_rows_cleared FROM deleted`,
+        [week]
+      );
+      return {
+        week_start: week,
+        answers_cleared: answers.rows[0]?.answers_cleared || 0,
+        members_cleared: answers.rows[0]?.members_cleared || 0,
+        activity_rows_cleared: activity.rows[0]?.activity_rows_cleared || 0
       };
     },
     async weeklyQuizLeagueSummary(userKey, weekStart = weekStartMonday()) {
