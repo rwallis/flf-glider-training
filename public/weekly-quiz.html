@@ -694,7 +694,7 @@
     <div class="bar-top">
       <div>
         <h1>FLF Weekly Quiz</h1>
-        <p id="subtitle">Commercial · CFI-G · club XP</p>
+        <p id="subtitle">Weekly club quiz · quiz XP</p>
       </div>
       <div class="header-meta">
         <span class="header-user hidden" id="header-user">
@@ -1092,7 +1092,7 @@
       const done = allAnswered && !showingFeedback && !state.reviewing;
       const card = currentCard();
       document.getElementById('subtitle').textContent =
-        `Week of ${formatWeekRange(quiz)} · Commercial & CFI-G`;
+        `Week of ${formatWeekRange(quiz)}`;
 
       app.innerHTML = `
         <p class="beta-note">Prototype / beta: you’re helping us test the weekly quiz. After you answer a question, use <strong>Send feedback</strong> if something looks off.</p>

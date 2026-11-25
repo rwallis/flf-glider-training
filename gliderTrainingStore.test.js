@@ -836,7 +836,7 @@ test('getWeeklyQuizForUser includes previous_winners from prior week XP', async 
   );
 });
 
-test('pickWeeklyQuizCardIds spreads across topics and only uses commercial/cfi_g', () => {
+test('pickWeeklyQuizCardIds spreads across topics and uses weekly quiz tracks only', () => {
   const cards = [
     { id: 'p1', track_id: 'private', topic_id: 'priv_a' },
     { id: 'c1', track_id: 'commercial', topic_id: 'comm_a' },
@@ -844,18 +844,21 @@ test('pickWeeklyQuizCardIds spreads across topics and only uses commercial/cfi_g
     { id: 'c3', track_id: 'commercial', topic_id: 'comm_b' },
     { id: 'f1', track_id: 'cfi_g', topic_id: 'cfi_a' },
     { id: 'f2', track_id: 'cfi_g', topic_id: 'cfi_b' },
-    { id: 'foi1', track_id: 'foi', topic_id: 'foi_a' }
+    { id: 'foi1', track_id: 'foi', topic_id: 'foi_a' },
+    { id: 'a1', track_id: 'aircraft_233', topic_id: 'a233_a' },
+    { id: 'common1', track_id: 'common', topic_id: 'common_a' }
   ];
   let i = 0;
-  const seq = [0.1, 0.9, 0.2, 0.8, 0.3, 0.7, 0.4, 0.6, 0.15, 0.85];
+  const seq = [0.1, 0.9, 0.2, 0.8, 0.3, 0.7, 0.4, 0.6, 0.15, 0.85, 0.25, 0.55];
   const random = () => seq[i++ % seq.length];
-  const picked = pickWeeklyQuizCardIds(cards, { count: 4, random });
-  assert.equal(picked.length, 4);
-  assert.ok(picked.every((id) => !['p1', 'foi1'].includes(id)));
+  const picked = pickWeeklyQuizCardIds(cards, { count: 5, random });
+  assert.equal(picked.length, 5);
+  assert.ok(picked.every((id) => !['p1', 'common1'].includes(id)));
   const byId = new Map(cards.map((c) => [c.id, c]));
+  assert.ok(picked.every((id) => WEEKLY_QUIZ_TRACKS.includes(byId.get(id).track_id)));
   const topics = new Set(picked.map((id) => byId.get(id).topic_id));
   assert.ok(topics.size >= 3);
-  assert.deepEqual(WEEKLY_QUIZ_TRACKS, ['commercial', 'cfi_g']);
+  assert.deepEqual(WEEKLY_QUIZ_TRACKS, ['commercial', 'cfi_g', 'foi', 'aircraft_233']);
 });
 
 test('memory weekly quiz locks cards for the week and tracks quiz-only XP', async () => {
@@ -863,12 +866,16 @@ test('memory weekly quiz locks cards for the week and tracks quiz-only XP', asyn
     tracks: [
       { id: 'commercial', title: 'Commercial', sort_order: 1, status: 'ready' },
       { id: 'cfi_g', title: 'CFI-G', sort_order: 2, status: 'ready' },
-      { id: 'private', title: 'Private', sort_order: 3, status: 'ready' }
+      { id: 'foi', title: 'FOI', sort_order: 3, status: 'ready' },
+      { id: 'aircraft_233', title: 'Schweizer 2-33', sort_order: 4, status: 'ready' },
+      { id: 'private', title: 'Private', sort_order: 5, status: 'ready' }
     ],
     topics: [
       { id: 'comm_a', track_id: 'commercial', title: 'Weather' },
       { id: 'comm_b', track_id: 'commercial', title: 'Aero' },
       { id: 'cfi_a', track_id: 'cfi_g', title: 'FOI basics' },
+      { id: 'foi_a', track_id: 'foi', title: 'Learning process' },
+      { id: 'a233_a', track_id: 'aircraft_233', title: 'Systems' },
       { id: 'priv_a', track_id: 'private', title: 'Private topic' }
     ],
     cards: [
@@ -884,12 +891,19 @@ test('memory weekly quiz locks cards for the week and tracks quiz-only XP', asyn
       },
       { id: 'c2', track_id: 'commercial', topic_id: 'comm_b', question: 'Q2', answer: 'B', choices: ['A', 'B'] },
       { id: 'c3', track_id: 'cfi_g', topic_id: 'cfi_a', question: 'Q3', answer: 'A', choices: ['A', 'B'] },
+      { id: 'foi1', track_id: 'foi', topic_id: 'foi_a', question: 'QFOI', answer: 'A', choices: ['A', 'B'] },
+      { id: 'a1', track_id: 'aircraft_233', topic_id: 'a233_a', question: 'Q233', answer: 'A', choices: ['A', 'B'] },
       { id: 'p1', track_id: 'private', topic_id: 'priv_a', question: 'QP', answer: 'A', choices: ['A', 'B'] }
     ]
   });
   const quiz1 = await store.getWeeklyQuizForUser('u1');
-  assert.equal(quiz1.question_count, 3);
-  assert.ok(quiz1.cards.every((c) => c.track_id === 'commercial' || c.track_id === 'cfi_g'));
+  assert.equal(quiz1.question_count, 5);
+  assert.ok(
+    quiz1.cards.every((c) =>
+      ['commercial', 'cfi_g', 'foi', 'aircraft_233'].includes(c.track_id)
+    )
+  );
+  assert.ok(quiz1.cards.some((c) => c.track_id === 'foi' || c.track_id === 'aircraft_233'));
   assert.equal(quiz1.answered_count, 0);
   const figured = quiz1.cards.find((c) => c.id === 'c1');
   assert.equal(figured?.figure?.number, 21);
