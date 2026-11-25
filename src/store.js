@@ -588,6 +588,7 @@ export function createMemoryStore(seed) {
     dailyActivity: new Map(), // `${userKey}::YYYY-MM-DD` -> answers
     profiles,
     flags: [],
+    weeklyQuizFeedback: [],
     weeklyQuizzes: new Map(), // week_start -> { week_start, card_ids, created_at }
     weeklyQuizAnswers: new Map(), // `${week}::${user}::${card}` -> row
     weeklyQuizActivity,
@@ -1074,6 +1075,41 @@ export function createMemoryStore(seed) {
         question_count: cards.length,
         cards
       };
+    },
+    async submitWeeklyQuizFeedback(userKey, { cardId, note = '', weekStart } = {}) {
+      const quiz = await this.ensureWeeklyQuiz(weekStart);
+      const week = quiz.week_start;
+      const id = String(cardId || '').trim();
+      if (!id) throw new Error('cardId required');
+      if (!quiz.card_ids.includes(id)) {
+        throw new Error('card is not in this week’s quiz');
+      }
+      const answered = state.weeklyQuizAnswers.get(`${week}::${userKey}::${id}`);
+      if (!answered) {
+        throw new Error('answer this question before sending feedback');
+      }
+      const card = state.cards.find((c) => c.id === id);
+      if (!card) throw new Error('card not found');
+      const row = {
+        id: state.weeklyQuizFeedback.length + 1,
+        week_start: week,
+        card_id: id,
+        user_key: String(userKey || '').trim(),
+        note: String(note || '').trim().slice(0, 2000),
+        status: 'open',
+        created_at: new Date().toISOString(),
+        question: card.question,
+        track_id: card.track_id,
+        topic_id: card.topic_id
+      };
+      state.weeklyQuizFeedback.unshift(row);
+      return row;
+    },
+    async listWeeklyQuizFeedback({ status = 'open', limit = 100 } = {}) {
+      const lim = Math.max(1, Math.min(500, Number(limit) || 100));
+      return state.weeklyQuizFeedback
+        .filter((f) => !status || f.status === status)
+        .slice(0, lim);
     },
     async submitWeeklyQuizAnswer(userKey, { cardId, choice, correct } = {}) {
       const quiz = await this.ensureWeeklyQuiz();
@@ -2007,6 +2043,60 @@ export function createPgStore(db) {
         question_count: cards.length,
         cards
       };
+    },
+    async submitWeeklyQuizFeedback(userKey, { cardId, note = '', weekStart } = {}) {
+      const quiz = await this.ensureWeeklyQuiz(weekStart);
+      const week = quiz.week_start;
+      const id = String(cardId || '').trim();
+      if (!id) throw new Error('cardId required');
+      if (!quiz.card_ids.includes(id)) {
+        throw new Error('card is not in this week’s quiz');
+      }
+      const answered = await db.query(
+        `SELECT 1 FROM glider_weekly_quiz_answers
+         WHERE week_start = $1::date AND user_key = $2 AND card_id = $3`,
+        [week, userKey, id]
+      );
+      if (!answered.rows[0]) {
+        throw new Error('answer this question before sending feedback');
+      }
+      const card = await this.getCard(id);
+      if (!card) throw new Error('card not found');
+      const { rows } = await db.query(
+        `INSERT INTO glider_weekly_quiz_feedback
+           (week_start, card_id, user_key, note, status)
+         VALUES ($1::date, $2, $3, $4, 'open')
+         RETURNING id, week_start::text AS week_start, card_id, user_key, note, status, created_at`,
+        [week, id, String(userKey || '').trim(), String(note || '').trim().slice(0, 2000)]
+      );
+      const row = rows[0];
+      return {
+        ...row,
+        question: card.question,
+        track_id: card.track_id,
+        topic_id: card.topic_id
+      };
+    },
+    async listWeeklyQuizFeedback({ status = 'open', limit = 100 } = {}) {
+      const lim = Math.max(1, Math.min(500, Number(limit) || 100));
+      const params = [];
+      let where = '';
+      if (status) {
+        params.push(String(status));
+        where = `WHERE f.status = $${params.length}`;
+      }
+      params.push(lim);
+      const { rows } = await db.query(
+        `SELECT f.id, f.week_start::text AS week_start, f.card_id, f.user_key, f.note, f.status, f.created_at,
+                c.question, c.track_id, c.topic_id
+         FROM glider_weekly_quiz_feedback f
+         LEFT JOIN glider_cards c ON c.id = f.card_id
+         ${where}
+         ORDER BY f.created_at DESC
+         LIMIT $${params.length}`,
+        params
+      );
+      return rows;
     },
     async submitWeeklyQuizAnswer(userKey, { cardId, choice, correct } = {}) {
       const quiz = await this.ensureWeeklyQuiz();

@@ -506,6 +506,41 @@ test('rankWeeklyQuizPodium assigns gold silver bronze medals', () => {
   );
 });
 
+test('weekly quiz feedback requires an answered question and lists for admin', async () => {
+  const store = createMemoryStore({
+    tracks: [
+      { id: 'commercial', title: 'Commercial', sort_order: 1, status: 'ready' },
+      { id: 'cfi_g', title: 'CFI-G', sort_order: 2, status: 'ready' }
+    ],
+    topics: [
+      { id: 'comm_a', track_id: 'commercial', title: 'Weather' },
+      { id: 'cfi_a', track_id: 'cfi_g', title: 'FOI' }
+    ],
+    cards: [
+      { id: 'c1', track_id: 'commercial', topic_id: 'comm_a', question: 'Q1', answer: 'A', choices: ['A', 'B'] },
+      { id: 'c2', track_id: 'cfi_g', topic_id: 'cfi_a', question: 'Q2', answer: 'A', choices: ['A', 'B'] }
+    ]
+  });
+  await store.setWeeklyQuizSize(2);
+  const quiz = await store.getWeeklyQuizForUser('u1');
+  const cardId = quiz.cards[0].id;
+  await assert.rejects(
+    () => store.submitWeeklyQuizFeedback('u1', { cardId, note: 'too soon' }),
+    /before sending feedback/
+  );
+  await store.submitWeeklyQuizAnswer('u1', { cardId, choice: 'A' });
+  const row = await store.submitWeeklyQuizFeedback('u1', {
+    cardId,
+    note: 'Wording is unclear'
+  });
+  assert.equal(row.card_id, cardId);
+  assert.equal(row.note, 'Wording is unclear');
+  assert.equal(row.status, 'open');
+  const listed = await store.listWeeklyQuizFeedback({ status: 'open' });
+  assert.equal(listed.length, 1);
+  assert.equal(listed[0].question, quiz.cards[0].question);
+});
+
 test('listWeeklyQuizAdmin returns this week’s cards with details for editing', async () => {
   const store = createMemoryStore({
     tracks: [
