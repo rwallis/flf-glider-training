@@ -218,6 +218,102 @@
       color: var(--sky-deep);
     }
     .league-xp-count { font-weight: 800; color: var(--sky-deep); white-space: nowrap; }
+    .winners-card {
+      background: var(--card);
+      border: 2px solid #E5E5E5;
+      border-radius: 18px;
+      box-shadow: 0 2px 0 #E5E5E5;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+    .winners-card .winners-week {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin: 0 0 12px;
+    }
+    .winners-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .winner-badge {
+      flex: 1 1 140px;
+      max-width: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 6px;
+      padding: 12px 10px 14px;
+      border-radius: 16px;
+      border: 2px solid transparent;
+      background: #F7FAFC;
+    }
+    .winner-badge.gold {
+      background: linear-gradient(165deg, #FFF8E6 0%, #FFE9A8 100%);
+      border-color: #E6B422;
+      color: #8A6400;
+    }
+    .winner-badge.silver {
+      background: linear-gradient(165deg, #F5F7F9 0%, #DEE4EA 100%);
+      border-color: #9AA5B0;
+      color: #4A5560;
+    }
+    .winner-badge.bronze {
+      background: linear-gradient(165deg, #FBF3EB 0%, #EDD0B0 100%);
+      border-color: #C47A3A;
+      color: #7A4518;
+    }
+    .winner-badge .medal-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 -2px 0 rgba(0,0,0,.12);
+    }
+    .winner-badge.gold .medal-icon { background: linear-gradient(145deg, #FFE27A, #D4A017); color: #6B4E00; }
+    .winner-badge.silver .medal-icon { background: linear-gradient(145deg, #EEF2F5, #A8B2BC); color: #3D4650; }
+    .winner-badge.bronze .medal-icon { background: linear-gradient(145deg, #F0C89A, #B87333); color: #5C3010; }
+    .winner-badge .medal-icon svg { width: 26px; height: 26px; display: block; }
+    .winner-badge .place-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+    .winner-badge .winner-name {
+      font-size: 0.95rem;
+      font-weight: 800;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .winner-badge .winner-xp {
+      font-size: 0.78rem;
+      font-weight: 700;
+      opacity: 0.85;
+    }
+    .winner-badge .winner-avatar,
+    .winner-badge .winner-avatar-fallback {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .winner-badge .winner-avatar-fallback {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,.55);
+      font-weight: 800;
+      font-size: 0.75rem;
+    }
     .section-title {
       margin: 4px 0 10px;
       font-size: 1.05rem;
@@ -704,6 +800,46 @@
       }).join('')}</div>`;
     }
 
+    function medalIconSvg() {
+      return `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M7.2 2.5h3.1l1.7 4.2H8.9L7.2 2.5zm6.5 0h3.1l-1.7 4.2h-3.1l1.7-4.2z"/>
+        <circle cx="12" cy="14.2" r="6.3" fill="currentColor" opacity=".95"/>
+        <circle cx="12" cy="14.2" r="4.2" fill="rgba(255,255,255,.35)"/>
+        <path fill="rgba(0,0,0,.22)" d="M12 10.4l1.05 2.13 2.35.34-1.7 1.66.4 2.34L12 15.75l-2.1 1.12.4-2.34-1.7-1.66 2.35-.34L12 10.4z"/>
+      </svg>`;
+    }
+
+    function renderPreviousWinners(winners) {
+      const podium = (winners?.podium || []).slice(0, 3);
+      if (!podium.length) return '';
+      const range = formatWeekRange(winners);
+      return `
+        <div class="section-title">Last week’s winners</div>
+        <div class="winners-card">
+          ${range ? `<p class="winners-week">Week of ${escapeHtml(range)}</p>` : ''}
+          <div class="winners-badges">
+            ${podium.map((entry) => {
+              const medal = entry.medal === 'silver' || entry.medal === 'bronze' ? entry.medal : 'gold';
+              const label = entry.label || (medal === 'gold' ? '1st Place' : medal === 'silver' ? '2nd Place' : '3rd Place');
+              const name = entry.display_name || 'Learner';
+              const avatar = entry.picture
+                ? `<img class="winner-avatar" src="${escapeHtml(entry.picture)}" alt="" />`
+                : `<span class="winner-avatar-fallback">${escapeHtml(name.slice(0, 1).toUpperCase())}</span>`;
+              return `
+                <div class="winner-badge ${medal}" title="${escapeHtml(label)} · ${escapeHtml(name)}">
+                  <div class="medal-icon">${medalIconSvg()}</div>
+                  <div class="place-label">${escapeHtml(label)}</div>
+                  ${avatar}
+                  <div class="winner-name">${escapeHtml(name)}</div>
+                  <div class="winner-xp">${Number(entry.week_total) || 0} XP</div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      `;
+    }
+
     function renderLeague(summary) {
       if (!summary) {
         return `<div class="league-card"><div class="empty" style="padding:12px">Sign in and answer to join the weekly quiz league.</div></div>`;
@@ -904,6 +1040,7 @@
           <div class="stat"><b>${quiz.your_xp || 0}</b><span>Your quiz XP</span></div>
           <div class="stat"><b>${quiz.league?.you?.today || 0}</b><span>XP today</span></div>
         </div>
+        ${renderPreviousWinners(quiz.previous_winners)}
         <div class="section-title">Weekly quiz league</div>
         ${renderLeague(quiz.league)}
         ${done ? `

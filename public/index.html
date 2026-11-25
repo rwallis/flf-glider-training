@@ -3230,7 +3230,7 @@
           <h2>Weekly quiz</h2>
           <p class="hint">
             How many Commercial &amp; CFI-G questions to lock in when a new Mon–Sun quiz is generated.
-            Changing this does <strong>not</strong> rebuild the quiz already started this week — it applies next week (or the first time this week’s quiz is created).
+            Saving a new size does <strong>not</strong> rebuild the quiz already started this week — use Reset below to regenerate with the saved size.
           </p>
           <label for="weeklyQuizSize">Questions per week</label>
           <input id="weeklyQuizSize" type="number" min="1" max="100" step="1"
@@ -3239,11 +3239,11 @@
             <button type="button" id="saveWeeklyQuizSizeBtn">Save weekly quiz size</button>
           </div>
           <p class="hint" style="margin-top:14px">
-            Reset clears every member’s answers and quiz XP for the <strong>current week</strong>.
-            The locked question set stays the same so people can retake it.
+            Reset clears every member’s answers and quiz XP for the <strong>current week</strong>,
+            then generates a <strong>new question set</strong> using the saved questions-per-week size.
           </p>
           <div class="btn-row">
-            <button type="button" class="secondary" id="resetWeeklyQuizScoresBtn" style="color:#9B2C2C">Reset this week’s quiz scores</button>
+            <button type="button" class="secondary" id="resetWeeklyQuizScoresBtn" style="color:#9B2C2C">Reset this week’s scores &amp; questions</button>
           </div>
         </section>
 
@@ -3929,7 +3929,7 @@
       if (resetWeeklyQuizScoresBtn) {
         resetWeeklyQuizScoresBtn.addEventListener('click', async () => {
           if (!window.confirm(
-            'Reset this week’s weekly quiz scores for ALL members?\n\nThis clears answers and quiz XP for the current week. The question set stays the same.'
+            'Reset this week’s weekly quiz for ALL members?\n\nThis clears answers and quiz XP, then generates a new question set using the saved questions-per-week size.'
           )) return;
           try {
             const result = await api('/api/weekly-quiz/reset-scores', {
@@ -3937,7 +3937,7 @@
               body: JSON.stringify({})
             });
             toast(
-              `Reset week ${result.week_start}: ${result.members_cleared || 0} members, ${result.answers_cleared || 0} answers`
+              `Reset week ${result.week_start}: ${result.members_cleared || 0} members, ${result.answers_cleared || 0} answers, ${result.question_count || 0} new questions`
             );
           } catch (err) {
             toast(err.message || 'Reset failed');
