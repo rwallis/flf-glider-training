@@ -28,7 +28,12 @@ export function activityDateKey(when = new Date(), timeZone = ACTIVITY_TZ) {
 }
 
 /** Tracks that feed the club weekly quiz. */
-export const WEEKLY_QUIZ_TRACKS = Object.freeze(['commercial', 'cfi_g']);
+export const WEEKLY_QUIZ_TRACKS = Object.freeze([
+  'commercial',
+  'cfi_g',
+  'foi',
+  'aircraft_233'
+]);
 
 /** Default number of questions locked in for a week. */
 export const WEEKLY_QUIZ_SIZE = 20;
@@ -131,7 +136,7 @@ function shuffleInPlace(arr, random = Math.random) {
 }
 
 /**
- * Pick quiz card ids spread across topics (and thus commercial + CFI-G categories).
+ * Pick quiz card ids spread across topics in WEEKLY_QUIZ_TRACKS.
  * Round-robin through shuffled topics so one category cannot dominate.
  */
 export function pickWeeklyQuizCardIds(
