@@ -399,6 +399,23 @@
       line-height: 1;
       cursor: pointer;
     }
+    .details-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+    .details-edit-btn {
+      border: 1px solid var(--line);
+      background: #E8F2F8;
+      color: var(--sky-deep);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
     .figure-image-wrap {
       margin: 0;
       border-radius: 12px;
@@ -412,7 +429,19 @@
       display: block;
       width: 100%;
       height: auto;
+      transition: transform 0.18s ease;
     }
+    /* Layout box stays upright; rotate paint only so overflow scroll still works. */
+    .figure-image-wrap img.figure-rot-90,
+    .figure-image-wrap img.figure-rot-270 {
+      width: auto;
+      max-width: none;
+      height: min(88vw, 420px);
+      max-height: none;
+    }
+    .figure-image-wrap img.figure-rot-90 { transform: rotate(90deg); }
+    .figure-image-wrap img.figure-rot-180 { transform: rotate(180deg); }
+    .figure-image-wrap img.figure-rot-270 { transform: rotate(270deg); }
     .figure-caption {
       margin: 10px 0 0;
       font-size: 0.85rem;
@@ -452,6 +481,13 @@
         height: auto;
         object-fit: contain;
       }
+      .figure-image-wrap img.figure-rot-90,
+      .figure-image-wrap img.figure-rot-270 {
+        width: auto;
+        max-width: none;
+        height: min(72vh, 720px);
+        max-height: none;
+      }
     }
   </style>
 </head>
@@ -483,6 +519,7 @@
       lastResult: null,
       submitting: false,
       figureOpen: false,
+      figureRotation: 0,
       reviewing: false
     };
 
@@ -655,17 +692,25 @@
       const title = figure.title
         ? `Figure ${figure.number} — ${figure.title}`
         : `Figure ${figure.number}`;
+      const rotation = [0, 90, 180, 270].includes(state.figureRotation)
+        ? state.figureRotation
+        : 0;
+      const rotClass = rotation ? `figure-rot-${rotation}` : '';
+      const rotateLabel = rotation ? `Rotate (${rotation}°)` : 'Rotate';
       return `
         <div class="details-sheet figure-sheet" id="figureSheet" role="dialog" aria-modal="true" aria-label="${escapeHtml(title)}">
           <div class="details-panel figure-panel">
             <header>
               <h3>${escapeHtml(title)}</h3>
-              <button type="button" class="close-details" id="closeFigureBtn" aria-label="Close">×</button>
+              <div class="details-header-actions">
+                <button type="button" class="details-edit-btn" id="rotateFigureBtn" aria-label="Rotate figure 90 degrees clockwise">${escapeHtml(rotateLabel)}</button>
+                <button type="button" class="close-details" id="closeFigureBtn" aria-label="Close">×</button>
+              </div>
             </header>
             <div class="figure-image-wrap">
-              <img src="${escapeHtml(figure.url)}" alt="${escapeHtml(title)}" loading="lazy" />
+              <img${rotClass ? ` class="${rotClass}"` : ''} src="${escapeHtml(figure.url)}" alt="${escapeHtml(title)}" loading="lazy" />
             </div>
-            <p class="figure-caption">From the FAA Computer Testing Supplement. Pinch/scroll to zoom on phone.</p>
+            <p class="figure-caption">From the FAA Computer Testing Supplement. Pinch/scroll to zoom on phone. Tap Rotate for landscape charts.</p>
           </div>
         </div>
       `;
@@ -796,6 +841,17 @@
       if (figureBtn) {
         figureBtn.addEventListener('click', () => {
           state.figureOpen = true;
+          state.figureRotation = 0;
+          render();
+        });
+      }
+      const rotateFigure = document.getElementById('rotateFigureBtn');
+      if (rotateFigure) {
+        rotateFigure.addEventListener('click', () => {
+          const cur = [0, 90, 180, 270].includes(state.figureRotation)
+            ? state.figureRotation
+            : 0;
+          state.figureRotation = (cur + 90) % 360;
           render();
         });
       }
@@ -803,6 +859,7 @@
       if (closeFigure) {
         closeFigure.addEventListener('click', () => {
           state.figureOpen = false;
+          state.figureRotation = 0;
           render();
         });
       }
@@ -811,6 +868,7 @@
         figureSheet.addEventListener('click', (e) => {
           if (e.target === figureSheet) {
             state.figureOpen = false;
+            state.figureRotation = 0;
             render();
           }
         });
@@ -825,6 +883,7 @@
           state.lastResult = null;
           state.selectedChoice = null;
           state.figureOpen = false;
+          state.figureRotation = 0;
           const cards = state.quiz?.cards || [];
           const nextUnanswered = cards.findIndex((c, i) => i > state.index && !c.answered);
           if (nextUnanswered >= 0) state.index = nextUnanswered;
@@ -838,6 +897,7 @@
           state.lastResult = null;
           state.selectedChoice = null;
           state.figureOpen = false;
+          state.figureRotation = 0;
           state.reviewing = true;
           render();
         });
@@ -847,6 +907,7 @@
         backDone.addEventListener('click', () => {
           state.lastResult = null;
           state.figureOpen = false;
+          state.figureRotation = 0;
           state.reviewing = false;
           render();
         });
