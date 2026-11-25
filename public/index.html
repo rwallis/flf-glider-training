@@ -961,6 +961,19 @@
       background: #FEF3C7;
       color: #92400E;
     }
+    .admin-pill.details-ok {
+      background: #E8F8EE;
+      color: #1F7A3F;
+    }
+    .admin-pill.details-missing {
+      background: #F3F4F6;
+      color: #6B7280;
+    }
+    .admin-weekly-quiz-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px;
+    }
     .admin-q {
       margin: 0 0 4px;
       font-size: 0.92rem;
@@ -1477,7 +1490,9 @@
           good: { value: 7, unit: 'days' },
           easy: { value: 0, unit: 'never' }
         },
-        weeklyQuizSize: 20
+        weeklyQuizSize: 20,
+        weeklyQuiz: null,
+        weeklyQuizStatus: ''
       },
       progressTracks: [],
       leagueFocus: {
@@ -3100,6 +3115,58 @@
       }
     }
 
+    function formatAdminWeekRange(quiz) {
+      if (!quiz?.week_start) return '';
+      try {
+        const fmt = new Intl.DateTimeFormat('en-US', {
+          month: 'short',
+          day: 'numeric',
+          timeZone: 'America/Chicago'
+        });
+        const start = fmt.format(new Date(quiz.week_start + 'T17:00:00Z'));
+        const end = fmt.format(new Date((quiz.week_end || quiz.week_start) + 'T17:00:00Z'));
+        return `${start} – ${end}`;
+      } catch {
+        return quiz.week_start;
+      }
+    }
+
+    function renderAdminWeeklyQuizCards() {
+      const quiz = state.admin.weeklyQuiz;
+      const status = state.admin.weeklyQuizStatus || '';
+      if (!quiz) {
+        return `<div class="empty">${escapeHtml(status || 'Loading this week’s quiz…')}</div>`;
+      }
+      const cards = quiz.cards || [];
+      if (!cards.length) {
+        return `<div class="empty">${escapeHtml(status || 'No questions locked for this week yet.')}</div>`;
+      }
+      const range = formatAdminWeekRange(quiz);
+      return `
+        <p class="admin-search-status" style="margin-top:4px">
+          ${cards.length} question${cards.length === 1 ? '' : 's'}${range ? ` · week of ${escapeHtml(range)}` : ''}.
+          Tap a question to open it in Study and edit Details.
+        </p>
+        <div class="admin-weekly-quiz-list">
+          ${cards.map((card) => `
+            <button type="button" class="admin-result" data-open-weekly-card="${escapeHtml(card.id)}" title="Open in Study to edit Details">
+              <div class="badge" style="background:${courseColor(card.track_id)}">${escapeHtml(String(card.quiz_index || ''))}</div>
+              <div style="flex:1;min-width:0">
+                <div class="admin-result-meta">
+                  <span class="admin-pill">${escapeHtml(trackLabel(card.track_id))}</span>
+                  <span class="admin-pill">${escapeHtml(card.topic_title || adminTopicTitle(card))}</span>
+                  ${card.figure ? '<span class="admin-pill fig">Figure</span>' : ''}
+                  <span class="admin-pill ${card.has_details ? 'details-ok' : 'details-missing'}">${card.has_details ? 'Has details' : 'No details'}</span>
+                </div>
+                <p class="admin-q">${formatRichText(card.question || '')}</p>
+                <p class="admin-a">${escapeHtml(card.answer || '')}</p>
+              </div>
+            </button>
+          `).join('')}
+        </div>
+      `;
+    }
+
     function renderAdminUsers() {
       const users = state.admin.users || [];
       if (!users.length) {
@@ -3245,6 +3312,14 @@
           <div class="btn-row">
             <button type="button" class="secondary" id="resetWeeklyQuizScoresBtn" style="color:#9B2C2C">Reset this week’s scores &amp; questions</button>
           </div>
+          <h3 style="margin:18px 0 6px;font-size:0.95rem;font-weight:800">This week’s questions</h3>
+          <p class="hint" style="margin-bottom:0">
+            Review the locked quiz set and open any card in Study to add or edit Details.
+          </p>
+          ${state.admin.weeklyQuizStatus && !(state.admin.weeklyQuiz?.cards || []).length
+            ? `<p class="admin-search-status">${escapeHtml(state.admin.weeklyQuizStatus)}</p>`
+            : ''}
+          ${renderAdminWeeklyQuizCards()}
         </section>
 
         <section class="admin-section">
@@ -3367,6 +3442,21 @@
       return schedule;
     }
 
+    async function loadAdminWeeklyQuiz() {
+      state.admin.weeklyQuizStatus = 'Loading this week’s quiz…';
+      try {
+        const quiz = await api('/api/admin/weekly-quiz');
+        state.admin.weeklyQuiz = quiz;
+        const n = (quiz.cards || []).length;
+        state.admin.weeklyQuizStatus = n
+          ? `${n} question${n === 1 ? '' : 's'} this week`
+          : 'No questions locked for this week yet.';
+      } catch (err) {
+        state.admin.weeklyQuiz = null;
+        state.admin.weeklyQuizStatus = err.message || 'Failed to load weekly quiz';
+      }
+    }
+
     async function loadAdmin() {
       if (!isAdminUser()) {
         state.view = 'home';
@@ -3393,6 +3483,7 @@
       } catch {
         /* keep default */
       }
+      await loadAdminWeeklyQuiz();
       try {
         state.imports = (await api('/api/imports')).imports;
       } catch (err) {
@@ -3862,6 +3953,18 @@
           }
         });
       });
+      app.querySelectorAll('[data-open-weekly-card]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const id = btn.dataset.openWeeklyCard;
+          const card = (state.admin.weeklyQuiz?.cards || []).find((c) => c.id === id);
+          if (!card) return;
+          try {
+            await openStudyCard(card);
+          } catch (err) {
+            toast(err.message);
+          }
+        });
+      });
       app.querySelectorAll('[data-schedule-unit]').forEach((sel) => {
         sel.addEventListener('change', () => {
           const row = sel.closest('[data-schedule-grade]');
@@ -3936,9 +4039,11 @@
               method: 'POST',
               body: JSON.stringify({})
             });
+            await loadAdminWeeklyQuiz();
             toast(
               `Reset week ${result.week_start}: ${result.members_cleared || 0} members, ${result.answers_cleared || 0} answers, ${result.question_count || 0} new questions`
             );
+            render();
           } catch (err) {
             toast(err.message || 'Reset failed');
           }
