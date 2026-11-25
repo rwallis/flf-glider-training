@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1A6FA3" />
+  <title>FLF Weekly Quiz</title>
+  <style>
+    :root {
+      --sky: #2B8FCC;
+      --sky-deep: #1A6FA3;
+      --grass: #2F7D32;
+      --sun: #F0B429;
+      --ink: #1C2A33;
+      --paper: #F7FAFC;
+      --card: #FFFFFF;
+      --muted: #5A6B76;
+      --line: #D5E2EA;
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.4;
+      min-height: 100%;
+    }
+    body { padding-bottom: calc(24px + var(--safe-bottom)); }
+    header.app-bar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: linear-gradient(120deg, var(--sky-deep), var(--sky));
+      color: #fff;
+      padding: 14px 16px 12px;
+    }
+    header.app-bar .bar-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    header.app-bar h1 {
+      margin: 0;
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    header.app-bar p {
+      margin: 4px 0 0;
+      opacity: 0.9;
+      font-size: 0.82rem;
+    }
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+      font-size: 0.72rem;
+      opacity: 0.95;
+      max-width: 62%;
+      text-align: right;
+      line-height: 1.25;
+    }
+    .header-user {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      max-width: 100%;
+    }
+    .header-user img {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.45);
+    }
+    .header-user .user-name {
+      font-weight: 700;
+      max-width: 140px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    a.header-logout {
+      color: #fff;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 0.66rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    a.header-logout:hover { background: rgba(255,255,255,0.14); }
+    .hidden { display: none !important; }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 10px 8px;
+      text-align: center;
+    }
+    .stat b {
+      display: block;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--sky-deep);
+    }
+    .stat span {
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .league-card {
+      background: var(--card);
+      border: 2px solid #E5E5E5;
+      border-radius: 18px;
+      box-shadow: 0 2px 0 #E5E5E5;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+    .league-xp {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .league-xp .xp-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FFF4D6;
+      color: #C48A12;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+    .league-xp .week-pill {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-align: right;
+    }
+    .league-chart {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 4px 0 8px;
+    }
+    .league-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      margin: 0 0 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+    .league-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .league-legend i {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .league-row {
+      display: grid;
+      grid-template-columns: 28px 1fr auto;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 4px;
+      border-top: 1px solid #F0F0F0;
+      font-size: 0.9rem;
+    }
+    .league-row.you { background: #F3FAFF; margin: 0 -8px; padding-left: 12px; padding-right: 12px; border-radius: 10px; }
+    .league-rank { font-weight: 800; color: var(--muted); }
+    .league-name {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+    .league-name img, .league-name .avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .league-name .avatar {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #E8F2F8;
+      font-weight: 800;
+      font-size: 0.75rem;
+      color: var(--sky-deep);
+    }
+    .league-xp-count { font-weight: 800; color: var(--sky-deep); white-space: nowrap; }
+    .section-title {
+      margin: 4px 0 10px;
+      font-size: 1.05rem;
+      font-weight: 800;
+    }
+    .card {
+      background: var(--card);
+      border: 2px solid #E5E5E5;
+      border-radius: 18px;
+      box-shadow: 0 2px 0 #E5E5E5;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    .meta-line {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .question {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin: 0 0 14px;
+      white-space: pre-wrap;
+    }
+    .choices { display: grid; gap: 8px; }
+    .choice {
+      display: block;
+      width: 100%;
+      text-align: left;
+      border: 2px solid var(--line);
+      background: #fff;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--ink);
+    }
+    .choice:hover:not(:disabled) { border-color: var(--sky); }
+    .choice:disabled { cursor: default; opacity: 0.95; }
+    .choice.selected { border-color: var(--sky-deep); background: #EAF5FC; }
+    .choice.correct { border-color: var(--grass); background: #EAF7EA; }
+    .choice.wrong { border-color: #C53030; background: #FEECEC; }
+    .feedback {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+    .feedback.ok { background: #EAF7EA; color: #276749; }
+    .feedback.bad { background: #FEECEC; color: #9B2C2C; }
+    .actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    button.primary, button.secondary {
+      flex: 1;
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    button.primary {
+      background: var(--sky-deep);
+      color: #fff;
+    }
+    button.primary:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+    button.secondary {
+      background: #E8F2F8;
+      color: var(--sky-deep);
+    }
+    .empty {
+      text-align: center;
+      color: var(--muted);
+      padding: 28px 12px;
+      font-weight: 600;
+    }
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: calc(20px + var(--safe-bottom));
+      transform: translateX(-50%);
+      background: #1C2A33;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      z-index: 50;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+      max-width: 90vw;
+    }
+    .toast.show { opacity: 1; }
+    .done-banner {
+      background: linear-gradient(120deg, #EAF7EA, #EAF5FC);
+      border: 2px solid #C6E6C8;
+      border-radius: 18px;
+      padding: 16px;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    .done-banner h2 {
+      margin: 0 0 6px;
+      font-size: 1.15rem;
+    }
+    .done-banner p {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <header class="app-bar">
+    <div class="bar-top">
+      <div>
+        <h1>FLF Weekly Quiz</h1>
+        <p id="subtitle">Commercial · CFI-G · club XP</p>
+      </div>
+      <div class="header-meta">
+        <span class="header-user hidden" id="header-user">
+          <img id="header-avatar" alt="" />
+          <span class="user-name" id="header-name"></span>
+        </span>
+        <a class="header-logout hidden" id="header-logout" href="/logout">Logout</a>
+      </div>
+    </div>
+  </header>
+  <main id="app"><div class="empty">Loading weekly quiz…</div></main>
+  <div class="toast" id="toast" role="status"></div>
+  <script>
+    const LEAGUE_LINE_COLORS = ['#58CC02', '#1CB0F6', '#FF9600', '#CE82FF', '#FF4B4B', '#2F7D32'];
+    const state = {
+      user: null,
+      quiz: null,
+      index: 0,
+      selectedChoice: null,
+      lastResult: null,
+      submitting: false
+    };
+
+    function escapeHtml(value) {
+      return String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function toast(message) {
+      const el = document.getElementById('toast');
+      el.textContent = message;
+      el.classList.add('show');
+      clearTimeout(toast._t);
+      toast._t = setTimeout(() => el.classList.remove('show'), 2400);
+    }
+
+    async function api(path, opts = {}) {
+      const res = await fetch(path, {
+        credentials: 'same-origin',
+        headers: {
+          Accept: 'application/json',
+          ...(opts.body ? { 'Content-Type': 'application/json' } : {}),
+          ...(opts.headers || {})
+        },
+        ...opts
+      });
+      if (res.status === 401 && !String(path).startsWith('/auth/me')) {
+        const returnUrl = encodeURIComponent('/weekly-quiz');
+        window.location.href = '/login?return=' + returnUrl;
+        throw new Error('Authentication required');
+      }
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || res.statusText || 'Request failed');
+      return data;
+    }
+
+    function formatWeekRange(quiz) {
+      if (!quiz?.week_start) return '';
+      try {
+        const fmt = new Intl.DateTimeFormat('en-US', {
+          month: 'short',
+          day: 'numeric',
+          timeZone: 'America/Chicago'
+        });
+        const start = fmt.format(new Date(quiz.week_start + 'T17:00:00Z'));
+        const end = fmt.format(new Date((quiz.week_end || quiz.week_start) + 'T17:00:00Z'));
+        return start + ' – ' + end;
+      } catch {
+        return quiz.week_start;
+      }
+    }
+
+    function shortDayLabel(isoDate) {
+      try {
+        const [y, m, d] = String(isoDate).split('-').map(Number);
+        const dt = new Date(Date.UTC(y, m - 1, d, 17, 0, 0));
+        return new Intl.DateTimeFormat('en-US', { weekday: 'short', timeZone: 'America/Chicago' }).format(dt);
+      } catch {
+        return String(isoDate).slice(5);
+      }
+    }
+
+    function leagueChartSvg(summary) {
+      if (!summary?.dates?.length || !summary?.chart?.length) {
+        return '<div class="empty" style="padding:16px">Answer a quiz question to start the weekly XP chart.</div>';
+      }
+      const W = 320;
+      const H = 160;
+      const padL = 28;
+      const padR = 10;
+      const padT = 12;
+      const padB = 28;
+      const dates = summary.dates;
+      const seriesList = summary.chart;
+      const maxY = Math.max(5, ...seriesList.flatMap((p) => p.series || [0]));
+      const plotW = W - padL - padR;
+      const plotH = H - padT - padB;
+      const xAt = (i) => padL + (dates.length <= 1 ? plotW / 2 : (i / (dates.length - 1)) * plotW);
+      const yAt = (v) => padT + plotH - (v / maxY) * plotH;
+      const grid = [0, 0.5, 1].map((t) => {
+        const y = padT + plotH * (1 - t);
+        const label = Math.round(maxY * t);
+        return `<line x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" stroke="#E5E5E5" stroke-width="1"/>
+          <text x="${padL - 6}" y="${y + 3}" text-anchor="end" font-size="9" fill="#5A6B76">${label}</text>`;
+      }).join('');
+      const xLabels = dates.map((d, i) =>
+        `<text x="${xAt(i)}" y="${H - 8}" text-anchor="middle" font-size="9" fill="#5A6B76">${escapeHtml(shortDayLabel(d))}</text>`
+      ).join('');
+      const paths = seriesList.map((person, idx) => {
+        const color = person.is_you ? '#58CC02' : LEAGUE_LINE_COLORS[(idx + 1) % LEAGUE_LINE_COLORS.length];
+        const pts = (person.series || []).map((v, i) => `${xAt(i)},${yAt(v)}`).join(' ');
+        const width = person.is_you ? 3.2 : 2;
+        const dots = (person.series || []).map((v, i) =>
+          `<circle cx="${xAt(i)}" cy="${yAt(v)}" r="${person.is_you ? 3.5 : 2.5}" fill="${color}" />`
+        ).join('');
+        return `<g>
+          <polyline fill="none" stroke="${color}" stroke-width="${width}" stroke-linecap="round" stroke-linejoin="round" points="${pts}" />${dots}
+        </g>`;
+      }).join('');
+      return `<svg class="league-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Weekly quiz XP by day">${grid}${paths}${xLabels}</svg>`;
+    }
+
+    function leagueLegendHtml(summary) {
+      if (!summary?.chart?.length) return '';
+      return `<div class="league-legend">${summary.chart.map((p, idx) => {
+        const color = p.is_you ? '#58CC02' : LEAGUE_LINE_COLORS[(idx + 1) % LEAGUE_LINE_COLORS.length];
+        return `<span><i style="background:${color}"></i>${escapeHtml(p.display_name)}</span>`;
+      }).join('')}</div>`;
+    }
+
+    function renderLeague(summary) {
+      if (!summary) {
+        return `<div class="league-card"><div class="empty" style="padding:12px">Sign in and answer to join the weekly quiz league.</div></div>`;
+      }
+      const you = summary.you || { today: 0, week_total: 0 };
+      const board = (summary.leaderboard || []).slice(0, 12);
+      return `
+        <div class="league-card">
+          <div class="league-xp">
+            <div class="xp-pill">${you.today || 0} XP today</div>
+            <div class="week-pill">${you.week_total || 0} quiz XP this week<br><span style="font-weight:600;opacity:.85">weekly quiz only</span></div>
+          </div>
+          ${leagueChartSvg(summary)}
+          ${leagueLegendHtml(summary)}
+          ${board.length ? board.map((row) => `
+            <div class="league-row ${row.is_you ? 'you' : ''}">
+              <div class="league-rank">${row.rank}</div>
+              <div class="league-name">
+                ${row.picture
+                  ? `<img src="${escapeHtml(row.picture)}" alt="" />`
+                  : `<span class="avatar">${escapeHtml((row.display_name || '?').slice(0, 1).toUpperCase())}</span>`}
+                <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${escapeHtml(row.display_name)}</span>
+              </div>
+              <div class="league-xp-count">${row.week_total || 0} XP</div>
+            </div>
+          `).join('') : '<div class="empty" style="padding:12px">No quiz answers this week yet.</div>'}
+        </div>
+      `;
+    }
+
+    function currentCard() {
+      const cards = state.quiz?.cards || [];
+      if (!cards.length) return null;
+      return cards[Math.min(state.index, cards.length - 1)] || null;
+    }
+
+    function firstUnansweredIndex(cards) {
+      const idx = (cards || []).findIndex((c) => !c.answered);
+      return idx >= 0 ? idx : Math.max(0, (cards || []).length - 1);
+    }
+
+    function renderQuestion(card) {
+      if (!card) {
+        return `<div class="card"><div class="empty">No quiz questions available this week.</div></div>`;
+      }
+      const answered = card.answered;
+      const result = state.lastResult && state.lastResult.cardId === card.id ? state.lastResult : null;
+      const showAnswer = Boolean(answered || result);
+      const choices = Array.isArray(card.choices) && card.choices.length
+        ? card.choices
+        : null;
+      const selected = result?.choice ?? answered?.choice ?? state.selectedChoice;
+      const correctAnswer = result?.answer ?? card.answer;
+      const isCorrect = result ? result.correct : answered?.correct;
+
+      let choicesHtml = '';
+      if (choices) {
+        choicesHtml = `<div class="choices">${choices.map((c) => {
+          let cls = 'choice';
+          if (showAnswer) {
+            if (c === correctAnswer) cls += ' correct';
+            else if (selected && c === selected && !isCorrect) cls += ' wrong';
+          } else if (selected === c) {
+            cls += ' selected';
+          }
+          return `<button type="button" class="${cls}" data-choice="${escapeHtml(c)}" ${showAnswer ? 'disabled' : ''}>${escapeHtml(c)}</button>`;
+        }).join('')}</div>`;
+      } else {
+        choicesHtml = showAnswer
+          ? `<div class="feedback ${isCorrect ? 'ok' : 'bad'}">Answer: ${escapeHtml(correctAnswer || '')}</div>`
+          : `<p class="meta-line">Open response — type your answer, then check.</p>
+             <input id="openAnswer" style="width:100%;padding:12px;border:2px solid var(--line);border-radius:12px;font:inherit" value="${escapeHtml(selected || '')}" ${showAnswer ? 'disabled' : ''} />`;
+      }
+
+      let feedback = '';
+      if (showAnswer) {
+        const xp = result?.xp ?? answered?.xp ?? 0;
+        feedback = `<div class="feedback ${isCorrect ? 'ok' : 'bad'}">${isCorrect ? 'Correct' : 'Not quite'} · +${xp} XP${
+          !isCorrect && correctAnswer ? `<br>Correct: ${escapeHtml(correctAnswer)}` : ''
+        }</div>`;
+      }
+
+      const canSubmit = !showAnswer && !state.submitting;
+      const moreLeft = (state.quiz.cards || []).some((c) => !c.answered);
+      return `
+        <div class="card">
+          <div class="meta-line">${escapeHtml(card.track_title || card.track_id)} · ${escapeHtml(card.topic_title || card.topic_id)}</div>
+          <div class="question">${escapeHtml(card.question)}</div>
+          ${choicesHtml}
+          ${feedback}
+          <div class="actions">
+            ${canSubmit
+              ? `<button type="button" class="primary" id="submitBtn" ${choices && !state.selectedChoice ? 'disabled' : ''}>Submit</button>`
+              : `<button type="button" class="primary" id="nextBtn">${moreLeft ? 'Next question' : 'See results'}</button>`}
+          </div>
+        </div>
+      `;
+    }
+
+    function render() {
+      const app = document.getElementById('app');
+      const quiz = state.quiz;
+      if (!quiz) {
+        app.innerHTML = '<div class="empty">Loading weekly quiz…</div>';
+        return;
+      }
+      const answered = quiz.answered_count || 0;
+      const total = quiz.question_count || 0;
+      const allAnswered = total > 0 && answered >= total;
+      const showingFeedback = Boolean(state.lastResult);
+      const done = allAnswered && !showingFeedback;
+      const card = currentCard();
+      document.getElementById('subtitle').textContent =
+        `Week of ${formatWeekRange(quiz)} · Commercial & CFI-G`;
+
+      app.innerHTML = `
+        <div class="stats">
+          <div class="stat"><b>${answered}/${total}</b><span>Answered</span></div>
+          <div class="stat"><b>${quiz.your_xp || 0}</b><span>Your quiz XP</span></div>
+          <div class="stat"><b>${quiz.league?.you?.today || 0}</b><span>XP today</span></div>
+        </div>
+        <div class="section-title">Weekly quiz league</div>
+        ${renderLeague(quiz.league)}
+        ${done ? `
+          <div class="done-banner">
+            <h2>Week complete</h2>
+            <p>You earned ${quiz.your_xp || 0} XP across ${total} questions. Chart above is quiz-only.</p>
+          </div>
+        ` : `<div class="section-title">Question ${Math.min(state.index + 1, total)} of ${total}</div>`}
+        ${done ? '' : renderQuestion(card)}
+        ${done ? `
+          <div class="card">
+            <p class="meta-line">Review</p>
+            ${(quiz.cards || []).map((c, i) => `
+              <button type="button" class="choice ${c.answered?.correct ? 'correct' : c.answered ? 'wrong' : ''}" data-jump="${i}" style="margin-bottom:8px">
+                ${i + 1}. ${escapeHtml((c.question || '').slice(0, 90))}${(c.question || '').length > 90 ? '…' : ''}
+              </button>
+            `).join('')}
+          </div>
+        ` : ''}
+      `;
+      bind();
+    }
+
+    function bind() {
+      document.querySelectorAll('[data-choice]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          if (currentCard()?.answered || state.lastResult) return;
+          state.selectedChoice = btn.getAttribute('data-choice');
+          render();
+        });
+      });
+      const submitBtn = document.getElementById('submitBtn');
+      if (submitBtn) {
+        submitBtn.addEventListener('click', () => submitAnswer().catch((err) => toast(err.message)));
+      }
+      const nextBtn = document.getElementById('nextBtn');
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          state.lastResult = null;
+          state.selectedChoice = null;
+          const cards = state.quiz?.cards || [];
+          const nextUnanswered = cards.findIndex((c, i) => i > state.index && !c.answered);
+          if (nextUnanswered >= 0) state.index = nextUnanswered;
+          else state.index = firstUnansweredIndex(cards);
+          render();
+        });
+      }
+      document.querySelectorAll('[data-jump]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          state.index = Number(btn.getAttribute('data-jump')) || 0;
+          state.lastResult = null;
+          state.selectedChoice = null;
+          // Temporarily show that card even when done — flip done view off by pretending not done via index review
+          const quiz = state.quiz;
+          if (!quiz) return;
+          const card = quiz.cards[state.index];
+          const app = document.getElementById('app');
+          app.innerHTML = `
+            <div class="stats">
+              <div class="stat"><b>${quiz.answered_count}/${quiz.question_count}</b><span>Answered</span></div>
+              <div class="stat"><b>${quiz.your_xp || 0}</b><span>Your quiz XP</span></div>
+              <div class="stat"><b>${quiz.league?.you?.today || 0}</b><span>XP today</span></div>
+            </div>
+            <div class="section-title">Weekly quiz league</div>
+            ${renderLeague(quiz.league)}
+            <div class="section-title">Review question ${state.index + 1}</div>
+            ${renderQuestion(card)}
+            <div class="actions"><button type="button" class="secondary" id="backDone">Back to summary</button></div>
+          `;
+          document.getElementById('backDone')?.addEventListener('click', () => {
+            state.lastResult = null;
+            render();
+          });
+        });
+      });
+      const open = document.getElementById('openAnswer');
+      if (open) {
+        open.addEventListener('input', () => {
+          state.selectedChoice = open.value;
+        });
+      }
+    }
+
+    async function submitAnswer() {
+      const card = currentCard();
+      if (!card || card.answered || state.submitting) return;
+      let choice = state.selectedChoice;
+      const open = document.getElementById('openAnswer');
+      if (open) choice = open.value;
+      if (!String(choice || '').trim()) {
+        toast('Select or enter an answer');
+        return;
+      }
+      state.submitting = true;
+      render();
+      try {
+        const result = await api('/api/weekly-quiz/answer', {
+          method: 'POST',
+          body: JSON.stringify({ card_id: card.id, choice })
+        });
+        state.lastResult = {
+          cardId: card.id,
+          correct: result.correct,
+          xp: result.xp,
+          answer: result.answer,
+          choice: String(choice).trim()
+        };
+        const quiz = await api('/api/weekly-quiz');
+        state.quiz = quiz;
+        state.submitting = false;
+        render();
+      } catch (err) {
+        state.submitting = false;
+        render();
+        throw err;
+      }
+    }
+
+    async function boot() {
+      const userEl = document.getElementById('header-user');
+      const logoutEl = document.getElementById('header-logout');
+      const nameEl = document.getElementById('header-name');
+      const avatarEl = document.getElementById('header-avatar');
+      try {
+        const me = await api('/auth/me');
+        state.user = me.user || me;
+        if (state.user?.name || state.user?.email) {
+          nameEl.textContent = state.user.name || state.user.email || 'Member';
+          if (state.user.picture) {
+            avatarEl.src = state.user.picture;
+            avatarEl.classList.remove('hidden');
+          } else {
+            avatarEl.classList.add('hidden');
+          }
+          userEl.classList.remove('hidden');
+          logoutEl.classList.remove('hidden');
+        }
+      } catch {
+        userEl.classList.add('hidden');
+        logoutEl.classList.add('hidden');
+      }
+      try {
+        const quiz = await api('/api/weekly-quiz');
+        state.quiz = quiz;
+        state.index = firstUnansweredIndex(quiz.cards || []);
+        render();
+      } catch (err) {
+        document.getElementById('app').innerHTML =
+          `<div class="empty">${escapeHtml(err.message || 'Could not load weekly quiz')}</div>`;
+      }
+    }
+
+    boot();
+  </script>
+</body>
+</html>

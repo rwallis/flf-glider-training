@@ -178,6 +178,39 @@ CREATE INDEX IF NOT EXISTS glider_class_enrollments_user_idx
   ON glider_class_enrollments (user_key);
 `;
 
+const WEEKLY_QUIZ_SQL = `
+CREATE TABLE IF NOT EXISTS glider_weekly_quizzes (
+  week_start DATE PRIMARY KEY,
+  card_ids JSONB NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS glider_weekly_quiz_answers (
+  week_start DATE NOT NULL REFERENCES glider_weekly_quizzes(week_start) ON DELETE CASCADE,
+  user_key TEXT NOT NULL,
+  card_id TEXT NOT NULL REFERENCES glider_cards(id) ON DELETE CASCADE,
+  correct BOOLEAN NOT NULL,
+  xp INT NOT NULL,
+  choice TEXT NOT NULL DEFAULT '',
+  answered_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  PRIMARY KEY (week_start, user_key, card_id)
+);
+
+CREATE INDEX IF NOT EXISTS glider_weekly_quiz_answers_user_idx
+  ON glider_weekly_quiz_answers (week_start, user_key);
+
+CREATE TABLE IF NOT EXISTS glider_weekly_quiz_activity (
+  user_key TEXT NOT NULL,
+  week_start DATE NOT NULL,
+  activity_date DATE NOT NULL,
+  xp INT NOT NULL DEFAULT 0,
+  PRIMARY KEY (user_key, week_start, activity_date)
+);
+
+CREATE INDEX IF NOT EXISTS glider_weekly_quiz_activity_week_idx
+  ON glider_weekly_quiz_activity (week_start, activity_date);
+`;
+
 /**
  * Grant admin to bootstrap emails. On first run, demote everyone else so only
  * the bootstrap account(s) are admins. Later runs only ensure bootstrap emails
@@ -245,6 +278,7 @@ export async function ensureGliderSchema(db) {
   await db.query(USER_ADMIN_SQL);
   await db.query(CARD_FLAGS_SQL);
   await db.query(SCHEDULED_CLASSES_SQL);
+  await db.query(WEEKLY_QUIZ_SQL);
   return true;
 }
 

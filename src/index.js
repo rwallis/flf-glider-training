@@ -174,6 +174,12 @@ async function main() {
     config
   });
 
+  // Standalone club weekly quiz (no links into the main study SPA).
+  app.get(['/weekly-quiz', '/weekly-quiz/'], (_req, res) => {
+    res.setHeader('Cache-Control', 'no-store');
+    res.sendFile(path.join(PUBLIC_DIR, 'weekly-quiz.html'));
+  });
+
   app.get('*', (_req, res) => {
     res.setHeader('Cache-Control', 'no-store');
     res.type('html').send(indexHtml);

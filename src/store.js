@@ -28,6 +28,155 @@ export function activityDateKey(when = new Date(), timeZone = ACTIVITY_TZ) {
   }).format(when instanceof Date ? when : new Date(when));
 }
 
+/** Tracks that feed the club weekly quiz. */
+export const WEEKLY_QUIZ_TRACKS = Object.freeze(['commercial', 'cfi_g']);
+
+/** Default number of questions locked in for a week. */
+export const WEEKLY_QUIZ_SIZE = 20;
+
+/**
+ * Monday (YYYY-MM-DD) of the America/Chicago week containing `when`.
+ * Weeks run Monday–Sunday.
+ */
+export function weekStartMonday(when = new Date(), timeZone = ACTIVITY_TZ) {
+  const today = activityDateKey(when, timeZone);
+  const [y, m, d] = today.split('-').map(Number);
+  // Noon UTC on the CT calendar date; weekday in CT.
+  const anchor = new Date(Date.UTC(y, m - 1, d, 17, 0, 0));
+  const weekday = new Intl.DateTimeFormat('en-US', {
+    timeZone,
+    weekday: 'short'
+  }).format(anchor);
+  const offset = { Mon: 0, Tue: 1, Wed: 2, Thu: 3, Fri: 4, Sat: 5, Sun: 6 }[weekday] ?? 0;
+  const monday = new Date(Date.UTC(y, m - 1, d - offset, 17, 0, 0));
+  return activityDateKey(monday, timeZone);
+}
+
+/** Seven CT calendar dates Mon→Sun for a week_start Monday. */
+export function weekDateKeys(weekStart) {
+  const start = String(weekStart || weekStartMonday());
+  const [y, m, d] = start.split('-').map(Number);
+  const out = [];
+  for (let i = 0; i < 7; i += 1) {
+    const anchor = new Date(Date.UTC(y, m - 1, d + i, 17, 0, 0));
+    out.push(activityDateKey(anchor));
+  }
+  return out;
+}
+
+function shuffleInPlace(arr, random = Math.random) {
+  for (let i = arr.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+/**
+ * Pick quiz card ids spread across topics (and thus commercial + CFI-G categories).
+ * Round-robin through shuffled topics so one category cannot dominate.
+ */
+export function pickWeeklyQuizCardIds(
+  cards,
+  { count = WEEKLY_QUIZ_SIZE, tracks = WEEKLY_QUIZ_TRACKS, random = Math.random } = {}
+) {
+  const trackSet = new Set(tracks);
+  const pool = (cards || []).filter((c) => c?.id && trackSet.has(c.track_id) && !c.hidden);
+  const byTopic = new Map();
+  for (const card of pool) {
+    const tid = card.topic_id || '_none';
+    const list = byTopic.get(tid) || [];
+    list.push(card);
+    byTopic.set(tid, list);
+  }
+  for (const [tid, list] of byTopic) {
+    byTopic.set(tid, shuffleInPlace(list.slice(), random));
+  }
+  const topicIds = shuffleInPlace([...byTopic.keys()], random);
+  const target = Math.max(1, Math.min(Number(count) || WEEKLY_QUIZ_SIZE, pool.length || 1));
+  const picked = [];
+  const used = new Set();
+  let guard = 0;
+  while (picked.length < target && guard < target * Math.max(topicIds.length, 1) + 20) {
+    guard += 1;
+    let added = false;
+    for (const tid of topicIds) {
+      if (picked.length >= target) break;
+      const list = byTopic.get(tid) || [];
+      while (list.length) {
+        const card = list.shift();
+        if (used.has(card.id)) continue;
+        used.add(card.id);
+        picked.push(card.id);
+        added = true;
+        break;
+      }
+    }
+    if (!added) break;
+  }
+  return picked;
+}
+
+function buildWeeklyQuizLeagueSummary({
+  userKey,
+  weekStart,
+  profilesByKey,
+  countsByUserDate
+}) {
+  const dates = weekDateKeys(weekStart);
+  const todayKey = activityDateKey();
+  const seriesFor = (uk) => dates.map((date) => Number(countsByUserDate.get(`${uk}::${date}`) || 0));
+  const allKeys = new Set([userKey, ...[...countsByUserDate.keys()].map((k) => k.split('::')[0])]);
+  const people = [...allKeys].map((uk) => {
+    const series = seriesFor(uk);
+    const weekTotal = series.reduce((a, b) => a + b, 0);
+    const profile = profilesByKey.get(uk) || { userKey: uk };
+    const todayIdx = dates.indexOf(todayKey);
+    return {
+      user_key: uk,
+      display_name: uk === userKey ? 'You' : displayNameFromProfile(profile),
+      picture: profile.picture || null,
+      is_you: uk === userKey,
+      today: todayIdx >= 0 ? series[todayIdx] || 0 : 0,
+      week_total: weekTotal,
+      series
+    };
+  });
+  people.sort(
+    (a, b) =>
+      b.week_total - a.week_total ||
+      b.today - a.today ||
+      a.display_name.localeCompare(b.display_name)
+  );
+  const you = people.find((p) => p.is_you) || {
+    user_key: userKey,
+    display_name: 'You',
+    picture: null,
+    is_you: true,
+    today: 0,
+    week_total: 0,
+    series: dates.map(() => 0)
+  };
+  const peers = people.filter((p) => !p.is_you && p.week_total > 0).slice(0, 5);
+  const chart = [you, ...peers];
+  const leaderboard = [...people]
+    .filter((p) => p.is_you || p.week_total > 0)
+    .sort((a, b) => b.week_total - a.week_total || b.today - a.today)
+    .slice(0, 12)
+    .map((p, i) => ({ rank: i + 1, ...p }));
+  return {
+    timezone: ACTIVITY_TZ,
+    week_start: dates[0],
+    week_end: dates[6],
+    days: dates.length,
+    dates,
+    today: todayKey,
+    you,
+    chart,
+    leaderboard
+  };
+}
+
 export function normalizeAnswerText(value) {
   return String(value ?? '')
     .trim()
@@ -432,6 +581,9 @@ export function createMemoryStore(seed) {
     dailyActivity: new Map(), // `${userKey}::YYYY-MM-DD` -> answers
     profiles: new Map(), // userKey -> { name, email, picture, userKey }
     flags: [],
+    weeklyQuizzes: new Map(), // week_start -> { week_start, card_ids, created_at }
+    weeklyQuizAnswers: new Map(), // `${week}::${user}::${card}` -> row
+    weeklyQuizActivity: new Map(), // `${user}::${week}::${date}` -> xp
     settings: new Map([
       [STUDY_SCHEDULE_KEY, normalizeStudySchedule(seed.studySchedule || DEFAULT_STUDY_SCHEDULE)]
     ])
@@ -812,6 +964,140 @@ export function createMemoryStore(seed) {
         name: p.name || '',
         picture: p.picture || null
       };
+    },
+    async ensureWeeklyQuiz(weekStart = weekStartMonday()) {
+      const week = String(weekStart || weekStartMonday());
+      const existing = state.weeklyQuizzes.get(week);
+      if (existing) {
+        return {
+          week_start: existing.week_start,
+          card_ids: existing.card_ids.slice(),
+          created_at: existing.created_at
+        };
+      }
+      const cardIds = pickWeeklyQuizCardIds(state.cards, {
+        count: WEEKLY_QUIZ_SIZE,
+        tracks: WEEKLY_QUIZ_TRACKS
+      });
+      const row = {
+        week_start: week,
+        card_ids: cardIds,
+        created_at: new Date().toISOString()
+      };
+      state.weeklyQuizzes.set(week, row);
+      return { week_start: row.week_start, card_ids: row.card_ids.slice(), created_at: row.created_at };
+    },
+    async getWeeklyQuizForUser(userKey, weekStart = weekStartMonday()) {
+      const quiz = await this.ensureWeeklyQuiz(weekStart);
+      const week = quiz.week_start;
+      const topicById = new Map(state.topics.map((t) => [t.id, t]));
+      const trackById = new Map(state.tracks.map((t) => [t.id, t]));
+      const answers = [];
+      for (const cardId of quiz.card_ids) {
+        const row = state.weeklyQuizAnswers.get(`${week}::${userKey}::${cardId}`);
+        if (row) answers.push(row);
+      }
+      const answerByCard = new Map(answers.map((a) => [a.card_id, a]));
+      const cards = quiz.card_ids
+        .map((id) => state.cards.find((c) => c.id === id))
+        .filter(Boolean)
+        .map((card) => {
+          const answered = answerByCard.get(card.id) || null;
+          const topic = topicById.get(card.topic_id);
+          const track = trackById.get(card.track_id);
+          const base = {
+            id: card.id,
+            track_id: card.track_id,
+            track_title: track?.title || card.track_id,
+            topic_id: card.topic_id,
+            topic_title: topic?.title || card.topic_id,
+            question: card.question,
+            choices: Array.isArray(card.choices) ? card.choices : null,
+            answered: answered
+              ? {
+                  correct: Boolean(answered.correct),
+                  xp: Number(answered.xp) || 0,
+                  choice: answered.choice || '',
+                  answered_at: answered.answered_at
+                }
+              : null
+          };
+          if (answered) base.answer = card.answer;
+          return base;
+        });
+      const yourXp = answers.reduce((sum, a) => sum + (Number(a.xp) || 0), 0);
+      const league = await this.weeklyQuizLeagueSummary(userKey, week);
+      return {
+        week_start: week,
+        week_end: weekDateKeys(week)[6],
+        question_count: quiz.card_ids.length,
+        answered_count: answers.length,
+        your_xp: yourXp,
+        tracks: WEEKLY_QUIZ_TRACKS.slice(),
+        cards,
+        league
+      };
+    },
+    async submitWeeklyQuizAnswer(userKey, { cardId, choice, correct } = {}) {
+      const quiz = await this.ensureWeeklyQuiz();
+      const week = quiz.week_start;
+      const id = String(cardId || '').trim();
+      if (!quiz.card_ids.includes(id)) {
+        throw new Error('card is not in this week’s quiz');
+      }
+      const existingKey = `${week}::${userKey}::${id}`;
+      if (state.weeklyQuizAnswers.has(existingKey)) {
+        throw new Error('already answered');
+      }
+      const card = state.cards.find((c) => c.id === id);
+      if (!card) throw new Error('card not found');
+      const isCorrect =
+        typeof correct === 'boolean'
+          ? correct
+          : resolveStudyCorrect({ card, choice, correct });
+      const xp = xpForCorrectness(isCorrect);
+      const answeredAt = new Date().toISOString();
+      const row = {
+        week_start: week,
+        user_key: userKey,
+        card_id: id,
+        correct: isCorrect,
+        xp,
+        choice: String(choice ?? '').trim(),
+        answered_at: answeredAt
+      };
+      state.weeklyQuizAnswers.set(existingKey, row);
+      const date = activityDateKey();
+      const activityKey = `${userKey}::${week}::${date}`;
+      state.weeklyQuizActivity.set(
+        activityKey,
+        Number(state.weeklyQuizActivity.get(activityKey) || 0) + xp
+      );
+      const payload = await this.getWeeklyQuizForUser(userKey, week);
+      return {
+        correct: isCorrect,
+        xp,
+        answer: card.answer,
+        your_xp: payload.your_xp,
+        answered_count: payload.answered_count,
+        question_count: payload.question_count,
+        league: payload.league
+      };
+    },
+    async weeklyQuizLeagueSummary(userKey, weekStart = weekStartMonday()) {
+      const week = String(weekStart || weekStartMonday());
+      const countsByUserDate = new Map();
+      for (const [key, xp] of state.weeklyQuizActivity.entries()) {
+        const [uk, wk, date] = key.split('::');
+        if (wk !== week) continue;
+        countsByUserDate.set(`${uk}::${date}`, Number(xp) || 0);
+      }
+      return buildWeeklyQuizLeagueSummary({
+        userKey,
+        weekStart: week,
+        profilesByKey: state.profiles,
+        countsByUserDate
+      });
     }
   };
 }
@@ -1468,6 +1754,240 @@ export function createPgStore(db) {
         params
       );
       return rows;
+    },
+    async ensureWeeklyQuiz(weekStart = weekStartMonday()) {
+      const week = String(weekStart || weekStartMonday());
+      const existing = await db.query(
+        `SELECT week_start::text AS week_start, card_ids, created_at
+         FROM glider_weekly_quizzes WHERE week_start = $1::date`,
+        [week]
+      );
+      if (existing.rows[0]) {
+        const row = existing.rows[0];
+        const ids = Array.isArray(row.card_ids) ? row.card_ids : [];
+        return {
+          week_start: row.week_start,
+          card_ids: ids.map(String),
+          created_at: row.created_at
+        };
+      }
+      const { rows: cardRows } = await db.query(
+        `SELECT id, track_id, topic_id, COALESCE(hidden, FALSE) AS hidden
+         FROM glider_cards
+         WHERE track_id = ANY($1::text[])
+           AND COALESCE(hidden, FALSE) = FALSE`,
+        [WEEKLY_QUIZ_TRACKS.slice()]
+      );
+      const cardIds = pickWeeklyQuizCardIds(cardRows, {
+        count: WEEKLY_QUIZ_SIZE,
+        tracks: WEEKLY_QUIZ_TRACKS
+      });
+      try {
+        const inserted = await db.query(
+          `INSERT INTO glider_weekly_quizzes (week_start, card_ids)
+           VALUES ($1::date, $2::jsonb)
+           ON CONFLICT (week_start) DO NOTHING
+           RETURNING week_start::text AS week_start, card_ids, created_at`,
+          [week, JSON.stringify(cardIds)]
+        );
+        if (inserted.rows[0]) {
+          const row = inserted.rows[0];
+          const ids = Array.isArray(row.card_ids) ? row.card_ids : [];
+          return {
+            week_start: row.week_start,
+            card_ids: ids.map(String),
+            created_at: row.created_at
+          };
+        }
+      } catch (err) {
+        // Race: another request inserted first — fall through to re-read.
+        if (!String(err?.message || '').includes('duplicate') && err?.code !== '23505') {
+          throw err;
+        }
+      }
+      const again = await db.query(
+        `SELECT week_start::text AS week_start, card_ids, created_at
+         FROM glider_weekly_quizzes WHERE week_start = $1::date`,
+        [week]
+      );
+      if (!again.rows[0]) throw new Error('could not create weekly quiz');
+      const row = again.rows[0];
+      const ids = Array.isArray(row.card_ids) ? row.card_ids : [];
+      return {
+        week_start: row.week_start,
+        card_ids: ids.map(String),
+        created_at: row.created_at
+      };
+    },
+    async getWeeklyQuizForUser(userKey, weekStart = weekStartMonday()) {
+      const quiz = await this.ensureWeeklyQuiz(weekStart);
+      const week = quiz.week_start;
+      if (!quiz.card_ids.length) {
+        const league = await this.weeklyQuizLeagueSummary(userKey, week);
+        return {
+          week_start: week,
+          week_end: weekDateKeys(week)[6],
+          question_count: 0,
+          answered_count: 0,
+          your_xp: 0,
+          tracks: WEEKLY_QUIZ_TRACKS.slice(),
+          cards: [],
+          league
+        };
+      }
+      const { rows: cardRows } = await db.query(
+        `SELECT c.id, c.track_id, c.topic_id, c.question, c.answer, c.choices,
+                t.title AS track_title, tp.title AS topic_title
+         FROM glider_cards c
+         LEFT JOIN glider_tracks t ON t.id = c.track_id
+         LEFT JOIN glider_topics tp ON tp.id = c.topic_id
+         WHERE c.id = ANY($1::text[])`,
+        [quiz.card_ids]
+      );
+      const byId = new Map(cardRows.map((c) => [c.id, c]));
+      const { rows: answerRows } = await db.query(
+        `SELECT card_id, correct, xp, choice, answered_at
+         FROM glider_weekly_quiz_answers
+         WHERE week_start = $1::date AND user_key = $2`,
+        [week, userKey]
+      );
+      const answerByCard = new Map(answerRows.map((a) => [a.card_id, a]));
+      const cards = quiz.card_ids
+        .map((id) => byId.get(id))
+        .filter(Boolean)
+        .map((card) => {
+          const answered = answerByCard.get(card.id) || null;
+          const base = {
+            id: card.id,
+            track_id: card.track_id,
+            track_title: card.track_title || card.track_id,
+            topic_id: card.topic_id,
+            topic_title: card.topic_title || card.topic_id,
+            question: card.question,
+            choices: card.choices || null,
+            answered: answered
+              ? {
+                  correct: Boolean(answered.correct),
+                  xp: Number(answered.xp) || 0,
+                  choice: answered.choice || '',
+                  answered_at: answered.answered_at
+                }
+              : null
+          };
+          if (answered) base.answer = card.answer;
+          return base;
+        });
+      const yourXp = answerRows.reduce((sum, a) => sum + (Number(a.xp) || 0), 0);
+      const league = await this.weeklyQuizLeagueSummary(userKey, week);
+      return {
+        week_start: week,
+        week_end: weekDateKeys(week)[6],
+        question_count: quiz.card_ids.length,
+        answered_count: answerRows.length,
+        your_xp: yourXp,
+        tracks: WEEKLY_QUIZ_TRACKS.slice(),
+        cards,
+        league
+      };
+    },
+    async submitWeeklyQuizAnswer(userKey, { cardId, choice, correct } = {}) {
+      const quiz = await this.ensureWeeklyQuiz();
+      const week = quiz.week_start;
+      const id = String(cardId || '').trim();
+      if (!quiz.card_ids.includes(id)) {
+        throw new Error('card is not in this week’s quiz');
+      }
+      const card = await this.getCard(id);
+      if (!card) throw new Error('card not found');
+      const isCorrect =
+        typeof correct === 'boolean'
+          ? correct
+          : resolveStudyCorrect({ card, choice, correct });
+      const xp = xpForCorrectness(isCorrect);
+      const date = activityDateKey();
+      const client = await db.connect();
+      try {
+        await client.query('BEGIN');
+        const inserted = await client.query(
+          `INSERT INTO glider_weekly_quiz_answers
+             (week_start, user_key, card_id, correct, xp, choice)
+           VALUES ($1::date, $2, $3, $4, $5, $6)
+           ON CONFLICT (week_start, user_key, card_id) DO NOTHING
+           RETURNING card_id`,
+          [week, userKey, id, isCorrect, xp, String(choice ?? '').trim()]
+        );
+        if (!inserted.rows[0]) {
+          await client.query('ROLLBACK');
+          throw new Error('already answered');
+        }
+        await client.query(
+          `INSERT INTO glider_weekly_quiz_activity (user_key, week_start, activity_date, xp)
+           VALUES ($1, $2::date, $3::date, $4)
+           ON CONFLICT (user_key, week_start, activity_date) DO UPDATE SET
+             xp = glider_weekly_quiz_activity.xp + EXCLUDED.xp`,
+          [userKey, week, date, xp]
+        );
+        await client.query('COMMIT');
+      } catch (err) {
+        try {
+          await client.query('ROLLBACK');
+        } catch {
+          /* ignore */
+        }
+        throw err;
+      } finally {
+        client.release();
+      }
+      const payload = await this.getWeeklyQuizForUser(userKey, week);
+      return {
+        correct: isCorrect,
+        xp,
+        answer: card.answer,
+        your_xp: payload.your_xp,
+        answered_count: payload.answered_count,
+        question_count: payload.question_count,
+        league: payload.league
+      };
+    },
+    async weeklyQuizLeagueSummary(userKey, weekStart = weekStartMonday()) {
+      const week = String(weekStart || weekStartMonday());
+      const { rows } = await db.query(
+        `SELECT user_key, activity_date::text AS activity_date, xp
+         FROM glider_weekly_quiz_activity
+         WHERE week_start = $1::date`,
+        [week]
+      );
+      const countsByUserDate = new Map();
+      for (const row of rows) {
+        countsByUserDate.set(`${row.user_key}::${row.activity_date}`, Number(row.xp) || 0);
+      }
+      const userKeys = [...new Set(rows.map((r) => r.user_key).concat(userKey))];
+      const profilesByKey = new Map();
+      if (userKeys.length) {
+        const subs = userKeys.filter((k) => k.startsWith('g:')).map((k) => k.slice(2));
+        if (subs.length) {
+          const { rows: users } = await db.query(
+            `SELECT google_sub, email, name, picture
+             FROM glider_users
+             WHERE google_sub = ANY($1::text[])`,
+            [subs]
+          );
+          for (const u of users) {
+            profilesByKey.set(`g:${u.google_sub}`, {
+              userKey: `g:${u.google_sub}`,
+              name: u.name,
+              email: u.email,
+              picture: u.picture
+            });
+          }
+        }
+      }
+      return buildWeeklyQuizLeagueSummary({
+        userKey,
+        weekStart: week,
+        profilesByKey,
+        countsByUserDate
+      });
     }
   };
 }
