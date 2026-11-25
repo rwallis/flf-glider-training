@@ -15,6 +15,7 @@ import {
   weekStartMonday,
   weekDateKeys,
   pickWeeklyQuizCardIds,
+  normalizeWeeklyQuizSize,
   WEEKLY_QUIZ_TRACKS,
   DEFAULT_STUDY_SCHEDULE
 } from './src/store.js';
@@ -387,6 +388,68 @@ test('progressByTrack topic percent uses last answer; hover keeps history', asyn
   assert.equal(rows[0].readiness.ready, false);
 });
 
+test('normalizeWeeklyQuizSize clamps to 1–100', () => {
+  assert.equal(normalizeWeeklyQuizSize(20), 20);
+  assert.equal(normalizeWeeklyQuizSize(0), 1);
+  assert.equal(normalizeWeeklyQuizSize(999), 100);
+  assert.equal(normalizeWeeklyQuizSize('15'), 15);
+  assert.equal(normalizeWeeklyQuizSize('nope'), 20);
+});
+
+test('memory store resetWeeklyQuizScores clears answers and XP for the week', async () => {
+  const store = createMemoryStore({
+    tracks: [
+      { id: 'commercial', title: 'Commercial', sort_order: 1, status: 'ready' },
+      { id: 'cfi_g', title: 'CFI-G', sort_order: 2, status: 'ready' }
+    ],
+    topics: [
+      { id: 'comm_a', track_id: 'commercial', title: 'Weather' },
+      { id: 'cfi_a', track_id: 'cfi_g', title: 'FOI' }
+    ],
+    cards: [
+      { id: 'c1', track_id: 'commercial', topic_id: 'comm_a', question: 'Q1', answer: 'A', choices: ['A', 'B'] },
+      { id: 'c2', track_id: 'cfi_g', topic_id: 'cfi_a', question: 'Q2', answer: 'A', choices: ['A', 'B'] }
+    ]
+  });
+  await store.setWeeklyQuizSize(2);
+  const quiz = await store.getWeeklyQuizForUser('u1');
+  await store.submitWeeklyQuizAnswer('u1', { cardId: quiz.cards[0].id, choice: 'A' });
+  await store.submitWeeklyQuizAnswer('u2', { cardId: quiz.cards[0].id, choice: 'B' });
+  assert.equal((await store.getWeeklyQuizForUser('u1')).answered_count, 1);
+  assert.ok((await store.weeklyQuizLeagueSummary('u1')).you.week_total > 0);
+  const reset = await store.resetWeeklyQuizScores();
+  assert.equal(reset.answers_cleared, 2);
+  assert.equal(reset.members_cleared, 2);
+  assert.equal((await store.getWeeklyQuizForUser('u1')).answered_count, 0);
+  assert.equal((await store.weeklyQuizLeagueSummary('u1')).you.week_total, 0);
+  assert.equal((await store.getWeeklyQuizForUser('u1')).question_count, 2);
+});
+
+test('memory store weekly quiz size setting drives newly generated quizzes', async () => {
+  const store = createMemoryStore({
+    tracks: [
+      { id: 'commercial', title: 'Commercial', sort_order: 1, status: 'ready' },
+      { id: 'cfi_g', title: 'CFI-G', sort_order: 2, status: 'ready' }
+    ],
+    topics: [
+      { id: 'comm_a', track_id: 'commercial', title: 'Weather' },
+      { id: 'cfi_a', track_id: 'cfi_g', title: 'FOI' }
+    ],
+    cards: Array.from({ length: 12 }, (_, i) => ({
+      id: `q${i}`,
+      track_id: i % 2 === 0 ? 'commercial' : 'cfi_g',
+      topic_id: i % 2 === 0 ? 'comm_a' : 'cfi_a',
+      question: `Q${i}`,
+      answer: 'A',
+      choices: ['A', 'B']
+    }))
+  });
+  assert.equal(await store.getWeeklyQuizSize(), 20);
+  assert.equal(await store.setWeeklyQuizSize(5), 5);
+  const quiz = await store.getWeeklyQuizForUser('u1');
+  assert.equal(quiz.question_count, 5);
+});
+
 test('weekStartMonday and weekDateKeys cover Mon–Sun in Chicago', () => {
   // Wednesday Nov 25, 2026 CT → week starts Monday Nov 23
   const week = weekStartMonday(new Date('2026-11-25T18:00:00Z'));
@@ -446,7 +509,8 @@ test('memory weekly quiz locks cards for the week and tracks quiz-only XP', asyn
         question: 'Q1',
         answer: 'A',
         choices: ['A', 'B'],
-        figure: { number: 21, title: 'Sectional', url: 'https://example.com/fig21.png' }
+        figure: { number: 21, title: 'Sectional', url: 'https://example.com/fig21.png' },
+        details: { summary: 'Teach sectional scale.', links: [{ label: 'PHAK', url: 'https://example.com/phak' }] }
       },
       { id: 'c2', track_id: 'commercial', topic_id: 'comm_b', question: 'Q2', answer: 'B', choices: ['A', 'B'] },
       { id: 'c3', track_id: 'cfi_g', topic_id: 'cfi_a', question: 'Q3', answer: 'A', choices: ['A', 'B'] },
@@ -460,6 +524,8 @@ test('memory weekly quiz locks cards for the week and tracks quiz-only XP', asyn
   const figured = quiz1.cards.find((c) => c.id === 'c1');
   assert.equal(figured?.figure?.number, 21);
   assert.equal(figured?.figure?.url, 'https://example.com/fig21.png');
+  assert.equal(figured?.has_details, true);
+  assert.equal(figured?.details ?? null, null);
   assert.equal(quiz1.cards.find((c) => c.id === 'c2')?.figure ?? null, null);
   const quiz2 = await store.getWeeklyQuizForUser('u2');
   assert.deepEqual(
@@ -478,6 +544,10 @@ test('memory weekly quiz locks cards for the week and tracks quiz-only XP', asyn
   assert.equal(again.your_xp, result.xp);
   assert.ok(again.cards[0].answered);
   assert.equal(again.league.you.week_total, result.xp);
+  const answeredFirst = again.cards.find((c) => c.id === first.id);
+  if (first.id === 'c1') {
+    assert.equal(answeredFirst?.details?.summary, 'Teach sectional scale.');
+  }
   await assert.rejects(
     () => store.submitWeeklyQuizAnswer('u1', { cardId: first.id, choice: 'A' }),
     /already answered/
