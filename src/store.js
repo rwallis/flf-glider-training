@@ -1013,6 +1013,7 @@ export function createMemoryStore(seed) {
             topic_title: topic?.title || card.topic_id,
             question: card.question,
             choices: Array.isArray(card.choices) ? card.choices : null,
+            figure: card.figure || null,
             answered: answered
               ? {
                   correct: Boolean(answered.correct),
@@ -1836,7 +1837,7 @@ export function createPgStore(db) {
         };
       }
       const { rows: cardRows } = await db.query(
-        `SELECT c.id, c.track_id, c.topic_id, c.question, c.answer, c.choices,
+        `SELECT c.id, c.track_id, c.topic_id, c.question, c.answer, c.choices, c.figure,
                 t.title AS track_title, tp.title AS topic_title
          FROM glider_cards c
          LEFT JOIN glider_tracks t ON t.id = c.track_id
@@ -1865,6 +1866,7 @@ export function createPgStore(db) {
             topic_title: card.topic_title || card.topic_id,
             question: card.question,
             choices: card.choices || null,
+            figure: card.figure || null,
             answered: answered
               ? {
                   correct: Boolean(answered.correct),

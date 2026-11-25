@@ -338,6 +338,121 @@
       color: var(--muted);
       font-weight: 600;
     }
+    .q-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 10px;
+    }
+    .figure-pill {
+      appearance: none;
+      border: 1px solid #A9C7DD;
+      background: #E8F2F8;
+      color: var(--sky-deep);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .figure-pill:active { transform: scale(0.98); }
+    .details-sheet {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      display: grid;
+      align-items: end;
+      background: rgba(20, 28, 36, 0.45);
+      padding: 16px 12px calc(16px + var(--safe-bottom));
+    }
+    .details-panel {
+      background: #fff;
+      border-radius: 20px 20px 16px 16px;
+      max-height: min(78vh, 640px);
+      overflow: auto;
+      padding: 16px 16px 18px;
+      box-shadow: 0 -8px 30px rgba(0,0,0,0.18);
+    }
+    .details-panel header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .details-panel h3 {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 800;
+    }
+    .details-panel .close-details {
+      appearance: none;
+      border: 0;
+      background: #F0F0F0;
+      color: var(--ink);
+      border-radius: 999px;
+      width: 36px;
+      height: 36px;
+      font-size: 1.25rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .figure-image-wrap {
+      margin: 0;
+      border-radius: 12px;
+      overflow: auto;
+      background: #F7F9FB;
+      border: 1px solid #E4ECF2;
+      max-height: min(62vh, 520px);
+      -webkit-overflow-scrolling: touch;
+    }
+    .figure-image-wrap img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .figure-caption {
+      margin: 10px 0 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    @media (min-width: 768px) {
+      .details-sheet.figure-sheet {
+        align-items: center;
+        justify-items: center;
+        padding: 24px;
+      }
+      .details-panel.figure-panel {
+        width: min(960px, 96vw);
+        max-height: min(92vh, 920px);
+        border-radius: 16px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      .details-panel.figure-panel header,
+      .details-panel.figure-panel .figure-caption {
+        flex: 0 0 auto;
+      }
+      .figure-image-wrap {
+        flex: 1 1 auto;
+        max-height: none;
+        min-height: 0;
+        overflow: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .figure-image-wrap img {
+        width: auto;
+        max-width: 100%;
+        max-height: min(78vh, 780px);
+        height: auto;
+        object-fit: contain;
+      }
+    }
   </style>
 </head>
 <body>
@@ -366,7 +481,9 @@
       index: 0,
       selectedChoice: null,
       lastResult: null,
-      submitting: false
+      submitting: false,
+      figureOpen: false,
+      reviewing: false
     };
 
     function escapeHtml(value) {
@@ -520,6 +637,40 @@
       return idx >= 0 ? idx : Math.max(0, (cards || []).length - 1);
     }
 
+    function renderFigureSheet(card) {
+      const figure = card?.figure || null;
+      if (!figure?.url) {
+        return `
+          <div class="details-sheet figure-sheet" id="figureSheet" role="dialog" aria-modal="true" aria-label="Question figure">
+            <div class="details-panel figure-panel">
+              <header>
+                <h3>Figure</h3>
+                <button type="button" class="close-details" id="closeFigureBtn" aria-label="Close">×</button>
+              </header>
+              <p class="empty" style="padding:12px">No figure is linked to this question.</p>
+            </div>
+          </div>
+        `;
+      }
+      const title = figure.title
+        ? `Figure ${figure.number} — ${figure.title}`
+        : `Figure ${figure.number}`;
+      return `
+        <div class="details-sheet figure-sheet" id="figureSheet" role="dialog" aria-modal="true" aria-label="${escapeHtml(title)}">
+          <div class="details-panel figure-panel">
+            <header>
+              <h3>${escapeHtml(title)}</h3>
+              <button type="button" class="close-details" id="closeFigureBtn" aria-label="Close">×</button>
+            </header>
+            <div class="figure-image-wrap">
+              <img src="${escapeHtml(figure.url)}" alt="${escapeHtml(title)}" loading="lazy" />
+            </div>
+            <p class="figure-caption">From the FAA Computer Testing Supplement. Pinch/scroll to zoom on phone.</p>
+          </div>
+        </div>
+      `;
+    }
+
     function renderQuestion(card) {
       if (!card) {
         return `<div class="card"><div class="empty">No quiz questions available this week.</div></div>`;
@@ -533,6 +684,7 @@
       const selected = result?.choice ?? answered?.choice ?? state.selectedChoice;
       const correctAnswer = result?.answer ?? card.answer;
       const isCorrect = result ? result.correct : answered?.correct;
+      const figure = card.figure && card.figure.url ? card.figure : null;
 
       let choicesHtml = '';
       if (choices) {
@@ -565,7 +717,10 @@
       const moreLeft = (state.quiz.cards || []).some((c) => !c.answered);
       return `
         <div class="card">
-          <div class="meta-line">${escapeHtml(card.track_title || card.track_id)} · ${escapeHtml(card.topic_title || card.topic_id)}</div>
+          <div class="q-toolbar">
+            <div class="meta-line" style="margin:0">${escapeHtml(card.track_title || card.track_id)} · ${escapeHtml(card.topic_title || card.topic_id)}</div>
+            ${figure ? `<button type="button" class="figure-pill" id="cardFigureBtn">Figure ${escapeHtml(String(figure.number))}</button>` : ''}
+          </div>
           <div class="question">${escapeHtml(card.question)}</div>
           ${choicesHtml}
           ${feedback}
@@ -575,6 +730,7 @@
               : `<button type="button" class="primary" id="nextBtn">${moreLeft ? 'Next question' : 'See results'}</button>`}
           </div>
         </div>
+        ${state.figureOpen ? renderFigureSheet(card) : ''}
       `;
     }
 
@@ -589,7 +745,7 @@
       const total = quiz.question_count || 0;
       const allAnswered = total > 0 && answered >= total;
       const showingFeedback = Boolean(state.lastResult);
-      const done = allAnswered && !showingFeedback;
+      const done = allAnswered && !showingFeedback && !state.reviewing;
       const card = currentCard();
       document.getElementById('subtitle').textContent =
         `Week of ${formatWeekRange(quiz)} · Commercial & CFI-G`;
@@ -607,8 +763,13 @@
             <h2>Week complete</h2>
             <p>You earned ${quiz.your_xp || 0} XP across ${total} questions. Chart above is quiz-only.</p>
           </div>
-        ` : `<div class="section-title">Question ${Math.min(state.index + 1, total)} of ${total}</div>`}
+        ` : `<div class="section-title">${state.reviewing ? 'Review question' : 'Question'} ${Math.min(state.index + 1, total)} of ${total}</div>`}
         ${done ? '' : renderQuestion(card)}
+        ${state.reviewing ? `
+          <div class="actions" style="max-width:720px;margin:0 auto 12px">
+            <button type="button" class="secondary" id="backDone">Back to summary</button>
+          </div>
+        ` : ''}
         ${done ? `
           <div class="card">
             <p class="meta-line">Review</p>
@@ -631,6 +792,29 @@
           render();
         });
       });
+      const figureBtn = document.getElementById('cardFigureBtn');
+      if (figureBtn) {
+        figureBtn.addEventListener('click', () => {
+          state.figureOpen = true;
+          render();
+        });
+      }
+      const closeFigure = document.getElementById('closeFigureBtn');
+      if (closeFigure) {
+        closeFigure.addEventListener('click', () => {
+          state.figureOpen = false;
+          render();
+        });
+      }
+      const figureSheet = document.getElementById('figureSheet');
+      if (figureSheet) {
+        figureSheet.addEventListener('click', (e) => {
+          if (e.target === figureSheet) {
+            state.figureOpen = false;
+            render();
+          }
+        });
+      }
       const submitBtn = document.getElementById('submitBtn');
       if (submitBtn) {
         submitBtn.addEventListener('click', () => submitAnswer().catch((err) => toast(err.message)));
@@ -640,6 +824,7 @@
         nextBtn.addEventListener('click', () => {
           state.lastResult = null;
           state.selectedChoice = null;
+          state.figureOpen = false;
           const cards = state.quiz?.cards || [];
           const nextUnanswered = cards.findIndex((c, i) => i > state.index && !c.answered);
           if (nextUnanswered >= 0) state.index = nextUnanswered;
@@ -652,29 +837,20 @@
           state.index = Number(btn.getAttribute('data-jump')) || 0;
           state.lastResult = null;
           state.selectedChoice = null;
-          // Temporarily show that card even when done — flip done view off by pretending not done via index review
-          const quiz = state.quiz;
-          if (!quiz) return;
-          const card = quiz.cards[state.index];
-          const app = document.getElementById('app');
-          app.innerHTML = `
-            <div class="stats">
-              <div class="stat"><b>${quiz.answered_count}/${quiz.question_count}</b><span>Answered</span></div>
-              <div class="stat"><b>${quiz.your_xp || 0}</b><span>Your quiz XP</span></div>
-              <div class="stat"><b>${quiz.league?.you?.today || 0}</b><span>XP today</span></div>
-            </div>
-            <div class="section-title">Weekly quiz league</div>
-            ${renderLeague(quiz.league)}
-            <div class="section-title">Review question ${state.index + 1}</div>
-            ${renderQuestion(card)}
-            <div class="actions"><button type="button" class="secondary" id="backDone">Back to summary</button></div>
-          `;
-          document.getElementById('backDone')?.addEventListener('click', () => {
-            state.lastResult = null;
-            render();
-          });
+          state.figureOpen = false;
+          state.reviewing = true;
+          render();
         });
       });
+      const backDone = document.getElementById('backDone');
+      if (backDone) {
+        backDone.addEventListener('click', () => {
+          state.lastResult = null;
+          state.figureOpen = false;
+          state.reviewing = false;
+          render();
+        });
+      }
       const open = document.getElementById('openAnswer');
       if (open) {
         open.addEventListener('input', () => {
